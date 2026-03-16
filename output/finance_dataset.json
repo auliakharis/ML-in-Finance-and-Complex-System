@@ -1,0 +1,772 @@
+[
+  {
+    "id": "finance_fs_000_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: BetaGroup PLC (ID-7)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $8,433,012.00\nCost of Goods Sold:     $4,550,226.19\nGross Profit:           $3,882,785.81\nOperating Expenses:     $1,697,793.47\nEBIT:                   $2,184,992.34\nInterest Expense:       $310,435.14\nEBT:                    $1,874,557.20\nTax (30%):              $562,367.16\nNet Income:             $1,312,190.04\n\nBALANCE SHEET\nTotal Assets:           $15,386,108.02\nTotal Equity:           $7,982,713.01\nTotal Debt:             $7,403,395.01\nCurrent Assets:         $5,164,451.91\nCurrent Liabilities:    $1,802,880.35\nInventory:              $1,099,470.93\n\nCASH FLOW\nOperating Cash Flow:    $1,125,417.26\nCapital Expenditure:    $523,126.30\nDividends Paid:         $345,225.05\n\nMARKET DATA\nShares Outstanding:     4,061,125\nStock Price:            $4.18",
+    "rationale": "# Given from financial statements\nnet_income = 1312190.0399999998\nrevenue = 8433012\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 15.56%",
+    "final_answer": "15.56",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_000_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: BetaGroup PLC (ID-7)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $8,433,012.00\nCost of Goods Sold:     $4,550,226.19\nGross Profit:           $3,882,785.81\nOperating Expenses:     $1,697,793.47\nEBIT:                   $2,184,992.34\nInterest Expense:       $310,435.14\nEBT:                    $1,874,557.20\nTax (30%):              $562,367.16\nNet Income:             $1,312,190.04\n\nBALANCE SHEET\nTotal Assets:           $15,386,108.02\nTotal Equity:           $7,982,713.01\nTotal Debt:             $7,403,395.01\nCurrent Assets:         $5,164,451.91\nCurrent Liabilities:    $1,802,880.35\nInventory:              $1,099,470.93\n\nCASH FLOW\nOperating Cash Flow:    $1,125,417.26\nCapital Expenditure:    $523,126.30\nDividends Paid:         $345,225.05\n\nMARKET DATA\nShares Outstanding:     4,061,125\nStock Price:            $4.18",
+    "rationale": "revenue = 8433012\ngross_profit = 3882785.8099999996\nebit = 2184992.34\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 46.04,25.91,20.13",
+    "final_answer": "46.04,25.91,20.13",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_000_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: BetaGroup PLC (ID-7)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $8,433,012.00\nCost of Goods Sold:     $4,550,226.19\nGross Profit:           $3,882,785.81\nOperating Expenses:     $1,697,793.47\nEBIT:                   $2,184,992.34\nInterest Expense:       $310,435.14\nEBT:                    $1,874,557.20\nTax (30%):              $562,367.16\nNet Income:             $1,312,190.04\n\nBALANCE SHEET\nTotal Assets:           $15,386,108.02\nTotal Equity:           $7,982,713.01\nTotal Debt:             $7,403,395.01\nCurrent Assets:         $5,164,451.91\nCurrent Liabilities:    $1,802,880.35\nInventory:              $1,099,470.93\n\nCASH FLOW\nOperating Cash Flow:    $1,125,417.26\nCapital Expenditure:    $523,126.30\nDividends Paid:         $345,225.05\n\nMARKET DATA\nShares Outstanding:     4,061,125\nStock Price:            $4.18",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 1125417.26\ncapex = 523126.3\nrevenue = 8433012\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 602290.96,7.14",
+    "final_answer": "602290.96,7.14",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_000_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: BetaGroup PLC (ID-7)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $8,433,012.00\nCost of Goods Sold:     $4,550,226.19\nGross Profit:           $3,882,785.81\nOperating Expenses:     $1,697,793.47\nEBIT:                   $2,184,992.34\nInterest Expense:       $310,435.14\nEBT:                    $1,874,557.20\nTax (30%):              $562,367.16\nNet Income:             $1,312,190.04\n\nBALANCE SHEET\nTotal Assets:           $15,386,108.02\nTotal Equity:           $7,982,713.01\nTotal Debt:             $7,403,395.01\nCurrent Assets:         $5,164,451.91\nCurrent Liabilities:    $1,802,880.35\nInventory:              $1,099,470.93\n\nCASH FLOW\nOperating Cash Flow:    $1,125,417.26\nCapital Expenditure:    $523,126.30\nDividends Paid:         $345,225.05\n\nMARKET DATA\nShares Outstanding:     4,061,125\nStock Price:            $4.18",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 1312190.0399999998\ntotal_equity = 7982713.01\ntotal_assets = 15386108.02\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 16.44,8.53,7.91",
+    "final_answer": "16.44,8.53,7.91",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_000_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: BetaGroup PLC (ID-7)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $8,433,012.00\nCost of Goods Sold:     $4,550,226.19\nGross Profit:           $3,882,785.81\nOperating Expenses:     $1,697,793.47\nEBIT:                   $2,184,992.34\nInterest Expense:       $310,435.14\nEBT:                    $1,874,557.20\nTax (30%):              $562,367.16\nNet Income:             $1,312,190.04\n\nBALANCE SHEET\nTotal Assets:           $15,386,108.02\nTotal Equity:           $7,982,713.01\nTotal Debt:             $7,403,395.01\nCurrent Assets:         $5,164,451.91\nCurrent Liabilities:    $1,802,880.35\nInventory:              $1,099,470.93\n\nCASH FLOW\nOperating Cash Flow:    $1,125,417.26\nCapital Expenditure:    $523,126.30\nDividends Paid:         $345,225.05\n\nMARKET DATA\nShares Outstanding:     4,061,125\nStock Price:            $4.18",
+    "rationale": "net_income   = 1312190.0399999998\nrevenue      = 8433012\ntotal_assets = 15386108.02\ntotal_equity = 7982713.01\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 15.5602,0.5481,1.9274,16.44",
+    "final_answer": "15.5602,0.5481,1.9274,16.44",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_000_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $1,923,862.57 in new debt at 5.2% interest and uses it to fund an expansion that grows revenue by 18.7%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: BetaGroup PLC (ID-7)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $8,433,012.00\nCost of Goods Sold:     $4,550,226.19\nGross Profit:           $3,882,785.81\nOperating Expenses:     $1,697,793.47\nEBIT:                   $2,184,992.34\nInterest Expense:       $310,435.14\nEBT:                    $1,874,557.20\nTax (30%):              $562,367.16\nNet Income:             $1,312,190.04\n\nBALANCE SHEET\nTotal Assets:           $15,386,108.02\nTotal Equity:           $7,982,713.01\nTotal Debt:             $7,403,395.01\nCurrent Assets:         $5,164,451.91\nCurrent Liabilities:    $1,802,880.35\nInventory:              $1,099,470.93\n\nCASH FLOW\nOperating Cash Flow:    $1,125,417.26\nCapital Expenditure:    $523,126.30\nDividends Paid:         $345,225.05\n\nMARKET DATA\nShares Outstanding:     4,061,125\nStock Price:            $4.18",
+    "rationale": "# Current state\nnet_income   = 1312190.0399999998\ntotal_equity = 7982713.01\ncogs         = 4550226.19\nopex         = 1697793.47\ntax_rate     = 0.3\n\n# Scenario: raise $$1,923,862.57 at 5.2% interest, revenue +18.7%\nnew_debt            = 1923862.57\nnew_interest_rate   = 0.0524\nrevenue_growth      = 0.1872\n\nnew_revenue  = round(8433012 * (1 + revenue_growth), 2)\nnew_interest = round(310435.14 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 29.4,16.44,12.96",
+    "final_answer": "29.4,16.44,12.96",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_000_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 10.9% annually for 5 years, then 3.1% in perpetuity. WACC = 10.3%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: BetaGroup PLC (ID-7)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $8,433,012.00\nCost of Goods Sold:     $4,550,226.19\nGross Profit:           $3,882,785.81\nOperating Expenses:     $1,697,793.47\nEBIT:                   $2,184,992.34\nInterest Expense:       $310,435.14\nEBT:                    $1,874,557.20\nTax (30%):              $562,367.16\nNet Income:             $1,312,190.04\n\nBALANCE SHEET\nTotal Assets:           $15,386,108.02\nTotal Equity:           $7,982,713.01\nTotal Debt:             $7,403,395.01\nCurrent Assets:         $5,164,451.91\nCurrent Liabilities:    $1,802,880.35\nInventory:              $1,099,470.93\n\nCASH FLOW\nOperating Cash Flow:    $1,125,417.26\nCapital Expenditure:    $523,126.30\nDividends Paid:         $345,225.05\n\nMARKET DATA\nShares Outstanding:     4,061,125\nStock Price:            $4.18",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 602290.96\n\n# DCF assumptions\nfcf_growth      = 0.109    # 10.9% growth for 5 years\nterminal_growth = 0.031   # 3.1% perpetuity growth\nwacc            = 0.103   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [667940.67, 740746.21, 821487.54, 911029.69, 1010331.92]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 4061125\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 11922567.99,2.94",
+    "final_answer": "11922567.99,2.94",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_001_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: GammaIndustries Co. (ID-49)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,122,126.00\nCost of Goods Sold:     $1,726,618.34\nGross Profit:           $2,395,507.66\nOperating Expenses:     $1,118,464.14\nEBIT:                   $1,277,043.52\nInterest Expense:       $116,716.88\nEBT:                    $1,160,326.64\nTax (30%):              $348,097.99\nNet Income:             $812,228.65\n\nBALANCE SHEET\nTotal Assets:           $5,543,050.02\nTotal Equity:           $3,338,340.80\nTotal Debt:             $2,204,709.22\nCurrent Assets:         $1,380,165.65\nCurrent Liabilities:    $880,650.69\nInventory:              $307,987.36\n\nCASH FLOW\nOperating Cash Flow:    $654,179.71\nCapital Expenditure:    $336,044.72\nDividends Paid:         $266,651.13\n\nMARKET DATA\nShares Outstanding:     4,730,200\nStock Price:            $2.66",
+    "rationale": "# Given from financial statements\nnet_income = 812228.648\nrevenue = 4122126\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 19.7%",
+    "final_answer": "19.7",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_001_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: GammaIndustries Co. (ID-49)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,122,126.00\nCost of Goods Sold:     $1,726,618.34\nGross Profit:           $2,395,507.66\nOperating Expenses:     $1,118,464.14\nEBIT:                   $1,277,043.52\nInterest Expense:       $116,716.88\nEBT:                    $1,160,326.64\nTax (30%):              $348,097.99\nNet Income:             $812,228.65\n\nBALANCE SHEET\nTotal Assets:           $5,543,050.02\nTotal Equity:           $3,338,340.80\nTotal Debt:             $2,204,709.22\nCurrent Assets:         $1,380,165.65\nCurrent Liabilities:    $880,650.69\nInventory:              $307,987.36\n\nCASH FLOW\nOperating Cash Flow:    $654,179.71\nCapital Expenditure:    $336,044.72\nDividends Paid:         $266,651.13\n\nMARKET DATA\nShares Outstanding:     4,730,200\nStock Price:            $2.66",
+    "rationale": "revenue = 4122126\ngross_profit = 2395507.66\nebit = 1277043.5200000003\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 58.11,30.98,27.13",
+    "final_answer": "58.11,30.98,27.13",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_001_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: GammaIndustries Co. (ID-49)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,122,126.00\nCost of Goods Sold:     $1,726,618.34\nGross Profit:           $2,395,507.66\nOperating Expenses:     $1,118,464.14\nEBIT:                   $1,277,043.52\nInterest Expense:       $116,716.88\nEBT:                    $1,160,326.64\nTax (30%):              $348,097.99\nNet Income:             $812,228.65\n\nBALANCE SHEET\nTotal Assets:           $5,543,050.02\nTotal Equity:           $3,338,340.80\nTotal Debt:             $2,204,709.22\nCurrent Assets:         $1,380,165.65\nCurrent Liabilities:    $880,650.69\nInventory:              $307,987.36\n\nCASH FLOW\nOperating Cash Flow:    $654,179.71\nCapital Expenditure:    $336,044.72\nDividends Paid:         $266,651.13\n\nMARKET DATA\nShares Outstanding:     4,730,200\nStock Price:            $2.66",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 654179.71\ncapex = 336044.72\nrevenue = 4122126\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 318134.99,7.72",
+    "final_answer": "318134.99,7.72",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_001_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: GammaIndustries Co. (ID-49)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,122,126.00\nCost of Goods Sold:     $1,726,618.34\nGross Profit:           $2,395,507.66\nOperating Expenses:     $1,118,464.14\nEBIT:                   $1,277,043.52\nInterest Expense:       $116,716.88\nEBT:                    $1,160,326.64\nTax (30%):              $348,097.99\nNet Income:             $812,228.65\n\nBALANCE SHEET\nTotal Assets:           $5,543,050.02\nTotal Equity:           $3,338,340.80\nTotal Debt:             $2,204,709.22\nCurrent Assets:         $1,380,165.65\nCurrent Liabilities:    $880,650.69\nInventory:              $307,987.36\n\nCASH FLOW\nOperating Cash Flow:    $654,179.71\nCapital Expenditure:    $336,044.72\nDividends Paid:         $266,651.13\n\nMARKET DATA\nShares Outstanding:     4,730,200\nStock Price:            $2.66",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 812228.648\ntotal_equity = 3338340.8\ntotal_assets = 5543050.02\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 24.33,14.65,9.68",
+    "final_answer": "24.33,14.65,9.68",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_001_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: GammaIndustries Co. (ID-49)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,122,126.00\nCost of Goods Sold:     $1,726,618.34\nGross Profit:           $2,395,507.66\nOperating Expenses:     $1,118,464.14\nEBIT:                   $1,277,043.52\nInterest Expense:       $116,716.88\nEBT:                    $1,160,326.64\nTax (30%):              $348,097.99\nNet Income:             $812,228.65\n\nBALANCE SHEET\nTotal Assets:           $5,543,050.02\nTotal Equity:           $3,338,340.80\nTotal Debt:             $2,204,709.22\nCurrent Assets:         $1,380,165.65\nCurrent Liabilities:    $880,650.69\nInventory:              $307,987.36\n\nCASH FLOW\nOperating Cash Flow:    $654,179.71\nCapital Expenditure:    $336,044.72\nDividends Paid:         $266,651.13\n\nMARKET DATA\nShares Outstanding:     4,730,200\nStock Price:            $2.66",
+    "rationale": "net_income   = 812228.648\nrevenue      = 4122126\ntotal_assets = 5543050.02\ntotal_equity = 3338340.8\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 19.7041,0.7437,1.6604,24.33",
+    "final_answer": "19.7041,0.7437,1.6604,24.33",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_001_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $938,755.10 in new debt at 7.0% interest and uses it to fund an expansion that grows revenue by 11.0%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: GammaIndustries Co. (ID-49)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,122,126.00\nCost of Goods Sold:     $1,726,618.34\nGross Profit:           $2,395,507.66\nOperating Expenses:     $1,118,464.14\nEBIT:                   $1,277,043.52\nInterest Expense:       $116,716.88\nEBT:                    $1,160,326.64\nTax (30%):              $348,097.99\nNet Income:             $812,228.65\n\nBALANCE SHEET\nTotal Assets:           $5,543,050.02\nTotal Equity:           $3,338,340.80\nTotal Debt:             $2,204,709.22\nCurrent Assets:         $1,380,165.65\nCurrent Liabilities:    $880,650.69\nInventory:              $307,987.36\n\nCASH FLOW\nOperating Cash Flow:    $654,179.71\nCapital Expenditure:    $336,044.72\nDividends Paid:         $266,651.13\n\nMARKET DATA\nShares Outstanding:     4,730,200\nStock Price:            $2.66",
+    "rationale": "# Current state\nnet_income   = 812228.648\ntotal_equity = 3338340.8\ncogs         = 1726618.34\nopex         = 1118464.14\ntax_rate     = 0.3\n\n# Scenario: raise $$938,755.10 at 7.0% interest, revenue +11.0%\nnew_debt            = 938755.1\nnew_interest_rate   = 0.0701\nrevenue_growth      = 0.1099\n\nnew_revenue  = round(4122126 * (1 + revenue_growth), 2)\nnew_interest = round(116716.88 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 32.45,24.33,8.12",
+    "final_answer": "32.45,24.33,8.12",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_001_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 6.4% annually for 5 years, then 4.0% in perpetuity. WACC = 12.6%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: GammaIndustries Co. (ID-49)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,122,126.00\nCost of Goods Sold:     $1,726,618.34\nGross Profit:           $2,395,507.66\nOperating Expenses:     $1,118,464.14\nEBIT:                   $1,277,043.52\nInterest Expense:       $116,716.88\nEBT:                    $1,160,326.64\nTax (30%):              $348,097.99\nNet Income:             $812,228.65\n\nBALANCE SHEET\nTotal Assets:           $5,543,050.02\nTotal Equity:           $3,338,340.80\nTotal Debt:             $2,204,709.22\nCurrent Assets:         $1,380,165.65\nCurrent Liabilities:    $880,650.69\nInventory:              $307,987.36\n\nCASH FLOW\nOperating Cash Flow:    $654,179.71\nCapital Expenditure:    $336,044.72\nDividends Paid:         $266,651.13\n\nMARKET DATA\nShares Outstanding:     4,730,200\nStock Price:            $2.66",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 318134.99\n\n# DCF assumptions\nfcf_growth      = 0.064    # 6.4% growth for 5 years\nterminal_growth = 0.04   # 4.0% perpetuity growth\nwacc            = 0.126   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [338495.63, 360159.35, 383209.55, 407734.96, 433830.0]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 4730200\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 4244856.37,0.9",
+    "final_answer": "4244856.37,0.9",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_002_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: BetaGroup PLC (ID-91)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,401,241.00\nCost of Goods Sold:     $2,060,317.93\nGross Profit:           $2,340,923.07\nOperating Expenses:     $1,213,756.60\nEBIT:                   $1,127,166.47\nInterest Expense:       $188,795.63\nEBT:                    $938,370.84\nTax (28%):              $262,743.84\nNet Income:             $675,627.00\n\nBALANCE SHEET\nTotal Assets:           $9,066,095.30\nTotal Equity:           $6,254,171.54\nTotal Debt:             $2,811,923.76\nCurrent Assets:         $3,251,756.45\nCurrent Liabilities:    $1,244,191.50\nInventory:              $1,053,734.76\n\nCASH FLOW\nOperating Cash Flow:    $525,921.16\nCapital Expenditure:    $352,824.49\nDividends Paid:         $130,767.98\n\nMARKET DATA\nShares Outstanding:     3,608,572\nStock Price:            $4.64",
+    "rationale": "# Given from financial statements\nnet_income = 675627.0048000001\nrevenue = 4401241\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 15.35%",
+    "final_answer": "15.35",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_002_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: BetaGroup PLC (ID-91)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,401,241.00\nCost of Goods Sold:     $2,060,317.93\nGross Profit:           $2,340,923.07\nOperating Expenses:     $1,213,756.60\nEBIT:                   $1,127,166.47\nInterest Expense:       $188,795.63\nEBT:                    $938,370.84\nTax (28%):              $262,743.84\nNet Income:             $675,627.00\n\nBALANCE SHEET\nTotal Assets:           $9,066,095.30\nTotal Equity:           $6,254,171.54\nTotal Debt:             $2,811,923.76\nCurrent Assets:         $3,251,756.45\nCurrent Liabilities:    $1,244,191.50\nInventory:              $1,053,734.76\n\nCASH FLOW\nOperating Cash Flow:    $525,921.16\nCapital Expenditure:    $352,824.49\nDividends Paid:         $130,767.98\n\nMARKET DATA\nShares Outstanding:     3,608,572\nStock Price:            $4.64",
+    "rationale": "revenue = 4401241\ngross_profit = 2340923.0700000003\nebit = 1127166.4700000002\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 53.19,25.61,27.58",
+    "final_answer": "53.19,25.61,27.58",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_002_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: BetaGroup PLC (ID-91)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,401,241.00\nCost of Goods Sold:     $2,060,317.93\nGross Profit:           $2,340,923.07\nOperating Expenses:     $1,213,756.60\nEBIT:                   $1,127,166.47\nInterest Expense:       $188,795.63\nEBT:                    $938,370.84\nTax (28%):              $262,743.84\nNet Income:             $675,627.00\n\nBALANCE SHEET\nTotal Assets:           $9,066,095.30\nTotal Equity:           $6,254,171.54\nTotal Debt:             $2,811,923.76\nCurrent Assets:         $3,251,756.45\nCurrent Liabilities:    $1,244,191.50\nInventory:              $1,053,734.76\n\nCASH FLOW\nOperating Cash Flow:    $525,921.16\nCapital Expenditure:    $352,824.49\nDividends Paid:         $130,767.98\n\nMARKET DATA\nShares Outstanding:     3,608,572\nStock Price:            $4.64",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 525921.16\ncapex = 352824.49\nrevenue = 4401241\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 173096.67,3.93",
+    "final_answer": "173096.67,3.93",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_002_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: BetaGroup PLC (ID-91)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,401,241.00\nCost of Goods Sold:     $2,060,317.93\nGross Profit:           $2,340,923.07\nOperating Expenses:     $1,213,756.60\nEBIT:                   $1,127,166.47\nInterest Expense:       $188,795.63\nEBT:                    $938,370.84\nTax (28%):              $262,743.84\nNet Income:             $675,627.00\n\nBALANCE SHEET\nTotal Assets:           $9,066,095.30\nTotal Equity:           $6,254,171.54\nTotal Debt:             $2,811,923.76\nCurrent Assets:         $3,251,756.45\nCurrent Liabilities:    $1,244,191.50\nInventory:              $1,053,734.76\n\nCASH FLOW\nOperating Cash Flow:    $525,921.16\nCapital Expenditure:    $352,824.49\nDividends Paid:         $130,767.98\n\nMARKET DATA\nShares Outstanding:     3,608,572\nStock Price:            $4.64",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 675627.0048000001\ntotal_equity = 6254171.54\ntotal_assets = 9066095.3\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 10.8,7.45,3.35",
+    "final_answer": "10.8,7.45,3.35",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_002_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: BetaGroup PLC (ID-91)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,401,241.00\nCost of Goods Sold:     $2,060,317.93\nGross Profit:           $2,340,923.07\nOperating Expenses:     $1,213,756.60\nEBIT:                   $1,127,166.47\nInterest Expense:       $188,795.63\nEBT:                    $938,370.84\nTax (28%):              $262,743.84\nNet Income:             $675,627.00\n\nBALANCE SHEET\nTotal Assets:           $9,066,095.30\nTotal Equity:           $6,254,171.54\nTotal Debt:             $2,811,923.76\nCurrent Assets:         $3,251,756.45\nCurrent Liabilities:    $1,244,191.50\nInventory:              $1,053,734.76\n\nCASH FLOW\nOperating Cash Flow:    $525,921.16\nCapital Expenditure:    $352,824.49\nDividends Paid:         $130,767.98\n\nMARKET DATA\nShares Outstanding:     3,608,572\nStock Price:            $4.64",
+    "rationale": "net_income   = 675627.0048000001\nrevenue      = 4401241\ntotal_assets = 9066095.3\ntotal_equity = 6254171.54\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 15.3508,0.4855,1.4496,10.8",
+    "final_answer": "15.3508,0.4855,1.4496,10.8",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_002_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $1,010,811.44 in new debt at 5.2% interest and uses it to fund an expansion that grows revenue by 17.6%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: BetaGroup PLC (ID-91)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,401,241.00\nCost of Goods Sold:     $2,060,317.93\nGross Profit:           $2,340,923.07\nOperating Expenses:     $1,213,756.60\nEBIT:                   $1,127,166.47\nInterest Expense:       $188,795.63\nEBT:                    $938,370.84\nTax (28%):              $262,743.84\nNet Income:             $675,627.00\n\nBALANCE SHEET\nTotal Assets:           $9,066,095.30\nTotal Equity:           $6,254,171.54\nTotal Debt:             $2,811,923.76\nCurrent Assets:         $3,251,756.45\nCurrent Liabilities:    $1,244,191.50\nInventory:              $1,053,734.76\n\nCASH FLOW\nOperating Cash Flow:    $525,921.16\nCapital Expenditure:    $352,824.49\nDividends Paid:         $130,767.98\n\nMARKET DATA\nShares Outstanding:     3,608,572\nStock Price:            $4.64",
+    "rationale": "# Current state\nnet_income   = 675627.0048000001\ntotal_equity = 6254171.54\ncogs         = 2060317.93\nopex         = 1213756.6\ntax_rate     = 0.28\n\n# Scenario: raise $$1,010,811.44 at 5.2% interest, revenue +17.6%\nnew_debt            = 1010811.44\nnew_interest_rate   = 0.0518\nrevenue_growth      = 0.176\n\nnew_revenue  = round(4401241 * (1 + revenue_growth), 2)\nnew_interest = round(188795.63 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 19.12,10.8,8.32",
+    "final_answer": "19.12,10.8,8.32",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_002_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 7.3% annually for 5 years, then 3.5% in perpetuity. WACC = 10.0%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: BetaGroup PLC (ID-91)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,401,241.00\nCost of Goods Sold:     $2,060,317.93\nGross Profit:           $2,340,923.07\nOperating Expenses:     $1,213,756.60\nEBIT:                   $1,127,166.47\nInterest Expense:       $188,795.63\nEBT:                    $938,370.84\nTax (28%):              $262,743.84\nNet Income:             $675,627.00\n\nBALANCE SHEET\nTotal Assets:           $9,066,095.30\nTotal Equity:           $6,254,171.54\nTotal Debt:             $2,811,923.76\nCurrent Assets:         $3,251,756.45\nCurrent Liabilities:    $1,244,191.50\nInventory:              $1,053,734.76\n\nCASH FLOW\nOperating Cash Flow:    $525,921.16\nCapital Expenditure:    $352,824.49\nDividends Paid:         $130,767.98\n\nMARKET DATA\nShares Outstanding:     3,608,572\nStock Price:            $4.64",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 173096.67\n\n# DCF assumptions\nfcf_growth      = 0.073    # 7.3% growth for 5 years\nterminal_growth = 0.035   # 3.5% perpetuity growth\nwacc            = 0.1   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [185732.73, 199291.22, 213839.47, 229449.76, 246199.59]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 3608572\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 3237969.96,0.9",
+    "final_answer": "3237969.96,0.9",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_003_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: OmegaSystems Inc. (ID-133)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $11,285,137.00\nCost of Goods Sold:     $4,749,882.55\nGross Profit:           $6,535,254.45\nOperating Expenses:     $2,165,648.30\nEBIT:                   $4,369,606.15\nInterest Expense:       $454,179.57\nEBT:                    $3,915,426.58\nTax (25%):              $978,856.65\nNet Income:             $2,936,569.94\n\nBALANCE SHEET\nTotal Assets:           $21,715,484.74\nTotal Equity:           $14,687,408.12\nTotal Debt:             $7,028,076.63\nCurrent Assets:         $9,638,735.27\nCurrent Liabilities:    $3,688,466.12\nInventory:              $1,974,447.35\n\nCASH FLOW\nOperating Cash Flow:    $1,201,553.80\nCapital Expenditure:    $722,959.52\nDividends Paid:         $568,859.16\n\nMARKET DATA\nShares Outstanding:     2,713,156\nStock Price:            $29.79",
+    "rationale": "# Given from financial statements\nnet_income = 2936569.9350000005\nrevenue = 11285137\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 26.02%",
+    "final_answer": "26.02",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_003_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: OmegaSystems Inc. (ID-133)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $11,285,137.00\nCost of Goods Sold:     $4,749,882.55\nGross Profit:           $6,535,254.45\nOperating Expenses:     $2,165,648.30\nEBIT:                   $4,369,606.15\nInterest Expense:       $454,179.57\nEBT:                    $3,915,426.58\nTax (25%):              $978,856.65\nNet Income:             $2,936,569.94\n\nBALANCE SHEET\nTotal Assets:           $21,715,484.74\nTotal Equity:           $14,687,408.12\nTotal Debt:             $7,028,076.63\nCurrent Assets:         $9,638,735.27\nCurrent Liabilities:    $3,688,466.12\nInventory:              $1,974,447.35\n\nCASH FLOW\nOperating Cash Flow:    $1,201,553.80\nCapital Expenditure:    $722,959.52\nDividends Paid:         $568,859.16\n\nMARKET DATA\nShares Outstanding:     2,713,156\nStock Price:            $29.79",
+    "rationale": "revenue = 11285137\ngross_profit = 6535254.45\nebit = 4369606.15\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 57.91,38.72,19.19",
+    "final_answer": "57.91,38.72,19.19",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_003_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: OmegaSystems Inc. (ID-133)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $11,285,137.00\nCost of Goods Sold:     $4,749,882.55\nGross Profit:           $6,535,254.45\nOperating Expenses:     $2,165,648.30\nEBIT:                   $4,369,606.15\nInterest Expense:       $454,179.57\nEBT:                    $3,915,426.58\nTax (25%):              $978,856.65\nNet Income:             $2,936,569.94\n\nBALANCE SHEET\nTotal Assets:           $21,715,484.74\nTotal Equity:           $14,687,408.12\nTotal Debt:             $7,028,076.63\nCurrent Assets:         $9,638,735.27\nCurrent Liabilities:    $3,688,466.12\nInventory:              $1,974,447.35\n\nCASH FLOW\nOperating Cash Flow:    $1,201,553.80\nCapital Expenditure:    $722,959.52\nDividends Paid:         $568,859.16\n\nMARKET DATA\nShares Outstanding:     2,713,156\nStock Price:            $29.79",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 1201553.8\ncapex = 722959.52\nrevenue = 11285137\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 478594.28,4.24",
+    "final_answer": "478594.28,4.24",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_003_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: OmegaSystems Inc. (ID-133)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $11,285,137.00\nCost of Goods Sold:     $4,749,882.55\nGross Profit:           $6,535,254.45\nOperating Expenses:     $2,165,648.30\nEBIT:                   $4,369,606.15\nInterest Expense:       $454,179.57\nEBT:                    $3,915,426.58\nTax (25%):              $978,856.65\nNet Income:             $2,936,569.94\n\nBALANCE SHEET\nTotal Assets:           $21,715,484.74\nTotal Equity:           $14,687,408.12\nTotal Debt:             $7,028,076.63\nCurrent Assets:         $9,638,735.27\nCurrent Liabilities:    $3,688,466.12\nInventory:              $1,974,447.35\n\nCASH FLOW\nOperating Cash Flow:    $1,201,553.80\nCapital Expenditure:    $722,959.52\nDividends Paid:         $568,859.16\n\nMARKET DATA\nShares Outstanding:     2,713,156\nStock Price:            $29.79",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 2936569.9350000005\ntotal_equity = 14687408.12\ntotal_assets = 21715484.74\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 19.99,13.52,6.47",
+    "final_answer": "19.99,13.52,6.47",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_003_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: OmegaSystems Inc. (ID-133)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $11,285,137.00\nCost of Goods Sold:     $4,749,882.55\nGross Profit:           $6,535,254.45\nOperating Expenses:     $2,165,648.30\nEBIT:                   $4,369,606.15\nInterest Expense:       $454,179.57\nEBT:                    $3,915,426.58\nTax (25%):              $978,856.65\nNet Income:             $2,936,569.94\n\nBALANCE SHEET\nTotal Assets:           $21,715,484.74\nTotal Equity:           $14,687,408.12\nTotal Debt:             $7,028,076.63\nCurrent Assets:         $9,638,735.27\nCurrent Liabilities:    $3,688,466.12\nInventory:              $1,974,447.35\n\nCASH FLOW\nOperating Cash Flow:    $1,201,553.80\nCapital Expenditure:    $722,959.52\nDividends Paid:         $568,859.16\n\nMARKET DATA\nShares Outstanding:     2,713,156\nStock Price:            $29.79",
+    "rationale": "net_income   = 2936569.9350000005\nrevenue      = 11285137\ntotal_assets = 21715484.74\ntotal_equity = 14687408.12\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 26.0216,0.5197,1.4785,19.99",
+    "final_answer": "26.0216,0.5197,1.4785,19.99",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_003_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $2,280,667.96 in new debt at 6.3% interest and uses it to fund an expansion that grows revenue by 12.2%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: OmegaSystems Inc. (ID-133)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $11,285,137.00\nCost of Goods Sold:     $4,749,882.55\nGross Profit:           $6,535,254.45\nOperating Expenses:     $2,165,648.30\nEBIT:                   $4,369,606.15\nInterest Expense:       $454,179.57\nEBT:                    $3,915,426.58\nTax (25%):              $978,856.65\nNet Income:             $2,936,569.94\n\nBALANCE SHEET\nTotal Assets:           $21,715,484.74\nTotal Equity:           $14,687,408.12\nTotal Debt:             $7,028,076.63\nCurrent Assets:         $9,638,735.27\nCurrent Liabilities:    $3,688,466.12\nInventory:              $1,974,447.35\n\nCASH FLOW\nOperating Cash Flow:    $1,201,553.80\nCapital Expenditure:    $722,959.52\nDividends Paid:         $568,859.16\n\nMARKET DATA\nShares Outstanding:     2,713,156\nStock Price:            $29.79",
+    "rationale": "# Current state\nnet_income   = 2936569.9350000005\ntotal_equity = 14687408.12\ncogs         = 4749882.55\nopex         = 2165648.3\ntax_rate     = 0.25\n\n# Scenario: raise $$2,280,667.96 at 6.3% interest, revenue +12.2%\nnew_debt            = 2280667.96\nnew_interest_rate   = 0.0626\nrevenue_growth      = 0.1221\n\nnew_revenue  = round(11285137 * (1 + revenue_growth), 2)\nnew_interest = round(454179.57 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 26.3,19.99,6.31",
+    "final_answer": "26.3,19.99,6.31",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_003_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 8.2% annually for 5 years, then 2.6% in perpetuity. WACC = 9.2%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: OmegaSystems Inc. (ID-133)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $11,285,137.00\nCost of Goods Sold:     $4,749,882.55\nGross Profit:           $6,535,254.45\nOperating Expenses:     $2,165,648.30\nEBIT:                   $4,369,606.15\nInterest Expense:       $454,179.57\nEBT:                    $3,915,426.58\nTax (25%):              $978,856.65\nNet Income:             $2,936,569.94\n\nBALANCE SHEET\nTotal Assets:           $21,715,484.74\nTotal Equity:           $14,687,408.12\nTotal Debt:             $7,028,076.63\nCurrent Assets:         $9,638,735.27\nCurrent Liabilities:    $3,688,466.12\nInventory:              $1,974,447.35\n\nCASH FLOW\nOperating Cash Flow:    $1,201,553.80\nCapital Expenditure:    $722,959.52\nDividends Paid:         $568,859.16\n\nMARKET DATA\nShares Outstanding:     2,713,156\nStock Price:            $29.79",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 478594.28\n\n# DCF assumptions\nfcf_growth      = 0.082    # 8.2% growth for 5 years\nterminal_growth = 0.026   # 2.6% perpetuity growth\nwacc            = 0.092   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [517839.01, 560301.81, 606246.56, 655958.78, 709747.4]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 2713156\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 9433517.82,3.48",
+    "final_answer": "9433517.82,3.48",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_004_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: GammaIndustries Co. (ID-175)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $10,448,402.00\nCost of Goods Sold:     $4,147,266.34\nGross Profit:           $6,301,135.66\nOperating Expenses:     $2,551,228.73\nEBIT:                   $3,749,906.93\nInterest Expense:       $498,423.13\nEBT:                    $3,251,483.80\nTax (30%):              $975,445.14\nNet Income:             $2,276,038.66\n\nBALANCE SHEET\nTotal Assets:           $16,003,264.43\nTotal Equity:           $8,626,095.22\nTotal Debt:             $7,377,169.21\nCurrent Assets:         $6,284,334.14\nCurrent Liabilities:    $2,238,658.26\nInventory:              $2,024,227.84\n\nCASH FLOW\nOperating Cash Flow:    $1,426,479.72\nCapital Expenditure:    $538,789.46\nDividends Paid:         $719,834.50\n\nMARKET DATA\nShares Outstanding:     2,019,397\nStock Price:            $29.18",
+    "rationale": "# Given from financial statements\nnet_income = 2276038.66\nrevenue = 10448402\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 21.78%",
+    "final_answer": "21.78",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_004_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: GammaIndustries Co. (ID-175)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $10,448,402.00\nCost of Goods Sold:     $4,147,266.34\nGross Profit:           $6,301,135.66\nOperating Expenses:     $2,551,228.73\nEBIT:                   $3,749,906.93\nInterest Expense:       $498,423.13\nEBT:                    $3,251,483.80\nTax (30%):              $975,445.14\nNet Income:             $2,276,038.66\n\nBALANCE SHEET\nTotal Assets:           $16,003,264.43\nTotal Equity:           $8,626,095.22\nTotal Debt:             $7,377,169.21\nCurrent Assets:         $6,284,334.14\nCurrent Liabilities:    $2,238,658.26\nInventory:              $2,024,227.84\n\nCASH FLOW\nOperating Cash Flow:    $1,426,479.72\nCapital Expenditure:    $538,789.46\nDividends Paid:         $719,834.50\n\nMARKET DATA\nShares Outstanding:     2,019,397\nStock Price:            $29.18",
+    "rationale": "revenue = 10448402\ngross_profit = 6301135.66\nebit = 3749906.93\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 60.31,35.89,24.42",
+    "final_answer": "60.31,35.89,24.42",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_004_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: GammaIndustries Co. (ID-175)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $10,448,402.00\nCost of Goods Sold:     $4,147,266.34\nGross Profit:           $6,301,135.66\nOperating Expenses:     $2,551,228.73\nEBIT:                   $3,749,906.93\nInterest Expense:       $498,423.13\nEBT:                    $3,251,483.80\nTax (30%):              $975,445.14\nNet Income:             $2,276,038.66\n\nBALANCE SHEET\nTotal Assets:           $16,003,264.43\nTotal Equity:           $8,626,095.22\nTotal Debt:             $7,377,169.21\nCurrent Assets:         $6,284,334.14\nCurrent Liabilities:    $2,238,658.26\nInventory:              $2,024,227.84\n\nCASH FLOW\nOperating Cash Flow:    $1,426,479.72\nCapital Expenditure:    $538,789.46\nDividends Paid:         $719,834.50\n\nMARKET DATA\nShares Outstanding:     2,019,397\nStock Price:            $29.18",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 1426479.72\ncapex = 538789.46\nrevenue = 10448402\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 887690.26,8.5",
+    "final_answer": "887690.26,8.5",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_004_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: GammaIndustries Co. (ID-175)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $10,448,402.00\nCost of Goods Sold:     $4,147,266.34\nGross Profit:           $6,301,135.66\nOperating Expenses:     $2,551,228.73\nEBIT:                   $3,749,906.93\nInterest Expense:       $498,423.13\nEBT:                    $3,251,483.80\nTax (30%):              $975,445.14\nNet Income:             $2,276,038.66\n\nBALANCE SHEET\nTotal Assets:           $16,003,264.43\nTotal Equity:           $8,626,095.22\nTotal Debt:             $7,377,169.21\nCurrent Assets:         $6,284,334.14\nCurrent Liabilities:    $2,238,658.26\nInventory:              $2,024,227.84\n\nCASH FLOW\nOperating Cash Flow:    $1,426,479.72\nCapital Expenditure:    $538,789.46\nDividends Paid:         $719,834.50\n\nMARKET DATA\nShares Outstanding:     2,019,397\nStock Price:            $29.18",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 2276038.66\ntotal_equity = 8626095.22\ntotal_assets = 16003264.43\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 26.39,14.22,12.17",
+    "final_answer": "26.39,14.22,12.17",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_004_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: GammaIndustries Co. (ID-175)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $10,448,402.00\nCost of Goods Sold:     $4,147,266.34\nGross Profit:           $6,301,135.66\nOperating Expenses:     $2,551,228.73\nEBIT:                   $3,749,906.93\nInterest Expense:       $498,423.13\nEBT:                    $3,251,483.80\nTax (30%):              $975,445.14\nNet Income:             $2,276,038.66\n\nBALANCE SHEET\nTotal Assets:           $16,003,264.43\nTotal Equity:           $8,626,095.22\nTotal Debt:             $7,377,169.21\nCurrent Assets:         $6,284,334.14\nCurrent Liabilities:    $2,238,658.26\nInventory:              $2,024,227.84\n\nCASH FLOW\nOperating Cash Flow:    $1,426,479.72\nCapital Expenditure:    $538,789.46\nDividends Paid:         $719,834.50\n\nMARKET DATA\nShares Outstanding:     2,019,397\nStock Price:            $29.18",
+    "rationale": "net_income   = 2276038.66\nrevenue      = 10448402\ntotal_assets = 16003264.43\ntotal_equity = 8626095.22\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 21.7836,0.6529,1.8552,26.39",
+    "final_answer": "21.7836,0.6529,1.8552,26.39",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_004_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $2,086,902.61 in new debt at 6.1% interest and uses it to fund an expansion that grows revenue by 17.2%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: GammaIndustries Co. (ID-175)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $10,448,402.00\nCost of Goods Sold:     $4,147,266.34\nGross Profit:           $6,301,135.66\nOperating Expenses:     $2,551,228.73\nEBIT:                   $3,749,906.93\nInterest Expense:       $498,423.13\nEBT:                    $3,251,483.80\nTax (30%):              $975,445.14\nNet Income:             $2,276,038.66\n\nBALANCE SHEET\nTotal Assets:           $16,003,264.43\nTotal Equity:           $8,626,095.22\nTotal Debt:             $7,377,169.21\nCurrent Assets:         $6,284,334.14\nCurrent Liabilities:    $2,238,658.26\nInventory:              $2,024,227.84\n\nCASH FLOW\nOperating Cash Flow:    $1,426,479.72\nCapital Expenditure:    $538,789.46\nDividends Paid:         $719,834.50\n\nMARKET DATA\nShares Outstanding:     2,019,397\nStock Price:            $29.18",
+    "rationale": "# Current state\nnet_income   = 2276038.66\ntotal_equity = 8626095.22\ncogs         = 4147266.34\nopex         = 2551228.73\ntax_rate     = 0.3\n\n# Scenario: raise $$2,086,902.61 at 6.1% interest, revenue +17.2%\nnew_debt            = 2086902.61\nnew_interest_rate   = 0.0608\nrevenue_growth      = 0.1722\n\nnew_revenue  = round(10448402 * (1 + revenue_growth), 2)\nnew_interest = round(498423.13 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 39.96,26.39,13.57",
+    "final_answer": "39.96,26.39,13.57",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_004_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 9.6% annually for 5 years, then 3.3% in perpetuity. WACC = 12.9%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: GammaIndustries Co. (ID-175)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $10,448,402.00\nCost of Goods Sold:     $4,147,266.34\nGross Profit:           $6,301,135.66\nOperating Expenses:     $2,551,228.73\nEBIT:                   $3,749,906.93\nInterest Expense:       $498,423.13\nEBT:                    $3,251,483.80\nTax (30%):              $975,445.14\nNet Income:             $2,276,038.66\n\nBALANCE SHEET\nTotal Assets:           $16,003,264.43\nTotal Equity:           $8,626,095.22\nTotal Debt:             $7,377,169.21\nCurrent Assets:         $6,284,334.14\nCurrent Liabilities:    $2,238,658.26\nInventory:              $2,024,227.84\n\nCASH FLOW\nOperating Cash Flow:    $1,426,479.72\nCapital Expenditure:    $538,789.46\nDividends Paid:         $719,834.50\n\nMARKET DATA\nShares Outstanding:     2,019,397\nStock Price:            $29.18",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 887690.26\n\n# DCF assumptions\nfcf_growth      = 0.096    # 9.6% growth for 5 years\nterminal_growth = 0.033   # 3.3% perpetuity growth\nwacc            = 0.129   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [972908.52, 1066307.74, 1168673.29, 1280865.92, 1403829.05]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 2019397\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 12299280.49,6.09",
+    "final_answer": "12299280.49,6.09",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_005_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: GammaIndustries Co. (ID-217)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $7,808,848.00\nCost of Goods Sold:     $3,101,055.34\nGross Profit:           $4,707,792.66\nOperating Expenses:     $1,426,748.99\nEBIT:                   $3,281,043.67\nInterest Expense:       $362,164.67\nEBT:                    $2,918,879.00\nTax (25%):              $729,719.75\nNet Income:             $2,189,159.25\n\nBALANCE SHEET\nTotal Assets:           $15,411,538.20\nTotal Equity:           $8,167,116.48\nTotal Debt:             $7,244,421.72\nCurrent Assets:         $6,558,197.99\nCurrent Liabilities:    $2,637,485.96\nInventory:              $1,852,554.39\n\nCASH FLOW\nOperating Cash Flow:    $1,352,667.57\nCapital Expenditure:    $604,079.77\nDividends Paid:         $679,722.45\n\nMARKET DATA\nShares Outstanding:     1,281,430\nStock Price:            $22.74",
+    "rationale": "# Given from financial statements\nnet_income = 2189159.25\nrevenue = 7808848\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 28.03%",
+    "final_answer": "28.03",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_005_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: GammaIndustries Co. (ID-217)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $7,808,848.00\nCost of Goods Sold:     $3,101,055.34\nGross Profit:           $4,707,792.66\nOperating Expenses:     $1,426,748.99\nEBIT:                   $3,281,043.67\nInterest Expense:       $362,164.67\nEBT:                    $2,918,879.00\nTax (25%):              $729,719.75\nNet Income:             $2,189,159.25\n\nBALANCE SHEET\nTotal Assets:           $15,411,538.20\nTotal Equity:           $8,167,116.48\nTotal Debt:             $7,244,421.72\nCurrent Assets:         $6,558,197.99\nCurrent Liabilities:    $2,637,485.96\nInventory:              $1,852,554.39\n\nCASH FLOW\nOperating Cash Flow:    $1,352,667.57\nCapital Expenditure:    $604,079.77\nDividends Paid:         $679,722.45\n\nMARKET DATA\nShares Outstanding:     1,281,430\nStock Price:            $22.74",
+    "rationale": "revenue = 7808848\ngross_profit = 4707792.66\nebit = 3281043.67\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 60.29,42.02,18.27",
+    "final_answer": "60.29,42.02,18.27",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_005_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: GammaIndustries Co. (ID-217)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $7,808,848.00\nCost of Goods Sold:     $3,101,055.34\nGross Profit:           $4,707,792.66\nOperating Expenses:     $1,426,748.99\nEBIT:                   $3,281,043.67\nInterest Expense:       $362,164.67\nEBT:                    $2,918,879.00\nTax (25%):              $729,719.75\nNet Income:             $2,189,159.25\n\nBALANCE SHEET\nTotal Assets:           $15,411,538.20\nTotal Equity:           $8,167,116.48\nTotal Debt:             $7,244,421.72\nCurrent Assets:         $6,558,197.99\nCurrent Liabilities:    $2,637,485.96\nInventory:              $1,852,554.39\n\nCASH FLOW\nOperating Cash Flow:    $1,352,667.57\nCapital Expenditure:    $604,079.77\nDividends Paid:         $679,722.45\n\nMARKET DATA\nShares Outstanding:     1,281,430\nStock Price:            $22.74",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 1352667.57\ncapex = 604079.77\nrevenue = 7808848\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 748587.8,9.59",
+    "final_answer": "748587.8,9.59",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_005_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: GammaIndustries Co. (ID-217)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $7,808,848.00\nCost of Goods Sold:     $3,101,055.34\nGross Profit:           $4,707,792.66\nOperating Expenses:     $1,426,748.99\nEBIT:                   $3,281,043.67\nInterest Expense:       $362,164.67\nEBT:                    $2,918,879.00\nTax (25%):              $729,719.75\nNet Income:             $2,189,159.25\n\nBALANCE SHEET\nTotal Assets:           $15,411,538.20\nTotal Equity:           $8,167,116.48\nTotal Debt:             $7,244,421.72\nCurrent Assets:         $6,558,197.99\nCurrent Liabilities:    $2,637,485.96\nInventory:              $1,852,554.39\n\nCASH FLOW\nOperating Cash Flow:    $1,352,667.57\nCapital Expenditure:    $604,079.77\nDividends Paid:         $679,722.45\n\nMARKET DATA\nShares Outstanding:     1,281,430\nStock Price:            $22.74",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 2189159.25\ntotal_equity = 8167116.48\ntotal_assets = 15411538.2\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 26.8,14.2,12.6",
+    "final_answer": "26.8,14.2,12.6",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_005_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: GammaIndustries Co. (ID-217)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $7,808,848.00\nCost of Goods Sold:     $3,101,055.34\nGross Profit:           $4,707,792.66\nOperating Expenses:     $1,426,748.99\nEBIT:                   $3,281,043.67\nInterest Expense:       $362,164.67\nEBT:                    $2,918,879.00\nTax (25%):              $729,719.75\nNet Income:             $2,189,159.25\n\nBALANCE SHEET\nTotal Assets:           $15,411,538.20\nTotal Equity:           $8,167,116.48\nTotal Debt:             $7,244,421.72\nCurrent Assets:         $6,558,197.99\nCurrent Liabilities:    $2,637,485.96\nInventory:              $1,852,554.39\n\nCASH FLOW\nOperating Cash Flow:    $1,352,667.57\nCapital Expenditure:    $604,079.77\nDividends Paid:         $679,722.45\n\nMARKET DATA\nShares Outstanding:     1,281,430\nStock Price:            $22.74",
+    "rationale": "net_income   = 2189159.25\nrevenue      = 7808848\ntotal_assets = 15411538.2\ntotal_equity = 8167116.48\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 28.0343,0.5067,1.887,26.8",
+    "final_answer": "28.0343,0.5067,1.887,26.8",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_005_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $1,500,177.24 in new debt at 7.9% interest and uses it to fund an expansion that grows revenue by 16.1%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: GammaIndustries Co. (ID-217)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $7,808,848.00\nCost of Goods Sold:     $3,101,055.34\nGross Profit:           $4,707,792.66\nOperating Expenses:     $1,426,748.99\nEBIT:                   $3,281,043.67\nInterest Expense:       $362,164.67\nEBT:                    $2,918,879.00\nTax (25%):              $729,719.75\nNet Income:             $2,189,159.25\n\nBALANCE SHEET\nTotal Assets:           $15,411,538.20\nTotal Equity:           $8,167,116.48\nTotal Debt:             $7,244,421.72\nCurrent Assets:         $6,558,197.99\nCurrent Liabilities:    $2,637,485.96\nInventory:              $1,852,554.39\n\nCASH FLOW\nOperating Cash Flow:    $1,352,667.57\nCapital Expenditure:    $604,079.77\nDividends Paid:         $679,722.45\n\nMARKET DATA\nShares Outstanding:     1,281,430\nStock Price:            $22.74",
+    "rationale": "# Current state\nnet_income   = 2189159.25\ntotal_equity = 8167116.48\ncogs         = 3101055.34\nopex         = 1426748.99\ntax_rate     = 0.25\n\n# Scenario: raise $$1,500,177.24 at 7.9% interest, revenue +16.1%\nnew_debt            = 1500177.24\nnew_interest_rate   = 0.0793\nrevenue_growth      = 0.1613\n\nnew_revenue  = round(7808848 * (1 + revenue_growth), 2)\nnew_interest = round(362164.67 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 37.28,26.8,10.48",
+    "final_answer": "37.28,26.8,10.48",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_005_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 10.5% annually for 5 years, then 3.0% in perpetuity. WACC = 11.4%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: GammaIndustries Co. (ID-217)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $7,808,848.00\nCost of Goods Sold:     $3,101,055.34\nGross Profit:           $4,707,792.66\nOperating Expenses:     $1,426,748.99\nEBIT:                   $3,281,043.67\nInterest Expense:       $362,164.67\nEBT:                    $2,918,879.00\nTax (25%):              $729,719.75\nNet Income:             $2,189,159.25\n\nBALANCE SHEET\nTotal Assets:           $15,411,538.20\nTotal Equity:           $8,167,116.48\nTotal Debt:             $7,244,421.72\nCurrent Assets:         $6,558,197.99\nCurrent Liabilities:    $2,637,485.96\nInventory:              $1,852,554.39\n\nCASH FLOW\nOperating Cash Flow:    $1,352,667.57\nCapital Expenditure:    $604,079.77\nDividends Paid:         $679,722.45\n\nMARKET DATA\nShares Outstanding:     1,281,430\nStock Price:            $22.74",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 748587.8\n\n# DCF assumptions\nfcf_growth      = 0.105    # 10.5% growth for 5 years\nterminal_growth = 0.03   # 3.0% perpetuity growth\nwacc            = 0.114   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [827189.52, 914044.42, 1010019.08, 1116071.09, 1233258.55]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 1281430\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 12467458.09,9.73",
+    "final_answer": "12467458.09,9.73",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_006_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: FinancePro Ltd. (ID-259)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $3,663,756.00\nCost of Goods Sold:     $1,871,437.69\nGross Profit:           $1,792,318.31\nOperating Expenses:     $592,584.30\nEBIT:                   $1,199,734.01\nInterest Expense:       $130,477.15\nEBT:                    $1,069,256.86\nTax (28%):              $299,391.92\nNet Income:             $769,864.94\n\nBALANCE SHEET\nTotal Assets:           $5,535,935.83\nTotal Equity:           $3,492,832.34\nTotal Debt:             $2,043,103.50\nCurrent Assets:         $1,455,201.00\nCurrent Liabilities:    $897,165.19\nInventory:              $403,685.25\n\nCASH FLOW\nOperating Cash Flow:    $593,911.60\nCapital Expenditure:    $347,160.31\nDividends Paid:         $136,239.74\n\nMARKET DATA\nShares Outstanding:     2,807,945\nStock Price:            $6.76",
+    "rationale": "# Given from financial statements\nnet_income = 769864.9392\nrevenue = 3663756\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 21.01%",
+    "final_answer": "21.01",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_006_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: FinancePro Ltd. (ID-259)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $3,663,756.00\nCost of Goods Sold:     $1,871,437.69\nGross Profit:           $1,792,318.31\nOperating Expenses:     $592,584.30\nEBIT:                   $1,199,734.01\nInterest Expense:       $130,477.15\nEBT:                    $1,069,256.86\nTax (28%):              $299,391.92\nNet Income:             $769,864.94\n\nBALANCE SHEET\nTotal Assets:           $5,535,935.83\nTotal Equity:           $3,492,832.34\nTotal Debt:             $2,043,103.50\nCurrent Assets:         $1,455,201.00\nCurrent Liabilities:    $897,165.19\nInventory:              $403,685.25\n\nCASH FLOW\nOperating Cash Flow:    $593,911.60\nCapital Expenditure:    $347,160.31\nDividends Paid:         $136,239.74\n\nMARKET DATA\nShares Outstanding:     2,807,945\nStock Price:            $6.76",
+    "rationale": "revenue = 3663756\ngross_profit = 1792318.31\nebit = 1199734.01\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 48.92,32.75,16.17",
+    "final_answer": "48.92,32.75,16.17",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_006_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: FinancePro Ltd. (ID-259)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $3,663,756.00\nCost of Goods Sold:     $1,871,437.69\nGross Profit:           $1,792,318.31\nOperating Expenses:     $592,584.30\nEBIT:                   $1,199,734.01\nInterest Expense:       $130,477.15\nEBT:                    $1,069,256.86\nTax (28%):              $299,391.92\nNet Income:             $769,864.94\n\nBALANCE SHEET\nTotal Assets:           $5,535,935.83\nTotal Equity:           $3,492,832.34\nTotal Debt:             $2,043,103.50\nCurrent Assets:         $1,455,201.00\nCurrent Liabilities:    $897,165.19\nInventory:              $403,685.25\n\nCASH FLOW\nOperating Cash Flow:    $593,911.60\nCapital Expenditure:    $347,160.31\nDividends Paid:         $136,239.74\n\nMARKET DATA\nShares Outstanding:     2,807,945\nStock Price:            $6.76",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 593911.6\ncapex = 347160.31\nrevenue = 3663756\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 246751.29,6.73",
+    "final_answer": "246751.29,6.73",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_006_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: FinancePro Ltd. (ID-259)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $3,663,756.00\nCost of Goods Sold:     $1,871,437.69\nGross Profit:           $1,792,318.31\nOperating Expenses:     $592,584.30\nEBIT:                   $1,199,734.01\nInterest Expense:       $130,477.15\nEBT:                    $1,069,256.86\nTax (28%):              $299,391.92\nNet Income:             $769,864.94\n\nBALANCE SHEET\nTotal Assets:           $5,535,935.83\nTotal Equity:           $3,492,832.34\nTotal Debt:             $2,043,103.50\nCurrent Assets:         $1,455,201.00\nCurrent Liabilities:    $897,165.19\nInventory:              $403,685.25\n\nCASH FLOW\nOperating Cash Flow:    $593,911.60\nCapital Expenditure:    $347,160.31\nDividends Paid:         $136,239.74\n\nMARKET DATA\nShares Outstanding:     2,807,945\nStock Price:            $6.76",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 769864.9392\ntotal_equity = 3492832.34\ntotal_assets = 5535935.83\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 22.04,13.91,8.13",
+    "final_answer": "22.04,13.91,8.13",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_006_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: FinancePro Ltd. (ID-259)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $3,663,756.00\nCost of Goods Sold:     $1,871,437.69\nGross Profit:           $1,792,318.31\nOperating Expenses:     $592,584.30\nEBIT:                   $1,199,734.01\nInterest Expense:       $130,477.15\nEBT:                    $1,069,256.86\nTax (28%):              $299,391.92\nNet Income:             $769,864.94\n\nBALANCE SHEET\nTotal Assets:           $5,535,935.83\nTotal Equity:           $3,492,832.34\nTotal Debt:             $2,043,103.50\nCurrent Assets:         $1,455,201.00\nCurrent Liabilities:    $897,165.19\nInventory:              $403,685.25\n\nCASH FLOW\nOperating Cash Flow:    $593,911.60\nCapital Expenditure:    $347,160.31\nDividends Paid:         $136,239.74\n\nMARKET DATA\nShares Outstanding:     2,807,945\nStock Price:            $6.76",
+    "rationale": "net_income   = 769864.9392\nrevenue      = 3663756\ntotal_assets = 5535935.83\ntotal_equity = 3492832.34\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 21.013,0.6618,1.5849,22.04",
+    "final_answer": "21.013,0.6618,1.5849,22.04",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_006_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $726,563.26 in new debt at 7.7% interest and uses it to fund an expansion that grows revenue by 15.4%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: FinancePro Ltd. (ID-259)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $3,663,756.00\nCost of Goods Sold:     $1,871,437.69\nGross Profit:           $1,792,318.31\nOperating Expenses:     $592,584.30\nEBIT:                   $1,199,734.01\nInterest Expense:       $130,477.15\nEBT:                    $1,069,256.86\nTax (28%):              $299,391.92\nNet Income:             $769,864.94\n\nBALANCE SHEET\nTotal Assets:           $5,535,935.83\nTotal Equity:           $3,492,832.34\nTotal Debt:             $2,043,103.50\nCurrent Assets:         $1,455,201.00\nCurrent Liabilities:    $897,165.19\nInventory:              $403,685.25\n\nCASH FLOW\nOperating Cash Flow:    $593,911.60\nCapital Expenditure:    $347,160.31\nDividends Paid:         $136,239.74\n\nMARKET DATA\nShares Outstanding:     2,807,945\nStock Price:            $6.76",
+    "rationale": "# Current state\nnet_income   = 769864.9392\ntotal_equity = 3492832.34\ncogs         = 1871437.69\nopex         = 592584.3\ntax_rate     = 0.28\n\n# Scenario: raise $$726,563.26 at 7.7% interest, revenue +15.4%\nnew_debt            = 726563.26\nnew_interest_rate   = 0.0771\nrevenue_growth      = 0.1537\n\nnew_revenue  = round(3663756 * (1 + revenue_growth), 2)\nnew_interest = round(130477.15 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 32.5,22.04,10.46",
+    "final_answer": "32.5,22.04,10.46",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_006_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 7.0% annually for 5 years, then 2.9% in perpetuity. WACC = 9.2%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: FinancePro Ltd. (ID-259)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $3,663,756.00\nCost of Goods Sold:     $1,871,437.69\nGross Profit:           $1,792,318.31\nOperating Expenses:     $592,584.30\nEBIT:                   $1,199,734.01\nInterest Expense:       $130,477.15\nEBT:                    $1,069,256.86\nTax (28%):              $299,391.92\nNet Income:             $769,864.94\n\nBALANCE SHEET\nTotal Assets:           $5,535,935.83\nTotal Equity:           $3,492,832.34\nTotal Debt:             $2,043,103.50\nCurrent Assets:         $1,455,201.00\nCurrent Liabilities:    $897,165.19\nInventory:              $403,685.25\n\nCASH FLOW\nOperating Cash Flow:    $593,911.60\nCapital Expenditure:    $347,160.31\nDividends Paid:         $136,239.74\n\nMARKET DATA\nShares Outstanding:     2,807,945\nStock Price:            $6.76",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 246751.29\n\n# DCF assumptions\nfcf_growth      = 0.07    # 7.0% growth for 5 years\nterminal_growth = 0.029   # 2.9% perpetuity growth\nwacc            = 0.092   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [264023.88, 282505.55, 302280.94, 323440.61, 346081.45]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 2807945\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 4801485.07,1.71",
+    "final_answer": "4801485.07,1.71",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_007_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: AlphaVentures SA (ID-301)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $9,689,664.00\nCost of Goods Sold:     $4,604,611.59\nGross Profit:           $5,085,052.41\nOperating Expenses:     $2,597,429.94\nEBIT:                   $2,487,622.47\nInterest Expense:       $344,511.08\nEBT:                    $2,143,111.39\nTax (21%):              $450,053.39\nNet Income:             $1,693,058.00\n\nBALANCE SHEET\nTotal Assets:           $18,014,242.18\nTotal Equity:           $12,428,145.54\nTotal Debt:             $5,586,096.65\nCurrent Assets:         $5,235,314.04\nCurrent Liabilities:    $3,119,322.33\nInventory:              $1,456,535.82\n\nCASH FLOW\nOperating Cash Flow:    $1,070,628.12\nCapital Expenditure:    $878,327.73\nDividends Paid:         $479,425.08\n\nMARKET DATA\nShares Outstanding:     3,100,687\nStock Price:            $6.86",
+    "rationale": "# Given from financial statements\nnet_income = 1693057.9981000002\nrevenue = 9689664\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 17.47%",
+    "final_answer": "17.47",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_007_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: AlphaVentures SA (ID-301)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $9,689,664.00\nCost of Goods Sold:     $4,604,611.59\nGross Profit:           $5,085,052.41\nOperating Expenses:     $2,597,429.94\nEBIT:                   $2,487,622.47\nInterest Expense:       $344,511.08\nEBT:                    $2,143,111.39\nTax (21%):              $450,053.39\nNet Income:             $1,693,058.00\n\nBALANCE SHEET\nTotal Assets:           $18,014,242.18\nTotal Equity:           $12,428,145.54\nTotal Debt:             $5,586,096.65\nCurrent Assets:         $5,235,314.04\nCurrent Liabilities:    $3,119,322.33\nInventory:              $1,456,535.82\n\nCASH FLOW\nOperating Cash Flow:    $1,070,628.12\nCapital Expenditure:    $878,327.73\nDividends Paid:         $479,425.08\n\nMARKET DATA\nShares Outstanding:     3,100,687\nStock Price:            $6.86",
+    "rationale": "revenue = 9689664\ngross_profit = 5085052.41\nebit = 2487622.47\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 52.48,25.67,26.81",
+    "final_answer": "52.48,25.67,26.81",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_007_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: AlphaVentures SA (ID-301)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $9,689,664.00\nCost of Goods Sold:     $4,604,611.59\nGross Profit:           $5,085,052.41\nOperating Expenses:     $2,597,429.94\nEBIT:                   $2,487,622.47\nInterest Expense:       $344,511.08\nEBT:                    $2,143,111.39\nTax (21%):              $450,053.39\nNet Income:             $1,693,058.00\n\nBALANCE SHEET\nTotal Assets:           $18,014,242.18\nTotal Equity:           $12,428,145.54\nTotal Debt:             $5,586,096.65\nCurrent Assets:         $5,235,314.04\nCurrent Liabilities:    $3,119,322.33\nInventory:              $1,456,535.82\n\nCASH FLOW\nOperating Cash Flow:    $1,070,628.12\nCapital Expenditure:    $878,327.73\nDividends Paid:         $479,425.08\n\nMARKET DATA\nShares Outstanding:     3,100,687\nStock Price:            $6.86",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 1070628.12\ncapex = 878327.73\nrevenue = 9689664\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 192300.39,1.98",
+    "final_answer": "192300.39,1.98",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_007_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: AlphaVentures SA (ID-301)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $9,689,664.00\nCost of Goods Sold:     $4,604,611.59\nGross Profit:           $5,085,052.41\nOperating Expenses:     $2,597,429.94\nEBIT:                   $2,487,622.47\nInterest Expense:       $344,511.08\nEBT:                    $2,143,111.39\nTax (21%):              $450,053.39\nNet Income:             $1,693,058.00\n\nBALANCE SHEET\nTotal Assets:           $18,014,242.18\nTotal Equity:           $12,428,145.54\nTotal Debt:             $5,586,096.65\nCurrent Assets:         $5,235,314.04\nCurrent Liabilities:    $3,119,322.33\nInventory:              $1,456,535.82\n\nCASH FLOW\nOperating Cash Flow:    $1,070,628.12\nCapital Expenditure:    $878,327.73\nDividends Paid:         $479,425.08\n\nMARKET DATA\nShares Outstanding:     3,100,687\nStock Price:            $6.86",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 1693057.9981000002\ntotal_equity = 12428145.54\ntotal_assets = 18014242.18\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 13.62,9.4,4.22",
+    "final_answer": "13.62,9.4,4.22",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_007_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: AlphaVentures SA (ID-301)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $9,689,664.00\nCost of Goods Sold:     $4,604,611.59\nGross Profit:           $5,085,052.41\nOperating Expenses:     $2,597,429.94\nEBIT:                   $2,487,622.47\nInterest Expense:       $344,511.08\nEBT:                    $2,143,111.39\nTax (21%):              $450,053.39\nNet Income:             $1,693,058.00\n\nBALANCE SHEET\nTotal Assets:           $18,014,242.18\nTotal Equity:           $12,428,145.54\nTotal Debt:             $5,586,096.65\nCurrent Assets:         $5,235,314.04\nCurrent Liabilities:    $3,119,322.33\nInventory:              $1,456,535.82\n\nCASH FLOW\nOperating Cash Flow:    $1,070,628.12\nCapital Expenditure:    $878,327.73\nDividends Paid:         $479,425.08\n\nMARKET DATA\nShares Outstanding:     3,100,687\nStock Price:            $6.86",
+    "rationale": "net_income   = 1693057.9981000002\nrevenue      = 9689664\ntotal_assets = 18014242.18\ntotal_equity = 12428145.54\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 17.4728,0.5379,1.4495,13.62",
+    "final_answer": "17.4728,0.5379,1.4495,13.62",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_007_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $1,789,312.69 in new debt at 5.7% interest and uses it to fund an expansion that grows revenue by 10.1%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: AlphaVentures SA (ID-301)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $9,689,664.00\nCost of Goods Sold:     $4,604,611.59\nGross Profit:           $5,085,052.41\nOperating Expenses:     $2,597,429.94\nEBIT:                   $2,487,622.47\nInterest Expense:       $344,511.08\nEBT:                    $2,143,111.39\nTax (21%):              $450,053.39\nNet Income:             $1,693,058.00\n\nBALANCE SHEET\nTotal Assets:           $18,014,242.18\nTotal Equity:           $12,428,145.54\nTotal Debt:             $5,586,096.65\nCurrent Assets:         $5,235,314.04\nCurrent Liabilities:    $3,119,322.33\nInventory:              $1,456,535.82\n\nCASH FLOW\nOperating Cash Flow:    $1,070,628.12\nCapital Expenditure:    $878,327.73\nDividends Paid:         $479,425.08\n\nMARKET DATA\nShares Outstanding:     3,100,687\nStock Price:            $6.86",
+    "rationale": "# Current state\nnet_income   = 1693057.9981000002\ntotal_equity = 12428145.54\ncogs         = 4604611.59\nopex         = 2597429.94\ntax_rate     = 0.21\n\n# Scenario: raise $$1,789,312.69 at 5.7% interest, revenue +10.1%\nnew_debt            = 1789312.69\nnew_interest_rate   = 0.0569\nrevenue_growth      = 0.1012\n\nnew_revenue  = round(9689664 * (1 + revenue_growth), 2)\nnew_interest = round(344511.08 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 19.21,13.62,5.59",
+    "final_answer": "19.21,13.62,5.59",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_007_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 8.8% annually for 5 years, then 2.4% in perpetuity. WACC = 8.1%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: AlphaVentures SA (ID-301)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $9,689,664.00\nCost of Goods Sold:     $4,604,611.59\nGross Profit:           $5,085,052.41\nOperating Expenses:     $2,597,429.94\nEBIT:                   $2,487,622.47\nInterest Expense:       $344,511.08\nEBT:                    $2,143,111.39\nTax (21%):              $450,053.39\nNet Income:             $1,693,058.00\n\nBALANCE SHEET\nTotal Assets:           $18,014,242.18\nTotal Equity:           $12,428,145.54\nTotal Debt:             $5,586,096.65\nCurrent Assets:         $5,235,314.04\nCurrent Liabilities:    $3,119,322.33\nInventory:              $1,456,535.82\n\nCASH FLOW\nOperating Cash Flow:    $1,070,628.12\nCapital Expenditure:    $878,327.73\nDividends Paid:         $479,425.08\n\nMARKET DATA\nShares Outstanding:     3,100,687\nStock Price:            $6.86",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 192300.39\n\n# DCF assumptions\nfcf_growth      = 0.088    # 8.8% growth for 5 years\nterminal_growth = 0.024   # 2.4% perpetuity growth\nwacc            = 0.081   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [209222.82, 227634.43, 247666.26, 269460.89, 293173.45]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 3100687\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 4548313.18,1.47",
+    "final_answer": "4548313.18,1.47",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_008_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: ApexFinance Corp. (ID-343)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $6,146,556.00\nCost of Goods Sold:     $2,765,201.78\nGross Profit:           $3,381,354.22\nOperating Expenses:     $1,715,429.10\nEBIT:                   $1,665,925.12\nInterest Expense:       $242,854.03\nEBT:                    $1,423,071.09\nTax (30%):              $426,921.33\nNet Income:             $996,149.76\n\nBALANCE SHEET\nTotal Assets:           $10,872,158.50\nTotal Equity:           $5,635,984.03\nTotal Debt:             $5,236,174.47\nCurrent Assets:         $2,763,872.68\nCurrent Liabilities:    $1,304,948.58\nInventory:              $624,027.29\n\nCASH FLOW\nOperating Cash Flow:    $699,545.32\nCapital Expenditure:    $522,863.10\nDividends Paid:         $205,023.70\n\nMARKET DATA\nShares Outstanding:     2,196,963\nStock Price:            $7.88",
+    "rationale": "# Given from financial statements\nnet_income = 996149.763\nrevenue = 6146556\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 16.21%",
+    "final_answer": "16.21",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_008_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: ApexFinance Corp. (ID-343)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $6,146,556.00\nCost of Goods Sold:     $2,765,201.78\nGross Profit:           $3,381,354.22\nOperating Expenses:     $1,715,429.10\nEBIT:                   $1,665,925.12\nInterest Expense:       $242,854.03\nEBT:                    $1,423,071.09\nTax (30%):              $426,921.33\nNet Income:             $996,149.76\n\nBALANCE SHEET\nTotal Assets:           $10,872,158.50\nTotal Equity:           $5,635,984.03\nTotal Debt:             $5,236,174.47\nCurrent Assets:         $2,763,872.68\nCurrent Liabilities:    $1,304,948.58\nInventory:              $624,027.29\n\nCASH FLOW\nOperating Cash Flow:    $699,545.32\nCapital Expenditure:    $522,863.10\nDividends Paid:         $205,023.70\n\nMARKET DATA\nShares Outstanding:     2,196,963\nStock Price:            $7.88",
+    "rationale": "revenue = 6146556\ngross_profit = 3381354.22\nebit = 1665925.12\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 55.01,27.1,27.91",
+    "final_answer": "55.01,27.1,27.91",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_008_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: ApexFinance Corp. (ID-343)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $6,146,556.00\nCost of Goods Sold:     $2,765,201.78\nGross Profit:           $3,381,354.22\nOperating Expenses:     $1,715,429.10\nEBIT:                   $1,665,925.12\nInterest Expense:       $242,854.03\nEBT:                    $1,423,071.09\nTax (30%):              $426,921.33\nNet Income:             $996,149.76\n\nBALANCE SHEET\nTotal Assets:           $10,872,158.50\nTotal Equity:           $5,635,984.03\nTotal Debt:             $5,236,174.47\nCurrent Assets:         $2,763,872.68\nCurrent Liabilities:    $1,304,948.58\nInventory:              $624,027.29\n\nCASH FLOW\nOperating Cash Flow:    $699,545.32\nCapital Expenditure:    $522,863.10\nDividends Paid:         $205,023.70\n\nMARKET DATA\nShares Outstanding:     2,196,963\nStock Price:            $7.88",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 699545.32\ncapex = 522863.1\nrevenue = 6146556\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 176682.22,2.87",
+    "final_answer": "176682.22,2.87",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_008_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: ApexFinance Corp. (ID-343)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $6,146,556.00\nCost of Goods Sold:     $2,765,201.78\nGross Profit:           $3,381,354.22\nOperating Expenses:     $1,715,429.10\nEBIT:                   $1,665,925.12\nInterest Expense:       $242,854.03\nEBT:                    $1,423,071.09\nTax (30%):              $426,921.33\nNet Income:             $996,149.76\n\nBALANCE SHEET\nTotal Assets:           $10,872,158.50\nTotal Equity:           $5,635,984.03\nTotal Debt:             $5,236,174.47\nCurrent Assets:         $2,763,872.68\nCurrent Liabilities:    $1,304,948.58\nInventory:              $624,027.29\n\nCASH FLOW\nOperating Cash Flow:    $699,545.32\nCapital Expenditure:    $522,863.10\nDividends Paid:         $205,023.70\n\nMARKET DATA\nShares Outstanding:     2,196,963\nStock Price:            $7.88",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 996149.763\ntotal_equity = 5635984.03\ntotal_assets = 10872158.5\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 17.67,9.16,8.51",
+    "final_answer": "17.67,9.16,8.51",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_008_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: ApexFinance Corp. (ID-343)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $6,146,556.00\nCost of Goods Sold:     $2,765,201.78\nGross Profit:           $3,381,354.22\nOperating Expenses:     $1,715,429.10\nEBIT:                   $1,665,925.12\nInterest Expense:       $242,854.03\nEBT:                    $1,423,071.09\nTax (30%):              $426,921.33\nNet Income:             $996,149.76\n\nBALANCE SHEET\nTotal Assets:           $10,872,158.50\nTotal Equity:           $5,635,984.03\nTotal Debt:             $5,236,174.47\nCurrent Assets:         $2,763,872.68\nCurrent Liabilities:    $1,304,948.58\nInventory:              $624,027.29\n\nCASH FLOW\nOperating Cash Flow:    $699,545.32\nCapital Expenditure:    $522,863.10\nDividends Paid:         $205,023.70\n\nMARKET DATA\nShares Outstanding:     2,196,963\nStock Price:            $7.88",
+    "rationale": "net_income   = 996149.763\nrevenue      = 6146556\ntotal_assets = 10872158.5\ntotal_equity = 5635984.03\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 16.2066,0.5653,1.9291,17.67",
+    "final_answer": "16.2066,0.5653,1.9291,17.67",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_008_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $1,448,091.34 in new debt at 7.4% interest and uses it to fund an expansion that grows revenue by 15.9%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: ApexFinance Corp. (ID-343)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $6,146,556.00\nCost of Goods Sold:     $2,765,201.78\nGross Profit:           $3,381,354.22\nOperating Expenses:     $1,715,429.10\nEBIT:                   $1,665,925.12\nInterest Expense:       $242,854.03\nEBT:                    $1,423,071.09\nTax (30%):              $426,921.33\nNet Income:             $996,149.76\n\nBALANCE SHEET\nTotal Assets:           $10,872,158.50\nTotal Equity:           $5,635,984.03\nTotal Debt:             $5,236,174.47\nCurrent Assets:         $2,763,872.68\nCurrent Liabilities:    $1,304,948.58\nInventory:              $624,027.29\n\nCASH FLOW\nOperating Cash Flow:    $699,545.32\nCapital Expenditure:    $522,863.10\nDividends Paid:         $205,023.70\n\nMARKET DATA\nShares Outstanding:     2,196,963\nStock Price:            $7.88",
+    "rationale": "# Current state\nnet_income   = 996149.763\ntotal_equity = 5635984.03\ncogs         = 2765201.78\nopex         = 1715429.1\ntax_rate     = 0.3\n\n# Scenario: raise $$1,448,091.34 at 7.4% interest, revenue +15.9%\nnew_debt            = 1448091.34\nnew_interest_rate   = 0.074\nrevenue_growth      = 0.1594\n\nnew_revenue  = round(6146556 * (1 + revenue_growth), 2)\nnew_interest = round(242854.03 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 28.51,17.67,10.84",
+    "final_answer": "28.51,17.67,10.84",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_008_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 11.0% annually for 5 years, then 3.3% in perpetuity. WACC = 9.7%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: ApexFinance Corp. (ID-343)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $6,146,556.00\nCost of Goods Sold:     $2,765,201.78\nGross Profit:           $3,381,354.22\nOperating Expenses:     $1,715,429.10\nEBIT:                   $1,665,925.12\nInterest Expense:       $242,854.03\nEBT:                    $1,423,071.09\nTax (30%):              $426,921.33\nNet Income:             $996,149.76\n\nBALANCE SHEET\nTotal Assets:           $10,872,158.50\nTotal Equity:           $5,635,984.03\nTotal Debt:             $5,236,174.47\nCurrent Assets:         $2,763,872.68\nCurrent Liabilities:    $1,304,948.58\nInventory:              $624,027.29\n\nCASH FLOW\nOperating Cash Flow:    $699,545.32\nCapital Expenditure:    $522,863.10\nDividends Paid:         $205,023.70\n\nMARKET DATA\nShares Outstanding:     2,196,963\nStock Price:            $7.88",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 176682.22\n\n# DCF assumptions\nfcf_growth      = 0.11    # 11.0% growth for 5 years\nterminal_growth = 0.033   # 3.3% perpetuity growth\nwacc            = 0.097   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [196117.26, 217690.16, 241636.08, 268216.05, 297719.82]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 2196963\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 3940106.48,1.79",
+    "final_answer": "3940106.48,1.79",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  },
+  {
+    "id": "finance_fs_009_L1",
+    "level": 1,
+    "question": "Using the financial statements below, calculate the Net Profit Margin.\n\nCompany: BetaGroup PLC (ID-385)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,090,231.00\nCost of Goods Sold:     $2,109,008.54\nGross Profit:           $1,981,222.46\nOperating Expenses:     $823,743.72\nEBIT:                   $1,157,478.74\nInterest Expense:       $161,076.98\nEBT:                    $996,401.76\nTax (28%):              $278,992.49\nNet Income:             $717,409.27\n\nBALANCE SHEET\nTotal Assets:           $6,703,205.69\nTotal Equity:           $3,625,485.60\nTotal Debt:             $3,077,720.09\nCurrent Assets:         $2,556,152.43\nCurrent Liabilities:    $947,837.20\nInventory:              $568,952.12\n\nCASH FLOW\nOperating Cash Flow:    $487,818.59\nCapital Expenditure:    $370,905.09\nDividends Paid:         $130,360.43\n\nMARKET DATA\nShares Outstanding:     3,926,700\nStock Price:            $4.70",
+    "rationale": "# Given from financial statements\nnet_income = 717409.2672\nrevenue = 4090231\n\n# Net Profit Margin = Net Income / Revenue\nresult = round((net_income / revenue) * 100, 2)\nprint(result)  # \u2192 17.54%",
+    "final_answer": "17.54",
+    "metadata": {
+      "concept": "Net Profit Margin",
+      "formula": "Net Income / Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_009_L2",
+    "level": 2,
+    "question": "Using the financial statements below, calculate the Gross Profit Margin and Operating Profit Margin. Report both values and their difference in the format 'GPM,OPM,DIFF'.\n\nCompany: BetaGroup PLC (ID-385)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,090,231.00\nCost of Goods Sold:     $2,109,008.54\nGross Profit:           $1,981,222.46\nOperating Expenses:     $823,743.72\nEBIT:                   $1,157,478.74\nInterest Expense:       $161,076.98\nEBT:                    $996,401.76\nTax (28%):              $278,992.49\nNet Income:             $717,409.27\n\nBALANCE SHEET\nTotal Assets:           $6,703,205.69\nTotal Equity:           $3,625,485.60\nTotal Debt:             $3,077,720.09\nCurrent Assets:         $2,556,152.43\nCurrent Liabilities:    $947,837.20\nInventory:              $568,952.12\n\nCASH FLOW\nOperating Cash Flow:    $487,818.59\nCapital Expenditure:    $370,905.09\nDividends Paid:         $130,360.43\n\nMARKET DATA\nShares Outstanding:     3,926,700\nStock Price:            $4.70",
+    "rationale": "revenue = 4090231\ngross_profit = 1981222.46\nebit = 1157478.74\n\ngpm = round((gross_profit / revenue) * 100, 2)   # Gross Profit Margin\nopm = round((ebit / revenue) * 100, 2)            # Operating Profit Margin\ndifference = round(gpm - opm, 2)\n\nresult = f\"{gpm},{opm},{difference}\"\nprint(result)  # \u2192 48.44,28.3,20.14",
+    "final_answer": "48.44,28.3,20.14",
+    "metadata": {
+      "concept": "Margin Analysis",
+      "formula": "Gross Profit/Revenue, EBIT/Revenue"
+    }
+  },
+  {
+    "id": "finance_fs_009_L3",
+    "level": 3,
+    "question": "Using the financial statements below, calculate Free Cash Flow (FCF) and FCF Margin. Report as 'FCF_VALUE,FCF_MARGIN_PCT'.\n\nCompany: BetaGroup PLC (ID-385)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,090,231.00\nCost of Goods Sold:     $2,109,008.54\nGross Profit:           $1,981,222.46\nOperating Expenses:     $823,743.72\nEBIT:                   $1,157,478.74\nInterest Expense:       $161,076.98\nEBT:                    $996,401.76\nTax (28%):              $278,992.49\nNet Income:             $717,409.27\n\nBALANCE SHEET\nTotal Assets:           $6,703,205.69\nTotal Equity:           $3,625,485.60\nTotal Debt:             $3,077,720.09\nCurrent Assets:         $2,556,152.43\nCurrent Liabilities:    $947,837.20\nInventory:              $568,952.12\n\nCASH FLOW\nOperating Cash Flow:    $487,818.59\nCapital Expenditure:    $370,905.09\nDividends Paid:         $130,360.43\n\nMARKET DATA\nShares Outstanding:     3,926,700\nStock Price:            $4.70",
+    "rationale": "# FCF is not directly listed \u2014 must be derived\noperating_cash_flow = 487818.59\ncapex = 370905.09\nrevenue = 4090231\n\nfcf = operating_cash_flow - capex\nfcf_margin = round((fcf / revenue) * 100, 2)\n\nresult = f\"{round(fcf, 2)},{fcf_margin}\"\nprint(result)  # \u2192 116913.5,2.86",
+    "final_answer": "116913.5,2.86",
+    "metadata": {
+      "concept": "Free Cash Flow",
+      "formula": "OCF - CapEx"
+    }
+  },
+  {
+    "id": "finance_fs_009_L4",
+    "level": 4,
+    "question": "Using the financial statements below, calculate ROE and ROA. Then compute the leverage effect (ROE - ROA). Report as 'ROE,ROA,LEVERAGE_EFFECT'.\n\nCompany: BetaGroup PLC (ID-385)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,090,231.00\nCost of Goods Sold:     $2,109,008.54\nGross Profit:           $1,981,222.46\nOperating Expenses:     $823,743.72\nEBIT:                   $1,157,478.74\nInterest Expense:       $161,076.98\nEBT:                    $996,401.76\nTax (28%):              $278,992.49\nNet Income:             $717,409.27\n\nBALANCE SHEET\nTotal Assets:           $6,703,205.69\nTotal Equity:           $3,625,485.60\nTotal Debt:             $3,077,720.09\nCurrent Assets:         $2,556,152.43\nCurrent Liabilities:    $947,837.20\nInventory:              $568,952.12\n\nCASH FLOW\nOperating Cash Flow:    $487,818.59\nCapital Expenditure:    $370,905.09\nDividends Paid:         $130,360.43\n\nMARKET DATA\nShares Outstanding:     3,926,700\nStock Price:            $4.70",
+    "rationale": "# Requires both Income Statement and Balance Sheet\nnet_income   = 717409.2672\ntotal_equity = 3625485.6\ntotal_assets = 6703205.69\n\nroe = round((net_income / total_equity) * 100, 2)\nroa = round((net_income / total_assets) * 100, 2)\nleverage_effect = round(roe - roa, 2)   # debt amplification\n\nresult = f\"{roe},{roa},{leverage_effect}\"\nprint(result)  # \u2192 19.79,10.7,9.09",
+    "final_answer": "19.79,10.7,9.09",
+    "metadata": {
+      "concept": "ROE / ROA / Leverage",
+      "formula": "Net Income / Equity, Net Income / Assets"
+    }
+  },
+  {
+    "id": "finance_fs_009_L5",
+    "level": 5,
+    "question": "Using the financial statements below, perform a DuPont decomposition of ROE. Report Net Margin (%), Asset Turnover, Equity Multiplier, and final ROE (%) as 'NET_MARGIN,ASSET_TURNOVER,EQUITY_MULTIPLIER,ROE'.\n\nCompany: BetaGroup PLC (ID-385)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,090,231.00\nCost of Goods Sold:     $2,109,008.54\nGross Profit:           $1,981,222.46\nOperating Expenses:     $823,743.72\nEBIT:                   $1,157,478.74\nInterest Expense:       $161,076.98\nEBT:                    $996,401.76\nTax (28%):              $278,992.49\nNet Income:             $717,409.27\n\nBALANCE SHEET\nTotal Assets:           $6,703,205.69\nTotal Equity:           $3,625,485.60\nTotal Debt:             $3,077,720.09\nCurrent Assets:         $2,556,152.43\nCurrent Liabilities:    $947,837.20\nInventory:              $568,952.12\n\nCASH FLOW\nOperating Cash Flow:    $487,818.59\nCapital Expenditure:    $370,905.09\nDividends Paid:         $130,360.43\n\nMARKET DATA\nShares Outstanding:     3,926,700\nStock Price:            $4.70",
+    "rationale": "net_income   = 717409.2672\nrevenue      = 4090231\ntotal_assets = 6703205.69\ntotal_equity = 3625485.6\n\n# DuPont: ROE = Net Margin \u00d7 Asset Turnover \u00d7 Equity Multiplier\nnet_margin        = net_income / revenue\nasset_turnover    = revenue / total_assets\nequity_multiplier = total_assets / total_equity\n\ndupont_roe = round(net_margin * asset_turnover * equity_multiplier * 100, 2)\n\nresult = f\"{round(net_margin*100,4)},{round(asset_turnover,4)},{round(equity_multiplier,4)},{dupont_roe}\"\nprint(result)  # \u2192 17.5396,0.6102,1.8489,19.79",
+    "final_answer": "17.5396,0.6102,1.8489,19.79",
+    "metadata": {
+      "concept": "DuPont Analysis",
+      "formula": "NM \u00d7 AT \u00d7 EM"
+    }
+  },
+  {
+    "id": "finance_fs_009_L6",
+    "level": 6,
+    "question": "Using the financial statements below, perform a scenario analysis. The company raises $826,154.60 in new debt at 7.9% interest and uses it to fund an expansion that grows revenue by 13.4%. COGS and OpEx remain unchanged. Calculate the new ROE, old ROE, and the difference. Report as 'NEW_ROE,OLD_ROE,DELTA'.\n\nCompany: BetaGroup PLC (ID-385)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,090,231.00\nCost of Goods Sold:     $2,109,008.54\nGross Profit:           $1,981,222.46\nOperating Expenses:     $823,743.72\nEBIT:                   $1,157,478.74\nInterest Expense:       $161,076.98\nEBT:                    $996,401.76\nTax (28%):              $278,992.49\nNet Income:             $717,409.27\n\nBALANCE SHEET\nTotal Assets:           $6,703,205.69\nTotal Equity:           $3,625,485.60\nTotal Debt:             $3,077,720.09\nCurrent Assets:         $2,556,152.43\nCurrent Liabilities:    $947,837.20\nInventory:              $568,952.12\n\nCASH FLOW\nOperating Cash Flow:    $487,818.59\nCapital Expenditure:    $370,905.09\nDividends Paid:         $130,360.43\n\nMARKET DATA\nShares Outstanding:     3,926,700\nStock Price:            $4.70",
+    "rationale": "# Current state\nnet_income   = 717409.2672\ntotal_equity = 3625485.6\ncogs         = 2109008.54\nopex         = 823743.72\ntax_rate     = 0.28\n\n# Scenario: raise $$826,154.60 at 7.9% interest, revenue +13.4%\nnew_debt            = 826154.6\nnew_interest_rate   = 0.0788\nrevenue_growth      = 0.134\n\nnew_revenue  = round(4090231 * (1 + revenue_growth), 2)\nnew_interest = round(161076.98 + new_debt * new_interest_rate, 2)\nnew_ebt      = round(new_revenue - cogs - opex - new_interest, 2)\nnew_net      = round(new_ebt * (1 - tax_rate), 2)\n\nold_roe = round((net_income / total_equity) * 100, 2)\nnew_roe = round((new_net / total_equity) * 100, 2)\nroe_delta = round(new_roe - old_roe, 2)\n\nresult = f\"{new_roe},{old_roe},{roe_delta}\"\nprint(result)  # \u2192 29.38,19.79,9.59",
+    "final_answer": "29.38,19.79,9.59",
+    "metadata": {
+      "concept": "Scenario Analysis / Leverage",
+      "formula": "Rebuilt P&L under new assumptions"
+    }
+  },
+  {
+    "id": "finance_fs_009_L7",
+    "level": 7,
+    "question": "Using the financial statements below, perform a DCF valuation. Assume FCF grows at 9.9% annually for 5 years, then 4.0% in perpetuity. WACC = 11.4%. Calculate the total intrinsic value and intrinsic value per share. Report as 'INTRINSIC_VALUE,VALUE_PER_SHARE'.\n\nCompany: BetaGroup PLC (ID-385)\nFiscal Year 2023\n\nINCOME STATEMENT\nRevenue:                $4,090,231.00\nCost of Goods Sold:     $2,109,008.54\nGross Profit:           $1,981,222.46\nOperating Expenses:     $823,743.72\nEBIT:                   $1,157,478.74\nInterest Expense:       $161,076.98\nEBT:                    $996,401.76\nTax (28%):              $278,992.49\nNet Income:             $717,409.27\n\nBALANCE SHEET\nTotal Assets:           $6,703,205.69\nTotal Equity:           $3,625,485.60\nTotal Debt:             $3,077,720.09\nCurrent Assets:         $2,556,152.43\nCurrent Liabilities:    $947,837.20\nInventory:              $568,952.12\n\nCASH FLOW\nOperating Cash Flow:    $487,818.59\nCapital Expenditure:    $370,905.09\nDividends Paid:         $130,360.43\n\nMARKET DATA\nShares Outstanding:     3,926,700\nStock Price:            $4.70",
+    "rationale": "import math\n\n# Base FCF from financial statements\nfcf = 116913.5\n\n# DCF assumptions\nfcf_growth      = 0.099    # 9.9% growth for 5 years\nterminal_growth = 0.04   # 4.0% perpetuity growth\nwacc            = 0.114   # Discount rate\n\n# Project 5 years of FCF\nfcf_projections = [round(fcf * (1 + fcf_growth)**t, 2) for t in range(1, 6)]\n# \u2192 [128487.94, 141208.24, 155187.86, 170551.46, 187436.05]\n\n# Terminal value (Gordon Growth at year 5)\nterminal_value = round(fcf_projections[-1] * (1 + terminal_growth) / (wacc - terminal_growth), 2)\n\n# Discount everything to present value\npv_fcfs = sum([cf / (1 + wacc)**t for t, cf in enumerate(fcf_projections, 1)])\npv_terminal = terminal_value / (1 + wacc)**5\n\nintrinsic_value = round(pv_fcfs + pv_terminal, 2)\nshares = 3926700\nintrinsic_per_share = round(intrinsic_value / shares, 2)\n\nresult = f\"{intrinsic_value},{intrinsic_per_share}\"\nprint(result)  # \u2192 2096799.24,0.53",
+    "final_answer": "2096799.24,0.53",
+    "metadata": {
+      "concept": "DCF Valuation",
+      "formula": "PV of FCFs + PV of Terminal Value"
+    }
+  }
+]
