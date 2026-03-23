@@ -1,0 +1,164 @@
+{
+  "add": {
+    "symbol": "+",
+    "description": "Add two values",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "numeric",
+    "constraint": "same_unit",
+    "example": "revenue_2024 + net_income_2024"
+  },
+  "subtract": {
+    "symbol": "-",
+    "description": "Subtract right from left",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "numeric",
+    "constraint": "same_unit",
+    "example": "total_assets_2024 - total_liabilities_2024"
+  },
+  "multiply": {
+    "symbol": "\u00d7",
+    "description": "Multiply two values",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "numeric",
+    "constraint": "any_numeric",
+    "example": "shares_outstanding_2024 \u00d7 stock_price_2024"
+  },
+  "divide": {
+    "symbol": "\u00f7",
+    "description": "Divide left by right",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "numeric",
+    "constraint": "any_numeric",
+    "example": "net_income_2024 \u00f7 total_equity_2024"
+  },
+  "greater_than": {
+    "symbol": ">",
+    "description": "Is left greater than right?",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "boolean",
+    "constraint": "same_base_or_unit",
+    "example": "revenue_2024 > revenue_2023"
+  },
+  "less_than": {
+    "symbol": "<",
+    "description": "Is left less than right?",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "boolean",
+    "constraint": "same_base_or_unit",
+    "example": "total_liabilities_2024 < total_assets_2024"
+  },
+  "greater_equal": {
+    "symbol": "\u2265",
+    "description": "Is left greater than or equal to right?",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "boolean",
+    "constraint": "same_base_or_unit",
+    "example": "current_assets_2024 \u2265 current_liabilities_2024"
+  },
+  "less_equal": {
+    "symbol": "\u2264",
+    "description": "Is left less than or equal to right?",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "boolean",
+    "constraint": "same_base_or_unit",
+    "example": "long_term_debt_2024 \u2264 total_equity_2024"
+  },
+  "equals": {
+    "symbol": "=",
+    "description": "Are two values equal?",
+    "left_type": "any",
+    "right_type": "any",
+    "result_type": "boolean",
+    "constraint": "same_type",
+    "example": "sector = 'Technology'"
+  },
+  "not_equals": {
+    "symbol": "\u2260",
+    "description": "Are two values not equal?",
+    "left_type": "any",
+    "right_type": "any",
+    "result_type": "boolean",
+    "constraint": "same_type",
+    "example": "country \u2260 'USA'"
+  },
+  "ratio": {
+    "symbol": "ratio",
+    "description": "Ratio of numerator to denominator",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "ratio",
+    "constraint": "any_numeric",
+    "example": "ratio(current_assets_2024, current_liabilities_2024)"
+  },
+  "change": {
+    "symbol": "\u0394",
+    "description": "Absolute change from year1 to year2",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "numeric",
+    "constraint": "same_base_different_year",
+    "example": "\u0394(revenue, 2023, 2024)"
+  },
+  "pct_change": {
+    "symbol": "%\u0394",
+    "description": "Percentage change from year1 to year2",
+    "left_type": "numeric",
+    "right_type": "numeric",
+    "result_type": "percentage",
+    "constraint": "same_base_different_year",
+    "example": "%\u0394(revenue, 2023, 2024)"
+  },
+  "sum_agg": {
+    "symbol": "SUM",
+    "description": "Sum of a column across all (or filtered) rows",
+    "left_type": "numeric",
+    "right_type": null,
+    "result_type": "numeric",
+    "constraint": "single_numeric_col",
+    "example": "SUM(revenue_2024)"
+  },
+  "avg_agg": {
+    "symbol": "AVG",
+    "description": "Average of a column across all (or filtered) rows",
+    "left_type": "numeric",
+    "right_type": null,
+    "result_type": "numeric",
+    "constraint": "single_numeric_col",
+    "example": "AVG(net_income_2024)"
+  },
+  "max_agg": {
+    "symbol": "MAX",
+    "description": "Maximum value in a column",
+    "left_type": "numeric",
+    "right_type": null,
+    "result_type": "numeric",
+    "constraint": "single_numeric_col",
+    "example": "MAX(total_assets_2024)"
+  },
+  "min_agg": {
+    "symbol": "MIN",
+    "description": "Minimum value in a column",
+    "left_type": "numeric",
+    "right_type": null,
+    "result_type": "numeric",
+    "constraint": "single_numeric_col",
+    "example": "MIN(stock_price_2024)"
+  },
+  "count_agg": {
+    "symbol": "COUNT",
+    "description": "Count of rows matching a condition",
+    "left_type": "any",
+    "right_type": null,
+    "result_type": "count",
+    "constraint": "single_col",
+    "example": "COUNT(sector = 'Technology')"
+  }
+}
