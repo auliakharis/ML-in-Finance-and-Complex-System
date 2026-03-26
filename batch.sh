@@ -10,7 +10,7 @@
 source /cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/bin/activate
 
 # ─── EDIT THESE ───
-# hf_token = "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"
+
 MODEL="Qwen3.5-9B"
 # ──────────────────
 
