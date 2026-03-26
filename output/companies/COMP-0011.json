@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "company_id": "COMP-0011",
+    "company_name": "Titan Consumer Brands",
+    "ticker": "TICB",
+    "sector": "Consumer",
+    "country": "France",
+    "exchange": "Euronext",
+    "credit_rating": "B"
+  },
+  "financials": {
+    "2022": {
+      "income_statement": {
+        "revenue": 95981,
+        "cost_of_goods_sold": 35376,
+        "gross_profit": 60605,
+        "operating_expenses": 7222,
+        "operating_income": 53383,
+        "net_income": 40897
+      },
+      "balance_sheet": {
+        "total_assets": 98264,
+        "total_liabilities": 46231,
+        "total_equity": 52033,
+        "current_assets": 47761,
+        "current_liabilities": 20421,
+        "cash": 6575,
+        "long_term_debt": 15987,
+        "accounts_receivable": 9668,
+        "inventories": 4147
+      },
+      "cash_flow_and_other": {
+        "capex": 8211,
+        "dividends_paid": 15782
+      },
+      "market_data": {
+        "shares_outstanding_millions": 1711,
+        "stock_price_usd": 35.16,
+        "employees": 159419
+      }
+    },
+    "2023": {
+      "income_statement": {
+        "revenue": 106506,
+        "cost_of_goods_sold": 77875,
+        "gross_profit": 28631,
+        "operating_expenses": 13775,
+        "operating_income": 14856,
+        "net_income": 11246
+      },
+      "balance_sheet": {
+        "total_assets": 272258,
+        "total_liabilities": 186227,
+        "total_equity": 86031,
+        "current_assets": 111833,
+        "current_liabilities": 51301,
+        "cash": 54437,
+        "long_term_debt": 64886,
+        "accounts_receivable": 13316,
+        "inventories": 7636
+      },
+      "cash_flow_and_other": {
+        "capex": 10513,
+        "dividends_paid": 3521
+      },
+      "market_data": {
+        "shares_outstanding_millions": 5273,
+        "stock_price_usd": 351.28,
+        "employees": 188433
+      }
+    },
+    "2024": {
+      "income_statement": {
+        "revenue": 113074,
+        "cost_of_goods_sold": 51285,
+        "gross_profit": 61789,
+        "operating_expenses": 24867,
+        "operating_income": 36922,
+        "net_income": 27157
+      },
+      "balance_sheet": {
+        "total_assets": 265030,
+        "total_liabilities": 196971,
+        "total_equity": 68059,
+        "current_assets": 197958,
+        "current_liabilities": 90051,
+        "cash": 49192,
+        "long_term_debt": 135159,
+        "accounts_receivable": 9447,
+        "inventories": 5918
+      },
+      "cash_flow_and_other": {
+        "capex": 4705,
+        "dividends_paid": 8779
+      },
+      "market_data": {
+        "shares_outstanding_millions": 8119,
+        "stock_price_usd": 394.55,
+        "employees": 220609
+      }
+    }
+  }
+}

@@ -16,6 +16,9 @@ Output: sampled_executed.json
 import json
 import csv
 import random
+import os
+
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 from step2_operations import OPERATIONS
 
@@ -25,7 +28,7 @@ random.seed(42)
 # ── Load everything ─────────────────────────────────────────
 
 def load_data():
-    with open("output/financial_spreadsheet.csv") as f:
+    with open(os.path.join(OUTPUT_DIR, "financial_spreadsheet.csv")) as f:
         reader = csv.DictReader(f)
         rows = []
         for row in reader:
@@ -41,12 +44,12 @@ def load_data():
 
 
 def load_tree():
-    with open("output/expression_tree.json") as f:
+    with open(os.path.join(OUTPUT_DIR, "expression_tree.json")) as f:
         return json.load(f)
 
 
 def load_schema():
-    with open("output/schema.json") as f:
+    with open(os.path.join(OUTPUT_DIR, "schema.json")) as f:
         return json.load(f)
 
 
@@ -267,7 +270,7 @@ def main():
             fail += 1
 
     # ── Save ──
-    with open("output/sampled_executed.json", "w") as f:
+    with open(os.path.join(OUTPUT_DIR, "sampled_executed.json"), "w") as f:
         json.dump(results, f, indent=2, default=str)
 
     print(f"✓ Sampled {len(sampled)} nodes, executed against random companies\n")
@@ -296,7 +299,7 @@ def main():
         print(f"        Trace:   {r['trace']}")
         print()
 
-    print(f"✓ Saved {len(results)} results to output/sampled_executed.json")
+    print(f"✓ Saved {len(results)} results to {os.path.join(OUTPUT_DIR, 'sampled_executed.json')}")
 
 
 if __name__ == "__main__":

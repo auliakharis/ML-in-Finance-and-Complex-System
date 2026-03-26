@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "company_id": "COMP-0005",
+    "company_name": "Atlas Global Industries",
+    "ticker": "ATGL",
+    "sector": "Industrials",
+    "country": "UK",
+    "exchange": "LSE",
+    "credit_rating": "BB"
+  },
+  "financials": {
+    "2022": {
+      "income_statement": {
+        "revenue": 528458,
+        "cost_of_goods_sold": 226371,
+        "gross_profit": 302087,
+        "operating_expenses": 100047,
+        "operating_income": 202040,
+        "net_income": 152318
+      },
+      "balance_sheet": {
+        "total_assets": 426164,
+        "total_liabilities": 288115,
+        "total_equity": 138049,
+        "current_assets": 160330,
+        "current_liabilities": 85707,
+        "cash": 33196,
+        "long_term_debt": 93460,
+        "accounts_receivable": 24229,
+        "inventories": 26179
+      },
+      "cash_flow_and_other": {
+        "capex": 23827,
+        "dividends_paid": 3055
+      },
+      "market_data": {
+        "shares_outstanding_millions": 7204,
+        "stock_price_usd": 736.72,
+        "employees": 267907
+      }
+    },
+    "2023": {
+      "income_statement": {
+        "revenue": 494598,
+        "cost_of_goods_sold": 261406,
+        "gross_profit": 233192,
+        "operating_expenses": 108944,
+        "operating_income": 124248,
+        "net_income": 110120
+      },
+      "balance_sheet": {
+        "total_assets": 1296276,
+        "total_liabilities": 938871,
+        "total_equity": 357405,
+        "current_assets": 769407,
+        "current_liabilities": 455727,
+        "cash": 201349,
+        "long_term_debt": 312450,
+        "accounts_receivable": 48417,
+        "inventories": 6579
+      },
+      "cash_flow_and_other": {
+        "capex": 35903,
+        "dividends_paid": 24897
+      },
+      "market_data": {
+        "shares_outstanding_millions": 4814,
+        "stock_price_usd": 219.7,
+        "employees": 336514
+      }
+    },
+    "2024": {
+      "income_statement": {
+        "revenue": 498541,
+        "cost_of_goods_sold": 209151,
+        "gross_profit": 289390,
+        "operating_expenses": 37977,
+        "operating_income": 251413,
+        "net_income": 193814
+      },
+      "balance_sheet": {
+        "total_assets": 587438,
+        "total_liabilities": 433188,
+        "total_equity": 154250,
+        "current_assets": 312464,
+        "current_liabilities": 109306,
+        "cash": 97900,
+        "long_term_debt": 223115,
+        "accounts_receivable": 48009,
+        "inventories": 6901
+      },
+      "cash_flow_and_other": {
+        "capex": 30147,
+        "dividends_paid": 10269
+      },
+      "market_data": {
+        "shares_outstanding_millions": 5300,
+        "stock_price_usd": 69.0,
+        "employees": 125921
+      }
+    }
+  }
+}

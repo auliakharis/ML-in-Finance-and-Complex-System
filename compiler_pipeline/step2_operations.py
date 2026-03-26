@@ -21,6 +21,9 @@ Output: operations.json
 """
 
 import json
+import os
+
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 
 # ── Type Compatibility Matrix ───────────────────────────────
@@ -274,7 +277,7 @@ def can_combine(op_name, col_a_info, col_b_info=None):
 
 
 def main():
-    with open("output/operations.json", "w") as f:
+    with open(os.path.join(OUTPUT_DIR, "operations.json"), "w") as f:
         json.dump(OPERATIONS, f, indent=2)
 
     print(f"✓ Defined {len(OPERATIONS)} operations\n")
@@ -303,7 +306,7 @@ def main():
     print("    SUM/AVG.. : any single numeric column")
     print("    COUNT     : any column")
 
-    print(f"\n✓ Saved to output/operations.json")
+    print(f"\n✓ Saved to {os.path.join(OUTPUT_DIR, 'operations.json')}")
 
 
 if __name__ == "__main__":

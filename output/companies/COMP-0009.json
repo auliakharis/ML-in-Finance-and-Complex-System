@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "company_id": "COMP-0009",
+    "company_name": "Pacific Crest Energy",
+    "ticker": "PCEN",
+    "sector": "Energy",
+    "country": "Canada",
+    "exchange": "TSX",
+    "credit_rating": "AA"
+  },
+  "financials": {
+    "2022": {
+      "income_statement": {
+        "revenue": 325082,
+        "cost_of_goods_sold": 153696,
+        "gross_profit": 171386,
+        "operating_expenses": 42238,
+        "operating_income": 129148,
+        "net_income": 112421
+      },
+      "balance_sheet": {
+        "total_assets": 288924,
+        "total_liabilities": 211051,
+        "total_equity": 77873,
+        "current_assets": 267902,
+        "current_liabilities": 99482,
+        "cash": 58147,
+        "long_term_debt": 122064,
+        "accounts_receivable": 20117,
+        "inventories": 19140
+      },
+      "cash_flow_and_other": {
+        "capex": 18583,
+        "dividends_paid": 25066
+      },
+      "market_data": {
+        "shares_outstanding_millions": 13770,
+        "stock_price_usd": 110.27,
+        "employees": 71003
+      }
+    },
+    "2023": {
+      "income_statement": {
+        "revenue": 341369,
+        "cost_of_goods_sold": 184001,
+        "gross_profit": 157368,
+        "operating_expenses": 55228,
+        "operating_income": 102140,
+        "net_income": 85444
+      },
+      "balance_sheet": {
+        "total_assets": 282988,
+        "total_liabilities": 169564,
+        "total_equity": 113424,
+        "current_assets": 207973,
+        "current_liabilities": 80205,
+        "cash": 35057,
+        "long_term_debt": 61664,
+        "accounts_receivable": 44612,
+        "inventories": 14346
+      },
+      "cash_flow_and_other": {
+        "capex": 30354,
+        "dividends_paid": 15382
+      },
+      "market_data": {
+        "shares_outstanding_millions": 11301,
+        "stock_price_usd": 674.29,
+        "employees": 142269
+      }
+    },
+    "2024": {
+      "income_statement": {
+        "revenue": 388392,
+        "cost_of_goods_sold": 201214,
+        "gross_profit": 187178,
+        "operating_expenses": 38004,
+        "operating_income": 149174,
+        "net_income": 121133
+      },
+      "balance_sheet": {
+        "total_assets": 335905,
+        "total_liabilities": 162143,
+        "total_equity": 173762,
+        "current_assets": 118085,
+        "current_liabilities": 76735,
+        "cash": 16032,
+        "long_term_debt": 58553,
+        "accounts_receivable": 21394,
+        "inventories": 14044
+      },
+      "cash_flow_and_other": {
+        "capex": 14416,
+        "dividends_paid": 20102
+      },
+      "market_data": {
+        "shares_outstanding_millions": 5030,
+        "stock_price_usd": 380.75,
+        "employees": 35822
+      }
+    }
+  }
+}

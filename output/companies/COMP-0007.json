@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "company_id": "COMP-0007",
+    "company_name": "Ironclad Manufacturing",
+    "ticker": "IRCL",
+    "sector": "Industrials",
+    "country": "Japan",
+    "exchange": "TSE",
+    "credit_rating": "AAA"
+  },
+  "financials": {
+    "2022": {
+      "income_statement": {
+        "revenue": 225491,
+        "cost_of_goods_sold": 83330,
+        "gross_profit": 142161,
+        "operating_expenses": 53211,
+        "operating_income": 88950,
+        "net_income": 64674
+      },
+      "balance_sheet": {
+        "total_assets": 153244,
+        "total_liabilities": 109323,
+        "total_equity": 43921,
+        "current_assets": 76717,
+        "current_liabilities": 28008,
+        "cash": 29430,
+        "long_term_debt": 67878,
+        "accounts_receivable": 16510,
+        "inventories": 11750
+      },
+      "cash_flow_and_other": {
+        "capex": 20097,
+        "dividends_paid": 20974
+      },
+      "market_data": {
+        "shares_outstanding_millions": 4075,
+        "stock_price_usd": 633.09,
+        "employees": 58507
+      }
+    },
+    "2023": {
+      "income_statement": {
+        "revenue": 262518,
+        "cost_of_goods_sold": 180184,
+        "gross_profit": 82334,
+        "operating_expenses": 24804,
+        "operating_income": 57530,
+        "net_income": 42381
+      },
+      "balance_sheet": {
+        "total_assets": 307988,
+        "total_liabilities": 162985,
+        "total_equity": 145003,
+        "current_assets": 127539,
+        "current_liabilities": 50020,
+        "cash": 10843,
+        "long_term_debt": 105246,
+        "accounts_receivable": 15571,
+        "inventories": 11293
+      },
+      "cash_flow_and_other": {
+        "capex": 25556,
+        "dividends_paid": 4732
+      },
+      "market_data": {
+        "shares_outstanding_millions": 9658,
+        "stock_price_usd": 328.75,
+        "employees": 490669
+      }
+    },
+    "2024": {
+      "income_statement": {
+        "revenue": 280931,
+        "cost_of_goods_sold": 203017,
+        "gross_profit": 77914,
+        "operating_expenses": 20527,
+        "operating_income": 57387,
+        "net_income": 40511
+      },
+      "balance_sheet": {
+        "total_assets": 546259,
+        "total_liabilities": 406151,
+        "total_equity": 140108,
+        "current_assets": 155765,
+        "current_liabilities": 112545,
+        "cash": 68612,
+        "long_term_debt": 220330,
+        "accounts_receivable": 31704,
+        "inventories": 12339
+      },
+      "cash_flow_and_other": {
+        "capex": 17113,
+        "dividends_paid": 6242
+      },
+      "market_data": {
+        "shares_outstanding_millions": 8691,
+        "stock_price_usd": 214.96,
+        "employees": 355849
+      }
+    }
+  }
+}

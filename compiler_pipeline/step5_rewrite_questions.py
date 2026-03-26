@@ -25,6 +25,9 @@ Output: final_qa_dataset.json, final_qa_dataset.csv
 import json
 import csv
 import random
+import os
+
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 
 random.seed(42)
 
@@ -274,7 +277,7 @@ def rewrite_as_question(result):
 # ── Main ────────────────────────────────────────────────────
 
 def main():
-    with open("output/sampled_executed.json") as f:
+    with open(os.path.join(OUTPUT_DIR, "sampled_executed.json")) as f:
         results = json.load(f)
 
     dataset = []
@@ -297,11 +300,11 @@ def main():
         })
 
     # ── Save JSON ──
-    with open("output/final_qa_dataset.json", "w") as f:
+    with open(os.path.join(OUTPUT_DIR, "final_qa_dataset.json"), "w") as f:
         json.dump(dataset, f, indent=2, default=str, ensure_ascii=False)
 
     # ── Save CSV ──
-    with open("output/final_qa_dataset.csv", "w", newline="", encoding="utf-8") as f:
+    with open(os.path.join(OUTPUT_DIR, "final_qa_dataset.csv"), "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(["id", "company", "depth", "operation", "expression",
                          "question", "answer", "answer_formatted", "result_type",
@@ -359,8 +362,8 @@ def main():
             print(f"  Trace: {qa['computation_trace']}")
 
     print(f"\n{'='*65}")
-    print(f"✓ Saved {len(dataset)} QA pairs to output/final_qa_dataset.json")
-    print(f"✓ Saved {len(dataset)} QA pairs to output/final_qa_dataset.csv")
+    print(f"✓ Saved {len(dataset)} QA pairs to {os.path.join(OUTPUT_DIR, 'final_qa_dataset.json')}")
+    print(f"✓ Saved {len(dataset)} QA pairs to {os.path.join(OUTPUT_DIR, 'final_qa_dataset.csv')}")
 
 
 if __name__ == "__main__":

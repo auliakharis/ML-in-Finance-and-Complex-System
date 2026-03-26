@@ -19,12 +19,15 @@ Output: expression_tree.json (all valid nodes)
 """
 
 import json
+import os
+
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")
 from step2_operations import OPERATIONS, can_combine
 
 # ── Load schema from Step 1 ────────────────────────────────
 
 def load_schema():
-    with open("output/schema.json") as f:
+    with open(os.path.join(OUTPUT_DIR, "schema.json")) as f:
         return json.load(f)
 
 
@@ -260,7 +263,7 @@ def main():
 
     # ── Save ──
     all_nodes = list(leaves.values()) + depth1 + depth2
-    with open("output/expression_tree.json", "w") as f:
+    with open(os.path.join(OUTPUT_DIR, "expression_tree.json"), "w") as f:
         json.dump(all_nodes, f, indent=2)
 
     print(f"\n  Samples (depth 1):")
@@ -271,7 +274,7 @@ def main():
     for node in depth2[:5]:
         print(f"    {node['expression']}")
 
-    print(f"\n✓ Saved {len(all_nodes)} nodes to output/expression_tree.json")
+    print(f"\n✓ Saved {len(all_nodes)} nodes to {os.path.join(OUTPUT_DIR, 'expression_tree.json')}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "company_id": "COMP-0003",
+    "company_name": "Quantum Bridge Holdings",
+    "ticker": "QBHD",
+    "sector": "Healthcare",
+    "country": "USA",
+    "exchange": "NYSE",
+    "credit_rating": "AA"
+  },
+  "financials": {
+    "2022": {
+      "income_statement": {
+        "revenue": 173765,
+        "cost_of_goods_sold": 64497,
+        "gross_profit": 109268,
+        "operating_expenses": 8801,
+        "operating_income": 100467,
+        "net_income": 75911
+      },
+      "balance_sheet": {
+        "total_assets": 149332,
+        "total_liabilities": 111277,
+        "total_equity": 38055,
+        "current_assets": 103864,
+        "current_liabilities": 41943,
+        "cash": 7976,
+        "long_term_debt": 55980,
+        "accounts_receivable": 17816,
+        "inventories": 8347
+      },
+      "cash_flow_and_other": {
+        "capex": 6240,
+        "dividends_paid": 11354
+      },
+      "market_data": {
+        "shares_outstanding_millions": 2507,
+        "stock_price_usd": 763.5,
+        "employees": 461605
+      }
+    },
+    "2023": {
+      "income_statement": {
+        "revenue": 204552,
+        "cost_of_goods_sold": 116497,
+        "gross_profit": 88055,
+        "operating_expenses": 30217,
+        "operating_income": 57838,
+        "net_income": 50760
+      },
+      "balance_sheet": {
+        "total_assets": 278084,
+        "total_liabilities": 207867,
+        "total_equity": 70217,
+        "current_assets": 165850,
+        "current_liabilities": 64410,
+        "cash": 23079,
+        "long_term_debt": 123216,
+        "accounts_receivable": 19787,
+        "inventories": 3523
+      },
+      "cash_flow_and_other": {
+        "capex": 17445,
+        "dividends_paid": 19857
+      },
+      "market_data": {
+        "shares_outstanding_millions": 8037,
+        "stock_price_usd": 113.72,
+        "employees": 331577
+      }
+    },
+    "2024": {
+      "income_statement": {
+        "revenue": 242418,
+        "cost_of_goods_sold": 90739,
+        "gross_profit": 151679,
+        "operating_expenses": 37704,
+        "operating_income": 113975,
+        "net_income": 88750
+      },
+      "balance_sheet": {
+        "total_assets": 166355,
+        "total_liabilities": 122670,
+        "total_equity": 43685,
+        "current_assets": 127569,
+        "current_liabilities": 51824,
+        "cash": 31083,
+        "long_term_debt": 55124,
+        "accounts_receivable": 19369,
+        "inventories": 9738
+      },
+      "cash_flow_and_other": {
+        "capex": 22295,
+        "dividends_paid": 16028
+      },
+      "market_data": {
+        "shares_outstanding_millions": 3794,
+        "stock_price_usd": 65.26,
+        "employees": 15412
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "company_id": "COMP-0010",
+    "company_name": "Orion Financial Group",
+    "ticker": "ORFG",
+    "sector": "Financials",
+    "country": "UK",
+    "exchange": "LSE",
+    "credit_rating": "AAA"
+  },
+  "financials": {
+    "2022": {
+      "income_statement": {
+        "revenue": 249891,
+        "cost_of_goods_sold": 140648,
+        "gross_profit": 109243,
+        "operating_expenses": 47256,
+        "operating_income": 61987,
+        "net_income": 45167
+      },
+      "balance_sheet": {
+        "total_assets": 205045,
+        "total_liabilities": 116930,
+        "total_equity": 88115,
+        "current_assets": 32125,
+        "current_liabilities": 39515,
+        "cash": 40141,
+        "long_term_debt": 54677,
+        "accounts_receivable": 31323,
+        "inventories": 20246
+      },
+      "cash_flow_and_other": {
+        "capex": 19942,
+        "dividends_paid": 9867
+      },
+      "market_data": {
+        "shares_outstanding_millions": 9088,
+        "stock_price_usd": 188.12,
+        "employees": 113614
+      }
+    },
+    "2023": {
+      "income_statement": {
+        "revenue": 260395,
+        "cost_of_goods_sold": 81520,
+        "gross_profit": 178875,
+        "operating_expenses": 30525,
+        "operating_income": 148350,
+        "net_income": 113365
+      },
+      "balance_sheet": {
+        "total_assets": 331637,
+        "total_liabilities": 141655,
+        "total_equity": 189982,
+        "current_assets": 73010,
+        "current_liabilities": 39934,
+        "cash": 55349,
+        "long_term_debt": 74476,
+        "accounts_receivable": 11118,
+        "inventories": 5806
+      },
+      "cash_flow_and_other": {
+        "capex": 5772,
+        "dividends_paid": 29146
+      },
+      "market_data": {
+        "shares_outstanding_millions": 2122,
+        "stock_price_usd": 377.43,
+        "employees": 29891
+      }
+    },
+    "2024": {
+      "income_statement": {
+        "revenue": 267204,
+        "cost_of_goods_sold": 105612,
+        "gross_profit": 161592,
+        "operating_expenses": 30827,
+        "operating_income": 130765,
+        "net_income": 97780
+      },
+      "balance_sheet": {
+        "total_assets": 353935,
+        "total_liabilities": 247662,
+        "total_equity": 106273,
+        "current_assets": 203935,
+        "current_liabilities": 77535,
+        "cash": 16996,
+        "long_term_debt": 173354,
+        "accounts_receivable": 11206,
+        "inventories": 9518
+      },
+      "cash_flow_and_other": {
+        "capex": 12825,
+        "dividends_paid": 25428
+      },
+      "market_data": {
+        "shares_outstanding_millions": 11740,
+        "stock_price_usd": 526.63,
+        "employees": 378345
+      }
+    }
+  }
+}

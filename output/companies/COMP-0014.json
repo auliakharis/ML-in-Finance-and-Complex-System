@@ -1,0 +1,103 @@
+{
+  "profile": {
+    "company_id": "COMP-0014",
+    "company_name": "ClearPath Logistics",
+    "ticker": "CPTH",
+    "sector": "Industrials",
+    "country": "USA",
+    "exchange": "NYSE",
+    "credit_rating": "CCC"
+  },
+  "financials": {
+    "2022": {
+      "income_statement": {
+        "revenue": 230637,
+        "cost_of_goods_sold": 117962,
+        "gross_profit": 112675,
+        "operating_expenses": 13037,
+        "operating_income": 99638,
+        "net_income": 83933
+      },
+      "balance_sheet": {
+        "total_assets": 360786,
+        "total_liabilities": 261147,
+        "total_equity": 99639,
+        "current_assets": 77031,
+        "current_liabilities": 80526,
+        "cash": 31822,
+        "long_term_debt": 162319,
+        "accounts_receivable": 27475,
+        "inventories": 11404
+      },
+      "cash_flow_and_other": {
+        "capex": 8263,
+        "dividends_paid": 3853
+      },
+      "market_data": {
+        "shares_outstanding_millions": 3450,
+        "stock_price_usd": 131.96,
+        "employees": 136488
+      }
+    },
+    "2023": {
+      "income_statement": {
+        "revenue": 221371,
+        "cost_of_goods_sold": 72352,
+        "gross_profit": 149019,
+        "operating_expenses": 46162,
+        "operating_income": 102857,
+        "net_income": 80330
+      },
+      "balance_sheet": {
+        "total_assets": 171727,
+        "total_liabilities": 126383,
+        "total_equity": 45344,
+        "current_assets": 81958,
+        "current_liabilities": 46405,
+        "cash": 16640,
+        "long_term_debt": 65213,
+        "accounts_receivable": 17765,
+        "inventories": 4008
+      },
+      "cash_flow_and_other": {
+        "capex": 12180,
+        "dividends_paid": 19216
+      },
+      "market_data": {
+        "shares_outstanding_millions": 13352,
+        "stock_price_usd": 591.61,
+        "employees": 303838
+      }
+    },
+    "2024": {
+      "income_statement": {
+        "revenue": 205265,
+        "cost_of_goods_sold": 82725,
+        "gross_profit": 122540,
+        "operating_expenses": 37945,
+        "operating_income": 84595,
+        "net_income": 61576
+      },
+      "balance_sheet": {
+        "total_assets": 204336,
+        "total_liabilities": 53647,
+        "total_equity": 150689,
+        "current_assets": 60642,
+        "current_liabilities": 24428,
+        "cash": 32035,
+        "long_term_debt": 27230,
+        "accounts_receivable": 23875,
+        "inventories": 3539
+      },
+      "cash_flow_and_other": {
+        "capex": 11367,
+        "dividends_paid": 6851
+      },
+      "market_data": {
+        "shares_outstanding_millions": 14954,
+        "stock_price_usd": 357.17,
+        "employees": 408051
+      }
+    }
+  }
+}
