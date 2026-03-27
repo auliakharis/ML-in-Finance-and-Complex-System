@@ -1,0 +1,41 @@
+{
+  "company_name": {
+    "type": "categorical",
+    "desc": "Company name",
+    "year": null
+  },
+  "ticker": {
+    "type": "categorical",
+    "desc": "Stock ticker symbol",
+    "year": null
+  },
+  "sector": {
+    "type": "categorical",
+    "desc": "Industry sector",
+    "year": null
+  },
+  "country": {
+    "type": "categorical",
+    "desc": "Country of headquarters",
+    "year": null
+  },
+  "exchange": {
+    "type": "categorical",
+    "desc": "Stock exchange",
+    "year": null
+  },
+  "credit_rating": {
+    "type": "ordinal",
+    "desc": "Credit rating",
+    "year": null,
+    "order": [
+      "CCC",
+      "B",
+      "BB",
+      "BBB",
+      "A",
+      "AA",
+      "AAA"
+    ]
+  }
+}
