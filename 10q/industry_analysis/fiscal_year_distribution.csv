@@ -1,0 +1,36 @@
+industry,Apr,Aug,Dec,Feb,Jan,Jul,Jun,Mar,May,Nov,Oct,Sep,Total,Most common,Most common %
+Chemicals & Pharma,2,1,276,1,1,2,14,11,4,3,3,4,322,Dec,85.7
+Unknown,3,6,191,8,5,7,14,18,5,15,23,12,307,Dec,62.2
+Holding Companies,0,2,251,0,3,1,0,3,0,2,2,3,267,Dec,94.0
+Software & IT Services,4,1,129,2,7,3,13,11,2,3,4,9,188,Dec,68.6
+Manufacturing (Other),3,0,101,4,4,4,9,13,4,1,8,3,154,Dec,65.6
+Banking,0,0,118,0,0,0,3,0,0,0,3,6,130,Dec,90.8
+Personal Services,3,2,86,1,2,1,4,9,0,2,3,6,119,Dec,72.3
+Mining & Energy,3,3,86,1,1,2,6,4,2,1,1,5,115,Dec,74.8
+Instruments & Medical Devices,3,0,90,0,3,0,3,4,0,0,2,1,106,Dec,84.9
+Electronics & Tech Hardware,0,0,66,0,3,0,5,11,0,0,3,11,99,Dec,66.7
+Transportation,0,0,68,0,0,0,0,3,0,3,1,0,75,Dec,90.7
+Utilities,0,1,55,0,0,0,1,3,0,0,0,5,65,Dec,84.6
+Credit & Finance,0,0,54,0,1,0,2,5,0,0,1,2,65,Dec,83.1
+Transportation Equipment,1,0,48,0,1,0,4,3,0,0,2,1,60,Dec,80.0
+Securities & Brokers,0,0,48,0,1,0,3,2,0,0,0,2,56,Dec,85.7
+Insurance,0,0,46,0,0,0,0,3,0,0,0,0,49,Dec,93.9
+Retail (Misc),1,0,31,1,2,0,1,5,0,0,2,3,46,Dec,67.4
+Professional Services,0,1,26,0,2,1,3,5,0,1,1,3,43,Dec,60.5
+Wholesale,1,1,23,0,1,0,4,4,0,1,0,3,38,Dec,60.5
+Real Estate,0,0,37,0,0,0,0,0,0,0,0,0,37,Dec,100.0
+Healthcare Services,0,0,28,0,0,0,1,0,0,1,0,3,33,Dec,84.8
+Food & Beverage Manufacturing,1,0,18,1,1,0,4,1,1,1,0,2,30,Dec,60.0
+Construction,0,0,19,0,0,0,0,3,0,0,1,1,24,Dec,79.2
+Retail (Other),0,0,16,3,4,0,0,0,0,0,0,0,23,Dec,69.6
+Agriculture,1,0,10,0,0,0,1,0,0,0,2,2,16,Dec,62.5
+Airlines,0,0,14,0,0,0,0,1,0,0,0,1,16,Dec,87.5
+Education,0,2,8,0,0,1,0,1,1,0,0,3,16,Dec,50.0
+Retail (Auto),1,0,7,0,1,1,0,0,0,0,1,1,12,Dec,58.3
+Retail (Apparel),0,0,0,2,4,0,0,1,0,0,0,1,8,Jan,50.0
+Hotels & Hospitality,0,0,8,0,0,0,0,0,0,0,0,0,8,Dec,100.0
+Petroleum Refining,0,0,8,0,0,0,0,0,0,0,0,0,8,Dec,100.0
+Retail (Building/Home),0,1,2,1,0,0,1,0,0,0,0,0,5,Dec,40.0
+Tobacco,0,0,4,0,0,0,0,0,0,0,0,0,4,Dec,100.0
+Government & Other,0,0,1,0,0,0,0,0,0,0,0,0,1,Dec,100.0
+Retail (Food/Grocery),0,0,1,0,0,0,0,0,0,0,0,0,1,Dec,100.0
