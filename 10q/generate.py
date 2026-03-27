@@ -356,7 +356,7 @@ def _generate_company_name(rng: random.Random) -> tuple[str, str]:
 # (fiscal_year_start_month, fiscal_year_start_day) for each industry archetype
 FISCAL_YEAR_STARTS = {
     "tech":                 (10, 1),  # Apple-like: starts October
-    "retail":               (1,  1),  # Walmart-like: starts February
+    "retail":               (1,  1),  # calendar year: starts January
     "pharma":               (1,  1),  # calendar year
     "energy":               (1,  1),  # calendar year
     "airline":              (1,  1),  # calendar year
@@ -809,34 +809,65 @@ def generate_report(
     def _scale_bs(bs, factor, as_of):
         ca = bs.current_assets; nca = bs.non_current_assets
         cl = bs.current_liabilities; ncl = bs.non_current_liabilities
-        eq = bs.shareholders_equity
-        scaled_assets = (bs.total_assets * factor)
-        scaled_liab   = (bs.total_liabilities * factor)
-        scaled_eq     = scaled_assets - scaled_liab
+
+        # Round each component first
+        s_cash   = round((ca.cash_and_cash_equivalents or 0) * factor, 0)
+        s_st_inv = round((ca.short_term_investments or 0) * factor, 0)
+        s_ar     = round((ca.accounts_receivable_net or 0) * factor, 0)
+        s_inv    = round((ca.inventories or 0) * factor, 0)
+        s_prep   = round((ca.prepaid_expenses_and_other or 0) * factor, 0)
+
+        s_lt_inv = round((nca.long_term_marketable_securities or 0) * factor, 0)
+        s_ppe    = round((nca.property_plant_and_equipment_net or 0) * factor, 0)
+        s_gw     = round((nca.goodwill or 0) * factor, 0)
+        s_onca   = round((nca.other_non_current_assets or 0) * factor, 0)
+
+        s_ap     = round((cl.accounts_payable or 0) * factor, 0)
+        s_ae     = round((cl.accrued_expenses_and_other or 0) * factor, 0)
+        s_dr     = round((cl.deferred_revenue_current or 0) * factor, 0)
+        s_cltd   = round((cl.current_portion_of_long_term_debt or 0) * factor, 0)
+
+        s_ltd    = round((ncl.long_term_debt or 0) * factor, 0)
+        s_oncl   = round((ncl.other_non_current_liabilities or 0) * factor, 0)
+
+        # Derive totals from rounded components — guarantees identity
+        s_total_ca  = s_cash + s_st_inv + s_ar + s_inv + s_prep
+        s_total_nca = s_lt_inv + s_ppe + s_gw + s_onca
+        s_total_assets = s_total_ca + s_total_nca
+
+        s_total_cl  = s_ap + s_ae + s_dr + s_cltd
+        s_total_ncl = s_ltd + s_oncl
+        s_total_liab = s_total_cl + s_total_ncl
+
+        # Equity is derived from assets - liabilities — guarantees balance
+        s_total_eq   = s_total_assets - s_total_liab
+        s_apic       = round(s_total_eq * 0.7, 0)
+        s_re         = s_total_eq - s_apic  # exact remainder, no rounding
+
         return BalanceSheet(
             as_of=as_of,
             current_assets=CurrentAssets(
-                cash_and_cash_equivalents=round((ca.cash_and_cash_equivalents or 0)*factor,0),
-                short_term_investments=round((ca.short_term_investments or 0)*factor,0),
-                accounts_receivable_net=round((ca.accounts_receivable_net or 0)*factor,0),
-                inventories=round((ca.inventories or 0)*factor,0),
-                prepaid_expenses_and_other=round((ca.prepaid_expenses_and_other or 0)*factor,0)),
+                cash_and_cash_equivalents=s_cash,
+                short_term_investments=s_st_inv,
+                accounts_receivable_net=s_ar,
+                inventories=s_inv,
+                prepaid_expenses_and_other=s_prep),
             non_current_assets=NonCurrentAssets(
-                long_term_marketable_securities=round((nca.long_term_marketable_securities or 0)*factor,0),
-                property_plant_and_equipment_net=round((nca.property_plant_and_equipment_net or 0)*factor,0),
-                goodwill=round((nca.goodwill or 0)*factor,0),
-                other_non_current_assets=round((nca.other_non_current_assets or 0)*factor,0)),
+                long_term_marketable_securities=s_lt_inv,
+                property_plant_and_equipment_net=s_ppe,
+                goodwill=s_gw,
+                other_non_current_assets=s_onca),
             current_liabilities=CurrentLiabilities(
-                accounts_payable=round((cl.accounts_payable or 0)*factor,0),
-                accrued_expenses_and_other=round((cl.accrued_expenses_and_other or 0)*factor,0),
-                deferred_revenue_current=round((cl.deferred_revenue_current or 0)*factor,0),
-                current_portion_of_long_term_debt=round((cl.current_portion_of_long_term_debt or 0)*factor,0)),
+                accounts_payable=s_ap,
+                accrued_expenses_and_other=s_ae,
+                deferred_revenue_current=s_dr,
+                current_portion_of_long_term_debt=s_cltd),
             non_current_liabilities=NonCurrentLiabilities(
-                long_term_debt=round((ncl.long_term_debt or 0)*factor,0),
-                other_non_current_liabilities=round((ncl.other_non_current_liabilities or 0)*factor,0)),
+                long_term_debt=s_ltd,
+                other_non_current_liabilities=s_oncl),
             shareholders_equity=ShareholdersEquity(
-                common_stock_and_additional_paid_in_capital=round(scaled_eq*0.7,0),
-                retained_earnings=round(scaled_eq*0.3,0),
+                common_stock_and_additional_paid_in_capital=s_apic,
+                retained_earnings=s_re,
                 accumulated_other_comprehensive_income_loss=0),
         )
 

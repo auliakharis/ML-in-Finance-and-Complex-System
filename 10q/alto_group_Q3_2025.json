@@ -3,12 +3,12 @@
   "form_type": "10-Q",
   "fiscal_year": "2025",
   "quarter": 3,
-  "period": "Three Months Ended November 30, 2025",
-  "fiscal_year_start": "February 01, 2025",
+  "period": "Three Months Ended October 31, 2025",
+  "fiscal_year_start": "January 01, 2025",
   "financial_statements": {
     "income_statement": {
       "current_quarter": {
-        "period": "Three Months Ended November 30, 2025",
+        "period": "Three Months Ended October 31, 2025",
         "revenue": {
           "net_sales": 98077.0,
           "other_components": {},
@@ -42,7 +42,7 @@
         }
       },
       "prior_year_quarter": {
-        "period": "Three Months Ended November 30, 2024",
+        "period": "Three Months Ended October 31, 2024",
         "revenue": {
           "net_sales": 104345.0,
           "other_components": {},
@@ -76,7 +76,7 @@
         }
       },
       "current_ytd": {
-        "period": "Nine Months Ended November 30, 2025",
+        "period": "Nine Months Ended October 31, 2025",
         "revenue": {
           "net_sales": 294231.0,
           "other_components": {},
@@ -110,7 +110,7 @@
         }
       },
       "prior_year_ytd": {
-        "period": "Nine Months Ended November 30, 2024",
+        "period": "Nine Months Ended October 31, 2024",
         "revenue": {
           "net_sales": 313035.0,
           "other_components": {},
@@ -146,7 +146,7 @@
     },
     "comprehensive_income": {
       "current_quarter": {
-        "period": "Three Months Ended November 30, 2025",
+        "period": "Three Months Ended October 31, 2025",
         "net_income": 791.0,
         "other_comprehensive_income": {
           "foreign_currency_translation": 86.0,
@@ -156,7 +156,7 @@
         "total_comprehensive_income": 934.0
       },
       "prior_year_quarter": {
-        "period": "Three Months Ended November 30, 2024",
+        "period": "Three Months Ended October 31, 2024",
         "net_income": 841.0,
         "other_comprehensive_income": {
           "foreign_currency_translation": 28.0,
@@ -166,7 +166,7 @@
         "total_comprehensive_income": 887.0
       },
       "current_ytd": {
-        "period": "Nine Months Ended November 30, 2025",
+        "period": "Nine Months Ended October 31, 2025",
         "net_income": 2373.0,
         "other_comprehensive_income": {
           "foreign_currency_translation": 83.0,
@@ -176,7 +176,7 @@
         "total_comprehensive_income": 2511.0
       },
       "prior_year_ytd": {
-        "period": "Nine Months Ended November 30, 2024",
+        "period": "Nine Months Ended October 31, 2024",
         "net_income": 2523.0,
         "other_comprehensive_income": {
           "foreign_currency_translation": 69.0,
@@ -188,7 +188,7 @@
     },
     "balance_sheet": {
       "current": {
-        "as_of": "November 30, 2025",
+        "as_of": "October 31, 2025",
         "current_assets": {
           "cash_and_cash_equivalents": 6421.0,
           "short_term_investments": 6761.0,
@@ -227,7 +227,7 @@
         "total_liabilities_and_equity": 111505.0
       },
       "prior_fiscal_year_end": {
-        "as_of": "January 31, 2025",
+        "as_of": "December 31, 2024",
         "current_assets": {
           "cash_and_cash_equivalents": 6243.0,
           "short_term_investments": 6573.0,
@@ -259,17 +259,17 @@
         "total_liabilities": 58381.0,
         "shareholders_equity": {
           "common_stock_and_apic": 35020.0,
-          "retained_earnings": 15009.0,
+          "retained_earnings": 15008.0,
           "accumulated_other_comprehensive_loss": 0,
-          "total": 50029.0
+          "total": 50028.0
         },
-        "total_liabilities_and_equity": 108410.0
+        "total_liabilities_and_equity": 108409.0
       },
       "prior_year_quarter": null
     },
     "cash_flows": {
       "current_ytd": {
-        "period": "Nine Months Ended November 30, 2025",
+        "period": "Nine Months Ended October 31, 2025",
         "operating_activities": {
           "net_income": 2373.0,
           "depreciation_and_amortization": 9108.0,
@@ -299,7 +299,7 @@
         "closing_cash": 9361.0
       },
       "prior_ytd": {
-        "period": "Nine Months Ended November 30, 2024",
+        "period": "Nine Months Ended October 31, 2024",
         "operating_activities": {
           "net_income": 2523.0,
           "depreciation_and_amortization": 9690.0,

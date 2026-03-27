@@ -9,26 +9,26 @@
 [X] QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE
     SECURITIES EXCHANGE ACT OF 1934
 
-    For the quarterly period ended November 30, 2025.
+    For the quarterly period ended October 31, 2025.
 
 [ ] TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE
     SECURITIES EXCHANGE ACT OF 1934
 
     For the transition period from ______ to ______.
 
-                         Commission File Number 3-12952                         
+                         Commission File Number 5-67324                         
 
                                    Alto Group                                   
              (Exact name of registrant as specified in its charter)             
 
-Maryland                                                              63-2469688
+Delaware                                                              52-2235704
 (State or other jurisdiction of incorporation or organization)          (I.R.S. Employer Identification No.)
 
-1 Corporate Drive                                                          90001
-Los Angeles, CA
+100 Main Street                                                            02101
+Boston, MA
 (Address of principal executive offices)                         (Zip Code)
 
-Registrant's telephone number, including area code: (266) 738-4261
+Registrant's telephone number, including area code: (332) 338-7447
 
 Former name, former address and former fiscal year, if changed since last report: N/A
 
@@ -46,8 +46,8 @@ or an emerging growth company.
   Non-Accelerated Filer    [ ]    Smaller Reporting Company  [ ]
                                   Emerging Growth Company    [ ]
 
-The registrant had 4,016,000 shares of common stock outstanding
-as of November 30, 2025.
+The registrant had 4,104,000 shares of common stock outstanding
+as of October 31, 2025.
 
 ================================================================================
 
@@ -61,7 +61,7 @@ Item 1.  Financial Statements (Unaudited)
   ──────────────────────────────────────────────────────────────────────
   CONDENSED CONSOLIDATED STATEMENT OF OPERATIONS
   ──────────────────────────────────────────────────────────────────────
-                                                Q Nov 2025    Q Nov 2024  YTD Nov 2025  YTD Nov 2024
+                                                Q Oct 2025    Q Oct 2024  YTD Oct 2025  YTD Oct 2024
   ──────────────────────────────────────────────────────────────────────────────────────────────────
   Revenues:
     Net sales                                         98,077       104,345       294,231       313,035
@@ -91,7 +91,7 @@ Item 1.  Financial Statements (Unaudited)
   ──────────────────────────────────────────────────────────────────────
   CONDENSED CONSOLIDATED STATEMENT OF COMPREHENSIVE INCOME
   ──────────────────────────────────────────────────────────────────────
-                                                Q Nov 2025    Q Nov 2024  YTD Nov 2025  YTD Nov 2024
+                                                Q Oct 2025    Q Oct 2024  YTD Oct 2025  YTD Oct 2024
   ──────────────────────────────────────────────────────────────────────────────────────────────────
   Net income                                           791           841         2,373         2,523
   Other comprehensive income/(loss):
@@ -104,7 +104,7 @@ Item 1.  Financial Statements (Unaudited)
   ──────────────────────────────────────────────────────────────────────
   CONDENSED CONSOLIDATED BALANCE SHEET
   ──────────────────────────────────────────────────────────────────────
-                                              Nov 30, 2025  Jan 31, 2025
+                                              Oct 31, 2025  Dec 31, 2024
   ──────────────────────────────────────────────────────────────────────
   Current assets:
     Cash and cash equivalents                          6,421         6,243
@@ -133,15 +133,15 @@ Item 1.  Financial Statements (Unaudited)
   Total liabilities                                 60,048        58,381
   Shareholders equity:
     Common stock and APIC                             41,581        35,020
-    Retained earnings/(accumulated deficit)           15,735        15,009
+    Retained earnings/(accumulated deficit)           15,735        15,008
     Accumulated other comprehensive loss              -5,859             0
-    Total shareholders equity                         51,457        50,029
-  Total liabilities and equity                     111,505       108,410
+    Total shareholders equity                         51,457        50,028
+  Total liabilities and equity                     111,505       108,409
 
   ──────────────────────────────────────────────────────────────────────
   CONDENSED CONSOLIDATED STATEMENT OF CASH FLOWS
   ──────────────────────────────────────────────────────────────────────
-                                              YTD Nov 30, 2025  YTD Nov 30, 2024
+                                              YTD Oct 31, 2025  YTD Oct 31, 2024
   ──────────────────────────────────────────────────────────────────────────────
   Operating activities:
     Net income                                         2,373         2,523

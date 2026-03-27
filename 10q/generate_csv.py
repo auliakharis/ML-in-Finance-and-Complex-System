@@ -38,6 +38,7 @@ FIELD_META = {
     "period":                     {"type": "categorical", "unit": None,         "desc": "Period label"},
     "fiscal_year_start":          {"type": "categorical", "unit": None,         "desc": "Fiscal year start date"},
     # Income statement
+    "net_sales":                  {"type": "numeric", "unit": "M_USD",    "desc": "Net sales"},
     "revenues":                   {"type": "numeric", "unit": "M_USD",    "desc": "Total revenues"},
     "membership_and_other_income":{"type": "numeric", "unit": "M_USD",    "desc": "Membership and other income"},
     "cost_of_sales":              {"type": "numeric", "unit": "M_USD",    "desc": "Cost of sales"},
@@ -94,6 +95,7 @@ FIELD_META = {
     "cf_repurchases":             {"type": "numeric", "unit": "M_USD",    "desc": "Share repurchases"},
     "cf_dividends":               {"type": "numeric", "unit": "M_USD",    "desc": "Dividends paid"},
     "cf_financing":               {"type": "numeric", "unit": "M_USD",    "desc": "Net cash from financing activities"},
+    "cf_fx_effect":               {"type": "numeric", "unit": "M_USD",    "desc": "Effect of exchange rate on cash"},
     "cf_net_change":              {"type": "numeric", "unit": "M_USD",    "desc": "Net change in cash"},
     "cf_closing_cash":            {"type": "numeric", "unit": "M_USD",    "desc": "Cash at end of period"},
 }
@@ -203,16 +205,25 @@ def report_to_row(report, industry: str = "") -> dict:
         if ops is None or date is None: return {}
         tag = f"{prefix}_{date}"
         rev = ops.get("revenue", {})
-
-        # Revenue — total only, plus any named sub-lines
         result = {}
-        result[f"revenues_{tag}"] = rev.get("total_revenues")
+
+        # net_sales — primary trading revenue (excludes membership/ancillary)
+        ns = rev.get("net_sales")
+        if isinstance(ns, dict):
+            result[f"net_sales_{tag}"] = ns.get("total")
+        elif ns is not None:
+            result[f"net_sales_{tag}"] = ns
+
+        # other revenue lines (membership, ancillary)
         for lbl, val in rev.get("other_components", {}).items():
             safe = lbl.lower().replace(" ", "_").replace("/", "_")
             result[f"{safe}_{tag}"] = val
         for lbl, val in rev.get("other_operating_revenue", {}).items():
             safe = lbl.lower().replace(" ", "_").replace("/", "_")
             result[f"{safe}_{tag}"] = val
+
+        # total revenues (net_sales + all other lines)
+        result[f"revenues_{tag}"] = rev.get("total_revenues")
 
         # Costs
         cos = ops.get("costs_and_expenses", {}).get("cost_of_sales")
@@ -304,6 +315,7 @@ def report_to_row(report, industry: str = "") -> dict:
             f"cf_repurchases_{tag}":  fa.get("share_repurchases"),
             f"cf_dividends_{tag}":    fa.get("dividends_paid"),
             f"cf_financing_{tag}":    fa.get("total"),
+            f"cf_fx_effect_{tag}":   cf_dict.get("effect_of_exchange_rate_on_cash"),
             f"cf_net_change_{tag}":   cf_dict.get("net_change_in_cash"),
             f"cf_closing_cash_{tag}": cf_dict.get("closing_cash"),
         }

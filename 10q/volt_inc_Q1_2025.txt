@@ -16,19 +16,19 @@
 
     For the transition period from ______ to ______.
 
-                         Commission File Number 7-23127                         
+                         Commission File Number 7-47250                         
 
                                     Volt Inc                                    
              (Exact name of registrant as specified in its charter)             
 
-Maryland                                                              15-3205975
+Nevada                                                                62-9403867
 (State or other jurisdiction of incorporation or organization)          (I.R.S. Employer Identification No.)
 
-10 Industrial Park                                                         90001
-Los Angeles, CA
+One Financial Center                                                       10001
+New York, NY
 (Address of principal executive offices)                         (Zip Code)
 
-Registrant's telephone number, including area code: (954) 200-2399
+Registrant's telephone number, including area code: (383) 246-8398
 
 Former name, former address and former fiscal year, if changed since last report: N/A
 
@@ -46,7 +46,7 @@ or an emerging growth company.
   Non-Accelerated Filer    [ ]    Smaller Reporting Company  [ ]
                                   Emerging Growth Company    [ ]
 
-The registrant had 4,138,000 shares of common stock outstanding
+The registrant had 4,067,000 shares of common stock outstanding
 as of January 31, 2026.
 
 ================================================================================
@@ -137,11 +137,11 @@ Item 1.  Financial Statements (Unaudited)
     Total non-current liabilities                     18,981        17,820
   Total liabilities                                 41,838        39,279
   Shareholders equity:
-    Common stock and APIC                             41,100        47,222
+    Common stock and APIC                             41,100        47,221
     Retained earnings/(accumulated deficit)           37,733        20,238
     Accumulated other comprehensive loss              -6,977             0
-    Total shareholders equity                         71,856        67,460
-  Total liabilities and equity                     113,694       106,739
+    Total shareholders equity                         71,856        67,459
+  Total liabilities and equity                     113,694       106,738
 
   ──────────────────────────────────────────────────────────────────────
   CONDENSED CONSOLIDATED STATEMENT OF CASH FLOWS

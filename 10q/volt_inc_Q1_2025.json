@@ -194,12 +194,12 @@
         },
         "total_liabilities": 39279.0,
         "shareholders_equity": {
-          "common_stock_and_apic": 47222.0,
+          "common_stock_and_apic": 47221.0,
           "retained_earnings": 20238.0,
           "accumulated_other_comprehensive_loss": 0,
-          "total": 67460.0
+          "total": 67459.0
         },
-        "total_liabilities_and_equity": 106739.0
+        "total_liabilities_and_equity": 106738.0
       },
       "prior_year_quarter": null
     },

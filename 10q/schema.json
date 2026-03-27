@@ -1,0 +1,1487 @@
+{
+  "company_name": {
+    "type": "categorical",
+    "unit": null,
+    "desc": "Company name",
+    "base_name": "company_name",
+    "period_tag": null,
+    "prefix": null,
+    "date": null
+  },
+  "form_type": {
+    "type": "categorical",
+    "unit": null,
+    "desc": "SEC form type",
+    "base_name": "form_type",
+    "period_tag": null,
+    "prefix": null,
+    "date": null
+  },
+  "industry": {
+    "type": "categorical",
+    "unit": null,
+    "desc": "Industry",
+    "base_name": "industry",
+    "period_tag": null,
+    "prefix": null,
+    "date": null
+  },
+  "fiscal_year": {
+    "type": "categorical",
+    "unit": null,
+    "desc": "Fiscal year",
+    "base_name": "fiscal_year",
+    "period_tag": null,
+    "prefix": null,
+    "date": null
+  },
+  "quarter": {
+    "type": "categorical",
+    "unit": null,
+    "desc": "Quarter number",
+    "base_name": "quarter",
+    "period_tag": null,
+    "prefix": null,
+    "date": null
+  },
+  "period": {
+    "type": "categorical",
+    "unit": null,
+    "desc": "Period label",
+    "base_name": "period",
+    "period_tag": null,
+    "prefix": null,
+    "date": null
+  },
+  "fiscal_year_start": {
+    "type": "categorical",
+    "unit": null,
+    "desc": "Fiscal year start date",
+    "base_name": "fiscal_year_start",
+    "period_tag": null,
+    "prefix": null,
+    "date": null
+  },
+  "net_sales_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net sales (Q ended Oct 31 2025)",
+    "base_name": "net_sales",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "membership_and_other_income_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Membership and other income (Q ended Oct 31 2025)",
+    "base_name": "membership_and_other_income",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "revenues_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total revenues (Q ended Oct 31 2025)",
+    "base_name": "revenues",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "cost_of_sales_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cost of sales (Q ended Oct 31 2025)",
+    "base_name": "cost_of_sales",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "rd_expense_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "R&D expense (Q ended Oct 31 2025)",
+    "base_name": "rd_expense",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "sga_expense_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "SG&A expense (Q ended Oct 31 2025)",
+    "base_name": "sga_expense",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "total_costs_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total costs and expenses (Q ended Oct 31 2025)",
+    "base_name": "total_costs",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "gross_profit_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Gross profit (Q ended Oct 31 2025)",
+    "base_name": "gross_profit",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "operating_income_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Operating income (Q ended Oct 31 2025)",
+    "base_name": "operating_income",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "other_income_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other income/(expense), net (Q ended Oct 31 2025)",
+    "base_name": "other_income",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "pretax_income_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Income before taxes (Q ended Oct 31 2025)",
+    "base_name": "pretax_income",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "tax_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Provision for income taxes (Q ended Oct 31 2025)",
+    "base_name": "tax",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "net_income_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (Q ended Oct 31 2025)",
+    "base_name": "net_income",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "eps_basic_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS basic (Q ended Oct 31 2025)",
+    "base_name": "eps_basic",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "eps_diluted_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS diluted (Q ended Oct 31 2025)",
+    "base_name": "eps_diluted",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "shares_basic_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares basic (Q ended Oct 31 2025)",
+    "base_name": "shares_basic",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "shares_diluted_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares diluted (Q ended Oct 31 2025)",
+    "base_name": "shares_diluted",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "net_sales_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net sales (Q ended Oct 31 2024)",
+    "base_name": "net_sales",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "membership_and_other_income_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Membership and other income (Q ended Oct 31 2024)",
+    "base_name": "membership_and_other_income",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "revenues_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total revenues (Q ended Oct 31 2024)",
+    "base_name": "revenues",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "cost_of_sales_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cost of sales (Q ended Oct 31 2024)",
+    "base_name": "cost_of_sales",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "rd_expense_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "R&D expense (Q ended Oct 31 2024)",
+    "base_name": "rd_expense",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "sga_expense_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "SG&A expense (Q ended Oct 31 2024)",
+    "base_name": "sga_expense",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "total_costs_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total costs and expenses (Q ended Oct 31 2024)",
+    "base_name": "total_costs",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "gross_profit_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Gross profit (Q ended Oct 31 2024)",
+    "base_name": "gross_profit",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "operating_income_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Operating income (Q ended Oct 31 2024)",
+    "base_name": "operating_income",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "other_income_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other income/(expense), net (Q ended Oct 31 2024)",
+    "base_name": "other_income",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "pretax_income_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Income before taxes (Q ended Oct 31 2024)",
+    "base_name": "pretax_income",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "tax_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Provision for income taxes (Q ended Oct 31 2024)",
+    "base_name": "tax",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "net_income_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (Q ended Oct 31 2024)",
+    "base_name": "net_income",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "eps_basic_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS basic (Q ended Oct 31 2024)",
+    "base_name": "eps_basic",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "eps_diluted_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS diluted (Q ended Oct 31 2024)",
+    "base_name": "eps_diluted",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "shares_basic_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares basic (Q ended Oct 31 2024)",
+    "base_name": "shares_basic",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "shares_diluted_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares diluted (Q ended Oct 31 2024)",
+    "base_name": "shares_diluted",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "net_sales_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net sales (YTD ended Oct 31 2025)",
+    "base_name": "net_sales",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "membership_and_other_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Membership and other income (YTD ended Oct 31 2025)",
+    "base_name": "membership_and_other_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "revenues_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total revenues (YTD ended Oct 31 2025)",
+    "base_name": "revenues",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cost_of_sales_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cost of sales (YTD ended Oct 31 2025)",
+    "base_name": "cost_of_sales",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "rd_expense_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "R&D expense (YTD ended Oct 31 2025)",
+    "base_name": "rd_expense",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "sga_expense_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "SG&A expense (YTD ended Oct 31 2025)",
+    "base_name": "sga_expense",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "total_costs_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total costs and expenses (YTD ended Oct 31 2025)",
+    "base_name": "total_costs",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "gross_profit_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Gross profit (YTD ended Oct 31 2025)",
+    "base_name": "gross_profit",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "operating_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Operating income (YTD ended Oct 31 2025)",
+    "base_name": "operating_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "other_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other income/(expense), net (YTD ended Oct 31 2025)",
+    "base_name": "other_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "pretax_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Income before taxes (YTD ended Oct 31 2025)",
+    "base_name": "pretax_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "tax_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Provision for income taxes (YTD ended Oct 31 2025)",
+    "base_name": "tax",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "net_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (YTD ended Oct 31 2025)",
+    "base_name": "net_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "eps_basic_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS basic (YTD ended Oct 31 2025)",
+    "base_name": "eps_basic",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "eps_diluted_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS diluted (YTD ended Oct 31 2025)",
+    "base_name": "eps_diluted",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "shares_basic_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares basic (YTD ended Oct 31 2025)",
+    "base_name": "shares_basic",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "shares_diluted_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares diluted (YTD ended Oct 31 2025)",
+    "base_name": "shares_diluted",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "net_sales_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net sales (YTD ended Oct 31 2024)",
+    "base_name": "net_sales",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "membership_and_other_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Membership and other income (YTD ended Oct 31 2024)",
+    "base_name": "membership_and_other_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "revenues_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total revenues (YTD ended Oct 31 2024)",
+    "base_name": "revenues",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cost_of_sales_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cost of sales (YTD ended Oct 31 2024)",
+    "base_name": "cost_of_sales",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "rd_expense_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "R&D expense (YTD ended Oct 31 2024)",
+    "base_name": "rd_expense",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "sga_expense_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "SG&A expense (YTD ended Oct 31 2024)",
+    "base_name": "sga_expense",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "total_costs_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total costs and expenses (YTD ended Oct 31 2024)",
+    "base_name": "total_costs",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "gross_profit_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Gross profit (YTD ended Oct 31 2024)",
+    "base_name": "gross_profit",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "operating_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Operating income (YTD ended Oct 31 2024)",
+    "base_name": "operating_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "other_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other income/(expense), net (YTD ended Oct 31 2024)",
+    "base_name": "other_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "pretax_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Income before taxes (YTD ended Oct 31 2024)",
+    "base_name": "pretax_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "tax_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Provision for income taxes (YTD ended Oct 31 2024)",
+    "base_name": "tax",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "net_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (YTD ended Oct 31 2024)",
+    "base_name": "net_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "eps_basic_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS basic (YTD ended Oct 31 2024)",
+    "base_name": "eps_basic",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "eps_diluted_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "USD",
+    "desc": "EPS diluted (YTD ended Oct 31 2024)",
+    "base_name": "eps_diluted",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "shares_basic_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares basic (YTD ended Oct 31 2024)",
+    "base_name": "shares_basic",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "shares_diluted_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "thousands",
+    "desc": "Shares diluted (YTD ended Oct 31 2024)",
+    "base_name": "shares_diluted",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "ci_net_income_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (CI statement) (Q ended Oct 31 2025)",
+    "base_name": "ci_net_income",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "ci_fx_translation_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "FX translation adjustment (Q ended Oct 31 2025)",
+    "base_name": "ci_fx_translation",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "ci_unrealized_gains_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Unrealized gains/losses on securities (Q ended Oct 31 2025)",
+    "base_name": "ci_unrealized_gains",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "ci_total_oci_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total other comprehensive income/(loss) (Q ended Oct 31 2025)",
+    "base_name": "ci_total_oci",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "comprehensive_income_Q_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total comprehensive income (Q ended Oct 31 2025)",
+    "base_name": "comprehensive_income",
+    "period_tag": "Q_Oct_31_2025",
+    "prefix": "Q",
+    "date": "Oct_31_2025"
+  },
+  "ci_net_income_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (CI statement) (Q ended Oct 31 2024)",
+    "base_name": "ci_net_income",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "ci_fx_translation_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "FX translation adjustment (Q ended Oct 31 2024)",
+    "base_name": "ci_fx_translation",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "ci_unrealized_gains_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Unrealized gains/losses on securities (Q ended Oct 31 2024)",
+    "base_name": "ci_unrealized_gains",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "ci_total_oci_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total other comprehensive income/(loss) (Q ended Oct 31 2024)",
+    "base_name": "ci_total_oci",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "comprehensive_income_Q_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total comprehensive income (Q ended Oct 31 2024)",
+    "base_name": "comprehensive_income",
+    "period_tag": "Q_Oct_31_2024",
+    "prefix": "Q",
+    "date": "Oct_31_2024"
+  },
+  "ci_net_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (CI statement) (YTD ended Oct 31 2025)",
+    "base_name": "ci_net_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "ci_fx_translation_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "FX translation adjustment (YTD ended Oct 31 2025)",
+    "base_name": "ci_fx_translation",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "ci_unrealized_gains_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Unrealized gains/losses on securities (YTD ended Oct 31 2025)",
+    "base_name": "ci_unrealized_gains",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "ci_total_oci_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total other comprehensive income/(loss) (YTD ended Oct 31 2025)",
+    "base_name": "ci_total_oci",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "comprehensive_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total comprehensive income (YTD ended Oct 31 2025)",
+    "base_name": "comprehensive_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "ci_net_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (CI statement) (YTD ended Oct 31 2024)",
+    "base_name": "ci_net_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "ci_fx_translation_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "FX translation adjustment (YTD ended Oct 31 2024)",
+    "base_name": "ci_fx_translation",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "ci_unrealized_gains_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Unrealized gains/losses on securities (YTD ended Oct 31 2024)",
+    "base_name": "ci_unrealized_gains",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "ci_total_oci_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total other comprehensive income/(loss) (YTD ended Oct 31 2024)",
+    "base_name": "ci_total_oci",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "comprehensive_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total comprehensive income (YTD ended Oct 31 2024)",
+    "base_name": "comprehensive_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cash_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cash and cash equivalents (as of Oct 31 2025)",
+    "base_name": "cash",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "st_investments_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Short-term investments (as of Oct 31 2025)",
+    "base_name": "st_investments",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "accounts_receivable_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accounts receivable, net (as of Oct 31 2025)",
+    "base_name": "accounts_receivable",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "inventories_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Inventories (as of Oct 31 2025)",
+    "base_name": "inventories",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "prepaid_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Prepaid expenses and other (as of Oct 31 2025)",
+    "base_name": "prepaid",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "current_assets_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total current assets (as of Oct 31 2025)",
+    "base_name": "current_assets",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "lt_investments_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Long-term marketable securities (as of Oct 31 2025)",
+    "base_name": "lt_investments",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "ppe_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "PP&E, net (as of Oct 31 2025)",
+    "base_name": "ppe",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "goodwill_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Goodwill (as of Oct 31 2025)",
+    "base_name": "goodwill",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "other_nca_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other non-current assets (as of Oct 31 2025)",
+    "base_name": "other_nca",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "total_assets_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total assets (as of Oct 31 2025)",
+    "base_name": "total_assets",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "accounts_payable_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accounts payable (as of Oct 31 2025)",
+    "base_name": "accounts_payable",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "deferred_revenue_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Deferred revenue (as of Oct 31 2025)",
+    "base_name": "deferred_revenue",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "accrued_expenses_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accrued expenses and other (as of Oct 31 2025)",
+    "base_name": "accrued_expenses",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "current_debt_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Current portion of long-term debt (as of Oct 31 2025)",
+    "base_name": "current_debt",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "current_liabilities_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total current liabilities (as of Oct 31 2025)",
+    "base_name": "current_liabilities",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "long_term_debt_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Long-term debt (as of Oct 31 2025)",
+    "base_name": "long_term_debt",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "other_ncl_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other non-current liabilities (as of Oct 31 2025)",
+    "base_name": "other_ncl",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "total_liabilities_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total liabilities (as of Oct 31 2025)",
+    "base_name": "total_liabilities",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "common_stock_apic_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Common stock and APIC (as of Oct 31 2025)",
+    "base_name": "common_stock_apic",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "retained_earnings_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Retained earnings (as of Oct 31 2025)",
+    "base_name": "retained_earnings",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "aoci_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accumulated other comprehensive income/(loss) (as of Oct 31 2025)",
+    "base_name": "aoci",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "total_equity_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total shareholders equity (as of Oct 31 2025)",
+    "base_name": "total_equity",
+    "period_tag": "BS_Oct_31_2025",
+    "prefix": "BS",
+    "date": "Oct_31_2025"
+  },
+  "cash_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cash and cash equivalents (as of Dec 31 2024)",
+    "base_name": "cash",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "st_investments_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Short-term investments (as of Dec 31 2024)",
+    "base_name": "st_investments",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "accounts_receivable_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accounts receivable, net (as of Dec 31 2024)",
+    "base_name": "accounts_receivable",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "inventories_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Inventories (as of Dec 31 2024)",
+    "base_name": "inventories",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "prepaid_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Prepaid expenses and other (as of Dec 31 2024)",
+    "base_name": "prepaid",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "current_assets_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total current assets (as of Dec 31 2024)",
+    "base_name": "current_assets",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "lt_investments_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Long-term marketable securities (as of Dec 31 2024)",
+    "base_name": "lt_investments",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "ppe_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "PP&E, net (as of Dec 31 2024)",
+    "base_name": "ppe",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "goodwill_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Goodwill (as of Dec 31 2024)",
+    "base_name": "goodwill",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "other_nca_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other non-current assets (as of Dec 31 2024)",
+    "base_name": "other_nca",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "total_assets_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total assets (as of Dec 31 2024)",
+    "base_name": "total_assets",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "accounts_payable_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accounts payable (as of Dec 31 2024)",
+    "base_name": "accounts_payable",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "deferred_revenue_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Deferred revenue (as of Dec 31 2024)",
+    "base_name": "deferred_revenue",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "accrued_expenses_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accrued expenses and other (as of Dec 31 2024)",
+    "base_name": "accrued_expenses",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "current_debt_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Current portion of long-term debt (as of Dec 31 2024)",
+    "base_name": "current_debt",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "current_liabilities_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total current liabilities (as of Dec 31 2024)",
+    "base_name": "current_liabilities",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "long_term_debt_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Long-term debt (as of Dec 31 2024)",
+    "base_name": "long_term_debt",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "other_ncl_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Other non-current liabilities (as of Dec 31 2024)",
+    "base_name": "other_ncl",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "total_liabilities_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total liabilities (as of Dec 31 2024)",
+    "base_name": "total_liabilities",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "common_stock_apic_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Common stock and APIC (as of Dec 31 2024)",
+    "base_name": "common_stock_apic",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "retained_earnings_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Retained earnings (as of Dec 31 2024)",
+    "base_name": "retained_earnings",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "aoci_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Accumulated other comprehensive income/(loss) (as of Dec 31 2024)",
+    "base_name": "aoci",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "total_equity_Dec_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Total shareholders equity (as of Dec 31 2024)",
+    "base_name": "total_equity",
+    "period_tag": "BS_Dec_31_2024",
+    "prefix": "BS",
+    "date": "Dec_31_2024"
+  },
+  "cf_net_income_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (cash flows) (YTD ended Oct 31 2025)",
+    "base_name": "cf_net_income",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_da_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Depreciation and amortization (YTD ended Oct 31 2025)",
+    "base_name": "cf_da",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_sbc_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Stock-based compensation (YTD ended Oct 31 2025)",
+    "base_name": "cf_sbc",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_operating_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net cash from operating activities (YTD ended Oct 31 2025)",
+    "base_name": "cf_operating",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_capex_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Capital expenditures (YTD ended Oct 31 2025)",
+    "base_name": "cf_capex",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_investing_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net cash from investing activities (YTD ended Oct 31 2025)",
+    "base_name": "cf_investing",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_repurchases_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Share repurchases (YTD ended Oct 31 2025)",
+    "base_name": "cf_repurchases",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_dividends_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Dividends paid (YTD ended Oct 31 2025)",
+    "base_name": "cf_dividends",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_financing_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net cash from financing activities (YTD ended Oct 31 2025)",
+    "base_name": "cf_financing",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_fx_effect_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Effect of exchange rate on cash (YTD ended Oct 31 2025)",
+    "base_name": "cf_fx_effect",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_net_change_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net change in cash (YTD ended Oct 31 2025)",
+    "base_name": "cf_net_change",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_closing_cash_YTD_Oct_31_2025": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cash at end of period (YTD ended Oct 31 2025)",
+    "base_name": "cf_closing_cash",
+    "period_tag": "YTD_Oct_31_2025",
+    "prefix": "YTD",
+    "date": "Oct_31_2025"
+  },
+  "cf_net_income_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net income (cash flows) (YTD ended Oct 31 2024)",
+    "base_name": "cf_net_income",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_da_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Depreciation and amortization (YTD ended Oct 31 2024)",
+    "base_name": "cf_da",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_sbc_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Stock-based compensation (YTD ended Oct 31 2024)",
+    "base_name": "cf_sbc",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_operating_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net cash from operating activities (YTD ended Oct 31 2024)",
+    "base_name": "cf_operating",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_capex_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Capital expenditures (YTD ended Oct 31 2024)",
+    "base_name": "cf_capex",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_investing_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net cash from investing activities (YTD ended Oct 31 2024)",
+    "base_name": "cf_investing",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_repurchases_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Share repurchases (YTD ended Oct 31 2024)",
+    "base_name": "cf_repurchases",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_dividends_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Dividends paid (YTD ended Oct 31 2024)",
+    "base_name": "cf_dividends",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_financing_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net cash from financing activities (YTD ended Oct 31 2024)",
+    "base_name": "cf_financing",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_fx_effect_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Effect of exchange rate on cash (YTD ended Oct 31 2024)",
+    "base_name": "cf_fx_effect",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_net_change_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Net change in cash (YTD ended Oct 31 2024)",
+    "base_name": "cf_net_change",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  },
+  "cf_closing_cash_YTD_Oct_31_2024": {
+    "type": "numeric",
+    "unit": "M_USD",
+    "desc": "Cash at end of period (YTD ended Oct 31 2024)",
+    "base_name": "cf_closing_cash",
+    "period_tag": "YTD_Oct_31_2024",
+    "prefix": "YTD",
+    "date": "Oct_31_2024"
+  }
+}
