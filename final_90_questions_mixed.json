@@ -1,0 +1,4780 @@
+[
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "op": "diff",
+          "left": {
+            "op": "mul",
+            "left": {
+              "leaf": "2_current_liabilities",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "3_income_tax",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "sum",
+            "left": {
+              "leaf": "2_total_assets",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_current_liabilities",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "right": {
+          "op": "diff",
+          "left": {
+            "op": "sum",
+            "left": {
+              "leaf": "2_cost_of_goods_sold",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_gross_profit",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "diff",
+            "left": {
+              "leaf": "2_longterm_assets",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_current_assets",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "depth": 3
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "op": "sum",
+          "left": {
+            "op": "sum",
+            "left": {
+              "leaf": "2_operating_income",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_pretax_income",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "diff",
+            "left": {
+              "leaf": "2_longterm_liabilities",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_gross_profit",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "right": {
+          "op": "ratio",
+          "left": {
+            "op": "mul",
+            "left": {
+              "leaf": "2_gross_profit",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "4_income_tax",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "mul",
+            "left": {
+              "leaf": "2_non_operating_expenses",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "5_income_tax",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "depth": 3
+      },
+      "depth": 4
+    },
+    "depth": 4,
+    "question": "What is the ratio of combined value of difference between current liabilities for Apex Dynamics Corp in 2022 scaled by income tax for Apex Dynamics Corp in 2023 and combined value of total assets for Apex Dynamics Corp in 2022 and current liabilities for Apex Dynamics Corp in 2022 and difference between combined value of cost of goods sold for Apex Dynamics Corp in 2022 and gross profit for Apex Dynamics Corp in 2022 and difference between longterm assets for Apex Dynamics Corp in 2022 and current assets for Apex Dynamics Corp in 2022 to combined value of combined value of operating income for Apex Dynamics Corp in 2022 and pretax income for Apex Dynamics Corp in 2022 and difference between longterm liabilities for Apex Dynamics Corp in 2022 and gross profit for Apex Dynamics Corp in 2022 scaled by ratio of gross profit for Apex Dynamics Corp in 2022 scaled by income tax for Apex Dynamics Corp in 2024 to non operating expenses for Apex Dynamics Corp in 2022 scaled by income tax for Apex Dynamics Corp in 2025?",
+    "answer": -0.6857394985874029,
+    "entity": "Apex Dynamics Corp",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(sum_amount, scaled_amount)",
+    "sampled_node_id": "N858",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 4,
+    "binding": {
+      "L849": "3_income_tax",
+      "L861": "4_income_tax",
+      "L863": "5_income_tax",
+      "L848": "2_current_liabilities",
+      "L850": "2_total_assets",
+      "L851": "2_current_liabilities",
+      "L852": "2_cost_of_goods_sold",
+      "L853": "2_gross_profit",
+      "L854": "2_longterm_assets",
+      "L855": "2_current_assets",
+      "L856": "2_operating_income",
+      "L857": "2_pretax_income",
+      "L858": "2_longterm_liabilities",
+      "L859": "2_gross_profit",
+      "L860": "2_gross_profit",
+      "L862": "2_non_operating_expenses"
+    },
+    "binding_entities": [
+      "Apex Dynamics Corp"
+    ],
+    "binding_periods": [
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": true
+    },
+    "id": 1
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "71_total_equity",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "71_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "71_inventories",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "68_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of total equity for Cobalt Semiconductor in 2025 scaled by income tax for Cobalt Semiconductor in 2025 to inventories for Cobalt Semiconductor in 2025 scaled by income tax for Cobalt Semiconductor in 2022?",
+    "answer": 13.171707452781416,
+    "entity": "Cobalt Semiconductor",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(scaled_amount, scaled_amount)",
+    "sampled_node_id": "N579",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L581": "71_income_tax",
+      "L583": "68_income_tax",
+      "L580": "71_total_equity",
+      "L582": "71_inventories"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2022",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 2
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "15_longterm_assets",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "17_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "15_total_assets",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "15_revenue",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of longterm assets for Quantum Bridge Holdings in 2023 scaled by income tax for Quantum Bridge Holdings in 2025 to combined value of total assets for Quantum Bridge Holdings in 2023 and revenue for Quantum Bridge Holdings in 2023?",
+    "answer": 0.03179882864489236,
+    "entity": "Quantum Bridge Holdings",
+    "period": "2023",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(scaled_amount, sum_amount)",
+    "sampled_node_id": "N905",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L909": "17_income_tax",
+      "L908": "15_longterm_assets",
+      "L910": "15_total_assets",
+      "L911": "15_revenue"
+    },
+    "binding_entities": [
+      "Quantum Bridge Holdings"
+    ],
+    "binding_periods": [
+      "2023",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 3
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "diff",
+        "left": {
+          "op": "sum",
+          "left": {
+            "leaf": "61_total_equity",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "61_longterm_assets",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "mul",
+          "left": {
+            "leaf": "61_pretax_income",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "65_income_tax",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "op": "mul",
+          "left": {
+            "leaf": "61_current_liabilities",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "63_income_tax",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "ratio",
+          "left": {
+            "leaf": "61_current_assets",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "61_income_tax_expense",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "depth": 3
+    },
+    "depth": 3,
+    "question": "What is the ratio of difference between combined value of total equity for Titan Consumer Brands in 2021 and longterm assets for Titan Consumer Brands in 2021 and pretax income for Titan Consumer Brands in 2021 scaled by income tax for Titan Consumer Brands in 2025 to current liabilities for Titan Consumer Brands in 2021 scaled by income tax for Titan Consumer Brands in 2023 scaled by ratio of current assets for Titan Consumer Brands in 2021 to income tax expense for Titan Consumer Brands in 2021?",
+    "answer": 3.6029401113925106,
+    "entity": "Titan Consumer Brands",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(difference_amount, scaled_amount)",
+    "sampled_node_id": "N969",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 3,
+    "binding": {
+      "L971": "65_income_tax",
+      "L973": "63_income_tax",
+      "L968": "61_total_equity",
+      "L969": "61_longterm_assets",
+      "L970": "61_pretax_income",
+      "L972": "61_current_liabilities",
+      "L974": "61_current_assets",
+      "L975": "61_income_tax_expense"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2021",
+      "2023",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": true,
+      "depth4plus": false
+    },
+    "id": 4
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "65_longterm_liabilities",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "61_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "65_accounts_receivable",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "65_longterm_liabilities",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of longterm liabilities for Titan Consumer Brands in 2025 scaled by income tax for Titan Consumer Brands in 2021 to combined value of accounts receivable for Titan Consumer Brands in 2025 and longterm liabilities for Titan Consumer Brands in 2025?",
+    "answer": 0.15946392247589183,
+    "entity": "Titan Consumer Brands",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(scaled_amount, sum_amount)",
+    "sampled_node_id": "N905",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L909": "61_income_tax",
+      "L908": "65_longterm_liabilities",
+      "L910": "65_accounts_receivable",
+      "L911": "65_longterm_liabilities"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2021",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 5
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "75_net_income",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "75_operating_expenses",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "75_short_term_investments",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "76_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between combined value of net income for Helix BioSciences in 2023 and operating expenses for Helix BioSciences in 2023 and short term investments for Helix BioSciences in 2023 scaled by income tax for Helix BioSciences in 2024?",
+    "answer": 33453.364306,
+    "entity": "Helix BioSciences",
+    "period": "2023",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(sum_amount, scaled_amount)",
+    "sampled_node_id": "N9",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L11": "76_income_tax",
+      "L8": "75_net_income",
+      "L9": "75_operating_expenses",
+      "L10": "75_short_term_investments"
+    },
+    "binding_entities": [
+      "Helix BioSciences"
+    ],
+    "binding_periods": [
+      "2023",
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 6
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "83_operating_income",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "83_accounts_receivable",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "83_current_assets",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "82_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of combined value of operating income for ClearPath Logistics in 2025 and accounts receivable for ClearPath Logistics in 2025 to current assets for ClearPath Logistics in 2025 scaled by income tax for ClearPath Logistics in 2024?",
+    "answer": 3.766931316449633,
+    "entity": "ClearPath Logistics",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(sum_amount, scaled_amount)",
+    "sampled_node_id": "N538",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L543": "82_income_tax",
+      "L540": "83_operating_income",
+      "L541": "83_accounts_receivable",
+      "L542": "83_current_assets"
+    },
+    "binding_entities": [
+      "ClearPath Logistics"
+    ],
+    "binding_periods": [
+      "2024",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 7
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "35_total_liabilities",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "30_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "35_accounts_receivable",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "35_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of total liabilities for Pinnacle Health Group in 2025 scaled by income tax for Pinnacle Health Group in 2020 to accounts receivable for Pinnacle Health Group in 2025 scaled by income tax for Pinnacle Health Group in 2025?",
+    "answer": 26.617541371799437,
+    "entity": "Pinnacle Health Group",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(scaled_amount, scaled_amount)",
+    "sampled_node_id": "N282",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L285": "30_income_tax",
+      "L287": "35_income_tax",
+      "L284": "35_total_liabilities",
+      "L286": "35_accounts_receivable"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2020",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 8
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "17_net_income",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "16_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "17_net_income",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "17_longterm_liabilities",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between net income for Quantum Bridge Holdings in 2025 scaled by income tax for Quantum Bridge Holdings in 2024 and combined value of net income for Quantum Bridge Holdings in 2025 and longterm liabilities for Quantum Bridge Holdings in 2025?",
+    "answer": -38849.073418240005,
+    "entity": "Quantum Bridge Holdings",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(scaled_amount, sum_amount)",
+    "sampled_node_id": "N902",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L905": "16_income_tax",
+      "L904": "17_net_income",
+      "L906": "17_net_income",
+      "L907": "17_longterm_liabilities"
+    },
+    "binding_entities": [
+      "Quantum Bridge Holdings"
+    ],
+    "binding_periods": [
+      "2024",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 9
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "7_total_equity",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "7_total_assets",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "7_dividends_paid",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "9_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of combined value of total equity for Meridian Systems Inc in 2021 and total assets for Meridian Systems Inc in 2021 to dividends paid for Meridian Systems Inc in 2021 scaled by income tax for Meridian Systems Inc in 2023?",
+    "answer": 551.9011824844087,
+    "entity": "Meridian Systems Inc",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(sum_amount, scaled_amount)",
+    "sampled_node_id": "N80",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L83": "9_income_tax",
+      "L80": "7_total_equity",
+      "L81": "7_total_assets",
+      "L82": "7_dividends_paid"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2021",
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 10
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "mul",
+        "left": {
+          "op": "diff",
+          "left": {
+            "leaf": "81_capex",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "81_total_liabilities",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "ratio",
+          "left": {
+            "leaf": "81_gross_profit",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "81_operating_expenses",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "op": "sum",
+          "left": {
+            "leaf": "81_current_liabilities",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "81_operating_expenses",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "ratio",
+          "left": {
+            "leaf": "81_operating_income",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "81_longterm_liabilities",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "depth": 3
+    },
+    "depth": 3,
+    "question": "What is the difference between difference between capex for ClearPath Logistics in 2023 and total liabilities for ClearPath Logistics in 2023 scaled by ratio of gross profit for ClearPath Logistics in 2023 to operating expenses for ClearPath Logistics in 2023 and combined value of current liabilities for ClearPath Logistics in 2023 and operating expenses for ClearPath Logistics in 2023 scaled by ratio of operating income for ClearPath Logistics in 2023 to longterm liabilities for ClearPath Logistics in 2023?",
+    "answer": -2268642.8179920134,
+    "entity": "ClearPath Logistics",
+    "period": "2023",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(scaled_amount, scaled_amount)",
+    "sampled_node_id": "N324",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 3,
+    "binding": {
+      "L320": "81_capex",
+      "L321": "81_total_liabilities",
+      "L322": "81_gross_profit",
+      "L323": "81_operating_expenses",
+      "L324": "81_current_liabilities",
+      "L325": "81_operating_expenses",
+      "L326": "81_operating_income",
+      "L327": "81_longterm_liabilities"
+    },
+    "binding_entities": [
+      "ClearPath Logistics"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": true,
+      "depth4plus": false
+    },
+    "id": 11
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "diff",
+        "left": {
+          "op": "sum",
+          "left": {
+            "leaf": "11_inventories",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "11_cash",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "mul",
+          "left": {
+            "leaf": "11_operating_income",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "6_income_tax",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "op": "mul",
+          "left": {
+            "leaf": "11_short_term_investments",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "11_income_tax",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "ratio",
+          "left": {
+            "leaf": "11_capex",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "11_capex",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "depth": 3
+    },
+    "depth": 3,
+    "question": "What is the ratio of difference between current_assets for Meridian Systems Inc in 2025 and operating income for Meridian Systems Inc in 2025 scaled by income tax for Meridian Systems Inc in 2020 to short term investments for Meridian Systems Inc in 2025 scaled by income tax for Meridian Systems Inc in 2025 scaled by ratio of capex for Meridian Systems Inc in 2025 to capex for Meridian Systems Inc in 2025?",
+    "answer": -2.545803400903473,
+    "entity": "Meridian Systems Inc",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(difference_amount, scaled_amount)",
+    "sampled_node_id": "N969",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 3,
+    "binding": {
+      "L971": "6_income_tax",
+      "L973": "11_income_tax",
+      "L968": "11_inventories",
+      "L969": "11_cash",
+      "L970": "11_operating_income",
+      "L972": "11_short_term_investments",
+      "L974": "11_capex",
+      "L975": "11_capex"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2020",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": true,
+      "depth4plus": false
+    },
+    "id": 12
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "op": "mul",
+          "left": {
+            "leaf": "70_current_liabilities",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "71_income_tax",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "mul",
+          "left": {
+            "leaf": "70_cost_of_goods_sold",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "70_income_tax",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "op": "sum",
+          "left": {
+            "leaf": "70_gross_profit",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "70_current_liabilities",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "right": {
+          "op": "ratio",
+          "left": {
+            "leaf": "70_capex",
+            "depth": 0
+          },
+          "right": {
+            "leaf": "70_longterm_liabilities",
+            "depth": 0
+          },
+          "depth": 1
+        },
+        "depth": 2
+      },
+      "depth": 3
+    },
+    "depth": 3,
+    "question": "What is the ratio of combined value of current liabilities for Cobalt Semiconductor in 2024 scaled by income tax for Cobalt Semiconductor in 2025 and cost of goods sold for Cobalt Semiconductor in 2024 scaled by income tax for Cobalt Semiconductor in 2024 to combined value of gross profit for Cobalt Semiconductor in 2024 and current liabilities for Cobalt Semiconductor in 2024 scaled by ratio of capex for Cobalt Semiconductor in 2024 to longterm liabilities for Cobalt Semiconductor in 2024?",
+    "answer": 2.9255712434952255,
+    "entity": "Cobalt Semiconductor",
+    "period": "2024",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(sum_amount, scaled_amount)",
+    "sampled_node_id": "N249",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 3,
+    "binding": {
+      "L249": "71_income_tax",
+      "L251": "70_income_tax",
+      "L248": "70_current_liabilities",
+      "L250": "70_cost_of_goods_sold",
+      "L252": "70_gross_profit",
+      "L253": "70_current_liabilities",
+      "L254": "70_capex",
+      "L255": "70_longterm_liabilities"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2024",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": true,
+      "depth4plus": false
+    },
+    "id": 13
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "op": "diff",
+          "left": {
+            "op": "mul",
+            "left": {
+              "leaf": "5_current_assets",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_income_tax",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "sum",
+            "left": {
+              "leaf": "5_current_assets",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "5_accounts_receivable",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "right": {
+          "op": "diff",
+          "left": {
+            "op": "sum",
+            "left": {
+              "leaf": "5_total_assets",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "5_current_assets",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "diff",
+            "left": {
+              "leaf": "5_net_income",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "5_income_tax_expense",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "depth": 3
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "op": "sum",
+          "left": {
+            "op": "sum",
+            "left": {
+              "leaf": "5_current_assets",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "5_total_liabilities",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "diff",
+            "left": {
+              "leaf": "5_short_term_investments",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "5_cost_of_goods_sold",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "right": {
+          "op": "ratio",
+          "left": {
+            "op": "mul",
+            "left": {
+              "leaf": "5_current_assets",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_income_tax",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "right": {
+            "op": "mul",
+            "left": {
+              "leaf": "5_accounts_receivable",
+              "depth": 0
+            },
+            "right": {
+              "leaf": "2_income_tax",
+              "depth": 0
+            },
+            "depth": 1
+          },
+          "depth": 2
+        },
+        "depth": 3
+      },
+      "depth": 4
+    },
+    "depth": 4,
+    "question": "What is the ratio of combined value of difference between current assets for Apex Dynamics Corp in 2025 scaled by income tax for Apex Dynamics Corp in 2022 and combined value of current assets for Apex Dynamics Corp in 2025 and accounts receivable for Apex Dynamics Corp in 2025 and difference between combined value of total assets for Apex Dynamics Corp in 2025 and current assets for Apex Dynamics Corp in 2025 and difference between net income for Apex Dynamics Corp in 2025 and income tax expense for Apex Dynamics Corp in 2025 to combined value of combined value of current assets for Apex Dynamics Corp in 2025 and total liabilities for Apex Dynamics Corp in 2025 and difference between short term investments for Apex Dynamics Corp in 2025 and cost of goods sold for Apex Dynamics Corp in 2025 scaled by ratio of current assets for Apex Dynamics Corp in 2025 scaled by income tax for Apex Dynamics Corp in 2022 to accounts receivable for Apex Dynamics Corp in 2025 scaled by income tax for Apex Dynamics Corp in 2022?",
+    "answer": 0.15789282381498304,
+    "entity": "Apex Dynamics Corp",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(sum_amount, scaled_amount)",
+    "sampled_node_id": "N858",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 4,
+    "binding": {
+      "L849": "2_income_tax",
+      "L861": "2_income_tax",
+      "L863": "2_income_tax",
+      "L848": "5_current_assets",
+      "L850": "5_current_assets",
+      "L851": "5_accounts_receivable",
+      "L852": "5_total_assets",
+      "L853": "5_current_assets",
+      "L854": "5_net_income",
+      "L855": "5_income_tax_expense",
+      "L856": "5_current_assets",
+      "L857": "5_total_liabilities",
+      "L858": "5_short_term_investments",
+      "L859": "5_cost_of_goods_sold",
+      "L860": "5_current_assets",
+      "L862": "5_accounts_receivable"
+    },
+    "binding_entities": [
+      "Apex Dynamics Corp"
+    ],
+    "binding_periods": [
+      "2022",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": true
+    },
+    "id": 14
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "42_capex",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "45_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "42_capex",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "47_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between capex for SilverLine Retail Inc in 2020 scaled by income tax for SilverLine Retail Inc in 2023 and capex for SilverLine Retail Inc in 2020 scaled by income tax for SilverLine Retail Inc in 2025?",
+    "answer": 1368.9346609999993,
+    "entity": "SilverLine Retail Inc",
+    "period": "2020",
+    "concept": "capex",
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(scaled_amount, scaled_amount)",
+    "sampled_node_id": "N973",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L977": "45_income_tax",
+      "L979": "47_income_tax",
+      "L976": "42_capex",
+      "L978": "42_capex"
+    },
+    "binding_entities": [
+      "SilverLine Retail Inc"
+    ],
+    "binding_periods": [
+      "2020",
+      "2023",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 15
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "diff",
+        "left": {
+          "leaf": "24_cash",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "24_total_liabilities",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "24_current_liabilities",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "26_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of difference between cash for Atlas Global Industries in 2020 and total liabilities for Atlas Global Industries in 2020 to current liabilities for Atlas Global Industries in 2020 scaled by income tax for Atlas Global Industries in 2022?",
+    "answer": -6.726886701791862,
+    "entity": "Atlas Global Industries",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(difference_amount, scaled_amount)",
+    "sampled_node_id": "N936",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L943": "26_income_tax",
+      "L940": "24_cash",
+      "L941": "24_total_liabilities",
+      "L942": "24_current_liabilities"
+    },
+    "binding_entities": [
+      "Atlas Global Industries"
+    ],
+    "binding_periods": [
+      "2020",
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 16
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "diff",
+        "left": {
+          "leaf": "55_revenue",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "55_gross_profit",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "55_total_equity",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "58_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of difference between revenue for Orion Financial Group in 2021 and gross profit for Orion Financial Group in 2021 to total equity for Orion Financial Group in 2021 scaled by income tax for Orion Financial Group in 2024?",
+    "answer": 6.890417898116841,
+    "entity": "Orion Financial Group",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(difference_amount, scaled_amount)",
+    "sampled_node_id": "N936",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L943": "58_income_tax",
+      "L940": "55_revenue",
+      "L941": "55_gross_profit",
+      "L942": "55_total_equity"
+    },
+    "binding_entities": [
+      "Orion Financial Group"
+    ],
+    "binding_periods": [
+      "2021",
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 17
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "35_longterm_liabilities",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "35_revenue",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "35_gross_profit",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "33_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between combined value of longterm liabilities for Pinnacle Health Group in 2025 and revenue for Pinnacle Health Group in 2025 and gross profit for Pinnacle Health Group in 2025 scaled by income tax for Pinnacle Health Group in 2023?",
+    "answer": 40002.609248,
+    "entity": "Pinnacle Health Group",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(sum_amount, scaled_amount)",
+    "sampled_node_id": "N9",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L11": "33_income_tax",
+      "L8": "35_longterm_liabilities",
+      "L9": "35_revenue",
+      "L10": "35_gross_profit"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2023",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 18
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "69_dividends_paid",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "69_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "69_cost_of_goods_sold",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "66_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between dividends paid for Cobalt Semiconductor in 2023 scaled by income tax for Cobalt Semiconductor in 2023 and cost of goods sold for Cobalt Semiconductor in 2023 scaled by income tax for Cobalt Semiconductor in 2020?",
+    "answer": -4208.584613,
+    "entity": "Cobalt Semiconductor",
+    "period": "2023",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(scaled_amount, scaled_amount)",
+    "sampled_node_id": "N841",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L845": "69_income_tax",
+      "L847": "66_income_tax",
+      "L844": "69_dividends_paid",
+      "L846": "69_cost_of_goods_sold"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2020",
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 19
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "35_cash",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "35_cash",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "35_revenue",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "33_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of current_assets for Pinnacle Health Group in 2025 to revenue for Pinnacle Health Group in 2025 scaled by income tax for Pinnacle Health Group in 2023?",
+    "answer": 2.2344339652813705,
+    "entity": "Pinnacle Health Group",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(aggregate_components, scaled_amount)",
+    "sampled_node_id": "N728",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L735": "33_income_tax",
+      "L732": "35_cash",
+      "L733": "35_cash",
+      "L734": "35_revenue"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2023",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 20
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "59_accounts_receivable",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "58_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "59_income_tax_expense",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "55_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of accounts receivable for Orion Financial Group in 2025 scaled by income tax for Orion Financial Group in 2024 to income tax expense for Orion Financial Group in 2025 scaled by income tax for Orion Financial Group in 2021?",
+    "answer": 0.8918185316270887,
+    "entity": "Orion Financial Group",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(scaled_amount, scaled_amount)",
+    "sampled_node_id": "N282",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L285": "58_income_tax",
+      "L287": "55_income_tax",
+      "L284": "59_accounts_receivable",
+      "L286": "59_income_tax_expense"
+    },
+    "binding_entities": [
+      "Orion Financial Group"
+    ],
+    "binding_periods": [
+      "2021",
+      "2024",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 21
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "60_longterm_liabilities",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "60_non_operating_expenses",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "60_total_equity",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "65_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of combined value of longterm liabilities for Titan Consumer Brands in 2020 and non operating expenses for Titan Consumer Brands in 2020 to total equity for Titan Consumer Brands in 2020 scaled by income tax for Titan Consumer Brands in 2025?",
+    "answer": 1.695109461815197,
+    "entity": "Titan Consumer Brands",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(sum_amount, scaled_amount)",
+    "sampled_node_id": "N640",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L643": "65_income_tax",
+      "L640": "60_longterm_liabilities",
+      "L641": "60_non_operating_expenses",
+      "L642": "60_total_equity"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2020",
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": true,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 22
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "31_longterm_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "31_longterm_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of longterm assets for Pinnacle Health Group in 2021 to longterm assets for Pinnacle Health Group in 2021?",
+    "answer": 1.0,
+    "entity": "Pinnacle Health Group",
+    "period": "2021",
+    "concept": "longterm_assets",
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N322",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L326": "31_longterm_assets",
+      "L327": "31_longterm_assets"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 23
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "27_accounts_receivable",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "27_accounts_receivable",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of accounts receivable for Atlas Global Industries in 2023 to accounts receivable for Atlas Global Industries in 2023?",
+    "answer": 1.0,
+    "entity": "Atlas Global Industries",
+    "period": "2023",
+    "concept": "accounts_receivable",
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N197",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L200": "27_accounts_receivable",
+      "L201": "27_accounts_receivable"
+    },
+    "binding_entities": [
+      "Atlas Global Industries"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 24
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "80_income_tax_expense",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "80_revenue",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "diff",
+        "left": {
+          "leaf": "80_inventories",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "80_net_income",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of combined value of income tax expense for ClearPath Logistics in 2022 and revenue for ClearPath Logistics in 2022 to difference between inventories for ClearPath Logistics in 2022 and net income for ClearPath Logistics in 2022?",
+    "answer": -10.106369847615676,
+    "entity": "ClearPath Logistics",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(sum_amount, difference_amount)",
+    "sampled_node_id": "N503",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L508": "80_income_tax_expense",
+      "L509": "80_revenue",
+      "L510": "80_inventories",
+      "L511": "80_net_income"
+    },
+    "binding_entities": [
+      "ClearPath Logistics"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 25
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "47_total_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "47_income_tax_expense",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between total liabilities for SilverLine Retail Inc in 2025 and income tax expense for SilverLine Retail Inc in 2025?",
+    "answer": 166397.5,
+    "entity": "SilverLine Retail Inc",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N1012",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L1020": "47_total_liabilities",
+      "L1021": "47_income_tax_expense"
+    },
+    "binding_entities": [
+      "SilverLine Retail Inc"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 26
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "29_accounts_receivable",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "29_total_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between accounts receivable for Atlas Global Industries in 2025 and total assets for Atlas Global Industries in 2025?",
+    "answer": -114316.0,
+    "entity": "Atlas Global Industries",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N487",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L494": "29_accounts_receivable",
+      "L495": "29_total_assets"
+    },
+    "binding_entities": [
+      "Atlas Global Industries"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 27
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "56_net_income",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "56_pretax_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of net income for Orion Financial Group in 2022 to pretax income for Orion Financial Group in 2022?",
+    "answer": 0.8873568281938325,
+    "entity": "Orion Financial Group",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N455",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L460": "56_net_income",
+      "L461": "56_pretax_income"
+    },
+    "binding_entities": [
+      "Orion Financial Group"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 28
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "16_longterm_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "16_longterm_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of longterm assets for Quantum Bridge Holdings in 2024 to longterm assets for Quantum Bridge Holdings in 2024?",
+    "answer": 1.0,
+    "entity": "Quantum Bridge Holdings",
+    "period": "2024",
+    "concept": "longterm_assets",
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N274",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L278": "16_longterm_assets",
+      "L279": "16_longterm_assets"
+    },
+    "binding_entities": [
+      "Quantum Bridge Holdings"
+    ],
+    "binding_periods": [
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 29
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "29_accounts_receivable",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "29_short_term_investments",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of accounts receivable for Atlas Global Industries in 2025 to short term investments for Atlas Global Industries in 2025?",
+    "answer": 0.7298572873356557,
+    "entity": "Atlas Global Industries",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N382",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L384": "29_accounts_receivable",
+      "L385": "29_short_term_investments"
+    },
+    "binding_entities": [
+      "Atlas Global Industries"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 30
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "32_short_term_investments",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "32_longterm_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of short term investments for Pinnacle Health Group in 2022 to longterm liabilities for Pinnacle Health Group in 2022?",
+    "answer": 0.19437029847124485,
+    "entity": "Pinnacle Health Group",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N627",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L632": "32_short_term_investments",
+      "L633": "32_longterm_liabilities"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 31
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "6_accounts_receivable",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "6_net_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of accounts receivable for Meridian Systems Inc in 2020 to net income for Meridian Systems Inc in 2020?",
+    "answer": 0.21925992672228156,
+    "entity": "Meridian Systems Inc",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N483",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L488": "6_accounts_receivable",
+      "L489": "6_net_income"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 32
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "69_net_income",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "69_cash",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of net income for Cobalt Semiconductor in 2023 to cash for Cobalt Semiconductor in 2023?",
+    "answer": 1.0501332593003887,
+    "entity": "Cobalt Semiconductor",
+    "period": "2023",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N875",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L880": "69_net_income",
+      "L881": "69_cash"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 33
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "38_total_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "38_income_tax_expense",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of total assets for Ironclad Manufacturing in 2022 to income tax expense for Ironclad Manufacturing in 2022?",
+    "answer": 87.07009597746674,
+    "entity": "Ironclad Manufacturing",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N755",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L762": "38_total_assets",
+      "L763": "38_income_tax_expense"
+    },
+    "binding_entities": [
+      "Ironclad Manufacturing"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 34
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "68_cash",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "68_longterm_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of cash for Cobalt Semiconductor in 2022 to longterm liabilities for Cobalt Semiconductor in 2022?",
+    "answer": 0.2507253384912959,
+    "entity": "Cobalt Semiconductor",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N470",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L476": "68_cash",
+      "L477": "68_longterm_liabilities"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 35
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "71_non_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "71_total_equity",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of non operating expenses for Cobalt Semiconductor in 2025 to total equity for Cobalt Semiconductor in 2025?",
+    "answer": 0.7909920969845776,
+    "entity": "Cobalt Semiconductor",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N687",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L692": "71_non_operating_expenses",
+      "L693": "71_total_equity"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 36
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "44_current_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "44_inventories",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of current assets for SilverLine Retail Inc in 2022 to inventories for SilverLine Retail Inc in 2022?",
+    "answer": 3.92848979866223,
+    "entity": "SilverLine Retail Inc",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N918",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L924": "44_current_assets",
+      "L925": "44_inventories"
+    },
+    "binding_entities": [
+      "SilverLine Retail Inc"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 37
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "diff",
+        "left": {
+          "leaf": "35_total_liabilities",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "35_total_equity",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "35_dividends_paid",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "35_cost_of_goods_sold",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of difference between total liabilities for Pinnacle Health Group in 2025 and total equity for Pinnacle Health Group in 2025 to combined value of dividends paid for Pinnacle Health Group in 2025 and cost of goods sold for Pinnacle Health Group in 2025?",
+    "answer": 0.9667833280305441,
+    "entity": "Pinnacle Health Group",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(difference_amount, sum_amount)",
+    "sampled_node_id": "N132",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L132": "35_total_liabilities",
+      "L133": "35_total_equity",
+      "L134": "35_dividends_paid",
+      "L135": "35_cost_of_goods_sold"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 38
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "45_non_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "45_total_equity",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of non operating expenses for SilverLine Retail Inc in 2023 to total equity for SilverLine Retail Inc in 2023?",
+    "answer": 0.6712733892837988,
+    "entity": "SilverLine Retail Inc",
+    "period": "2023",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N621",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L626": "45_non_operating_expenses",
+      "L627": "45_total_equity"
+    },
+    "binding_entities": [
+      "SilverLine Retail Inc"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 39
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "77_non_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "77_inventories",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of non operating expenses for Helix BioSciences in 2025 to inventories for Helix BioSciences in 2025?",
+    "answer": 1.765474684757196,
+    "entity": "Helix BioSciences",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N797",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L800": "77_non_operating_expenses",
+      "L801": "77_inventories"
+    },
+    "binding_entities": [
+      "Helix BioSciences"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 40
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "80_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "80_longterm_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between operating expenses for ClearPath Logistics in 2022 and longterm liabilities for ClearPath Logistics in 2022?",
+    "answer": -94115.0,
+    "entity": "ClearPath Logistics",
+    "period": "2022",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N526",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L528": "80_operating_expenses",
+      "L529": "80_longterm_liabilities"
+    },
+    "binding_entities": [
+      "ClearPath Logistics"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 41
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "17_dividends_paid",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "17_income_tax_expense",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of dividends paid for Quantum Bridge Holdings in 2025 to income tax expense for Quantum Bridge Holdings in 2025?",
+    "answer": 0.30832901004574825,
+    "entity": "Quantum Bridge Holdings",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N319",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L322": "17_dividends_paid",
+      "L323": "17_income_tax_expense"
+    },
+    "binding_entities": [
+      "Quantum Bridge Holdings"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 42
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "diff",
+        "left": {
+          "leaf": "5_capex",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "5_operating_expenses",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "5_inventories",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "5_total_liabilities",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between difference between capex for Apex Dynamics Corp in 2025 and operating expenses for Apex Dynamics Corp in 2025 and combined value of inventories for Apex Dynamics Corp in 2025 and total liabilities for Apex Dynamics Corp in 2025?",
+    "answer": -122369.0,
+    "entity": "Apex Dynamics Corp",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(difference_amount, sum_amount)",
+    "sampled_node_id": "N734",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L736": "5_capex",
+      "L737": "5_operating_expenses",
+      "L738": "5_inventories",
+      "L739": "5_total_liabilities"
+    },
+    "binding_entities": [
+      "Apex Dynamics Corp"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 43
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "73_current_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "73_income_tax_expense",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of current assets for Helix BioSciences in 2021 to income tax expense for Helix BioSciences in 2021?",
+    "answer": 3.993226047677478,
+    "entity": "Helix BioSciences",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N67",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L70": "73_current_assets",
+      "L71": "73_income_tax_expense"
+    },
+    "binding_entities": [
+      "Helix BioSciences"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 44
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "54_total_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "54_operating_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of total liabilities for Orion Financial Group in 2020 to operating income for Orion Financial Group in 2020?",
+    "answer": 1.8052086668801366,
+    "entity": "Orion Financial Group",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N978",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L984": "54_total_liabilities",
+      "L985": "54_operating_income"
+    },
+    "binding_entities": [
+      "Orion Financial Group"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 45
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "64_pretax_income",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "64_accounts_receivable",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between pretax income for Titan Consumer Brands in 2024 and accounts receivable for Titan Consumer Brands in 2024?",
+    "answer": 15501.0,
+    "entity": "Titan Consumer Brands",
+    "period": "2024",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N200",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L204": "64_pretax_income",
+      "L205": "64_accounts_receivable"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 46
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "58_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "58_capex",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of operating expenses for Orion Financial Group in 2024 to capex for Orion Financial Group in 2024?",
+    "answer": 2.9607127704709377,
+    "entity": "Orion Financial Group",
+    "period": "2024",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N820",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L826": "58_operating_expenses",
+      "L827": "58_capex"
+    },
+    "binding_entities": [
+      "Orion Financial Group"
+    ],
+    "binding_periods": [
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 47
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "diff",
+        "left": {
+          "leaf": "18_operating_income",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "18_non_operating_expenses",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "18_longterm_assets",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "18_current_liabilities",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between difference between operating income for NovaStar Technologies in 2020 and non operating expenses for NovaStar Technologies in 2020 and combined value of longterm assets for NovaStar Technologies in 2020 and current liabilities for NovaStar Technologies in 2020?",
+    "answer": -43609.0,
+    "entity": "NovaStar Technologies",
+    "period": "2020",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(difference_amount, sum_amount)",
+    "sampled_node_id": "N598",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L600": "18_operating_income",
+      "L601": "18_non_operating_expenses",
+      "L602": "18_longterm_assets",
+      "L603": "18_current_liabilities"
+    },
+    "binding_entities": [
+      "NovaStar Technologies"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 48
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "48_inventories",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "48_cash",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between inventories for Pacific Crest Energy in 2020 and cash for Pacific Crest Energy in 2020?",
+    "answer": -69336.0,
+    "entity": "Pacific Crest Energy",
+    "period": "2020",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N484",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L490": "48_inventories",
+      "L491": "48_cash"
+    },
+    "binding_entities": [
+      "Pacific Crest Energy"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 49
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "66_current_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "66_operating_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of current assets for Cobalt Semiconductor in 2020 to operating income for Cobalt Semiconductor in 2020?",
+    "answer": 1.4072152681928514,
+    "entity": "Cobalt Semiconductor",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N479",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L484": "66_current_assets",
+      "L485": "66_operating_income"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 50
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "46_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "46_pretax_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between operating expenses for SilverLine Retail Inc in 2024 and pretax income for SilverLine Retail Inc in 2024?",
+    "answer": 129671.0,
+    "entity": "SilverLine Retail Inc",
+    "period": "2024",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N258",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L260": "46_operating_expenses",
+      "L261": "46_pretax_income"
+    },
+    "binding_entities": [
+      "SilverLine Retail Inc"
+    ],
+    "binding_periods": [
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 51
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "61_short_term_investments",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "61_accounts_receivable",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of short term investments for Titan Consumer Brands in 2021 to accounts receivable for Titan Consumer Brands in 2021?",
+    "answer": 0.551268455828371,
+    "entity": "Titan Consumer Brands",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N256",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L258": "61_short_term_investments",
+      "L259": "61_accounts_receivable"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 52
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "42_total_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "42_non_operating_expenses",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between total assets for SilverLine Retail Inc in 2020 and non operating expenses for SilverLine Retail Inc in 2020?",
+    "answer": 400527.0,
+    "entity": "SilverLine Retail Inc",
+    "period": "2020",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N393",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L398": "42_total_assets",
+      "L399": "42_non_operating_expenses"
+    },
+    "binding_entities": [
+      "SilverLine Retail Inc"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 53
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "64_longterm_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "64_short_term_investments",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of longterm assets for Titan Consumer Brands in 2024 to short term investments for Titan Consumer Brands in 2024?",
+    "answer": 13.558822226488092,
+    "entity": "Titan Consumer Brands",
+    "period": "2024",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N959",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L964": "64_longterm_assets",
+      "L965": "64_short_term_investments"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 54
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "36_capex",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "36_pretax_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between capex for Ironclad Manufacturing in 2020 and pretax income for Ironclad Manufacturing in 2020?",
+    "answer": 40658.0,
+    "entity": "Ironclad Manufacturing",
+    "period": "2020",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N557",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L560": "36_capex",
+      "L561": "36_pretax_income"
+    },
+    "binding_entities": [
+      "Ironclad Manufacturing"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 55
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "54_net_income",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "54_dividends_paid",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of net income for Orion Financial Group in 2020 to dividends paid for Orion Financial Group in 2020?",
+    "answer": 3.1359230096237973,
+    "entity": "Orion Financial Group",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N41",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L44": "54_net_income",
+      "L45": "54_dividends_paid"
+    },
+    "binding_entities": [
+      "Orion Financial Group"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 56
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "59_capex",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "59_total_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of capex for Orion Financial Group in 2025 to total liabilities for Orion Financial Group in 2025?",
+    "answer": 0.057338056680161946,
+    "entity": "Orion Financial Group",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N271",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L274": "59_capex",
+      "L275": "59_total_liabilities"
+    },
+    "binding_entities": [
+      "Orion Financial Group"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 57
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "20_current_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "20_current_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between current liabilities for NovaStar Technologies in 2022 and current liabilities for NovaStar Technologies in 2022?",
+    "answer": 0.0,
+    "entity": "NovaStar Technologies",
+    "period": "2022",
+    "concept": "current_liabilities",
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N522",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L526": "20_current_liabilities",
+      "L527": "20_current_liabilities"
+    },
+    "binding_entities": [
+      "NovaStar Technologies"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 58
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "71_revenue",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "71_current_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between revenue for Cobalt Semiconductor in 2025 and current assets for Cobalt Semiconductor in 2025?",
+    "answer": 36974.0,
+    "entity": "Cobalt Semiconductor",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N161",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L164": "71_revenue",
+      "L165": "71_current_assets"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 59
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "op": "diff",
+        "left": {
+          "leaf": "63_inventories",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "63_capex",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "63_cash",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "63_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the ratio of difference between inventories for Titan Consumer Brands in 2023 and capex for Titan Consumer Brands in 2023 to cash for Titan Consumer Brands in 2023 scaled by income tax for Titan Consumer Brands in 2023?",
+    "answer": -0.8198417454321777,
+    "entity": "Titan Consumer Brands",
+    "period": "2023",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(difference_amount, scaled_amount)",
+    "sampled_node_id": "N342",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L347": "63_income_tax",
+      "L344": "63_inventories",
+      "L345": "63_capex",
+      "L346": "63_cash"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 60
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "69_current_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "69_short_term_investments",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between current liabilities for Cobalt Semiconductor in 2023 and short term investments for Cobalt Semiconductor in 2023?",
+    "answer": 11068.0,
+    "entity": "Cobalt Semiconductor",
+    "period": "2023",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N708",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L712": "69_current_liabilities",
+      "L713": "69_short_term_investments"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 61
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "49_longterm_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "49_accounts_receivable",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of longterm liabilities for Pacific Crest Energy in 2021 to accounts receivable for Pacific Crest Energy in 2021?",
+    "answer": 3.411037325395008,
+    "entity": "Pacific Crest Energy",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N309",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L314": "49_longterm_liabilities",
+      "L315": "49_accounts_receivable"
+    },
+    "binding_entities": [
+      "Pacific Crest Energy"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 62
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "27_accounts_receivable",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "27_operating_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of accounts receivable for Atlas Global Industries in 2023 to operating income for Atlas Global Industries in 2023?",
+    "answer": 0.14662427529455768,
+    "entity": "Atlas Global Industries",
+    "period": "2023",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N646",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L650": "27_accounts_receivable",
+      "L651": "27_operating_income"
+    },
+    "binding_entities": [
+      "Atlas Global Industries"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 63
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "19_longterm_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "19_operating_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of longterm assets for NovaStar Technologies in 2021 to operating income for NovaStar Technologies in 2021?",
+    "answer": 2.0280483188216265,
+    "entity": "NovaStar Technologies",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N740",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L746": "19_longterm_assets",
+      "L747": "19_operating_income"
+    },
+    "binding_entities": [
+      "NovaStar Technologies"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 64
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "80_total_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "80_short_term_investments",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between total assets for ClearPath Logistics in 2022 and short term investments for ClearPath Logistics in 2022?",
+    "answer": 489051.0,
+    "entity": "ClearPath Logistics",
+    "period": "2022",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N259",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L262": "80_total_assets",
+      "L263": "80_short_term_investments"
+    },
+    "binding_entities": [
+      "ClearPath Logistics"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 65
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "86_cost_of_goods_sold",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "86_non_operating_expenses",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of cost of goods sold for Crimson Pharmaceuticals in 2022 to non operating expenses for Crimson Pharmaceuticals in 2022?",
+    "answer": 2.689532071259128,
+    "entity": "Crimson Pharmaceuticals",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N860",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L864": "86_cost_of_goods_sold",
+      "L865": "86_non_operating_expenses"
+    },
+    "binding_entities": [
+      "Crimson Pharmaceuticals"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 66
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "5_dividends_paid",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "5_pretax_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of dividends paid for Apex Dynamics Corp in 2025 to pretax income for Apex Dynamics Corp in 2025?",
+    "answer": 1.2296142296142296,
+    "entity": "Apex Dynamics Corp",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N302",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L306": "5_dividends_paid",
+      "L307": "5_pretax_income"
+    },
+    "binding_entities": [
+      "Apex Dynamics Corp"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 67
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "32_total_equity",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "32_non_operating_expenses",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of total equity for Pinnacle Health Group in 2022 to non operating expenses for Pinnacle Health Group in 2022?",
+    "answer": 4.858823529411764,
+    "entity": "Pinnacle Health Group",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N664",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L670": "32_total_equity",
+      "L671": "32_non_operating_expenses"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 68
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "23_inventories",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "23_operating_expenses",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of inventories for NovaStar Technologies in 2025 to operating expenses for NovaStar Technologies in 2025?",
+    "answer": 0.12901118048497168,
+    "entity": "NovaStar Technologies",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N575",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L578": "23_inventories",
+      "L579": "23_operating_expenses"
+    },
+    "binding_entities": [
+      "NovaStar Technologies"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 69
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "41_non_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "41_revenue",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between non operating expenses for Ironclad Manufacturing in 2025 and revenue for Ironclad Manufacturing in 2025?",
+    "answer": -483188.0,
+    "entity": "Ironclad Manufacturing",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N946",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L952": "41_non_operating_expenses",
+      "L953": "41_revenue"
+    },
+    "binding_entities": [
+      "Ironclad Manufacturing"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 70
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "28_net_income",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "28_pretax_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of net income for Atlas Global Industries in 2024 to pretax income for Atlas Global Industries in 2024?",
+    "answer": 0.7530726336860165,
+    "entity": "Atlas Global Industries",
+    "period": "2024",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N273",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L276": "28_net_income",
+      "L277": "28_pretax_income"
+    },
+    "binding_entities": [
+      "Atlas Global Industries"
+    ],
+    "binding_periods": [
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 71
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "9_total_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "9_longterm_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of total liabilities for Meridian Systems Inc in 2023 to longterm assets for Meridian Systems Inc in 2023?",
+    "answer": 0.8297710596478858,
+    "entity": "Meridian Systems Inc",
+    "period": "2023",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N568",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L574": "9_total_liabilities",
+      "L575": "9_longterm_assets"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 72
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "22_cash",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "22_capex",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of cash for NovaStar Technologies in 2024 to capex for NovaStar Technologies in 2024?",
+    "answer": 2.930558000352051,
+    "entity": "NovaStar Technologies",
+    "period": "2024",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N206",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L210": "22_cash",
+      "L211": "22_capex"
+    },
+    "binding_entities": [
+      "NovaStar Technologies"
+    ],
+    "binding_periods": [
+      "2024"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 73
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "18_accounts_receivable",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "18_total_equity",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of accounts receivable for NovaStar Technologies in 2020 to total equity for NovaStar Technologies in 2020?",
+    "answer": 0.22689550799115235,
+    "entity": "NovaStar Technologies",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N527",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L530": "18_accounts_receivable",
+      "L531": "18_total_equity"
+    },
+    "binding_entities": [
+      "NovaStar Technologies"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 74
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "62_current_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "62_net_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of current liabilities for Titan Consumer Brands in 2022 to net income for Titan Consumer Brands in 2022?",
+    "answer": 2.11221902443292,
+    "entity": "Titan Consumer Brands",
+    "period": "2022",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N575",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L578": "62_current_liabilities",
+      "L579": "62_net_income"
+    },
+    "binding_entities": [
+      "Titan Consumer Brands"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 75
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "66_income_tax_expense",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "66_capex",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between income tax expense for Cobalt Semiconductor in 2020 and capex for Cobalt Semiconductor in 2020?",
+    "answer": -288.96000000000004,
+    "entity": "Cobalt Semiconductor",
+    "period": "2020",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N82",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L86": "66_income_tax_expense",
+      "L87": "66_capex"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 76
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "1_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "1_total_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of operating expenses for Apex Dynamics Corp in 2021 to total liabilities for Apex Dynamics Corp in 2021?",
+    "answer": 0.06512317058420353,
+    "entity": "Apex Dynamics Corp",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N73",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L76": "1_operating_expenses",
+      "L77": "1_total_liabilities"
+    },
+    "binding_entities": [
+      "Apex Dynamics Corp"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 77
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "66_total_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "66_current_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of total assets for Cobalt Semiconductor in 2020 to current liabilities for Cobalt Semiconductor in 2020?",
+    "answer": 5.1512455516014235,
+    "entity": "Cobalt Semiconductor",
+    "period": "2020",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N805",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L810": "66_total_assets",
+      "L811": "66_current_liabilities"
+    },
+    "binding_entities": [
+      "Cobalt Semiconductor"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 78
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "diff",
+        "left": {
+          "leaf": "44_operating_income",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "44_dividends_paid",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "44_total_assets",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "44_operating_income",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between difference between operating income for SilverLine Retail Inc in 2022 and dividends paid for SilverLine Retail Inc in 2022 and combined value of total assets for SilverLine Retail Inc in 2022 and operating income for SilverLine Retail Inc in 2022?",
+    "answer": -505724.0,
+    "entity": "SilverLine Retail Inc",
+    "period": "2022",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(difference_amount, sum_amount)",
+    "sampled_node_id": "N598",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L600": "44_operating_income",
+      "L601": "44_dividends_paid",
+      "L602": "44_total_assets",
+      "L603": "44_operating_income"
+    },
+    "binding_entities": [
+      "SilverLine Retail Inc"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 79
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "5_accounts_receivable",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "5_longterm_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between accounts receivable for Apex Dynamics Corp in 2025 and longterm assets for Apex Dynamics Corp in 2025?",
+    "answer": -106665.0,
+    "entity": "Apex Dynamics Corp",
+    "period": "2025",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N484",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L490": "5_accounts_receivable",
+      "L491": "5_longterm_assets"
+    },
+    "binding_entities": [
+      "Apex Dynamics Corp"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 80
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "41_income_tax_expense",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "41_longterm_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of income tax expense for Ironclad Manufacturing in 2025 to longterm assets for Ironclad Manufacturing in 2025?",
+    "answer": 0.042733069283955046,
+    "entity": "Ironclad Manufacturing",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N623",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L628": "41_income_tax_expense",
+      "L629": "41_longterm_assets"
+    },
+    "binding_entities": [
+      "Ironclad Manufacturing"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 81
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "39_revenue",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "39_revenue",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between revenue for Ironclad Manufacturing in 2023 and revenue for Ironclad Manufacturing in 2023?",
+    "answer": 0.0,
+    "entity": "Ironclad Manufacturing",
+    "period": "2023",
+    "concept": "revenue",
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N438",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L444": "39_revenue",
+      "L445": "39_revenue"
+    },
+    "binding_entities": [
+      "Ironclad Manufacturing"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 82
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "26_longterm_liabilities",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "26_current_liabilities",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "sum",
+        "left": {
+          "leaf": "26_longterm_assets",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "26_cash",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 2,
+    "question": "What is the difference between total_liabilities for Atlas Global Industries in 2022 and combined value of longterm assets for Atlas Global Industries in 2022 and cash for Atlas Global Industries in 2022?",
+    "answer": -18361.0,
+    "entity": "Atlas Global Industries",
+    "period": "2022",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(aggregate_components, sum_amount)",
+    "sampled_node_id": "N500",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 2,
+    "binding": {
+      "L504": "26_longterm_liabilities",
+      "L505": "26_current_liabilities",
+      "L506": "26_longterm_assets",
+      "L507": "26_cash"
+    },
+    "binding_entities": [
+      "Atlas Global Industries"
+    ],
+    "binding_periods": [
+      "2022"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 83
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "6_operating_expenses",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "6_short_term_investments",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between operating expenses for Meridian Systems Inc in 2020 and short term investments for Meridian Systems Inc in 2020?",
+    "answer": 5930.0,
+    "entity": "Meridian Systems Inc",
+    "period": "2020",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N149",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L152": "6_operating_expenses",
+      "L153": "6_short_term_investments"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2020"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 84
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "7_current_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "7_dividends_paid",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of current liabilities for Meridian Systems Inc in 2021 to dividends paid for Meridian Systems Inc in 2021?",
+    "answer": 17.54638332652227,
+    "entity": "Meridian Systems Inc",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N432",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L438": "7_current_liabilities",
+      "L439": "7_dividends_paid"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 85
+  },
+  {
+    "expression": {
+      "op": "diff",
+      "left": {
+        "leaf": "49_current_assets",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "49_short_term_investments",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the difference between current assets for Pacific Crest Energy in 2021 and short term investments for Pacific Crest Energy in 2021?",
+    "answer": 51663.0,
+    "entity": "Pacific Crest Energy",
+    "period": "2021",
+    "concept": null,
+    "kind": "difference_amount",
+    "semantic_type": "amount",
+    "derivation": "diff(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N982",
+    "sampled_node_family": "amount",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L990": "49_current_assets",
+      "L991": "49_short_term_investments"
+    },
+    "binding_entities": [
+      "Pacific Crest Energy"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 86
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "9_net_income",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "9_total_liabilities",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of net income for Meridian Systems Inc in 2023 to total liabilities for Meridian Systems Inc in 2023?",
+    "answer": 0.4797664475868021,
+    "entity": "Meridian Systems Inc",
+    "period": "2023",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N464",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L470": "9_net_income",
+      "L471": "9_total_liabilities"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2023"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 87
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "17_total_liabilities",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "17_net_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of total liabilities for Quantum Bridge Holdings in 2025 to net income for Quantum Bridge Holdings in 2025?",
+    "answer": 3.676192543050582,
+    "entity": "Quantum Bridge Holdings",
+    "period": "2025",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N883",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L890": "17_total_liabilities",
+      "L891": "17_net_income"
+    },
+    "binding_entities": [
+      "Quantum Bridge Holdings"
+    ],
+    "binding_periods": [
+      "2025"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 88
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "7_inventories",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "7_total_assets",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of inventories for Meridian Systems Inc in 2021 to total assets for Meridian Systems Inc in 2021?",
+    "answer": 0.02097855946675026,
+    "entity": "Meridian Systems Inc",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N256",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L258": "7_inventories",
+      "L259": "7_total_assets"
+    },
+    "binding_entities": [
+      "Meridian Systems Inc"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 89
+  },
+  {
+    "expression": {
+      "op": "ratio",
+      "left": {
+        "leaf": "31_capex",
+        "depth": 0
+      },
+      "right": {
+        "leaf": "31_net_income",
+        "depth": 0
+      },
+      "depth": 1
+    },
+    "depth": 1,
+    "question": "What is the ratio of capex for Pinnacle Health Group in 2021 to net income for Pinnacle Health Group in 2021?",
+    "answer": 0.229611757986876,
+    "entity": "Pinnacle Health Group",
+    "period": "2021",
+    "concept": null,
+    "kind": "ratio_amounts",
+    "semantic_type": "ratio",
+    "derivation": "ratio(leaf_metric, leaf_metric)",
+    "sampled_node_id": "N432",
+    "sampled_node_family": "ratio",
+    "sampled_node_depth": 1,
+    "binding": {
+      "L438": "31_capex",
+      "L439": "31_net_income"
+    },
+    "binding_entities": [
+      "Pinnacle Health Group"
+    ],
+    "binding_periods": [
+      "2021"
+    ],
+    "flags": {
+      "cross_company": false,
+      "cross_year": false,
+      "depth3": false,
+      "depth4plus": false
+    },
+    "id": 90
+  }
+]
