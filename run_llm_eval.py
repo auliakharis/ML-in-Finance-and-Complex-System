@@ -428,7 +428,7 @@ def parse_args():
         help="Relative tolerance for numeric correctness (default: 0.01 = 1%%)",
     )
     parser.add_argument(
-        "--max-new-tokens", type=int, default=256,
+        "--max-new-tokens", type=int, default=64,
         help="Max new tokens to generate per answer (default: 256)",
     )
     parser.add_argument(
