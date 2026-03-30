@@ -1,0 +1,36 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:00<06:09,  1.15it/s]Loading weights:   2%|▏         | 8/426 [00:01<00:40, 10.23it/s]Loading weights:   3%|▎         | 13/426 [00:01<00:28, 14.43it/s]Loading weights:   6%|▋         | 27/426 [00:01<00:13, 30.50it/s]Loading weights:   8%|▊         | 36/426 [00:01<00:09, 39.41it/s]Loading weights:  10%|▉         | 42/426 [00:01<00:10, 35.96it/s]Loading weights:  11%|█         | 47/426 [00:01<00:11, 33.10it/s]Loading weights:  12%|█▏        | 52/426 [00:02<00:11, 31.55it/s]Loading weights:  14%|█▍        | 61/426 [00:02<00:09, 36.65it/s]Loading weights:  15%|█▌        | 66/426 [00:02<00:11, 31.24it/s]Loading weights:  19%|█▊        | 79/426 [00:02<00:07, 45.24it/s]Loading weights:  22%|██▏       | 93/426 [00:02<00:05, 61.09it/s]Loading weights:  24%|██▎       | 101/426 [00:02<00:05, 54.65it/s]Loading weights:  27%|██▋       | 117/426 [00:03<00:04, 73.47it/s]Loading weights:  30%|██▉       | 126/426 [00:03<00:04, 71.98it/s]Loading weights:  32%|███▏      | 135/426 [00:03<00:04, 61.74it/s]Loading weights:  34%|███▍      | 146/426 [00:03<00:04, 65.12it/s]Loading weights:  36%|███▌      | 154/426 [00:03<00:04, 63.97it/s]Loading weights:  39%|███▉      | 168/426 [00:03<00:03, 79.92it/s]Loading weights:  42%|████▏     | 177/426 [00:03<00:03, 76.16it/s]Loading weights:  44%|████▎     | 186/426 [00:04<00:03, 69.39it/s]Loading weights:  47%|████▋     | 199/426 [00:04<00:02, 79.48it/s]Loading weights:  49%|████▉     | 208/426 [00:04<00:03, 65.65it/s]Loading weights:  51%|█████     | 217/426 [00:04<00:02, 70.08it/s]Loading weights:  53%|█████▎    | 225/426 [00:04<00:02, 71.41it/s]Loading weights:  56%|█████▌    | 237/426 [00:04<00:02, 77.09it/s]Loading weights:  58%|█████▊    | 246/426 [00:04<00:02, 79.72it/s]Loading weights:  60%|█████▉    | 255/426 [00:05<00:02, 70.31it/s]Loading weights:  62%|██████▏   | 265/426 [00:05<00:02, 69.19it/s]Loading weights:  65%|██████▌   | 278/426 [00:05<00:01, 79.41it/s]Loading weights:  68%|██████▊   | 290/426 [00:05<00:01, 87.45it/s]Loading weights:  70%|███████   | 300/426 [00:05<00:01, 73.36it/s]Loading weights:  72%|███████▏  | 308/426 [00:05<00:01, 63.89it/s]Loading weights:  74%|███████▍  | 316/426 [00:05<00:01, 66.49it/s]Loading weights:  76%|███████▌  | 324/426 [00:06<00:01, 61.13it/s]Loading weights:  78%|███████▊  | 331/426 [00:06<00:01, 54.62it/s]Loading weights:  80%|████████  | 342/426 [00:06<00:01, 66.62it/s]Loading weights:  82%|████████▏ | 350/426 [00:06<00:01, 61.05it/s]Loading weights:  84%|████████▍ | 359/426 [00:06<00:01, 55.76it/s]Loading weights:  86%|████████▌ | 366/426 [00:06<00:01, 44.33it/s]Loading weights:  88%|████████▊ | 377/426 [00:07<00:01, 48.57it/s]Loading weights:  90%|█████████ | 384/426 [00:07<00:01, 37.07it/s]Loading weights:  93%|█████████▎| 397/426 [00:07<00:00, 51.57it/s]Loading weights:  95%|█████████▍| 404/426 [00:07<00:00, 50.54it/s]Loading weights:  96%|█████████▋| 411/426 [00:07<00:00, 40.97it/s]Loading weights:  98%|█████████▊| 417/426 [00:08<00:00, 40.77it/s]Loading weights: 100%|█████████▉| 425/426 [00:08<00:00, 48.02it/s]Loading weights: 100%|██████████| 426/426 [00:08<00:00, 51.89it/s]
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/tokenization_utils_base.py", line 275, in __getattr__
+    return self.data[item]
+           ~~~~~~~~~^^^^^^
+KeyError: 'shape'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 472, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 420, in main
+    results_10q = evaluate_10q(
+        questions_10q, sheet_lookup_10q, tokenizer, model,
+        limit=args.limit, tol=args.tol,
+    )
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 247, in evaluate_10q
+    response = run_inference(tokenizer, model, prompt)
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 195, in run_inference
+    output_ids = model.generate(
+        input_ids,
+    ...<2 lines>...
+        pad_token_id=tokenizer.eos_token_id,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/generation/utils.py", line 2376, in generate
+    batch_size = inputs_tensor.shape[0]
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/tokenization_utils_base.py", line 277, in __getattr__
+    raise AttributeError
+AttributeError

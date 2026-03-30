@@ -1,0 +1,94 @@
+Checking model path...
+chat_template.jinja
+config.json
+LICENSE
+merges.txt
+model.safetensors-00001-of-00004.safetensors
+model.safetensors-00002-of-00004.safetensors
+model.safetensors-00003-of-00004.safetensors
+model.safetensors-00004-of-00004.safetensors
+model.safetensors.index.json
+preprocessor_config.json
+README.md
+tokenizer_config.json
+tokenizer.json
+video_preprocessor_config.json
+vocab.json
+Starting pipeline: Mon Mar 30 09:08:36 AM CEST 2026
+Model: Qwen3.5-9B
+GPU: 0
+Mon Mar 30 09:08:36 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA TITAN RTX               On  |   00000000:22:00.0 Off |                  N/A |
+| 41%   32C    P8             14W /  280W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  10-Q: 497 questions, 15 companies
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Model loaded on cuda.
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=4375514.0 pred=3.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=-0.6857 pred=2022.0 | What is the ratio of combined value of difference between cu...
+
+============================================================
+  Model: Qwen3.5-4B
+============================================================
+  10-Q  : 0/1  accuracy = 0.0%  (skipped 0)
+  90-Q  : 0/1  accuracy = 0.0%  (skipped 0)
+  Overall: 0/2  accuracy = 0.0%
+============================================================
+
+
+============================================================
+  Evaluating model: Qwen3.5-9B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-9B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-9B ...
+  Model loaded on cuda.
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=4375514.0 pred=2025.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=-0.6857 pred=20.0 | What is the ratio of combined value of difference between cu...
+
+============================================================
+  Model: Qwen3.5-9B
+============================================================
+  10-Q  : 0/1  accuracy = 0.0%  (skipped 0)
+  90-Q  : 0/1  accuracy = 0.0%  (skipped 0)
+  Overall: 0/2  accuracy = 0.0%
+============================================================
+
+Results saved to eval_results.json
+
+=== Model Comparison ===
+Model                  10-Q Acc   90-Q Acc    Overall
+----------------------------------------------------
+Qwen3.5-4B                 0.0%       0.0%       0.0%
+Qwen3.5-9B                 0.0%       0.0%       0.0%
+Done: Mon Mar 30 09:10:43 AM CEST 2026

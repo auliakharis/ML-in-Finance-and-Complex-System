@@ -1,0 +1,48 @@
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc53a10>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/transformers/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6a490>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/transformers/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6a5d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/transformers/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6a710>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/transformers/
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6a850>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/transformers/
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6b9d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/accelerate/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6bb10>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/accelerate/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6bc50>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/accelerate/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6bd90>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/accelerate/
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x14c91dc6bed0>: Failed to establish a new connection: [Errno 111] Connection refused')': /simple/accelerate/
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/models/auto/configuration_auto.py", line 1034, in from_pretrained
+    config_class = CONFIG_MAPPING[config_dict["model_type"]]
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/models/auto/configuration_auto.py", line 736, in __getitem__
+    raise KeyError(key)
+KeyError: 'qwen3_5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 472, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 417, in main
+    tokenizer, model = load_model(model_name)
+                       ~~~~~~~~~~^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 161, in load_model
+    model = AutoModelForCausalLM.from_pretrained(
+        model_path,
+    ...<2 lines>...
+        trust_remote_code=True,
+    )
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 526, in from_pretrained
+    config, kwargs = AutoConfig.from_pretrained(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/models/auto/configuration_auto.py", line 1036, in from_pretrained
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The checkpoint you are trying to load has model type `qwen3_5` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
