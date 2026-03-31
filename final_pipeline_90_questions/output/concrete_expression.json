@@ -1,0 +1,81 @@
+{
+  "expr": {
+    "op": "sum",
+    "left": {
+      "op": "avg",
+      "left": {
+        "op": "mul",
+        "left": {
+          "leaf": "76_total_equity",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "76_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "mul",
+        "left": {
+          "leaf": "72_total_equity",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "72_income_tax",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "right": {
+      "op": "min",
+      "left": {
+        "op": "sum",
+        "left": {
+          "leaf": "76_revenue",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "76_revenue",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "right": {
+        "op": "diff",
+        "left": {
+          "leaf": "72_revenue",
+          "depth": 0
+        },
+        "right": {
+          "leaf": "72_revenue",
+          "depth": 0
+        },
+        "depth": 1
+      },
+      "depth": 2
+    },
+    "depth": 3
+  },
+  "expr_str": "sum(avg(mul(76_total_equity, 76_income_tax), mul(72_total_equity, 72_income_tax)), min(sum(76_revenue, 76_revenue), diff(72_revenue, 72_revenue)))",
+  "depth": 3,
+  "question": "What is the sum of the average of total equity for Helix BioSciences in 2024, scaled by income tax for Helix BioSciences in 2024 and total equity for Helix BioSciences in 2020, scaled by income tax for Helix BioSciences in 2020 and the minimum of the sum of revenue for Helix BioSciences in 2024 and revenue for Helix BioSciences in 2024 and the difference between revenue for Helix BioSciences in 2020 and revenue for Helix BioSciences in 2020?",
+  "answer": 18707.852462812272,
+  "meaning": {
+    "kind": "sum_amount",
+    "semantic_type": "amount",
+    "text": "sum of value and value for Helix BioSciences in None",
+    "entity": "Helix BioSciences",
+    "period": null,
+    "unit": "USD",
+    "concept": null,
+    "label": "value plus value",
+    "from_period": null,
+    "to_period": null,
+    "components": null,
+    "target_concept": null,
+    "derivation": "sum(avg_amounts, min_amounts)"
+  }
+}

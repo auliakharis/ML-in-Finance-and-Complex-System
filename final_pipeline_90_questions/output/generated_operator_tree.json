@@ -1,0 +1,264 @@
+{
+  "max_depth": 3,
+  "actual_depth": 3,
+  "seed": 37,
+  "derived_prob": 0.5,
+  "ops": [
+    "sum",
+    "diff",
+    "ratio",
+    "mul",
+    "growth",
+    "min",
+    "max",
+    "avg"
+  ],
+  "derived_concepts": {
+    "gross_profit": {
+      "family": "amount",
+      "concept_depth": 1,
+      "formula": {
+        "op": "diff",
+        "args": [
+          "revenue",
+          "cost_of_goods_sold"
+        ]
+      },
+      "protected": true
+    },
+    "operating_income": {
+      "family": "amount",
+      "concept_depth": 2,
+      "formula": {
+        "op": "diff",
+        "args": [
+          "gross_profit",
+          "operating_expenses"
+        ]
+      },
+      "protected": true
+    },
+    "pretax_income": {
+      "family": "amount",
+      "concept_depth": 3,
+      "formula": {
+        "op": "diff",
+        "args": [
+          "operating_income",
+          "non_operating_expenses"
+        ]
+      },
+      "protected": true
+    },
+    "income_tax_expense": {
+      "family": "amount",
+      "concept_depth": 4,
+      "formula": {
+        "op": "mul",
+        "args": [
+          "pretax_income",
+          "income_tax"
+        ]
+      },
+      "protected": true
+    },
+    "net_income": {
+      "family": "amount",
+      "concept_depth": 5,
+      "formula": {
+        "op": "diff",
+        "args": [
+          "pretax_income",
+          "income_tax_expense"
+        ]
+      },
+      "protected": true
+    },
+    "current_assets": {
+      "family": "amount",
+      "concept_depth": 1,
+      "formula": {
+        "op": "sum",
+        "args": [
+          "cash",
+          "accounts_receivable",
+          "inventories",
+          "short_term_investments"
+        ]
+      },
+      "protected": true
+    },
+    "longterm_assets": {
+      "family": "amount",
+      "concept_depth": 2,
+      "formula": {
+        "op": "diff",
+        "args": [
+          "total_assets",
+          "current_assets"
+        ]
+      },
+      "protected": true
+    },
+    "longterm_liabilities": {
+      "family": "amount",
+      "concept_depth": 1,
+      "formula": {
+        "op": "diff",
+        "args": [
+          "total_liabilities",
+          "current_liabilities"
+        ]
+      },
+      "protected": true
+    }
+  },
+  "stats": {
+    "internal_nodes": 7,
+    "leaves": 8,
+    "total_nodes": 15
+  },
+  "tree": {
+    "kind": "node",
+    "node_id": "N6",
+    "op": "sum",
+    "family": "amount",
+    "depth": 3,
+    "left": {
+      "kind": "node",
+      "node_id": "N2",
+      "op": "avg",
+      "family": "amount",
+      "depth": 2,
+      "left": {
+        "kind": "node",
+        "node_id": "N0",
+        "op": "mul",
+        "family": "amount",
+        "depth": 1,
+        "left": {
+          "kind": "leaf",
+          "name": "L0",
+          "family": "amount",
+          "semantic_type_in": [
+            "amount"
+          ],
+          "context_group": "C4",
+          "entity_group": "E1",
+          "time_series_group": "Y2",
+          "concept_group": "T3"
+        },
+        "right": {
+          "kind": "leaf",
+          "name": "L1",
+          "family": "ratio",
+          "semantic_type_in": [
+            "ratio",
+            "rate"
+          ],
+          "entity_group": "E1"
+        }
+      },
+      "right": {
+        "kind": "node",
+        "node_id": "N1",
+        "op": "mul",
+        "family": "amount",
+        "depth": 1,
+        "left": {
+          "kind": "leaf",
+          "name": "L2",
+          "family": "amount",
+          "semantic_type_in": [
+            "amount"
+          ],
+          "context_group": "C5",
+          "entity_group": "E1",
+          "time_series_group": "Y2",
+          "concept_group": "T3"
+        },
+        "right": {
+          "kind": "leaf",
+          "name": "L3",
+          "family": "ratio",
+          "semantic_type_in": [
+            "ratio",
+            "rate"
+          ],
+          "entity_group": "E1"
+        }
+      },
+      "over_years_group": "Y2"
+    },
+    "right": {
+      "kind": "node",
+      "node_id": "N5",
+      "op": "min",
+      "family": "amount",
+      "depth": 2,
+      "left": {
+        "kind": "node",
+        "node_id": "N3",
+        "op": "sum",
+        "family": "amount",
+        "depth": 1,
+        "left": {
+          "kind": "leaf",
+          "name": "L4",
+          "family": "amount",
+          "semantic_type_in": [
+            "amount"
+          ],
+          "context_group": "C8",
+          "entity_group": "E1",
+          "time_series_group": "Y6",
+          "concept_group": "T7"
+        },
+        "right": {
+          "kind": "leaf",
+          "name": "L5",
+          "family": "amount",
+          "semantic_type_in": [
+            "amount"
+          ],
+          "context_group": "C8",
+          "entity_group": "E1",
+          "time_series_group": "Y6",
+          "concept_group": "T7"
+        }
+      },
+      "right": {
+        "kind": "node",
+        "node_id": "N4",
+        "op": "diff",
+        "family": "amount",
+        "depth": 1,
+        "left": {
+          "kind": "leaf",
+          "name": "L6",
+          "family": "amount",
+          "semantic_type_in": [
+            "amount"
+          ],
+          "context_group": "C9",
+          "entity_group": "E1",
+          "time_series_group": "Y6",
+          "concept_group": "T7"
+        },
+        "right": {
+          "kind": "leaf",
+          "name": "L7",
+          "family": "amount",
+          "semantic_type_in": [
+            "amount"
+          ],
+          "context_group": "C9",
+          "entity_group": "E1",
+          "time_series_group": "Y6",
+          "concept_group": "T7"
+        }
+      },
+      "over_years_group": "Y6"
+    }
+  }
+}
