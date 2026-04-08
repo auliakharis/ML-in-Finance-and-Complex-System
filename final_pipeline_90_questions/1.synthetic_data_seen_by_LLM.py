@@ -15,7 +15,8 @@ Output: financial_spreadsheet.csv + financial_spreadsheet.xlsx
 import csv
 import json
 import random
-import os
+from pathlib import Path
+from typing import Any, Dict, List, Sequence, Tuple
 
 random.seed(42)
 
@@ -42,7 +43,7 @@ YEARLY_NUMERIC_COLS = {
     "revenue":                {"unit": "M_USD",   "range": (5000, 500000)},
     "cost_of_goods_sold":     {"unit": "M_USD",   "range": (2000, 350000)},
     "operating_expenses":     {"unit": "M_USD",   "range": (500, 80000)},
-    "non_operating":          {"unit": "M_USD",   "range": (-1000, 1000)},
+    "non_operating_expenses": {"unit": "M_USD",   "range": (-1000, 1000)},
     "income_tax":             {"unit": "M_USD",   "range": (200, 80000)},      
 
     "total_assets":           {"unit": "M_USD",   "range": (10000, 1000000)},
@@ -83,9 +84,16 @@ COMPANIES = [
 ]
 
 RATINGS = ["CCC", "B", "BB", "BBB", "A", "AA", "AAA"]
+OUTPUT_DIR = Path("output")
+CSV_PATH = OUTPUT_DIR / "financial_spreadsheet.csv"
+SCHEMA_PATH = OUTPUT_DIR / "schema.json"
 
 
-def generate_company_row(company_tuple):
+def ensure_output_dir(path: Path) -> None:
+    path.mkdir(parents=True, exist_ok=True)
+
+
+def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[Dict[str, Any]]:
     """Generate one row of the spreadsheet for one company."""
     name, ticker, sector, country, exchange = company_tuple
 
@@ -167,7 +175,56 @@ def generate_company_row(company_tuple):
     return rows
 
 
-def main():
+def build_schema(columns: Sequence[str]) -> Dict[str, Dict[str, Any]]:
+    schema: Dict[str, Dict[str, Any]] = {}
+    for col in columns:
+        if col in CATEGORICAL_COLS:
+            info = CATEGORICAL_COLS[col]
+            schema[col] = {"type": info["type"], "desc": info["desc"], "year": None}
+            if info["type"] == "ordinal":
+                schema[col]["order"] = info["order"]
+            continue
+
+        # In this pipeline the numeric dataset is flattened to one row per year,
+        # so numeric column names are plain concept names (not revenue_2024 style).
+        if col == "year":
+            schema[col] = {"type": "numeric", "base_name": "year", "year": None, "unit": "year", "desc": "reporting year"}
+            continue
+
+        if col in YEARLY_NUMERIC_COLS:
+            unit = YEARLY_NUMERIC_COLS[col].get("unit", "M_USD")
+            schema[col] = {
+                "type": "numeric",
+                "base_name": col,
+                "year": "row_level",
+                "unit": unit,
+                "desc": col.replace("_", " "),
+            }
+    return schema
+
+
+def print_preview(rows: List[Dict[str, Any]], columns: Sequence[str], schema: Dict[str, Dict[str, Any]]) -> None:
+    print(f"Generated spreadsheet rows: {len(rows)}")
+    print(f"  Categorical columns: {len(CATEGORICAL_COLS)}")
+    print(
+        f"  Numeric columns: {len(columns) - len(CATEGORICAL_COLS)} "
+        f"({len(YEARLY_NUMERIC_COLS)} metrics across {len(YEARS)} years)"
+    )
+
+    print("\nPreview (first 3 rows):")
+    for row in rows[:3]:
+        print(
+            f"  {row['ticker']:>5} | {row['company_name']:<30} | {row['sector']:<15} | "
+            f"Year: {row['year']} | Rev: ${row['revenue']:>10,} | Tax rate: {row['income_tax']:.2%}"
+        )
+
+    print("\nAll columns:")
+    for i, col in enumerate(columns):
+        ctype = schema.get(col, {}).get("type", "?")
+        print(f"  {i:>2}. {col:<35} [{ctype}]")
+
+
+def main() -> None:
     # Generate all rows
     rows = []
     for c in COMPANIES:
@@ -176,62 +233,21 @@ def main():
     # Get column order
     columns = list(rows[0].keys())
 
-    # ── Save CSV ──
-    csv_path = "output/financial_spreadsheet.csv"
-    with open(csv_path, "w", newline="") as f:
+    if not rows:
+        raise ValueError("No rows were generated from company templates.")
+
+    ensure_output_dir(OUTPUT_DIR)
+    with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
         writer.writerows(rows)
 
-    # ── Save schema (for the tree builder to know types) ──
-    schema = {}
-    for col in columns:
-        if col in CATEGORICAL_COLS:
-            info = CATEGORICAL_COLS[col]
-            schema[col] = {
-                "type": info["type"],
-                "desc": info["desc"],
-                "year": None,
-            }
-            if info["type"] == "ordinal":
-                schema[col]["order"] = info["order"]
-        else:
-            # Parse: "revenue_2024" → base="revenue", year=2024
-            parts = col.rsplit("_", 1)
-            if len(parts) == 2 and parts[1].isdigit():
-                base_name = parts[0]
-                year = int(parts[1])
-                unit = YEARLY_NUMERIC_COLS.get(base_name, {}).get("unit", "M_USD")
-                schema[col] = {
-                    "type": "numeric",
-                    "base_name": base_name,
-                    "year": year,
-                    "unit": unit,
-                    "desc": f"{base_name.replace('_', ' ')} in {year}",
-                }
-
-    with open("output/schema.json", "w") as f:
+    schema = build_schema(columns)
+    with open(SCHEMA_PATH, "w", encoding="utf-8") as f:
         json.dump(schema, f, indent=2)
-
-    # ── Print preview ──
-    print(f"✓ Generated spreadsheet: {len(rows)} companies × {len(columns)} columns\n")
-    print(f"  Categorical columns: {len(CATEGORICAL_COLS)}")
-    print(f"  Numeric columns:     {len(columns) - len(CATEGORICAL_COLS)} ({len(YEARLY_NUMERIC_COLS)} metrics × {len(YEARS)} years)\n")
-
-    # Show a few rows
-    print(f"  Preview (first 3 companies):")
-    for row in rows[:3]:
-        print(f"    {row['ticker']:>5} | {row['company_name']:<30} | {row['sector']:<15} | "
-              f"Rev 2024: ${row.get('revenue_2024', 0):>10,}M | NI 2024: ${row.get('net_income_2024', 0):>10,}M")
-
-    print(f"\n  All columns:")
-    for i, col in enumerate(columns):
-        info = schema.get(col, {})
-        ctype = info.get("type", "?")
-        print(f"    {i:>2}. {col:<35} [{ctype}]")
-
-    print(f"\n✓ Saved: {csv_path}")
-    print(f"✓ Saved: output/schema.json")
+    print_preview(rows, columns, schema)
+    print(f"\nSaved: {CSV_PATH}")
+    print(f"Saved: {SCHEMA_PATH}")
 
 
 if __name__ == "__main__":

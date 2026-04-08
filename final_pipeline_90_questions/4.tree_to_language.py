@@ -500,6 +500,23 @@ class SemanticAnalyzer:
     def _is_metric_like_ratio(self, meaning: Meaning) -> bool:
         return meaning.semantic_type in {"ratio", "rate"} and meaning.kind == "leaf_metric"
 
+    def _same_amount_context(self, a: Meaning, b: Meaning) -> bool:
+        return (
+            a.semantic_type == "amount"
+            and b.semantic_type == "amount"
+            and a.entity == b.entity
+            and a.unit == b.unit
+        )
+
+    def _same_amount_timeseries_metric(self, a: Meaning, b: Meaning) -> bool:
+        return (
+            self._same_amount_context(a, b)
+            and a.concept == b.concept
+            and a.period != b.period
+            and self._is_metric_like_amount(a)
+            and self._is_metric_like_amount(b)
+        )
+
     def analyze(self, expr: Expr) -> AnalysisResult:
         if isinstance(expr, Leaf):
             atom = self.atom(expr.key)
@@ -646,12 +663,7 @@ class SemanticAnalyzer:
     def _analyze_diff(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
 
-        if (
-            lm.semantic_type == rm.semantic_type == "amount"
-            and lm.concept == rm.concept
-            and self.same_entity_and_unit(lm, rm)
-            and lm.period != rm.period
-        ):
+        if self._same_amount_context(lm, rm) and lm.concept == rm.concept and lm.period != rm.period:
             return Meaning(
                 kind="change_over_time",
                 semantic_type="amount",
@@ -708,12 +720,7 @@ class SemanticAnalyzer:
                 derivation="change over time divided by base period",
             )
 
-        if (
-            lm.semantic_type == "amount"
-            and rm.semantic_type == "amount"
-            and lm.entity == rm.entity
-            and lm.unit == rm.unit
-        ):
+        if self._same_amount_context(lm, rm):
             left_label = lm.label or lm.concept or "value"
             right_label = rm.label or rm.concept or "value"
             return Meaning(
@@ -769,15 +776,7 @@ class SemanticAnalyzer:
 
     def _analyze_growth(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
-        if (
-            lm.semantic_type == rm.semantic_type == "amount"
-            and lm.entity == rm.entity
-            and lm.unit == rm.unit
-            and lm.period != rm.period
-            and lm.concept == rm.concept
-            and self._is_metric_like_amount(lm)
-            and self._is_metric_like_amount(rm)
-        ):
+        if self._same_amount_timeseries_metric(lm, rm):
             periods = sorted([lm.period, rm.period])
             return Meaning(
                 kind="growth_rate",
@@ -792,11 +791,7 @@ class SemanticAnalyzer:
                 derivation="explicit growth operator",
             )
 
-        if (
-            lm.semantic_type == rm.semantic_type == "amount"
-            and lm.entity == rm.entity
-            and lm.unit == rm.unit
-        ):
+        if self._same_amount_context(lm, rm):
             periods = [p for p in [lm.period, rm.period] if p is not None]
             ordered = sorted(periods) if len(periods) == 2 and len(set(periods)) == 2 else periods
             from_period = ordered[0] if ordered else None
@@ -819,15 +814,7 @@ class SemanticAnalyzer:
         lm, rm = left.meaning, right.meaning
         op_name = {"min": "minimum", "max": "maximum", "avg": "average"}[expr.op]
 
-        if (
-            lm.semantic_type == rm.semantic_type == "amount"
-            and lm.concept == rm.concept
-            and lm.entity == rm.entity
-            and lm.unit == rm.unit
-            and lm.period != rm.period
-            and self._is_metric_like_amount(lm)
-            and self._is_metric_like_amount(rm)
-        ):
+        if self._same_amount_timeseries_metric(lm, rm):
             periods = sorted([lm.period, rm.period])
             base_label = lm.label or lm.concept or "value"
             return Meaning(
@@ -843,11 +830,7 @@ class SemanticAnalyzer:
                 derivation=f"{expr.op} over time",
             )
 
-        if (
-            lm.semantic_type == rm.semantic_type == "amount"
-            and lm.entity == rm.entity
-            and lm.unit == rm.unit
-        ):
+        if self._same_amount_context(lm, rm):
             return Meaning(
                 kind=f"{expr.op}_amounts",
                 semantic_type="amount",

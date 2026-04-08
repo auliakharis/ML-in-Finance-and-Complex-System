@@ -5,19 +5,16 @@ Typed tree sampler for financial reasoning templates.
 
 This file generates a random expression template made of:
 1. raw leaves            -> placeholders that will later be bound to spreadsheet atoms
-2. operator nodes        -> sum / diff / ratio / mul / growth / min / max / avg
-3. derived concepts      -> named financial formulas such as gross_profit
+2. operator nodes        -> sum / diff / ratio / mul / growth
+3. time aggregations     -> min / max / avg across all available years
+4. derived concepts      -> named financial formulas such as gross_profit
 
 Important distinction:
 - template depth = target recursive depth budget used while sampling
 - actual depth   = realized operator depth of the sampled tree
 - concept depth  = depth of the internal formula of a derived concept
 
-This file only samples templates.
-A later script can:
-- expand derived_concept nodes into their formulas
-- bind leaf placeholders to real atoms from your atoms JSON
-- enforce that "over_years_group" means same entity + same concept, different years
+This file only samples templates, it does not plug in anything (including formulas for dervied concepts) yet
 """
 
 import argparse
@@ -30,15 +27,16 @@ from typing import Any, Dict, List, Optional, Tuple
 # ---------------------------------------------------------------------
 # 1. Supported operators
 # ---------------------------------------------------------------------
-# sum    : amount + amount -> amount
-# diff   : amount - amount -> amount
-# ratio  : amount / amount -> ratio
-# mul    : amount * ratio  -> amount
-# growth : amount(current year) vs amount(previous year) -> ratio
-# min    : min over years of the same concept/entity -> amount
-# max    : max over years of the same concept/entity -> amount
-# avg    : average over years of the same concept/entity -> amount
+# sum      : amount + amount -> amount
+# diff     : amount - amount -> amount
+# ratio    : amount / amount -> ratio
+# mul      : amount * ratio  -> amount
+# growth   : amount(current year) vs amount(previous year) -> ratio
+# min/max/avg are represented as "time_agg" nodes, not binary nodes
 OPS = ("sum", "diff", "ratio", "mul", "growth", "min", "max", "avg")
+AMOUNT_BINARY_OPS = ("sum", "diff", "mul")
+TIME_AGG_OPS = ("min", "max", "avg")
+RATIO_OPS = ("ratio", "growth")
 
 
 # ---------------------------------------------------------------------
@@ -102,6 +100,11 @@ DERIVED_CONCEPTS: Dict[str, Dict[str, Any]] = {
 # ---------------------------------------------------------------------
 # 3. ID generator
 # ---------------------------------------------------------------------
+#tree generator needs unique labels
+#every node gets a unique node id
+#every raw leaf gets a unique leaf name
+#every logical constraint group gets a unique label
+#for ex: two leaves with the same entity_group should refer to the same company
 class IdGen:
     """
     Generates unique IDs and grouping labels.
@@ -112,6 +115,8 @@ class IdGen:
     group("E")  -> E0, E1, ...
     group("Y")  -> Y0, Y1, ...
     group("T")  -> T0, T1, ...
+    group("S")  -> S0, S1, ...
+    group("A")  -> A0, A1, ...
     """
 
     def __init__(self) -> None:
@@ -145,6 +150,9 @@ def make_leaf(
     entity_group: Optional[str],
     time_series_group: Optional[str] = None,
     concept_group: Optional[str] = None,
+    statement_group: Optional[str] = None,
+    section_group: Optional[str] = None,
+    aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
     spec: Dict[str, Any] = {
         "kind": "leaf",
@@ -162,6 +170,12 @@ def make_leaf(
             spec["time_series_group"] = time_series_group
         if concept_group is not None:
             spec["concept_group"] = concept_group
+        if statement_group is not None:
+            spec["statement_group"] = statement_group
+        if section_group is not None:
+            spec["section_group"] = section_group
+        if aggregation_group is not None:
+            spec["aggregation_group"] = aggregation_group
 
     elif family == "ratio":
         spec["semantic_type_in"] = ["ratio", "rate"]
@@ -182,6 +196,9 @@ def make_derived_concept(
     entity_group: Optional[str],
     time_series_group: Optional[str] = None,
     concept_group: Optional[str] = None,
+    statement_group: Optional[str] = None,
+    section_group: Optional[str] = None,
+    aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
     spec: Dict[str, Any] = {
         "kind": "derived_concept",
@@ -197,6 +214,12 @@ def make_derived_concept(
         spec["time_series_group"] = time_series_group
     if concept_group is not None:
         spec["concept_group"] = concept_group
+    if statement_group is not None:
+        spec["statement_group"] = statement_group
+    if section_group is not None:
+        spec["section_group"] = section_group
+    if aggregation_group is not None:
+        spec["aggregation_group"] = aggregation_group
     return spec
 
 
@@ -223,6 +246,37 @@ def make_node(
     return node
 
 
+def make_time_agg(
+    idgen: IdGen,
+    op: str,
+    family: str,
+    depth: int,
+    entity_group: str,
+    concept_group: str,
+    over_years_group: str,
+    statement_group: Optional[str] = None,
+    section_group: Optional[str] = None,
+    aggregation_group: Optional[str] = None,
+) -> Dict[str, Any]:
+    node: Dict[str, Any] = {
+        "kind": "time_agg",
+        "node_id": idgen.node_id(),
+        "op": op,
+        "family": family,
+        "depth": depth,
+        "entity_group": entity_group,
+        "concept_group": concept_group,
+        "over_years_group": over_years_group,
+    }
+    if statement_group is not None:
+        node["statement_group"] = statement_group
+    if section_group is not None:
+        node["section_group"] = section_group
+    if aggregation_group is not None:
+        node["aggregation_group"] = aggregation_group
+    return node
+
+
 # ---------------------------------------------------------------------
 # 5. Helpers for derived concepts
 # ---------------------------------------------------------------------
@@ -234,6 +288,13 @@ def eligible_derived_concepts(depth: int, family: str) -> List[str]:
     ]
 
 
+def choose_amount_op(rng: random.Random, allow_time_aggregates: bool) -> str:
+    ops = list(AMOUNT_BINARY_OPS)
+    if allow_time_aggregates:
+        ops.extend(TIME_AGG_OPS)
+    return rng.choice(ops)
+
+
 def sample_amount_terminal(
     rng: random.Random,
     idgen: IdGen,
@@ -243,6 +304,9 @@ def sample_amount_terminal(
     derived_prob: float,
     time_series_group: Optional[str] = None,
     concept_group: Optional[str] = None,
+    statement_group: Optional[str] = None,
+    section_group: Optional[str] = None,
+    aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
     eligible = eligible_derived_concepts(depth=depth, family="amount")
 
@@ -257,6 +321,9 @@ def sample_amount_terminal(
             entity_group=entity_group,
             time_series_group=time_series_group,
             concept_group=concept_group,
+            statement_group=statement_group,
+            section_group=section_group,
+            aggregation_group=aggregation_group,
         )
 
     return make_leaf(
@@ -266,6 +333,9 @@ def sample_amount_terminal(
         entity_group=entity_group,
         time_series_group=time_series_group,
         concept_group=concept_group,
+        statement_group=statement_group,
+        section_group=section_group,
+        aggregation_group=aggregation_group,
     )
 
 
@@ -323,9 +393,10 @@ def build_ratio_tree(
             entity_group=entity_group,
         )
 
-    op = rng.choice(("ratio", "growth"))
+    op = rng.choice(RATIO_OPS)
 
     if op == "ratio":
+        section_group = idgen.group("S")
         left = build_amount_tree(
             depth=depth - 1,
             rng=rng,
@@ -333,6 +404,7 @@ def build_ratio_tree(
             context_group=context_group,
             entity_group=entity_group,
             derived_prob=derived_prob,
+            forced_section_group=section_group,
         )
         right = build_amount_tree(
             depth=depth - 1,
@@ -341,6 +413,7 @@ def build_ratio_tree(
             context_group=context_group,
             entity_group=entity_group,
             derived_prob=derived_prob,
+            forced_section_group=section_group,
         )
         return make_node(
             idgen=idgen,
@@ -382,13 +455,15 @@ def build_amount_tree(
     forced_time_series_group: Optional[str] = None,
     forced_concept_group: Optional[str] = None,
     allow_time_aggregates: bool = True,
+    forced_statement_group: Optional[str] = None,
+    forced_section_group: Optional[str] = None,
+    forced_aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
     if context_group is None:
         context_group = idgen.group("C")
     if entity_group is None:
         entity_group = idgen.group("E")
 
-    # True base case: only raw leaves.
     if depth == 0:
         return sample_amount_terminal(
             rng=rng,
@@ -399,11 +474,11 @@ def build_amount_tree(
             derived_prob=0.0,
             time_series_group=forced_time_series_group,
             concept_group=forced_concept_group,
+            statement_group=forced_statement_group,
+            section_group=forced_section_group,
+            aggregation_group=forced_aggregation_group,
         )
 
-    # Critical fix:
-    # stop early sometimes while depth budget remains, so a subtree can become
-    # a visible named derived concept such as gross_profit or current_assets.
     if rng.random() < 0.35:
         return sample_amount_terminal(
             rng=rng,
@@ -414,15 +489,17 @@ def build_amount_tree(
             derived_prob=derived_prob,
             time_series_group=forced_time_series_group,
             concept_group=forced_concept_group,
+            statement_group=forced_statement_group,
+            section_group=forced_section_group,
+            aggregation_group=forced_aggregation_group,
         )
 
-    ops = ["sum", "diff", "mul"]
-    if allow_time_aggregates:
-        ops.extend(["min", "max", "avg"])
+    op = choose_amount_op(rng, allow_time_aggregates)
 
-    op = rng.choice(ops)
+    if op == "sum":
+        agg_group = idgen.group("A")
+        section_group = idgen.group("S")
 
-    if op in {"sum", "diff"}:
         left = build_amount_tree(
             depth=depth - 1,
             rng=rng,
@@ -433,6 +510,9 @@ def build_amount_tree(
             forced_time_series_group=forced_time_series_group,
             forced_concept_group=forced_concept_group,
             allow_time_aggregates=allow_time_aggregates,
+            forced_statement_group=forced_statement_group,
+            forced_section_group=section_group,
+            forced_aggregation_group=agg_group,
         )
         right = build_amount_tree(
             depth=depth - 1,
@@ -444,10 +524,51 @@ def build_amount_tree(
             forced_time_series_group=forced_time_series_group,
             forced_concept_group=forced_concept_group,
             allow_time_aggregates=allow_time_aggregates,
+            forced_statement_group=forced_statement_group,
+            forced_section_group=section_group,
+            forced_aggregation_group=agg_group,
         )
         return make_node(
             idgen=idgen,
-            op=op,
+            op="sum",
+            family="amount",
+            left=left,
+            right=right,
+            depth=depth,
+        )
+
+    if op == "diff":
+        left = build_amount_tree(
+            depth=depth - 1,
+            rng=rng,
+            idgen=idgen,
+            context_group=context_group,
+            entity_group=entity_group,
+            derived_prob=derived_prob,
+            forced_time_series_group=forced_time_series_group,
+            forced_concept_group=forced_concept_group,
+            allow_time_aggregates=allow_time_aggregates,
+            forced_statement_group=forced_statement_group,
+            forced_section_group=forced_section_group,
+            forced_aggregation_group=forced_aggregation_group,
+        )
+        right = build_amount_tree(
+            depth=depth - 1,
+            rng=rng,
+            idgen=idgen,
+            context_group=context_group,
+            entity_group=entity_group,
+            derived_prob=derived_prob,
+            forced_time_series_group=forced_time_series_group,
+            forced_concept_group=forced_concept_group,
+            allow_time_aggregates=allow_time_aggregates,
+            forced_statement_group=forced_statement_group,
+            forced_section_group=forced_section_group,
+            forced_aggregation_group=forced_aggregation_group,
+        )
+        return make_node(
+            idgen=idgen,
+            op="diff",
             family="amount",
             left=left,
             right=right,
@@ -465,6 +586,9 @@ def build_amount_tree(
             forced_time_series_group=forced_time_series_group,
             forced_concept_group=forced_concept_group,
             allow_time_aggregates=allow_time_aggregates,
+            forced_statement_group=forced_statement_group,
+            forced_section_group=forced_section_group,
+            forced_aggregation_group=forced_aggregation_group,
         )
         right = build_ratio_tree(
             depth=depth - 1,
@@ -483,22 +607,20 @@ def build_amount_tree(
             depth=depth,
         )
 
-    if op in {"min", "max", "avg"}:
-        left, right, years_group = build_time_series_amount_pair(
-            depth=depth - 1,
-            rng=rng,
-            idgen=idgen,
-            entity_group=entity_group,
-            derived_prob=derived_prob,
-        )
-        return make_node(
+    if op in TIME_AGG_OPS:
+        years_group = idgen.group("Y") #creates a unique group id meaning “these values are tied across years.”
+        concept_group = forced_concept_group or idgen.group("T")#creates a unique group id meaning “these values are tied across concepts.”
+        return make_time_agg(   #creates a time aggregation node
             idgen=idgen,
             op=op,
             family="amount",
-            left=left,
-            right=right,
             depth=depth,
+            entity_group=entity_group,
+            concept_group=concept_group,
             over_years_group=years_group,
+            statement_group=forced_statement_group,
+            section_group=forced_section_group,
+            aggregation_group=forced_aggregation_group,
         )
 
     raise ValueError(f"Unsupported amount op: {op}")
@@ -525,7 +647,7 @@ def normalize_symbolic(expr: Any) -> Any:
     op, args = expr
     norm_args = tuple(normalize_symbolic(arg) for arg in args)
 
-    if op in {"sum", "min", "max", "avg"}:
+    if op == "sum":
         norm_args = tuple(sorted(norm_args, key=repr))
 
     return (op, norm_args)
@@ -539,6 +661,15 @@ def symbolic_from_tree(tree: Dict[str, Any]) -> Any:
 
     if kind == "derived_concept":
         return normalize_symbolic(expand_formula_reference(tree["name"]))
+
+    if kind == "time_agg":
+        return (
+            "time_agg",
+            tree["op"],
+            tree["entity_group"],
+            tree["concept_group"],
+            tree["over_years_group"],
+        )
 
     if kind == "node":
         left = symbolic_from_tree(tree["left"])
@@ -562,7 +693,7 @@ def contains_named_derived(tree: Dict[str, Any], concept_name: str) -> bool:
     if kind == "derived_concept":
         return tree["name"] == concept_name
 
-    if kind == "leaf":
+    if kind in {"leaf", "time_agg"}:
         return False
 
     return contains_named_derived(tree["left"], concept_name) or contains_named_derived(
@@ -571,6 +702,9 @@ def contains_named_derived(tree: Dict[str, Any], concept_name: str) -> bool:
 
 
 def violates_protected_canonical_form(tree: Dict[str, Any], protected: Dict[str, Any]) -> Optional[str]:
+    if tree["kind"] == "time_agg":
+        return None
+
     tree_sig = symbolic_from_tree(tree)
 
     for concept_name, concept_sig in protected.items():
@@ -584,7 +718,7 @@ def violates_protected_canonical_form(tree: Dict[str, Any], protected: Dict[str,
 # 8. Counting and diagnostics
 # ---------------------------------------------------------------------
 def count_nodes(tree: Dict[str, Any]) -> Dict[str, int]:
-    if tree["kind"] in {"leaf", "derived_concept"}:
+    if tree["kind"] in {"leaf", "derived_concept", "time_agg"}:
         return {"internal_nodes": 0, "leaves": 1, "total_nodes": 1}
 
     left = count_nodes(tree["left"])
@@ -597,7 +731,7 @@ def count_nodes(tree: Dict[str, Any]) -> Dict[str, int]:
 
 
 def actual_tree_depth(tree: Dict[str, Any]) -> int:
-    if tree["kind"] in {"leaf", "derived_concept"}:
+    if tree["kind"] in {"leaf", "derived_concept", "time_agg"}:
         return 0
     return 1 + max(actual_tree_depth(tree["left"]), actual_tree_depth(tree["right"]))
 
@@ -612,6 +746,13 @@ def sample_tree_with_rejection(
     derived_prob: float,
     max_attempts: int = 200,
 ) -> Tuple[Dict[str, Any], Optional[str]]:
+    if max_depth < 0:
+        raise ValueError("max_depth must be >= 0.")
+    if not (0.0 <= derived_prob <= 1.0):
+        raise ValueError("derived_prob must be within [0, 1].")
+    if max_attempts <= 0:
+        raise ValueError("max_attempts must be > 0.")
+
     protected = protected_signatures()
     last_reason: Optional[str] = None
 
@@ -638,7 +779,7 @@ def sample_tree_with_rejection(
 # ---------------------------------------------------------------------
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Generate one typed financial operator tree with raw leaves, derived concepts, growth, min/max/avg over years."
+        description="Generate one typed financial operator tree with raw leaves, derived concepts, growth, and min/max/avg across years."
     )
     parser.add_argument(
         "--depth",
@@ -664,6 +805,10 @@ def main() -> None:
         help="Path to the output JSON file.",
     )
     args = parser.parse_args()
+    if args.depth < 0:
+        raise ValueError("--depth must be >= 0.")
+    if not (0.0 <= args.derived_prob <= 1.0):
+        raise ValueError("--derived-prob must be between 0 and 1.")
 
     rng = random.Random(args.seed)
     idgen = IdGen()

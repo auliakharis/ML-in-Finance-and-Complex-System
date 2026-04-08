@@ -26,6 +26,77 @@ def flatten_leaves(expr: Any) -> List[str]:
         return flatten_leaves(expr.expr)
     return flatten_leaves(expr.left) + flatten_leaves(expr.right)
 
+
+def validate_args(args: argparse.Namespace) -> None:
+    if args.n <= 0:
+        raise ValueError("--n must be > 0.")
+    if args.depth_min < 0 or args.depth_max < 0:
+        raise ValueError("--depth-min/--depth-max must be >= 0.")
+    if args.depth_min > args.depth_max:
+        raise ValueError("--depth-min must be <= --depth-max.")
+    if not (0.0 <= args.derived_prob_min <= 1.0 and 0.0 <= args.derived_prob_max <= 1.0):
+        raise ValueError("--derived-prob-min and --derived-prob-max must be in [0, 1].")
+    if args.derived_prob_min > args.derived_prob_max:
+        raise ValueError("--derived-prob-min must be <= --derived-prob-max.")
+
+
+def resolve_path(path_like: str, base_dir: Path) -> Path:
+    path = Path(path_like)
+    if not path.is_absolute():
+        path = base_dir / path
+    return path
+
+
+def build_row(
+    i: int,
+    expr: Any,
+    question: str,
+    answer: float,
+    expr_json: Dict[str, Any],
+    expr_str: str,
+    tree_payload: Dict[str, Any],
+    tree_seed: int,
+    bind_seed: int,
+    master_seed: int,
+    derived_prob: float,
+    depth: int,
+    template_stats: Dict[str, int],
+    leaf_keys: List[str],
+    atoms: Dict[str, Any],
+    mod_sampler: Any,
+    mod_lang: Any,
+) -> Dict[str, Any]:
+    row: Dict[str, Any] = {
+        "question_id": i + 1,
+        "depth": mod_lang.expr_depth(expr),
+        "question": question,
+        "expression": expr_str,
+        "expression_json": json.dumps(expr_json, ensure_ascii=False),
+        "template_expression": json.dumps(tree_payload, ensure_ascii=False),
+        "answer": answer,
+        "template_depth_requested": depth,
+        "template_actual_depth": mod_sampler.actual_tree_depth(tree_payload),
+        "bound_expression_depth": mod_lang.expr_depth(expr),
+        "tree_seed": tree_seed,
+        "binding_seed": bind_seed,
+        "master_seed": master_seed,
+        "derived_prob": derived_prob,
+        "template_internal_nodes": template_stats["internal_nodes"],
+        "template_leaf_slots": template_stats["leaves"],
+        "bound_leaf_count": len(leaf_keys),
+    }
+
+    for j, leaf_key in enumerate(leaf_keys, start=1):
+        atom = atoms[leaf_key]
+        row[f"leaf_{j}_key"] = atom.key
+        row[f"leaf_{j}_concept"] = atom.concept
+        row[f"leaf_{j}_label"] = atom.label
+        row[f"leaf_{j}_entity"] = atom.entity
+        row[f"leaf_{j}_period"] = atom.period
+        row[f"leaf_{j}_unit"] = atom.unit
+        row[f"leaf_{j}_value"] = atom.value
+    return row
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate random financial questions through the full pipeline.")
     parser.add_argument("--csv", default="financial_spreadsheet.csv", help="Input spreadsheet CSV")
@@ -37,14 +108,11 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=None, help="Master seed; default is random")
     parser.add_argument("--output", default="output/random_questions_90.csv", help="Output CSV path")
     args = parser.parse_args()
+    validate_args(args)
 
     base_dir = Path(__file__).resolve().parent
-    csv_path = Path(args.csv)
-    if not csv_path.is_absolute():
-        csv_path = base_dir / csv_path
-    output_path = Path(args.output)
-    if not output_path.is_absolute():
-        output_path = base_dir / output_path
+    csv_path = resolve_path(args.csv, base_dir)
+    output_path = resolve_path(args.output, base_dir)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     mod_atoms = load_module(base_dir / "2.fixed_building_atoms.py", "fixed_building_atoms")
@@ -69,6 +137,7 @@ def main() -> None:
     max_leaf_count = 0
 
     for i in range(args.n):
+        last_error: Exception | None = None
         for attempt in range(1, 1001):
             tree_seed = master_rng.randint(0, 10**9)
             bind_seed = master_rng.randint(0, 10**9)
@@ -100,40 +169,34 @@ def main() -> None:
                 leaf_keys = flatten_leaves(expr)
                 max_leaf_count = max(max_leaf_count, len(leaf_keys))
                 break
-            except Exception:
+            except Exception as err:
+                last_error = err
                 if attempt == 1000:
-                    raise
+                    raise RuntimeError(
+                        f"Failed to generate question {i + 1} after 1000 attempts. "
+                        f"Last error: {type(last_error).__name__}: {last_error}"
+                    ) from last_error
                 continue
 
-        row: Dict[str, Any] = {
-            "question_id": i + 1,
-            "depth": mod_lang.expr_depth(expr),
-            "question": question,
-            "expression": expr_str,
-            "expression_json": json.dumps(expr_json, ensure_ascii=False),
-            "template_expression": json.dumps(tree_payload, ensure_ascii=False),
-            "answer": answer,
-            "template_depth_requested": depth,
-            "template_actual_depth": mod_sampler.actual_tree_depth(tree_payload),
-            "bound_expression_depth": mod_lang.expr_depth(expr),
-            "tree_seed": tree_seed,
-            "binding_seed": bind_seed,
-            "master_seed": master_seed,
-            "derived_prob": derived_prob,
-            "template_internal_nodes": template_stats["internal_nodes"],
-            "template_leaf_slots": template_stats["leaves"],
-            "bound_leaf_count": len(leaf_keys),
-        }
-
-        for j, leaf_key in enumerate(leaf_keys, start=1):
-            atom = atoms[leaf_key]
-            row[f"leaf_{j}_key"] = atom.key
-            row[f"leaf_{j}_concept"] = atom.concept
-            row[f"leaf_{j}_label"] = atom.label
-            row[f"leaf_{j}_entity"] = atom.entity
-            row[f"leaf_{j}_period"] = atom.period
-            row[f"leaf_{j}_unit"] = atom.unit
-            row[f"leaf_{j}_value"] = atom.value
+        row = build_row(
+            i=i,
+            expr=expr,
+            question=question,
+            answer=answer,
+            expr_json=expr_json,
+            expr_str=expr_str,
+            tree_payload=tree_payload,
+            tree_seed=tree_seed,
+            bind_seed=bind_seed,
+            master_seed=master_seed,
+            derived_prob=derived_prob,
+            depth=depth,
+            template_stats=template_stats,
+            leaf_keys=leaf_keys,
+            atoms=atoms,
+            mod_sampler=mod_sampler,
+            mod_lang=mod_lang,
+        )
 
         rows.append(row)
 
