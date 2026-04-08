@@ -20,9 +20,6 @@ from typing import Any, Dict, List, Sequence, Tuple
 
 random.seed(42)
 
-# ── Define the spreadsheet schema ───────────────────────────
-# Each column has a name, data type, and how to generate it.
-# This is exactly what you'd see in a real financial Excel file.
 
 YEARS = list(range(2020, 2026))
 
@@ -90,13 +87,15 @@ SCHEMA_PATH = OUTPUT_DIR / "schema.json"
 
 
 def ensure_output_dir(path: Path) -> None:
+    # Ensure downstream writes never fail on missing folders.
     path.mkdir(parents=True, exist_ok=True)
 
 
 def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[Dict[str, Any]]:
     """Generate one row of the spreadsheet for one company."""
+    # Unpack static company attributes used in every yearly row.
     name, ticker, sector, country, exchange = company_tuple
-
+    #creates a unique row prefix for each company
     row_prefix = {
         "company_name": name,
         "ticker": ticker,
@@ -109,6 +108,7 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
     # Generate base revenue, then derive everything else consistently
     base_revenue = random.uniform(*YEARLY_NUMERIC_COLS["revenue"]["range"])
 
+    # Collect one record per year for this company.
     rows = []
     for year in YEARS:
         row = row_prefix.copy()
@@ -118,7 +118,7 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         revenue = round(base_revenue * (1 + growth))
         base_revenue = revenue  # next year starts from here
 
-        # Derive other values from revenue (realistic ratios)
+        # Derive income-statement drivers from revenue.
         cogs_pct = random.uniform(0.30, 0.75)
         cogs = round(revenue * cogs_pct)
 
@@ -126,7 +126,7 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         nonopex = round(revenue * random.uniform(0.05, 0.25))
         income_tax = random.uniform(0.10, 0.30)
 
-        # Balance sheet
+        # Derive balance-sheet items tied to revenue scale.
         asset_turnover = random.uniform(0.3, 1.5)
         total_assets = round(revenue / asset_turnover)
         de_ratio = random.uniform(0.3, 3.0)
@@ -139,6 +139,7 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         short_term_investments = round(total_assets * random.uniform(0.01, 0.15))
         cl = round(total_liabilities * random.uniform(0.25, 0.50))
 
+        # Derive cash-flow and market/profile fields.
         net_income = round(revenue - cogs - opex * (1 - income_tax))
         dividends = round(max(0, net_income * random.uniform(0.0, 0.40)))
         capex = round(revenue * random.uniform(0.02, 0.10))
@@ -147,7 +148,7 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         price = round(random.uniform(15, 800), 2)
         employees = round(random.uniform(5000, 500000))
 
-        # Store with year suffix: revenue_2022, revenue_2023, etc.
+        # Persist normalized row-level columns used by later pipeline steps.
         row["year"] = year
         row["revenue"] = revenue
         row["cost_of_goods_sold"] = cogs
@@ -176,8 +177,41 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
 
 
 def build_schema(columns: Sequence[str]) -> Dict[str, Dict[str, Any]]:
+    """Describe each CSV column in a small JSON-friendly record for tools and humans.
+
+    The synthetic spreadsheet is **one row per (company, year)** with **flat column names**
+    (e.g. ``revenue``, ``cash``), not wide ``revenue_2024``-style names. This function walks
+    ``columns`` in display order and attaches metadata so consumers can tell what each
+    column means without parsing the generator code.
+
+    **Output shape:** ``schema[column_name]`` is a dict with at least ``type`` and usually
+    ``desc``. Optional keys depend on the column kind:
+
+    - **Categorical** (keys in ``CATEGORICAL_COLS``): ``type`` is ``categorical`` or
+      ``ordinal``, ``desc`` is human text, ``year`` is always ``None``. Ordinal columns
+      also get ``order`` (allowed rating ladder).
+    - **``year``**: treated as numeric reporting year; ``base_name`` is ``"year"``,
+      ``unit`` is ``"year"``, ``year`` field in schema is ``None`` (the *column* is the
+      year dimension, not a year suffix).
+    - **Other numerics** (keys in ``YEARLY_NUMERIC_COLS``): ``type`` is ``numeric``,
+      ``base_name`` matches the column name (the metric id), ``unit`` comes from the
+      generator spec (e.g. ``M_USD``, ``USD``), ``desc`` is a spaced label. ``year`` is
+      set to the string ``"row_level"`` to mean: the year is **not** encoded in the
+      column name; it lives in the separate ``year`` column on each row.
+
+    Columns that appear in ``columns`` but are not in ``CATEGORICAL_COLS``, not
+    ``year``, and not in ``YEARLY_NUMERIC_COLS`` are **skipped** (no entry). In normal
+    runs every generated column should be covered by one of these branches.
+
+    Args:
+        columns: Ordered column names, typically ``list(rows[0].keys())`` from generated rows.
+
+    Returns:
+        Mapping from column name to metadata dict, suitable for ``json.dump`` to ``schema.json``.
+    """
     schema: Dict[str, Dict[str, Any]] = {}
     for col in columns:
+        # Map categorical columns directly from predefined metadata.
         if col in CATEGORICAL_COLS:
             info = CATEGORICAL_COLS[col]
             schema[col] = {"type": info["type"], "desc": info["desc"], "year": None}
@@ -191,6 +225,7 @@ def build_schema(columns: Sequence[str]) -> Dict[str, Dict[str, Any]]:
             schema[col] = {"type": "numeric", "base_name": "year", "year": None, "unit": "year", "desc": "reporting year"}
             continue
 
+        # Map numeric concepts to unit/type metadata.
         if col in YEARLY_NUMERIC_COLS:
             unit = YEARLY_NUMERIC_COLS[col].get("unit", "M_USD")
             schema[col] = {
@@ -204,6 +239,7 @@ def build_schema(columns: Sequence[str]) -> Dict[str, Dict[str, Any]]:
 
 
 def print_preview(rows: List[Dict[str, Any]], columns: Sequence[str], schema: Dict[str, Dict[str, Any]]) -> None:
+    # Print compact dataset stats for quick sanity checks.
     print(f"Generated spreadsheet rows: {len(rows)}")
     print(f"  Categorical columns: {len(CATEGORICAL_COLS)}")
     print(
@@ -225,23 +261,25 @@ def print_preview(rows: List[Dict[str, Any]], columns: Sequence[str], schema: Di
 
 
 def main() -> None:
-    # Generate all rows
+    # Generate all company-year rows.
     rows = []
     for c in COMPANIES:
         rows.extend(generate_company_row(c))
 
-    # Get column order
+    # Preserve stable column order from generated dictionaries.
     columns = list(rows[0].keys())
 
     if not rows:
         raise ValueError("No rows were generated from company templates.")
 
+    # Write the synthetic dataset CSV.
     ensure_output_dir(OUTPUT_DIR)
     with open(CSV_PATH, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=columns)
         writer.writeheader()
         writer.writerows(rows)
 
+    # Write and print schema/preview artifacts for inspection.
     schema = build_schema(columns)
     with open(SCHEMA_PATH, "w", encoding="utf-8") as f:
         json.dump(schema, f, indent=2)

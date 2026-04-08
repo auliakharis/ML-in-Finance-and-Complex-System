@@ -306,13 +306,14 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
 }
 
-#makes sure every atom value is actually usable and that the imported csv is clean
 def normalize_value(value: Any) -> float:
+    # Reject NaN/empty spreadsheet cells before float coercion.
     if pd.isna(value):
         raise ValueError("Missing value in spreadsheet.")
     return float(value)
 
 def validate_dataframe(df: pd.DataFrame) -> None:
+    # Ensure all concepts required by BASE_CONCEPTS are present.
     required = {"company_name", "year", *BASE_CONCEPTS}
     missing = sorted(required.difference(df.columns))
     if missing:
@@ -320,9 +321,11 @@ def validate_dataframe(df: pd.DataFrame) -> None:
 
 
 def build_atoms(df: pd.DataFrame) -> List[Dict[str, Any]]:
+    # Fail early if the input spreadsheet shape is not compatible.
     validate_dataframe(df)
     atoms: List[Dict[str, Any]] = []
 
+    # Expand each company-year row into one atom per concept.
     for idx, row in df.iterrows():
         for concept in BASE_CONCEPTS:
             meta = CONCEPT_METADATA[concept]
@@ -349,6 +352,7 @@ def build_atoms(df: pd.DataFrame) -> List[Dict[str, Any]]:
 
 
 def main() -> None:
+    # Parse file paths for input CSV and output JSON.
     parser = argparse.ArgumentParser(description="Build financial atoms JSON from CSV.")
     parser.add_argument("--csv", default="financial_spreadsheet.csv")
     parser.add_argument("--output", default="output/atoms_data.json")
@@ -357,6 +361,7 @@ def main() -> None:
     csv_path = Path(args.csv)
     output_path = Path(args.output)
 
+    # Read source data, build atom list, and serialize to disk.
     df = pd.read_csv(csv_path)
     atoms = build_atoms(df)
 

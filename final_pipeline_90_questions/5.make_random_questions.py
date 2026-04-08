@@ -11,6 +11,7 @@ from typing import Any, Dict, List, Tuple
 
 
 def load_module(module_path: Path, module_name: str):
+    # Dynamically import numbered pipeline scripts by absolute path.
     spec = importlib.util.spec_from_file_location(module_name, module_path)
     if spec is None or spec.loader is None:
         raise ImportError(f"Could not load module from {module_path}")
@@ -20,6 +21,7 @@ def load_module(module_path: Path, module_name: str):
     return module
 
 def flatten_leaves(expr: Any) -> List[str]:
+    # Normalize any bound expression tree into a flat list of leaf keys.
     if hasattr(expr, "key"):
         return [expr.key]
     if hasattr(expr, "expr"):
@@ -28,6 +30,7 @@ def flatten_leaves(expr: Any) -> List[str]:
 
 
 def validate_args(args: argparse.Namespace) -> None:
+    # Enforce sane generation ranges before any sampling starts.
     if args.n <= 0:
         raise ValueError("--n must be > 0.")
     if args.depth_min < 0 or args.depth_max < 0:
@@ -41,6 +44,7 @@ def validate_args(args: argparse.Namespace) -> None:
 
 
 def resolve_path(path_like: str, base_dir: Path) -> Path:
+    # Resolve relative CLI paths against this script directory.
     path = Path(path_like)
     if not path.is_absolute():
         path = base_dir / path
@@ -66,6 +70,7 @@ def build_row(
     mod_sampler: Any,
     mod_lang: Any,
 ) -> Dict[str, Any]:
+    # Core row-level metadata for one generated question.
     row: Dict[str, Any] = {
         "question_id": i + 1,
         "depth": mod_lang.expr_depth(expr),
@@ -86,6 +91,7 @@ def build_row(
         "bound_leaf_count": len(leaf_keys),
     }
 
+    # Append per-leaf provenance columns so each question is auditable.
     for j, leaf_key in enumerate(leaf_keys, start=1):
         atom = atoms[leaf_key]
         row[f"leaf_{j}_key"] = atom.key
@@ -98,6 +104,7 @@ def build_row(
     return row
 
 def main() -> None:
+    # Parse high-level generation controls.
     parser = argparse.ArgumentParser(description="Generate random financial questions through the full pipeline.")
     parser.add_argument("--csv", default="financial_spreadsheet.csv", help="Input spreadsheet CSV")
     parser.add_argument("--n", type=int, default=90, help="Number of questions to generate")
@@ -110,18 +117,20 @@ def main() -> None:
     args = parser.parse_args()
     validate_args(args)
 
+    # Resolve runtime paths and prepare output location.
     base_dir = Path(__file__).resolve().parent
     csv_path = resolve_path(args.csv, base_dir)
     output_path = resolve_path(args.output, base_dir)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Load pipeline modules so we can call their functions directly.
     mod_atoms = load_module(base_dir / "2.fixed_building_atoms.py", "fixed_building_atoms")
     mod_sampler = load_module(base_dir / "3.fixed_tree_sampler.py", "fixed_tree_sampler")
     mod_lang = load_module(base_dir / "4.tree_to_language.py", "tree_to_language")
     print("USING SAMPLER:", (base_dir / "3.fixed_tree_sampler.py").resolve())
     print("USING LANG:", (base_dir / "4.tree_to_language.py").resolve())
     print("USING FILE 5 FROM:", Path(__file__).resolve())
-    # Build atoms directly from CSV
+    # Build reusable objects once, then sample repeatedly.
     df = mod_atoms.pd.read_csv(csv_path)
     atoms_raw = mod_atoms.build_atoms(df)
     atoms = {a["key"]: mod_lang.Atom(**a) for a in atoms_raw}
@@ -136,15 +145,18 @@ def main() -> None:
     rows: List[Dict[str, Any]] = []
     max_leaf_count = 0
 
+    # Generate N questions with bounded retry loops per question.
     for i in range(args.n):
         last_error: Exception | None = None
         for attempt in range(1, 1001):
+            # Draw independent seeds so tree shape and atom binding vary.
             tree_seed = master_rng.randint(0, 10**9)
             bind_seed = master_rng.randint(0, 10**9)
             depth = master_rng.randint(args.depth_min, args.depth_max)
             derived_prob = round(master_rng.uniform(args.derived_prob_min, args.derived_prob_max), 3)
 
             try:
+                # 1) sample typed template 2) bind atoms 3) analyze/render/evaluate.
                 tree_rng = random.Random(tree_seed)
                 idgen = mod_sampler.IdGen()
                 tree_payload, _ = mod_sampler.sample_tree_with_rejection(
@@ -170,6 +182,7 @@ def main() -> None:
                 max_leaf_count = max(max_leaf_count, len(leaf_keys))
                 break
             except Exception as err:
+                # Retry transient semantic mismatches until attempt budget is exhausted.
                 last_error = err
                 if attempt == 1000:
                     raise RuntimeError(
@@ -178,6 +191,7 @@ def main() -> None:
                     ) from last_error
                 continue
 
+        # Convert generated artifacts into one CSV record.
         row = build_row(
             i=i,
             expr=expr,
@@ -200,6 +214,7 @@ def main() -> None:
 
         rows.append(row)
 
+    # Base output columns shared by all rows.
     fieldnames = [
         "question_id",
         "depth",
@@ -219,6 +234,7 @@ def main() -> None:
         "template_leaf_slots",
         "bound_leaf_count",
     ]
+    # Add dynamic leaf_* columns up to the maximum leaf count observed.
     for j in range(1, max_leaf_count + 1):
         fieldnames.extend([
             f"leaf_{j}_key",
@@ -230,6 +246,7 @@ def main() -> None:
             f"leaf_{j}_value",
         ])
 
+    # Write final dataset.
     with open(output_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()

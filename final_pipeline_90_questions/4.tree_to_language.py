@@ -51,14 +51,14 @@ class DerivedExpr:
 Expr = Union[Leaf, Node, DerivedExpr]
 SUPPORTED_OPS = {"sum", "diff", "ratio", "mul", "growth", "min", "max", "avg"}
 
-
+# counts the depth of an expression by recursively counting the depth of the left and right subtrees.
 def expr_depth(expr: Expr) -> int:
     if isinstance(expr, (Leaf, DerivedExpr)):
         return 0 if isinstance(expr, Leaf) else (expr.depth if expr.depth is not None else expr_depth(expr.expr))
     return 1 + max(expr_depth(expr.left), expr_depth(expr.right))
 
 
-# semantic interpretation object:
+# semantic interpretation object: a Meaning object is created for each expression to describe its meaning.
 @dataclass
 class Meaning:
     kind: str
@@ -76,7 +76,7 @@ class Meaning:
     derivation: Optional[str] = None
 
 
-@dataclass
+@dataclass #a AnalysisResult object is created for each expression to describe its analysis, including the expression itself, its meaning, and its children.
 class AnalysisResult:
     expr: Expr
     meaning: Meaning
@@ -87,7 +87,7 @@ class AnalysisResult:
 # =========================================================
 # 2. Parsing / serialization
 # =========================================================
-
+# parses a JSON object into an expression.
 def parse_expr(obj: Any) -> Expr:
     if not isinstance(obj, dict):
         raise ValueError("Expression parts must be JSON objects.")
@@ -119,7 +119,7 @@ def parse_expr(obj: Any) -> Expr:
 
     raise ValueError("Use either {'leaf': '...'}, {'derived': ..., 'expanded': ...}, or {'op': ..., 'left': ..., 'right': ...}.")
 
-
+# converts an expression to a JSON object.
 def expr_to_json(expr: Expr) -> Dict[str, Any]:
     if isinstance(expr, Leaf):
         return {"leaf": expr.key, "depth": 0}
@@ -136,7 +136,7 @@ def expr_to_json(expr: Expr) -> Dict[str, Any]:
         "depth": expr.depth if expr.depth is not None else expr_depth(expr),
     }
 
-
+# converts an expression to a string representation.
 def show_expr(expr: Expr) -> str:
     if isinstance(expr, Leaf):
         return expr.key
@@ -144,7 +144,7 @@ def show_expr(expr: Expr) -> str:
         return expr.name
     return f"{expr.op}({show_expr(expr.left)}, {show_expr(expr.right)})"
 
-
+# flattens a sum expression into a list of leaves.
 def flatten_sum(expr: Expr) -> List[Leaf]:
     if isinstance(expr, Leaf):
         return [expr]
@@ -154,7 +154,7 @@ def flatten_sum(expr: Expr) -> List[Leaf]:
         return flatten_sum(expr.left) + flatten_sum(expr.right)
     return []
 
-
+# flattens an expression into a list of leaves.
 def flatten_leaves(expr: Expr) -> List[Leaf]:
     if isinstance(expr, Leaf):
         return [expr]
@@ -162,7 +162,7 @@ def flatten_leaves(expr: Expr) -> List[Leaf]:
         return flatten_leaves(expr.expr)
     return flatten_leaves(expr.left) + flatten_leaves(expr.right)
 
-
+# joins a list of strings with a comma and "and" or "or" depending on the length of the list.
 def oxford_join(items: List[str]) -> str:
     if not items:
         return ""
@@ -176,7 +176,7 @@ def oxford_join(items: List[str]) -> str:
 # =========================================================
 # 3. Instantiation from typed sampler trees
 # =========================================================
-
+# a SemanticError exception is raised when there is an error in the semantic interpretation of an expression.
 class SemanticError(Exception):
     pass
 
@@ -195,8 +195,33 @@ DERIVED_FORMULAS: Dict[str, Dict[str, Any]] = {
     "longterm_liabilities": {"op": "diff", "args": ["total_liabilities", "current_liabilities"]},
 }
 
-
 class AtomIndex:
+    """Fast lookup over all spreadsheet atoms for template binding.
+
+    Atoms are keyed by ``Atom.key`` in ``self.atoms`` (the authoritative map).
+    The index adds **secondary groupings** so binding code can answer questions
+    like “which companies exist?”, “which years?”, and “what amount-like concepts
+    do we have?” without scanning the full dict every time.
+
+    **Inverted indexes** (each maps a dimension to the list of atoms touching it):
+
+    - ``by_concept`` — all atoms for a metric name (e.g. ``revenue``).
+    - ``by_entity`` — all atoms for one company.
+    - ``by_period`` — all atoms for one reporting year.
+
+    **Sorted convenience lists** (for random choice when the template does not
+    fix entity/concept yet):
+
+    - ``entities``, ``periods``
+    - ``amount_concepts`` — concepts whose ``semantic_type`` is ``amount``
+    - ``ratio_concepts`` — concepts with ``semantic_type`` in ``ratio`` or ``rate``
+      (e.g. effective tax rate for ``mul`` branches)
+
+    Typical use: :meth:`filter_atoms` narrows by any combination of
+    ``semantic_types``, ``concept``, ``entity``, and ``period``; then
+    ``pick_one(rng, candidates, ...)`` chooses a concrete atom for a leaf.
+    """
+
     def __init__(self, atoms: Dict[str, Atom]) -> None:
         self.atoms = atoms
         self.by_concept: Dict[str, List[Atom]] = {}
@@ -219,6 +244,7 @@ class AtomIndex:
         entity: Optional[str] = None,
         period: Optional[str] = None,
     ) -> List[Atom]:
+        """Return atoms matching all *provided* filters; omitted filters are ignored."""
         pool = list(self.atoms.values())
         if concept is not None:
             pool = [a for a in pool if a.concept == concept]
@@ -232,13 +258,13 @@ class AtomIndex:
         return pool
 
 
-@dataclass
+@dataclass #a BindEnv object is created to bind the entity, period, and concept of an expression.
 class BindEnv:
     entity: Optional[str] = None
     period: Optional[str] = None
     concept: Optional[str] = None
 
-
+# loads a JSON file into a dictionary of atoms.
 def load_atoms_json(path: str | Path) -> Dict[str, Atom]:
     with open(path, "r", encoding="utf-8") as f:
         raw = json.load(f)
@@ -264,17 +290,17 @@ def load_atoms_json(path: str | Path) -> Dict[str, Atom]:
         out[atom.key] = atom
     return out
 
-
+# picks a random item from a list.
 def pick_one(rng: random.Random, items: Sequence[Any], what: str) -> Any:
     if not items:
         raise SemanticError(f"No candidates available for {what}.")
     return rng.choice(list(items))
 
-
+# creates a node with the given operator and left and right subtrees.
 def with_depth(op: str, left: Expr, right: Expr) -> Node:
     return Node(op=op, left=left, right=right, depth=1 + max(expr_depth(left), expr_depth(right)))
 
-
+# folds a list of expressions into a single expression using the given operator.
 def fold_nary(op: str, args: List[Expr]) -> Expr:
     if not args:
         raise ValueError("Cannot fold empty argument list.")
@@ -283,12 +309,11 @@ def fold_nary(op: str, args: List[Expr]) -> Expr:
         current = with_depth(op, current, nxt)
     return current
 
-
+# chooses an amount concept from the list of amount concepts.
 def choose_amount_concept(index: AtomIndex, rng: random.Random, env: BindEnv) -> str:
     if env.concept is not None:
         return env.concept
     return pick_one(rng, index.amount_concepts, "amount concept")
-
 
 def choose_ratio_concept(index: AtomIndex, rng: random.Random) -> str:
     if not index.ratio_concepts:
@@ -307,7 +332,8 @@ def choose_period(index: AtomIndex, rng: random.Random, env: BindEnv) -> str:
         return env.period
     return pick_one(rng, index.periods, "period")
 
-
+# instantiates a base atom from the given index, random number generator, semantic types, and environment.
+# A base atom is a leaf node in the expression tree that corresponds to a single atom from the spreadsheet.
 def instantiate_base_atom(
     index: AtomIndex,
     rng: random.Random,
@@ -315,14 +341,17 @@ def instantiate_base_atom(
     semantic_types: Sequence[str],
     env: BindEnv,
 ) -> Leaf:
+    # Resolve entity/period first so all downstream picks stay context-consistent.
     entity = choose_entity(index, rng, env)
     period = choose_period(index, rng, env)
 
+    # Choose concept family-aware: amount concepts vs ratio/rate concepts.
     if any(t in {"amount"} for t in semantic_types):
         concept = choose_amount_concept(index, rng, env)
     else:
         concept = env.concept or choose_ratio_concept(index, rng)
 
+    # Filter to matching atoms and bind one concrete leaf.
     candidates = index.filter_atoms(
         semantic_types=semantic_types,
         concept=concept,
@@ -331,8 +360,8 @@ def instantiate_base_atom(
     )
     atom = pick_one(rng, candidates, f"atom concept={concept} entity={entity} period={period}")
     return Leaf(key=atom.key)
-
-
+# instantiates a derived concept from the given name, index, random number generator, environment, derived registry, and preserve named derived flag.
+# A derived concept is a node in the expression tree that corresponds to a derived concept from the spreadsheet.
 def instantiate_formula_reference(
     name: str,
     index: AtomIndex,
@@ -342,15 +371,14 @@ def instantiate_formula_reference(
     *,
     preserve_named_derived: bool = True,
 ) -> Expr:
-    # Critical fix:
-    # a named derived concept must bind all of its internal components
-    # to the SAME entity and SAME period unless already fixed by env.
+    """Expand a registry derived name into sub-expressions, or bind a base atom if ``name`` is primitive."""
+    # One company-year for the whole expansion: operands must refer to the same slice.
     bound_env = BindEnv(
         entity=choose_entity(index, rng, env) if env.entity is None else env.entity,
         period=choose_period(index, rng, env) if env.period is None else env.period,
         concept=env.concept,
     )
-
+    # Formula args like "revenue" are base metrics, not registry keys: bind one atom.
     if name not in derived_registry:
         return instantiate_base_atom(
             index,
@@ -399,15 +427,18 @@ def instantiate_typed_tree(
     env: Optional[BindEnv] = None,
     derived_registry: Optional[Dict[str, Dict[str, Any]]] = None,
 ) -> Expr:
+    # Use default environment/registry when caller does not provide one.
     env = env or BindEnv()
     derived_registry = derived_registry or DERIVED_FORMULAS
 
     kind = tree.get("kind")
     if kind == "leaf":
+        # Leaf nodes map to a single base atom matching semantic constraints.
         semantic_types = tree.get("semantic_type_in") or ([tree["family"]] if "family" in tree else ["amount"])
         return instantiate_base_atom(index, rng, semantic_types=semantic_types, env=env)
 
     if kind == "derived_concept":
+        # Derived nodes expand via formula registry while preserving name wrapper.
         return instantiate_formula_reference(
             tree["name"],
             index,
@@ -425,18 +456,21 @@ def instantiate_typed_tree(
         raise ValueError(f"Unsupported sampler op: {op}")
 
     if op in {"sum", "diff"}:
+        # Sum/diff are evaluated in shared entity+period context.
         shared = BindEnv(entity=choose_entity(index, rng, env), period=choose_period(index, rng, env), concept=env.concept)
         left = instantiate_typed_tree(tree["left"], index, rng, shared, derived_registry)
         right = instantiate_typed_tree(tree["right"], index, rng, shared, derived_registry)
         return with_depth(op, left, right)
 
     if op == "ratio":
+        # Ratio sides must also share context for meaningful division.
         shared = BindEnv(entity=choose_entity(index, rng, env), period=choose_period(index, rng, env), concept=env.concept)
         left = instantiate_typed_tree(tree["left"], index, rng, shared, derived_registry)
         right = instantiate_typed_tree(tree["right"], index, rng, shared, derived_registry)
         return with_depth("ratio", left, right)
 
     if op == "mul":
+        # Multiplication keeps same entity/period but allows ratio concept to differ.
         shared_entity = choose_entity(index, rng, env)
         shared_period = choose_period(index, rng, env)
         left = instantiate_typed_tree(tree["left"], index, rng, BindEnv(entity=shared_entity, period=shared_period, concept=env.concept), derived_registry)
@@ -444,6 +478,7 @@ def instantiate_typed_tree(
         return with_depth("mul", left, right)
 
     if op in {"growth", "min", "max", "avg"}:
+        # Time-style ops require one entity+concept with at least two periods.
         entity = choose_entity(index, rng, BindEnv(entity=env.entity))
         concept = choose_amount_concept(index, rng, BindEnv(concept=env.concept))
         concept_period_atoms = index.filter_atoms(semantic_types=["amount"], concept=concept, entity=entity)
@@ -457,19 +492,21 @@ def instantiate_typed_tree(
 
     raise ValueError(f"Unhandled op: {op}")
 
-
+# compiles a tree payload into an expression.
+# A tree payload is a JSON object that contains the tree to be compiled.
 def compile_tree_payload(
     tree_payload: Dict[str, Any],
     atoms: Dict[str, Atom],
     seed: int = 0,
 ) -> Expr:
+    # Build runtime index and bind one concrete expression from typed template.
     rng = random.Random(seed)
     index = AtomIndex(atoms)
     derived_registry = {
         name: spec["formula"] if "formula" in spec else spec
         for name, spec in (tree_payload.get("derived_concepts") or {}).items()
     }
-    if not derived_registry:
+    if not derived_registry: #If the derived registry is not provided, use the default derived registry.
         derived_registry = DERIVED_FORMULAS
     typed_tree = tree_payload["tree"] if "tree" in tree_payload else tree_payload
     return instantiate_typed_tree(typed_tree, index, rng, BindEnv(), derived_registry)
@@ -478,7 +515,7 @@ def compile_tree_payload(
 # =========================================================
 # 4. Semantic analyzer
 # =========================================================
-
+# a SemanticAnalyzer object is created to analyze the meaning of an expression.
 class SemanticAnalyzer:
     def __init__(self, atoms: Dict[str, Atom]):
         self.atoms = atoms
@@ -507,7 +544,7 @@ class SemanticAnalyzer:
             and a.entity == b.entity
             and a.unit == b.unit
         )
-
+    # checks if two meanings have the same amount context, concept, and different periods.
     def _same_amount_timeseries_metric(self, a: Meaning, b: Meaning) -> bool:
         return (
             self._same_amount_context(a, b)
@@ -516,8 +553,9 @@ class SemanticAnalyzer:
             and self._is_metric_like_amount(a)
             and self._is_metric_like_amount(b)
         )
-
+# analyzes an expression and returns an AnalysisResult object.
     def analyze(self, expr: Expr) -> AnalysisResult:
+
         if isinstance(expr, Leaf):
             atom = self.atom(expr.key)
             meaning = Meaning(
@@ -534,7 +572,7 @@ class SemanticAnalyzer:
                 derivation=f"leaf {atom.key}",
             )
             return AnalysisResult(expr=expr, meaning=meaning, children=[], depth=0)
-
+        
         if isinstance(expr, DerivedExpr):
             inner = self.analyze(expr.expr)
             inner_meaning = inner.meaning
@@ -571,10 +609,12 @@ class SemanticAnalyzer:
             meaning = self._analyze_time_aggregate(expr, left_result, right_result)
         else:
             raise SemanticError(f"Unsupported op: {expr.op}")
-
+    # calculates the depth of the expression by recursively counting the depth of the left and right subtrees.
         node_depth = expr.depth if isinstance(expr, Node) and expr.depth is not None else 1 + max(left_result.depth, right_result.depth)
         return AnalysisResult(expr=expr, meaning=meaning, children=[left_result, right_result], depth=node_depth)
 
+#Note: the previous function: analyze is very general and traverses an expression tree + route by operator + assembles the final annotated tree
+# Analyze_operator takes the pre analyzed left/ right results and just implements the operator node's effect
     def _analyze_sum(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
         leaves = flatten_sum(expr)
@@ -850,12 +890,13 @@ class SemanticAnalyzer:
 # =========================================================
 # 5. Numeric evaluator + question renderer
 # =========================================================
-
+# an Evaluator object is created to evaluate the value of an expression.
 class Evaluator:
     def __init__(self, atoms: Dict[str, Atom]):
         self.atoms = atoms
 
     def eval(self, expr: Expr) -> float:
+        # Evaluate bottom-up by recursively computing child values.
         if isinstance(expr, Leaf):
             return float(self.atoms[expr.key].value)
         if isinstance(expr, DerivedExpr):
@@ -890,6 +931,7 @@ class Evaluator:
 
 class QuestionRenderer:
     def render(self, result: AnalysisResult) -> str:
+        # Prefer specialized phrasing for high-signal semantic kinds.
         m = result.meaning
 
         if m.kind == "aggregate_components":

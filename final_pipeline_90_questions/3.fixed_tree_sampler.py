@@ -222,7 +222,6 @@ def make_derived_concept(
         spec["aggregation_group"] = aggregation_group
     return spec
 
-
 def make_node(
     idgen: IdGen,
     op: str,
@@ -232,6 +231,12 @@ def make_node(
     depth: int,
     over_years_group: Optional[str] = None,
 ) -> Dict[str, Any]:
+    """Build a binary operator node: ``kind`` is ``node`` with ``left`` and ``right``.
+
+    Used for ``sum``, ``diff``, ``mul``, ``ratio``, and ``growth`` only. Time-style
+    aggregates (``min``/``max``/``avg`` over years) use :func:`make_time_agg` instead,
+    which has no child subtrees—only grouping ids for later binding.
+    """
     node: Dict[str, Any] = {
         "kind": "node",
         "node_id": idgen.node_id(),
@@ -258,6 +263,11 @@ def make_time_agg(
     section_group: Optional[str] = None,
     aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
+    """Build a non-binary ``time_agg`` node (min/max/avg over multiple years).
+
+    Unlike :func:`make_node`, this does not embed ``left``/``right`` children; the
+    binder must attach two period-specific subtrees using the shared groups.
+    """
     node: Dict[str, Any] = {
         "kind": "time_agg",
         "node_id": idgen.node_id(),
@@ -287,14 +297,14 @@ def eligible_derived_concepts(depth: int, family: str) -> List[str]:
         if spec["family"] == family and spec["concept_depth"] <= depth
     ]
 
-
+# chooses the next amount operator under current constraints (whether time aggregations are allowed in this part of the tree).
 def choose_amount_op(rng: random.Random, allow_time_aggregates: bool) -> str:
     ops = list(AMOUNT_BINARY_OPS)
     if allow_time_aggregates:
         ops.extend(TIME_AGG_OPS)
     return rng.choice(ops)
 
-
+# samples a terminal amount leaf or derived concept node.
 def sample_amount_terminal(
     rng: random.Random,
     idgen: IdGen,
@@ -309,7 +319,7 @@ def sample_amount_terminal(
     aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
     eligible = eligible_derived_concepts(depth=depth, family="amount")
-
+    # samples a derived concept node if the random number is less than the derived probability and the concept is eligible.
     if eligible and rng.random() < derived_prob:
         name = rng.choice(eligible)
         spec = DERIVED_CONCEPTS[name]
@@ -325,7 +335,7 @@ def sample_amount_terminal(
             section_group=section_group,
             aggregation_group=aggregation_group,
         )
-
+    # samples a leaf node if the random number is greater than the derived probability or the concept is not eligible.
     return make_leaf(
         idgen=idgen,
         family="amount",
@@ -342,6 +352,8 @@ def sample_amount_terminal(
 # ---------------------------------------------------------------------
 # 6. Tree builders
 # ---------------------------------------------------------------------
+# builds a pair of amount trees that are tied together by a time series group 
+# the time series group is used to tie the two trees together so that the values are tied across years.
 def build_time_series_amount_pair(
     depth: int,
     rng: random.Random,
@@ -376,7 +388,7 @@ def build_time_series_amount_pair(
     )
     return left, right, time_series_group
 
-
+# builds a ratio tree that is used to calculate the ratio of two amount trees.
 def build_ratio_tree(
     depth: int,
     rng: random.Random,
@@ -385,6 +397,7 @@ def build_ratio_tree(
     entity_group: str,
     derived_prob: float,
 ) -> Dict[str, Any]:
+    # Terminal ratio leaves stop recursion at depth 0.
     if depth == 0:
         return make_leaf(
             idgen=idgen,
@@ -393,10 +406,13 @@ def build_ratio_tree(
             entity_group=entity_group,
         )
 
+    # Ratio-family nodes are either direct ratio or growth over time.
     op = rng.choice(RATIO_OPS)
 
     if op == "ratio":
+        # Keep both sides in the same section group for coherent comparisons.
         section_group = idgen.group("S")
+        
         left = build_amount_tree(
             depth=depth - 1,
             rng=rng,
@@ -415,6 +431,7 @@ def build_ratio_tree(
             derived_prob=derived_prob,
             forced_section_group=section_group,
         )
+        # creates a ratio node with the left and right subtrees.
         return make_node(
             idgen=idgen,
             op="ratio",
@@ -425,6 +442,7 @@ def build_ratio_tree(
         )
 
     if op == "growth":
+        # Force both sides to share the same concept across different years.
         left, right, years_group = build_time_series_amount_pair(
             depth=depth - 1,
             rng=rng,
@@ -432,6 +450,7 @@ def build_ratio_tree(
             entity_group=entity_group,
             derived_prob=derived_prob,
         )
+        # creates a growth node with the left and right subtrees.
         return make_node(
             idgen=idgen,
             op="growth",
@@ -444,7 +463,7 @@ def build_ratio_tree(
 
     raise ValueError(f"Unsupported ratio op: {op}")
 
-
+# builds an amount tree that is used to calculate the sum, difference, multiplication, or time aggregation of two amount trees.
 def build_amount_tree(
     depth: int,
     rng: random.Random,
@@ -459,11 +478,13 @@ def build_amount_tree(
     forced_section_group: Optional[str] = None,
     forced_aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
+    # Default groups tie sibling branches to one context/entity unless overridden.
     if context_group is None:
         context_group = idgen.group("C")
     if entity_group is None:
         entity_group = idgen.group("E")
 
+    # Base case: only terminals at depth 0.
     if depth == 0:
         return sample_amount_terminal(
             rng=rng,
@@ -479,6 +500,7 @@ def build_amount_tree(
             aggregation_group=forced_aggregation_group,
         )
 
+    # Random early-stop to mix shallow and deep structures.
     if rng.random() < 0.35:
         return sample_amount_terminal(
             rng=rng,
@@ -494,9 +516,11 @@ def build_amount_tree(
             aggregation_group=forced_aggregation_group,
         )
 
+    # Choose next amount operator under current constraints.
     op = choose_amount_op(rng, allow_time_aggregates)
 
     if op == "sum":
+        # Sum siblings share section/aggregation groups for natural rollups.
         agg_group = idgen.group("A")
         section_group = idgen.group("S")
 
@@ -538,6 +562,7 @@ def build_amount_tree(
         )
 
     if op == "diff":
+        # Difference keeps inherited constraints without forcing new groups.
         left = build_amount_tree(
             depth=depth - 1,
             rng=rng,
@@ -576,6 +601,8 @@ def build_amount_tree(
         )
 
     if op == "mul":
+        # Multiplication combines amount branch with ratio branch.
+        #f both sides were arbitrary amount trees, we would often get nonsense units (e.g. dollars × dollars)
         left = build_amount_tree(
             depth=depth - 1,
             rng=rng,
@@ -608,9 +635,10 @@ def build_amount_tree(
         )
 
     if op in TIME_AGG_OPS:
-        years_group = idgen.group("Y") #creates a unique group id meaning “these values are tied across years.”
-        concept_group = forced_concept_group or idgen.group("T")#creates a unique group id meaning “these values are tied across concepts.”
-        return make_time_agg(   #creates a time aggregation node
+        # Time aggregate binds one concept across a years group.
+        years_group = idgen.group("Y")
+        concept_group = forced_concept_group or idgen.group("T")
+        return make_time_agg(
             idgen=idgen,
             op=op,
             family="amount",
@@ -629,6 +657,7 @@ def build_amount_tree(
 # ---------------------------------------------------------------------
 # 7. Formula expansion helpers
 # ---------------------------------------------------------------------
+# expands a derived concept name to a tuple of the operation and its arguments.
 def expand_formula_reference(name: str) -> Any:
     if name not in DERIVED_CONCEPTS:
         return name
@@ -639,7 +668,7 @@ def expand_formula_reference(name: str) -> Any:
     expanded_args = [expand_formula_reference(arg) for arg in args]
     return (op, tuple(expanded_args))
 
-
+# normalizes a symbolic representation of a tree by sorting the arguments of the sum operation.
 def normalize_symbolic(expr: Any) -> Any:
     if isinstance(expr, str):
         return expr
@@ -652,7 +681,7 @@ def normalize_symbolic(expr: Any) -> Any:
 
     return (op, norm_args)
 
-
+# converts a tree to a symbolic representation that can be used to compare trees.
 def symbolic_from_tree(tree: Dict[str, Any]) -> Any:
     kind = tree["kind"]
 
@@ -678,8 +707,18 @@ def symbolic_from_tree(tree: Dict[str, Any]) -> Any:
 
     raise ValueError(f"Unknown tree kind: {kind}")
 
-
 def protected_signatures() -> Dict[str, Any]:
+    """Map each protected derived concept to its fully expanded formula signature.
+
+    ``violates_protected_canonical_form`` rejects a sampled tree whose *whole*
+    structure matches that signature (e.g. revenue − COGS for gross profit) but
+    does **not** include a ``derived_concept`` node with that name. That avoids
+    “silent” duplicates of the same named economics.
+
+    This does **not** block cross-company comparisons (e.g. gross profit A vs B):
+    those are different trees (often ratio/diff of two subtrees). Entities are
+    tied via ``entity_group`` when leaves are bound, not by this check.
+    """
     out: Dict[str, Any] = {}
     for name, spec in DERIVED_CONCEPTS.items():
         if spec.get("protected", False):
@@ -717,6 +756,7 @@ def violates_protected_canonical_form(tree: Dict[str, Any], protected: Dict[str,
 # ---------------------------------------------------------------------
 # 8. Counting and diagnostics
 # ---------------------------------------------------------------------
+# counts the number of internal nodes, leaves, and total nodes in a tree.
 def count_nodes(tree: Dict[str, Any]) -> Dict[str, int]:
     if tree["kind"] in {"leaf", "derived_concept", "time_agg"}:
         return {"internal_nodes": 0, "leaves": 1, "total_nodes": 1}
@@ -729,7 +769,7 @@ def count_nodes(tree: Dict[str, Any]) -> Dict[str, int]:
         "total_nodes": 1 + left["total_nodes"] + right["total_nodes"],
     }
 
-
+# counts the depth of a tree by recursively counting the depth of the left and right subtrees.
 def actual_tree_depth(tree: Dict[str, Any]) -> int:
     if tree["kind"] in {"leaf", "derived_concept", "time_agg"}:
         return 0
@@ -739,6 +779,7 @@ def actual_tree_depth(tree: Dict[str, Any]) -> int:
 # ---------------------------------------------------------------------
 # 9. Sampling wrapper with rejection
 # ---------------------------------------------------------------------
+# samples a tree with rejection to prevent the tree from violating the protected form rules.
 def sample_tree_with_rejection(
     max_depth: int,
     rng: random.Random,
@@ -746,6 +787,7 @@ def sample_tree_with_rejection(
     derived_prob: float,
     max_attempts: int = 200,
 ) -> Tuple[Dict[str, Any], Optional[str]]:
+    # Validate configuration before expensive sampling loop by checking the max depth, derived probability, and max attempts.
     if max_depth < 0:
         raise ValueError("max_depth must be >= 0.")
     if not (0.0 <= derived_prob <= 1.0):
@@ -753,10 +795,12 @@ def sample_tree_with_rejection(
     if max_attempts <= 0:
         raise ValueError("max_attempts must be > 0.")
 
+    # Protected signatures prevent unnamed duplication of canonical formulas.
     protected = protected_signatures()
     last_reason: Optional[str] = None
 
     for _ in range(max_attempts):
+        # Sample candidate tree then reject if it violates protected form rules.
         tree = build_amount_tree(
             depth=max_depth,
             rng=rng,
