@@ -26,6 +26,9 @@ def flatten_leaves(expr: Any) -> List[str]:
         return [expr.key]
     if hasattr(expr, "expr"):
         return flatten_leaves(expr.expr)
+    # tree_to_language.Literal (mean-over-years divisor): not a spreadsheet leaf.
+    if hasattr(expr, "value") and not hasattr(expr, "left"):
+        return []
     return flatten_leaves(expr.left) + flatten_leaves(expr.right)
 
 

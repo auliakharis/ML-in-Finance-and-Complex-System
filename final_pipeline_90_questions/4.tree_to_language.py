@@ -7,7 +7,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 import random
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 # =========================================================
 # 1. Data model
@@ -48,11 +48,20 @@ class DerivedExpr:
     depth: Optional[int] = None
 
 
-Expr = Union[Leaf, Node, DerivedExpr]
+@dataclass(frozen=True)
+class Literal:
+    """Floating-point constant (e.g. count of years) for ratio(sum, n) → arithmetic mean."""
+
+    value: float
+
+
+Expr = Union[Leaf, Node, DerivedExpr, Literal]
 SUPPORTED_OPS = {"sum", "diff", "ratio", "mul", "growth", "min", "max", "avg"}
 
 # counts the depth of an expression by recursively counting the depth of the left and right subtrees.
 def expr_depth(expr: Expr) -> int:
+    if isinstance(expr, Literal):
+        return 0
     if isinstance(expr, (Leaf, DerivedExpr)):
         return 0 if isinstance(expr, Leaf) else (expr.depth if expr.depth is not None else expr_depth(expr.expr))
     return 1 + max(expr_depth(expr.left), expr_depth(expr.right))
@@ -95,6 +104,9 @@ def parse_expr(obj: Any) -> Expr:
     if "leaf" in obj:
         return Leaf(key=str(obj["leaf"]))
 
+    if "literal" in obj:
+        return Literal(value=float(obj["literal"]))
+
     if "derived" in obj and "expanded" in obj:
         expanded = parse_expr(obj["expanded"])
         return DerivedExpr(
@@ -117,12 +129,17 @@ def parse_expr(obj: Any) -> Expr:
             )
         return Node(op=op, left=left, right=right, depth=computed_depth)
 
-    raise ValueError("Use either {'leaf': '...'}, {'derived': ..., 'expanded': ...}, or {'op': ..., 'left': ..., 'right': ...}.")
+    raise ValueError(
+        "Use {'leaf': ...}, {'literal': ...}, {'derived': ..., 'expanded': ...}, "
+        "or {'op': ..., 'left': ..., 'right': ...}."
+    )
 
 # converts an expression to a JSON object.
 def expr_to_json(expr: Expr) -> Dict[str, Any]:
     if isinstance(expr, Leaf):
         return {"leaf": expr.key, "depth": 0}
+    if isinstance(expr, Literal):
+        return {"literal": expr.value, "depth": 0}
     if isinstance(expr, DerivedExpr):
         return {
             "derived": expr.name,
@@ -140,6 +157,8 @@ def expr_to_json(expr: Expr) -> Dict[str, Any]:
 def show_expr(expr: Expr) -> str:
     if isinstance(expr, Leaf):
         return expr.key
+    if isinstance(expr, Literal):
+        return str(expr.value)
     if isinstance(expr, DerivedExpr):
         return expr.name
     return f"{expr.op}({show_expr(expr.left)}, {show_expr(expr.right)})"
@@ -158,6 +177,8 @@ def flatten_sum(expr: Expr) -> List[Leaf]:
 def flatten_leaves(expr: Expr) -> List[Leaf]:
     if isinstance(expr, Leaf):
         return [expr]
+    if isinstance(expr, Literal):
+        return []
     if isinstance(expr, DerivedExpr):
         return flatten_leaves(expr.expr)
     return flatten_leaves(expr.left) + flatten_leaves(expr.right)
@@ -419,6 +440,102 @@ def instantiate_formula_reference(
         return DerivedExpr(name=name, expr=expanded, depth=expr_depth(expanded))
     return expanded
 
+#used for time aggregates when it is still binary
+def _pick_entity_concept_two_periods(
+    index: AtomIndex,
+    rng: random.Random,
+    env: BindEnv,
+    *,
+    purpose: str,
+) -> Tuple[str, str, str, str]:
+    """Pick one amount metric and two random distinct years for the same company."""
+    entity = choose_entity(index, rng, BindEnv(entity=env.entity))
+    concept = choose_amount_concept(index, rng, BindEnv(concept=env.concept))
+    concept_period_atoms = index.filter_atoms(semantic_types=["amount"], concept=concept, entity=entity)
+    periods = sorted({a.period for a in concept_period_atoms})
+    if len(periods) < 2:
+        raise SemanticError(
+            f"Need at least two periods for concept={concept}, entity={entity} ({purpose})."
+        )
+    p_left, p_right = rng.sample(periods, 2)
+    return entity, concept, p_left, p_right
+
+#built for time aggregates over multiple periods
+def _pick_entity_concept_all_periods(
+    index: AtomIndex,
+    rng: random.Random,
+    env: BindEnv,
+    *,
+    purpose: str,
+) -> Tuple[str, str, List[str]]:
+    """Pick one amount metric and every reporting year available for that company."""
+    entity = choose_entity(index, rng, BindEnv(entity=env.entity))
+    concept = choose_amount_concept(index, rng, BindEnv(concept=env.concept))
+    concept_period_atoms = index.filter_atoms(semantic_types=["amount"], concept=concept, entity=entity)
+    periods = sorted({a.period for a in concept_period_atoms})
+    if len(periods) < 2:
+        raise SemanticError(
+            f"Need at least two periods for concept={concept}, entity={entity} ({purpose})."
+        )
+    return entity, concept, periods
+
+#"Min over N years" is represented as N−1 nested binary nodes; this helper builds that tree.
+def _fold_binary_op(op: str, parts: List[Expr]) -> Expr:
+    """Left-fold binary op over two or more sub-expressions (same semantics as nested nodes)."""
+    if len(parts) < 2:
+        raise ValueError(f"{op} needs at least 2 operands, got {len(parts)}")
+    acc = parts[0]
+    for nxt in parts[1:]:
+        acc = with_depth(op, acc, nxt)
+    return acc
+
+
+def _bind_min_or_max_over_all_periods(
+    op: str,
+    index: AtomIndex,
+    rng: random.Random,
+    env: BindEnv,
+    *,
+    purpose: str,
+) -> Expr:
+    """Bind min/max over every year that has data for the chosen entity and amount concept."""
+    if op not in {"min", "max"}:
+        raise ValueError(f"expected min or max, got {op!r}")
+    entity, concept, periods = _pick_entity_concept_all_periods(index, rng, env, purpose=purpose)
+    leaves: List[Expr] = [
+        instantiate_base_atom(
+            index,
+            rng,
+            semantic_types=["amount"],
+            env=BindEnv(entity=entity, period=p, concept=concept),
+        )
+        for p in periods
+    ]
+    return _fold_binary_op(op, leaves)
+
+
+def _bind_avg_over_all_periods(
+    index: AtomIndex,
+    rng: random.Random,
+    env: BindEnv,
+    *,
+    purpose: str,
+) -> Expr:
+    """Arithmetic mean over every year that has data: sum(values) / n (not nested binary avg)."""
+    entity, concept, periods = _pick_entity_concept_all_periods(index, rng, env, purpose=purpose)
+    leaves: List[Expr] = [
+        instantiate_base_atom(
+            index,
+            rng,
+            semantic_types=["amount"],
+            env=BindEnv(entity=entity, period=p, concept=concept),
+        )
+        for p in periods
+    ]
+    n = len(leaves)
+    sum_expr = fold_nary("sum", leaves)
+    return with_depth("ratio", sum_expr, Literal(float(n)))
+
 
 def instantiate_typed_tree(
     tree: Dict[str, Any],
@@ -446,6 +563,17 @@ def instantiate_typed_tree(
             env,
             derived_registry,
             preserve_named_derived=True,
+        )
+
+    # Sampler emits time_agg for min/max/avg without left/right; bind here.
+    if kind == "time_agg":
+        op = tree.get("op")
+        if op in {"min", "max"}:
+            return _bind_min_or_max_over_all_periods(op, index, rng, env, purpose=f"time_agg {op}")
+        if op == "avg":
+            return _bind_avg_over_all_periods(index, rng, env, purpose="time_agg avg")
+        raise ValueError(
+            f"time_agg supports min, max, avg; got {op!r}. (growth uses a binary node.)"
         )
 
     if kind != "node":
@@ -477,18 +605,31 @@ def instantiate_typed_tree(
         right = instantiate_typed_tree(tree["right"], index, rng, BindEnv(entity=shared_entity, period=shared_period), derived_registry)
         return with_depth("mul", left, right)
 
-    if op in {"growth", "min", "max", "avg"}:
-        # Time-style ops require one entity+concept with at least two periods.
-        entity = choose_entity(index, rng, BindEnv(entity=env.entity))
-        concept = choose_amount_concept(index, rng, BindEnv(concept=env.concept))
-        concept_period_atoms = index.filter_atoms(semantic_types=["amount"], concept=concept, entity=entity)
-        periods = sorted({a.period for a in concept_period_atoms})
-        if len(periods) < 2:
-            raise SemanticError(f"Need at least two periods for concept={concept}, entity={entity} to instantiate {op}.")
-        p_left, p_right = rng.sample(periods, 2)
-        left = instantiate_typed_tree(tree["left"], index, rng, BindEnv(entity=entity, period=p_left, concept=concept), derived_registry)
-        right = instantiate_typed_tree(tree["right"], index, rng, BindEnv(entity=entity, period=p_right, concept=concept), derived_registry)
-        return with_depth(op, left, right)
+    if op == "growth":
+        entity, concept, p_left, p_right = _pick_entity_concept_two_periods(
+            index, rng, env, purpose="growth"
+        )
+        left = instantiate_typed_tree(
+            tree["left"],
+            index,
+            rng,
+            BindEnv(entity=entity, period=p_left, concept=concept),
+            derived_registry,
+        )
+        right = instantiate_typed_tree(
+            tree["right"],
+            index,
+            rng,
+            BindEnv(entity=entity, period=p_right, concept=concept),
+            derived_registry,
+        )
+        return with_depth("growth", left, right)
+
+    if op in {"min", "max"}:
+        return _bind_min_or_max_over_all_periods(op, index, rng, env, purpose=f"node {op}")
+
+    if op == "avg":
+        return _bind_avg_over_all_periods(index, rng, env, purpose="node avg")
 
     raise ValueError(f"Unhandled op: {op}")
 
@@ -532,7 +673,15 @@ class SemanticAnalyzer:
         return a.entity == b.entity and a.unit == b.unit
 
     def _is_metric_like_amount(self, meaning: Meaning) -> bool:
-        return meaning.semantic_type == "amount" and meaning.kind in {"leaf_metric", "aggregate_components", "derived_metric"}
+        return meaning.semantic_type == "amount" and meaning.kind in {
+            "leaf_metric",
+            "aggregate_components",
+            "derived_metric",
+            "min_over_time",
+            "max_over_time",
+            "avg_over_time",
+            "avg_over_all_periods",
+        }
 
     def _is_metric_like_ratio(self, meaning: Meaning) -> bool:
         return meaning.semantic_type in {"ratio", "rate"} and meaning.kind == "leaf_metric"
@@ -572,7 +721,20 @@ class SemanticAnalyzer:
                 derivation=f"leaf {atom.key}",
             )
             return AnalysisResult(expr=expr, meaning=meaning, children=[], depth=0)
-        
+
+        if isinstance(expr, Literal):
+            return AnalysisResult(
+                expr=expr,
+                meaning=Meaning(
+                    kind="literal_scalar",
+                    semantic_type="ratio",
+                    text=str(expr.value),
+                    derivation="numeric literal",
+                ),
+                children=[],
+                depth=0,
+            )
+
         if isinstance(expr, DerivedExpr):
             inner = self.analyze(expr.expr)
             inner_meaning = inner.meaning
@@ -738,6 +900,37 @@ class SemanticAnalyzer:
     def _analyze_ratio(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
 
+        if isinstance(expr.right, Literal):
+            n = float(expr.right.value)
+            n_int = int(round(n))
+            if n_int >= 2 and abs(n - n_int) < 1e-9:
+                leaves = flatten_leaves(expr.left)
+                if len(leaves) == n_int:
+                    atoms = [self.atom(leaf.key) for leaf in leaves]
+                    if (
+                        len({a.entity for a in atoms}) == 1
+                        and len({a.concept for a in atoms}) == 1
+                        and all(a.semantic_type == "amount" for a in atoms)
+                    ):
+                        periods = sorted({a.period for a in atoms})
+                        first = atoms[0]
+                        return Meaning(
+                            kind="avg_over_all_periods",
+                            semantic_type="amount",
+                            text=(
+                                f"average of {first.label} for {first.entity} "
+                                f"across years {periods[0]} through {periods[-1]}"
+                            ),
+                            entity=first.entity,
+                            unit=first.unit,
+                            concept=first.concept,
+                            label=first.label,
+                            from_period=periods[0],
+                            to_period=periods[-1],
+                            period=periods[-1],
+                            derivation=f"arithmetic mean of {n_int} yearly values",
+                        )
+
         if (
             lm.kind == "change_over_time"
             and rm.semantic_type == "amount"
@@ -854,6 +1047,39 @@ class SemanticAnalyzer:
         lm, rm = left.meaning, right.meaning
         op_name = {"min": "minimum", "max": "maximum", "avg": "average"}[expr.op]
 
+        def _period_tokens(m: Meaning) -> List[str]:
+            return [p for p in (m.period, m.from_period, m.to_period) if p is not None]
+
+        # Nested min/max folds share one concept; span all years mentioned in either subtree.
+        if expr.op in {"min", "max"}:
+            span_periods = sorted(set(_period_tokens(lm) + _period_tokens(rm)))
+            if (
+                lm.semantic_type == "amount"
+                and rm.semantic_type == "amount"
+                and lm.entity == rm.entity
+                and lm.unit == rm.unit
+                and lm.concept is not None
+                and lm.concept == rm.concept
+                and len(span_periods) >= 2
+            ):
+                base_label = (lm.label or lm.concept or "value").replace("minimum ", "").replace("maximum ", "")
+                return Meaning(
+                    kind=f"{expr.op}_over_time",
+                    semantic_type="amount",
+                    text=(
+                        f"{op_name} of {base_label} for {lm.entity} "
+                        f"across years {span_periods[0]} through {span_periods[-1]}"
+                    ),
+                    entity=lm.entity,
+                    unit=lm.unit,
+                    concept=lm.concept,
+                    label=f"{op_name} {base_label}",
+                    from_period=span_periods[0],
+                    to_period=span_periods[-1],
+                    period=span_periods[-1],
+                    derivation=f"{expr.op} over {len(span_periods)} periods",
+                )
+
         if self._same_amount_timeseries_metric(lm, rm):
             periods = sorted([lm.period, rm.period])
             base_label = lm.label or lm.concept or "value"
@@ -867,6 +1093,7 @@ class SemanticAnalyzer:
                 label=f"{op_name} {base_label}",
                 from_period=periods[0],
                 to_period=periods[1],
+                period=periods[-1],
                 derivation=f"{expr.op} over time",
             )
 
@@ -899,6 +1126,8 @@ class Evaluator:
         # Evaluate bottom-up by recursively computing child values.
         if isinstance(expr, Leaf):
             return float(self.atoms[expr.key].value)
+        if isinstance(expr, Literal):
+            return float(expr.value)
         if isinstance(expr, DerivedExpr):
             return self.eval(expr.expr)
 
@@ -947,6 +1176,12 @@ class QuestionRenderer:
                 f"for {m.entity} from {m.from_period} to {m.to_period}?"
             )
 
+        if m.kind == "avg_over_all_periods":
+            return (
+                f"What is the average {self._clean_label(m.label or m.concept)} "
+                f"for {m.entity} across years {m.from_period} through {m.to_period}?"
+            )
+
         phrase = self._expr_phrase(result, top_level=True)
         return f"What is {phrase}?"
 
@@ -959,6 +1194,9 @@ class QuestionRenderer:
 
         if isinstance(expr, DerivedExpr):
             return f"{self._clean_label(m.label)} for {m.entity} in {m.period}"
+
+        if isinstance(expr, Literal):
+            return str(expr.value)
 
         left = self._expr_phrase(result.children[0])
         right = self._expr_phrase(result.children[1])

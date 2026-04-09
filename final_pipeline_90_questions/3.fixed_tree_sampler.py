@@ -5,9 +5,10 @@ Typed tree sampler for financial reasoning templates.
 
 This file generates a random expression template made of:
 1. raw leaves            -> placeholders that will later be bound to spreadsheet atoms
-2. operator nodes        -> sum / diff / ratio / mul / growth
-3. time aggregations     -> min / max / avg across all available years
-4. derived concepts      -> named financial formulas such as gross_profit
+2. operator nodes        -> sum / diff / ratio / mul (binary)
+3. growth                -> built under the ratio tree as a binary node (two year-slots)
+4. time aggregations     -> min / max / avg as time_agg (binder folds min/max; avg -> sum/n)
+5. derived concepts      -> named financial formulas such as gross_profit
 
 Important distinction:
 - template depth = target recursive depth budget used while sampling
