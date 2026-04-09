@@ -1205,7 +1205,7 @@ class QuestionRenderer:
 
         if expr.op == "sum":
             shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
-            if shared_context is not None:
+            if shared_context is not None and self._both_have_entity_period_suffix(left, right, *shared_context):
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
@@ -1214,7 +1214,7 @@ class QuestionRenderer:
 
         if expr.op == "diff":
             shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
-            if shared_context is not None:
+            if shared_context is not None and self._both_have_entity_period_suffix(left, right, *shared_context):
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
@@ -1223,7 +1223,7 @@ class QuestionRenderer:
 
         if expr.op == "ratio":
             shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
-            if shared_context is not None:
+            if shared_context is not None and self._both_have_entity_period_suffix(left, right, *shared_context):
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
@@ -1232,7 +1232,7 @@ class QuestionRenderer:
 
         if expr.op == "mul":
             shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
-            if shared_context is not None:
+            if shared_context is not None and self._both_have_entity_period_suffix(left, right, *shared_context):
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
@@ -1305,6 +1305,10 @@ class QuestionRenderer:
         if phrase.endswith(suffix):
             return phrase[: -len(suffix)]
         return phrase
+
+    def _both_have_entity_period_suffix(self, left: str, right: str, entity: str, period: str) -> bool:
+        suffix = f" for {entity} in {period}"
+        return left.endswith(suffix) and right.endswith(suffix)
 
 # =========================================================
 # 6. Convenience wrappers for the pipeline
