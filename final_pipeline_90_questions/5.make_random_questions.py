@@ -9,6 +9,20 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+ATOM_ALLOWED_FIELDS = {
+    "key",
+    "concept",
+    "semantic_type",
+    "label",
+    "entity",
+    "period",
+    "unit",
+    "value",
+    "depth",
+    "parent_concept",
+    "role",
+}
+
 
 def load_module(module_path: Path, module_name: str):
     # Dynamically import numbered pipeline scripts by absolute path.
@@ -106,6 +120,11 @@ def build_row(
         row[f"leaf_{j}_value"] = atom.value
     return row
 
+
+def clean_atom_payload(raw_atom: Dict[str, Any]) -> Dict[str, Any]:
+    # Keep only fields accepted by tree_to_language.Atom.
+    return {k: v for k, v in raw_atom.items() if k in ATOM_ALLOWED_FIELDS}
+
 def main() -> None:
     # Parse high-level generation controls.
     parser = argparse.ArgumentParser(description="Generate random financial questions through the full pipeline.")
@@ -136,7 +155,7 @@ def main() -> None:
     # Build reusable objects once, then sample repeatedly.
     df = mod_atoms.pd.read_csv(csv_path)
     atoms_raw = mod_atoms.build_atoms(df)
-    atoms = {a["key"]: mod_lang.Atom(**a) for a in atoms_raw}
+    atoms = {a["key"]: mod_lang.Atom(**clean_atom_payload(a)) for a in atoms_raw}
     index = mod_lang.AtomIndex(atoms)
     analyzer = mod_lang.SemanticAnalyzer(atoms)
     evaluator = mod_lang.Evaluator(atoms)

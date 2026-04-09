@@ -21,8 +21,6 @@ This file only samples templates, it does not plug in anything (including formul
 import argparse
 import json
 import random
-import time
-import urllib.request
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -40,44 +38,6 @@ OPS = ("sum", "diff", "ratio", "mul", "growth", "min", "max", "avg")
 AMOUNT_BINARY_OPS = ("sum", "diff", "mul")
 TIME_AGG_OPS = ("min", "max", "avg")
 RATIO_OPS = ("ratio", "growth")
-DEBUG_LOG_PATH = Path(
-    "/Users/victoire/Desktop/ML_project/ML-in-Finance-and-Complex-System/final_pipeline_90_questions/.cursor/debug-9784fa.log"
-)
-
-
-def _debug_log(run_id: str, hypothesis_id: str, location: str, message: str, data: Dict[str, Any]) -> None:
-    payload = {
-        "sessionId": "9784fa",
-        "runId": run_id,
-        "hypothesisId": hypothesis_id,
-        "location": location,
-        "message": message,
-        "data": data,
-        "timestamp": int(time.time() * 1000),
-    }
-    try:
-        DEBUG_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-        with open(DEBUG_LOG_PATH, "a", encoding="utf-8") as f:
-            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
-        return
-    except Exception:
-        pass
-
-    # Fallback transport for environments where writing .cursor files is restricted.
-    try:
-        req = urllib.request.Request(
-            "http://127.0.0.1:7797/ingest/a2f09194-81c8-4f25-8144-3d4420aa8081",
-            data=json.dumps(payload).encode("utf-8"),
-            headers={
-                "Content-Type": "application/json",
-                "X-Debug-Session-Id": "9784fa",
-            },
-            method="POST",
-        )
-        urllib.request.urlopen(req, timeout=0.5).read()
-    except Exception:
-        # Debug logging must never change sampler behavior.
-        return
 
 
 # ---------------------------------------------------------------------
@@ -711,31 +671,10 @@ def expand_formula_reference(name: str) -> Any:
 
 # normalizes a symbolic representation of a tree by sorting the arguments of the sum operation.
 def normalize_symbolic(expr: Any) -> Any:
-    # region agent log
-    _debug_log(
-        run_id="pre-fix",
-        hypothesis_id="H1",
-        location="3.fixed_tree_sampler.py:normalize_symbolic:entry",
-        message="normalize_symbolic input",
-        data={"expr_type": type(expr).__name__, "expr_repr": repr(expr)[:220]},
-    )
-    # endregion
     if isinstance(expr, str):
         return expr
 
-    try:
-        op, args = expr
-    except Exception as exc:
-        # region agent log
-        _debug_log(
-            run_id="pre-fix",
-            hypothesis_id="H1",
-            location="3.fixed_tree_sampler.py:normalize_symbolic:unpack_error",
-            message="Failed to unpack symbolic expr into (op, args)",
-            data={"expr_repr": repr(expr)[:220], "error": f"{type(exc).__name__}: {exc}"},
-        )
-        # endregion
-        raise
+    op, args = expr
     norm_args = tuple(normalize_symbolic(arg) for arg in args)
 
     if op == "sum":
@@ -754,15 +693,6 @@ def symbolic_from_tree(tree: Dict[str, Any]) -> Any:
         return normalize_symbolic(expand_formula_reference(tree["name"]))
 
     if kind == "time_agg":
-        # region agent log
-        _debug_log(
-            run_id="pre-fix",
-            hypothesis_id="H2",
-            location="3.fixed_tree_sampler.py:symbolic_from_tree:time_agg",
-            message="time_agg symbolic tuple created",
-            data={"op": tree["op"], "entity_group": tree.get("entity_group"), "concept_group": tree.get("concept_group")},
-        )
-        # endregion
         return (
             "time_agg",
             (
@@ -776,15 +706,6 @@ def symbolic_from_tree(tree: Dict[str, Any]) -> Any:
     if kind == "node":
         left = symbolic_from_tree(tree["left"])
         right = symbolic_from_tree(tree["right"])
-        # region agent log
-        _debug_log(
-            run_id="pre-fix",
-            hypothesis_id="H3",
-            location="3.fixed_tree_sampler.py:symbolic_from_tree:node",
-            message="node symbolic children computed",
-            data={"op": tree["op"], "left_type": type(left).__name__, "right_type": type(right).__name__},
-        )
-        # endregion
         return normalize_symbolic((tree["op"], (left, right)))
 
     raise ValueError(f"Unknown tree kind: {kind}")
@@ -826,25 +747,7 @@ def violates_protected_canonical_form(tree: Dict[str, Any], protected: Dict[str,
     if tree["kind"] == "time_agg":
         return None
 
-    # region agent log
-    _debug_log(
-        run_id="pre-fix",
-        hypothesis_id="H4",
-        location="3.fixed_tree_sampler.py:violates_protected_canonical_form:entry",
-        message="checking protected canonical form",
-        data={"tree_kind": tree.get("kind"), "protected_count": len(protected)},
-    )
-    # endregion
     tree_sig = symbolic_from_tree(tree)
-    # region agent log
-    _debug_log(
-        run_id="pre-fix",
-        hypothesis_id="H5",
-        location="3.fixed_tree_sampler.py:violates_protected_canonical_form:tree_sig",
-        message="tree signature computed",
-        data={"tree_sig_type": type(tree_sig).__name__, "tree_sig_repr": repr(tree_sig)[:220]},
-    )
-    # endregion
 
     for concept_name, concept_sig in protected.items():
         if tree_sig == concept_sig and not contains_named_derived(tree, concept_name):
