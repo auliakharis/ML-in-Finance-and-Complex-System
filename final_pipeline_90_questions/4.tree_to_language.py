@@ -1185,8 +1185,9 @@ class QuestionRenderer:
         m = result.meaning
 
         if m.kind == "aggregate_components":
+            copula = self._question_copula(m.target_concept)
             return (
-                f"What are the total {self._clean_label(m.target_concept)} "
+                f"What {copula} the total {self._clean_label(m.target_concept)} "
                 f"for {m.entity} in {m.period}?"
             )
 
@@ -1204,7 +1205,8 @@ class QuestionRenderer:
             )
 
         phrase = self._expr_phrase(result, top_level=True)
-        return f"What is {phrase}?"
+        copula = self._question_copula(m.label or m.concept)
+        return f"What {copula} {phrase}?"
 
     def _expr_phrase(self, result: AnalysisResult, top_level: bool = False) -> str:
         expr = result.expr
@@ -1306,6 +1308,16 @@ class QuestionRenderer:
         if not label:
             return "value"
         return label.replace("_", " ")
+
+    def _question_copula(self, label: Optional[str]) -> str:
+        """Pick 'is' vs 'are' for top-level question fluency."""
+        cleaned = self._clean_label(label).strip().lower()
+        if not cleaned:
+            return "is"
+        # Plural financial nouns generally end with 's' (assets, liabilities, expenses).
+        if cleaned.endswith("s") and not cleaned.endswith("ss"):
+            return "are"
+        return "is"
 
     def _shared_entity_period_context(
         self, left_meaning: Meaning, right_meaning: Meaning
