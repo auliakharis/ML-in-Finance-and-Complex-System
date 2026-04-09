@@ -9,6 +9,8 @@ from pathlib import Path
 import random
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
+TIME_AGG_MIN_WINDOW = 2
+
 # =========================================================
 # 1. Data model
 # =========================================================
@@ -479,6 +481,23 @@ def _pick_entity_concept_all_periods(
         )
     return entity, concept, periods
 
+
+def _pick_random_contiguous_period_window(
+    periods: Sequence[str],
+    rng: random.Random,
+    *,
+    min_window: int = TIME_AGG_MIN_WINDOW,
+) -> List[str]:
+    """Pick a random contiguous period window from sorted periods."""
+    ordered = sorted(periods)
+    if len(ordered) < min_window:
+        raise SemanticError(
+            f"Need at least {min_window} periods to sample a time-aggregation window."
+        )
+    window_len = rng.randint(min_window, len(ordered))
+    start = rng.randint(0, len(ordered) - window_len)
+    return list(ordered[start : start + window_len])
+
 #"Min over N years" is represented as N−1 nested binary nodes; this helper builds that tree.
 def _fold_binary_op(op: str, parts: List[Expr]) -> Expr:
     """Left-fold binary op over two or more sub-expressions (same semantics as nested nodes)."""
@@ -498,10 +517,11 @@ def _bind_min_or_max_over_all_periods(
     *,
     purpose: str,
 ) -> Expr:
-    """Bind min/max over every year that has data for the chosen entity and amount concept."""
+    """Bind min/max over a random contiguous year window for one entity+concept."""
     if op not in {"min", "max"}:
         raise ValueError(f"expected min or max, got {op!r}")
     entity, concept, periods = _pick_entity_concept_all_periods(index, rng, env, purpose=purpose)
+    selected_periods = _pick_random_contiguous_period_window(periods, rng)
     leaves: List[Expr] = [
         instantiate_base_atom(
             index,
@@ -509,7 +529,7 @@ def _bind_min_or_max_over_all_periods(
             semantic_types=["amount"],
             env=BindEnv(entity=entity, period=p, concept=concept),
         )
-        for p in periods
+        for p in selected_periods
     ]
     return _fold_binary_op(op, leaves)
 
@@ -521,8 +541,9 @@ def _bind_avg_over_all_periods(
     *,
     purpose: str,
 ) -> Expr:
-    """Arithmetic mean over every year that has data: sum(values) / n (not nested binary avg)."""
+    """Arithmetic mean over a random contiguous year window: sum(values) / n."""
     entity, concept, periods = _pick_entity_concept_all_periods(index, rng, env, purpose=purpose)
+    selected_periods = _pick_random_contiguous_period_window(periods, rng)
     leaves: List[Expr] = [
         instantiate_base_atom(
             index,
@@ -530,7 +551,7 @@ def _bind_avg_over_all_periods(
             semantic_types=["amount"],
             env=BindEnv(entity=entity, period=p, concept=concept),
         )
-        for p in periods
+        for p in selected_periods
     ]
     n = len(leaves)
     sum_expr = fold_nary("sum", leaves)
