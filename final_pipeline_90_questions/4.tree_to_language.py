@@ -1231,6 +1231,12 @@ class QuestionRenderer:
             return f"the ratio of {left} to {right}"
 
         if expr.op == "mul":
+            shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
+            if shared_context is not None:
+                entity, period = shared_context
+                left = self._strip_entity_period_suffix(left, entity, period)
+                right = self._strip_entity_period_suffix(right, entity, period)
+                return f"the result of {left} scaled by {right} for {entity} in {period}"
             return f"the result of {left} scaled by {right}"
 
         if expr.op == "growth":
