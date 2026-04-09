@@ -34,7 +34,7 @@ echo "GPU: $CUDA_VISIBLE_DEVICES"
 nvidia-smi
 
 
-python run_llm_eval.py
+python run_llm_eval.py --limit 90
 
 
 echo "Done: $(date)"

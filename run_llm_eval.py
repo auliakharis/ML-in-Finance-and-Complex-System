@@ -6,7 +6,7 @@ Runs LLM evaluation on two Q&A datasets:
   10q  — 10q/final_qa_dataset.json
          context: one spreadsheet row per company from 10q/financial_spreadsheet.json
 
-  90q  — 90q/final_90_questions_mixed.json
+  90q  — 90q/random_questions_90.json
          context: all yearly rows for the entity from 90q/financial_spreadsheet.json
 
 For each question, a prompt is built:
@@ -36,6 +36,7 @@ import json
 import os
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 # ---------------------------------------------------------------------------
@@ -45,10 +46,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
-DATASET_10Q = BASE_DIR / "10q" / "top10_qa.json"
-SHEET_10Q   = BASE_DIR / "10q" / "top10_companies_sheet.json"
+DATASET_10Q = BASE_DIR / "10q" / "final_qa_dataset.json"
+SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
 
-DATASET_90Q = BASE_DIR / "90q" / "final_90_questions_mixed.json"
+DATASET_90Q = BASE_DIR / "90q" / "random_questions_90.json"
 SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
 
 DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B"]
@@ -107,46 +108,69 @@ def sheet_to_text_90q(rows: list) -> str:
 
 def build_prompt(sheet_text: str, question: str) -> str:
     return (
-        "You are a financial analyst. You will be given financial data and a question.\n"
-        "You MUST answer using ONLY the data provided below. Do not guess or use outside knowledge.\n\n"
-        "=== FINANCIAL DATA ===\n"
-        f"{sheet_text}\n"
-        "=== END DATA ===\n\n"
-        f"Question: {question}\n\n"
-        "Instructions:\n"
-        "1. Identify which values from the data are needed.\n"
-        "2. Show your calculation step by step.\n"
-        "3. On the FINAL line, write ONLY: Answer: <number>\n\n"
-        "Example format:\n"
-        "Revenue = 500, Costs = 300\n"
-        "Profit = 500 - 300 = 200\n"
-        "Answer: 200\n\n"
-        "Now solve the question."
+    "ROLE: Financial analyst. Answer using ONLY the data below. No commentary.\n\n"
+    "=== DATA ===\n"
+    f"{sheet_text}\n"
+    "=== END ===\n\n"
+    f"QUESTION: {question}\n\n"
+    "RULES:\n"
+    "- Extract only the numbers you need.\n"
+    "- Show calculations in 1–3 lines max if needed.\n"
+    "- Last line MUST be: Answer: <value>\n"
+    "- <value> is either a number, True, or False. Nothing else.\n"
+    "- Do NOT explain, summarize, or add anything after the Answer line.\n\n"
+    "- Do NOT show your thinking process.\n\n" 
+    "SOLVE NOW:"
     )
 
 # ---------------------------------------------------------------------------
 # Answer extraction
 # ---------------------------------------------------------------------------
 
-def extract_number(text: str) -> float | None:
+def extract_number(text: str) -> float | bool | None:
     """
-    Pull the last numeric value from the model response.
-    Handles negatives, decimals, and comma-formatted numbers.
+    Extract the value from the 'Answer: <value>' line.
+    Handles numbers, True/False. Falls back to last number if no Answer line found.
     """
-    # Remove commas inside numbers (e.g. "4,375,514" -> "4375514")
+    # 1. Look for explicit "Answer: <value>" line (case-insensitive)
+    match = re.search(r'Answer\s*:\s*(.+)', text, re.IGNORECASE)
+    if match:
+        raw = match.group(1).strip().rstrip(".,;")
+
+        # Check for True/False first
+        if raw.lower() == "true":
+            return True
+        if raw.lower() == "false":
+            return False
+
+        # Try to parse as number
+        cleaned = re.sub(r'(\d),(\d)', r'\1\2', raw)
+        num_match = re.search(r'-?\d+(?:\.\d+)?', cleaned)
+        if num_match:
+            return float(num_match.group())
+
+    # 2. Fallback: last number in text (less reliable)
     cleaned = re.sub(r'(\d),(\d)', r'\1\2', text)
-    # Find all numbers (including negatives and decimals)
     matches = re.findall(r'-?\d+(?:\.\d+)?', cleaned)
-    if not matches:
-        return None
-    # Return the last number found (models tend to end with the final answer)
-    return float(matches[-1])
+    return float(matches[-1]) if matches else None
 
 
-def is_correct(predicted: float | None, ground_truth: float, tol: float) -> bool:
-    """True if the predicted value is within relative tolerance of ground_truth."""
-    if predicted is None:
+def is_correct(predicted, ground_truth, tol: float) -> bool:
+    if predicted is None or ground_truth is None:
         return False
+
+    # Boolean comparison
+    if isinstance(predicted, bool) or isinstance(ground_truth, bool):
+        return predicted == ground_truth
+
+    # Coerce string ground truth to float; skip if not numeric
+    if isinstance(ground_truth, str):
+        try:
+            ground_truth = float(ground_truth.replace(",", ""))
+        except ValueError:
+            return False
+
+    # Numeric comparison
     if ground_truth == 0:
         return abs(predicted) < 1e-6
     return abs(predicted - ground_truth) / abs(ground_truth) <= tol
@@ -191,6 +215,7 @@ def run_inference(tokenizer, model, prompt: str, max_new_tokens: int = 512) -> s
                 tokenize=True,
                 add_generation_prompt=True,
                 return_tensors="pt",
+                enable_thinking=False,
             )
             input_ids = result if isinstance(result, torch.Tensor) else result["input_ids"]
         except Exception:
@@ -242,6 +267,7 @@ def evaluate_10q(
                 "source": "10q",
                 "id": q.get("id"),
                 "company": company,
+                "depth": q.get("depth"),
                 "question": question_text,
                 "ground_truth": ground_truth,
                 "llm_response": None,
@@ -265,6 +291,7 @@ def evaluate_10q(
             "source": "10q",
             "id": q.get("id"),
             "company": company,
+            "depth": q.get("depth"),
             "question": question_text,
             "ground_truth": ground_truth,
             "prompt": prompt,
@@ -290,7 +317,7 @@ def evaluate_90q(
     subset = questions[:limit] if limit else questions
 
     for i, q in enumerate(subset, 1):
-        entity = q.get("entity", "")
+        entity = q.get("entity") or q.get("leaf_1_entity", "")
         question_text = q.get("question", "")
         ground_truth = q.get("answer")
 
@@ -299,8 +326,9 @@ def evaluate_90q(
             print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{entity}')")
             results.append({
                 "source": "90q",
-                "id": q.get("id"),
+                "id": q.get("id") or q.get("question_id"),
                 "entity": entity,
+                "depth": q.get("depth"),
                 "question": question_text,
                 "ground_truth": ground_truth,
                 "llm_response": None,
@@ -318,12 +346,13 @@ def evaluate_90q(
         correct = is_correct(predicted, ground_truth, tol)
 
         status = "CORRECT" if correct else "WRONG "
-        print(f"  [{i}/{len(subset)}] {status} | truth={ground_truth:.4f} pred={predicted} | {question_text[:60]}...")
+        print(f"  [{i}/{len(subset)}] {status} | truth={float(ground_truth):.4f} pred={predicted} | {question_text[:60]}...")
 
         results.append({
             "source": "90q",
-            "id": q.get("id"),
+            "id": q.get("id") or q.get("question_id"),
             "entity": entity,
+            "depth": q.get("depth"),
             "question": question_text,
             "ground_truth": ground_truth,
             "prompt": prompt,
@@ -376,7 +405,7 @@ def print_summary(model_name: str, results_10q: list, results_90q: list) -> None
 def save_csv(all_results: dict, path: Path, tol: float) -> None:
     """Write a flat CSV with one row per question across all models and datasets."""
     fieldnames = [
-        "model", "dataset", "id", "entity",
+        "model", "dataset", "id", "entity", "depth",
         "question", "prompt", "ground_truth", "predicted_answer",
         "reasoning", "correct", "relative_error", "within_tol", "skipped",
     ]
@@ -397,6 +426,7 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
                         "dataset": dataset_key,
                         "id": r.get("id", ""),
                         "entity": r.get("company") or r.get("entity", ""),
+                        "depth": r.get("depth", ""),
                         "question": r.get("question", ""),
                         "prompt": r.get("prompt", ""),
                         "ground_truth": gt,
@@ -428,8 +458,8 @@ def parse_args():
         help="Relative tolerance for numeric correctness (default: 0.01 = 1%%)",
     )
     parser.add_argument(
-        "--max-new-tokens", type=int, default=64,
-        help="Max new tokens to generate per answer (default: 256)",
+        "--max-new-tokens", type=int, default=512,
+        help="Max new tokens to generate per answer (default: 512)",
     )
     parser.add_argument(
         "--output", type=str, default="output_llm/eval_results.json",
@@ -439,6 +469,10 @@ def parse_args():
         "--csv", type=str, default="output_llm/eval_results.csv",
         help="Path to save per-question results CSV (default: eval_results.csv)",
     )
+    parser.add_argument(
+        "--datasets", nargs="+", choices=["10q", "90q"], default=["10q", "90q"],
+        help="Which dataset(s) to evaluate: 10q, 90q, or both (default: both)",
+    )
     return parser.parse_args()
 
 
@@ -447,16 +481,19 @@ def main():
 
     # Load datasets
     print("Loading datasets...")
-    questions_10q = load_json(DATASET_10Q)
-    sheet_10q = load_json(SHEET_10Q)
-    sheet_lookup_10q = build_10q_sheet_lookup(sheet_10q)
+    if "10q" in args.datasets:
+        questions_10q = load_json(DATASET_10Q)
+        sheet_lookup_10q = build_10q_sheet_lookup(load_json(SHEET_10Q))
+        print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} companies")
+    else:
+        questions_10q, sheet_lookup_10q = [], {}
 
-    questions_90q = load_json(DATASET_90Q)
-    sheet_90q = load_json(SHEET_90Q)
-    sheet_lookup_90q = build_90q_sheet_lookup(sheet_90q)
-
-    print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} companies")
-    print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
+    if "90q" in args.datasets:
+        questions_90q = load_json(DATASET_90Q)
+        sheet_lookup_90q = build_90q_sheet_lookup(load_json(SHEET_90Q))
+        print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
+    else:
+        questions_90q, sheet_lookup_90q = [], {}
 
     all_results = {}
 
@@ -472,17 +509,23 @@ def main():
 
         tokenizer, model = load_model(model_name)
 
-        print(f"\n-- 10-Q evaluation ({args.limit or len(questions_10q)} questions) --")
-        results_10q = evaluate_10q(
-            questions_10q, sheet_lookup_10q, tokenizer, model,
-            limit=args.limit, tol=args.tol,
-        )
+        if "10q" in args.datasets:
+            print(f"\n-- 10-Q evaluation ({args.limit or len(questions_10q)} questions) --")
+            results_10q = evaluate_10q(
+                questions_10q, sheet_lookup_10q, tokenizer, model,
+                limit=args.limit, tol=args.tol,
+            )
+        else:
+            results_10q = []
 
-        print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
-        results_90q = evaluate_90q(
-            questions_90q, sheet_lookup_90q, tokenizer, model,
-            limit=args.limit, tol=args.tol,
-        )
+        if "90q" in args.datasets:
+            print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
+            results_90q = evaluate_90q(
+                questions_90q, sheet_lookup_90q, tokenizer, model,
+                limit=args.limit, tol=args.tol,
+            )
+        else:
+            results_90q = []
 
         print_summary(model_name, results_10q, results_90q)
 
@@ -503,13 +546,16 @@ def main():
             pass
 
     # Save results
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_path = Path(args.output)
+    output_path = output_path.with_stem(f"{output_path.stem}_{ts}")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w") as f:
         json.dump(all_results, f, indent=2, default=str)
     print(f"Results saved to {output_path}")
 
     csv_path = Path(args.csv)
+    csv_path = csv_path.with_stem(f"{csv_path.stem}_{ts}")
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     save_csv(all_results, csv_path, tol=args.tol)
     print(f"CSV saved to {csv_path}")

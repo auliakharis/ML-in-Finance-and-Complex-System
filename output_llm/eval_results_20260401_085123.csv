@@ -1,0 +1,930 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+Qwen3.5-4B,10q,FQ-00001,Nova Enterprises,0,What was the basic shares used in computing EPS reported by Nova Enterprises for the year-to-date period ended Oct 31 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  company_name: Nova Enterprises
+  form_type: 10-Q
+  industry: retail
+  fiscal_year: 2025
+  quarter: 3
+  period: Three Months Ended October 31 2025
+  fiscal_year_start: January 01 2025
+  net_sales_Q_Oct_31_2025: 140082.0
+  membership_and_other_income_Q_Oct_31_2025: 1087.0
+  revenues_Q_Oct_31_2025: 141169.0
+  cost_of_sales_Q_Oct_31_2025: 103373.0
+  rd_expense_Q_Oct_31_2025: 777.0
+  sga_expense_Q_Oct_31_2025: 34267.0
+  total_costs_Q_Oct_31_2025: 138417.0
+  gross_profit_Q_Oct_31_2025: 36709.0
+  operating_income_Q_Oct_31_2025: 2752.0
+  other_income_Q_Oct_31_2025: -448.0
+  pretax_income_Q_Oct_31_2025: 2304.0
+  tax_Q_Oct_31_2025: 612.0
+  net_income_Q_Oct_31_2025: 1692.0
+  eps_basic_Q_Oct_31_2025: 0.4
+  eps_diluted_Q_Oct_31_2025: 0.4
+  shares_basic_Q_Oct_31_2025: 4202000.0
+  shares_diluted_Q_Oct_31_2025: 4209000.0
+  net_sales_Q_Oct_31_2024: 129816.0
+  membership_and_other_income_Q_Oct_31_2024: 1007.0
+  revenues_Q_Oct_31_2024: 130823.0
+  cost_of_sales_Q_Oct_31_2024: 95798.0
+  rd_expense_Q_Oct_31_2024: 720.0
+  sga_expense_Q_Oct_31_2024: 31756.0
+  total_costs_Q_Oct_31_2024: 128274.0
+  gross_profit_Q_Oct_31_2024: 34018.0
+  operating_income_Q_Oct_31_2024: 2549.0
+  other_income_Q_Oct_31_2024: -415.0
+  pretax_income_Q_Oct_31_2024: 2134.0
+  tax_Q_Oct_31_2024: 567.0
+  net_income_Q_Oct_31_2024: 1567.0
+  eps_basic_Q_Oct_31_2024: 0.37
+  eps_diluted_Q_Oct_31_2024: 0.37
+  shares_basic_Q_Oct_31_2024: 4105115.0
+  shares_diluted_Q_Oct_31_2024: 4385319.0
+  net_sales_YTD_Oct_31_2025: 420246.0
+  membership_and_other_income_YTD_Oct_31_2025: 3261.0
+  revenues_YTD_Oct_31_2025: 423507.0
+  cost_of_sales_YTD_Oct_31_2025: 310119.0
+  rd_expense_YTD_Oct_31_2025: 2331.0
+  sga_expense_YTD_Oct_31_2025: 102801.0
+  total_costs_YTD_Oct_31_2025: 415251.0
+  gross_profit_YTD_Oct_31_2025: 110127.0
+  operating_income_YTD_Oct_31_2025: 8256.0
+  other_income_YTD_Oct_31_2025: -1344.0
+  pretax_income_YTD_Oct_31_2025: 6912.0
+  tax_YTD_Oct_31_2025: 1836.0
+  net_income_YTD_Oct_31_2025: 5076.0
+  eps_basic_YTD_Oct_31_2025: 1.21
+  eps_diluted_YTD_Oct_31_2025: 1.21
+  shares_basic_YTD_Oct_31_2025: 4375514.0
+  shares_diluted_YTD_Oct_31_2025: 4003451.0
+  net_sales_YTD_Oct_31_2024: 389448.0
+  membership_and_other_income_YTD_Oct_31_2024: 3021.0
+  revenues_YTD_Oct_31_2024: 392469.0
+  cost_of_sales_YTD_Oct_31_2024: 287394.0
+  rd_expense_YTD_Oct_31_2024: 2160.0
+  sga_expense_YTD_Oct_31_2024: 95268.0
+  total_costs_YTD_Oct_31_2024: 384822.0
+  gross_profit_YTD_Oct_31_2024: 102054.0
+  operating_income_YTD_Oct_31_2024: 7647.0
+  other_income_YTD_Oct_31_2024: -1245.0
+  pretax_income_YTD_Oct_31_2024: 6402.0
+  tax_YTD_Oct_31_2024: 1701.0
+  net_income_YTD_Oct_31_2024: 4701.0
+  eps_basic_YTD_Oct_31_2024: 1.12
+  eps_diluted_YTD_Oct_31_2024: 1.12
+  shares_basic_YTD_Oct_31_2024: 4380862.0
+  shares_diluted_YTD_Oct_31_2024: 4357888.0
+  ci_net_income_Q_Oct_31_2025: 1692.0
+  ci_fx_translation_Q_Oct_31_2025: 439.0
+  ci_unrealized_gains_Q_Oct_31_2025: 293.0
+  ci_total_oci_Q_Oct_31_2025: 732.0
+  comprehensive_income_Q_Oct_31_2025: 2424.0
+  ci_net_income_Q_Oct_31_2024: 1567.0
+  ci_fx_translation_Q_Oct_31_2024: -112.0
+  ci_unrealized_gains_Q_Oct_31_2024: -74.0
+  ci_total_oci_Q_Oct_31_2024: -186.0
+  comprehensive_income_Q_Oct_31_2024: 1381.0
+  ci_net_income_YTD_Oct_31_2025: 5076.0
+  ci_fx_translation_YTD_Oct_31_2025: -335.0
+  ci_unrealized_gains_YTD_Oct_31_2025: -223.0
+  ci_total_oci_YTD_Oct_31_2025: -558.0
+  comprehensive_income_YTD_Oct_31_2025: 4518.0
+  ci_net_income_YTD_Oct_31_2024: 4701.0
+  ci_fx_translation_YTD_Oct_31_2024: -284.0
+  ci_unrealized_gains_YTD_Oct_31_2024: -242.0
+  ci_total_oci_YTD_Oct_31_2024: -526.0
+  comprehensive_income_YTD_Oct_31_2024: 4175.0
+  cash_Oct_31_2025: 7445.0
+  st_investments_Oct_31_2025: 2506.0
+  accounts_receivable_Oct_31_2025: 23695.0
+  inventories_Oct_31_2025: 18014.0
+  prepaid_Oct_31_2025: 4882.0
+  current_assets_Oct_31_2025: 56542.0
+  lt_investments_Oct_31_2025: 7369.0
+  ppe_Oct_31_2025: 48369.0
+  goodwill_Oct_31_2025: 9015.0
+  other_nca_Oct_31_2025: 8928.0
+  total_assets_Oct_31_2025: 130223.0
+  accounts_payable_Oct_31_2025: 45830.0
+  deferred_revenue_Oct_31_2025: 10886.0
+  accrued_expenses_Oct_31_2025: 11112.0
+  current_debt_Oct_31_2025: 6247.0
+  current_liabilities_Oct_31_2025: 74075.0
+  long_term_debt_Oct_31_2025: 22478.0
+  other_ncl_Oct_31_2025: 6272.0
+  total_liabilities_Oct_31_2025: 102825.0
+  common_stock_apic_Oct_31_2025: 18415.0
+  retained_earnings_Oct_31_2025: 9728.0
+  aoci_Oct_31_2025: -745.0
+  total_equity_Oct_31_2025: 27398.0
+  cash_Dec_31_2024: 6437.0
+  st_investments_Dec_31_2024: 2167.0
+  accounts_receivable_Dec_31_2024: 20486.0
+  inventories_Dec_31_2024: 15574.0
+  prepaid_Dec_31_2024: 4221.0
+  current_assets_Dec_31_2024: 48885.0
+  lt_investments_Dec_31_2024: 6371.0
+  ppe_Dec_31_2024: 41818.0
+  goodwill_Dec_31_2024: 7794.0
+  other_nca_Dec_31_2024: 7719.0
+  total_assets_Dec_31_2024: 112587.0
+  accounts_payable_Dec_31_2024: 39623.0
+  deferred_revenue_Dec_31_2024: 9412.0
+  accrued_expenses_Dec_31_2024: 9607.0
+  current_debt_Dec_31_2024: 5401.0
+  current_liabilities_Dec_31_2024: 64043.0
+  long_term_debt_Dec_31_2024: 19433.0
+  other_ncl_Dec_31_2024: 5422.0
+  total_liabilities_Dec_31_2024: 88898.0
+  common_stock_apic_Dec_31_2024: 16582.0
+  retained_earnings_Dec_31_2024: 7107.0
+  aoci_Dec_31_2024: 0
+  total_equity_Dec_31_2024: 23689.0
+  cf_net_income_YTD_Oct_31_2025: 5076.0
+  cf_da_YTD_Oct_31_2025: 12949.0
+  cf_sbc_YTD_Oct_31_2025: 3221.0
+  cf_operating_YTD_Oct_31_2025: 15937.0
+  cf_capex_YTD_Oct_31_2025: -15122.0
+  cf_investing_YTD_Oct_31_2025: -16364.0
+  cf_repurchases_YTD_Oct_31_2025: -4557.0
+  cf_dividends_YTD_Oct_31_2025: -631.0
+  cf_financing_YTD_Oct_31_2025: -8480.0
+  cf_fx_effect_YTD_Oct_31_2025: 109.0
+  cf_net_change_YTD_Oct_31_2025: -8798.0
+  cf_closing_cash_YTD_Oct_31_2025: -984.0
+  cf_net_income_YTD_Oct_31_2024: 4701.0
+  cf_da_YTD_Oct_31_2024: 12000.0
+  cf_sbc_YTD_Oct_31_2024: 2985.0
+  cf_operating_YTD_Oct_31_2024: 18922.0
+  cf_capex_YTD_Oct_31_2024: -14014.0
+  cf_investing_YTD_Oct_31_2024: -15165.0
+  cf_repurchases_YTD_Oct_31_2024: -4223.0
+  cf_dividends_YTD_Oct_31_2024: -585.0
+  cf_financing_YTD_Oct_31_2024: -7775.0
+  cf_fx_effect_YTD_Oct_31_2024: -14.0
+  cf_net_change_YTD_Oct_31_2024: -4032.0
+  cf_closing_cash_YTD_Oct_31_2024: 3209.0
+=== END ===
+
+QUESTION: What was the basic shares used in computing EPS reported by Nova Enterprises for the year-to-date period ended Oct 31 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",4375514.0,4375514.0,"The basic shares used in computing EPS for the year-to-date period ended October 31, 2025, are explicitly listed in the data under the key `shares_basic_YTD_Oct_31_2025`.
+
+Answer: 4375514.0",True,0.000000,True,False
+Qwen3.5-4B,10q,FQ-00002,Zion Corp,2,"For Zion Corp, what is the result of the following computation: ratio((revenues_Q_Oct_31_2024 ÷ ci_unrealized_gains_YTD_Oct_31_2024), comprehensive_income_Q_Oct_31_2024)? Evaluate any sub-expressions first, then apply the outer operation.","ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  company_name: Zion Corp
+  form_type: 10-Q
+  industry: retail
+  fiscal_year: 2025
+  quarter: 3
+  period: Three Months Ended October 31 2025
+  fiscal_year_start: January 01 2025
+  net_sales_Q_Oct_31_2025: 77497.0
+  membership_and_other_income_Q_Oct_31_2025: 1006.0
+  revenues_Q_Oct_31_2025: 78503.0
+  cost_of_sales_Q_Oct_31_2025: 51833.0
+  rd_expense_Q_Oct_31_2025: 288.0
+  sga_expense_Q_Oct_31_2025: 14161.0
+  total_costs_Q_Oct_31_2025: 66282.0
+  gross_profit_Q_Oct_31_2025: 25664.0
+  operating_income_Q_Oct_31_2025: 12221.0
+  other_income_Q_Oct_31_2025: -666.0
+  pretax_income_Q_Oct_31_2025: 11555.0
+  tax_Q_Oct_31_2025: 3223.0
+  net_income_Q_Oct_31_2025: 8332.0
+  eps_basic_Q_Oct_31_2025: 1.11
+  eps_diluted_Q_Oct_31_2025: 1.09
+  shares_basic_Q_Oct_31_2025: 7509000.0
+  shares_diluted_Q_Oct_31_2025: 7618000.0
+  net_sales_Q_Oct_31_2024: 85040.0
+  membership_and_other_income_Q_Oct_31_2024: 1104.0
+  revenues_Q_Oct_31_2024: 86144.0
+  cost_of_sales_Q_Oct_31_2024: 56878.0
+  rd_expense_Q_Oct_31_2024: 316.0
+  sga_expense_Q_Oct_31_2024: 15539.0
+  total_costs_Q_Oct_31_2024: 72733.0
+  gross_profit_Q_Oct_31_2024: 28162.0
+  operating_income_Q_Oct_31_2024: 13411.0
+  other_income_Q_Oct_31_2024: -731.0
+  pretax_income_Q_Oct_31_2024: 12680.0
+  tax_Q_Oct_31_2024: 3537.0
+  net_income_Q_Oct_31_2024: 9143.0
+  eps_basic_Q_Oct_31_2024: 1.22
+  eps_diluted_Q_Oct_31_2024: 1.2
+  shares_basic_Q_Oct_31_2024: 7674749.0
+  shares_diluted_Q_Oct_31_2024: 7604197.0
+  net_sales_YTD_Oct_31_2025: 232491.0
+  membership_and_other_income_YTD_Oct_31_2025: 3018.0
+  revenues_YTD_Oct_31_2025: 235509.0
+  cost_of_sales_YTD_Oct_31_2025: 155499.0
+  rd_expense_YTD_Oct_31_2025: 864.0
+  sga_expense_YTD_Oct_31_2025: 42483.0
+  total_costs_YTD_Oct_31_2025: 198846.0
+  gross_profit_YTD_Oct_31_2025: 76992.0
+  operating_income_YTD_Oct_31_2025: 36663.0
+  other_income_YTD_Oct_31_2025: -1998.0
+  pretax_income_YTD_Oct_31_2025: 34665.0
+  tax_YTD_Oct_31_2025: 9669.0
+  net_income_YTD_Oct_31_2025: 24996.0
+  eps_basic_YTD_Oct_31_2025: 3.33
+  eps_diluted_YTD_Oct_31_2025: 3.28
+  shares_basic_YTD_Oct_31_2025: 7705808.0
+  shares_diluted_YTD_Oct_31_2025: 7303512.0
+  net_sales_YTD_Oct_31_2024: 255120.0
+  membership_and_other_income_YTD_Oct_31_2024: 3312.0
+  revenues_YTD_Oct_31_2024: 258432.0
+  cost_of_sales_YTD_Oct_31_2024: 170634.0
+  rd_expense_YTD_Oct_31_2024: 948.0
+  sga_expense_YTD_Oct_31_2024: 46617.0
+  total_costs_YTD_Oct_31_2024: 218199.0
+  gross_profit_YTD_Oct_31_2024: 84486.0
+  operating_income_YTD_Oct_31_2024: 40233.0
+  other_income_YTD_Oct_31_2024: -2193.0
+  pretax_income_YTD_Oct_31_2024: 38040.0
+  tax_YTD_Oct_31_2024: 10611.0
+  net_income_YTD_Oct_31_2024: 27429.0
+  eps_basic_YTD_Oct_31_2024: 3.65
+  eps_diluted_YTD_Oct_31_2024: 3.6
+  shares_basic_YTD_Oct_31_2024: 7607139.0
+  shares_diluted_YTD_Oct_31_2024: 7403227.0
+  ci_net_income_Q_Oct_31_2025: 8332.0
+  ci_fx_translation_Q_Oct_31_2025: 59.0
+  ci_unrealized_gains_Q_Oct_31_2025: 39.0
+  ci_total_oci_Q_Oct_31_2025: 98.0
+  comprehensive_income_Q_Oct_31_2025: 8430.0
+  ci_net_income_Q_Oct_31_2024: 9143.0
+  ci_fx_translation_Q_Oct_31_2024: 94.0
+  ci_unrealized_gains_Q_Oct_31_2024: 63.0
+  ci_total_oci_Q_Oct_31_2024: 157.0
+  comprehensive_income_Q_Oct_31_2024: 9300.0
+  ci_net_income_YTD_Oct_31_2025: 24996.0
+  ci_fx_translation_YTD_Oct_31_2025: 283.0
+  ci_unrealized_gains_YTD_Oct_31_2025: 188.0
+  ci_total_oci_YTD_Oct_31_2025: 471.0
+  comprehensive_income_YTD_Oct_31_2025: 25467.0
+  ci_net_income_YTD_Oct_31_2024: 27429.0
+  ci_fx_translation_YTD_Oct_31_2024: 321.0
+  ci_unrealized_gains_YTD_Oct_31_2024: 183.0
+  ci_total_oci_YTD_Oct_31_2024: 504.0
+  comprehensive_income_YTD_Oct_31_2024: 27933.0
+  cash_Oct_31_2025: 3105.0
+  st_investments_Oct_31_2025: 1524.0
+  accounts_receivable_Oct_31_2025: 10417.0
+  inventories_Oct_31_2025: 11144.0
+  prepaid_Oct_31_2025: 2285.0
+  current_assets_Oct_31_2025: 28475.0
+  lt_investments_Oct_31_2025: 3877.0
+  ppe_Oct_31_2025: 22968.0
+  goodwill_Oct_31_2025: 11141.0
+  other_nca_Oct_31_2025: 3822.0
+  total_assets_Oct_31_2025: 70283.0
+  accounts_payable_Oct_31_2025: 18096.0
+  deferred_revenue_Oct_31_2025: 4427.0
+  accrued_expenses_Oct_31_2025: 3256.0
+  current_debt_Oct_31_2025: 2722.0
+  current_liabilities_Oct_31_2025: 28501.0
+  long_term_debt_Oct_31_2025: 13036.0
+  other_ncl_Oct_31_2025: 3387.0
+  total_liabilities_Oct_31_2025: 44924.0
+  common_stock_apic_Oct_31_2025: 21459.0
+  retained_earnings_Oct_31_2025: 5848.0
+  aoci_Oct_31_2025: -1948.0
+  total_equity_Oct_31_2025: 25359.0
+  cash_Dec_31_2024: 2805.0
+  st_investments_Dec_31_2024: 1377.0
+  accounts_receivable_Dec_31_2024: 9410.0
+  inventories_Dec_31_2024: 10067.0
+  prepaid_Dec_31_2024: 2064.0
+  current_assets_Dec_31_2024: 25723.0
+  lt_investments_Dec_31_2024: 3502.0
+  ppe_Dec_31_2024: 20748.0
+  goodwill_Dec_31_2024: 10064.0
+  other_nca_Dec_31_2024: 3453.0
+  total_assets_Dec_31_2024: 63490.0
+  accounts_payable_Dec_31_2024: 16347.0
+  deferred_revenue_Dec_31_2024: 3999.0
+  accrued_expenses_Dec_31_2024: 2941.0
+  current_debt_Dec_31_2024: 2459.0
+  current_liabilities_Dec_31_2024: 25746.0
+  long_term_debt_Dec_31_2024: 11776.0
+  other_ncl_Dec_31_2024: 3060.0
+  total_liabilities_Dec_31_2024: 40582.0
+  common_stock_apic_Dec_31_2024: 16036.0
+  retained_earnings_Dec_31_2024: 6872.0
+  aoci_Dec_31_2024: 0
+  total_equity_Dec_31_2024: 22908.0
+  cf_net_income_YTD_Oct_31_2025: 24996.0
+  cf_da_YTD_Oct_31_2025: 7921.0
+  cf_sbc_YTD_Oct_31_2025: 979.0
+  cf_operating_YTD_Oct_31_2025: 31737.0
+  cf_capex_YTD_Oct_31_2025: -6603.0
+  cf_investing_YTD_Oct_31_2025: -7004.0
+  cf_repurchases_YTD_Oct_31_2025: -2851.0
+  cf_dividends_YTD_Oct_31_2025: -1826.0
+  cf_financing_YTD_Oct_31_2025: -5637.0
+  cf_fx_effect_YTD_Oct_31_2025: 66.0
+  cf_net_change_YTD_Oct_31_2025: 19162.0
+  cf_closing_cash_YTD_Oct_31_2025: 22384.0
+  cf_net_income_YTD_Oct_31_2024: 27429.0
+  cf_da_YTD_Oct_31_2024: 8692.0
+  cf_sbc_YTD_Oct_31_2024: 1074.0
+  cf_operating_YTD_Oct_31_2024: 36291.0
+  cf_capex_YTD_Oct_31_2024: -7246.0
+  cf_investing_YTD_Oct_31_2024: -7686.0
+  cf_repurchases_YTD_Oct_31_2024: -3128.0
+  cf_dividends_YTD_Oct_31_2024: -2004.0
+  cf_financing_YTD_Oct_31_2024: -6043.0
+  cf_fx_effect_YTD_Oct_31_2024: -83.0
+  cf_net_change_YTD_Oct_31_2024: 22479.0
+  cf_closing_cash_YTD_Oct_31_2024: 26015.0
+=== END ===
+
+QUESTION: For Zion Corp, what is the result of the following computation: ratio((revenues_Q_Oct_31_2024 ÷ ci_unrealized_gains_YTD_Oct_31_2024), comprehensive_income_Q_Oct_31_2024)? Evaluate any sub-expressions first, then apply the outer operation.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",0.0506,0.04926997483,"revenues_Q_Oct_31_2024 = 86144.0
+ci_unrealized_gains_YTD_Oct_31_2024 = 188.0
+sub_expression = 86144.0 / 188.0 = 458.212765957
+comprehensive_income_Q_Oct_31_2024 = 9300.0
+result = 458.212765957 / 9300.0 = 0.04926997483
+
+Answer: 0.04926997483",False,0.026285,False,False
+Qwen3.5-4B,10q,FQ-00003,Nova Holdings,2,"For Nova Holdings, what is the result of the following computation: ((cf_da_YTD_Oct_31_2025 - cf_closing_cash_YTD_Oct_31_2025) ÷ accounts_payable_Oct_31_2025)? Evaluate any sub-expressions first, then apply the outer operation.","ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  company_name: Nova Holdings
+  form_type: 10-Q
+  industry: retail
+  fiscal_year: 2025
+  quarter: 3
+  period: Three Months Ended October 31 2025
+  fiscal_year_start: January 01 2025
+  net_sales_Q_Oct_31_2025: 149835.0
+  membership_and_other_income_Q_Oct_31_2025: 2131.0
+  revenues_Q_Oct_31_2025: 151966.0
+  cost_of_sales_Q_Oct_31_2025: 110975.0
+  rd_expense_Q_Oct_31_2025: 119.0
+  sga_expense_Q_Oct_31_2025: 29173.0
+  total_costs_Q_Oct_31_2025: 140267.0
+  gross_profit_Q_Oct_31_2025: 38860.0
+  operating_income_Q_Oct_31_2025: 11699.0
+  other_income_Q_Oct_31_2025: -1366.0
+  pretax_income_Q_Oct_31_2025: 10333.0
+  tax_Q_Oct_31_2025: 2841.0
+  net_income_Q_Oct_31_2025: 7492.0
+  eps_basic_Q_Oct_31_2025: 0.96
+  eps_diluted_Q_Oct_31_2025: 0.95
+  shares_basic_Q_Oct_31_2025: 7825000.0
+  shares_diluted_Q_Oct_31_2025: 7885000.0
+  net_sales_Q_Oct_31_2024: 166740.0
+  membership_and_other_income_Q_Oct_31_2024: 2371.0
+  revenues_Q_Oct_31_2024: 169111.0
+  cost_of_sales_Q_Oct_31_2024: 123495.0
+  rd_expense_Q_Oct_31_2024: 132.0
+  sga_expense_Q_Oct_31_2024: 32464.0
+  total_costs_Q_Oct_31_2024: 156091.0
+  gross_profit_Q_Oct_31_2024: 43245.0
+  operating_income_Q_Oct_31_2024: 13020.0
+  other_income_Q_Oct_31_2024: -1520.0
+  pretax_income_Q_Oct_31_2024: 11500.0
+  tax_Q_Oct_31_2024: 3162.0
+  net_income_Q_Oct_31_2024: 8338.0
+  eps_basic_Q_Oct_31_2024: 1.07
+  eps_diluted_Q_Oct_31_2024: 1.06
+  shares_basic_Q_Oct_31_2024: 7597573.0
+  shares_diluted_Q_Oct_31_2024: 7992494.0
+  net_sales_YTD_Oct_31_2025: 449505.0
+  membership_and_other_income_YTD_Oct_31_2025: 6393.0
+  revenues_YTD_Oct_31_2025: 455898.0
+  cost_of_sales_YTD_Oct_31_2025: 332925.0
+  rd_expense_YTD_Oct_31_2025: 357.0
+  sga_expense_YTD_Oct_31_2025: 87519.0
+  total_costs_YTD_Oct_31_2025: 420801.0
+  gross_profit_YTD_Oct_31_2025: 116580.0
+  operating_income_YTD_Oct_31_2025: 35097.0
+  other_income_YTD_Oct_31_2025: -4098.0
+  pretax_income_YTD_Oct_31_2025: 30999.0
+  tax_YTD_Oct_31_2025: 8523.0
+  net_income_YTD_Oct_31_2025: 22476.0
+  eps_basic_YTD_Oct_31_2025: 2.87
+  eps_diluted_YTD_Oct_31_2025: 2.85
+  shares_basic_YTD_Oct_31_2025: 8079857.0
+  shares_diluted_YTD_Oct_31_2025: 7952700.0
+  net_sales_YTD_Oct_31_2024: 500220.0
+  membership_and_other_income_YTD_Oct_31_2024: 7113.0
+  revenues_YTD_Oct_31_2024: 507333.0
+  cost_of_sales_YTD_Oct_31_2024: 370485.0
+  rd_expense_YTD_Oct_31_2024: 396.0
+  sga_expense_YTD_Oct_31_2024: 97392.0
+  total_costs_YTD_Oct_31_2024: 468273.0
+  gross_profit_YTD_Oct_31_2024: 129735.0
+  operating_income_YTD_Oct_31_2024: 39060.0
+  other_income_YTD_Oct_31_2024: -4560.0
+  pretax_income_YTD_Oct_31_2024: 34500.0
+  tax_YTD_Oct_31_2024: 9486.0
+  net_income_YTD_Oct_31_2024: 25014.0
+  eps_basic_YTD_Oct_31_2024: 3.2
+  eps_diluted_YTD_Oct_31_2024: 3.17
+  shares_basic_YTD_Oct_31_2024: 8013697.0
+  shares_diluted_YTD_Oct_31_2024: 7805672.0
+  ci_net_income_Q_Oct_31_2025: 7492.0
+  ci_fx_translation_Q_Oct_31_2025: -6.0
+  ci_unrealized_gains_Q_Oct_31_2025: -4.0
+  ci_total_oci_Q_Oct_31_2025: -10.0
+  comprehensive_income_Q_Oct_31_2025: 7482.0
+  ci_net_income_Q_Oct_31_2024: 8338.0
+  ci_fx_translation_Q_Oct_31_2024: 47.0
+  ci_unrealized_gains_Q_Oct_31_2024: 31.0
+  ci_total_oci_Q_Oct_31_2024: 78.0
+  comprehensive_income_Q_Oct_31_2024: 8416.0
+  ci_net_income_YTD_Oct_31_2025: 22476.0
+  ci_fx_translation_YTD_Oct_31_2025: 140.0
+  ci_unrealized_gains_YTD_Oct_31_2025: 94.0
+  ci_total_oci_YTD_Oct_31_2025: 234.0
+  comprehensive_income_YTD_Oct_31_2025: 22710.0
+  ci_net_income_YTD_Oct_31_2024: 25014.0
+  ci_fx_translation_YTD_Oct_31_2024: 132.0
+  ci_unrealized_gains_YTD_Oct_31_2024: 113.0
+  ci_total_oci_YTD_Oct_31_2024: 245.0
+  comprehensive_income_YTD_Oct_31_2024: 25259.0
+  cash_Oct_31_2025: 10520.0
+  st_investments_Oct_31_2025: 12914.0
+  accounts_receivable_Oct_31_2025: 16755.0
+  inventories_Oct_31_2025: 29253.0
+  prepaid_Oct_31_2025: 8927.0
+  current_assets_Oct_31_2025: 78369.0
+  lt_investments_Oct_31_2025: 13354.0
+  ppe_Oct_31_2025: 31183.0
+  goodwill_Oct_31_2025: 13273.0
+  other_nca_Oct_31_2025: 11600.0
+  total_assets_Oct_31_2025: 147779.0
+  accounts_payable_Oct_31_2025: 33938.0
+  deferred_revenue_Oct_31_2025: 5008.0
+  accrued_expenses_Oct_31_2025: 10169.0
+  current_debt_Oct_31_2025: 5266.0
+  current_liabilities_Oct_31_2025: 54381.0
+  long_term_debt_Oct_31_2025: 25130.0
+  other_ncl_Oct_31_2025: 8789.0
+  total_liabilities_Oct_31_2025: 88300.0
+  common_stock_apic_Oct_31_2025: 36527.0
+  retained_earnings_Oct_31_2025: 29178.0
+  aoci_Oct_31_2025: -6226.0
+  total_equity_Oct_31_2025: 59479.0
+  cash_Dec_31_2024: 9768.0
+  st_investments_Dec_31_2024: 11991.0
+  accounts_receivable_Dec_31_2024: 15558.0
+  inventories_Dec_31_2024: 27162.0
+  prepaid_Dec_31_2024: 8289.0
+  current_assets_Dec_31_2024: 72768.0
+  lt_investments_Dec_31_2024: 12400.0
+  ppe_Dec_31_2024: 28954.0
+  goodwill_Dec_31_2024: 12324.0
+  other_nca_Dec_31_2024: 10771.0
+  total_assets_Dec_31_2024: 137217.0
+  accounts_payable_Dec_31_2024: 31512.0
+  deferred_revenue_Dec_31_2024: 4650.0
+  accrued_expenses_Dec_31_2024: 9442.0
+  current_debt_Dec_31_2024: 4890.0
+  current_liabilities_Dec_31_2024: 50494.0
+  long_term_debt_Dec_31_2024: 23334.0
+  other_ncl_Dec_31_2024: 8161.0
+  total_liabilities_Dec_31_2024: 81989.0
+  common_stock_apic_Dec_31_2024: 38660.0
+  retained_earnings_Dec_31_2024: 16568.0
+  aoci_Dec_31_2024: 0
+  total_equity_Dec_31_2024: 55228.0
+  cf_net_income_YTD_Oct_31_2025: 22476.0
+  cf_da_YTD_Oct_31_2025: 9065.0
+  cf_sbc_YTD_Oct_31_2025: 2113.0
+  cf_operating_YTD_Oct_31_2025: 27888.0
+  cf_capex_YTD_Oct_31_2025: -20127.0
+  cf_investing_YTD_Oct_31_2025: -20934.0
+  cf_repurchases_YTD_Oct_31_2025: -3478.0
+  cf_dividends_YTD_Oct_31_2025: -1131.0
+  cf_financing_YTD_Oct_31_2025: -6495.0
+  cf_fx_effect_YTD_Oct_31_2025: -143.0
+  cf_net_change_YTD_Oct_31_2025: 316.0
+  cf_closing_cash_YTD_Oct_31_2025: 9198.0
+  cf_net_income_YTD_Oct_31_2024: 25014.0
+  cf_da_YTD_Oct_31_2024: 10088.0
+  cf_sbc_YTD_Oct_31_2024: 2351.0
+  cf_operating_YTD_Oct_31_2024: 31500.0
+  cf_capex_YTD_Oct_31_2024: -22398.0
+  cf_investing_YTD_Oct_31_2024: -23296.0
+  cf_repurchases_YTD_Oct_31_2024: -3870.0
+  cf_dividends_YTD_Oct_31_2024: -1259.0
+  cf_financing_YTD_Oct_31_2024: -7276.0
+  cf_fx_effect_YTD_Oct_31_2024: 174.0
+  cf_net_change_YTD_Oct_31_2024: 1102.0
+  cf_closing_cash_YTD_Oct_31_2024: 10986.0
+=== END ===
+
+QUESTION: For Nova Holdings, what is the result of the following computation: ((cf_da_YTD_Oct_31_2025 - cf_closing_cash_YTD_Oct_31_2025) ÷ accounts_payable_Oct_31_2025)? Evaluate any sub-expressions first, then apply the outer operation.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",-0.0039,-0.003919,"Calculations:
+1. Numerator: cf_da_YTD_Oct_31_2025 (9065.0) - cf_closing_cash_YTD_Oct_31_2025 (9198.0) = -133.0
+2. Denominator: accounts_payable_Oct_31_2025 = 33938.0
+3. Result: -133.0 ÷ 33938.0 ≈ -0.003919
+
+Answer: -0.003919",True,0.004872,True,False
+Qwen3.5-4B,10q,FQ-00004,Peak Systems,1,What is the ratio of cf fx effect (for the year-to-date period ended Oct 31 2025) to short-term investments (as of Oct 31 2025) for Peak Systems?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  company_name: Peak Systems
+  form_type: 10-Q
+  industry: retail
+  fiscal_year: 2025
+  quarter: 3
+  period: Three Months Ended October 31 2025
+  fiscal_year_start: January 01 2025
+  net_sales_Q_Oct_31_2025: 71709.0
+  membership_and_other_income_Q_Oct_31_2025: 627.0
+  revenues_Q_Oct_31_2025: 72336.0
+  cost_of_sales_Q_Oct_31_2025: 51055.0
+  rd_expense_Q_Oct_31_2025: 550.0
+  sga_expense_Q_Oct_31_2025: 18579.0
+  total_costs_Q_Oct_31_2025: 70184.0
+  gross_profit_Q_Oct_31_2025: 20654.0
+  operating_income_Q_Oct_31_2025: 2152.0
+  other_income_Q_Oct_31_2025: -416.0
+  pretax_income_Q_Oct_31_2025: 1736.0
+  tax_Q_Oct_31_2025: 406.0
+  net_income_Q_Oct_31_2025: 1330.0
+  eps_basic_Q_Oct_31_2025: 1.67
+  eps_diluted_Q_Oct_31_2025: 1.65
+  shares_basic_Q_Oct_31_2025: 796000.0
+  shares_diluted_Q_Oct_31_2025: 804000.0
+  net_sales_Q_Oct_31_2024: 70556.0
+  membership_and_other_income_Q_Oct_31_2024: 617.0
+  revenues_Q_Oct_31_2024: 71173.0
+  cost_of_sales_Q_Oct_31_2024: 50234.0
+  rd_expense_Q_Oct_31_2024: 541.0
+  sga_expense_Q_Oct_31_2024: 18280.0
+  total_costs_Q_Oct_31_2024: 69055.0
+  gross_profit_Q_Oct_31_2024: 20322.0
+  operating_income_Q_Oct_31_2024: 2118.0
+  other_income_Q_Oct_31_2024: -409.0
+  pretax_income_Q_Oct_31_2024: 1709.0
+  tax_Q_Oct_31_2024: 400.0
+  net_income_Q_Oct_31_2024: 1309.0
+  eps_basic_Q_Oct_31_2024: 1.64
+  eps_diluted_Q_Oct_31_2024: 1.63
+  shares_basic_Q_Oct_31_2024: 804762.0
+  shares_diluted_Q_Oct_31_2024: 794762.0
+  net_sales_YTD_Oct_31_2025: 215127.0
+  membership_and_other_income_YTD_Oct_31_2025: 1881.0
+  revenues_YTD_Oct_31_2025: 217008.0
+  cost_of_sales_YTD_Oct_31_2025: 153165.0
+  rd_expense_YTD_Oct_31_2025: 1650.0
+  sga_expense_YTD_Oct_31_2025: 55737.0
+  total_costs_YTD_Oct_31_2025: 210552.0
+  gross_profit_YTD_Oct_31_2025: 61962.0
+  operating_income_YTD_Oct_31_2025: 6456.0
+  other_income_YTD_Oct_31_2025: -1248.0
+  pretax_income_YTD_Oct_31_2025: 5208.0
+  tax_YTD_Oct_31_2025: 1218.0
+  net_income_YTD_Oct_31_2025: 3990.0
+  eps_basic_YTD_Oct_31_2025: 5.01
+  eps_diluted_YTD_Oct_31_2025: 4.96
+  shares_basic_YTD_Oct_31_2025: 771627.0
+  shares_diluted_YTD_Oct_31_2025: 801158.0
+  net_sales_YTD_Oct_31_2024: 211668.0
+  membership_and_other_income_YTD_Oct_31_2024: 1851.0
+  revenues_YTD_Oct_31_2024: 213519.0
+  cost_of_sales_YTD_Oct_31_2024: 150702.0
+  rd_expense_YTD_Oct_31_2024: 1623.0
+  sga_expense_YTD_Oct_31_2024: 54840.0
+  total_costs_YTD_Oct_31_2024: 207165.0
+  gross_profit_YTD_Oct_31_2024: 60966.0
+  operating_income_YTD_Oct_31_2024: 6354.0
+  other_income_YTD_Oct_31_2024: -1227.0
+  pretax_income_YTD_Oct_31_2024: 5127.0
+  tax_YTD_Oct_31_2024: 1200.0
+  net_income_YTD_Oct_31_2024: 3927.0
+  eps_basic_YTD_Oct_31_2024: 4.93
+  eps_diluted_YTD_Oct_31_2024: 4.88
+  shares_basic_YTD_Oct_31_2024: 795938.0
+  shares_diluted_YTD_Oct_31_2024: 767342.0
+  ci_net_income_Q_Oct_31_2025: 1330.0
+  ci_fx_translation_Q_Oct_31_2025: -404.0
+  ci_unrealized_gains_Q_Oct_31_2025: -270.0
+  ci_total_oci_Q_Oct_31_2025: -674.0
+  comprehensive_income_Q_Oct_31_2025: 656.0
+  ci_net_income_Q_Oct_31_2024: 1309.0
+  ci_fx_translation_Q_Oct_31_2024: 59.0
+  ci_unrealized_gains_Q_Oct_31_2024: 40.0
+  ci_total_oci_Q_Oct_31_2024: 99.0
+  comprehensive_income_Q_Oct_31_2024: 1408.0
+  ci_net_income_YTD_Oct_31_2025: 3990.0
+  ci_fx_translation_YTD_Oct_31_2025: 178.0
+  ci_unrealized_gains_YTD_Oct_31_2025: 119.0
+  ci_total_oci_YTD_Oct_31_2025: 297.0
+  comprehensive_income_YTD_Oct_31_2025: 4287.0
+  ci_net_income_YTD_Oct_31_2024: 3927.0
+  ci_fx_translation_YTD_Oct_31_2024: 154.0
+  ci_unrealized_gains_YTD_Oct_31_2024: 136.0
+  ci_total_oci_YTD_Oct_31_2024: 290.0
+  comprehensive_income_YTD_Oct_31_2024: 4217.0
+  cash_Oct_31_2025: 3760.0
+  st_investments_Oct_31_2025: 3641.0
+  accounts_receivable_Oct_31_2025: 11180.0
+  inventories_Oct_31_2025: 8683.0
+  prepaid_Oct_31_2025: 4101.0
+  current_assets_Oct_31_2025: 31365.0
+  lt_investments_Oct_31_2025: 6967.0
+  ppe_Oct_31_2025: 19858.0
+  goodwill_Oct_31_2025: 3912.0
+  other_nca_Oct_31_2025: 2104.0
+  total_assets_Oct_31_2025: 64206.0
+  accounts_payable_Oct_31_2025: 19126.0
+  deferred_revenue_Oct_31_2025: 3838.0
+  accrued_expenses_Oct_31_2025: 5514.0
+  current_debt_Oct_31_2025: 2708.0
+  current_liabilities_Oct_31_2025: 31186.0
+  long_term_debt_Oct_31_2025: 20990.0
+  other_ncl_Oct_31_2025: 1975.0
+  total_liabilities_Oct_31_2025: 54151.0
+  common_stock_apic_Oct_31_2025: 7394.0
+  retained_earnings_Oct_31_2025: 4042.0
+  aoci_Oct_31_2025: -1381.0
+  total_equity_Oct_31_2025: 10055.0
+  cash_Dec_31_2024: 3480.0
+  st_investments_Dec_31_2024: 3370.0
+  accounts_receivable_Dec_31_2024: 10349.0
+  inventories_Dec_31_2024: 8037.0
+  prepaid_Dec_31_2024: 3796.0
+  current_assets_Dec_31_2024: 29032.0
+  lt_investments_Dec_31_2024: 6449.0
+  ppe_Dec_31_2024: 18382.0
+  goodwill_Dec_31_2024: 3621.0
+  other_nca_Dec_31_2024: 1948.0
+  total_assets_Dec_31_2024: 59432.0
+  accounts_payable_Dec_31_2024: 17704.0
+  deferred_revenue_Dec_31_2024: 3553.0
+  accrued_expenses_Dec_31_2024: 5104.0
+  current_debt_Dec_31_2024: 2507.0
+  current_liabilities_Dec_31_2024: 28868.0
+  long_term_debt_Dec_31_2024: 19429.0
+  other_ncl_Dec_31_2024: 1828.0
+  total_liabilities_Dec_31_2024: 50125.0
+  common_stock_apic_Dec_31_2024: 6515.0
+  retained_earnings_Dec_31_2024: 2792.0
+  aoci_Dec_31_2024: 0
+  total_equity_Dec_31_2024: 9307.0
+  cf_net_income_YTD_Oct_31_2025: 3990.0
+  cf_da_YTD_Oct_31_2025: 4884.0
+  cf_sbc_YTD_Oct_31_2025: 1025.0
+  cf_operating_YTD_Oct_31_2025: 7198.0
+  cf_capex_YTD_Oct_31_2025: -7509.0
+  cf_investing_YTD_Oct_31_2025: -7265.0
+  cf_repurchases_YTD_Oct_31_2025: -1262.0
+  cf_dividends_YTD_Oct_31_2025: -402.0
+  cf_financing_YTD_Oct_31_2025: -2280.0
+  cf_fx_effect_YTD_Oct_31_2025: -141.0
+  cf_net_change_YTD_Oct_31_2025: -2488.0
+  cf_closing_cash_YTD_Oct_31_2025: 1460.0
+  cf_net_income_YTD_Oct_31_2024: 3927.0
+  cf_da_YTD_Oct_31_2024: 4805.0
+  cf_sbc_YTD_Oct_31_2024: 1009.0
+  cf_operating_YTD_Oct_31_2024: 6496.0
+  cf_capex_YTD_Oct_31_2024: -7388.0
+  cf_investing_YTD_Oct_31_2024: -7148.0
+  cf_repurchases_YTD_Oct_31_2024: -1242.0
+  cf_dividends_YTD_Oct_31_2024: -396.0
+  cf_financing_YTD_Oct_31_2024: -2245.0
+  cf_fx_effect_YTD_Oct_31_2024: 118.0
+  cf_net_change_YTD_Oct_31_2024: -2779.0
+  cf_closing_cash_YTD_Oct_31_2024: 1106.0
+=== END ===
+
+QUESTION: What is the ratio of cf fx effect (for the year-to-date period ended Oct 31 2025) to short-term investments (as of Oct 31 2025) for Peak Systems?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",-0.0387,-0.0387,"cf_fx_effect_YTD_Oct_31_2025 = -141.0
+st_investments_Oct_31_2025 = 3641.0
+Ratio = -141.0 / 3641.0 ≈ -0.0387
+
+Answer: -0.0387",True,0.000000,True,False
+Qwen3.5-4B,10q,FQ-00005,Nova Enterprises,0,What was the cost of sales reported by Nova Enterprises for the year-to-date period ended Oct 31 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  company_name: Nova Enterprises
+  form_type: 10-Q
+  industry: retail
+  fiscal_year: 2025
+  quarter: 3
+  period: Three Months Ended October 31 2025
+  fiscal_year_start: January 01 2025
+  net_sales_Q_Oct_31_2025: 140082.0
+  membership_and_other_income_Q_Oct_31_2025: 1087.0
+  revenues_Q_Oct_31_2025: 141169.0
+  cost_of_sales_Q_Oct_31_2025: 103373.0
+  rd_expense_Q_Oct_31_2025: 777.0
+  sga_expense_Q_Oct_31_2025: 34267.0
+  total_costs_Q_Oct_31_2025: 138417.0
+  gross_profit_Q_Oct_31_2025: 36709.0
+  operating_income_Q_Oct_31_2025: 2752.0
+  other_income_Q_Oct_31_2025: -448.0
+  pretax_income_Q_Oct_31_2025: 2304.0
+  tax_Q_Oct_31_2025: 612.0
+  net_income_Q_Oct_31_2025: 1692.0
+  eps_basic_Q_Oct_31_2025: 0.4
+  eps_diluted_Q_Oct_31_2025: 0.4
+  shares_basic_Q_Oct_31_2025: 4202000.0
+  shares_diluted_Q_Oct_31_2025: 4209000.0
+  net_sales_Q_Oct_31_2024: 129816.0
+  membership_and_other_income_Q_Oct_31_2024: 1007.0
+  revenues_Q_Oct_31_2024: 130823.0
+  cost_of_sales_Q_Oct_31_2024: 95798.0
+  rd_expense_Q_Oct_31_2024: 720.0
+  sga_expense_Q_Oct_31_2024: 31756.0
+  total_costs_Q_Oct_31_2024: 128274.0
+  gross_profit_Q_Oct_31_2024: 34018.0
+  operating_income_Q_Oct_31_2024: 2549.0
+  other_income_Q_Oct_31_2024: -415.0
+  pretax_income_Q_Oct_31_2024: 2134.0
+  tax_Q_Oct_31_2024: 567.0
+  net_income_Q_Oct_31_2024: 1567.0
+  eps_basic_Q_Oct_31_2024: 0.37
+  eps_diluted_Q_Oct_31_2024: 0.37
+  shares_basic_Q_Oct_31_2024: 4105115.0
+  shares_diluted_Q_Oct_31_2024: 4385319.0
+  net_sales_YTD_Oct_31_2025: 420246.0
+  membership_and_other_income_YTD_Oct_31_2025: 3261.0
+  revenues_YTD_Oct_31_2025: 423507.0
+  cost_of_sales_YTD_Oct_31_2025: 310119.0
+  rd_expense_YTD_Oct_31_2025: 2331.0
+  sga_expense_YTD_Oct_31_2025: 102801.0
+  total_costs_YTD_Oct_31_2025: 415251.0
+  gross_profit_YTD_Oct_31_2025: 110127.0
+  operating_income_YTD_Oct_31_2025: 8256.0
+  other_income_YTD_Oct_31_2025: -1344.0
+  pretax_income_YTD_Oct_31_2025: 6912.0
+  tax_YTD_Oct_31_2025: 1836.0
+  net_income_YTD_Oct_31_2025: 5076.0
+  eps_basic_YTD_Oct_31_2025: 1.21
+  eps_diluted_YTD_Oct_31_2025: 1.21
+  shares_basic_YTD_Oct_31_2025: 4375514.0
+  shares_diluted_YTD_Oct_31_2025: 4003451.0
+  net_sales_YTD_Oct_31_2024: 389448.0
+  membership_and_other_income_YTD_Oct_31_2024: 3021.0
+  revenues_YTD_Oct_31_2024: 392469.0
+  cost_of_sales_YTD_Oct_31_2024: 287394.0
+  rd_expense_YTD_Oct_31_2024: 2160.0
+  sga_expense_YTD_Oct_31_2024: 95268.0
+  total_costs_YTD_Oct_31_2024: 384822.0
+  gross_profit_YTD_Oct_31_2024: 102054.0
+  operating_income_YTD_Oct_31_2024: 7647.0
+  other_income_YTD_Oct_31_2024: -1245.0
+  pretax_income_YTD_Oct_31_2024: 6402.0
+  tax_YTD_Oct_31_2024: 1701.0
+  net_income_YTD_Oct_31_2024: 4701.0
+  eps_basic_YTD_Oct_31_2024: 1.12
+  eps_diluted_YTD_Oct_31_2024: 1.12
+  shares_basic_YTD_Oct_31_2024: 4380862.0
+  shares_diluted_YTD_Oct_31_2024: 4357888.0
+  ci_net_income_Q_Oct_31_2025: 1692.0
+  ci_fx_translation_Q_Oct_31_2025: 439.0
+  ci_unrealized_gains_Q_Oct_31_2025: 293.0
+  ci_total_oci_Q_Oct_31_2025: 732.0
+  comprehensive_income_Q_Oct_31_2025: 2424.0
+  ci_net_income_Q_Oct_31_2024: 1567.0
+  ci_fx_translation_Q_Oct_31_2024: -112.0
+  ci_unrealized_gains_Q_Oct_31_2024: -74.0
+  ci_total_oci_Q_Oct_31_2024: -186.0
+  comprehensive_income_Q_Oct_31_2024: 1381.0
+  ci_net_income_YTD_Oct_31_2025: 5076.0
+  ci_fx_translation_YTD_Oct_31_2025: -335.0
+  ci_unrealized_gains_YTD_Oct_31_2025: -223.0
+  ci_total_oci_YTD_Oct_31_2025: -558.0
+  comprehensive_income_YTD_Oct_31_2025: 4518.0
+  ci_net_income_YTD_Oct_31_2024: 4701.0
+  ci_fx_translation_YTD_Oct_31_2024: -284.0
+  ci_unrealized_gains_YTD_Oct_31_2024: -242.0
+  ci_total_oci_YTD_Oct_31_2024: -526.0
+  comprehensive_income_YTD_Oct_31_2024: 4175.0
+  cash_Oct_31_2025: 7445.0
+  st_investments_Oct_31_2025: 2506.0
+  accounts_receivable_Oct_31_2025: 23695.0
+  inventories_Oct_31_2025: 18014.0
+  prepaid_Oct_31_2025: 4882.0
+  current_assets_Oct_31_2025: 56542.0
+  lt_investments_Oct_31_2025: 7369.0
+  ppe_Oct_31_2025: 48369.0
+  goodwill_Oct_31_2025: 9015.0
+  other_nca_Oct_31_2025: 8928.0
+  total_assets_Oct_31_2025: 130223.0
+  accounts_payable_Oct_31_2025: 45830.0
+  deferred_revenue_Oct_31_2025: 10886.0
+  accrued_expenses_Oct_31_2025: 11112.0
+  current_debt_Oct_31_2025: 6247.0
+  current_liabilities_Oct_31_2025: 74075.0
+  long_term_debt_Oct_31_2025: 22478.0
+  other_ncl_Oct_31_2025: 6272.0
+  total_liabilities_Oct_31_2025: 102825.0
+  common_stock_apic_Oct_31_2025: 18415.0
+  retained_earnings_Oct_31_2025: 9728.0
+  aoci_Oct_31_2025: -745.0
+  total_equity_Oct_31_2025: 27398.0
+  cash_Dec_31_2024: 6437.0
+  st_investments_Dec_31_2024: 2167.0
+  accounts_receivable_Dec_31_2024: 20486.0
+  inventories_Dec_31_2024: 15574.0
+  prepaid_Dec_31_2024: 4221.0
+  current_assets_Dec_31_2024: 48885.0
+  lt_investments_Dec_31_2024: 6371.0
+  ppe_Dec_31_2024: 41818.0
+  goodwill_Dec_31_2024: 7794.0
+  other_nca_Dec_31_2024: 7719.0
+  total_assets_Dec_31_2024: 112587.0
+  accounts_payable_Dec_31_2024: 39623.0
+  deferred_revenue_Dec_31_2024: 9412.0
+  accrued_expenses_Dec_31_2024: 9607.0
+  current_debt_Dec_31_2024: 5401.0
+  current_liabilities_Dec_31_2024: 64043.0
+  long_term_debt_Dec_31_2024: 19433.0
+  other_ncl_Dec_31_2024: 5422.0
+  total_liabilities_Dec_31_2024: 88898.0
+  common_stock_apic_Dec_31_2024: 16582.0
+  retained_earnings_Dec_31_2024: 7107.0
+  aoci_Dec_31_2024: 0
+  total_equity_Dec_31_2024: 23689.0
+  cf_net_income_YTD_Oct_31_2025: 5076.0
+  cf_da_YTD_Oct_31_2025: 12949.0
+  cf_sbc_YTD_Oct_31_2025: 3221.0
+  cf_operating_YTD_Oct_31_2025: 15937.0
+  cf_capex_YTD_Oct_31_2025: -15122.0
+  cf_investing_YTD_Oct_31_2025: -16364.0
+  cf_repurchases_YTD_Oct_31_2025: -4557.0
+  cf_dividends_YTD_Oct_31_2025: -631.0
+  cf_financing_YTD_Oct_31_2025: -8480.0
+  cf_fx_effect_YTD_Oct_31_2025: 109.0
+  cf_net_change_YTD_Oct_31_2025: -8798.0
+  cf_closing_cash_YTD_Oct_31_2025: -984.0
+  cf_net_income_YTD_Oct_31_2024: 4701.0
+  cf_da_YTD_Oct_31_2024: 12000.0
+  cf_sbc_YTD_Oct_31_2024: 2985.0
+  cf_operating_YTD_Oct_31_2024: 18922.0
+  cf_capex_YTD_Oct_31_2024: -14014.0
+  cf_investing_YTD_Oct_31_2024: -15165.0
+  cf_repurchases_YTD_Oct_31_2024: -4223.0
+  cf_dividends_YTD_Oct_31_2024: -585.0
+  cf_financing_YTD_Oct_31_2024: -7775.0
+  cf_fx_effect_YTD_Oct_31_2024: -14.0
+  cf_net_change_YTD_Oct_31_2024: -4032.0
+  cf_closing_cash_YTD_Oct_31_2024: 3209.0
+=== END ===
+
+QUESTION: What was the cost of sales reported by Nova Enterprises for the year-to-date period ended Oct 31 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",310119.0,310119.0,"The cost of sales for the year-to-date period ended October 31, 2025, is explicitly listed in the data as 310119.0.
+
+Answer: 310119.0",True,0.000000,True,False

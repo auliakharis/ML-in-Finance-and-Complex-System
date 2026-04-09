@@ -1,0 +1,111 @@
+Checking model path...
+chat_template.jinja
+config.json
+LICENSE
+merges.txt
+model.safetensors-00001-of-00004.safetensors
+model.safetensors-00002-of-00004.safetensors
+model.safetensors-00003-of-00004.safetensors
+model.safetensors-00004-of-00004.safetensors
+model.safetensors.index.json
+preprocessor_config.json
+README.md
+tokenizer_config.json
+tokenizer.json
+video_preprocessor_config.json
+vocab.json
+Starting pipeline: Tue Mar 31 06:00:35 PM CEST 2026
+Model: Qwen3.5-9B
+GPU: 0
+Tue Mar 31 18:00:35 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 6000                On  |   00000000:22:00.0 Off |                  Off |
+| 33%   33C    P8             10W /  260W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  10-Q: 10 questions, 9 companies
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Model loaded on cuda.
+
+-- 10-Q evaluation (5 questions) --
+  [1/5] CORRECT | truth=11184.0 pred=11184.0 | What was the inventories reported by Plex Technologies as of...
+  [2/5] WRONG  | truth=22715.0 pred=3.0 | What was the gross profit reported by Mira Systems for the q...
+  [3/5] WRONG  | truth=3927.0 pred=5.0 | What was the net income reported by Peak Systems for the yea...
+  [4/5] CORRECT | truth=0.0493 pred=0.0493 | What is the ratio of net income to total revenues for Nova H...
+  [5/5] CORRECT | truth=0.5261 pred=0.526 | What is the ratio of gross profit to cost of sales for Apex ...
+
+-- 90-Q evaluation (5 questions) --
+  [1/5] WRONG  | truth=-0.6857 pred=2022.0 | What is the ratio of combined value of difference between cu...
+  [2/5] WRONG  | truth=13.1717 pred=0.14602 | What is the ratio of total equity for Cobalt Semiconductor i...
+  [3/5] WRONG  | truth=0.0318 pred=0.12237 | What is the ratio of longterm assets for Quantum Bridge Hold...
+  [4/5] WRONG  | truth=3.6029 pred=2021.0 | What is the ratio of difference between combined value of to...
+  [5/5] WRONG  | truth=0.1595 pred=2021.0 | What is the ratio of longterm liabilities for Titan Consumer...
+
+============================================================
+  Model: Qwen3.5-4B
+============================================================
+  10-Q  : 3/5  accuracy = 60.0%  (skipped 0)
+  90-Q  : 0/5  accuracy = 0.0%  (skipped 0)
+  Overall: 3/10  accuracy = 30.0%
+============================================================
+
+
+============================================================
+  Evaluating model: Qwen3.5-9B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-9B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-9B ...
+  Model loaded on cuda.
+
+-- 10-Q evaluation (5 questions) --
+  [1/5] WRONG  | truth=11184.0 pred=5.0 | What was the inventories reported by Plex Technologies as of...
+  [2/5] WRONG  | truth=22715.0 pred=3.0 | What was the gross profit reported by Mira Systems for the q...
+  [3/5] WRONG  | truth=3927.0 pred=3.0 | What was the net income reported by Peak Systems for the yea...
+  [4/5] WRONG  | truth=0.0493 pred=7492.0 | What is the ratio of net income to total revenues for Nova H...
+  [5/5] WRONG  | truth=0.5261 pred=118617.0 | What is the ratio of gross profit to cost of sales for Apex ...
+
+-- 90-Q evaluation (5 questions) --
+  [1/5] WRONG  | truth=-0.6857 pred=2022.0 | What is the ratio of combined value of difference between cu...
+  [2/5] WRONG  | truth=13.1717 pred=273.0 | What is the ratio of total equity for Cobalt Semiconductor i...
+  [3/5] WRONG  | truth=0.0318 pred=8610.0 | What is the ratio of longterm assets for Quantum Bridge Hold...
+  [4/5] WRONG  | truth=3.6029 pred=2021.0 | What is the ratio of difference between combined value of to...
+  [5/5] WRONG  | truth=0.1595 pred=3720.0 | What is the ratio of longterm liabilities for Titan Consumer...
+
+============================================================
+  Model: Qwen3.5-9B
+============================================================
+  10-Q  : 0/5  accuracy = 0.0%  (skipped 0)
+  90-Q  : 0/5  accuracy = 0.0%  (skipped 0)
+  Overall: 0/10  accuracy = 0.0%
+============================================================
+
+Results saved to output_llm/eval_results.json
+CSV saved to output_llm/eval_results.csv
+
+=== Model Comparison ===
+Model                  10-Q Acc   90-Q Acc    Overall
+----------------------------------------------------
+Qwen3.5-4B                60.0%       0.0%      30.0%
+Qwen3.5-9B                 0.0%       0.0%       0.0%
+Done: Tue Mar 31 06:15:10 PM CEST 2026

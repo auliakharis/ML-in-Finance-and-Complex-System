@@ -1,0 +1,88 @@
+Checking model path...
+chat_template.jinja
+config.json
+LICENSE
+merges.txt
+model.safetensors-00001-of-00004.safetensors
+model.safetensors-00002-of-00004.safetensors
+model.safetensors-00003-of-00004.safetensors
+model.safetensors-00004-of-00004.safetensors
+model.safetensors.index.json
+preprocessor_config.json
+README.md
+tokenizer_config.json
+tokenizer.json
+video_preprocessor_config.json
+vocab.json
+Starting pipeline: Wed Apr  1 08:43:34 AM CEST 2026
+Model: Qwen3.5-9B
+GPU: 0
+Wed Apr  1 08:43:34 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA TITAN RTX               On  |   00000000:01:00.0 Off |                  N/A |
+| 41%   34C    P8             19W /  280W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  10-Q: 497 questions, 15 companies
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Model loaded on cuda.
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=13728.1633 pred=2084666000.0 | What is the difference between gross profit for Helix BioSci...
+
+============================================================
+  Model: Qwen3.5-4B
+============================================================
+  10-Q  : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q  : 0/1  accuracy = 0.0%  (skipped 0)
+  Overall: 1/2  accuracy = 50.0%
+============================================================
+
+
+============================================================
+  Evaluating model: Qwen3.5-9B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-9B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-9B ...
+  Model loaded on cuda.
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=13728.1633 pred=1.422 | What is the difference between gross profit for Helix BioSci...
+
+============================================================
+  Model: Qwen3.5-9B
+============================================================
+  10-Q  : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q  : 0/1  accuracy = 0.0%  (skipped 0)
+  Overall: 1/2  accuracy = 50.0%
+============================================================
+
+Results saved to output_llm/eval_results_20260401_084458.json
+Done: Wed Apr  1 08:44:59 AM CEST 2026

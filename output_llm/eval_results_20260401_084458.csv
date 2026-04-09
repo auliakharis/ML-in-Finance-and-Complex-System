@@ -1,0 +1,185 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+Qwen3.5-4B,10q,FQ-00001,Nova Enterprises,0,What was the basic shares used in computing EPS reported by Nova Enterprises for the year-to-date period ended Oct 31 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  company_name: Nova Enterprises
+  form_type: 10-Q
+  industry: retail
+  fiscal_year: 2025
+  quarter: 3
+  period: Three Months Ended October 31 2025
+  fiscal_year_start: January 01 2025
+  net_sales_Q_Oct_31_2025: 140082.0
+  membership_and_other_income_Q_Oct_31_2025: 1087.0
+  revenues_Q_Oct_31_2025: 141169.0
+  cost_of_sales_Q_Oct_31_2025: 103373.0
+  rd_expense_Q_Oct_31_2025: 777.0
+  sga_expense_Q_Oct_31_2025: 34267.0
+  total_costs_Q_Oct_31_2025: 138417.0
+  gross_profit_Q_Oct_31_2025: 36709.0
+  operating_income_Q_Oct_31_2025: 2752.0
+  other_income_Q_Oct_31_2025: -448.0
+  pretax_income_Q_Oct_31_2025: 2304.0
+  tax_Q_Oct_31_2025: 612.0
+  net_income_Q_Oct_31_2025: 1692.0
+  eps_basic_Q_Oct_31_2025: 0.4
+  eps_diluted_Q_Oct_31_2025: 0.4
+  shares_basic_Q_Oct_31_2025: 4202000.0
+  shares_diluted_Q_Oct_31_2025: 4209000.0
+  net_sales_Q_Oct_31_2024: 129816.0
+  membership_and_other_income_Q_Oct_31_2024: 1007.0
+  revenues_Q_Oct_31_2024: 130823.0
+  cost_of_sales_Q_Oct_31_2024: 95798.0
+  rd_expense_Q_Oct_31_2024: 720.0
+  sga_expense_Q_Oct_31_2024: 31756.0
+  total_costs_Q_Oct_31_2024: 128274.0
+  gross_profit_Q_Oct_31_2024: 34018.0
+  operating_income_Q_Oct_31_2024: 2549.0
+  other_income_Q_Oct_31_2024: -415.0
+  pretax_income_Q_Oct_31_2024: 2134.0
+  tax_Q_Oct_31_2024: 567.0
+  net_income_Q_Oct_31_2024: 1567.0
+  eps_basic_Q_Oct_31_2024: 0.37
+  eps_diluted_Q_Oct_31_2024: 0.37
+  shares_basic_Q_Oct_31_2024: 4105115.0
+  shares_diluted_Q_Oct_31_2024: 4385319.0
+  net_sales_YTD_Oct_31_2025: 420246.0
+  membership_and_other_income_YTD_Oct_31_2025: 3261.0
+  revenues_YTD_Oct_31_2025: 423507.0
+  cost_of_sales_YTD_Oct_31_2025: 310119.0
+  rd_expense_YTD_Oct_31_2025: 2331.0
+  sga_expense_YTD_Oct_31_2025: 102801.0
+  total_costs_YTD_Oct_31_2025: 415251.0
+  gross_profit_YTD_Oct_31_2025: 110127.0
+  operating_income_YTD_Oct_31_2025: 8256.0
+  other_income_YTD_Oct_31_2025: -1344.0
+  pretax_income_YTD_Oct_31_2025: 6912.0
+  tax_YTD_Oct_31_2025: 1836.0
+  net_income_YTD_Oct_31_2025: 5076.0
+  eps_basic_YTD_Oct_31_2025: 1.21
+  eps_diluted_YTD_Oct_31_2025: 1.21
+  shares_basic_YTD_Oct_31_2025: 4375514.0
+  shares_diluted_YTD_Oct_31_2025: 4003451.0
+  net_sales_YTD_Oct_31_2024: 389448.0
+  membership_and_other_income_YTD_Oct_31_2024: 3021.0
+  revenues_YTD_Oct_31_2024: 392469.0
+  cost_of_sales_YTD_Oct_31_2024: 287394.0
+  rd_expense_YTD_Oct_31_2024: 2160.0
+  sga_expense_YTD_Oct_31_2024: 95268.0
+  total_costs_YTD_Oct_31_2024: 384822.0
+  gross_profit_YTD_Oct_31_2024: 102054.0
+  operating_income_YTD_Oct_31_2024: 7647.0
+  other_income_YTD_Oct_31_2024: -1245.0
+  pretax_income_YTD_Oct_31_2024: 6402.0
+  tax_YTD_Oct_31_2024: 1701.0
+  net_income_YTD_Oct_31_2024: 4701.0
+  eps_basic_YTD_Oct_31_2024: 1.12
+  eps_diluted_YTD_Oct_31_2024: 1.12
+  shares_basic_YTD_Oct_31_2024: 4380862.0
+  shares_diluted_YTD_Oct_31_2024: 4357888.0
+  ci_net_income_Q_Oct_31_2025: 1692.0
+  ci_fx_translation_Q_Oct_31_2025: 439.0
+  ci_unrealized_gains_Q_Oct_31_2025: 293.0
+  ci_total_oci_Q_Oct_31_2025: 732.0
+  comprehensive_income_Q_Oct_31_2025: 2424.0
+  ci_net_income_Q_Oct_31_2024: 1567.0
+  ci_fx_translation_Q_Oct_31_2024: -112.0
+  ci_unrealized_gains_Q_Oct_31_2024: -74.0
+  ci_total_oci_Q_Oct_31_2024: -186.0
+  comprehensive_income_Q_Oct_31_2024: 1381.0
+  ci_net_income_YTD_Oct_31_2025: 5076.0
+  ci_fx_translation_YTD_Oct_31_2025: -335.0
+  ci_unrealized_gains_YTD_Oct_31_2025: -223.0
+  ci_total_oci_YTD_Oct_31_2025: -558.0
+  comprehensive_income_YTD_Oct_31_2025: 4518.0
+  ci_net_income_YTD_Oct_31_2024: 4701.0
+  ci_fx_translation_YTD_Oct_31_2024: -284.0
+  ci_unrealized_gains_YTD_Oct_31_2024: -242.0
+  ci_total_oci_YTD_Oct_31_2024: -526.0
+  comprehensive_income_YTD_Oct_31_2024: 4175.0
+  cash_Oct_31_2025: 7445.0
+  st_investments_Oct_31_2025: 2506.0
+  accounts_receivable_Oct_31_2025: 23695.0
+  inventories_Oct_31_2025: 18014.0
+  prepaid_Oct_31_2025: 4882.0
+  current_assets_Oct_31_2025: 56542.0
+  lt_investments_Oct_31_2025: 7369.0
+  ppe_Oct_31_2025: 48369.0
+  goodwill_Oct_31_2025: 9015.0
+  other_nca_Oct_31_2025: 8928.0
+  total_assets_Oct_31_2025: 130223.0
+  accounts_payable_Oct_31_2025: 45830.0
+  deferred_revenue_Oct_31_2025: 10886.0
+  accrued_expenses_Oct_31_2025: 11112.0
+  current_debt_Oct_31_2025: 6247.0
+  current_liabilities_Oct_31_2025: 74075.0
+  long_term_debt_Oct_31_2025: 22478.0
+  other_ncl_Oct_31_2025: 6272.0
+  total_liabilities_Oct_31_2025: 102825.0
+  common_stock_apic_Oct_31_2025: 18415.0
+  retained_earnings_Oct_31_2025: 9728.0
+  aoci_Oct_31_2025: -745.0
+  total_equity_Oct_31_2025: 27398.0
+  cash_Dec_31_2024: 6437.0
+  st_investments_Dec_31_2024: 2167.0
+  accounts_receivable_Dec_31_2024: 20486.0
+  inventories_Dec_31_2024: 15574.0
+  prepaid_Dec_31_2024: 4221.0
+  current_assets_Dec_31_2024: 48885.0
+  lt_investments_Dec_31_2024: 6371.0
+  ppe_Dec_31_2024: 41818.0
+  goodwill_Dec_31_2024: 7794.0
+  other_nca_Dec_31_2024: 7719.0
+  total_assets_Dec_31_2024: 112587.0
+  accounts_payable_Dec_31_2024: 39623.0
+  deferred_revenue_Dec_31_2024: 9412.0
+  accrued_expenses_Dec_31_2024: 9607.0
+  current_debt_Dec_31_2024: 5401.0
+  current_liabilities_Dec_31_2024: 64043.0
+  long_term_debt_Dec_31_2024: 19433.0
+  other_ncl_Dec_31_2024: 5422.0
+  total_liabilities_Dec_31_2024: 88898.0
+  common_stock_apic_Dec_31_2024: 16582.0
+  retained_earnings_Dec_31_2024: 7107.0
+  aoci_Dec_31_2024: 0
+  total_equity_Dec_31_2024: 23689.0
+  cf_net_income_YTD_Oct_31_2025: 5076.0
+  cf_da_YTD_Oct_31_2025: 12949.0
+  cf_sbc_YTD_Oct_31_2025: 3221.0
+  cf_operating_YTD_Oct_31_2025: 15937.0
+  cf_capex_YTD_Oct_31_2025: -15122.0
+  cf_investing_YTD_Oct_31_2025: -16364.0
+  cf_repurchases_YTD_Oct_31_2025: -4557.0
+  cf_dividends_YTD_Oct_31_2025: -631.0
+  cf_financing_YTD_Oct_31_2025: -8480.0
+  cf_fx_effect_YTD_Oct_31_2025: 109.0
+  cf_net_change_YTD_Oct_31_2025: -8798.0
+  cf_closing_cash_YTD_Oct_31_2025: -984.0
+  cf_net_income_YTD_Oct_31_2024: 4701.0
+  cf_da_YTD_Oct_31_2024: 12000.0
+  cf_sbc_YTD_Oct_31_2024: 2985.0
+  cf_operating_YTD_Oct_31_2024: 18922.0
+  cf_capex_YTD_Oct_31_2024: -14014.0
+  cf_investing_YTD_Oct_31_2024: -15165.0
+  cf_repurchases_YTD_Oct_31_2024: -4223.0
+  cf_dividends_YTD_Oct_31_2024: -585.0
+  cf_financing_YTD_Oct_31_2024: -7775.0
+  cf_fx_effect_YTD_Oct_31_2024: -14.0
+  cf_net_change_YTD_Oct_31_2024: -4032.0
+  cf_closing_cash_YTD_Oct_31_2024: 3209.0
+=== END ===
+
+QUESTION: What was the basic shares used in computing EPS reported by Nova Enterprises for the year-to-date period ended Oct 31 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",4375514.0,4375514.0,"The basic shares used in computing EPS for the year-to-date period ended October 31, 2025, are explicitly listed in the data under the key `shares_basic_YTD_Oct_31_2025`.
+
+Answer: 4375514.0",True,0.000000,True,False
