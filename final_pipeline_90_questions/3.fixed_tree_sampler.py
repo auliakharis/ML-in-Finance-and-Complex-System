@@ -765,10 +765,12 @@ def symbolic_from_tree(tree: Dict[str, Any]) -> Any:
         # endregion
         return (
             "time_agg",
-            tree["op"],
-            tree["entity_group"],
-            tree["concept_group"],
-            tree["over_years_group"],
+            (
+                tree["op"],
+                tree["entity_group"],
+                tree["concept_group"],
+                tree["over_years_group"],
+            ),
         )
 
     if kind == "node":
