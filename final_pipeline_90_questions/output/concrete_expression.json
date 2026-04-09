@@ -1,81 +1,37 @@
 {
   "expr": {
-    "op": "sum",
-    "left": {
-      "op": "avg",
+    "derived": "longterm_liabilities",
+    "expanded": {
+      "op": "diff",
       "left": {
-        "op": "mul",
-        "left": {
-          "leaf": "76_total_equity",
-          "depth": 0
-        },
-        "right": {
-          "leaf": "76_income_tax",
-          "depth": 0
-        },
-        "depth": 1
+        "leaf": "74_total_liabilities",
+        "depth": 0
       },
       "right": {
-        "op": "mul",
-        "left": {
-          "leaf": "72_total_equity",
-          "depth": 0
-        },
-        "right": {
-          "leaf": "72_income_tax",
-          "depth": 0
-        },
-        "depth": 1
+        "leaf": "74_current_liabilities",
+        "depth": 0
       },
-      "depth": 2
+      "depth": 1
     },
-    "right": {
-      "op": "min",
-      "left": {
-        "op": "sum",
-        "left": {
-          "leaf": "76_revenue",
-          "depth": 0
-        },
-        "right": {
-          "leaf": "76_revenue",
-          "depth": 0
-        },
-        "depth": 1
-      },
-      "right": {
-        "op": "diff",
-        "left": {
-          "leaf": "72_revenue",
-          "depth": 0
-        },
-        "right": {
-          "leaf": "72_revenue",
-          "depth": 0
-        },
-        "depth": 1
-      },
-      "depth": 2
-    },
-    "depth": 3
+    "depth": 1
   },
-  "expr_str": "sum(avg(mul(76_total_equity, 76_income_tax), mul(72_total_equity, 72_income_tax)), min(sum(76_revenue, 76_revenue), diff(72_revenue, 72_revenue)))",
-  "depth": 3,
-  "question": "What is the sum of the average of total equity for Helix BioSciences in 2024, scaled by income tax for Helix BioSciences in 2024 and total equity for Helix BioSciences in 2020, scaled by income tax for Helix BioSciences in 2020 and the minimum of the sum of revenue for Helix BioSciences in 2024 and revenue for Helix BioSciences in 2024 and the difference between revenue for Helix BioSciences in 2020 and revenue for Helix BioSciences in 2020?",
-  "answer": 18707.852462812272,
+  "expr_str": "longterm_liabilities",
+  "depth": 1,
+  "question": "What are longterm liabilities for Helix BioSciences in 2022?",
+  "answer": 149499.0,
   "meaning": {
-    "kind": "sum_amount",
+    "kind": "derived_metric",
     "semantic_type": "amount",
-    "text": "sum of value and value for Helix BioSciences in None",
+    "text": "longterm liabilities for Helix BioSciences in 2022",
     "entity": "Helix BioSciences",
-    "period": null,
+    "period": "2022",
     "unit": "USD",
-    "concept": null,
-    "label": "value plus value",
+    "concept": "longterm_liabilities",
+    "label": "longterm_liabilities",
     "from_period": null,
     "to_period": null,
     "components": null,
-    "target_concept": null,
-    "derivation": "sum(avg_amounts, min_amounts)"
+    "target_concept": "longterm_liabilities",
+    "derivation": "named derived concept longterm_liabilities"
   }
 }
