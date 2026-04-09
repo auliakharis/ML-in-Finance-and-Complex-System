@@ -1258,7 +1258,7 @@ class QuestionRenderer:
                 base_name = self._base_metric_name_from_child(result.children[0].meaning)
                 return (
                     f"the {op_word} of {base_name} for {m.entity} "
-                    f"using the values from {m.from_period} and {m.to_period}"
+                    f"using values from {m.from_period} through {m.to_period}"
                 )
 
             return f"the {op_word} of {left} and {right}"
