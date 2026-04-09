@@ -1211,7 +1211,7 @@ class QuestionRenderer:
             return f"the ratio of {left} to {right}"
 
         if expr.op == "mul":
-            return f"{left}, scaled by {right}"
+            return f"the result of ({left}) scaled by {right}"
 
         if expr.op == "growth":
             if m.kind == "growth_rate" and m.concept is not None:
