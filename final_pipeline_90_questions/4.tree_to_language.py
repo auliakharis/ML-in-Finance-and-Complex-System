@@ -1200,18 +1200,38 @@ class QuestionRenderer:
 
         left = self._expr_phrase(result.children[0])
         right = self._expr_phrase(result.children[1])
+        left_meaning = result.children[0].meaning
+        right_meaning = result.children[1].meaning
 
         if expr.op == "sum":
+            shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
+            if shared_context is not None:
+                entity, period = shared_context
+                left = self._strip_entity_period_suffix(left, entity, period)
+                right = self._strip_entity_period_suffix(right, entity, period)
+                return f"the sum of {left} and {right} for {entity} in {period}"
             return f"the sum of {left} and {right}"
 
         if expr.op == "diff":
+            shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
+            if shared_context is not None:
+                entity, period = shared_context
+                left = self._strip_entity_period_suffix(left, entity, period)
+                right = self._strip_entity_period_suffix(right, entity, period)
+                return f"the difference between {left} and {right} for {entity} in {period}"
             return f"the difference between {left} and {right}"
 
         if expr.op == "ratio":
+            shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
+            if shared_context is not None:
+                entity, period = shared_context
+                left = self._strip_entity_period_suffix(left, entity, period)
+                right = self._strip_entity_period_suffix(right, entity, period)
+                return f"the ratio of {left} to {right} for {entity} in {period}"
             return f"the ratio of {left} to {right}"
 
         if expr.op == "mul":
-            return f"the result of ({left}) scaled by {right}"
+            return f"the result of {left} scaled by {right}"
 
         if expr.op == "growth":
             if m.kind == "growth_rate" and m.concept is not None:
@@ -1259,6 +1279,26 @@ class QuestionRenderer:
         if not label:
             return "value"
         return label.replace("_", " ")
+
+    def _shared_entity_period_context(
+        self, left_meaning: Meaning, right_meaning: Meaning
+    ) -> Optional[Tuple[str, str]]:
+        if (
+            left_meaning.entity
+            and right_meaning.entity
+            and left_meaning.period
+            and right_meaning.period
+            and left_meaning.entity == right_meaning.entity
+            and left_meaning.period == right_meaning.period
+        ):
+            return left_meaning.entity, left_meaning.period
+        return None
+
+    def _strip_entity_period_suffix(self, phrase: str, entity: str, period: str) -> str:
+        suffix = f" for {entity} in {period}"
+        if phrase.endswith(suffix):
+            return phrase[: -len(suffix)]
+        return phrase
 
 # =========================================================
 # 6. Convenience wrappers for the pipeline
