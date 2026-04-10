@@ -1,7 +1,7 @@
 {
   "max_depth": 3,
-  "actual_depth": 0,
-  "seed": 397,
+  "actual_depth": 1,
+  "seed": 37,
   "derived_prob": 0.5,
   "ops": [
     "sum",
@@ -114,16 +114,39 @@
     }
   },
   "stats": {
-    "internal_nodes": 0,
-    "leaves": 1,
-    "total_nodes": 1
+    "internal_nodes": 1,
+    "leaves": 2,
+    "total_nodes": 3
   },
   "tree": {
-    "kind": "derived_concept",
-    "name": "longterm_liabilities",
+    "kind": "node",
+    "node_id": "N2",
+    "op": "sum",
     "family": "amount",
-    "concept_depth": 1,
-    "context_group": "C0",
-    "entity_group": "E1"
+    "depth": 3,
+    "left": {
+      "kind": "time_agg",
+      "node_id": "N0",
+      "op": "avg",
+      "family": "amount",
+      "depth": 2,
+      "entity_group": "E1",
+      "concept_group": "T5",
+      "over_years_group": "Y4",
+      "section_group": "S3",
+      "aggregation_group": "A2"
+    },
+    "right": {
+      "kind": "time_agg",
+      "node_id": "N1",
+      "op": "avg",
+      "family": "amount",
+      "depth": 2,
+      "entity_group": "E1",
+      "concept_group": "T7",
+      "over_years_group": "Y6",
+      "section_group": "S3",
+      "aggregation_group": "A2"
+    }
   }
 }

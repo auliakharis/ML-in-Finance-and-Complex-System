@@ -7,11 +7,39 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 import random
+import re
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 TIME_AGG_MIN_WINDOW = 2
+DETERMINERS = {"the", "a", "an"}
 
 # =========================================================
+# 0. Augmentation variants
+# =========================================================
+question_templates = {
+    "question": [
+        "What is the {phrase}",
+        "What is the value of the {phrase}",
+        "What would be the {phrase}",
+        "What do we obtain as the {phrase}",
+        "What does the following give: {phrase}",
+        "Which value corresponds to the {phrase}",
+        "Which result follows from the {phrase}",
+        "Which quantity is given by the {phrase}",
+    ],
+    "imperative": [
+        "Give the {phrase}",
+        "Provide the {phrase}",
+        "State the {phrase}",
+        "Determine the {phrase}",
+        "Compute the {phrase}",
+        "Calculate the {phrase}",
+        "Evaluate the {phrase}",
+    ]
+}
+
+
+# # =========================================================
 # 1. Data model
 # =========================================================
 
@@ -1181,32 +1209,51 @@ class Evaluator:
 
 class QuestionRenderer:
     def render(self, result: AnalysisResult) -> str:
-        # Prefer specialized phrasing for high-signal semantic kinds.
         m = result.meaning
 
+        # --- specialized semantic kinds unchanged except for template insertion support ---
         if m.kind == "aggregate_components":
             copula = self._question_copula(m.target_concept)
-            return (
-                f"What {copula} the total {self._clean_label(m.target_concept)} "
-                f"for {m.entity} in {m.period}?"
+            phrase = (
+                f"total {self._clean_label(m.target_concept)} "
+                f"for {m.entity} in {m.period}"
             )
+            return self._apply_template(phrase=phrase, copula=copula)
 
         if m.kind == "growth_rate":
-            return (
-                f"What is the growth rate of "
-                f"{self._clean_label((m.label or '').replace('growth rate of ', ''))} "
-                f"for {m.entity} from {m.from_period} to {m.to_period}?"
-            )
+            label = self._clean_label((m.label or '').replace('growth rate of ', ''))
+            phrase = f"growth rate of {label} for {m.entity} from {m.from_period} to {m.to_period}"
+            copula = "is"
+            return self._apply_template(phrase=phrase, copula=copula)
 
         if m.kind == "avg_over_all_periods":
-            return (
-                f"What is the average {self._clean_label(m.label or m.concept)} "
-                f"for {m.entity} across years {m.from_period} through {m.to_period}?"
-            )
+            label = self._clean_label(m.label or m.concept)
+            phrase = f"average {label} for {m.entity} across years {m.from_period} through {m.to_period}"
+            copula = "is"
+            return self._apply_template(phrase=phrase, copula=copula)
 
+        # --- default ---
         phrase = self._expr_phrase(result, top_level=True)
         copula = self._question_copula(m.label or m.concept)
-        return f"What {copula} {phrase}?"
+        return self._apply_template(phrase=phrase, copula=copula)
+    
+    def _apply_template(self, *, phrase: str, copula: str) -> str:
+        # Flatten templates keeping category information
+        all_templates = (
+            [("question", t) for t in question_templates["question"]] +
+            [("imperative", t) for t in question_templates["imperative"]]
+        )
+
+        category, tmpl = random.choice(all_templates)
+
+        # Perform substitution
+        text = tmpl.format(phrase=phrase, copula=copula)
+
+        # Add punctuation
+        if category == "question":
+            return text.rstrip() + "?"
+        else:
+            return text.rstrip() + "."
 
     def _expr_phrase(self, result: AnalysisResult, top_level: bool = False) -> str:
         expr = result.expr
@@ -1232,8 +1279,8 @@ class QuestionRenderer:
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
-                return f"the sum of {left} and {right} for {entity} in {period}"
-            return f"the sum of {left} and {right}"
+                return f"sum of {left} and {right} for {entity} in {period}"
+            return f"sum of {left} and {right}"
 
         if expr.op == "diff":
             shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
@@ -1241,8 +1288,8 @@ class QuestionRenderer:
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
-                return f"the difference between {left} and {right} for {entity} in {period}"
-            return f"the difference between {left} and {right}"
+                return f"difference between {left} and {right} for {entity} in {period}"
+            return f"difference between {left} and {right}"
 
         if expr.op == "ratio":
             shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
@@ -1250,8 +1297,8 @@ class QuestionRenderer:
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
-                return f"the ratio of {left} to {right} for {entity} in {period}"
-            return f"the ratio of {left} to {right}"
+                return f"ratio of {left} to {right} for {entity} in {period}"
+            return f"ratio of {left} to {right}"
 
         if expr.op == "mul":
             shared_context = self._shared_entity_period_context(left_meaning, right_meaning)
@@ -1259,16 +1306,16 @@ class QuestionRenderer:
                 entity, period = shared_context
                 left = self._strip_entity_period_suffix(left, entity, period)
                 right = self._strip_entity_period_suffix(right, entity, period)
-                return f"the result of {left} scaled by {right} for {entity} in {period}"
-            return f"the result of {left} scaled by {right}"
+                return f"result of {left} scaled by {right} for {entity} in {period}"
+            return f"result of {left} scaled by {right}"
 
         if expr.op == "growth":
             if m.kind == "growth_rate" and m.concept is not None:
                 return (
-                    f"the growth in {self._base_metric_name(m)} for {m.entity} "
+                    f"growth in {self._base_metric_name(m)} for {m.entity} "
                     f"from {m.from_period} to {m.to_period}"
                 )
-            return f"the growth between {left} and {right}"
+            return f"growth between {left} and {right}"
 
         if expr.op in {"min", "max", "avg"}:
             op_word = {
@@ -1311,12 +1358,14 @@ class QuestionRenderer:
 
     def _question_copula(self, label: Optional[str]) -> str:
         """Pick 'is' vs 'are' for top-level question fluency."""
-        cleaned = self._clean_label(label).strip().lower()
-        if not cleaned:
-            return "is"
-        # Plural financial nouns generally end with 's' (assets, liabilities, expenses).
-        if cleaned.endswith("s") and not cleaned.endswith("ss"):
-            return "are"
+        cleaned = self._clean_label(label).strip().lower() 
+        
+        if not cleaned: 
+            return "is" 
+        
+        # Plural financial nouns generally end with 's' (assets, liabilities, expenses). 
+        if (cleaned.endswith("s") and not cleaned.endswith("ss")): 
+            return "are" 
         return "is"
 
     def _shared_entity_period_context(
