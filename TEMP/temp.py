@@ -565,12 +565,12 @@ import json
 
 data = []  # ← missing this
 
-with open("90q/random_questions_90.csv", 'r', encoding='utf-8') as csv_file:
+with open("90q/random_questions_90_new.csv", 'r', encoding='utf-8') as csv_file:
     reader = csv.DictReader(csv_file)
     for row in reader:
         data.append(dict(row))
 
-with open("90q/random_questions_90.json", 'w', encoding='utf-8') as json_file:  # ← fix extension
+with open("90q/random_questions_90_new.json", 'w', encoding='utf-8') as json_file:  # ← fix extension
     json.dump(data, json_file, indent=4)
 
 print(f"Done! {len(data)} rows converted.")

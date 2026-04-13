@@ -1,0 +1,3407 @@
+[
+  {
+    "question_id": "1",
+    "original_question": "What are total assets for Crimson Pharmaceuticals in 2022?",
+    "answer": "442481.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are total assets for Crimson Pharmaceuticals in 2022?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "2",
+    "original_question": "What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?",
+    "answer": "-16736.48725362761",
+    "depth": 3,
+    "num_turns": 4,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of current liabilities for Orion Financial Group from 2020 to 2021?",
+        "ground_truth": 11321.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of current liabilities for Orion Financial Group from 2020 to 2022?",
+        "ground_truth": 21416.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "growth",
+        "question": "What is the growth of short term investments for Orion Financial Group from 2021 to 2023?",
+        "ground_truth": 3.5765448585650117,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "mul",
+        "question": "What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?",
+        "ground_truth": 76595.2846910283,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of current liabilities for Orion Financial Group from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of current liabilities for Orion Financial Group from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the growth of short term investments for Orion Financial Group from 2021 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "3",
+    "original_question": "What are longterm liabilities for Pacific Crest Energy in 2023?",
+    "answer": "37323.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What are longterm liabilities for Pacific Crest Energy in 2023?",
+        "ground_truth": 37323.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are longterm liabilities for Pacific Crest Energy in 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "4",
+    "original_question": "What is accounts receivable for Ironclad Manufacturing in 2024?",
+    "answer": "23748.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is accounts receivable for Ironclad Manufacturing in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "5",
+    "original_question": "What is the maximum of total equity for Orion Financial Group using values from 2021 through 2022?",
+    "answer": "59143.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of total equity for Orion Financial Group from 2021 to 2022?",
+        "ground_truth": 59143.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of total equity for Orion Financial Group from 2021 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "6",
+    "original_question": "What is the average short term investments for Titan Consumer Brands across years 2021 through 2022?",
+    "answer": "46156.5",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of short term investments for Titan Consumer Brands from 2021 to 2022?",
+        "ground_truth": 92313.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "ratio",
+        "question": "What is the average short term investments for Titan Consumer Brands across years 2021 through 2022?",
+        "ground_truth": 46156.5,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of short term investments for Titan Consumer Brands from 2021 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the average short term investments for Titan Consumer Brands across years 2021 through 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "7",
+    "original_question": "What are the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?",
+    "answer": "8595.0",
+    "depth": 4,
+    "num_turns": 4,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2021?",
+        "ground_truth": 8595.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2022?",
+        "ground_truth": 8595.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2023?",
+        "ground_truth": 8595.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "min",
+        "question": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2024?",
+        "ground_truth": 8595.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "8",
+    "original_question": "What is operating income for NovaStar Technologies in 2024?",
+    "answer": "80626.0",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What is gross profit for NovaStar Technologies in 2024?",
+        "ground_truth": 100535.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "diff",
+        "question": "What is operating income for NovaStar Technologies in 2024?",
+        "ground_truth": 80626.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is gross profit for NovaStar Technologies in 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is operating income for NovaStar Technologies in 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "9",
+    "original_question": "What are longterm assets for Orion Financial Group in 2024?",
+    "answer": "163671.0",
+    "depth": 4,
+    "num_turns": 4,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of cash for Orion Financial Group from 2024 to 2024?",
+        "ground_truth": 70448.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "sum",
+        "question": "What is the sum of cash for Orion Financial Group from 2024 to 2024?",
+        "ground_truth": 78669.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "sum",
+        "question": "What is current assets for Orion Financial Group in 2024?",
+        "ground_truth": 105547.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "diff",
+        "question": "What are longterm assets for Orion Financial Group in 2024?",
+        "ground_truth": 163671.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of cash for Orion Financial Group from 2024 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of cash for Orion Financial Group from 2024 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is current assets for Orion Financial Group in 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are longterm assets for Orion Financial Group in 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "10",
+    "original_question": "What is accounts receivable for Orion Financial Group in 2024?",
+    "answer": "12144.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is accounts receivable for Orion Financial Group in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "11",
+    "original_question": "What are operating expenses for Cobalt Semiconductor in 2020?",
+    "answer": "7582.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are operating expenses for Cobalt Semiconductor in 2020?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "12",
+    "original_question": "What are the maximum of total liabilities for Atlas Global Industries using values from 2020 through 2024?",
+    "answer": "74292.0",
+    "depth": 4,
+    "num_turns": 4,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of total liabilities for Atlas Global Industries from 2020 to 2021?",
+        "ground_truth": 74292.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of total liabilities for Atlas Global Industries from 2020 to 2022?",
+        "ground_truth": 74292.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "max",
+        "question": "What is the maximum of total liabilities for Atlas Global Industries from 2020 to 2023?",
+        "ground_truth": 74292.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "max",
+        "question": "What is the maximum of total liabilities for Atlas Global Industries from 2020 to 2024?",
+        "ground_truth": 74292.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of total liabilities for Atlas Global Industries from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of total liabilities for Atlas Global Industries from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of total liabilities for Atlas Global Industries from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of total liabilities for Atlas Global Industries from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "13",
+    "original_question": "What are the difference between total liabilities and non operating expenses for Cobalt Semiconductor in 2025?",
+    "answer": "28316.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What are the difference between total liabilities and non operating expenses for Cobalt Semiconductor in 2025?",
+        "ground_truth": 28316.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are the difference between total liabilities and non operating expenses for Cobalt Semiconductor in 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "14",
+    "original_question": "What are total assets for Apex Dynamics Corp in 2025?",
+    "answer": "161367.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are total assets for Apex Dynamics Corp in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "15",
+    "original_question": "What is total equity for Cobalt Semiconductor in 2024?",
+    "answer": "18804.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is total equity for Cobalt Semiconductor in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "16",
+    "original_question": "What is the difference between the sum of accounts receivable and current liabilities and the result of operating expenses scaled by income tax for Apex Dynamics Corp in 2024?",
+    "answer": "28395.204995863063",
+    "depth": 2,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of accounts receivable for Apex Dynamics Corp from 2024 to 2024?",
+        "ground_truth": 30324.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "mul",
+        "question": "What is the product of operating expenses for Apex Dynamics Corp from 2024 to 2024?",
+        "ground_truth": 1928.7950041369365,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "diff",
+        "question": "What is the difference between the sum of accounts receivable and current liabilities and the result of operating expenses scaled by income tax for Apex Dynamics Corp in 2024?",
+        "ground_truth": 28395.204995863063,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of accounts receivable for Apex Dynamics Corp from 2024 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the product of operating expenses for Apex Dynamics Corp from 2024 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the difference between the sum of accounts receivable and current liabilities and the result of operating expenses scaled by income tax for Apex Dynamics Corp in 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "17",
+    "original_question": "What is cash for Pinnacle Health Group in 2023?",
+    "answer": "2062.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is cash for Pinnacle Health Group in 2023?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "18",
+    "original_question": "What are operating expenses for Pacific Crest Energy in 2025?",
+    "answer": "19190.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are operating expenses for Pacific Crest Energy in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "19",
+    "original_question": "What are the minimum of current liabilities for Pacific Crest Energy using values from 2022 through 2024?",
+    "answer": "27314.0",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of current liabilities for Pacific Crest Energy from 2022 to 2023?",
+        "ground_truth": 27314.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of current liabilities for Pacific Crest Energy from 2022 to 2024?",
+        "ground_truth": 27314.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of current liabilities for Pacific Crest Energy from 2022 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of current liabilities for Pacific Crest Energy from 2022 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "20",
+    "original_question": "What is total equity for Ironclad Manufacturing in 2025?",
+    "answer": "314401.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is total equity for Ironclad Manufacturing in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "21",
+    "original_question": "What is the maximum of revenue for Apex Dynamics Corp using values from 2020 through 2023?",
+    "answer": "88229.0",
+    "depth": 3,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of revenue for Apex Dynamics Corp from 2020 to 2021?",
+        "ground_truth": 78857.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of revenue for Apex Dynamics Corp from 2020 to 2022?",
+        "ground_truth": 79022.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "max",
+        "question": "What is the maximum of revenue for Apex Dynamics Corp from 2020 to 2023?",
+        "ground_truth": 88229.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of revenue for Apex Dynamics Corp from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of revenue for Apex Dynamics Corp from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of revenue for Apex Dynamics Corp from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "22",
+    "original_question": "What are non operating expenses for Pinnacle Health Group in 2024?",
+    "answer": "4612.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are non operating expenses for Pinnacle Health Group in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "23",
+    "original_question": "What is gross profit for Titan Consumer Brands in 2021?",
+    "answer": "323622.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What is gross profit for Titan Consumer Brands in 2021?",
+        "ground_truth": 323622.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is gross profit for Titan Consumer Brands in 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "24",
+    "original_question": "What is the sum of the ratio of the sum of the sum of operating expenses for Apex Dynamics Corp in 2020 and operating expenses for Apex Dynamics Corp in 2021 and operating expenses for Apex Dynamics Corp in 2022 to 3.0 and gross profit for Apex Dynamics Corp in 2022?",
+    "answer": "42856.666666666664",
+    "depth": 4,
+    "num_turns": 5,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of operating expenses for Apex Dynamics Corp from 2020 to 2021?",
+        "ground_truth": 11742.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "sum",
+        "question": "What is the sum of operating expenses for Apex Dynamics Corp from 2020 to 2022?",
+        "ground_truth": 29687.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "ratio",
+        "question": "What is the ratio of operating expenses for Apex Dynamics Corp from 2020 to 2022?",
+        "ground_truth": 9895.666666666666,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "diff",
+        "question": "What is gross profit for Apex Dynamics Corp in 2022?",
+        "ground_truth": 32961.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "sum",
+        "question": "What is the sum of the ratio of the sum of the sum of operating expenses for Apex Dynamics Corp in 2020 and operating expenses for Apex Dynamics Corp in 2021 and operating expenses for Apex Dynamics Corp in 2022 to 3.0 and gross profit for Apex Dynamics Corp in 2022?",
+        "ground_truth": 42856.666666666664,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of operating expenses for Apex Dynamics Corp from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of operating expenses for Apex Dynamics Corp from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the ratio of operating expenses for Apex Dynamics Corp from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is gross profit for Apex Dynamics Corp in 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of the ratio of the sum of the sum of operating expenses for Apex Dynamics Corp in 2020 and operating expenses for Apex Dynamics Corp in 2021 and operating expenses for Apex Dynamics Corp in 2022 to 3.0 and gross profit for Apex Dynamics Corp in 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "25",
+    "original_question": "What is accounts receivable for Quantum Bridge Holdings in 2021?",
+    "answer": "10585.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is accounts receivable for Quantum Bridge Holdings in 2021?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "26",
+    "original_question": "What is the result of operating expenses scaled by income tax for Meridian Systems Inc in 2023?",
+    "answer": "1824.322909798859",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "mul",
+        "question": "What is the result of operating expenses scaled by income tax for Meridian Systems Inc in 2023?",
+        "ground_truth": 1824.322909798859,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the result of operating expenses scaled by income tax for Meridian Systems Inc in 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "27",
+    "original_question": "What are total liabilities for SilverLine Retail Inc in 2024?",
+    "answer": "328593.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are total liabilities for SilverLine Retail Inc in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "28",
+    "original_question": "What are the difference between cash and operating expenses for NovaStar Technologies in 2020?",
+    "answer": "1995.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What are the difference between cash and operating expenses for NovaStar Technologies in 2020?",
+        "ground_truth": 1995.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are the difference between cash and operating expenses for NovaStar Technologies in 2020?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "29",
+    "original_question": "What is the result of the result of total assets scaled by income tax for SilverLine Retail Inc in 2022 scaled by the growth in dividends paid for SilverLine Retail Inc from 2020 to 2025?",
+    "answer": "207732.93743318034",
+    "depth": 2,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "mul",
+        "question": "What is the product of total assets for SilverLine Retail Inc from 2022 to 2022?",
+        "ground_truth": 103718.50898250227,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "growth",
+        "question": "What is the growth of dividends paid for SilverLine Retail Inc from 2020 to 2025?",
+        "ground_truth": -0.6669833767794642,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "mul",
+        "question": "What is the result of the result of total assets scaled by income tax for SilverLine Retail Inc in 2022 scaled by the growth in dividends paid for SilverLine Retail Inc from 2020 to 2025?",
+        "ground_truth": -69178.52135568055,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the product of total assets for SilverLine Retail Inc from 2022 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the growth of dividends paid for SilverLine Retail Inc from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the result of the result of total assets scaled by income tax for SilverLine Retail Inc in 2022 scaled by the growth in dividends paid for SilverLine Retail Inc from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "30",
+    "original_question": "What is dividends paid for Pacific Crest Energy in 2025?",
+    "answer": "1558.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is dividends paid for Pacific Crest Energy in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "31",
+    "original_question": "What are the minimum of total assets for ClearPath Logistics using values from 2023 through 2025?",
+    "answer": "668864.0",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of total assets for ClearPath Logistics from 2023 to 2024?",
+        "ground_truth": 668864.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of total assets for ClearPath Logistics from 2023 to 2025?",
+        "ground_truth": 668864.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of total assets for ClearPath Logistics from 2023 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of total assets for ClearPath Logistics from 2023 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "32",
+    "original_question": "What is the difference between capex and cost of goods sold for Quantum Bridge Holdings in 2020?",
+    "answer": "-31599.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What is the difference between capex and cost of goods sold for Quantum Bridge Holdings in 2020?",
+        "ground_truth": -31599.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the difference between capex and cost of goods sold for Quantum Bridge Holdings in 2020?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "33",
+    "original_question": "What is total equity for Crimson Pharmaceuticals in 2020?",
+    "answer": "381473.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is total equity for Crimson Pharmaceuticals in 2020?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "34",
+    "original_question": "What is gross profit for Apex Dynamics Corp in 2021?",
+    "answer": "28273.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What is gross profit for Apex Dynamics Corp in 2021?",
+        "ground_truth": 28273.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is gross profit for Apex Dynamics Corp in 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "35",
+    "original_question": "What are the difference between capex and short term investments for NovaStar Technologies in 2023?",
+    "answer": "-42979.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What are the difference between capex and short term investments for NovaStar Technologies in 2023?",
+        "ground_truth": -42979.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are the difference between capex and short term investments for NovaStar Technologies in 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "36",
+    "original_question": "What are current liabilities for Crimson Pharmaceuticals in 2024?",
+    "answer": "82551.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are current liabilities for Crimson Pharmaceuticals in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "37",
+    "original_question": "What are the result of the maximum of cost of goods sold for Atlas Global Industries using values from 2020 through 2025 scaled by the ratio of the ratio of the sum of capex for Atlas Global Industries in 2022 and capex for Atlas Global Industries in 2023 to 2.0 to total liabilities for Atlas Global Industries in 2024?",
+    "answer": "6510.345366712229",
+    "depth": 6,
+    "num_turns": 9,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2021?",
+        "ground_truth": 54010.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2022?",
+        "ground_truth": 54010.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "max",
+        "question": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2023?",
+        "ground_truth": 54010.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "max",
+        "question": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2024?",
+        "ground_truth": 64502.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "max",
+        "question": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2025?",
+        "ground_truth": 69665.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 6,
+        "op": "sum",
+        "question": "What is the sum of capex for Atlas Global Industries from 2022 to 2023?",
+        "ground_truth": 9982.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 7,
+        "op": "ratio",
+        "question": "What is the ratio of capex for Atlas Global Industries from 2022 to 2023?",
+        "ground_truth": 4991.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 8,
+        "op": "ratio",
+        "question": "What is the ratio of capex for Atlas Global Industries from 2022 to 2024?",
+        "ground_truth": 0.09345216919130452,
+        "is_final": false
+      },
+      {
+        "turn_number": 9,
+        "op": "mul",
+        "question": "What are the result of the maximum of cost of goods sold for Atlas Global Industries using values from 2020 through 2025 scaled by the ratio of the ratio of the sum of capex for Atlas Global Industries in 2022 and capex for Atlas Global Industries in 2023 to 2.0 to total liabilities for Atlas Global Industries in 2024?",
+        "ground_truth": 6510.345366712229,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of cost of goods sold for Atlas Global Industries from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of capex for Atlas Global Industries from 2022 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the ratio of capex for Atlas Global Industries from 2022 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the ratio of capex for Atlas Global Industries from 2022 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are the result of the maximum of cost of goods sold for Atlas Global Industries using values from 2020 through 2025 scaled by the ratio of the ratio of the sum of capex for Atlas Global Industries in 2022 and capex for Atlas Global Industries in 2023 to 2.0 to total liabilities for Atlas Global Industries in 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "38",
+    "original_question": "What are total assets for Atlas Global Industries in 2022?",
+    "answer": "66524.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are total assets for Atlas Global Industries in 2022?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "39",
+    "original_question": "What is the minimum of total equity for Crimson Pharmaceuticals using values from 2021 through 2025?",
+    "answer": "149482.0",
+    "depth": 4,
+    "num_turns": 4,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2022?",
+        "ground_truth": 149482.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2023?",
+        "ground_truth": 149482.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2024?",
+        "ground_truth": 149482.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "min",
+        "question": "What is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2025?",
+        "ground_truth": 149482.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of total equity for Crimson Pharmaceuticals from 2021 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "40",
+    "original_question": "What are the difference between cost of goods sold and total assets for Meridian Systems Inc in 2025?",
+    "answer": "-63871.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What are the difference between cost of goods sold and total assets for Meridian Systems Inc in 2025?",
+        "ground_truth": -63871.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are the difference between cost of goods sold and total assets for Meridian Systems Inc in 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "41",
+    "original_question": "What are the maximum of non operating expenses for Ironclad Manufacturing using values from 2020 through 2023?",
+    "answer": "81319.0",
+    "depth": 3,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of non operating expenses for Ironclad Manufacturing from 2020 to 2021?",
+        "ground_truth": 81319.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of non operating expenses for Ironclad Manufacturing from 2020 to 2022?",
+        "ground_truth": 81319.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "max",
+        "question": "What is the maximum of non operating expenses for Ironclad Manufacturing from 2020 to 2023?",
+        "ground_truth": 81319.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of non operating expenses for Ironclad Manufacturing from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of non operating expenses for Ironclad Manufacturing from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of non operating expenses for Ironclad Manufacturing from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "42",
+    "original_question": "What is capex for Atlas Global Industries in 2022?",
+    "answer": "4078.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is capex for Atlas Global Industries in 2022?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "43",
+    "original_question": "What is revenue for Crimson Pharmaceuticals in 2025?",
+    "answer": "797936.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is revenue for Crimson Pharmaceuticals in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "44",
+    "original_question": "What is the sum of revenue and total equity for Apex Dynamics Corp in 2020?",
+    "answer": "92318.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of revenue and total equity for Apex Dynamics Corp in 2020?",
+        "ground_truth": 92318.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of revenue and total equity for Apex Dynamics Corp in 2020?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "45",
+    "original_question": "What is the average total liabilities for Quantum Bridge Holdings across years 2023 through 2024?",
+    "answer": "55046.5",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of total liabilities for Quantum Bridge Holdings from 2023 to 2024?",
+        "ground_truth": 110093.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "ratio",
+        "question": "What is the average total liabilities for Quantum Bridge Holdings across years 2023 through 2024?",
+        "ground_truth": 55046.5,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of total liabilities for Quantum Bridge Holdings from 2023 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the average total liabilities for Quantum Bridge Holdings across years 2023 through 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "46",
+    "original_question": "What is cash for SilverLine Retail Inc in 2024?",
+    "answer": "60999.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is cash for SilverLine Retail Inc in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "47",
+    "original_question": "What is revenue for SilverLine Retail Inc in 2023?",
+    "answer": "821170.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is revenue for SilverLine Retail Inc in 2023?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "48",
+    "original_question": "What is the maximum of dividends paid for Meridian Systems Inc using values from 2022 through 2024?",
+    "answer": "15773.0",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of dividends paid for Meridian Systems Inc from 2022 to 2023?",
+        "ground_truth": 15773.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of dividends paid for Meridian Systems Inc from 2022 to 2024?",
+        "ground_truth": 15773.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of dividends paid for Meridian Systems Inc from 2022 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of dividends paid for Meridian Systems Inc from 2022 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "49",
+    "original_question": "What is the average operating expenses for Pinnacle Health Group across years 2024 through 2025?",
+    "answer": "2311.5",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of operating expenses for Pinnacle Health Group from 2024 to 2025?",
+        "ground_truth": 4623.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "ratio",
+        "question": "What is the average operating expenses for Pinnacle Health Group across years 2024 through 2025?",
+        "ground_truth": 2311.5,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of operating expenses for Pinnacle Health Group from 2024 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the average operating expenses for Pinnacle Health Group across years 2024 through 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "50",
+    "original_question": "What are current liabilities for Cobalt Semiconductor in 2020?",
+    "answer": "15174.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are current liabilities for Cobalt Semiconductor in 2020?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "51",
+    "original_question": "What are total liabilities for Quantum Bridge Holdings in 2021?",
+    "answer": "20731.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are total liabilities for Quantum Bridge Holdings in 2021?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "52",
+    "original_question": "What is the minimum of revenue for Orion Financial Group using values from 2020 through 2025?",
+    "answer": "87989.0",
+    "depth": 5,
+    "num_turns": 5,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of revenue for Orion Financial Group from 2020 to 2021?",
+        "ground_truth": 87989.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of revenue for Orion Financial Group from 2020 to 2022?",
+        "ground_truth": 87989.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of revenue for Orion Financial Group from 2020 to 2023?",
+        "ground_truth": 87989.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "min",
+        "question": "What is the minimum of revenue for Orion Financial Group from 2020 to 2024?",
+        "ground_truth": 87989.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "min",
+        "question": "What is the minimum of revenue for Orion Financial Group from 2020 to 2025?",
+        "ground_truth": 87989.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of revenue for Orion Financial Group from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of revenue for Orion Financial Group from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of revenue for Orion Financial Group from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of revenue for Orion Financial Group from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of revenue for Orion Financial Group from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "53",
+    "original_question": "What is accounts receivable for Meridian Systems Inc in 2024?",
+    "answer": "20351.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is accounts receivable for Meridian Systems Inc in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "54",
+    "original_question": "What is capex for Ironclad Manufacturing in 2024?",
+    "answer": "11427.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is capex for Ironclad Manufacturing in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "55",
+    "original_question": "What is dividends paid for Crimson Pharmaceuticals in 2023?",
+    "answer": "35183.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is dividends paid for Crimson Pharmaceuticals in 2023?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "56",
+    "original_question": "What is the result of total assets scaled by income tax for Atlas Global Industries in 2022?",
+    "answer": "16654.639789032004",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "mul",
+        "question": "What is the result of total assets scaled by income tax for Atlas Global Industries in 2022?",
+        "ground_truth": 16654.639789032004,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the result of total assets scaled by income tax for Atlas Global Industries in 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "57",
+    "original_question": "What are the sum of cash for Pinnacle Health Group in 2022 and the minimum of short term investments for Pinnacle Health Group using values from 2020 through 2025?",
+    "answer": "2175.0",
+    "depth": 6,
+    "num_turns": 6,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2021?",
+        "ground_truth": 453.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2022?",
+        "ground_truth": 453.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2023?",
+        "ground_truth": 453.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2024?",
+        "ground_truth": 453.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2025?",
+        "ground_truth": 453.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 6,
+        "op": "sum",
+        "question": "What are the sum of cash for Pinnacle Health Group in 2022 and the minimum of short term investments for Pinnacle Health Group using values from 2020 through 2025?",
+        "ground_truth": 2175.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of short term investments for Pinnacle Health Group from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of short term investments for Pinnacle Health Group from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are the sum of cash for Pinnacle Health Group in 2022 and the minimum of short term investments for Pinnacle Health Group using values from 2020 through 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "58",
+    "original_question": "What is the result of the ratio of the sum of the sum of the sum of inventories for Orion Financial Group in 2022 and inventories for Orion Financial Group in 2023 and inventories for Orion Financial Group in 2024 and inventories for Orion Financial Group in 2025 to 4.0 scaled by the ratio of revenue to capex for Orion Financial Group in 2022?",
+    "answer": "251027.70505617975",
+    "depth": 5,
+    "num_turns": 6,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of inventories for Orion Financial Group from 2022 to 2023?",
+        "ground_truth": 8355.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "sum",
+        "question": "What is the sum of inventories for Orion Financial Group from 2022 to 2024?",
+        "ground_truth": 16576.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "sum",
+        "question": "What is the sum of inventories for Orion Financial Group from 2022 to 2025?",
+        "ground_truth": 27891.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "ratio",
+        "question": "What is the ratio of inventories for Orion Financial Group from 2022 to 2025?",
+        "ground_truth": 6972.75,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "ratio",
+        "question": "What is the ratio of revenue for Orion Financial Group from 2022 to 2022?",
+        "ground_truth": 36.001248439450684,
+        "is_final": false
+      },
+      {
+        "turn_number": 6,
+        "op": "mul",
+        "question": "What is the result of the ratio of the sum of the sum of the sum of inventories for Orion Financial Group in 2022 and inventories for Orion Financial Group in 2023 and inventories for Orion Financial Group in 2024 and inventories for Orion Financial Group in 2025 to 4.0 scaled by the ratio of revenue to capex for Orion Financial Group in 2022?",
+        "ground_truth": 251027.70505617975,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of inventories for Orion Financial Group from 2022 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of inventories for Orion Financial Group from 2022 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of inventories for Orion Financial Group from 2022 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the ratio of inventories for Orion Financial Group from 2022 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the ratio of revenue for Orion Financial Group from 2022 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the result of the ratio of the sum of the sum of the sum of inventories for Orion Financial Group in 2022 and inventories for Orion Financial Group in 2023 and inventories for Orion Financial Group in 2024 and inventories for Orion Financial Group in 2025 to 4.0 scaled by the ratio of revenue to capex for Orion Financial Group in 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "59",
+    "original_question": "What are total liabilities for Apex Dynamics Corp in 2024?",
+    "answer": "67132.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are total liabilities for Apex Dynamics Corp in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "60",
+    "original_question": "What is the result of total equity scaled by the ratio of short term investments to total equity for Pacific Crest Energy in 2024?",
+    "answer": "21502.0",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "ratio",
+        "question": "What is the ratio of short term investments for Pacific Crest Energy from 2024 to 2024?",
+        "ground_truth": 0.3465549198162624,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "mul",
+        "question": "What is the result of total equity scaled by the ratio of short term investments to total equity for Pacific Crest Energy in 2024?",
+        "ground_truth": 21502.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the ratio of short term investments for Pacific Crest Energy from 2024 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the result of total equity scaled by the ratio of short term investments to total equity for Pacific Crest Energy in 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "61",
+    "original_question": "What are non operating expenses for Atlas Global Industries in 2020?",
+    "answer": "14812.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are non operating expenses for Atlas Global Industries in 2020?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "62",
+    "original_question": "What are current assets for Orion Financial Group in 2022?",
+    "answer": "33146.0",
+    "depth": 3,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of cash for Orion Financial Group from 2022 to 2022?",
+        "ground_truth": 17960.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "sum",
+        "question": "What is the sum of cash for Orion Financial Group from 2022 to 2022?",
+        "ground_truth": 20393.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "sum",
+        "question": "What are current assets for Orion Financial Group in 2022?",
+        "ground_truth": 33146.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of cash for Orion Financial Group from 2022 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of cash for Orion Financial Group from 2022 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are current assets for Orion Financial Group in 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "63",
+    "original_question": "What are the minimum of short term investments for Cobalt Semiconductor using values from 2022 through 2025?",
+    "answer": "3350.0",
+    "depth": 3,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Cobalt Semiconductor from 2022 to 2023?",
+        "ground_truth": 4097.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Cobalt Semiconductor from 2022 to 2024?",
+        "ground_truth": 3350.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of short term investments for Cobalt Semiconductor from 2022 to 2025?",
+        "ground_truth": 3350.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of short term investments for Cobalt Semiconductor from 2022 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of short term investments for Cobalt Semiconductor from 2022 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of short term investments for Cobalt Semiconductor from 2022 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "64",
+    "original_question": "What are the minimum of current liabilities for Atlas Global Industries using values from 2020 through 2025?",
+    "answer": "8455.0",
+    "depth": 5,
+    "num_turns": 5,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2021?",
+        "ground_truth": 14619.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2022?",
+        "ground_truth": 14588.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2023?",
+        "ground_truth": 8455.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "min",
+        "question": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2024?",
+        "ground_truth": 8455.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "min",
+        "question": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2025?",
+        "ground_truth": 8455.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of current liabilities for Atlas Global Industries from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of current liabilities for Atlas Global Industries from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "65",
+    "original_question": "What are the sum of the maximum of short term investments for Quantum Bridge Holdings using values from 2022 through 2025 and the difference between the difference between cost of goods sold and short term investments and longterm liabilities for Quantum Bridge Holdings in 2025?",
+    "answer": "21679.0",
+    "depth": 4,
+    "num_turns": 7,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of short term investments for Quantum Bridge Holdings from 2022 to 2023?",
+        "ground_truth": 9363.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of short term investments for Quantum Bridge Holdings from 2022 to 2024?",
+        "ground_truth": 9363.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "max",
+        "question": "What is the maximum of short term investments for Quantum Bridge Holdings from 2022 to 2025?",
+        "ground_truth": 9363.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "diff",
+        "question": "What is the difference of cost of goods sold for Quantum Bridge Holdings from 2025 to 2025?",
+        "ground_truth": 41051.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "diff",
+        "question": "What is longterm liabilities for Quantum Bridge Holdings in 2025?",
+        "ground_truth": 28735.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 6,
+        "op": "diff",
+        "question": "What is the difference of cost of goods sold for Quantum Bridge Holdings from 2025 to 2025?",
+        "ground_truth": 12316.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 7,
+        "op": "sum",
+        "question": "What are the sum of the maximum of short term investments for Quantum Bridge Holdings using values from 2022 through 2025 and the difference between the difference between cost of goods sold and short term investments and longterm liabilities for Quantum Bridge Holdings in 2025?",
+        "ground_truth": 21679.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of short term investments for Quantum Bridge Holdings from 2022 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of short term investments for Quantum Bridge Holdings from 2022 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of short term investments for Quantum Bridge Holdings from 2022 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the difference of cost of goods sold for Quantum Bridge Holdings from 2025 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is longterm liabilities for Quantum Bridge Holdings in 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the difference of cost of goods sold for Quantum Bridge Holdings from 2025 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are the sum of the maximum of short term investments for Quantum Bridge Holdings using values from 2022 through 2025 and the difference between the difference between cost of goods sold and short term investments and longterm liabilities for Quantum Bridge Holdings in 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "66",
+    "original_question": "What is the result of the ratio of the sum of the sum of the sum of short term investments for Atlas Global Industries in 2021 and short term investments for Atlas Global Industries in 2022 and short term investments for Atlas Global Industries in 2023 and short term investments for Atlas Global Industries in 2024 to 4.0 scaled by the growth in total equity for Atlas Global Industries from 2023 to 2024?",
+    "answer": "22519.65091813313",
+    "depth": 5,
+    "num_turns": 6,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of short term investments for Atlas Global Industries from 2021 to 2022?",
+        "ground_truth": 14931.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "sum",
+        "question": "What is the sum of short term investments for Atlas Global Industries from 2021 to 2023?",
+        "ground_truth": 29750.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "sum",
+        "question": "What is the sum of short term investments for Atlas Global Industries from 2021 to 2024?",
+        "ground_truth": 34455.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "ratio",
+        "question": "What is the ratio of short term investments for Atlas Global Industries from 2021 to 2024?",
+        "ground_truth": 8613.75,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "growth",
+        "question": "What is the growth of total equity for Atlas Global Industries from 2023 to 2024?",
+        "ground_truth": -0.7233276883996613,
+        "is_final": false
+      },
+      {
+        "turn_number": 6,
+        "op": "mul",
+        "question": "What is the result of the ratio of the sum of the sum of the sum of short term investments for Atlas Global Industries in 2021 and short term investments for Atlas Global Industries in 2022 and short term investments for Atlas Global Industries in 2023 and short term investments for Atlas Global Industries in 2024 to 4.0 scaled by the growth in total equity for Atlas Global Industries from 2023 to 2024?",
+        "ground_truth": -6230.563875952583,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of short term investments for Atlas Global Industries from 2021 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of short term investments for Atlas Global Industries from 2021 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of short term investments for Atlas Global Industries from 2021 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the ratio of short term investments for Atlas Global Industries from 2021 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the growth of total equity for Atlas Global Industries from 2023 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the result of the ratio of the sum of the sum of the sum of short term investments for Atlas Global Industries in 2021 and short term investments for Atlas Global Industries in 2022 and short term investments for Atlas Global Industries in 2023 and short term investments for Atlas Global Industries in 2024 to 4.0 scaled by the growth in total equity for Atlas Global Industries from 2023 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "67",
+    "original_question": "What is the maximum of revenue for NovaStar Technologies using values from 2021 through 2024?",
+    "answer": "177984.0",
+    "depth": 3,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of revenue for NovaStar Technologies from 2021 to 2022?",
+        "ground_truth": 149264.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of revenue for NovaStar Technologies from 2021 to 2023?",
+        "ground_truth": 158697.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "max",
+        "question": "What is the maximum of revenue for NovaStar Technologies from 2021 to 2024?",
+        "ground_truth": 177984.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of revenue for NovaStar Technologies from 2021 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of revenue for NovaStar Technologies from 2021 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of revenue for NovaStar Technologies from 2021 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "68",
+    "original_question": "What are current assets for Apex Dynamics Corp in 2021?",
+    "answer": "25147.0",
+    "depth": 3,
+    "num_turns": 3,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "sum",
+        "question": "What is the sum of cash for Apex Dynamics Corp from 2021 to 2021?",
+        "ground_truth": 13562.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "sum",
+        "question": "What is the sum of cash for Apex Dynamics Corp from 2021 to 2021?",
+        "ground_truth": 16934.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "sum",
+        "question": "What are current assets for Apex Dynamics Corp in 2021?",
+        "ground_truth": 25147.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the sum of cash for Apex Dynamics Corp from 2021 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of cash for Apex Dynamics Corp from 2021 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are current assets for Apex Dynamics Corp in 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "69",
+    "original_question": "What are non operating expenses for Cobalt Semiconductor in 2021?",
+    "answer": "3812.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are non operating expenses for Cobalt Semiconductor in 2021?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "70",
+    "original_question": "What are inventories for Helix BioSciences in 2025?",
+    "answer": "26091.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are inventories for Helix BioSciences in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "71",
+    "original_question": "What are current liabilities for Helix BioSciences in 2023?",
+    "answer": "54427.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are current liabilities for Helix BioSciences in 2023?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "72",
+    "original_question": "What are non operating expenses for Meridian Systems Inc in 2020?",
+    "answer": "21212.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are non operating expenses for Meridian Systems Inc in 2020?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "73",
+    "original_question": "What is accounts receivable for Pacific Crest Energy in 2022?",
+    "answer": "10261.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is accounts receivable for Pacific Crest Energy in 2022?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "74",
+    "original_question": "What are the difference between revenue and longterm liabilities for Ironclad Manufacturing in 2020?",
+    "answer": "279795.0",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What is longterm liabilities for Ironclad Manufacturing in 2020?",
+        "ground_truth": 85265.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "diff",
+        "question": "What are the difference between revenue and longterm liabilities for Ironclad Manufacturing in 2020?",
+        "ground_truth": 279795.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is longterm liabilities for Ironclad Manufacturing in 2020?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are the difference between revenue and longterm liabilities for Ironclad Manufacturing in 2020?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "75",
+    "original_question": "What is gross profit for Titan Consumer Brands in 2023?",
+    "answer": "127016.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What is gross profit for Titan Consumer Brands in 2023?",
+        "ground_truth": 127016.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is gross profit for Titan Consumer Brands in 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "76",
+    "original_question": "What is the minimum of cash for Pacific Crest Energy using values from 2020 through 2024?",
+    "answer": "4671.0",
+    "depth": 4,
+    "num_turns": 4,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of cash for Pacific Crest Energy from 2020 to 2021?",
+        "ground_truth": 33062.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of cash for Pacific Crest Energy from 2020 to 2022?",
+        "ground_truth": 33062.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of cash for Pacific Crest Energy from 2020 to 2023?",
+        "ground_truth": 33062.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "min",
+        "question": "What is the minimum of cash for Pacific Crest Energy from 2020 to 2024?",
+        "ground_truth": 4671.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of cash for Pacific Crest Energy from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of cash for Pacific Crest Energy from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of cash for Pacific Crest Energy from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of cash for Pacific Crest Energy from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "77",
+    "original_question": "What are total assets for Cobalt Semiconductor in 2022?",
+    "answer": "57651.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are total assets for Cobalt Semiconductor in 2022?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "78",
+    "original_question": "What is the maximum of total equity for Orion Financial Group using values from 2020 through 2025?",
+    "answer": "165182.0",
+    "depth": 5,
+    "num_turns": 5,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "max",
+        "question": "What is the maximum of total equity for Orion Financial Group from 2020 to 2021?",
+        "ground_truth": 59143.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "max",
+        "question": "What is the maximum of total equity for Orion Financial Group from 2020 to 2022?",
+        "ground_truth": 59143.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "max",
+        "question": "What is the maximum of total equity for Orion Financial Group from 2020 to 2023?",
+        "ground_truth": 108761.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "max",
+        "question": "What is the maximum of total equity for Orion Financial Group from 2020 to 2024?",
+        "ground_truth": 165182.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "max",
+        "question": "What is the maximum of total equity for Orion Financial Group from 2020 to 2025?",
+        "ground_truth": 165182.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the maximum of total equity for Orion Financial Group from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of total equity for Orion Financial Group from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of total equity for Orion Financial Group from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of total equity for Orion Financial Group from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the maximum of total equity for Orion Financial Group from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "79",
+    "original_question": "What is capex for Meridian Systems Inc in 2025?",
+    "answer": "6556.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is capex for Meridian Systems Inc in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "80",
+    "original_question": "What is capex for Quantum Bridge Holdings in 2020?",
+    "answer": "6279.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is capex for Quantum Bridge Holdings in 2020?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "81",
+    "original_question": "What are the result of the minimum of operating expenses for NovaStar Technologies using values from 2021 through 2023 scaled by the ratio of short term investments to the sum of total equity and operating expenses for NovaStar Technologies in 2022?",
+    "answer": "4373.037623237102",
+    "depth": 3,
+    "num_turns": 5,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of operating expenses for NovaStar Technologies from 2021 to 2022?",
+        "ground_truth": 12957.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of operating expenses for NovaStar Technologies from 2021 to 2023?",
+        "ground_truth": 12957.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "sum",
+        "question": "What is the sum of total equity for NovaStar Technologies from 2022 to 2022?",
+        "ground_truth": 67857.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "ratio",
+        "question": "What is the ratio of short term investments for NovaStar Technologies from 2022 to 2022?",
+        "ground_truth": 0.3375038684291967,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "mul",
+        "question": "What are the result of the minimum of operating expenses for NovaStar Technologies using values from 2021 through 2023 scaled by the ratio of short term investments to the sum of total equity and operating expenses for NovaStar Technologies in 2022?",
+        "ground_truth": 4373.037623237102,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of operating expenses for NovaStar Technologies from 2021 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of operating expenses for NovaStar Technologies from 2021 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the sum of total equity for NovaStar Technologies from 2022 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the ratio of short term investments for NovaStar Technologies from 2022 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What are the result of the minimum of operating expenses for NovaStar Technologies using values from 2021 through 2023 scaled by the ratio of short term investments to the sum of total equity and operating expenses for NovaStar Technologies in 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "82",
+    "original_question": "What is cash for Orion Financial Group in 2025?",
+    "answer": "43847.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is cash for Orion Financial Group in 2025?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "83",
+    "original_question": "What is capex for Titan Consumer Brands in 2022?",
+    "answer": "24547.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is capex for Titan Consumer Brands in 2022?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "84",
+    "original_question": "What are longterm liabilities for Apex Dynamics Corp in 2023?",
+    "answer": "60388.0",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What are longterm liabilities for Apex Dynamics Corp in 2023?",
+        "ground_truth": 60388.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are longterm liabilities for Apex Dynamics Corp in 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "85",
+    "original_question": "What are non operating expenses for Orion Financial Group in 2020?",
+    "answer": "13741.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat are non operating expenses for Orion Financial Group in 2020?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "86",
+    "original_question": "What is the result of total equity scaled by income tax for Ironclad Manufacturing in 2023?",
+    "answer": "47425.3750705124",
+    "depth": 1,
+    "num_turns": 1,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "mul",
+        "question": "What is the result of total equity scaled by income tax for Ironclad Manufacturing in 2023?",
+        "ground_truth": 47425.3750705124,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the result of total equity scaled by income tax for Ironclad Manufacturing in 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "87",
+    "original_question": "What is revenue for Cobalt Semiconductor in 2021?",
+    "answer": "52818.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is revenue for Cobalt Semiconductor in 2021?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "88",
+    "original_question": "What is operating income for Ironclad Manufacturing in 2021?",
+    "answer": "193081.0",
+    "depth": 2,
+    "num_turns": 2,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "diff",
+        "question": "What is gross profit for Ironclad Manufacturing in 2021?",
+        "ground_truth": 230001.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "diff",
+        "question": "What is operating income for Ironclad Manufacturing in 2021?",
+        "ground_truth": 193081.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is gross profit for Ironclad Manufacturing in 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is operating income for Ironclad Manufacturing in 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  },
+  {
+    "question_id": "89",
+    "original_question": "What is cash for Pacific Crest Energy in 2024?",
+    "answer": "4671.0",
+    "depth": 0,
+    "num_turns": 1,
+    "turns": [],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is cash for Pacific Crest Energy in 2024?"
+      }
+    ],
+    "skipped": true
+  },
+  {
+    "question_id": "90",
+    "original_question": "What is the minimum of capex for Atlas Global Industries using values from 2020 through 2025?",
+    "answer": "4078.0",
+    "depth": 5,
+    "num_turns": 5,
+    "turns": [
+      {
+        "turn_number": 1,
+        "op": "min",
+        "question": "What is the minimum of capex for Atlas Global Industries from 2020 to 2021?",
+        "ground_truth": 6460.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 2,
+        "op": "min",
+        "question": "What is the minimum of capex for Atlas Global Industries from 2020 to 2022?",
+        "ground_truth": 4078.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 3,
+        "op": "min",
+        "question": "What is the minimum of capex for Atlas Global Industries from 2020 to 2023?",
+        "ground_truth": 4078.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 4,
+        "op": "min",
+        "question": "What is the minimum of capex for Atlas Global Industries from 2020 to 2024?",
+        "ground_truth": 4078.0,
+        "is_final": false
+      },
+      {
+        "turn_number": 5,
+        "op": "min",
+        "question": "What is the minimum of capex for Atlas Global Industries from 2020 to 2025?",
+        "ground_truth": 4078.0,
+        "is_final": true
+      }
+    ],
+    "messages": [
+      {
+        "role": "user",
+        "content": "\n\nWhat is the minimum of capex for Atlas Global Industries from 2020 to 2021?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of capex for Atlas Global Industries from 2020 to 2022?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of capex for Atlas Global Industries from 2020 to 2023?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of capex for Atlas Global Industries from 2020 to 2024?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      },
+      {
+        "role": "user",
+        "content": "What is the minimum of capex for Atlas Global Industries from 2020 to 2025?"
+      },
+      {
+        "role": "assistant",
+        "content": "{{FILL_MODEL_RESPONSE}}"
+      }
+    ],
+    "skipped": false
+  }
+]
