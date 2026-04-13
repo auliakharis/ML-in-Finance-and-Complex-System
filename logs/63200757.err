@@ -1,0 +1,41 @@
+You are using a model of type `gemma4` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/models/auto/configuration_auto.py", line 1493, in from_pretrained
+    config_class = CONFIG_MAPPING[config_dict["model_type"]]
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/models/auto/configuration_auto.py", line 1196, in __getitem__
+    raise KeyError(key)
+KeyError: 'gemma4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 580, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 510, in main
+    tokenizer, model = load_model(model_name)
+                       ~~~~~~~~~~^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 194, in load_model
+    model = AutoModelForCausalLM.from_pretrained(
+        model_path,
+    ...<2 lines>...
+        trust_remote_code=True,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 326, in from_pretrained
+    config, kwargs = AutoConfig.from_pretrained(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/models/auto/configuration_auto.py", line 1495, in from_pretrained
+    raise ValueError(
+    ...<8 lines>...
+    )
+ValueError: The checkpoint you are trying to load has model type `gemma4` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+
+You can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git`

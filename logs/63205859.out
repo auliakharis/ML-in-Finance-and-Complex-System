@@ -1,0 +1,60 @@
+Checking model path...
+chat_template.jinja
+config.json
+generation_config.json
+model.safetensors
+processor_config.json
+README.md
+tokenizer_config.json
+tokenizer.json
+Starting pipeline: Mon Apr 13 09:34:14 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Mon Apr 13 09:34:14 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-PCIE-40GB          On  |   00000000:89:00.0 Off |                    0 |
+| N/A   30C    P0             31W /  250W |       0MiB /  40960MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  10-Q: 497 questions, 15 companies
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: gemma-4-E4B-it
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/gemma-4-E4B-it ...
+  Loading model from /cluster/scratch/arakhmasari/models/gemma-4-E4B-it ...
+  Model loaded on cuda.
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=13728.1633 pred=-15772.866181111112 | What is the difference between gross profit for Helix BioSci...
+
+============================================================
+  Model: gemma-4-E4B-it
+============================================================
+  10-Q  : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q  : 0/1  accuracy = 0.0%  (skipped 0)
+  Overall: 1/2  accuracy = 50.0%
+============================================================
+
+Results saved to output_llm/eval_results_20260413_093531.json
+CSV saved to output_llm/eval_results_20260413_093531.csv
+Done: Mon Apr 13 09:35:33 AM CEST 2026

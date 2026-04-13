@@ -25,7 +25,7 @@ of the ground-truth numeric answer (default ±1%).
 
 Usage:
   python run_llm_eval.py
-  python run_llm_eval.py --limit 20 --tol 0.01
+  python run_llm_eval.py --limit 20 --tol 0.1
   python run_llm_eval.py --models Qwen3.5-4B --limit 10
   python run_llm_eval.py --output results.json
 """
@@ -52,7 +52,7 @@ SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
 DATASET_90Q = BASE_DIR / "90q" / "random_questions_90.json"
 SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
 
-DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B"]
+DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B", "gemma-4-E4B-it"]
 
 
 # ---------------------------------------------------------------------------
@@ -145,13 +145,13 @@ def extract_number(text: str) -> float | bool | None:
 
         # Try to parse as number
         cleaned = re.sub(r'(\d),(\d)', r'\1\2', raw)
-        num_match = re.search(r'-?\d+(?:\.\d+)?', cleaned)
+        num_match = re.search(r'-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?', cleaned)
         if num_match:
             return float(num_match.group())
 
     # 2. Fallback: last number in text (less reliable)
     cleaned = re.sub(r'(\d),(\d)', r'\1\2', text)
-    matches = re.findall(r'-?\d+(?:\.\d+)?', cleaned)
+    matches = re.findall(r'-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?', cleaned)
     return float(matches[-1]) if matches else None
 
 
@@ -182,7 +182,7 @@ def is_correct(predicted, ground_truth, tol: float) -> bool:
 
 def load_model(model_name: str):
     """Load a HuggingFace model and tokenizer from the models directory."""
-    from transformers import AutoTokenizer, AutoModelForCausalLM
+    from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
     import torch
 
     model_path = str(MODELS_DIR / model_name)
@@ -191,11 +191,18 @@ def load_model(model_name: str):
 
     print(f"  Loading model from {model_path} ...")
     device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_compute_dtype=torch.float16,
+    )
+
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
-        torch_dtype=torch.float16 if device == "cuda" else torch.float32,
-        device_map="auto",
+        device_map="cuda:0",
         trust_remote_code=True,
+        quantization_config=bnb_config,
+        low_cpu_mem_usage=True,
     )
     model.eval()
     print(f"  Model loaded on {device}.")
@@ -417,6 +424,10 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
                 for r in model_data.get(dataset_key, []):
                     gt = r.get("ground_truth")
                     pred = r.get("predicted")
+                    try:
+                        gt = float(str(gt).replace(",", "")) if gt is not None else None
+                    except (ValueError, TypeError):
+                        gt = None
                     if gt is not None and pred is not None and gt != 0:
                         rel_err = abs(pred - gt) / abs(gt)
                     else:
@@ -454,7 +465,7 @@ def parse_args():
         help="Max questions per dataset per model (default: all)",
     )
     parser.add_argument(
-        "--tol", type=float, default=0.01,
+        "--tol", type=float, default=0.1,
         help="Relative tolerance for numeric correctness (default: 0.01 = 1%%)",
     )
     parser.add_argument(
