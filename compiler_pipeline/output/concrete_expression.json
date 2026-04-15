@@ -1,0 +1,129 @@
+{
+  "expr": {
+    "op": "sum",
+    "left": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "op": "sum",
+          "left": {
+            "op": "sum",
+            "left": {
+              "op": "sum",
+              "left": {
+                "op": "sum",
+                "left": {
+                  "leaf": "72_total_equity",
+                  "depth": 0
+                },
+                "right": {
+                  "leaf": "73_total_equity",
+                  "depth": 0
+                },
+                "depth": 1
+              },
+              "right": {
+                "leaf": "74_total_equity",
+                "depth": 0
+              },
+              "depth": 2
+            },
+            "right": {
+              "leaf": "75_total_equity",
+              "depth": 0
+            },
+            "depth": 3
+          },
+          "right": {
+            "leaf": "76_total_equity",
+            "depth": 0
+          },
+          "depth": 4
+        },
+        "right": {
+          "leaf": "77_total_equity",
+          "depth": 0
+        },
+        "depth": 5
+      },
+      "right": {
+        "literal": 6.0,
+        "depth": 0
+      },
+      "depth": 6
+    },
+    "right": {
+      "op": "ratio",
+      "left": {
+        "op": "sum",
+        "left": {
+          "op": "sum",
+          "left": {
+            "op": "sum",
+            "left": {
+              "op": "sum",
+              "left": {
+                "op": "sum",
+                "left": {
+                  "leaf": "72_revenue",
+                  "depth": 0
+                },
+                "right": {
+                  "leaf": "73_revenue",
+                  "depth": 0
+                },
+                "depth": 1
+              },
+              "right": {
+                "leaf": "74_revenue",
+                "depth": 0
+              },
+              "depth": 2
+            },
+            "right": {
+              "leaf": "75_revenue",
+              "depth": 0
+            },
+            "depth": 3
+          },
+          "right": {
+            "leaf": "76_revenue",
+            "depth": 0
+          },
+          "depth": 4
+        },
+        "right": {
+          "leaf": "77_revenue",
+          "depth": 0
+        },
+        "depth": 5
+      },
+      "right": {
+        "literal": 6.0,
+        "depth": 0
+      },
+      "depth": 6
+    },
+    "depth": 7
+  },
+  "expr_str": "sum(ratio(sum(sum(sum(sum(sum(72_total_equity, 73_total_equity), 74_total_equity), 75_total_equity), 76_total_equity), 77_total_equity), 6.0), ratio(sum(sum(sum(sum(sum(72_revenue, 73_revenue), 74_revenue), 75_revenue), 76_revenue), 77_revenue), 6.0))",
+  "depth": 7,
+  "question": "What is the value of the sum of ratio of sum of sum of sum of sum of sum of total equity for Helix BioSciences in 2020 and total equity for Helix BioSciences in 2021 and total equity for Helix BioSciences in 2022 and total equity for Helix BioSciences in 2023 and total equity for Helix BioSciences in 2024 and total equity for Helix BioSciences in 2025 to 6.0 and ratio of sum of sum of sum of sum of sum of revenue for Helix BioSciences in 2020 and revenue for Helix BioSciences in 2021 and revenue for Helix BioSciences in 2022 and revenue for Helix BioSciences in 2023 and revenue for Helix BioSciences in 2024 and revenue for Helix BioSciences in 2025 to 6.0?",
+  "answer": 365866.5,
+  "meaning": {
+    "kind": "sum_amount",
+    "semantic_type": "amount",
+    "text": "sum of total equity and revenue for Helix BioSciences in 2025",
+    "entity": "Helix BioSciences",
+    "period": "2025",
+    "unit": "USD",
+    "concept": null,
+    "label": "total equity plus revenue",
+    "from_period": null,
+    "to_period": null,
+    "components": null,
+    "target_concept": null,
+    "derivation": "sum(avg_over_all_periods, avg_over_all_periods)"
+  }
+}
