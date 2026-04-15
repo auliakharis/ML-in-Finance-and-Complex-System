@@ -182,12 +182,22 @@ def get_entity(node, leaf_map: dict[str, Leaf]) -> str:
 # Turn generation
 # ---------------------------------------------------------------------------
 
-def collect_turns(node, leaf_map, original_question, turns, is_root=False):
+def collect_turns(node, leaf_map, original_question, turns, is_root=False, skip_turn=False):
     if isinstance(node, Leaf):
         return
 
     for arg in node.args:
-        collect_turns(arg, leaf_map, original_question, turns, is_root=False)
+        # Suppress intermediate turns for nested same-op min/max chains
+        # e.g. min(min(2021,2022), 2023) → only one turn for the outermost min
+        child_skip = (
+            node.op in ("min", "max")
+            and isinstance(arg, Node)
+            and arg.op == node.op
+        )
+        collect_turns(arg, leaf_map, original_question, turns, is_root=False, skip_turn=child_skip)
+
+    if skip_turn:
+        return
 
     if is_root and node.op in CROSS_OPS:
         turns.append(Turn(
