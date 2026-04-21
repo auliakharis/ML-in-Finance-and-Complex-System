@@ -1,0 +1,2509 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+gemma-4-E4B-it,90q,1,Crimson Pharmaceuticals,0,What are total assets for Crimson Pharmaceuticals in 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236
+    cost_of_goods_sold: 204759
+    operating_expenses: 51889
+    non_operating_expenses: 60056
+    income_tax: 0.26308121613119645
+    total_assets: 533633
+    total_liabilities: 152160
+    total_equity: 381473
+    cash: 91955
+    accounts_receivable: 31783
+    inventories: 27044
+    short_term_investments: 8908
+    current_liabilities: 62984
+    capex: 38887
+    dividends_paid: 24069
+    shares_outstanding: 6611
+    stock_price: 329.02
+    employees: 222670
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238
+    cost_of_goods_sold: 249019
+    operating_expenses: 48071
+    non_operating_expenses: 103672
+    income_tax: 0.1734693853919364
+    total_assets: 437826
+    total_liabilities: 221096
+    total_equity: 216730
+    cash: 21092
+    accounts_receivable: 45367
+    inventories: 18920
+    short_term_investments: 65373
+    current_liabilities: 65249
+    capex: 15521
+    dividends_paid: 30726
+    shares_outstanding: 4986
+    stock_price: 247.08
+    employees: 225728
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787
+    cost_of_goods_sold: 231289
+    operating_expenses: 85599
+    non_operating_expenses: 85996
+    income_tax: 0.24536287914222057
+    total_assets: 442481
+    total_liabilities: 292999
+    total_equity: 149482
+    cash: 55614
+    accounts_receivable: 64113
+    inventories: 28424
+    short_term_investments: 7978
+    current_liabilities: 122414
+    capex: 37653
+    dividends_paid: 52141
+    shares_outstanding: 11273
+    stock_price: 140.59
+    employees: 20415
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714010
+    cost_of_goods_sold: 432076
+    operating_expenses: 98272
+    non_operating_expenses: 53726
+    income_tax: 0.14719907608407046
+    total_assets: 664693
+    total_liabilities: 372880
+    total_equity: 291813
+    cash: 158784
+    accounts_receivable: 30873
+    inventories: 17260
+    short_term_investments: 48515
+    current_liabilities: 127801
+    capex: 18672
+    dividends_paid: 35183
+    shares_outstanding: 2152
+    stock_price: 303.06
+    employees: 160621
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712606
+    cost_of_goods_sold: 521794
+    operating_expenses: 39324
+    non_operating_expenses: 62146
+    income_tax: 0.2035490548416784
+    total_assets: 510371
+    total_liabilities: 194929
+    total_equity: 315442
+    cash: 102325
+    accounts_receivable: 78674
+    inventories: 24991
+    short_term_investments: 48824
+    current_liabilities: 82551
+    capex: 25664
+    dividends_paid: 63709
+    shares_outstanding: 2122
+    stock_price: 73.13
+    employees: 90465
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797936
+    cost_of_goods_sold: 597469
+    operating_expenses: 169244
+    non_operating_expenses: 194307
+    income_tax: 0.29731493192849723
+    total_assets: 724469
+    total_liabilities: 499182
+    total_equity: 225287
+    cash: 109394
+    accounts_receivable: 55086
+    inventories: 35247
+    short_term_investments: 23220
+    current_liabilities: 213346
+    capex: 27072
+    dividends_paid: 22839
+    shares_outstanding: 5486
+    stock_price: 191.03
+    employees: 492641
+=== END ===
+
+QUESTION: What are total assets for Crimson Pharmaceuticals in 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",442481.0,442481.0,Answer: 442481,True,0.000000,True,False
+gemma-4-E4B-it,90q,2,Orion Financial Group,3,What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 87989
+    cost_of_goods_sold: 47755
+    operating_expenses: 21496
+    non_operating_expenses: 13741
+    income_tax: 0.2826973948963394
+    total_assets: 67863
+    total_liabilities: 33826
+    total_equity: 34037
+    cash: 14348
+    accounts_receivable: 7759
+    inventories: 5962
+    short_term_investments: 7772
+    current_liabilities: 11321
+    capex: 8538
+    dividends_paid: 1143
+    shares_outstanding: 2197
+    stock_price: 773.7
+    employees: 430770
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 98792
+    cost_of_goods_sold: 73202
+    operating_expenses: 24051
+    non_operating_expenses: 20837
+    income_tax: 0.17315500988111326
+    total_assets: 79108
+    total_liabilities: 19965
+    total_equity: 59143
+    cash: 11712
+    accounts_receivable: 8445
+    inventories: 7867
+    short_term_investments: 8237
+    current_liabilities: 7909
+    capex: 9407
+    dividends_paid: 1876
+    shares_outstanding: 1714
+    stock_price: 198.55
+    employees: 17387
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 115348
+    cost_of_goods_sold: 63745
+    operating_expenses: 26882
+    non_operating_expenses: 10874
+    income_tax: 0.1126434082320391
+    total_assets: 89512
+    total_liabilities: 65676
+    total_equity: 23836
+    cash: 8636
+    accounts_receivable: 9324
+    inventories: 2433
+    short_term_investments: 12753
+    current_liabilities: 21416
+    capex: 3204
+    dividends_paid: 5468
+    shares_outstanding: 13320
+    stock_price: 121.5
+    employees: 229554
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 127775
+    cost_of_goods_sold: 81062
+    operating_expenses: 30563
+    non_operating_expenses: 17100
+    income_tax: 0.24845380295306316
+    total_assets: 263222
+    total_liabilities: 154461
+    total_equity: 108761
+    cash: 13631
+    accounts_receivable: 11364
+    inventories: 5922
+    short_term_investments: 37697
+    current_liabilities: 39879
+    capex: 7088
+    dividends_paid: 3519
+    shares_outstanding: 14263
+    stock_price: 686.53
+    employees: 54181
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 142085
+    cost_of_goods_sold: 77438
+    operating_expenses: 34892
+    non_operating_expenses: 17297
+    income_tax: 0.1796279285488746
+    total_assets: 269218
+    total_liabilities: 104036
+    total_equity: 165182
+    cash: 58304
+    accounts_receivable: 12144
+    inventories: 8221
+    short_term_investments: 26878
+    current_liabilities: 41540
+    capex: 11785
+    dividends_paid: 308
+    shares_outstanding: 3729
+    stock_price: 113.85
+    employees: 284466
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 133448
+    cost_of_goods_sold: 85983
+    operating_expenses: 12201
+    non_operating_expenses: 12436
+    income_tax: 0.27393908535390893
+    total_assets: 192213
+    total_liabilities: 79040
+    total_equity: 113173
+    cash: 43847
+    accounts_receivable: 5376
+    inventories: 11315
+    short_term_investments: 5816
+    current_liabilities: 22329
+    capex: 4532
+    dividends_paid: 3871
+    shares_outstanding: 9950
+    stock_price: 35.24
+    employees: 12356
+=== END ===
+
+QUESTION: What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",-16736.48725362761,28814.78,"2020: 11321
+2021: 7909
+2022: 21416
+Max current liabilities (2020-2022): 21416
+Short term investments 2021: 8237
+Short term investments 2023: 37697
+Growth in short term investments (2021 to 2023): (37697 - 8237) / 8237 = 35.009%
+Result: 21416 * (1 + 0.35009) = 28814.78
+
+Answer: 28814.78",False,2.721674,False,False
+gemma-4-E4B-it,90q,3,Pacific Crest Energy,1,What are longterm liabilities for Pacific Crest Energy in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 160549
+    cost_of_goods_sold: 109216
+    operating_expenses: 11229
+    non_operating_expenses: 37262
+    income_tax: 0.10306951958305213
+    total_assets: 339437
+    total_liabilities: 246479
+    total_equity: 92958
+    cash: 82616
+    accounts_receivable: 7623
+    inventories: 13280
+    short_term_investments: 15989
+    current_liabilities: 100025
+    capex: 4243
+    dividends_paid: 6560
+    shares_outstanding: 4996
+    stock_price: 544.37
+    employees: 269143
+  Year 2021:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 190597
+    cost_of_goods_sold: 110939
+    operating_expenses: 43358
+    non_operating_expenses: 28130
+    income_tax: 0.208203202539532
+    total_assets: 183099
+    total_liabilities: 88419
+    total_equity: 94680
+    cash: 33062
+    accounts_receivable: 13101
+    inventories: 5500
+    short_term_investments: 4148
+    current_liabilities: 43731
+    capex: 14545
+    dividends_paid: 13786
+    shares_outstanding: 1598
+    stock_price: 145.6
+    employees: 153236
+  Year 2022:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 176894
+    cost_of_goods_sold: 78889
+    operating_expenses: 10830
+    non_operating_expenses: 21527
+    income_tax: 0.18613735757108002
+    total_assets: 298285
+    total_liabilities: 174646
+    total_equity: 123639
+    cash: 53690
+    accounts_receivable: 10261
+    inventories: 3373
+    short_term_investments: 28435
+    current_liabilities: 60364
+    capex: 10581
+    dividends_paid: 24372
+    shares_outstanding: 8789
+    stock_price: 197.27
+    employees: 320763
+  Year 2023:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 185505
+    cost_of_goods_sold: 111318
+    operating_expenses: 42626
+    non_operating_expenses: 26537
+    income_tax: 0.15752633314968775
+    total_assets: 194060
+    total_liabilities: 64637
+    total_equity: 129423
+    cash: 46177
+    accounts_receivable: 25742
+    inventories: 6556
+    short_term_investments: 28077
+    current_liabilities: 27314
+    capex: 8194
+    dividends_paid: 6994
+    shares_outstanding: 14991
+    stock_price: 684.87
+    employees: 57793
+  Year 2024:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 190473
+    cost_of_goods_sold: 87909
+    operating_expenses: 20795
+    non_operating_expenses: 36162
+    income_tax: 0.10438791957191301
+    total_assets: 146965
+    total_liabilities: 84920
+    total_equity: 62045
+    cash: 4671
+    accounts_receivable: 24096
+    inventories: 10653
+    short_term_investments: 21502
+    current_liabilities: 40562
+    capex: 16500
+    dividends_paid: 25020
+    shares_outstanding: 13554
+    stock_price: 623.96
+    employees: 118909
+  Year 2025:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 218004
+    cost_of_goods_sold: 86886
+    operating_expenses: 19190
+    non_operating_expenses: 21828
+    income_tax: 0.25111546474833546
+    total_assets: 178551
+    total_liabilities: 121657
+    total_equity: 56894
+    cash: 10729
+    accounts_receivable: 10838
+    inventories: 8825
+    short_term_investments: 2771
+    current_liabilities: 54399
+    capex: 10723
+    dividends_paid: 1558
+    shares_outstanding: 2058
+    stock_price: 729.06
+    employees: 166726
+=== END ===
+
+QUESTION: What are longterm liabilities for Pacific Crest Energy in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",37323.0,37323.0,"LongTermLiabilities = TotalLiabilities - CurrentLiabilities$
+LongTermLiabilities_2023 = 64637 - 27314 = 37323
+
+Answer: 37323",True,0.000000,True,False
+gemma-4-E4B-it,90q,4,Ironclad Manufacturing,0,What is accounts receivable for Ironclad Manufacturing in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 231556
+    operating_expenses: 87678
+    non_operating_expenses: 68643
+    income_tax: 0.13830819460210894
+    total_assets: 307723
+    total_liabilities: 157361
+    total_equity: 150362
+    cash: 49146
+    accounts_receivable: 42355
+    inventories: 22596
+    short_term_investments: 45319
+    current_liabilities: 72096
+    capex: 17841
+    dividends_paid: 6867
+    shares_outstanding: 4604
+    stock_price: 570.79
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 81319
+    income_tax: 0.2275739310211855
+    total_assets: 282967
+    total_liabilities: 103532
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: 23302
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 20348
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: 248415
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 224248
+    operating_expenses: 29590
+    non_operating_expenses: 78160
+    income_tax: 0.28982512847160624
+    total_assets: 915630
+    total_liabilities: 450870
+    total_equity: 464760
+    cash: 139886
+    accounts_receivable: 30058
+    inventories: 21863
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 18718
+    shares_outstanding: 4531
+    stock_price: 476.99
+    employees: 217271
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 0.25254742087094173
+    total_assets: 378307
+    total_liabilities: 190519
+    total_equity: 187788
+    cash: 18106
+    accounts_receivable: 25432
+    inventories: 11929
+    short_term_investments: 12074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 53922
+    shares_outstanding: 586
+    stock_price: 241.16
+    employees: 144946
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 461323
+    cost_of_goods_sold: 153173
+    operating_expenses: 44603
+    non_operating_expenses: 47475
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 33656
+    accounts_receivable: 23748
+    inventories: 7540
+    short_term_investments: 14126
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 15650
+    shares_outstanding: 11910
+    stock_price: 482.11
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 543408
+    cost_of_goods_sold: 270410
+    operating_expenses: 78109
+    non_operating_expenses: 60220
+    income_tax: 0.18050170383256112
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 109521
+    accounts_receivable: 54234
+    inventories: 36674
+    short_term_investments: 97839
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 2162
+    shares_outstanding: 10147
+    stock_price: 690.51
+    employees: 295626
+=== END ===
+
+QUESTION: What is accounts receivable for Ironclad Manufacturing in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",23748.0,23748.0,Answer: 23748,True,0.000000,True,False
+gemma-4-E4B-it,90q,5,Orion Financial Group,1,What is the maximum of total equity for Orion Financial Group using values from 2021 through 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 87989
+    cost_of_goods_sold: 47755
+    operating_expenses: 21496
+    non_operating_expenses: 13741
+    income_tax: 0.2826973948963394
+    total_assets: 67863
+    total_liabilities: 33826
+    total_equity: 34037
+    cash: 14348
+    accounts_receivable: 7759
+    inventories: 5962
+    short_term_investments: 7772
+    current_liabilities: 11321
+    capex: 8538
+    dividends_paid: 1143
+    shares_outstanding: 2197
+    stock_price: 773.7
+    employees: 430770
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 98792
+    cost_of_goods_sold: 73202
+    operating_expenses: 24051
+    non_operating_expenses: 20837
+    income_tax: 0.17315500988111326
+    total_assets: 79108
+    total_liabilities: 19965
+    total_equity: 59143
+    cash: 11712
+    accounts_receivable: 8445
+    inventories: 7867
+    short_term_investments: 8237
+    current_liabilities: 7909
+    capex: 9407
+    dividends_paid: 1876
+    shares_outstanding: 1714
+    stock_price: 198.55
+    employees: 17387
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 115348
+    cost_of_goods_sold: 63745
+    operating_expenses: 26882
+    non_operating_expenses: 10874
+    income_tax: 0.1126434082320391
+    total_assets: 89512
+    total_liabilities: 65676
+    total_equity: 23836
+    cash: 8636
+    accounts_receivable: 9324
+    inventories: 2433
+    short_term_investments: 12753
+    current_liabilities: 21416
+    capex: 3204
+    dividends_paid: 5468
+    shares_outstanding: 13320
+    stock_price: 121.5
+    employees: 229554
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 127775
+    cost_of_goods_sold: 81062
+    operating_expenses: 30563
+    non_operating_expenses: 17100
+    income_tax: 0.24845380295306316
+    total_assets: 263222
+    total_liabilities: 154461
+    total_equity: 108761
+    cash: 13631
+    accounts_receivable: 11364
+    inventories: 5922
+    short_term_investments: 37697
+    current_liabilities: 39879
+    capex: 7088
+    dividends_paid: 3519
+    shares_outstanding: 14263
+    stock_price: 686.53
+    employees: 54181
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 142085
+    cost_of_goods_sold: 77438
+    operating_expenses: 34892
+    non_operating_expenses: 17297
+    income_tax: 0.1796279285488746
+    total_assets: 269218
+    total_liabilities: 104036
+    total_equity: 165182
+    cash: 58304
+    accounts_receivable: 12144
+    inventories: 8221
+    short_term_investments: 26878
+    current_liabilities: 41540
+    capex: 11785
+    dividends_paid: 308
+    shares_outstanding: 3729
+    stock_price: 113.85
+    employees: 284466
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 133448
+    cost_of_goods_sold: 85983
+    operating_expenses: 12201
+    non_operating_expenses: 12436
+    income_tax: 0.27393908535390893
+    total_assets: 192213
+    total_liabilities: 79040
+    total_equity: 113173
+    cash: 43847
+    accounts_receivable: 5376
+    inventories: 11315
+    short_term_investments: 5816
+    current_liabilities: 22329
+    capex: 4532
+    dividends_paid: 3871
+    shares_outstanding: 9950
+    stock_price: 35.24
+    employees: 12356
+=== END ===
+
+QUESTION: What is the maximum of total equity for Orion Financial Group using values from 2021 through 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",59143.0,59143.0,"Max(59143, 23836) = 59143
+
+Answer: 59143",True,0.000000,True,False
+gemma-4-E4B-it,mt,2,Orion Financial Group,3,Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?,,-16736.48725362761,14.1336,Answer: 14.1336,False,1.000844,False,False
+gemma-4-E4B-it,mt,3,Pacific Crest Energy,1,Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?,,37323.0,0.0,Answer: 0,False,1.000000,False,False
+gemma-4-E4B-it,mt,5,Orion Financial Group,1,Provide the the maximum of total equity for Orion Financial Group using values from 2021 through 2022.,,59143.0,59143.0,Answer: 59143,True,0.000000,True,False
+gemma-4-E4B-it,mt,6,Titan Consumer Brands,2,Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?,,46156.5,46156.5,"92313/2=46156.5
+Answer: 46156.5",True,0.000000,True,False
+gemma-4-E4B-it,mt,7,Meridian Systems Inc,4,What do we obtain as the the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?,,8595.0,8595.0,Answer: 8595,True,0.000000,True,False
+Qwen3.5-4B,90q,1,Crimson Pharmaceuticals,0,What are total assets for Crimson Pharmaceuticals in 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236
+    cost_of_goods_sold: 204759
+    operating_expenses: 51889
+    non_operating_expenses: 60056
+    income_tax: 0.26308121613119645
+    total_assets: 533633
+    total_liabilities: 152160
+    total_equity: 381473
+    cash: 91955
+    accounts_receivable: 31783
+    inventories: 27044
+    short_term_investments: 8908
+    current_liabilities: 62984
+    capex: 38887
+    dividends_paid: 24069
+    shares_outstanding: 6611
+    stock_price: 329.02
+    employees: 222670
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238
+    cost_of_goods_sold: 249019
+    operating_expenses: 48071
+    non_operating_expenses: 103672
+    income_tax: 0.1734693853919364
+    total_assets: 437826
+    total_liabilities: 221096
+    total_equity: 216730
+    cash: 21092
+    accounts_receivable: 45367
+    inventories: 18920
+    short_term_investments: 65373
+    current_liabilities: 65249
+    capex: 15521
+    dividends_paid: 30726
+    shares_outstanding: 4986
+    stock_price: 247.08
+    employees: 225728
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787
+    cost_of_goods_sold: 231289
+    operating_expenses: 85599
+    non_operating_expenses: 85996
+    income_tax: 0.24536287914222057
+    total_assets: 442481
+    total_liabilities: 292999
+    total_equity: 149482
+    cash: 55614
+    accounts_receivable: 64113
+    inventories: 28424
+    short_term_investments: 7978
+    current_liabilities: 122414
+    capex: 37653
+    dividends_paid: 52141
+    shares_outstanding: 11273
+    stock_price: 140.59
+    employees: 20415
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714010
+    cost_of_goods_sold: 432076
+    operating_expenses: 98272
+    non_operating_expenses: 53726
+    income_tax: 0.14719907608407046
+    total_assets: 664693
+    total_liabilities: 372880
+    total_equity: 291813
+    cash: 158784
+    accounts_receivable: 30873
+    inventories: 17260
+    short_term_investments: 48515
+    current_liabilities: 127801
+    capex: 18672
+    dividends_paid: 35183
+    shares_outstanding: 2152
+    stock_price: 303.06
+    employees: 160621
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712606
+    cost_of_goods_sold: 521794
+    operating_expenses: 39324
+    non_operating_expenses: 62146
+    income_tax: 0.2035490548416784
+    total_assets: 510371
+    total_liabilities: 194929
+    total_equity: 315442
+    cash: 102325
+    accounts_receivable: 78674
+    inventories: 24991
+    short_term_investments: 48824
+    current_liabilities: 82551
+    capex: 25664
+    dividends_paid: 63709
+    shares_outstanding: 2122
+    stock_price: 73.13
+    employees: 90465
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797936
+    cost_of_goods_sold: 597469
+    operating_expenses: 169244
+    non_operating_expenses: 194307
+    income_tax: 0.29731493192849723
+    total_assets: 724469
+    total_liabilities: 499182
+    total_equity: 225287
+    cash: 109394
+    accounts_receivable: 55086
+    inventories: 35247
+    short_term_investments: 23220
+    current_liabilities: 213346
+    capex: 27072
+    dividends_paid: 22839
+    shares_outstanding: 5486
+    stock_price: 191.03
+    employees: 492641
+=== END ===
+
+QUESTION: What are total assets for Crimson Pharmaceuticals in 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",442481.0,442481.0,"In the 2022 data entry for Crimson Pharmaceuticals (CRPH), the value listed under ""total_assets"" is 442481.
+
+Answer: 442481",True,0.000000,True,False
+Qwen3.5-4B,90q,2,Orion Financial Group,3,What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 87989
+    cost_of_goods_sold: 47755
+    operating_expenses: 21496
+    non_operating_expenses: 13741
+    income_tax: 0.2826973948963394
+    total_assets: 67863
+    total_liabilities: 33826
+    total_equity: 34037
+    cash: 14348
+    accounts_receivable: 7759
+    inventories: 5962
+    short_term_investments: 7772
+    current_liabilities: 11321
+    capex: 8538
+    dividends_paid: 1143
+    shares_outstanding: 2197
+    stock_price: 773.7
+    employees: 430770
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 98792
+    cost_of_goods_sold: 73202
+    operating_expenses: 24051
+    non_operating_expenses: 20837
+    income_tax: 0.17315500988111326
+    total_assets: 79108
+    total_liabilities: 19965
+    total_equity: 59143
+    cash: 11712
+    accounts_receivable: 8445
+    inventories: 7867
+    short_term_investments: 8237
+    current_liabilities: 7909
+    capex: 9407
+    dividends_paid: 1876
+    shares_outstanding: 1714
+    stock_price: 198.55
+    employees: 17387
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 115348
+    cost_of_goods_sold: 63745
+    operating_expenses: 26882
+    non_operating_expenses: 10874
+    income_tax: 0.1126434082320391
+    total_assets: 89512
+    total_liabilities: 65676
+    total_equity: 23836
+    cash: 8636
+    accounts_receivable: 9324
+    inventories: 2433
+    short_term_investments: 12753
+    current_liabilities: 21416
+    capex: 3204
+    dividends_paid: 5468
+    shares_outstanding: 13320
+    stock_price: 121.5
+    employees: 229554
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 127775
+    cost_of_goods_sold: 81062
+    operating_expenses: 30563
+    non_operating_expenses: 17100
+    income_tax: 0.24845380295306316
+    total_assets: 263222
+    total_liabilities: 154461
+    total_equity: 108761
+    cash: 13631
+    accounts_receivable: 11364
+    inventories: 5922
+    short_term_investments: 37697
+    current_liabilities: 39879
+    capex: 7088
+    dividends_paid: 3519
+    shares_outstanding: 14263
+    stock_price: 686.53
+    employees: 54181
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 142085
+    cost_of_goods_sold: 77438
+    operating_expenses: 34892
+    non_operating_expenses: 17297
+    income_tax: 0.1796279285488746
+    total_assets: 269218
+    total_liabilities: 104036
+    total_equity: 165182
+    cash: 58304
+    accounts_receivable: 12144
+    inventories: 8221
+    short_term_investments: 26878
+    current_liabilities: 41540
+    capex: 11785
+    dividends_paid: 308
+    shares_outstanding: 3729
+    stock_price: 113.85
+    employees: 284466
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 133448
+    cost_of_goods_sold: 85983
+    operating_expenses: 12201
+    non_operating_expenses: 12436
+    income_tax: 0.27393908535390893
+    total_assets: 192213
+    total_liabilities: 79040
+    total_equity: 113173
+    cash: 43847
+    accounts_receivable: 5376
+    inventories: 11315
+    short_term_investments: 5816
+    current_liabilities: 22329
+    capex: 4532
+    dividends_paid: 3871
+    shares_outstanding: 9950
+    stock_price: 35.24
+    employees: 12356
+=== END ===
+
+QUESTION: What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",-16736.48725362761,11750.53,"Maximum current liabilities (2020-2022): 21416 (2022).
+Growth in short-term investments (2021-2023): (12753 - 8237) / 8237 = 0.5483.
+Calculation: 21416 * 0.5483 = 11750.53.
+Answer: 11750.53",False,1.702091,False,False
+Qwen3.5-4B,90q,3,Pacific Crest Energy,1,What are longterm liabilities for Pacific Crest Energy in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 160549
+    cost_of_goods_sold: 109216
+    operating_expenses: 11229
+    non_operating_expenses: 37262
+    income_tax: 0.10306951958305213
+    total_assets: 339437
+    total_liabilities: 246479
+    total_equity: 92958
+    cash: 82616
+    accounts_receivable: 7623
+    inventories: 13280
+    short_term_investments: 15989
+    current_liabilities: 100025
+    capex: 4243
+    dividends_paid: 6560
+    shares_outstanding: 4996
+    stock_price: 544.37
+    employees: 269143
+  Year 2021:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 190597
+    cost_of_goods_sold: 110939
+    operating_expenses: 43358
+    non_operating_expenses: 28130
+    income_tax: 0.208203202539532
+    total_assets: 183099
+    total_liabilities: 88419
+    total_equity: 94680
+    cash: 33062
+    accounts_receivable: 13101
+    inventories: 5500
+    short_term_investments: 4148
+    current_liabilities: 43731
+    capex: 14545
+    dividends_paid: 13786
+    shares_outstanding: 1598
+    stock_price: 145.6
+    employees: 153236
+  Year 2022:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 176894
+    cost_of_goods_sold: 78889
+    operating_expenses: 10830
+    non_operating_expenses: 21527
+    income_tax: 0.18613735757108002
+    total_assets: 298285
+    total_liabilities: 174646
+    total_equity: 123639
+    cash: 53690
+    accounts_receivable: 10261
+    inventories: 3373
+    short_term_investments: 28435
+    current_liabilities: 60364
+    capex: 10581
+    dividends_paid: 24372
+    shares_outstanding: 8789
+    stock_price: 197.27
+    employees: 320763
+  Year 2023:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 185505
+    cost_of_goods_sold: 111318
+    operating_expenses: 42626
+    non_operating_expenses: 26537
+    income_tax: 0.15752633314968775
+    total_assets: 194060
+    total_liabilities: 64637
+    total_equity: 129423
+    cash: 46177
+    accounts_receivable: 25742
+    inventories: 6556
+    short_term_investments: 28077
+    current_liabilities: 27314
+    capex: 8194
+    dividends_paid: 6994
+    shares_outstanding: 14991
+    stock_price: 684.87
+    employees: 57793
+  Year 2024:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 190473
+    cost_of_goods_sold: 87909
+    operating_expenses: 20795
+    non_operating_expenses: 36162
+    income_tax: 0.10438791957191301
+    total_assets: 146965
+    total_liabilities: 84920
+    total_equity: 62045
+    cash: 4671
+    accounts_receivable: 24096
+    inventories: 10653
+    short_term_investments: 21502
+    current_liabilities: 40562
+    capex: 16500
+    dividends_paid: 25020
+    shares_outstanding: 13554
+    stock_price: 623.96
+    employees: 118909
+  Year 2025:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 218004
+    cost_of_goods_sold: 86886
+    operating_expenses: 19190
+    non_operating_expenses: 21828
+    income_tax: 0.25111546474833546
+    total_assets: 178551
+    total_liabilities: 121657
+    total_equity: 56894
+    cash: 10729
+    accounts_receivable: 10838
+    inventories: 8825
+    short_term_investments: 2771
+    current_liabilities: 54399
+    capex: 10723
+    dividends_paid: 1558
+    shares_outstanding: 2058
+    stock_price: 729.06
+    employees: 166726
+=== END ===
+
+QUESTION: What are longterm liabilities for Pacific Crest Energy in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",37323.0,37323.0,"The provided data for 2023 lists ""total_liabilities"" as 64637 and ""current_liabilities"" as 27314. Long-term liabilities are calculated as Total Liabilities minus Current Liabilities: 64637 - 27314 = 37323.
+
+Answer: 37323",True,0.000000,True,False
+Qwen3.5-4B,90q,4,Ironclad Manufacturing,0,What is accounts receivable for Ironclad Manufacturing in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 231556
+    operating_expenses: 87678
+    non_operating_expenses: 68643
+    income_tax: 0.13830819460210894
+    total_assets: 307723
+    total_liabilities: 157361
+    total_equity: 150362
+    cash: 49146
+    accounts_receivable: 42355
+    inventories: 22596
+    short_term_investments: 45319
+    current_liabilities: 72096
+    capex: 17841
+    dividends_paid: 6867
+    shares_outstanding: 4604
+    stock_price: 570.79
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 81319
+    income_tax: 0.2275739310211855
+    total_assets: 282967
+    total_liabilities: 103532
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: 23302
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 20348
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: 248415
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 224248
+    operating_expenses: 29590
+    non_operating_expenses: 78160
+    income_tax: 0.28982512847160624
+    total_assets: 915630
+    total_liabilities: 450870
+    total_equity: 464760
+    cash: 139886
+    accounts_receivable: 30058
+    inventories: 21863
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 18718
+    shares_outstanding: 4531
+    stock_price: 476.99
+    employees: 217271
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 0.25254742087094173
+    total_assets: 378307
+    total_liabilities: 190519
+    total_equity: 187788
+    cash: 18106
+    accounts_receivable: 25432
+    inventories: 11929
+    short_term_investments: 12074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 53922
+    shares_outstanding: 586
+    stock_price: 241.16
+    employees: 144946
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 461323
+    cost_of_goods_sold: 153173
+    operating_expenses: 44603
+    non_operating_expenses: 47475
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 33656
+    accounts_receivable: 23748
+    inventories: 7540
+    short_term_investments: 14126
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 15650
+    shares_outstanding: 11910
+    stock_price: 482.11
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 543408
+    cost_of_goods_sold: 270410
+    operating_expenses: 78109
+    non_operating_expenses: 60220
+    income_tax: 0.18050170383256112
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 109521
+    accounts_receivable: 54234
+    inventories: 36674
+    short_term_investments: 97839
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 2162
+    shares_outstanding: 10147
+    stock_price: 690.51
+    employees: 295626
+=== END ===
+
+QUESTION: What is accounts receivable for Ironclad Manufacturing in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",23748.0,23748.0,"In the 2024 data for IRCL, the accounts_receivable value is listed as 23748.
+
+Answer: 23748",True,0.000000,True,False
+Qwen3.5-4B,90q,5,Orion Financial Group,1,What is the maximum of total equity for Orion Financial Group using values from 2021 through 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 87989
+    cost_of_goods_sold: 47755
+    operating_expenses: 21496
+    non_operating_expenses: 13741
+    income_tax: 0.2826973948963394
+    total_assets: 67863
+    total_liabilities: 33826
+    total_equity: 34037
+    cash: 14348
+    accounts_receivable: 7759
+    inventories: 5962
+    short_term_investments: 7772
+    current_liabilities: 11321
+    capex: 8538
+    dividends_paid: 1143
+    shares_outstanding: 2197
+    stock_price: 773.7
+    employees: 430770
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 98792
+    cost_of_goods_sold: 73202
+    operating_expenses: 24051
+    non_operating_expenses: 20837
+    income_tax: 0.17315500988111326
+    total_assets: 79108
+    total_liabilities: 19965
+    total_equity: 59143
+    cash: 11712
+    accounts_receivable: 8445
+    inventories: 7867
+    short_term_investments: 8237
+    current_liabilities: 7909
+    capex: 9407
+    dividends_paid: 1876
+    shares_outstanding: 1714
+    stock_price: 198.55
+    employees: 17387
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 115348
+    cost_of_goods_sold: 63745
+    operating_expenses: 26882
+    non_operating_expenses: 10874
+    income_tax: 0.1126434082320391
+    total_assets: 89512
+    total_liabilities: 65676
+    total_equity: 23836
+    cash: 8636
+    accounts_receivable: 9324
+    inventories: 2433
+    short_term_investments: 12753
+    current_liabilities: 21416
+    capex: 3204
+    dividends_paid: 5468
+    shares_outstanding: 13320
+    stock_price: 121.5
+    employees: 229554
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 127775
+    cost_of_goods_sold: 81062
+    operating_expenses: 30563
+    non_operating_expenses: 17100
+    income_tax: 0.24845380295306316
+    total_assets: 263222
+    total_liabilities: 154461
+    total_equity: 108761
+    cash: 13631
+    accounts_receivable: 11364
+    inventories: 5922
+    short_term_investments: 37697
+    current_liabilities: 39879
+    capex: 7088
+    dividends_paid: 3519
+    shares_outstanding: 14263
+    stock_price: 686.53
+    employees: 54181
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 142085
+    cost_of_goods_sold: 77438
+    operating_expenses: 34892
+    non_operating_expenses: 17297
+    income_tax: 0.1796279285488746
+    total_assets: 269218
+    total_liabilities: 104036
+    total_equity: 165182
+    cash: 58304
+    accounts_receivable: 12144
+    inventories: 8221
+    short_term_investments: 26878
+    current_liabilities: 41540
+    capex: 11785
+    dividends_paid: 308
+    shares_outstanding: 3729
+    stock_price: 113.85
+    employees: 284466
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 133448
+    cost_of_goods_sold: 85983
+    operating_expenses: 12201
+    non_operating_expenses: 12436
+    income_tax: 0.27393908535390893
+    total_assets: 192213
+    total_liabilities: 79040
+    total_equity: 113173
+    cash: 43847
+    accounts_receivable: 5376
+    inventories: 11315
+    short_term_investments: 5816
+    current_liabilities: 22329
+    capex: 4532
+    dividends_paid: 3871
+    shares_outstanding: 9950
+    stock_price: 35.24
+    employees: 12356
+=== END ===
+
+QUESTION: What is the maximum of total equity for Orion Financial Group using values from 2021 through 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",59143.0,59143.0,"2021 Total Equity: 59143
+2022 Total Equity: 23836
+Maximum is 59143.
+
+Answer: 59143",True,0.000000,True,False
+Qwen3.5-4B,mt,2,Orion Financial Group,3,Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?,,-16736.48725362761,630935360.0,"Maximum current liabilities (2020-2022) = 21416
+Growth in short term investments (2021-2023) = 29460
+Result = 21416 * 29460 = 630935360
+
+Answer: 630935360",False,37699.194994,False,False
+Qwen3.5-4B,mt,3,Pacific Crest Energy,1,Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?,,37323.0,37323.0,"To find the long-term liabilities for 2023, subtract the current liabilities from the total liabilities for that year.
+
+2023 Total Liabilities: 64637
+2023 Current Liabilities: 27314
+Long-term Liabilities = 64637 - 27314 = 37323
+
+Answer: 37323",True,0.000000,True,False
+Qwen3.5-4B,mt,5,Orion Financial Group,1,Provide the the maximum of total equity for Orion Financial Group using values from 2021 through 2022.,,59143.0,59143.0,"2021 total equity: 59143
+2022 total equity: 23836
+Maximum: 59143
+
+Answer: 59143",True,0.000000,True,False
+Qwen3.5-4B,mt,6,Titan Consumer Brands,2,Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?,,46156.5,46156.5,"2021 short_term_investments: 33790
+2022 short_term_investments: 58523
+Sum = 33790 + 58523 = 92313
+Average = 92313 / 2 = 46156.5
+
+Answer: 46156.5",True,0.000000,True,False
+Qwen3.5-4B,mt,7,Meridian Systems Inc,4,What do we obtain as the the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?,,8595.0,8595.0,"Operating expenses for Meridian Systems Inc (MSYS) from 2020 to 2024:
+- 2020: 20641
+- 2021: 8595
+- 2022: 26227
+- 2023: 15975
+- 2024: 16701
+
+Minimum value is 8595 (from 2021).
+
+Answer: 8595",True,0.000000,True,False
+Qwen3.5-9B,90q,1,Crimson Pharmaceuticals,0,What are total assets for Crimson Pharmaceuticals in 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236
+    cost_of_goods_sold: 204759
+    operating_expenses: 51889
+    non_operating_expenses: 60056
+    income_tax: 0.26308121613119645
+    total_assets: 533633
+    total_liabilities: 152160
+    total_equity: 381473
+    cash: 91955
+    accounts_receivable: 31783
+    inventories: 27044
+    short_term_investments: 8908
+    current_liabilities: 62984
+    capex: 38887
+    dividends_paid: 24069
+    shares_outstanding: 6611
+    stock_price: 329.02
+    employees: 222670
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238
+    cost_of_goods_sold: 249019
+    operating_expenses: 48071
+    non_operating_expenses: 103672
+    income_tax: 0.1734693853919364
+    total_assets: 437826
+    total_liabilities: 221096
+    total_equity: 216730
+    cash: 21092
+    accounts_receivable: 45367
+    inventories: 18920
+    short_term_investments: 65373
+    current_liabilities: 65249
+    capex: 15521
+    dividends_paid: 30726
+    shares_outstanding: 4986
+    stock_price: 247.08
+    employees: 225728
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787
+    cost_of_goods_sold: 231289
+    operating_expenses: 85599
+    non_operating_expenses: 85996
+    income_tax: 0.24536287914222057
+    total_assets: 442481
+    total_liabilities: 292999
+    total_equity: 149482
+    cash: 55614
+    accounts_receivable: 64113
+    inventories: 28424
+    short_term_investments: 7978
+    current_liabilities: 122414
+    capex: 37653
+    dividends_paid: 52141
+    shares_outstanding: 11273
+    stock_price: 140.59
+    employees: 20415
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714010
+    cost_of_goods_sold: 432076
+    operating_expenses: 98272
+    non_operating_expenses: 53726
+    income_tax: 0.14719907608407046
+    total_assets: 664693
+    total_liabilities: 372880
+    total_equity: 291813
+    cash: 158784
+    accounts_receivable: 30873
+    inventories: 17260
+    short_term_investments: 48515
+    current_liabilities: 127801
+    capex: 18672
+    dividends_paid: 35183
+    shares_outstanding: 2152
+    stock_price: 303.06
+    employees: 160621
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712606
+    cost_of_goods_sold: 521794
+    operating_expenses: 39324
+    non_operating_expenses: 62146
+    income_tax: 0.2035490548416784
+    total_assets: 510371
+    total_liabilities: 194929
+    total_equity: 315442
+    cash: 102325
+    accounts_receivable: 78674
+    inventories: 24991
+    short_term_investments: 48824
+    current_liabilities: 82551
+    capex: 25664
+    dividends_paid: 63709
+    shares_outstanding: 2122
+    stock_price: 73.13
+    employees: 90465
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797936
+    cost_of_goods_sold: 597469
+    operating_expenses: 169244
+    non_operating_expenses: 194307
+    income_tax: 0.29731493192849723
+    total_assets: 724469
+    total_liabilities: 499182
+    total_equity: 225287
+    cash: 109394
+    accounts_receivable: 55086
+    inventories: 35247
+    short_term_investments: 23220
+    current_liabilities: 213346
+    capex: 27072
+    dividends_paid: 22839
+    shares_outstanding: 5486
+    stock_price: 191.03
+    employees: 492641
+=== END ===
+
+QUESTION: What are total assets for Crimson Pharmaceuticals in 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",442481.0,442481.0,Answer: 442481,True,0.000000,True,False
+Qwen3.5-9B,90q,2,Orion Financial Group,3,What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 87989
+    cost_of_goods_sold: 47755
+    operating_expenses: 21496
+    non_operating_expenses: 13741
+    income_tax: 0.2826973948963394
+    total_assets: 67863
+    total_liabilities: 33826
+    total_equity: 34037
+    cash: 14348
+    accounts_receivable: 7759
+    inventories: 5962
+    short_term_investments: 7772
+    current_liabilities: 11321
+    capex: 8538
+    dividends_paid: 1143
+    shares_outstanding: 2197
+    stock_price: 773.7
+    employees: 430770
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 98792
+    cost_of_goods_sold: 73202
+    operating_expenses: 24051
+    non_operating_expenses: 20837
+    income_tax: 0.17315500988111326
+    total_assets: 79108
+    total_liabilities: 19965
+    total_equity: 59143
+    cash: 11712
+    accounts_receivable: 8445
+    inventories: 7867
+    short_term_investments: 8237
+    current_liabilities: 7909
+    capex: 9407
+    dividends_paid: 1876
+    shares_outstanding: 1714
+    stock_price: 198.55
+    employees: 17387
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 115348
+    cost_of_goods_sold: 63745
+    operating_expenses: 26882
+    non_operating_expenses: 10874
+    income_tax: 0.1126434082320391
+    total_assets: 89512
+    total_liabilities: 65676
+    total_equity: 23836
+    cash: 8636
+    accounts_receivable: 9324
+    inventories: 2433
+    short_term_investments: 12753
+    current_liabilities: 21416
+    capex: 3204
+    dividends_paid: 5468
+    shares_outstanding: 13320
+    stock_price: 121.5
+    employees: 229554
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 127775
+    cost_of_goods_sold: 81062
+    operating_expenses: 30563
+    non_operating_expenses: 17100
+    income_tax: 0.24845380295306316
+    total_assets: 263222
+    total_liabilities: 154461
+    total_equity: 108761
+    cash: 13631
+    accounts_receivable: 11364
+    inventories: 5922
+    short_term_investments: 37697
+    current_liabilities: 39879
+    capex: 7088
+    dividends_paid: 3519
+    shares_outstanding: 14263
+    stock_price: 686.53
+    employees: 54181
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 142085
+    cost_of_goods_sold: 77438
+    operating_expenses: 34892
+    non_operating_expenses: 17297
+    income_tax: 0.1796279285488746
+    total_assets: 269218
+    total_liabilities: 104036
+    total_equity: 165182
+    cash: 58304
+    accounts_receivable: 12144
+    inventories: 8221
+    short_term_investments: 26878
+    current_liabilities: 41540
+    capex: 11785
+    dividends_paid: 308
+    shares_outstanding: 3729
+    stock_price: 113.85
+    employees: 284466
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 133448
+    cost_of_goods_sold: 85983
+    operating_expenses: 12201
+    non_operating_expenses: 12436
+    income_tax: 0.27393908535390893
+    total_assets: 192213
+    total_liabilities: 79040
+    total_equity: 113173
+    cash: 43847
+    accounts_receivable: 5376
+    inventories: 11315
+    short_term_investments: 5816
+    current_liabilities: 22329
+    capex: 4532
+    dividends_paid: 3871
+    shares_outstanding: 9950
+    stock_price: 35.24
+    employees: 12356
+=== END ===
+
+QUESTION: What are the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by the growth in short term investments for Orion Financial Group from 2021 to 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",-16736.48725362761,194660.17,"21416 * (12753 - 8237) / (8237 - 7772) = 21416 * 4216 / 465 = 194660.17
+Answer: 194660.17",False,12.630886,False,False
+Qwen3.5-9B,90q,3,Pacific Crest Energy,1,What are longterm liabilities for Pacific Crest Energy in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 160549
+    cost_of_goods_sold: 109216
+    operating_expenses: 11229
+    non_operating_expenses: 37262
+    income_tax: 0.10306951958305213
+    total_assets: 339437
+    total_liabilities: 246479
+    total_equity: 92958
+    cash: 82616
+    accounts_receivable: 7623
+    inventories: 13280
+    short_term_investments: 15989
+    current_liabilities: 100025
+    capex: 4243
+    dividends_paid: 6560
+    shares_outstanding: 4996
+    stock_price: 544.37
+    employees: 269143
+  Year 2021:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 190597
+    cost_of_goods_sold: 110939
+    operating_expenses: 43358
+    non_operating_expenses: 28130
+    income_tax: 0.208203202539532
+    total_assets: 183099
+    total_liabilities: 88419
+    total_equity: 94680
+    cash: 33062
+    accounts_receivable: 13101
+    inventories: 5500
+    short_term_investments: 4148
+    current_liabilities: 43731
+    capex: 14545
+    dividends_paid: 13786
+    shares_outstanding: 1598
+    stock_price: 145.6
+    employees: 153236
+  Year 2022:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 176894
+    cost_of_goods_sold: 78889
+    operating_expenses: 10830
+    non_operating_expenses: 21527
+    income_tax: 0.18613735757108002
+    total_assets: 298285
+    total_liabilities: 174646
+    total_equity: 123639
+    cash: 53690
+    accounts_receivable: 10261
+    inventories: 3373
+    short_term_investments: 28435
+    current_liabilities: 60364
+    capex: 10581
+    dividends_paid: 24372
+    shares_outstanding: 8789
+    stock_price: 197.27
+    employees: 320763
+  Year 2023:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 185505
+    cost_of_goods_sold: 111318
+    operating_expenses: 42626
+    non_operating_expenses: 26537
+    income_tax: 0.15752633314968775
+    total_assets: 194060
+    total_liabilities: 64637
+    total_equity: 129423
+    cash: 46177
+    accounts_receivable: 25742
+    inventories: 6556
+    short_term_investments: 28077
+    current_liabilities: 27314
+    capex: 8194
+    dividends_paid: 6994
+    shares_outstanding: 14991
+    stock_price: 684.87
+    employees: 57793
+  Year 2024:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 190473
+    cost_of_goods_sold: 87909
+    operating_expenses: 20795
+    non_operating_expenses: 36162
+    income_tax: 0.10438791957191301
+    total_assets: 146965
+    total_liabilities: 84920
+    total_equity: 62045
+    cash: 4671
+    accounts_receivable: 24096
+    inventories: 10653
+    short_term_investments: 21502
+    current_liabilities: 40562
+    capex: 16500
+    dividends_paid: 25020
+    shares_outstanding: 13554
+    stock_price: 623.96
+    employees: 118909
+  Year 2025:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 218004
+    cost_of_goods_sold: 86886
+    operating_expenses: 19190
+    non_operating_expenses: 21828
+    income_tax: 0.25111546474833546
+    total_assets: 178551
+    total_liabilities: 121657
+    total_equity: 56894
+    cash: 10729
+    accounts_receivable: 10838
+    inventories: 8825
+    short_term_investments: 2771
+    current_liabilities: 54399
+    capex: 10723
+    dividends_paid: 1558
+    shares_outstanding: 2058
+    stock_price: 729.06
+    employees: 166726
+=== END ===
+
+QUESTION: What are longterm liabilities for Pacific Crest Energy in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",37323.0,37323.0,"Long-term liabilities = Total liabilities - Current liabilities
+Long-term liabilities = 64637 - 27314 = 37323
+Answer: 37323",True,0.000000,True,False
+Qwen3.5-9B,90q,4,Ironclad Manufacturing,0,What is accounts receivable for Ironclad Manufacturing in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 231556
+    operating_expenses: 87678
+    non_operating_expenses: 68643
+    income_tax: 0.13830819460210894
+    total_assets: 307723
+    total_liabilities: 157361
+    total_equity: 150362
+    cash: 49146
+    accounts_receivable: 42355
+    inventories: 22596
+    short_term_investments: 45319
+    current_liabilities: 72096
+    capex: 17841
+    dividends_paid: 6867
+    shares_outstanding: 4604
+    stock_price: 570.79
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 81319
+    income_tax: 0.2275739310211855
+    total_assets: 282967
+    total_liabilities: 103532
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: 23302
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 20348
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: 248415
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 224248
+    operating_expenses: 29590
+    non_operating_expenses: 78160
+    income_tax: 0.28982512847160624
+    total_assets: 915630
+    total_liabilities: 450870
+    total_equity: 464760
+    cash: 139886
+    accounts_receivable: 30058
+    inventories: 21863
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 18718
+    shares_outstanding: 4531
+    stock_price: 476.99
+    employees: 217271
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 0.25254742087094173
+    total_assets: 378307
+    total_liabilities: 190519
+    total_equity: 187788
+    cash: 18106
+    accounts_receivable: 25432
+    inventories: 11929
+    short_term_investments: 12074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 53922
+    shares_outstanding: 586
+    stock_price: 241.16
+    employees: 144946
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 461323
+    cost_of_goods_sold: 153173
+    operating_expenses: 44603
+    non_operating_expenses: 47475
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 33656
+    accounts_receivable: 23748
+    inventories: 7540
+    short_term_investments: 14126
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 15650
+    shares_outstanding: 11910
+    stock_price: 482.11
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 543408
+    cost_of_goods_sold: 270410
+    operating_expenses: 78109
+    non_operating_expenses: 60220
+    income_tax: 0.18050170383256112
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 109521
+    accounts_receivable: 54234
+    inventories: 36674
+    short_term_investments: 97839
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 2162
+    shares_outstanding: 10147
+    stock_price: 690.51
+    employees: 295626
+=== END ===
+
+QUESTION: What is accounts receivable for Ironclad Manufacturing in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",23748.0,23748.0,Answer: 23748,True,0.000000,True,False
+Qwen3.5-9B,90q,5,Orion Financial Group,1,What is the maximum of total equity for Orion Financial Group using values from 2021 through 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 87989
+    cost_of_goods_sold: 47755
+    operating_expenses: 21496
+    non_operating_expenses: 13741
+    income_tax: 0.2826973948963394
+    total_assets: 67863
+    total_liabilities: 33826
+    total_equity: 34037
+    cash: 14348
+    accounts_receivable: 7759
+    inventories: 5962
+    short_term_investments: 7772
+    current_liabilities: 11321
+    capex: 8538
+    dividends_paid: 1143
+    shares_outstanding: 2197
+    stock_price: 773.7
+    employees: 430770
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 98792
+    cost_of_goods_sold: 73202
+    operating_expenses: 24051
+    non_operating_expenses: 20837
+    income_tax: 0.17315500988111326
+    total_assets: 79108
+    total_liabilities: 19965
+    total_equity: 59143
+    cash: 11712
+    accounts_receivable: 8445
+    inventories: 7867
+    short_term_investments: 8237
+    current_liabilities: 7909
+    capex: 9407
+    dividends_paid: 1876
+    shares_outstanding: 1714
+    stock_price: 198.55
+    employees: 17387
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 115348
+    cost_of_goods_sold: 63745
+    operating_expenses: 26882
+    non_operating_expenses: 10874
+    income_tax: 0.1126434082320391
+    total_assets: 89512
+    total_liabilities: 65676
+    total_equity: 23836
+    cash: 8636
+    accounts_receivable: 9324
+    inventories: 2433
+    short_term_investments: 12753
+    current_liabilities: 21416
+    capex: 3204
+    dividends_paid: 5468
+    shares_outstanding: 13320
+    stock_price: 121.5
+    employees: 229554
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 127775
+    cost_of_goods_sold: 81062
+    operating_expenses: 30563
+    non_operating_expenses: 17100
+    income_tax: 0.24845380295306316
+    total_assets: 263222
+    total_liabilities: 154461
+    total_equity: 108761
+    cash: 13631
+    accounts_receivable: 11364
+    inventories: 5922
+    short_term_investments: 37697
+    current_liabilities: 39879
+    capex: 7088
+    dividends_paid: 3519
+    shares_outstanding: 14263
+    stock_price: 686.53
+    employees: 54181
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 142085
+    cost_of_goods_sold: 77438
+    operating_expenses: 34892
+    non_operating_expenses: 17297
+    income_tax: 0.1796279285488746
+    total_assets: 269218
+    total_liabilities: 104036
+    total_equity: 165182
+    cash: 58304
+    accounts_receivable: 12144
+    inventories: 8221
+    short_term_investments: 26878
+    current_liabilities: 41540
+    capex: 11785
+    dividends_paid: 308
+    shares_outstanding: 3729
+    stock_price: 113.85
+    employees: 284466
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 133448
+    cost_of_goods_sold: 85983
+    operating_expenses: 12201
+    non_operating_expenses: 12436
+    income_tax: 0.27393908535390893
+    total_assets: 192213
+    total_liabilities: 79040
+    total_equity: 113173
+    cash: 43847
+    accounts_receivable: 5376
+    inventories: 11315
+    short_term_investments: 5816
+    current_liabilities: 22329
+    capex: 4532
+    dividends_paid: 3871
+    shares_outstanding: 9950
+    stock_price: 35.24
+    employees: 12356
+=== END ===
+
+QUESTION: What is the maximum of total equity for Orion Financial Group using values from 2021 through 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",59143.0,59143.0,"2021 total_equity: 59143
+2022 total_equity: 23836
+Max(59143, 23836) = 59143
+Answer: 59143",True,0.000000,True,False
+Qwen3.5-9B,mt,2,Orion Financial Group,3,Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?,,-16736.48725362761,630915360.0,"Current liabilities max (2020-2022): 21416
+Short term investments growth (2021-2023): 29460
+Result = 21416 * 29460 = 630915360
+Answer: 630915360.0",False,37698.000000,False,False
+Qwen3.5-9B,mt,3,Pacific Crest Energy,1,Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?,,37323.0,64637.0,Answer: 64637.0,False,0.731828,False,False
+Qwen3.5-9B,mt,5,Orion Financial Group,1,Provide the the maximum of total equity for Orion Financial Group using values from 2021 through 2022.,,59143.0,59143.0,"2021 total_equity: 59143
+2022 total_equity: 23836
+Max(59143, 23836) = 59143
+Answer: 59143",True,0.000000,True,False
+Qwen3.5-9B,mt,6,Titan Consumer Brands,2,Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?,,46156.5,46156.5,"2021 short_term_investments: 33790
+2022 short_term_investments: 58523
+Average: (33790 + 58523) / 2 = 46156.5
+
+Answer: 46156.5",True,0.000000,True,False
+Qwen3.5-9B,mt,7,Meridian Systems Inc,4,What do we obtain as the the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?,,8595.0,8595.0,"2020: 20641
+2021: 8595
+2022: 26227
+2023: 15975
+2024: 16701
+
+Answer: 8595",True,0.000000,True,False

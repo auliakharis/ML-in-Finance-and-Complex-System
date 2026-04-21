@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=eu_reg_pipeline
 #SBATCH --gpus=1
-#SBATCH --gres=gpumem:40g
+#SBATCH --gres=gpumem:16g
 #SBATCH --cpus-per-task=4
 #SBATCH --time=04:00:00
 #SBATCH --output=logs/%j.out
@@ -35,7 +35,8 @@ echo "GPU: $CUDA_VISIBLE_DEVICES"
 nvidia-smi
 
 
-python run_llm_eval.py  --models gemma-4-E4B-it --limit 90
+# python run_llm_eval.py --datasets mt  --models gemma-4-E4B-it --limit 5
+python run_llm_eval.py --datasets mt 90q  --models gemma-4-E4B-it Qwen3.5-4B Qwen3.5-9B --limit 90
 
 
 echo "Done: $(date)"

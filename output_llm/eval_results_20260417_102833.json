@@ -1,0 +1,42 @@
+{
+  "gemma-4-E4B-it": {
+    "10q": [],
+    "90q": [],
+    "mt": [
+      {
+        "source": "mt",
+        "id": "2",
+        "entity": "Orion Financial Group",
+        "depth": 3,
+        "num_turns": 3,
+        "question": "Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?",
+        "ground_truth": "-16736.48725362761",
+        "turn_responses": [
+          "Answer: 21416",
+          "Answer: 0.5188839240591585",
+          "Answer: 1.0000000000000002"
+        ],
+        "llm_response": "Answer: 1.0000000000000002",
+        "predicted": 1.0000000000000002,
+        "correct": false,
+        "skip": false
+      }
+    ],
+    "accuracy_10q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_90q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_mt": {
+      "total": 1,
+      "skipped": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  }
+}

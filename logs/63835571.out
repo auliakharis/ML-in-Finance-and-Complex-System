@@ -1,0 +1,59 @@
+Checking model path...
+chat_template.jinja
+config.json
+generation_config.json
+model.safetensors
+processor_config.json
+README.md
+tokenizer_config.json
+tokenizer.json
+Starting pipeline: Fri Apr 17 11:05:00 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Fri Apr 17 11:05:00 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.20             Driver Version: 580.126.20     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 6000                On  |   00000000:81:00.0 Off |                  Off |
+| 33%   31C    P8              5W /  260W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  Multi-turn: 1000 total, 607 non-skipped, 15 companies
+
+============================================================
+  Evaluating model: gemma-4-E4B-it
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/gemma-4-E4B-it ...
+  Loading model from /cluster/scratch/arakhmasari/models/gemma-4-E4B-it ...
+  Model loaded on cuda.
+
+-- Multi-turn evaluation (1 questions) --
+  [1/1] WRONG  | turns=3 depth=3 first_fail@turn=2 | truth=-16736.4873 pred=14.1336 | Which result follows from the result of the maximu...
+
+============================================================
+  Model: gemma-4-E4B-it
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  Multi-turn: 0/1  accuracy = 0.0%  (skipped 0)
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 2: 1  (of 1 failed)
+  Overall   : 0/1  accuracy = 0.0%
+============================================================
+
+Results saved to output_llm/eval_results_20260417_110613.json
+CSV saved to output_llm/eval_results_20260417_110613.csv
+Done: Fri Apr 17 11:06:17 AM CEST 2026

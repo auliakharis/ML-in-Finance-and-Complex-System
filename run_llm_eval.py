@@ -28,6 +28,17 @@ Usage:
   python run_llm_eval.py --limit 20 --tol 0.1
   python run_llm_eval.py --models Qwen3.5-4B --limit 10
   python run_llm_eval.py --output results.json
+
+for the multi turn : 
+the system message (financial data) is added once at the start of history and stays there for all turns — it's never re-added. But because history is passed in full each time, the model does see it on every turn:
+
+history = [system_msg]          # ← financial data added once here
+
+# Turn 1: history = [system_msg, user1]                            ✓ data present
+# Turn 2: history = [system_msg, user1, asst1, user2]             ✓ data present  
+# Turn 3: history = [system_msg, user1, asst1, user2, asst2, user3] ✓ data present
+Since system_msg is always the first element in history, it's included in every apply_chat_template call. So the model sees the financial sheets on every single turn — it's just sent once in the list rather than duplicated.
+
 """
 
 import argparse
@@ -49,8 +60,11 @@ MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 DATASET_10Q = BASE_DIR / "10q" / "final_qa_dataset.json"
 SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
 
-DATASET_90Q = BASE_DIR / "90q" / "random_questions_90.json"
+DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
 SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
+
+DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
+SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
 
 DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B", "gemma-4-E4B-it"]
 
@@ -104,6 +118,14 @@ def sheet_to_text_90q(rows: list) -> str:
             if k not in ("company_name", "year"):
                 lines.append(f"    {k}: {v}")
     return "\n".join(lines)
+
+
+def find_company(question_text: str, sheet_lookup: dict) -> str | None:
+    """Return the first company name from sheet_lookup that appears in question_text."""
+    for name in sheet_lookup:
+        if name in question_text:
+            return name
+    return None
 
 
 def build_prompt(sheet_text: str, question: str) -> str:
@@ -246,6 +268,47 @@ def run_inference(tokenizer, model, prompt: str, max_new_tokens: int = 512) -> s
     return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
 
 
+def run_multiturn_inference(tokenizer, model, messages: list, max_new_tokens: int = 512) -> str:
+    """Run inference with a full conversation history (list of role/content dicts)."""
+    import torch
+
+    if hasattr(tokenizer, "apply_chat_template"):
+        try:
+            result = tokenizer.apply_chat_template(
+                messages,
+                tokenize=True,
+                add_generation_prompt=True,
+                return_tensors="pt",
+                enable_thinking=False,
+            )
+        except TypeError:
+            result = tokenizer.apply_chat_template(
+                messages,
+                tokenize=True,
+                add_generation_prompt=True,
+                return_tensors="pt",
+            )
+        input_ids = result if isinstance(result, torch.Tensor) else result["input_ids"]
+    else:
+        # Fallback: concatenate all turns as plain text
+        text = "\n".join(f"{m['role'].upper()}: {m['content']}" for m in messages)
+        input_ids = tokenizer(text, return_tensors="pt").input_ids
+
+    device = next(model.parameters()).device
+    input_ids = input_ids.to(device)
+
+    with torch.no_grad():
+        output_ids = model.generate(
+            input_ids,
+            max_new_tokens=max_new_tokens,
+            do_sample=False,
+            pad_token_id=tokenizer.eos_token_id,
+        )
+
+    new_tokens = output_ids[0][input_ids.shape[-1]:]
+    return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+
+
 # ---------------------------------------------------------------------------
 # Evaluation loops
 # ---------------------------------------------------------------------------
@@ -372,6 +435,151 @@ def evaluate_90q(
     return results
 
 
+def evaluate_multiturn(
+    questions: list,
+    sheet_lookup: dict,
+    tokenizer,
+    model,
+    limit: int | None,
+    tol: float,
+    max_new_tokens: int = 512,
+) -> list:
+    """
+    Evaluate multi-turn questions.
+
+    For each question the model plays through all conversation turns
+    sequentially. The financial context is injected as a system message.
+    Accuracy is measured on the final turn against q['answer'].
+    """
+    results = []
+    subset = [q for q in questions if not q.get("skipped")]
+    if limit:
+        subset = subset[:limit]
+
+    for i, q in enumerate(subset, 1):
+        qid = q.get("question_id")
+        original_q = q.get("original_question", "")
+        ground_truth = q.get("answer")
+        num_turns = q.get("num_turns", 1)
+        depth = q.get("depth")
+
+        # Build system message with financial context
+        company = find_company(original_q, sheet_lookup)
+        system_msg = None
+        if company:
+            sheet_rows = sheet_lookup.get(company)
+            if sheet_rows:
+                sheet_text = sheet_to_text_90q(sheet_rows)
+                system_content = (
+                    "You are a financial analyst. Answer using ONLY the data below. "
+                    "No commentary.\n\n"
+                    "=== DATA ===\n"
+                    f"{sheet_text}\n"
+                    "=== END ===\n\n"
+                    "RULES:\n"
+                    "- Extract only the numbers you need.\n"
+                    "- Show calculations in 1-3 lines max if needed.\n"
+                    "- Last line MUST be: Answer: <value>\n"
+                    "- <value> is either a number, True, or False. Nothing else.\n"
+                    "- Do NOT explain or add anything after the Answer line.\n"
+                    "- Do NOT show your thinking process.\n"
+                )
+                system_msg = {"role": "system", "content": system_content}
+
+        if company is None:
+            print(f"  [{i}/{len(subset)}] SKIP (company not found in spreadsheet) | {original_q[:60]}...")
+            results.append({
+                "source": "mt",
+                "id": qid,
+                "entity": None,
+                "depth": depth,
+                "num_turns": num_turns,
+                "question": original_q,
+                "ground_truth": ground_truth,
+                "llm_response": None,
+                "predicted": None,
+                "correct": False,
+                "skip": True,
+            })
+            continue
+
+        # Replay conversation turn by turn
+        history = [system_msg] if system_msg else []
+        final_response = None
+        turn_responses = []        # raw model output per turn
+        turn_questions = []        # user question text per turn
+        turn_prompt_snapshots = [] # full messages list sent to the model at each turn
+
+        for msg in q.get("messages", []):
+            if msg["role"] == "user":
+                question_text = msg["content"].strip()
+                history.append({"role": "user", "content": question_text})
+                # Snapshot the full context sent to the model (copy before adding response)
+                turn_prompt_snapshots.append(list(history))
+                response = run_multiturn_inference(tokenizer, model, history, max_new_tokens)
+                history.append({"role": "assistant", "content": response})
+                turn_responses.append(response)
+                turn_questions.append(question_text)
+                final_response = response
+            # assistant placeholder messages are skipped — we fill them ourselves
+
+        predicted = extract_number(final_response) if final_response else None
+        correct = is_correct(predicted, ground_truth, tol)
+
+        # Per-turn correctness against intermediate ground truths
+        turns_meta = q.get("turns", [])
+        turn_correctness = []
+        first_failure_depth = None
+        for idx, tr in enumerate(turns_meta):
+            tr_gt = tr.get("ground_truth")
+            tr_response = turn_responses[idx] if idx < len(turn_responses) else None
+            tr_question = turn_questions[idx] if idx < len(turn_questions) else tr.get("question", "")
+            tr_prompt = turn_prompt_snapshots[idx] if idx < len(turn_prompt_snapshots) else []
+            tr_pred = extract_number(tr_response) if tr_response else None
+            tr_correct = is_correct(tr_pred, tr_gt, tol)
+            turn_correctness.append({
+                "turn_number": tr.get("turn_number"),
+                "op": tr.get("op"),
+                "question": tr_question,
+                "prompt_messages": tr_prompt,  # full messages list sent to model at this turn
+                "ground_truth": tr_gt,
+                "predicted": tr_pred,
+                "llm_response": tr_response,
+                "correct": tr_correct,
+                "is_final": tr.get("is_final", False),
+            })
+            if not tr_correct and first_failure_depth is None:
+                first_failure_depth = tr.get("turn_number")
+
+        status = "CORRECT" if correct else "WRONG "
+        try:
+            gt_display = f"{float(ground_truth):.4f}"
+        except (TypeError, ValueError):
+            gt_display = str(ground_truth)
+        failure_info = f" first_fail@turn={first_failure_depth}" if not correct and num_turns > 1 else ""
+        print(f"  [{i}/{len(subset)}] {status} | turns={num_turns} depth={depth}{failure_info} | "
+              f"truth={gt_display} pred={predicted} | {original_q[:50]}...")
+
+        results.append({
+            "source": "mt",
+            "id": qid,
+            "entity": company,
+            "depth": depth,
+            "num_turns": num_turns,
+            "question": original_q,
+            "ground_truth": ground_truth,
+            "turn_responses": turn_responses,
+            "turn_correctness": turn_correctness,
+            "first_failure_depth": first_failure_depth,
+            "llm_response": final_response,
+            "predicted": predicted,
+            "correct": correct,
+            "skip": False,
+        })
+
+    return results
+
+
 # ---------------------------------------------------------------------------
 # Accuracy summary
 # ---------------------------------------------------------------------------
@@ -389,19 +597,44 @@ def compute_accuracy(results: list) -> dict:
     }
 
 
-def print_summary(model_name: str, results_10q: list, results_90q: list) -> None:
+def print_summary(model_name: str, results_10q: list, results_90q: list, results_mt: list) -> None:
     acc10 = compute_accuracy(results_10q)
     acc90 = compute_accuracy(results_90q)
-    total_eval = acc10["total"] + acc90["total"]
-    total_correct = acc10["correct"] + acc90["correct"]
+    accmt = compute_accuracy(results_mt)
+    total_eval = acc10["total"] + acc90["total"] + accmt["total"]
+    total_correct = acc10["correct"] + acc90["correct"] + accmt["correct"]
     overall = total_correct / total_eval if total_eval else 0.0
 
     print(f"\n{'='*60}")
     print(f"  Model: {model_name}")
     print(f"{'='*60}")
-    print(f"  10-Q  : {acc10['correct']}/{acc10['total']}  accuracy = {acc10['accuracy']:.1%}  (skipped {acc10.get('skipped',0)})")
-    print(f"  90-Q  : {acc90['correct']}/{acc90['total']}  accuracy = {acc90['accuracy']:.1%}  (skipped {acc90.get('skipped',0)})")
-    print(f"  Overall: {total_correct}/{total_eval}  accuracy = {overall:.1%}")
+    print(f"  10-Q      : {acc10['correct']}/{acc10['total']}  accuracy = {acc10['accuracy']:.1%}  (skipped {acc10.get('skipped',0)})")
+    print(f"  90-Q      : {acc90['correct']}/{acc90['total']}  accuracy = {acc90['accuracy']:.1%}  (skipped {acc90.get('skipped',0)})")
+    print(f"  Multi-turn: {accmt['correct']}/{accmt['total']}  accuracy = {accmt['accuracy']:.1%}  (skipped {accmt.get('skipped',0)})")
+
+    # Break down multi-turn accuracy by number of turns + failure origin
+    if results_mt:
+        from collections import defaultdict
+        by_turns: dict = defaultdict(list)
+        for r in results_mt:
+            if not r.get("skip"):
+                by_turns[r.get("num_turns", "?")].append(r)
+        for nt in sorted(by_turns):
+            rows = by_turns[nt]
+            n_correct = sum(1 for r in rows if r["correct"])
+            print(f"    turns={nt}: {n_correct}/{len(rows)}  accuracy = {n_correct/len(rows):.1%}")
+            # For multi-turn questions, show where failures first occur
+            if nt > 1:
+                failed = [r for r in rows if not r["correct"]]
+                if failed:
+                    fail_counts: dict = defaultdict(int)
+                    for r in failed:
+                        fd = r.get("first_failure_depth")
+                        fail_counts[fd if fd is not None else "?"] += 1
+                    parts = [f"turn {fd}: {cnt}" for fd, cnt in sorted(fail_counts.items(), key=lambda x: (x[0] is None, x[0]))]
+                    print(f"      first failure at — {', '.join(parts)}  (of {len(failed)} failed)")
+
+    print(f"  Overall   : {total_correct}/{total_eval}  accuracy = {overall:.1%}")
     print(f"{'='*60}\n")
 
 
@@ -420,7 +653,7 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for model_name, model_data in all_results.items():
-            for dataset_key in ("10q", "90q"):
+            for dataset_key in ("10q", "90q", "mt"):
                 for r in model_data.get(dataset_key, []):
                     gt = r.get("ground_truth")
                     pred = r.get("predicted")
@@ -481,8 +714,8 @@ def parse_args():
         help="Path to save per-question results CSV (default: eval_results.csv)",
     )
     parser.add_argument(
-        "--datasets", nargs="+", choices=["10q", "90q"], default=["10q", "90q"],
-        help="Which dataset(s) to evaluate: 10q, 90q, or both (default: both)",
+        "--datasets", nargs="+", choices=["10q", "90q", "mt"], default=["10q", "90q", "mt"],
+        help="Which dataset(s) to evaluate: 10q, 90q, mt, or any combination (default: all)",
     )
     return parser.parse_args()
 
@@ -505,6 +738,14 @@ def main():
         print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
     else:
         questions_90q, sheet_lookup_90q = [], {}
+
+    if "mt" in args.datasets:
+        questions_mt = load_json(DATASET_MT)
+        sheet_lookup_mt = build_90q_sheet_lookup(load_json(SHEET_MT))
+        non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
+        print(f"  Multi-turn: {len(questions_mt)} total, {non_skipped} non-skipped, {len(sheet_lookup_mt)} companies")
+    else:
+        questions_mt, sheet_lookup_mt = [], {}
 
     all_results = {}
 
@@ -538,13 +779,25 @@ def main():
         else:
             results_90q = []
 
-        print_summary(model_name, results_10q, results_90q)
+        if "mt" in args.datasets:
+            non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
+            print(f"\n-- Multi-turn evaluation ({args.limit or non_skipped} questions) --")
+            results_mt = evaluate_multiturn(
+                questions_mt, sheet_lookup_mt, tokenizer, model,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+            )
+        else:
+            results_mt = []
+
+        print_summary(model_name, results_10q, results_90q, results_mt)
 
         all_results[model_name] = {
             "10q": results_10q,
             "90q": results_90q,
+            "mt": results_mt,
             "accuracy_10q": compute_accuracy(results_10q),
             "accuracy_90q": compute_accuracy(results_90q),
+            "accuracy_mt": compute_accuracy(results_mt),
         }
 
         # Free memory before loading next model
@@ -574,17 +827,19 @@ def main():
     # Final comparison across models
     if len(all_results) > 1:
         print("\n=== Model Comparison ===")
-        print(f"{'Model':<20} {'10-Q Acc':>10} {'90-Q Acc':>10} {'Overall':>10}")
-        print("-" * 52)
+        print(f"{'Model':<20} {'10-Q Acc':>10} {'90-Q Acc':>10} {'MT Acc':>10} {'Overall':>10}")
+        print("-" * 62)
         for m, r in all_results.items():
             a10 = r["accuracy_10q"]["accuracy"]
             a90 = r["accuracy_90q"]["accuracy"]
+            amt = r["accuracy_mt"]["accuracy"]
             t10 = r["accuracy_10q"]["total"]
             t90 = r["accuracy_90q"]["total"]
-            total = t10 + t90
-            correct = r["accuracy_10q"]["correct"] + r["accuracy_90q"]["correct"]
+            tmt = r["accuracy_mt"]["total"]
+            total = t10 + t90 + tmt
+            correct = r["accuracy_10q"]["correct"] + r["accuracy_90q"]["correct"] + r["accuracy_mt"]["correct"]
             overall = correct / total if total else 0.0
-            print(f"{m:<20} {a10:>10.1%} {a90:>10.1%} {overall:>10.1%}")
+            print(f"{m:<20} {a10:>10.1%} {a90:>10.1%} {amt:>10.1%} {overall:>10.1%}")
 
 
 if __name__ == "__main__":

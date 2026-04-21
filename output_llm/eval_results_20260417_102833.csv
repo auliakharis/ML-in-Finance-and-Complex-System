@@ -1,0 +1,2 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+gemma-4-E4B-it,mt,2,Orion Financial Group,3,Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?,,-16736.48725362761,1.0000000000000002,Answer: 1.0000000000000002,False,1.000060,False,False

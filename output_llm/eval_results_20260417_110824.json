@@ -1,0 +1,186 @@
+{
+  "gemma-4-E4B-it": {
+    "10q": [],
+    "90q": [],
+    "mt": [
+      {
+        "source": "mt",
+        "id": "2",
+        "entity": "Orion Financial Group",
+        "depth": 3,
+        "num_turns": 3,
+        "question": "Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?",
+        "ground_truth": "-16736.48725362761",
+        "turn_responses": [
+          "Answer: 21416",
+          "Answer: 0.6565656565656565",
+          "Answer: 14.1336"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "max",
+            "ground_truth": 21416.0,
+            "predicted": 21416.0,
+            "correct": true,
+            "is_final": false
+          },
+          {
+            "turn_number": 2,
+            "op": "growth",
+            "ground_truth": 3.5765448585650117,
+            "predicted": 0.6565656565656565,
+            "correct": false,
+            "is_final": false
+          },
+          {
+            "turn_number": 3,
+            "op": "mul",
+            "ground_truth": 76595.2846910283,
+            "predicted": 14.1336,
+            "correct": false,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": 2,
+        "llm_response": "Answer: 14.1336",
+        "predicted": 14.1336,
+        "correct": false,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "3",
+        "entity": "Pacific Crest Energy",
+        "depth": 1,
+        "num_turns": 1,
+        "question": "Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?",
+        "ground_truth": "37323.0",
+        "turn_responses": [
+          "Answer: 0"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "diff",
+            "ground_truth": 37323.0,
+            "predicted": 0.0,
+            "correct": false,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": 1,
+        "llm_response": "Answer: 0",
+        "predicted": 0.0,
+        "correct": false,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "5",
+        "entity": "Orion Financial Group",
+        "depth": 1,
+        "num_turns": 1,
+        "question": "Provide the the maximum of total equity for Orion Financial Group using values from 2021 through 2022.",
+        "ground_truth": "59143.0",
+        "turn_responses": [
+          "Answer: 59143"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "max",
+            "ground_truth": 59143.0,
+            "predicted": 59143.0,
+            "correct": true,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": null,
+        "llm_response": "Answer: 59143",
+        "predicted": 59143.0,
+        "correct": true,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "6",
+        "entity": "Titan Consumer Brands",
+        "depth": 2,
+        "num_turns": 2,
+        "question": "Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?",
+        "ground_truth": "46156.5",
+        "turn_responses": [
+          "58523+33790?=92313",
+          "92313/2=46156.5\nAnswer: 46156.5"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "sum",
+            "ground_truth": 92313.0,
+            "predicted": 92313.0,
+            "correct": true,
+            "is_final": false
+          },
+          {
+            "turn_number": 2,
+            "op": "ratio",
+            "ground_truth": 46156.5,
+            "predicted": 46156.5,
+            "correct": true,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": null,
+        "llm_response": "92313/2=46156.5\nAnswer: 46156.5",
+        "predicted": 46156.5,
+        "correct": true,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "7",
+        "entity": "Meridian Systems Inc",
+        "depth": 4,
+        "num_turns": 1,
+        "question": "What do we obtain as the the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?",
+        "ground_truth": "8595.0",
+        "turn_responses": [
+          "Answer: 8595"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "min",
+            "ground_truth": 8595.0,
+            "predicted": 8595.0,
+            "correct": true,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": null,
+        "llm_response": "Answer: 8595",
+        "predicted": 8595.0,
+        "correct": true,
+        "skip": false
+      }
+    ],
+    "accuracy_10q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_90q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_mt": {
+      "total": 5,
+      "skipped": 0,
+      "correct": 3,
+      "accuracy": 0.6
+    }
+  }
+}

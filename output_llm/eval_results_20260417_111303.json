@@ -1,0 +1,202 @@
+{
+  "Qwen3.5-4B": {
+    "10q": [],
+    "90q": [],
+    "mt": [
+      {
+        "source": "mt",
+        "id": "2",
+        "entity": "Orion Financial Group",
+        "depth": 3,
+        "num_turns": 3,
+        "question": "Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?",
+        "ground_truth": "-16736.48725362761",
+        "turn_responses": [
+          "2020: 11321\n2021: 7909\n2022: 21416\n\nMaximum is 21416.\n\nAnswer: 21416",
+          "2021: 8237\n2023: 37697\nGrowth = 37697 - 8237 = 29460\n\nAnswer: 29460",
+          "Maximum current liabilities (2020-2022) = 21416\nGrowth in short term investments (2021-2023) = 29460\nResult = 21416 * 29460 = 630935360\n\nAnswer: 630935360"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "max",
+            "question": "What is the maximum of current liabilities for Orion Financial Group from 2020 to 2022?",
+            "ground_truth": 21416.0,
+            "predicted": 21416.0,
+            "llm_response": "2020: 11321\n2021: 7909\n2022: 21416\n\nMaximum is 21416.\n\nAnswer: 21416",
+            "correct": true,
+            "is_final": false
+          },
+          {
+            "turn_number": 2,
+            "op": "growth",
+            "question": "What is the growth of short term investments for Orion Financial Group from 2021 to 2023?",
+            "ground_truth": 3.5765448585650117,
+            "predicted": 29460.0,
+            "llm_response": "2021: 8237\n2023: 37697\nGrowth = 37697 - 8237 = 29460\n\nAnswer: 29460",
+            "correct": false,
+            "is_final": false
+          },
+          {
+            "turn_number": 3,
+            "op": "mul",
+            "question": "Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?",
+            "ground_truth": 76595.2846910283,
+            "predicted": 630935360.0,
+            "llm_response": "Maximum current liabilities (2020-2022) = 21416\nGrowth in short term investments (2021-2023) = 29460\nResult = 21416 * 29460 = 630935360\n\nAnswer: 630935360",
+            "correct": false,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": 2,
+        "llm_response": "Maximum current liabilities (2020-2022) = 21416\nGrowth in short term investments (2021-2023) = 29460\nResult = 21416 * 29460 = 630935360\n\nAnswer: 630935360",
+        "predicted": 630935360.0,
+        "correct": false,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "3",
+        "entity": "Pacific Crest Energy",
+        "depth": 1,
+        "num_turns": 1,
+        "question": "Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?",
+        "ground_truth": "37323.0",
+        "turn_responses": [
+          "To find the long-term liabilities for 2023, subtract the current liabilities from the total liabilities for that year.\n\n2023 Total Liabilities: 64637\n2023 Current Liabilities: 27314\nLong-term Liabilities = 64637 - 27314 = 37323\n\nAnswer: 37323"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "diff",
+            "question": "Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?",
+            "ground_truth": 37323.0,
+            "predicted": 37323.0,
+            "llm_response": "To find the long-term liabilities for 2023, subtract the current liabilities from the total liabilities for that year.\n\n2023 Total Liabilities: 64637\n2023 Current Liabilities: 27314\nLong-term Liabilities = 64637 - 27314 = 37323\n\nAnswer: 37323",
+            "correct": true,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": null,
+        "llm_response": "To find the long-term liabilities for 2023, subtract the current liabilities from the total liabilities for that year.\n\n2023 Total Liabilities: 64637\n2023 Current Liabilities: 27314\nLong-term Liabilities = 64637 - 27314 = 37323\n\nAnswer: 37323",
+        "predicted": 37323.0,
+        "correct": true,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "5",
+        "entity": "Orion Financial Group",
+        "depth": 1,
+        "num_turns": 1,
+        "question": "Provide the the maximum of total equity for Orion Financial Group using values from 2021 through 2022.",
+        "ground_truth": "59143.0",
+        "turn_responses": [
+          "2021 total equity: 59143\n2022 total equity: 23836\nMaximum: 59143\n\nAnswer: 59143"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "max",
+            "question": "What is the maximum of total equity for Orion Financial Group from 2021 to 2022?",
+            "ground_truth": 59143.0,
+            "predicted": 59143.0,
+            "llm_response": "2021 total equity: 59143\n2022 total equity: 23836\nMaximum: 59143\n\nAnswer: 59143",
+            "correct": true,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": null,
+        "llm_response": "2021 total equity: 59143\n2022 total equity: 23836\nMaximum: 59143\n\nAnswer: 59143",
+        "predicted": 59143.0,
+        "correct": true,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "6",
+        "entity": "Titan Consumer Brands",
+        "depth": 2,
+        "num_turns": 2,
+        "question": "Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?",
+        "ground_truth": "46156.5",
+        "turn_responses": [
+          "2021 short_term_investments: 33790\n2022 short_term_investments: 58523\nSum = 33790 + 58523 = 92313\n\nAnswer: 92313",
+          "2021 short_term_investments: 33790\n2022 short_term_investments: 58523\nSum = 33790 + 58523 = 92313\nAverage = 92313 / 2 = 46156.5\n\nAnswer: 46156.5"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "sum",
+            "question": "What is the sum of short term investments for Titan Consumer Brands from 2021 to 2022?",
+            "ground_truth": 92313.0,
+            "predicted": 92313.0,
+            "llm_response": "2021 short_term_investments: 33790\n2022 short_term_investments: 58523\nSum = 33790 + 58523 = 92313\n\nAnswer: 92313",
+            "correct": true,
+            "is_final": false
+          },
+          {
+            "turn_number": 2,
+            "op": "ratio",
+            "question": "Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?",
+            "ground_truth": 46156.5,
+            "predicted": 46156.5,
+            "llm_response": "2021 short_term_investments: 33790\n2022 short_term_investments: 58523\nSum = 33790 + 58523 = 92313\nAverage = 92313 / 2 = 46156.5\n\nAnswer: 46156.5",
+            "correct": true,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": null,
+        "llm_response": "2021 short_term_investments: 33790\n2022 short_term_investments: 58523\nSum = 33790 + 58523 = 92313\nAverage = 92313 / 2 = 46156.5\n\nAnswer: 46156.5",
+        "predicted": 46156.5,
+        "correct": true,
+        "skip": false
+      },
+      {
+        "source": "mt",
+        "id": "7",
+        "entity": "Meridian Systems Inc",
+        "depth": 4,
+        "num_turns": 1,
+        "question": "What do we obtain as the the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?",
+        "ground_truth": "8595.0",
+        "turn_responses": [
+          "Operating expenses for Meridian Systems Inc (MSYS) from 2020 to 2024:\n- 2020: 20641\n- 2021: 8595\n- 2022: 26227\n- 2023: 15975\n- 2024: 16701\n\nMinimum value is 8595 (from 2021).\n\nAnswer: 8595"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "min",
+            "question": "What is the minimum of operating expenses for Meridian Systems Inc from 2020 to 2024?",
+            "ground_truth": 8595.0,
+            "predicted": 8595.0,
+            "llm_response": "Operating expenses for Meridian Systems Inc (MSYS) from 2020 to 2024:\n- 2020: 20641\n- 2021: 8595\n- 2022: 26227\n- 2023: 15975\n- 2024: 16701\n\nMinimum value is 8595 (from 2021).\n\nAnswer: 8595",
+            "correct": true,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": null,
+        "llm_response": "Operating expenses for Meridian Systems Inc (MSYS) from 2020 to 2024:\n- 2020: 20641\n- 2021: 8595\n- 2022: 26227\n- 2023: 15975\n- 2024: 16701\n\nMinimum value is 8595 (from 2021).\n\nAnswer: 8595",
+        "predicted": 8595.0,
+        "correct": true,
+        "skip": false
+      }
+    ],
+    "accuracy_10q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_90q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_mt": {
+      "total": 5,
+      "skipped": 0,
+      "correct": 4,
+      "accuracy": 0.8
+    }
+  }
+}

@@ -1,0 +1,34 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+Qwen3.5-4B,mt,2,Orion Financial Group,3,Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?,,-16736.48725362761,630935360.0,"Maximum current liabilities (2020-2022) = 21416
+Growth in short term investments (2021-2023) = 29460
+Result = 21416 * 29460 = 630935360
+
+Answer: 630935360",False,37699.194994,False,False
+Qwen3.5-4B,mt,3,Pacific Crest Energy,1,Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?,,37323.0,37323.0,"To find the long-term liabilities for 2023, subtract the current liabilities from the total liabilities for that year.
+
+2023 Total Liabilities: 64637
+2023 Current Liabilities: 27314
+Long-term Liabilities = 64637 - 27314 = 37323
+
+Answer: 37323",True,0.000000,True,False
+Qwen3.5-4B,mt,5,Orion Financial Group,1,Provide the the maximum of total equity for Orion Financial Group using values from 2021 through 2022.,,59143.0,59143.0,"2021 total equity: 59143
+2022 total equity: 23836
+Maximum: 59143
+
+Answer: 59143",True,0.000000,True,False
+Qwen3.5-4B,mt,6,Titan Consumer Brands,2,Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?,,46156.5,46156.5,"2021 short_term_investments: 33790
+2022 short_term_investments: 58523
+Sum = 33790 + 58523 = 92313
+Average = 92313 / 2 = 46156.5
+
+Answer: 46156.5",True,0.000000,True,False
+Qwen3.5-4B,mt,7,Meridian Systems Inc,4,What do we obtain as the the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?,,8595.0,8595.0,"Operating expenses for Meridian Systems Inc (MSYS) from 2020 to 2024:
+- 2020: 20641
+- 2021: 8595
+- 2022: 26227
+- 2023: 15975
+- 2024: 16701
+
+Minimum value is 8595 (from 2021).
+
+Answer: 8595",True,0.000000,True,False

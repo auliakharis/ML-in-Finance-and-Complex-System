@@ -1,0 +1,7 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+gemma-4-E4B-it,mt,2,Orion Financial Group,3,Which result follows from the result of the maximum of current liabilities for Orion Financial Group using values from 2020 through 2022 scaled by growth in short term investments for Orion Financial Group from 2021 to 2023?,,-16736.48725362761,14.1336,Answer: 14.1336,False,1.000844,False,False
+gemma-4-E4B-it,mt,3,Pacific Crest Energy,1,Which value corresponds to the longterm liabilities for Pacific Crest Energy in 2023?,,37323.0,0.0,Answer: 0,False,1.000000,False,False
+gemma-4-E4B-it,mt,5,Orion Financial Group,1,Provide the the maximum of total equity for Orion Financial Group using values from 2021 through 2022.,,59143.0,59143.0,Answer: 59143,True,0.000000,True,False
+gemma-4-E4B-it,mt,6,Titan Consumer Brands,2,Which result follows from the average short term investments for Titan Consumer Brands across years 2021 through 2022?,,46156.5,46156.5,"92313/2=46156.5
+Answer: 46156.5",True,0.000000,True,False
+gemma-4-E4B-it,mt,7,Meridian Systems Inc,4,What do we obtain as the the minimum of operating expenses for Meridian Systems Inc using values from 2020 through 2024?,,8595.0,8595.0,Answer: 8595,True,0.000000,True,False
