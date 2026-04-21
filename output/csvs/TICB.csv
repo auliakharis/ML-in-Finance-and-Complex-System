@@ -1,0 +1,34 @@
+Field,Value
+Company Name,Titan Consumer Brands
+Ticker,TICB
+Sector,Consumer
+Country,France
+Exchange,Euronext
+Credit Rating,B
+
+Income Statement,2022,2023,2024
+Revenue,95981,106506,113074
+Cost Of Goods Sold,35376,77875,51285
+Gross Profit,60605,28631,61789
+Operating Expenses,7222,13775,24867
+Operating Income,53383,14856,36922
+Net Income,40897,11246,27157
+
+Balance Sheet,2022,2023,2024
+Total Assets,98264,272258,265030
+Total Liabilities,46231,186227,196971
+Total Equity,52033,86031,68059
+Current Assets,47761,111833,197958
+Current Liabilities,20421,51301,90051
+Cash,6575,54437,49192
+Long Term Debt,15987,64886,135159
+Accounts Receivable,9668,13316,9447
+Inventories,4147,7636,5918
+
+Per Share & Other,2022,2023,2024
+Capex,8211,10513,4705
+Dividends Paid,15782,3521,8779
+Shares Outstanding,1711,5273,8119
+Stock Price,35.16,351.28,394.55
+Employees,159419,188433,220609
+

@@ -1,0 +1,34 @@
+Field,Value
+Company Name,Cobalt Semiconductor
+Ticker,CBSM
+Sector,Technology
+Country,Taiwan
+Exchange,TWSE
+Credit Rating,AA
+
+Income Statement,2022,2023,2024
+Revenue,301331,324118,329386
+Cost Of Goods Sold,123688,172587,246540
+Gross Profit,177643,151531,82846
+Operating Expenses,71393,28591,52727
+Operating Income,106250,122940,30119
+Net Income,89698,104712,24988
+
+Balance Sheet,2022,2023,2024
+Total Assets,358317,411467,390039
+Total Liabilities,250594,264461,206740
+Total Equity,107723,147006,183299
+Current Assets,214629,129672,116294
+Current Liabilities,104510,97592,88965
+Cash,37268,76782,38778
+Long Term Debt,124049,110464,119096
+Accounts Receivable,26948,27491,37645
+Inventories,7700,3839,35407
+
+Per Share & Other,2022,2023,2024
+Capex,14580,16968,11635
+Dividends Paid,9269,10191,7383
+Shares Outstanding,4267,9993,4220
+Stock Price,482.98,304.68,477.83
+Employees,440653,278969,381303
+

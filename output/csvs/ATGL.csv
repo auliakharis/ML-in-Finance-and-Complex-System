@@ -1,0 +1,34 @@
+Field,Value
+Company Name,Atlas Global Industries
+Ticker,ATGL
+Sector,Industrials
+Country,UK
+Exchange,LSE
+Credit Rating,BB
+
+Income Statement,2022,2023,2024
+Revenue,528458,494598,498541
+Cost Of Goods Sold,226371,261406,209151
+Gross Profit,302087,233192,289390
+Operating Expenses,100047,108944,37977
+Operating Income,202040,124248,251413
+Net Income,152318,110120,193814
+
+Balance Sheet,2022,2023,2024
+Total Assets,426164,1296276,587438
+Total Liabilities,288115,938871,433188
+Total Equity,138049,357405,154250
+Current Assets,160330,769407,312464
+Current Liabilities,85707,455727,109306
+Cash,33196,201349,97900
+Long Term Debt,93460,312450,223115
+Accounts Receivable,24229,48417,48009
+Inventories,26179,6579,6901
+
+Per Share & Other,2022,2023,2024
+Capex,23827,35903,30147
+Dividends Paid,3055,24897,10269
+Shares Outstanding,7204,4814,5300
+Stock Price,736.72,219.7,69.0
+Employees,267907,336514,125921
+

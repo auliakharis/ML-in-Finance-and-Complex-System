@@ -1,0 +1,34 @@
+Field,Value
+Company Name,Apex Dynamics Corp
+Ticker,APEX
+Sector,Technology
+Country,USA
+Exchange,NYSE
+Credit Rating,AA
+
+Income Statement,2022,2023,2024
+Revenue,67781,78857,79022
+Cost Of Goods Sold,27804,50584,46061
+Gross Profit,39977,28273,32961
+Operating Expenses,5281,6461,17945
+Operating Income,34696,21812,15016
+Net Income,30515,17787,12428
+
+Balance Sheet,2022,2023,2024
+Total Assets,57016,124489,148888
+Total Liabilities,36451,58319,48815
+Total Equity,20565,66170,100073
+Current Assets,19736,39849,48789
+Current Liabilities,9402,16070,21638
+Cash,2886,14140,36738
+Long Term Debt,19118,23666,22067
+Accounts Receivable,4288,5985,9920
+Inventories,2732,3274,6110
+
+Per Share & Other,2022,2023,2024
+Capex,5238,1851,4447
+Dividends Paid,8560,3269,4147
+Shares Outstanding,6351,1960,2524
+Stock Price,367.63,739.0,293.89
+Employees,142704,44006,336737
+

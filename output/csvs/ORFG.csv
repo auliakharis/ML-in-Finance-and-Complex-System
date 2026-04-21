@@ -1,0 +1,34 @@
+Field,Value
+Company Name,Orion Financial Group
+Ticker,ORFG
+Sector,Financials
+Country,UK
+Exchange,LSE
+Credit Rating,AAA
+
+Income Statement,2022,2023,2024
+Revenue,249891,260395,267204
+Cost Of Goods Sold,140648,81520,105612
+Gross Profit,109243,178875,161592
+Operating Expenses,47256,30525,30827
+Operating Income,61987,148350,130765
+Net Income,45167,113365,97780
+
+Balance Sheet,2022,2023,2024
+Total Assets,205045,331637,353935
+Total Liabilities,116930,141655,247662
+Total Equity,88115,189982,106273
+Current Assets,32125,73010,203935
+Current Liabilities,39515,39934,77535
+Cash,40141,55349,16996
+Long Term Debt,54677,74476,173354
+Accounts Receivable,31323,11118,11206
+Inventories,20246,5806,9518
+
+Per Share & Other,2022,2023,2024
+Capex,19942,5772,12825
+Dividends Paid,9867,29146,25428
+Shares Outstanding,9088,2122,11740
+Stock Price,188.12,377.43,526.63
+Employees,113614,29891,378345
+

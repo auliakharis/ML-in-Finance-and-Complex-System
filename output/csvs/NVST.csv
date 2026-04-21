@@ -1,0 +1,34 @@
+Field,Value
+Company Name,NovaStar Technologies
+Ticker,NVST
+Sector,Technology
+Country,Germany
+Exchange,XETRA
+Credit Rating,A
+
+Income Statement,2022,2023,2024
+Revenue,116726,110556,130292
+Cost Of Goods Sold,38747,54612,65069
+Gross Profit,77979,55944,65223
+Operating Expenses,20570,14894,28960
+Operating Income,57409,41050,36263
+Net Income,49039,33111,28645
+
+Balance Sheet,2022,2023,2024
+Total Assets,84187,94099,361214
+Total Liabilities,60937,63921,270867
+Total Equity,23250,30178,90347
+Current Assets,18028,52048,351903
+Current Liabilities,18860,17553,133334
+Cash,14916,11158,84452
+Long Term Debt,41084,25534,133878
+Accounts Receivable,7170,8173,16270
+Inventories,1441,7210,2708
+
+Per Share & Other,2022,2023,2024
+Capex,7667,3893,4834
+Dividends Paid,9272,5942,4595
+Shares Outstanding,11791,6386,974
+Stock Price,648.89,233.66,312.49
+Employees,99253,128654,492728
+
