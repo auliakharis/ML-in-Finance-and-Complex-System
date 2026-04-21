@@ -109,7 +109,7 @@
   },
   "expr_str": "sum(ratio(sum(sum(sum(sum(sum(72_total_equity, 73_total_equity), 74_total_equity), 75_total_equity), 76_total_equity), 77_total_equity), 6.0), ratio(sum(sum(sum(sum(sum(72_revenue, 73_revenue), 74_revenue), 75_revenue), 76_revenue), 77_revenue), 6.0))",
   "depth": 7,
-  "question": "What is the value of the sum of ratio of sum of sum of sum of sum of sum of total equity for Helix BioSciences in 2020 and total equity for Helix BioSciences in 2021 and total equity for Helix BioSciences in 2022 and total equity for Helix BioSciences in 2023 and total equity for Helix BioSciences in 2024 and total equity for Helix BioSciences in 2025 to 6.0 and ratio of sum of sum of sum of sum of sum of revenue for Helix BioSciences in 2020 and revenue for Helix BioSciences in 2021 and revenue for Helix BioSciences in 2022 and revenue for Helix BioSciences in 2023 and revenue for Helix BioSciences in 2024 and revenue for Helix BioSciences in 2025 to 6.0?",
+  "question": "which quantity is given by the sum of ratio of sum of sum of sum of sum of sum of total equity for Helix BioSciences in 2020 and total equity for Helix BioSciences in 2021 and total equity for Helix BioSciences in 2022 and total equity for Helix BioSciences in 2023 and total equity for Helix BioSciences in 2024 and total equity for Helix BioSciences in 2025 to 6.0 and ratio of sum of sum of sum of sum of sum of revenue for Helix BioSciences in 2020 and revenue for Helix BioSciences in 2021 and revenue for Helix BioSciences in 2022 and revenue for Helix BioSciences in 2023 and revenue for Helix BioSciences in 2024 and revenue for Helix BioSciences in 2025 to 6.0",
   "answer": 365866.5,
   "meaning": {
     "kind": "sum_amount",

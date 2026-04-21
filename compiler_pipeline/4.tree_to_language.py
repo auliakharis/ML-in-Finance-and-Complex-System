@@ -20,12 +20,17 @@ question_templates = {
     "question": [
         "What is the {phrase}",
         "What is the value of the {phrase}",
+        "What's the value of the {phrase}",
+        "Whats the value of the {phrase}",
         "What would be the {phrase}",
         "What do we obtain as the {phrase}",
         "What does the following give: {phrase}",
         "Which value corresponds to the {phrase}",
         "Which result follows from the {phrase}",
         "Which quantity is given by the {phrase}",
+        "Could you give the {phrase}",
+        "May you calculate the {phrase}",
+        "May you give the {phrase}",
     ],
     "imperative": [
         "Give the {phrase}",
@@ -35,6 +40,8 @@ question_templates = {
         "Compute the {phrase}",
         "Calculate the {phrase}",
         "Evaluate the {phrase}",
+        "You should calculate the {phrase}",
+        "You should give the {phrase}",
     ]
 }
 
@@ -1250,10 +1257,32 @@ class QuestionRenderer:
         text = tmpl.format(phrase=phrase, copula=copula)
 
         # Add punctuation
+        punct_case = random.choice(["none", "space", "normal"])
+
         if category == "question":
-            return text.rstrip() + "?"
+            punct = "?"
         else:
-            return text.rstrip() + "."
+            punct = "."
+
+        stripped = text.rstrip()
+
+        if punct_case == "none":
+            result = stripped
+        elif punct_case == "space":
+            result = stripped + " " + punct
+        else:  # "normal"
+            result = stripped + punct
+
+        # Randomize capitalization (uniform choice)
+        cap_case = random.choice(["capitalize", "lower"])
+
+        if result:
+            if cap_case == "lower":
+                result = result[0].lower() + result[1:]
+            else:
+                result = result[0].upper() + result[1:]
+
+        return result
 
     def _expr_phrase(self, result: AnalysisResult, top_level: bool = False) -> str:
         expr = result.expr
