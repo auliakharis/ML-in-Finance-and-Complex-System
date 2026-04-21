@@ -1,6 +1,6 @@
 # dataset_output
 
-Final merged Q&A dataset combining questions from the compiler pipeline and 10q generator. This is the primary input for LLM evaluation.
+Final merged Q&A dataset combining questions from the compiler pipeline and form10q generator. This is the primary input for LLM evaluation.
 
 | File | Description |
 |---|---|
@@ -10,4 +10,4 @@ Final merged Q&A dataset combining questions from the compiler pipeline and 10q 
 
 ## Usage
 
-`run_llm_eval.py` reads from `10q/final_qa_dataset.json` and `90q/random_questions_90.json` directly. The files here represent a merged/processed view used for broader experiments.
+`run_llm_eval.py` reads from `form10q/final_qa_dataset.json` and `90q/random_questions_90.json` directly. The files here represent a merged/processed view used for broader experiments.

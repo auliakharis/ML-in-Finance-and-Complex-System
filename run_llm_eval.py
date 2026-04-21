@@ -57,14 +57,14 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
-DATASET_10Q = BASE_DIR / "10q" / "final_qa_dataset.json"
-SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
+DATASET_10Q = BASE_DIR / "form10q" / "final_qa_dataset.json"
+SHEET_10Q   = BASE_DIR / "form10q" / "financial_spreadsheet.json"
 
 DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
-SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
+SHEET_90Q   = BASE_DIR / "annual" / "financial_spreadsheet.json"
 
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
-SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
+SHEET_MT    = BASE_DIR / "annual" / "financial_spreadsheet.json"  # same synthetic companies
 
 DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B", "gemma-4-E4B-it"]
 
@@ -98,11 +98,27 @@ def build_90q_sheet_lookup(sheet: list) -> dict:
 # Prompt builders
 # ---------------------------------------------------------------------------
 
+def _load_parse_col_10q():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "rewrite_10q", BASE_DIR / "form10q" / "rewrite_10q.py"
+    )
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.parse_col
+
+_parse_col_10q = None
+
 def sheet_to_text_10q(row: dict) -> str:
-    """Format a 10-Q spreadsheet row as readable key-value text."""
+    """Format a 10-Q spreadsheet row as readable key-value text with human-readable column names."""
+    global _parse_col_10q
+    if _parse_col_10q is None:
+        _parse_col_10q = _load_parse_col_10q()
     lines = []
     for k, v in row.items():
-        lines.append(f"  {k}: {v}")
+        label, period = _parse_col_10q(k)
+        display = f"{label} ({period})" if period else label
+        lines.append(f"  {display}: {v}")
     return "\n".join(lines)
 
 
@@ -334,7 +350,7 @@ def evaluate_10q(
         if sheet_row is None:
             print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{company}')")
             results.append({
-                "source": "10q",
+                "source": "form10q",
                 "id": q.get("id"),
                 "company": company,
                 "depth": q.get("depth"),
@@ -358,7 +374,7 @@ def evaluate_10q(
         print(f"  [{i}/{len(subset)}] {status} | truth={ground_truth} pred={predicted} | {question_text[:60]}...")
 
         results.append({
-            "source": "10q",
+            "source": "form10q",
             "id": q.get("id"),
             "company": company,
             "depth": q.get("depth"),
@@ -395,7 +411,7 @@ def evaluate_90q(
         if not sheet_rows:
             print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{entity}')")
             results.append({
-                "source": "90q",
+                "source": "annual",
                 "id": q.get("id") or q.get("question_id"),
                 "entity": entity,
                 "depth": q.get("depth"),
@@ -419,7 +435,7 @@ def evaluate_90q(
         print(f"  [{i}/{len(subset)}] {status} | truth={float(ground_truth):.4f} pred={predicted} | {question_text[:60]}...")
 
         results.append({
-            "source": "90q",
+            "source": "annual",
             "id": q.get("id") or q.get("question_id"),
             "entity": entity,
             "depth": q.get("depth"),
@@ -653,7 +669,7 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for model_name, model_data in all_results.items():
-            for dataset_key in ("10q", "90q", "mt"):
+            for dataset_key in ("form10q", "annual", "mt"):
                 for r in model_data.get(dataset_key, []):
                     gt = r.get("ground_truth")
                     pred = r.get("predicted")
@@ -714,7 +730,7 @@ def parse_args():
         help="Path to save per-question results CSV (default: eval_results.csv)",
     )
     parser.add_argument(
-        "--datasets", nargs="+", choices=["10q", "90q", "mt"], default=["10q", "90q", "mt"],
+        "--datasets", nargs="+", choices=["form10q", "annual", "mt"], default=["form10q", "annual", "mt"],
         help="Which dataset(s) to evaluate: 10q, 90q, mt, or any combination (default: all)",
     )
     return parser.parse_args()
@@ -725,14 +741,14 @@ def main():
 
     # Load datasets
     print("Loading datasets...")
-    if "10q" in args.datasets:
+    if "form10q" in args.datasets:
         questions_10q = load_json(DATASET_10Q)
         sheet_lookup_10q = build_10q_sheet_lookup(load_json(SHEET_10Q))
         print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} companies")
     else:
         questions_10q, sheet_lookup_10q = [], {}
 
-    if "90q" in args.datasets:
+    if "annual" in args.datasets:
         questions_90q = load_json(DATASET_90Q)
         sheet_lookup_90q = build_90q_sheet_lookup(load_json(SHEET_90Q))
         print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
@@ -761,7 +777,7 @@ def main():
 
         tokenizer, model = load_model(model_name)
 
-        if "10q" in args.datasets:
+        if "form10q" in args.datasets:
             print(f"\n-- 10-Q evaluation ({args.limit or len(questions_10q)} questions) --")
             results_10q = evaluate_10q(
                 questions_10q, sheet_lookup_10q, tokenizer, model,
@@ -770,7 +786,7 @@ def main():
         else:
             results_10q = []
 
-        if "90q" in args.datasets:
+        if "annual" in args.datasets:
             print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
             results_90q = evaluate_90q(
                 questions_90q, sheet_lookup_90q, tokenizer, model,
@@ -792,8 +808,8 @@ def main():
         print_summary(model_name, results_10q, results_90q, results_mt)
 
         all_results[model_name] = {
-            "10q": results_10q,
-            "90q": results_90q,
+            "form10q": results_10q,
+            "annual": results_90q,
             "mt": results_mt,
             "accuracy_10q": compute_accuracy(results_10q),
             "accuracy_90q": compute_accuracy(results_90q),

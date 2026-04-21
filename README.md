@@ -7,11 +7,11 @@ A research project for benchmarking LLMs on compositional financial reasoning. T
 ```
 .
 ├── compiler_pipeline/   # Core pipeline: synthetic data → expression trees → questions
-├── 10q/                 # 10-Q report generator and small Q&A dataset
+├── form10q/                 # 10-Q report generator and small Q&A dataset
 ├── 90q/                 # 90-question benchmark dataset (mixed operators/depths)
 ├── Multi-turn/          # Multi-turn conversation builder from expression trees
 ├── dataset_output/      # Final merged Q&A dataset (used for eval)
-├── output/              # Output from the 10q pipeline run
+├── output/              # Output from the form10q pipeline run
 ├── output_llm/          # LLM evaluation results (CSV + JSON)
 ├── logs/                # SLURM job stdout/stderr logs
 └── TEMP/                # Scratch/experimental files
@@ -38,7 +38,7 @@ python run_llm_eval.py
 ### 3. Build multi-turn chains
 ```bash
 cd Multi-turn
-python multi_turn_parser.py --input ../90q/random_questions_90.json --output output.json
+python multi_turn_parser.py --input ../annual/random_questions_90.json --output output.json
 ```
 
 ## Requirements

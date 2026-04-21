@@ -61,9 +61,13 @@ def validate_args(args: argparse.Namespace) -> None:
 
 
 def resolve_path(path_like: str, base_dir: Path) -> Path:
-    # Resolve relative CLI paths against this script directory.
+    # Resolve relative CLI paths: prefer CWD if the file exists there,
+    # fall back to the script directory (original behaviour).
     path = Path(path_like)
     if not path.is_absolute():
+        cwd_path = Path.cwd() / path
+        if cwd_path.exists():
+            return cwd_path
         path = base_dir / path
     return path
 
@@ -136,19 +140,30 @@ def main() -> None:
     parser.add_argument("--derived-prob-max", type=float, default=0.60, help="Maximum derived concept probability")
     parser.add_argument("--seed", type=int, default=None, help="Master seed; default is random")
     parser.add_argument("--output", default="output/random_questions_90.csv", help="Output CSV path")
+    parser.add_argument("--atoms-module", default=None,
+                        help="Path to a custom atoms builder (replaces 2.fixed_building_atoms.py). "
+                             "Must expose build_atoms(df) and import pandas as pd.")
     args = parser.parse_args()
     validate_args(args)
 
     # Resolve runtime paths and prepare output location.
     base_dir = Path(__file__).resolve().parent
     csv_path = resolve_path(args.csv, base_dir)
-    output_path = resolve_path(args.output, base_dir)
+    output_path_raw = Path(args.output)
+    output_path = output_path_raw if output_path_raw.is_absolute() else Path.cwd() / output_path_raw
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # Load pipeline modules so we can call their functions directly.
-    mod_atoms = load_module(base_dir / "2.fixed_building_atoms.py", "fixed_building_atoms")
+    if args.atoms_module:
+        atoms_module_path = Path(args.atoms_module)
+        if not atoms_module_path.is_absolute():
+            atoms_module_path = Path.cwd() / atoms_module_path
+        mod_atoms = load_module(atoms_module_path, "custom_atoms_builder")
+    else:
+        mod_atoms = load_module(base_dir / "2.fixed_building_atoms.py", "fixed_building_atoms")
     mod_sampler = load_module(base_dir / "3.fixed_tree_sampler.py", "fixed_tree_sampler")
     mod_lang = load_module(base_dir / "4.tree_to_language.py", "tree_to_language")
+    print("USING ATOMS:", atoms_module_path.resolve() if args.atoms_module else (base_dir / "2.fixed_building_atoms.py").resolve())
     print("USING SAMPLER:", (base_dir / "3.fixed_tree_sampler.py").resolve())
     print("USING LANG:", (base_dir / "4.tree_to_language.py").resolve())
     print("USING FILE 5 FROM:", Path(__file__).resolve())

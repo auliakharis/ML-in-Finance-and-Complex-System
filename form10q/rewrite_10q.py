@@ -8,6 +8,7 @@ Replaces their step5_rewrite_questions.py.
 """
 
 import re
+import random
 
 # ---------------------------------------------------------------------------
 # Human-readable labels for field base names
@@ -82,6 +83,58 @@ PREFIX_LABELS = {
 }
 
 
+QUESTION_TEMPLATES = {
+    "question": [
+        "What is the {phrase}",
+        "What is the value of the {phrase}",
+        "What's the value of the {phrase}",
+        "Whats the value of the {phrase}",
+        "What would be the {phrase}",
+        "What do we obtain as the {phrase}",
+        "What does the following give: {phrase}",
+        "Which value corresponds to the {phrase}",
+        "Which result follows from the {phrase}",
+        "Which quantity is given by the {phrase}",
+        "Could you give the {phrase}",
+        "May you calculate the {phrase}",
+        "May you give the {phrase}",
+    ],
+    "imperative": [
+        "Give the {phrase}",
+        "Provide the {phrase}",
+        "State the {phrase}",
+        "Determine the {phrase}",
+        "Compute the {phrase}",
+        "Calculate the {phrase}",
+        "Evaluate the {phrase}",
+        "You should calculate the {phrase}",
+        "You should give the {phrase}",
+    ],
+}
+
+
+def _apply_template(phrase: str) -> str:
+    all_templates = (
+        [("question", t) for t in QUESTION_TEMPLATES["question"]] +
+        [("imperative", t) for t in QUESTION_TEMPLATES["imperative"]]
+    )
+    category, tmpl = random.choice(all_templates)
+    text = tmpl.format(phrase=phrase)
+    punct = "?" if category == "question" else "."
+    punct_case = random.choice(["none", "space", "normal"])
+    stripped = text.rstrip()
+    if punct_case == "none":
+        result = stripped
+    elif punct_case == "space":
+        result = stripped + " " + punct
+    else:
+        result = stripped + punct
+    cap_case = random.choice(["capitalize", "lower"])
+    if result:
+        result = result[0].upper() + result[1:] if cap_case == "capitalize" else result[0].lower() + result[1:]
+    return result
+
+
 def parse_col(col: str) -> tuple:
     """
     Parse column name into (field_label, period_description).
@@ -143,8 +196,10 @@ def rewrite_as_question(result: dict) -> str:
         col = operands[0]
         label, period = parse_col(col)
         if period:
-            return f"What was the {label} reported by {company} {period}?"
-        return f"What is the {label} of {company}?"
+            phrase = f"{label} reported by {company} {period}"
+        else:
+            phrase = f"{label} of {company}"
+        return _apply_template(phrase)
 
     # Aggregations
     if op in ("sum_agg", "avg_agg", "max_agg", "min_agg", "count_agg"):
@@ -158,8 +213,8 @@ def rewrite_as_question(result: dict) -> str:
             "count_agg": "count of companies with data for",
         }
         period_str = f" {period}" if period else ""
-        return (f"What is the {op_map[op]} of {label}"
-                f"{period_str} across all companies in the dataset?")
+        phrase = f"{op_map[op]} of {label}{period_str} across all companies in the dataset"
+        return _apply_template(phrase)
 
     # Depth 1 binary
     if depth == 1 and len(operands) >= 2:
@@ -179,18 +234,7 @@ def rewrite_as_question(result: dict) -> str:
             label_b_full = label_b
             period_ctx   = f" {period_a or period_b}" if (period_a or period_b) else ""
 
-        if op == "add":
-            return (f"What is the sum of {label_a_full} and {label_b_full} "
-                    f"for {company}{period_ctx}?")
-        if op == "subtract":
-            return (f"What is the difference between {label_a_full} and {label_b_full} "
-                    f"(i.e., {label_a_full} minus {label_b_full}) for {company}{period_ctx}?")
-        if op == "multiply":
-            return (f"What is the product of {label_a_full} and {label_b_full} "
-                    f"for {company}{period_ctx}?")
-        if op in ("divide", "ratio"):
-            return (f"What is the ratio of {label_a_full} to {label_b_full} "
-                    f"for {company}{period_ctx}?")
+        # Boolean ops don't fit the template pattern — keep fixed
         if op == "greater_than":
             return (f"Is {label_a_full} strictly greater than {label_b_full} "
                     f"for {company}{period_ctx}?")
@@ -209,12 +253,23 @@ def rewrite_as_question(result: dict) -> str:
         if op == "not_equals":
             return (f"Is the {label_a_full} different from {label_b_full} "
                     f"for {company}{period_ctx}?")
-        if op == "change":
-            return (f"What is the absolute change in {label_a} for {company} "
-                    f"from {period_b} to {period_a}?")
-        if op == "pct_change":
-            return (f"What is the percentage change in {label_a} for {company} "
-                    f"from {period_b} to {period_a}?")
+
+        if op == "add":
+            phrase = f"sum of {label_a_full} and {label_b_full} for {company}{period_ctx}"
+        elif op == "subtract":
+            phrase = (f"difference between {label_a_full} and {label_b_full} "
+                      f"(i.e., {label_a_full} minus {label_b_full}) for {company}{period_ctx}")
+        elif op == "multiply":
+            phrase = f"product of {label_a_full} and {label_b_full} for {company}{period_ctx}"
+        elif op in ("divide", "ratio"):
+            phrase = f"ratio of {label_a_full} to {label_b_full} for {company}{period_ctx}"
+        elif op == "change":
+            phrase = f"absolute change in {label_a} for {company} from {period_b} to {period_a}"
+        elif op == "pct_change":
+            phrase = f"percentage change in {label_a} for {company} from {period_b} to {period_a}"
+        else:
+            return f"[Could not rewrite: {expr}]"
+        return _apply_template(phrase)
 
     # Depth 2
     if depth == 2:
