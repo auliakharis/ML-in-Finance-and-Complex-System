@@ -1,7 +1,19 @@
 #!/bin/bash
 # ══════════════════════════════════════════════════════════════════
-# run_lora2.sh  –  Create venv, install dependencies, run lora2.py
-# Usage: bash run_lora2.sh
+# run_lora.sh  –  Install deps with uv (optional), run lora2.py
+#
+# Usage:
+#   source /path/to/your/venv/bin/activate
+#   bash run_lora.sh
+#
+# If a venv is already active ($VIRTUAL_ENV), it is used as-is — nothing
+# is recreated. Dependencies are installed with `uv pip install` into that
+# environment unless you set LORA_SKIP_INSTALL=1 (e.g. after first run).
+#
+# If no venv is active: activates ./venv when it exists, otherwise creates
+# ./venv once with `uv venv`.
+#
+# Requires: uv on PATH — https://docs.astral.sh/uv/
 # ══════════════════════════════════════════════════════════════════
 
 set -e
@@ -24,16 +36,44 @@ error()   { echo -e "${RED}[ERROR]${NC} $1"; exit 1; }
 # ══════════════════════════════════════════════════════════════════
 info "Checking prerequisites..."
 
+command -v uv &>/dev/null || error "uv not found. Install: https://docs.astral.sh/uv/getting-started/installation/"
 command -v $PYTHON &>/dev/null || error "python3 not found. Install it first."
-command -v pip3    &>/dev/null || error "pip3 not found. Install it first."
 
 [[ -f "$SCRIPT" ]] || error "$SCRIPT not found in $(pwd). Place this script next to $SCRIPT."
 
-# ── Python version check ───────────────────────────────────────────
-PY_MAJOR=$($PYTHON -c "import sys; print(sys.version_info.major)")
-PY_MINOR=$($PYTHON -c "import sys; print(sys.version_info.minor)")
+# ── CUDA/GPU check (before venv — uses system tools only) ─────────
+if command -v nvidia-smi &>/dev/null; then
+    info "GPU detected:"
+    nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
+else
+    warning "No GPU detected. Training will be extremely slow on CPU."
+fi
+
+# ══════════════════════════════════════════════════════════════════
+# 1. Select virtual environment (never replace an existing one)
+# ══════════════════════════════════════════════════════════════════
+if [[ -n "${VIRTUAL_ENV:-}" ]]; then
+    info "Using your active venv (no create/switch): $VIRTUAL_ENV"
+elif [[ -d "$VENV_DIR" ]]; then
+    info "Activating existing ./$VENV_DIR ..."
+    # shellcheck source=/dev/null
+    source "$VENV_DIR/bin/activate"
+    info "venv: $VIRTUAL_ENV"
+else
+    info "No venv active and ./$VENV_DIR missing — creating once with uv ..."
+    uv venv "$VENV_DIR" --python "$PYTHON"
+    # shellcheck source=/dev/null
+    source "$VENV_DIR/bin/activate"
+    info "venv: $VIRTUAL_ENV"
+fi
+
+command -v python &>/dev/null || error "'python' not found inside the venv."
+
+# ── Python version check (interpreter from the venv) ──────────────
+PY_MAJOR=$(python -c "import sys; print(sys.version_info.major)")
+PY_MINOR=$(python -c "import sys; print(sys.version_info.minor)")
 PY_VERSION="$PY_MAJOR.$PY_MINOR"
-info "Python version: $PY_VERSION"
+info "Python version: $PY_VERSION ($(command -v python))"
 
 if [[ "$PY_MAJOR" -lt 3 || ( "$PY_MAJOR" -eq 3 && "$PY_MINOR" -lt 9 ) ]]; then
     error "Python 3.9+ is required (found $PY_VERSION). Please upgrade Python."
@@ -48,119 +88,101 @@ if [[ "$PY_MAJOR" -eq 3 && "$PY_MINOR" -lt 10 ]]; then
     BNB_SUPPORTED=false
 fi
 
-# ── CUDA/GPU check ────────────────────────────────────────────────
-if command -v nvidia-smi &>/dev/null; then
-    info "GPU detected:"
-    nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
+# ══════════════════════════════════════════════════════════════════
+# 2–3. Install dependencies with uv (into the active venv), optional
+# ══════════════════════════════════════════════════════════════════
+if [[ "${LORA_SKIP_INSTALL:-}" == "1" ]]; then
+    info "LORA_SKIP_INSTALL=1 — skipping uv pip install (using packages already in this venv)."
 else
-    warning "No GPU detected. Training will be extremely slow on CPU."
-fi
+    # Install certifi first so SSL env vars can be set before Hub downloads
+    info "Installing / upgrading certifi (SSL certificates)..."
+    uv pip install --upgrade certifi --quiet
 
-# ══════════════════════════════════════════════════════════════════
-# 1. Create virtual environment
-# ══════════════════════════════════════════════════════════════════
-if [[ -d "$VENV_DIR" ]]; then
-    warning "Virtual environment '$VENV_DIR' already exists – skipping creation."
-else
-    info "Creating virtual environment in ./$VENV_DIR ..."
-    $PYTHON -m venv "$VENV_DIR"
-    info "Virtual environment created."
-fi
+    # ── Point all SSL/TLS to the venv's own certifi bundle ────────
+    CA_BUNDLE=$(python -c "import certifi; print(certifi.where())")
+    export REQUESTS_CA_BUNDLE="$CA_BUNDLE"
+    export SSL_CERT_FILE="$CA_BUNDLE"
+    export CURL_CA_BUNDLE="$CA_BUNDLE"
+    info "SSL CA bundle set to: $CA_BUNDLE"
 
-source "$VENV_DIR/bin/activate"
-info "Activated venv: $(which python)"
+    info "Installing requirements with uv into this venv..."
 
-# ══════════════════════════════════════════════════════════════════
-# 2. Upgrade pip + install certifi early
-# ══════════════════════════════════════════════════════════════════
-info "Upgrading pip..."
-pip install --upgrade pip --quiet
+    # ── Detect CUDA ─────────────────────────────────────────────
+    CUDA_AVAILABLE=false
+    CUDA_MAJOR=0
 
-# Install certifi first so SSL env vars can be set before anything
-# tries to make a network request (including other pip installs)
-info "Installing certifi (SSL certificates)..."
-pip install --upgrade certifi --quiet
-
-# ── Point all SSL/TLS to the venv's own certifi bundle ────────────
-# This fixes the 'could not find CA bundle' error that occurs when
-# the venv path contains spaces or special characters (e.g. on macOS).
-CA_BUNDLE=$(python -c "import certifi; print(certifi.where())")
-export REQUESTS_CA_BUNDLE="$CA_BUNDLE"
-export SSL_CERT_FILE="$CA_BUNDLE"
-export CURL_CA_BUNDLE="$CA_BUNDLE"
-info "SSL CA bundle set to: $CA_BUNDLE"
-
-# ══════════════════════════════════════════════════════════════════
-# 3. Install requirements
-# ══════════════════════════════════════════════════════════════════
-info "Installing requirements..."
-
-# ── Detect CUDA ───────────────────────────────────────────────────
-CUDA_AVAILABLE=false
-CUDA_MAJOR=0
-
-if command -v nvcc &>/dev/null; then
-    CUDA_VER=$(nvcc --version | grep -oP 'release \K[0-9]+\.[0-9]+')
-    CUDA_MAJOR=$(echo "$CUDA_VER" | cut -d. -f1)
-    CUDA_AVAILABLE=true
-    info "nvcc found – CUDA $CUDA_VER detected."
-elif command -v nvidia-smi &>/dev/null; then
-    DRIVER_VER=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader | head -1)
-    info "nvidia-smi found (driver $DRIVER_VER) – treating as CUDA 12."
-    CUDA_MAJOR=12
-    CUDA_AVAILABLE=true
-else
-    warning "No CUDA toolchain found – installing CPU-only packages."
-fi
-
-# ── PyTorch ───────────────────────────────────────────────────────
-if [[ "$CUDA_AVAILABLE" == true ]]; then
-    if [[ "$CUDA_MAJOR" -ge 12 ]]; then
-        info "Installing torch with CUDA 12.1 support..."
-        pip install torch torchvision torchaudio \
-            --index-url https://download.pytorch.org/whl/cu121 --quiet
-    elif [[ "$CUDA_MAJOR" -eq 11 ]]; then
-        info "Installing torch with CUDA 11.8 support..."
-        pip install torch torchvision torchaudio \
-            --index-url https://download.pytorch.org/whl/cu118 --quiet
+    if command -v nvcc &>/dev/null; then
+        CUDA_VER=$(nvcc --version | grep -oP 'release \K[0-9]+\.[0-9]+')
+        CUDA_MAJOR=$(echo "$CUDA_VER" | cut -d. -f1)
+        CUDA_AVAILABLE=true
+        info "nvcc found – CUDA $CUDA_VER detected."
+    elif command -v nvidia-smi &>/dev/null; then
+        DRIVER_VER=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader | head -1)
+        info "nvidia-smi found (driver $DRIVER_VER) – treating as CUDA 12."
+        CUDA_MAJOR=12
+        CUDA_AVAILABLE=true
     else
-        warning "Older CUDA (<11). Installing default torch – GPU support not guaranteed."
-        pip install torch torchvision torchaudio --quiet
+        warning "No CUDA toolchain found – installing CPU-only PyTorch wheel."
     fi
-else
-    info "Installing CPU-only torch..."
-    pip install torch torchvision torchaudio \
-        --index-url https://download.pytorch.org/whl/cpu --quiet
+
+    # ── PyTorch ───────────────────────────────────────────────────
+    if [[ "$CUDA_AVAILABLE" == true ]]; then
+        if [[ "$CUDA_MAJOR" -ge 12 ]]; then
+            info "Installing torch with CUDA 12.1 support..."
+            uv pip install torch torchvision torchaudio \
+                --index-url https://download.pytorch.org/whl/cu121 --quiet
+        elif [[ "$CUDA_MAJOR" -eq 11 ]]; then
+            info "Installing torch with CUDA 11.8 support..."
+            uv pip install torch torchvision torchaudio \
+                --index-url https://download.pytorch.org/whl/cu118 --quiet
+        else
+            warning "Older CUDA (<11). Installing default torch – GPU support not guaranteed."
+            uv pip install torch torchvision torchaudio --quiet
+        fi
+    else
+        info "Installing CPU-only torch..."
+        uv pip install torch torchvision torchaudio \
+            --index-url https://download.pytorch.org/whl/cpu --quiet
+    fi
+
+    # ── bitsandbytes ────────────────────────────────────────────
+    if [[ "$BNB_SUPPORTED" == true ]]; then
+        info "Installing bitsandbytes >=0.43.1 ..."
+        uv pip install "bitsandbytes>=0.43.1" --quiet
+        if [[ "$CUDA_AVAILABLE" == false ]]; then
+            warning "No GPU found. 4-bit quantisation is not supported on CPU."
+            warning "Set load_in_4bit=False in lora2.py when running without a GPU."
+        fi
+    else
+        info "Installing bitsandbytes==0.42.0 (Python 3.9 compatible)..."
+        uv pip install "bitsandbytes==0.42.0" --quiet
+        if [[ "$CUDA_AVAILABLE" == false ]]; then
+            warning "No GPU + Python 3.9: bitsandbytes 0.42.0 will crash on import without CUDA."
+            warning "Please upgrade to Python 3.10+ or run on a machine with a GPU."
+        fi
+    fi
+
+    # trl>=0.22: SFTConfig + processing_class (see lora2.py)
+    uv pip install \
+        "transformers>=4.40.0" \
+        "peft>=0.10.0" \
+        "trl>=0.22.0" \
+        "accelerate>=0.29.0" \
+        "datasets>=2.18.0" \
+        pandas \
+        --quiet
+
+    info "All requirements installed."
 fi
 
-# ── bitsandbytes ──────────────────────────────────────────────────
-if [[ "$BNB_SUPPORTED" == true ]]; then
-    info "Installing bitsandbytes >=0.43.1 ..."
-    pip install "bitsandbytes>=0.43.1" --quiet
-    if [[ "$CUDA_AVAILABLE" == false ]]; then
-        warning "No GPU found. 4-bit quantisation is not supported on CPU."
-        warning "Set load_in_4bit=False in lora2.py when running without a GPU."
-    fi
-else
-    info "Installing bitsandbytes==0.42.0 (Python 3.9 compatible)..."
-    pip install "bitsandbytes==0.42.0" --quiet
-    if [[ "$CUDA_AVAILABLE" == false ]]; then
-        warning "No GPU + Python 3.9: bitsandbytes 0.42.0 will crash on import without CUDA."
-        warning "Please upgrade to Python 3.10+ or run on a machine with a GPU."
-    fi
+# SSL env for lora2.py when install was skipped (certifi already in venv)
+if [[ -z "${REQUESTS_CA_BUNDLE:-}" ]]; then
+    CA_BUNDLE=$(python -c "import certifi; print(certifi.where())")
+    export REQUESTS_CA_BUNDLE="$CA_BUNDLE"
+    export SSL_CERT_FILE="$CA_BUNDLE"
+    export CURL_CA_BUNDLE="$CA_BUNDLE"
+    info "SSL CA bundle set to: $CA_BUNDLE"
 fi
-
-# ── Remaining core packages ───────────────────────────────────────
-pip install \
-    "transformers>=4.40.0" \
-    "peft>=0.10.0" \
-    "trl>=0.8.0" \
-    "accelerate>=0.29.0" \
-    "datasets>=2.18.0" \
-    pandas \
-    --quiet
-
-info "All requirements installed."
 
 # ── Verify imports ────────────────────────────────────────────────
 info "Verifying imports..."
@@ -177,8 +199,7 @@ EOF
 
 # ══════════════════════════════════════════════════════════════════
 # 4. Run lora2.py
-#    SSL env vars are already exported from step 2, so the model
-#    download inside lora2.py will use the correct CA bundle.
+#    SSL env vars are exported above so Hub downloads use the venv certifi bundle.
 # ══════════════════════════════════════════════════════════════════
 info "Starting training: python $SCRIPT"
 echo "──────────────────────────────────────────────────────────────"

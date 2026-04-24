@@ -8,10 +8,9 @@ from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
     BitsAndBytesConfig,
-    TrainingArguments,
 )
 from peft import LoraConfig, get_peft_model, TaskType
-from trl import SFTTrainer
+from trl import SFTConfig, SFTTrainer
 
 # ══════════════════════════════════════════════════════════════════
 # 0. SSL FIX — must happen before any network call (model download)
@@ -152,7 +151,7 @@ dataset = Dataset.from_pandas(df_formatted)
 # ══════════════════════════════════════════════════════════════════
 # 5. TRAINING ARGS
 # ══════════════════════════════════════════════════════════════════
-training_args = TrainingArguments(
+training_args = SFTConfig(
     output_dir="./qwen-lora-out",
     num_train_epochs=3,
     per_device_train_batch_size=1 if not CUDA_AVAILABLE else 2,
@@ -166,6 +165,8 @@ training_args = TrainingArguments(
     save_strategy="epoch",
     optim="paged_adamw_8bit" if CUDA_AVAILABLE else "adamw_torch",
     report_to="none",
+    dataset_text_field="text",
+    max_length=2048,
 )
 
 # ══════════════════════════════════════════════════════════════════
@@ -175,9 +176,7 @@ trainer = SFTTrainer(
     model=model,
     args=training_args,
     train_dataset=dataset,
-    dataset_text_field="text",
-    max_seq_length=2048,
-    tokenizer=tokenizer,
+    processing_class=tokenizer,
 )
 
 trainer.train()
