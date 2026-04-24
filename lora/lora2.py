@@ -32,13 +32,13 @@ MPS_AVAILABLE  = torch.backends.mps.is_available()
 
 if CUDA_AVAILABLE:
     DEVICE = "cuda"
-    print("[INFO]  CUDA GPU detected – using 4-bit quantisation.")
+    print("[INFO]  CUDA GPU detected - using 4-bit quantisation.")
 elif MPS_AVAILABLE:
     DEVICE = "mps"
-    print("[INFO]  Apple Silicon MPS detected – skipping 4-bit (not supported on MPS).")
+    print("[INFO]  Apple Silicon MPS detected - skipping 4-bit (not supported on MPS).")
 else:
     DEVICE = "cpu"
-    print("[WARN]  No GPU detected – loading in float32 on CPU. This will be slow.")
+    print("[WARN]  No GPU detected - loading in float32 on CPU. This will be slow.")
 
 # ══════════════════════════════════════════════════════════════════
 # 2. MODEL + TOKENIZER
