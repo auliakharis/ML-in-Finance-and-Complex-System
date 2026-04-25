@@ -18,9 +18,6 @@ import random
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
 
-random.seed(42)
-
-
 YEARS = list(range(2020, 2026))
 
 # Categorical columns (NOT numeric — can only use = or ≠)
@@ -41,7 +38,7 @@ YEARLY_NUMERIC_COLS = {
     "cost_of_goods_sold":     {"unit": "M_USD",   "range": (2000, 350000)},
     "operating_expenses":     {"unit": "M_USD",   "range": (500, 80000)},
     "non_operating_expenses": {"unit": "M_USD",   "range": (-1000, 1000)},
-    "income_tax":             {"unit": "M_USD",   "range": (200, 80000)},      
+    "income_tax":             {"unit": "ratio",   "range": (0.10, 0.30)},
 
     "total_assets":           {"unit": "M_USD",   "range": (10000, 1000000)},
     "total_liabilities":      {"unit": "M_USD",   "range": (5000, 700000)},
@@ -140,7 +137,7 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         cl = round(total_liabilities * random.uniform(0.25, 0.50))
 
         # Derive cash-flow and market/profile fields.
-        net_income = round(revenue - cogs - opex * (1 - income_tax))
+        net_income = round((revenue - cogs - opex - nonopex) * (1 - income_tax))
         dividends = round(max(0, net_income * random.uniform(0.0, 0.40)))
         capex = round(revenue * random.uniform(0.02, 0.10))
         
@@ -261,6 +258,7 @@ def print_preview(rows: List[Dict[str, Any]], columns: Sequence[str], schema: Di
 
 
 def main() -> None:
+    random.seed(42)
     # Generate all company-year rows.
     rows = []
     for c in COMPANIES:

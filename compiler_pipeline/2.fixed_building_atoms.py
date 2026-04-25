@@ -1,33 +1,21 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
+import sys
 from pathlib import Path
 from typing import Any, Dict, List
 
 import pandas as pd
 
+_STEP1_PATH = Path(__file__).resolve().parent / "1.synthetic_data_seen_by_LLM.py"
+_spec = importlib.util.spec_from_file_location("synthetic_data", _STEP1_PATH)
+_step1 = importlib.util.module_from_spec(_spec)
+sys.modules["synthetic_data"] = _step1
+_spec.loader.exec_module(_step1)
 
-BASE_CONCEPTS = [
-    "revenue",
-    "cost_of_goods_sold",
-    "operating_expenses",
-    "non_operating_expenses",
-    "income_tax",
-    "total_assets",
-    "total_liabilities",
-    "total_equity",
-    "cash",
-    "accounts_receivable",
-    "inventories",
-    "short_term_investments",
-    "current_liabilities",
-    "capex",
-    "dividends_paid",
-    "shares_outstanding",
-    "stock_price",
-    "employees",
-]
+BASE_CONCEPTS = [c for c in _step1.YEARLY_NUMERIC_COLS if c != "year"]
 #ADDED new metadata: statement, section, agregation parent
 # =========================================================
 # What the metadata fields mean
@@ -144,7 +132,7 @@ BASE_CONCEPTS = [
 CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     "revenue": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "income_statement",
         "aggregation_parent": None,
         "statement": "income_statement",
@@ -153,7 +141,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "cost_of_goods_sold": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "income_statement",
         "aggregation_parent": "gross_profit_inputs",
         "statement": "income_statement",
@@ -162,7 +150,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "operating_expenses": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "income_statement",
         "aggregation_parent": "operating_costs",
         "statement": "income_statement",
@@ -171,7 +159,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "non_operating_expenses": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "income_statement",
         "aggregation_parent": "non_operating_items",
         "statement": "income_statement",
@@ -189,7 +177,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "total_assets": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "balance_sheet",
         "aggregation_parent": None,
         "statement": "balance_sheet",
@@ -198,7 +186,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "total_liabilities": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "balance_sheet",
         "aggregation_parent": None,
         "statement": "balance_sheet",
@@ -207,7 +195,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "total_equity": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "balance_sheet",
         "aggregation_parent": None,
         "statement": "balance_sheet",
@@ -216,7 +204,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "cash": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "current_assets",
         "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
@@ -225,7 +213,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "accounts_receivable": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "current_assets",
         "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
@@ -234,7 +222,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "inventories": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "current_assets",
         "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
@@ -243,7 +231,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "short_term_investments": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "current_assets",
         "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
@@ -252,7 +240,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "current_liabilities": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "total_liabilities",
         "aggregation_parent": "current_liabilities",
         "statement": "balance_sheet",
@@ -261,7 +249,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "capex": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "cash_flow_statement",
         "aggregation_parent": "investing_activities",
         "statement": "cash_flow_statement",
@@ -270,7 +258,7 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "dividends_paid": {
         "semantic_type": "amount",
-        "unit": "USD",
+        "unit": "M_USD",
         "parent_concept": "cash_flow_statement",
         "aggregation_parent": "financing_activities",
         "statement": "cash_flow_statement",
