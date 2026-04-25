@@ -1,3 +1,18 @@
+"""
+STEP 2: Build Atoms
+====================
+Explodes the flat CSV (one row per company-year) into a list of atoms —
+one atom per (company, year, concept). 90 rows x 18 concepts = 1,620 atoms.
+
+Each atom enriches the raw CSV value with semantic metadata defined in
+CONCEPT_METADATA: semantic_type, unit, parent_concept, statement, and role.
+This metadata is not in the CSV — it describes what kind of financial quantity
+each value is and how it relates to other concepts, so downstream steps can
+reason about valid operations (e.g. only sum components with the same parent_concept).
+
+Input:  output/financial_spreadsheet.csv  (from step 1)
+Output: output/atoms_data.json
+"""
 from __future__ import annotations
 
 import argparse
@@ -27,14 +42,13 @@ BASE_CONCEPTS = [
     "stock_price",
     "employees",
 ]
-#ADDED new metadata: statement, section, agregation parent
 # =========================================================
 # Metadata fields
 # =========================================================
 #
 # semantic_type  = what kind of number this is
 #   "amount"     -> monetary value, supports all arithmetic ops
-#   "rate"       -> dimensionless ratio (e.g. tax rate), range 0-1
+#   "rate"       -> dimensionless rate (e.g. tax rate), range 0-1
 #   "count"      -> integer count (employees, shares)
 #   "price"      -> price per unit (stock price)
 #
@@ -42,23 +56,22 @@ BASE_CONCEPTS = [
 #   "M_USD"      -> millions of dollars
 #   "USD"        -> dollars (stock price)
 #   "ratio"      -> dimensionless rate
-#   "shares"     -> number of shares (millions)
-#   "employees"  -> headcount
+#   "M_shares"   -> millions of shares
+#   "count"      -> integer headcount (employees)
 #
-# parent_concept = named subtotal this concept rolls into when summed with siblings
-#   Only set when there is a meaningful intermediate aggregate below the statement level.
+# parent_concept = the named aggregate this concept rolls up into
+#   Set only for role="component" concepts; points to their named subtotal.
+#   None for standalone metrics — they have no aggregate to roll up into.
 #   Used by step 4 to detect natural rollups (e.g. cash + ar + inv + sti = current_assets).
-#   Examples: cash -> current_assets, current_liabilities -> total_liabilities
-#   None for top-level line items (revenue, total_assets, etc.)
+#   Examples: cash -> current_assets, inventories -> current_assets
 #
 # statement      = which financial document this concept comes from
 #   "income_statement", "balance_sheet", "cash_flow_statement",
 #   "market_data", "company_profile"
 #
 # role           = structural role relative to its parent_concept group
-#   "total"      -> a roll-up total (total_assets, revenue)
-#   "component"  -> a part of a named subtotal (cash, inventories)
-#   None         -> standalone metric with no group role
+#   "component"  -> a part of a named subtotal (cash, inventories, current_liabilities)
+#   None         -> standalone metric with no sub-components in this data model
 #=====
 CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     "revenue": {
@@ -66,26 +79,26 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
         "unit": "M_USD",
         "parent_concept": None,
         "statement": "income_statement",
-        "role": "total",
+        "role": None,
     },
     "cost_of_goods_sold": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": None,
+        "parent_concept": "income_statement",
         "statement": "income_statement",
         "role": "component",
     },
     "operating_expenses": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": None,
+        "parent_concept": "income_statement",
         "statement": "income_statement",
         "role": "component",
     },
     "non_operating_expenses": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": None,
+        "parent_concept": "income_statement",
         "statement": "income_statement",
         "role": "component",
     },
@@ -101,21 +114,21 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
         "unit": "M_USD",
         "parent_concept": None,
         "statement": "balance_sheet",
-        "role": "total",
+        "role": None,
     },
     "total_liabilities": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": None,
         "statement": "balance_sheet",
-        "role": "total",
+        "role": None,
     },
     "total_equity": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": None,
         "statement": "balance_sheet",
-        "role": "total",
+        "role": None,
     },
     "cash": {
         "semantic_type": "amount",
@@ -148,27 +161,27 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     "current_liabilities": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "total_liabilities",
+        "parent_concept": None,
         "statement": "balance_sheet",
-        "role": "component",
+        "role": None,
     },
     "capex": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": None,
         "statement": "cash_flow_statement",
-        "role": "component",
+        "role": None,
     },
     "dividends_paid": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": None,
         "statement": "cash_flow_statement",
-        "role": "component",
+        "role": None,
     },
     "shares_outstanding": {
         "semantic_type": "count",
-        "unit": "shares",
+        "unit": "M_shares",
         "parent_concept": None,
         "statement": "market_data",
         "role": None,
@@ -182,12 +195,17 @@ CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     },
     "employees": {
         "semantic_type": "count",
-        "unit": "employees",
+        "unit": "count",
         "parent_concept": None,
         "statement": "company_profile",
         "role": None,
     },
 }
+
+_missing = [c for c in BASE_CONCEPTS if c not in CONCEPT_METADATA]
+if _missing:
+    raise RuntimeError(f"BASE_CONCEPTS has no CONCEPT_METADATA entry for: {_missing}")
+
 
 def normalize_value(value: Any) -> float:
     # Reject NaN/empty spreadsheet cells before float coercion.

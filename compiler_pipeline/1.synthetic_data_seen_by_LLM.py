@@ -1,15 +1,27 @@
 """
 STEP 1: Generate Financial Spreadsheet
 ========================================
-Creates a typical Excel-style financial dataset.
+Creates a simplified synthetic financial spreadsheet for benchmarking
+LLM reasoning over structured financial data. Numbers are randomly generated but
+modeled on realistic corporate ratios (e.g. COGS as 30-75% of revenue). The
+accounting identities (e.g. assets = liabilities + equity) are enforced by construction.
+Many real line items (retained earnings, PP&E, long-term debt, etc.) are omitted.
 
-The data has:
-  - Multiple companies (rows)
-  - Multiple years (columns grouped by year)
-  - Mix of numeric and categorical columns
-  - Both monetary values, percentages, counts, and labels
+Schema: one row per (company, year), 15 companies x 6 years = 90 rows.
 
-Output: financial_spreadsheet.csv + financial_spreadsheet.xlsx
+Columns:
+  - Categorical: company_name, ticker, sector, country, exchange, credit_rating
+  - Income statement: revenue, cost_of_goods_sold, operating_expenses,
+                      non_operating_expenses, income_tax (rate, not amount)
+  - Balance sheet: total_assets, total_liabilities, total_equity,
+                   cash, accounts_receivable, inventories,
+                   short_term_investments, current_liabilities
+  - Cash flow: capex, dividends_paid
+  - Market data: stock_price, shares_outstanding
+  - Company profile: employees
+
+Output: output/financial_spreadsheet.csv  -> consumed by steps 2 and 5
+        output/schema.json               -> human-readable column metadata, not used by the pipeline
 """
 
 import csv
@@ -37,25 +49,25 @@ CATEGORICAL_COLS = {
 YEARLY_NUMERIC_COLS = {
     "year":                   {},
     "revenue":                {"unit": "M_USD",   "range": (5000, 500000)},
-    "cost_of_goods_sold":     {"unit": "M_USD",   "range": (2000, 350000)},
-    "operating_expenses":     {"unit": "M_USD",   "range": (500, 80000)},
-    "non_operating_expenses": {"unit": "M_USD",   "range": (-1000, 1000)},
+    "cost_of_goods_sold":     {"unit": "M_USD"},
+    "operating_expenses":     {"unit": "M_USD"},
+    "non_operating_expenses": {"unit": "M_USD"},
     "income_tax":             {"unit": "ratio",   "range": (0.10, 0.30)},
 
-    "total_assets":           {"unit": "M_USD",   "range": (10000, 1000000)},
-    "total_liabilities":      {"unit": "M_USD",   "range": (5000, 700000)},
-    "total_equity":           {"unit": "M_USD",   "range": (3000, 400000)},
-    "cash":                   {"unit": "M_USD",   "range": (1000, 150000)},
-    "accounts_receivable":    {"unit": "M_USD",   "range": (500, 80000)},
-    "inventories":            {"unit": "M_USD",   "range": (200, 50000)},
-    "short_term_investments": {"unit": "M_USD",   "range": (10, 5000)},
-    "current_liabilities":    {"unit": "M_USD",   "range": (2000, 200000)},
+    "total_assets":           {"unit": "M_USD"},
+    "total_liabilities":      {"unit": "M_USD"},
+    "total_equity":           {"unit": "M_USD"},
+    "cash":                   {"unit": "M_USD"},
+    "accounts_receivable":    {"unit": "M_USD"},
+    "inventories":            {"unit": "M_USD"},
+    "short_term_investments": {"unit": "M_USD"},
+    "current_liabilities":    {"unit": "M_USD"},
 
     # Requires multi-period equity / retained earnings (interesting to check if LLM can infer these on its own later!)
-    "capex":                  {"unit": "M_USD",   "range": (500, 60000)},
-    "dividends_paid":         {"unit": "M_USD",   "range": (0, 20000)},
-    
-    "shares_outstanding":     {"unit": "millions","range": (100, 15000)},
+    "capex":                  {"unit": "M_USD"},
+    "dividends_paid":         {"unit": "M_USD"},
+
+    "shares_outstanding":     {"unit": "M_shares","range": (100, 15000)},
     "stock_price":            {"unit": "USD",     "range": (15, 800)},
     "employees":              {"unit": "count",   "range": (5000, 500000)},
 }
@@ -79,7 +91,6 @@ COMPANIES = [
     ("Crimson Pharmaceuticals",  "CRPH", "Healthcare",     "Switzerland", "SIX"),
 ]
 
-RATINGS = ["CCC", "B", "BB", "BBB", "A", "AA", "AAA"]
 OUTPUT_DIR = Path("output")
 CSV_PATH = OUTPUT_DIR / "financial_spreadsheet.csv"
 SCHEMA_PATH = OUTPUT_DIR / "schema.json"
@@ -101,7 +112,7 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         "sector": sector,
         "country": country,
         "exchange": exchange,
-        "credit_rating": random.choice(RATINGS),
+        "credit_rating": random.choice(CATEGORICAL_COLS["credit_rating"]["order"]),
     }
 
     # Generate base revenue, then derive everything else consistently
@@ -118,24 +129,29 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         base_revenue = revenue  # next year starts from here
 
         # Derive income-statement drivers from revenue.
-        cogs_pct = random.uniform(0.30, 0.75)
-        cogs = round(revenue * cogs_pct)
-
+        cogs = round(revenue * random.uniform(0.30, 0.75))
         opex = round(revenue * random.uniform(0.05, 0.25))
         nonopex = round(revenue * random.uniform(0.05, 0.25))
-        income_tax = random.uniform(0.10, 0.30)
+        income_tax = random.uniform(*YEARLY_NUMERIC_COLS["income_tax"]["range"])
 
         # Derive balance-sheet items tied to revenue scale.
+        # Asset turnover (revenue / assets) derives total assets from revenue.
         asset_turnover = random.uniform(0.3, 1.5)
         total_assets = round(revenue / asset_turnover)
+        # Debt-to-equity ratio splits assets into equity and liabilities; enforces assets = liabilities + equity.
         de_ratio = random.uniform(0.3, 3.0)
         total_equity = round(total_assets / (1 + de_ratio))
         total_liabilities = total_assets - total_equity
 
+        # Cash: 3-25% of total assets (liquidity buffer).
         cash = round(total_assets * random.uniform(0.03, 0.25))
+        # Accounts receivable: 4-14% of revenue (~15-51 days sales outstanding).
         ar = round(revenue * random.uniform(0.04, 0.14))
+        # Inventories: 2-15% of COGS (days inventory outstanding anchor).
         inv = round(cogs * random.uniform(0.02, 0.15))
+        # Short-term investments: 1-15% of total assets (excess cash parked in securities).
         short_term_investments = round(total_assets * random.uniform(0.01, 0.15))
+        # Current liabilities: 25-50% of total liabilities (remainder is long-term).
         cl = round(total_liabilities * random.uniform(0.25, 0.50))
 
         # Derive cash-flow and market/profile fields.
@@ -143,9 +159,9 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
         dividends = round(max(0, net_income * random.uniform(0.0, 0.40)))
         capex = round(revenue * random.uniform(0.02, 0.10))
         
-        shares = round(random.uniform(100, 15000))
-        price = round(random.uniform(15, 800), 2)
-        employees = round(random.uniform(5000, 500000))
+        shares = round(random.uniform(*YEARLY_NUMERIC_COLS["shares_outstanding"]["range"]))
+        price = round(random.uniform(*YEARLY_NUMERIC_COLS["stock_price"]["range"]), 2)
+        employees = round(random.uniform(*YEARLY_NUMERIC_COLS["employees"]["range"]))
 
         # Persist normalized row-level columns used by later pipeline steps.
         row["year"] = year
@@ -176,37 +192,17 @@ def generate_company_row(company_tuple: Tuple[str, str, str, str, str]) -> List[
 
 
 def build_schema(columns: Sequence[str]) -> Dict[str, Dict[str, Any]]:
-    """Describe each CSV column in a small JSON-friendly record for tools and humans.
+    """Build a metadata dict for each CSV column and write it to schema.json.
 
-    The synthetic spreadsheet is **one row per (company, year)** with **flat column names**
-    (e.g. ``revenue``, ``cash``), not wide ``revenue_2024``-style names. This function walks
-    ``columns`` in display order and attaches metadata so consumers can tell what each
-    column means without parsing the generator code.
+    Each column gets a small record describing its type, unit, and how the year
+    dimension is encoded. Three kinds of columns are handled:
 
-    **Output shape:** ``schema[column_name]`` is a dict with at least ``type`` and usually
-    ``desc``. Optional keys depend on the column kind:
+      Categorical/ordinal  -> type, desc, year=null (ordinals also get an order list)
+      "year" column        -> type=numeric, unit="year", year=null
+      Numeric concepts     -> type=numeric, unit from YEARLY_NUMERIC_COLS, year="row_level"
 
-    - **Categorical** (keys in ``CATEGORICAL_COLS``): ``type`` is ``categorical`` or
-      ``ordinal``, ``desc`` is human text, ``year`` is always ``None``. Ordinal columns
-      also get ``order`` (allowed rating ladder).
-    - **``year``**: treated as numeric reporting year; ``base_name`` is ``"year"``,
-      ``unit`` is ``"year"``, ``year`` field in schema is ``None`` (the *column* is the
-      year dimension, not a year suffix).
-    - **Other numerics** (keys in ``YEARLY_NUMERIC_COLS``): ``type`` is ``numeric``,
-      ``base_name`` matches the column name (the metric id), ``unit`` comes from the
-      generator spec (e.g. ``M_USD``, ``USD``), ``desc`` is a spaced label. ``year`` is
-      set to the string ``"row_level"`` to mean: the year is **not** encoded in the
-      column name; it lives in the separate ``year`` column on each row.
-
-    Columns that appear in ``columns`` but are not in ``CATEGORICAL_COLS``, not
-    ``year``, and not in ``YEARLY_NUMERIC_COLS`` are **skipped** (no entry). In normal
-    runs every generated column should be covered by one of these branches.
-
-    Args:
-        columns: Ordered column names, typically ``list(rows[0].keys())`` from generated rows.
-
-    Returns:
-        Mapping from column name to metadata dict, suitable for ``json.dump`` to ``schema.json``.
+    year=null means the column is not time-indexed.
+    year="row_level" means the year lives in the separate "year" column, not in the column name.
     """
     schema: Dict[str, Dict[str, Any]] = {}
     for col in columns:
@@ -265,11 +261,11 @@ def main() -> None:
     for c in COMPANIES:
         rows.extend(generate_company_row(c))
 
-    # Preserve stable column order from generated dictionaries.
-    columns = list(rows[0].keys())
-
     if not rows:
         raise ValueError("No rows were generated from company templates.")
+
+    # Preserve stable column order from generated dictionaries.
+    columns = list(rows[0].keys())
 
     # Write the synthetic dataset CSV.
     ensure_output_dir(OUTPUT_DIR)

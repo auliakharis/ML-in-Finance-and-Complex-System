@@ -27,6 +27,7 @@ build_atoms       = atoms_mod.build_atoms
 validate_dataframe = atoms_mod.validate_dataframe
 normalize_value   = atoms_mod.normalize_value
 BASE_CONCEPTS     = atoms_mod.BASE_CONCEPTS
+CONCEPT_METADATA  = atoms_mod.CONCEPT_METADATA
 
 
 def _minimal_df(n_companies: int = 2, years: list[int] | None = None) -> pd.DataFrame:
@@ -133,3 +134,26 @@ class TestBuildAtoms:
         tax_atoms = [a for a in atoms if a["concept"] == "income_tax"]
         assert all(a["semantic_type"] == "rate" for a in tax_atoms)
         assert all(a["unit"] == "ratio" for a in tax_atoms)
+
+    def test_component_atoms_have_parent_concept(self):
+        df = _minimal_df(n_companies=1, years=[2021])
+        atoms = build_atoms(df)
+        for atom in atoms:
+            if atom["role"] == "component":
+                assert atom["parent_concept"] is not None, f"{atom['concept']} is component but parent_concept is None"
+            else:
+                assert atom["parent_concept"] is None, f"{atom['concept']} has role=None but parent_concept={atom['parent_concept']!r}"
+
+    def test_statement_values(self):
+        df = _minimal_df(n_companies=1, years=[2021])
+        atoms = build_atoms(df)
+        by_concept = {a["concept"]: a for a in atoms}
+        assert by_concept["revenue"]["statement"] == "income_statement"
+        assert by_concept["cash"]["statement"] == "balance_sheet"
+        assert by_concept["capex"]["statement"] == "cash_flow_statement"
+        assert by_concept["stock_price"]["statement"] == "market_data"
+        assert by_concept["employees"]["statement"] == "company_profile"
+
+    def test_all_base_concepts_have_metadata(self):
+        assert all(c in CONCEPT_METADATA for c in BASE_CONCEPTS), \
+            f"Missing metadata for: {[c for c in BASE_CONCEPTS if c not in CONCEPT_METADATA]}"

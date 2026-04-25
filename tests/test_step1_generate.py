@@ -126,3 +126,8 @@ class TestBuildSchema:
         cols = self._columns()
         schema = build_schema(cols)
         assert schema["income_tax"]["type"] == "numeric"
+
+    def test_income_tax_unit_is_ratio(self):
+        cols = self._columns()
+        schema = build_schema(cols)
+        assert schema["income_tax"]["unit"] == "ratio"
