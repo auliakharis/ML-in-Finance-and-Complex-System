@@ -1,295 +1,190 @@
 from __future__ import annotations
 
 import argparse
-import importlib.util
 import json
-import sys
 from pathlib import Path
 from typing import Any, Dict, List
 
 import pandas as pd
 
-_STEP1_PATH = Path(__file__).resolve().parent / "1.synthetic_data_seen_by_LLM.py"
-_spec = importlib.util.spec_from_file_location("synthetic_data", _STEP1_PATH)
-_step1 = importlib.util.module_from_spec(_spec)
-sys.modules["synthetic_data"] = _step1
-_spec.loader.exec_module(_step1)
-
-BASE_CONCEPTS = [c for c in _step1.YEARLY_NUMERIC_COLS if c != "year"]
+BASE_CONCEPTS = [
+    "revenue",
+    "cost_of_goods_sold",
+    "operating_expenses",
+    "non_operating_expenses",
+    "income_tax",
+    "total_assets",
+    "total_liabilities",
+    "total_equity",
+    "cash",
+    "accounts_receivable",
+    "inventories",
+    "short_term_investments",
+    "current_liabilities",
+    "capex",
+    "dividends_paid",
+    "shares_outstanding",
+    "stock_price",
+    "employees",
+]
 #ADDED new metadata: statement, section, agregation parent
 # =========================================================
-# What the metadata fields mean
+# Metadata fields
 # =========================================================
 #
-# semantic_type:
-#   The broad numeric type of the concept.
-#   tells the compiler what kinds of operations are valid.
-#   Examples:
-#     - "amount","rate", 
-#     -"count"   -> can appear in "per employee" or "per share" style ratios
-#     - "price"   -> can combine with shares_outstanding to form market cap
+# semantic_type  = what kind of number this is
+#   "amount"     -> monetary value, supports all arithmetic ops
+#   "rate"       -> dimensionless ratio (e.g. tax rate), range 0-1
+#   "count"      -> integer count (employees, shares)
+#   "price"      -> price per unit (stock price)
 #
-# unit:
-#   Examples:
-#     - "USD", "ratio","shares", "employees"...
+# unit           = what it is measured in
+#   "M_USD"      -> millions of dollars
+#   "USD"        -> dollars (stock price)
+#   "ratio"      -> dimensionless rate
+#   "shares"     -> number of shares (millions)
+#   "employees"  -> headcount
 #
-# parent_concept:
-#   A broad semantic parent for the concept.
-#   This says what bigger category the metric belongs to.
-#   It is mostly useful for meaning and hierarchy, not strict arithmetic.
-#   Examples:
-#     - cash -> current_assets
-#     - total_assets -> balance_sheet
-#     - stock_price -> market_data
+# parent_concept = named subtotal this concept rolls into when summed with siblings
+#   Only set when there is a meaningful intermediate aggregate below the statement level.
+#   Used by step 4 to detect natural rollups (e.g. cash + ar + inv + sti = current_assets).
+#   Examples: cash -> current_assets, current_liabilities -> total_liabilities
+#   None for top-level line items (revenue, total_assets, etc.)
 #
-# aggregation_parent:
-#   The subtotal/group that this concept can naturally roll up into.
-#   This is more operational than parent_concept.
-#   It helps the compiler detect when several leaves are sibling components
-#   of the same aggregate and therefore can be rendered as a natural subtotal.
+# statement      = which financial document this concept comes from
+#   "income_statement", "balance_sheet", "cash_flow_statement",
+#   "market_data", "company_profile"
 #
-#   Examples:
-#     - cash, accounts_receivable, inventories, short_term_investments
-#       all have aggregation_parent = "current_assets" (technically overlaps with derived concept for this example)
-#
-#   Intuition:
-#   "If I sum this with its siblings, what named bucket do they form?"
-#
-# statement:
-#   The major financial statement or data area this concept comes from.
-#   This helps the compiler prefer financially coherent combinations.
-#
-#   Examples:
-#     - "income_statement"
-#     - "balance_sheet"
-#     - "cash_flow_statement"
-#     - "market_data"
-#     - "company_profile"
-#
-#   Intuition:
-#   "Which part of the company’s reported information does this belong to?"
-#
-# section:
-#   A finer-grained grouping inside a statement.
-#   This gives the compiler more local structure than statement alone.
-#
-#   Examples:
-#     - cash -> current_assets
-#     - capex -> investing_activities
-#     - employees -> operating_scale
-#     - stock_price -> valuation
-#
-#   Intuition:
-#   "Which subsection inside the broader statement does this belong to?"
-#
-# role:
-#   The structural role of the concept relative to a group.
-#   This is useful for telling totals apart from components.
-#
-#   Examples:
-#     - total_assets -> "total"
-#     - cash -> "component"
-#     - inventories -> "component"
-#     - stock_price -> None
-#
-#   Intuition:
-#   "Is this a roll-up total, a component of one, or neither?"
-#
-#
-# =========================================================
-# Why these fields help question generation
-# =========================================================
-#
-# With only semantic_type + unit:
-#   the compiler knows what is mathematically allowed.
-#
-# With parent_concept + aggregation_parent + statement + section + role:
-#   the compiler starts to know what is financially natural.
-#
-# That helps it:
-#   - sum sibling components into named aggregates
-#   - avoid uglier cross-statement combinations
-#   - phrase questions more naturally
-#   - detect patterns like:
-#       * component / total        -> "share of"
-#       * amount / employees       -> "per employee"
-#       * stock_price * shares     -> "market capitalization"
-#       * same concept across years-> "growth over time"
-#
-#
-# =========================================================
-# Short version
-# =========================================================
-#
-# semantic_type   = what kind of number this is
-# unit            = what it is measured in
-# parent_concept  = broad semantic parent
-# aggregation_parent = named subtotal/group it rolls into
-# statement       = which financial statement / data area it comes from
-# section         = finer subsection inside that statement
-# role            = whether it is a total, a component, or neither
+# role           = structural role relative to its parent_concept group
+#   "total"      -> a roll-up total (total_assets, revenue)
+#   "component"  -> a part of a named subtotal (cash, inventories)
+#   None         -> standalone metric with no group role
 #=====
 CONCEPT_METADATA: Dict[str, Dict[str, Any]] = {
     "revenue": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "income_statement",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "income_statement",
-        "section": "revenue",
         "role": "total",
     },
     "cost_of_goods_sold": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "income_statement",
-        "aggregation_parent": "gross_profit_inputs",
+        "parent_concept": None,
         "statement": "income_statement",
-        "section": "direct_costs",
         "role": "component",
     },
     "operating_expenses": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "income_statement",
-        "aggregation_parent": "operating_costs",
+        "parent_concept": None,
         "statement": "income_statement",
-        "section": "operating_costs",
         "role": "component",
     },
     "non_operating_expenses": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "income_statement",
-        "aggregation_parent": "non_operating_items",
+        "parent_concept": None,
         "statement": "income_statement",
-        "section": "non_operating",
         "role": "component",
     },
     "income_tax": {
         "semantic_type": "rate",
         "unit": "ratio",
-        "parent_concept": "taxation",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "income_statement",
-        "section": "tax",
         "role": None,
     },
     "total_assets": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "balance_sheet",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "balance_sheet",
-        "section": "assets",
         "role": "total",
     },
     "total_liabilities": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "balance_sheet",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "balance_sheet",
-        "section": "liabilities",
         "role": "total",
     },
     "total_equity": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "balance_sheet",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "balance_sheet",
-        "section": "equity",
         "role": "total",
     },
     "cash": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": "current_assets",
-        "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
-        "section": "current_assets",
         "role": "component",
     },
     "accounts_receivable": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": "current_assets",
-        "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
-        "section": "current_assets",
         "role": "component",
     },
     "inventories": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": "current_assets",
-        "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
-        "section": "current_assets",
         "role": "component",
     },
     "short_term_investments": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": "current_assets",
-        "aggregation_parent": "current_assets",
         "statement": "balance_sheet",
-        "section": "current_assets",
         "role": "component",
     },
     "current_liabilities": {
         "semantic_type": "amount",
         "unit": "M_USD",
         "parent_concept": "total_liabilities",
-        "aggregation_parent": "current_liabilities",
         "statement": "balance_sheet",
-        "section": "current_liabilities",
         "role": "component",
     },
     "capex": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "cash_flow_statement",
-        "aggregation_parent": "investing_activities",
+        "parent_concept": None,
         "statement": "cash_flow_statement",
-        "section": "investing_activities",
         "role": "component",
     },
     "dividends_paid": {
         "semantic_type": "amount",
         "unit": "M_USD",
-        "parent_concept": "cash_flow_statement",
-        "aggregation_parent": "financing_activities",
+        "parent_concept": None,
         "statement": "cash_flow_statement",
-        "section": "financing_activities",
         "role": "component",
     },
     "shares_outstanding": {
         "semantic_type": "count",
         "unit": "shares",
-        "parent_concept": "market_data",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "market_data",
-        "section": "capital_structure",
         "role": None,
     },
     "stock_price": {
         "semantic_type": "price",
         "unit": "USD",
-        "parent_concept": "market_data",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "market_data",
-        "section": "valuation",
         "role": None,
     },
     "employees": {
         "semantic_type": "count",
         "unit": "employees",
-        "parent_concept": "company_profile",
-        "aggregation_parent": None,
+        "parent_concept": None,
         "statement": "company_profile",
-        "section": "operating_scale",
         "role": None,
     },
 }
@@ -329,9 +224,7 @@ def build_atoms(df: pd.DataFrame) -> List[Dict[str, Any]]:
                     "value": normalize_value(row[concept]),
                     "depth": 0,
                     "parent_concept": meta["parent_concept"],
-                    "aggregation_parent": meta["aggregation_parent"],
                     "statement": meta["statement"],
-                    "section": meta["section"],
                     "role": meta["role"],
                 }
             )

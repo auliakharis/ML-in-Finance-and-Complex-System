@@ -95,7 +95,7 @@ class TestBuildAtoms:
         atoms = build_atoms(df)
         required = {"key", "concept", "semantic_type", "label", "entity",
                     "period", "unit", "value", "depth", "parent_concept",
-                    "aggregation_parent", "statement", "section", "role"}
+                    "statement", "role"}
         for atom in atoms:
             assert required.issubset(atom.keys())
 

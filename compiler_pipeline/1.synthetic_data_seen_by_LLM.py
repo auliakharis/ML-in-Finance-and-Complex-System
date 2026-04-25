@@ -18,6 +18,8 @@ import random
 from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
 
+random.seed(42)
+
 YEARS = list(range(2020, 2026))
 
 # Categorical columns (NOT numeric — can only use = or ≠)
@@ -258,7 +260,6 @@ def print_preview(rows: List[Dict[str, Any]], columns: Sequence[str], schema: Di
 
 
 def main() -> None:
-    random.seed(42)
     # Generate all company-year rows.
     rows = []
     for c in COMPANIES:
