@@ -116,11 +116,10 @@ def make_leaf(family: str) -> Dict[str, Any]:
     raise ValueError(f"Unsupported family: {family}")
 
 
-def make_derived_concept(name: str, concept_depth: int) -> Dict[str, Any]:
+def make_derived_concept(name: str) -> Dict[str, Any]:
     return {
         "kind": "derived_concept",
         "name": name,
-        "concept_depth": concept_depth,
     }
 
 
@@ -128,7 +127,6 @@ def make_node(
     op: str,
     left: Dict[str, Any],
     right: Dict[str, Any],
-    depth: int,
 ) -> Dict[str, Any]:
     """Build a binary operator node: ``kind`` is ``node`` with ``left`` and ``right``.
 
@@ -139,13 +137,12 @@ def make_node(
     return {
         "kind": "node",
         "op": op,
-        "depth": depth,
         "left": left,
         "right": right,
     }
 
 
-def make_time_agg(op: str, depth: int) -> Dict[str, Any]:
+def make_time_agg(op: str) -> Dict[str, Any]:
     """Build a non-binary ``time_agg`` node (min/max/avg over multiple years).
 
     Unlike :func:`make_node`, this has no ``left``/``right`` children. Step 4
@@ -154,7 +151,6 @@ def make_time_agg(op: str, depth: int) -> Dict[str, Any]:
     return {
         "kind": "time_agg",
         "op": op,
-        "depth": depth,
     }
 
 
@@ -187,10 +183,7 @@ def sample_amount_terminal(
     if eligible and rng.random() < derived_prob:
         name = rng.choice(eligible)
         spec = DERIVED_CONCEPTS[name]
-        return make_derived_concept(
-            name=name,
-            concept_depth=spec["concept_depth"],
-        )
+        return make_derived_concept(name=name)
     return make_leaf(family="amount")
 
 
@@ -235,12 +228,12 @@ def build_ratio_tree(
     if op == "ratio":
         left = build_amount_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob)
         right = build_amount_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob)
-        return make_node(op="ratio", left=left, right=right, depth=depth)
+        return make_node(op="ratio", left=left, right=right)
 
     if op == "growth":
         # Force both sides to share the same concept across different years.
         left, right = build_time_series_amount_pair(depth=depth - 1, rng=rng, derived_prob=derived_prob)
-        return make_node(op="growth", left=left, right=right, depth=depth)
+        return make_node(op="growth", left=left, right=right)
 
     raise ValueError(f"Unsupported ratio op: {op}")
 
@@ -266,23 +259,23 @@ def build_amount_tree(
     if op == "sum":
         left = build_amount_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob, allow_time_aggregates=allow_time_aggregates)
         right = build_amount_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob, allow_time_aggregates=allow_time_aggregates)
-        return make_node(op="sum", left=left, right=right, depth=depth)
+        return make_node(op="sum", left=left, right=right)
 
     if op == "diff":
         left = build_amount_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob, allow_time_aggregates=allow_time_aggregates)
         right = build_amount_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob, allow_time_aggregates=allow_time_aggregates)
-        return make_node(op="diff", left=left, right=right, depth=depth)
+        return make_node(op="diff", left=left, right=right)
 
     if op == "mul":
         # Multiplication combines amount branch with ratio branch.
         # If both sides were arbitrary amount trees, we would often get nonsense units (e.g. dollars x dollars)
         left = build_amount_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob, allow_time_aggregates=allow_time_aggregates)
         right = build_ratio_tree(depth=depth - 1, rng=rng, derived_prob=derived_prob)
-        return make_node(op="mul", left=left, right=right, depth=depth)
+        return make_node(op="mul", left=left, right=right)
 
     if op in TIME_AGG_OPS:
         # Time aggregate: step 4 picks entity and concept at binding time.
-        return make_time_agg(op=op, depth=depth)
+        return make_time_agg(op=op)
 
     raise ValueError(f"Unsupported amount op: {op}")
 
@@ -487,12 +480,10 @@ def main() -> None:
         "actual_depth": realized_depth,
         "seed": args.seed,
         "derived_prob": args.derived_prob,
-        "ops": list(OPS),
         "derived_concepts": {
             name: {"formula": spec["formula"]}
             for name, spec in DERIVED_CONCEPTS.items()
         },
-        "stats": stats,
         "tree": tree,
     }
 

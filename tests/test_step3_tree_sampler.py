@@ -60,14 +60,14 @@ class TestMakeLeafAndNode:
     def test_make_node_structure(self):
         left = make_leaf("amount")
         right = make_leaf("amount")
-        node = make_node(op="sum", left=left, right=right, depth=1)
+        node = make_node(op="sum", left=left, right=right)
         assert node["kind"] == "node"
         assert node["op"] == "sum"
         assert node["left"] is left
         assert node["right"] is right
 
     def test_make_time_agg(self):
-        ta = make_time_agg(op="min", depth=2)
+        ta = make_time_agg(op="min")
         assert ta["kind"] == "time_agg"
         assert ta["op"] == "min"
         assert "left" not in ta
@@ -109,25 +109,25 @@ class TestCountNodesAndDepth:
         assert count_nodes(leaf) == {"internal_nodes": 0, "leaves": 1, "total_nodes": 1}
 
     def test_derived_concept_counts_as_leaf(self):
-        dc = make_derived_concept("gross_profit", 1)
+        dc = make_derived_concept("gross_profit")
         assert count_nodes(dc) == {"internal_nodes": 0, "leaves": 1, "total_nodes": 1}
 
     def test_binary_node_counts(self):
         left = make_leaf("amount")
         right = make_leaf("amount")
-        node = make_node("sum", left, right, depth=1)
+        node = make_node("sum", left, right)
         assert count_nodes(node) == {"internal_nodes": 1, "leaves": 2, "total_nodes": 3}
 
     def test_leaf_depth_zero(self):
         assert actual_tree_depth(make_leaf("amount")) == 0
 
     def test_depth_one_node(self):
-        node = make_node("diff", make_leaf("amount"), make_leaf("amount"), depth=1)
+        node = make_node("diff", make_leaf("amount"), make_leaf("amount"))
         assert actual_tree_depth(node) == 1
 
     def test_depth_two_node(self):
-        inner = make_node("sum", make_leaf("amount"), make_leaf("amount"), depth=1)
-        outer = make_node("diff", inner, make_leaf("amount"), depth=2)
+        inner = make_node("sum", make_leaf("amount"), make_leaf("amount"))
+        outer = make_node("diff", inner, make_leaf("amount"))
         assert actual_tree_depth(outer) == 2
 
 
@@ -167,12 +167,12 @@ class TestSymbolicFromTree:
         assert symbolic_from_tree(make_leaf("amount")) == "LEAF"
 
     def test_derived_concept_node(self):
-        dc = make_derived_concept("gross_profit", 1)
+        dc = make_derived_concept("gross_profit")
         expected = normalize_symbolic(expand_formula_reference("gross_profit"))
         assert symbolic_from_tree(dc) == expected
 
     def test_time_agg_node(self):
-        ta = make_time_agg("min", depth=1)
+        ta = make_time_agg("min")
         assert symbolic_from_tree(ta) == ("time_agg", "min")
 
 
@@ -181,13 +181,13 @@ class TestContainsNamedDerived:
         assert not contains_named_derived(make_leaf("amount"), "gross_profit")
 
     def test_derived_concept_matches(self):
-        dc = make_derived_concept("gross_profit", 1)
+        dc = make_derived_concept("gross_profit")
         assert contains_named_derived(dc, "gross_profit")
         assert not contains_named_derived(dc, "net_income")
 
     def test_nested_in_binary_node(self):
-        dc = make_derived_concept("net_income", 5)
-        node = make_node("sum", dc, make_leaf("amount"), depth=1)
+        dc = make_derived_concept("net_income")
+        node = make_node("sum", dc, make_leaf("amount"))
         assert contains_named_derived(node, "net_income")
         assert not contains_named_derived(node, "gross_profit")
 
@@ -197,10 +197,10 @@ class TestViolatesProtectedCanonicalForm:
         assert violates_protected_canonical_form(make_leaf("amount")) is None
 
     def test_time_agg_never_violates(self):
-        assert violates_protected_canonical_form(make_time_agg("min", depth=1)) is None
+        assert violates_protected_canonical_form(make_time_agg("min")) is None
 
     def test_named_derived_does_not_violate(self):
-        dc = make_derived_concept("gross_profit", 1)
+        dc = make_derived_concept("gross_profit")
         assert violates_protected_canonical_form(dc) is None
 
 
@@ -233,7 +233,7 @@ class TestSampleTreeWithRejection:
     def test_no_dead_keys_in_any_node(self):
         dead_keys = {"entity_group", "context_group", "concept_group", "time_series_group",
                      "over_years_group", "section_group", "aggregation_group", "statement_group",
-                     "node_id", "family"}
+                     "node_id", "family", "depth", "concept_depth"}
         for seed in range(50):
             tree, _ = sample_tree_with_rejection(3, random.Random(seed), 0.0)
             _check_no_dead_keys(tree, dead_keys)

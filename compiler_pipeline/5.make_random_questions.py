@@ -190,7 +190,10 @@ def main() -> None:
                     index=index,
                     rng=random.Random(bind_seed),
                     env=mod_lang.BindEnv(),
-                    derived_registry=mod_lang.DERIVED_FORMULAS,
+                    derived_registry={
+                        name: spec["formula"]
+                        for name, spec in mod_sampler.DERIVED_CONCEPTS.items()
+                    },
                 )
                 analysis = analyzer.analyze(expr)
                 answer = evaluator.eval(expr)

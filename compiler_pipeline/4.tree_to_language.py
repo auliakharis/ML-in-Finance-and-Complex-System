@@ -239,19 +239,6 @@ class SemanticError(Exception):
     pass
 
 
-DERIVED_FORMULAS: Dict[str, Dict[str, Any]] = {
-    "gross_profit": {"op": "diff", "args": ["revenue", "cost_of_goods_sold"]},
-    "operating_income": {"op": "diff", "args": ["gross_profit", "operating_expenses"]},
-    "pretax_income": {"op": "diff", "args": ["operating_income", "non_operating_expenses"]},
-    "income_tax_expense": {"op": "mul", "args": ["pretax_income", "income_tax"]},
-    "net_income": {"op": "diff", "args": ["pretax_income", "income_tax_expense"]},
-    "current_assets": {
-        "op": "sum",
-        "args": ["cash", "accounts_receivable", "inventories", "short_term_investments"],
-    },
-    "longterm_assets": {"op": "diff", "args": ["total_assets", "current_assets"]},
-    "longterm_liabilities": {"op": "diff", "args": ["total_liabilities", "current_liabilities"]},
-}
 
 class AtomIndex:
     """Fast lookup over all spreadsheet atoms for template binding.
@@ -602,7 +589,7 @@ def instantiate_typed_tree(
 ) -> Expr:
     # Use default environment/registry when caller does not provide one.
     env = env or BindEnv()
-    derived_registry = derived_registry or DERIVED_FORMULAS
+    derived_registry = derived_registry or {}
 
     kind = tree.get("kind")
     if kind == "leaf":
@@ -703,8 +690,6 @@ def compile_tree_payload(
         name: spec["formula"] if "formula" in spec else spec
         for name, spec in (tree_payload.get("derived_concepts") or {}).items()
     }
-    if not derived_registry: #If the derived registry is not provided, use the default derived registry.
-        derived_registry = DERIVED_FORMULAS
     typed_tree = tree_payload["tree"] if "tree" in tree_payload else tree_payload
     return instantiate_typed_tree(typed_tree, index, rng, BindEnv(), derived_registry)
 
