@@ -1,10 +1,17 @@
-nano .gitignore
-```
-
-Add these lines:
-```
-venv/
 __pycache__/
 *.pyc
+*.pyo
+.venv/
+venv/
 .env
-batch*.sh
+logs/*.out
+logs/*.err
+*.egg-info/
+dist/
+build/
+output_llm/
+output/
+compiler_pipeline/output/
+datasets/sec10Q/output_sec10Q/
+datasets/annual/output_annual/
+.DS_Store

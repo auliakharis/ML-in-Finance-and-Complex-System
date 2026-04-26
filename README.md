@@ -38,7 +38,7 @@ python run_llm_eval.py
 ### 3. Build multi-turn chains
 ```bash
 cd Multi-turn
-python multi_turn_parser.py --input ../annual/random_questions_90.json --output output.json
+python multi_turn_parser.py --input ../annual/random_questions_annual.json --output output.json
 ```
 
 ## Requirements

@@ -33,7 +33,7 @@ nvidia-smi
 
 
 # python run_llm_eval.py --datasets mt  --models gemma-4-E4B-it --limit 5
-python run_llm_eval.py --datasets mt annual form10q  --models gemma-4-E4B-it Qwen3.5-4B Qwen3.5-9B --limit 90
+python run_llm_eval.py --datasets mt annual sec10Q  --models gemma-4-E4B-it Qwen3.5-4B Qwen3.5-9B --limit 90
 
 
 echo "Done: $(date)"

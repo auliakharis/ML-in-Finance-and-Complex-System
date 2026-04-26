@@ -13,4 +13,4 @@ python3 5.make_random_questions.py \
   --derived-prob-min 0.3 \
   --derived-prob-max 0.7 \
   --seed 2345 \
-  --output output/random_questions_90_alicia.csv
+  --output output/random_questions_90.csv

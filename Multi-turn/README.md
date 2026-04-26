@@ -28,11 +28,11 @@ The parser traverses the expression tree post-order and emits one turn per opera
 ## Usage
 
 ```bash
-python multi_turn_parser.py --input ../annual/random_questions_90.json --output output.json
+python multi_turn_parser.py --input ../annual/random_questions_annual.json --output output.json
 
 # With a financial context sheet prepended to the first turn:
 python multi_turn_parser.py \
-  --input ../annual/random_questions_90_augmented.json \
+  --input ../annual/random_questions_annual_augmented.json \
   --output output_augmented.json \
   --sheet ../annual/financial_spreadsheet.csv
 ```

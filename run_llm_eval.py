@@ -3,11 +3,11 @@ run_llm_eval.py
 ====================
 Runs LLM evaluation on two Q&A datasets:
 
-  10q  — 10q/final_qa_dataset.json
-         context: one spreadsheet row per company from 10q/financial_spreadsheet.json
+  sec10Q — datasets/sec10Q/final_qa_dataset.json
+           context: one spreadsheet row per company from datasets/sec10Q/financial_spreadsheet.json
 
-  90q  — 90q/random_questions_90.json
-         context: all yearly rows for the entity from 90q/financial_spreadsheet.json
+  annual — datasets/annual/random_questions_annual_new.json
+            context: all yearly rows for the entity from datasets/annual/financial_spreadsheet.json
 
 For each question, a prompt is built:
   "You are a financial data assistant. Given the following financial sheets statements below
@@ -57,14 +57,15 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
-DATASET_10Q = BASE_DIR / "form10q" / "final_qa_dataset.json"
-SHEET_10Q   = BASE_DIR / "form10q" / "financial_spreadsheet.json"
+DATASET_SEC10Q = BASE_DIR / "datasets" / "sec10Q" / "final_qa_dataset.json"
+SHEET_SEC10Q   = BASE_DIR / "datasets" / "sec10Q" / "financial_spreadsheet.json"
 
-DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
-SHEET_90Q   = BASE_DIR / "annual" / "financial_spreadsheet.json"
+DATASET_ANNUAL   = BASE_DIR / "datasets" / "annual" / "random_questions_annual_new.json"
+DATASET_MT       = BASE_DIR / "datasets" / "annual" / "random_questions_annual_multiturn.json"
+SHEET_ANNUAL     = BASE_DIR / "datasets" / "annual" / "financial_spreadsheet.json"
 
-DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
-SHEET_MT    = BASE_DIR / "annual" / "financial_spreadsheet.json"  # same synthetic companies
+DATASET_PIPELINE = BASE_DIR / "compiler_pipeline" / "output" / "random_questions_90.csv"
+SHEET_PIPELINE   = BASE_DIR / "compiler_pipeline" / "output" / "financial_spreadsheet.csv"
 
 DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B", "gemma-4-E4B-it"]
 
@@ -78,12 +79,30 @@ def load_json(path: Path) -> list:
         return json.load(f)
 
 
-def build_10q_sheet_lookup(sheet: list) -> dict:
+def load_csv_questions(path: Path) -> list:
+    with open(path, newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def build_pipeline_sheet_lookup(path: Path) -> dict:
+    """Load the pipeline financial_spreadsheet.csv and index by company_name."""
+    with open(path, newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    lookup: dict = {}
+    for row in rows:
+        name = row["company_name"]
+        lookup.setdefault(name, []).append(row)
+    for name in lookup:
+        lookup[name].sort(key=lambda r: r.get("year", "0"))
+    return lookup
+
+
+def build_sec10Q_sheet_lookup(sheet: list) -> dict:
     """company_name -> dict of financial fields."""
     return {row["company_name"]: row for row in sheet}
 
 
-def build_90q_sheet_lookup(sheet: list) -> dict:
+def build_annual_sheet_lookup(sheet: list) -> dict:
     """company_name -> list of rows (one per year), sorted by year."""
     lookup: dict = {}
     for row in sheet:
@@ -98,31 +117,31 @@ def build_90q_sheet_lookup(sheet: list) -> dict:
 # Prompt builders
 # ---------------------------------------------------------------------------
 
-def _load_parse_col_10q():
+def _load_parse_col_sec10Q():
     import importlib.util
     spec = importlib.util.spec_from_file_location(
-        "rewrite_10q", BASE_DIR / "form10q" / "rewrite_10q.py"
+        "rewrite_sec10Q", BASE_DIR / "pipeline_sec10Q" / "rewrite_sec10Q.py"
     )
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return mod.parse_col
 
-_parse_col_10q = None
+_parse_col_sec10Q = None
 
-def sheet_to_text_10q(row: dict) -> str:
+def sheet_to_text_sec10Q(row: dict) -> str:
     """Format a 10-Q spreadsheet row as readable key-value text with human-readable column names."""
-    global _parse_col_10q
-    if _parse_col_10q is None:
-        _parse_col_10q = _load_parse_col_10q()
+    global _parse_col_sec10Q
+    if _parse_col_sec10Q is None:
+        _parse_col_sec10Q = _load_parse_col_sec10Q()
     lines = []
     for k, v in row.items():
-        label, period = _parse_col_10q(k)
+        label, period = _parse_col_sec10Q(k)
         display = f"{label} ({period})" if period else label
         lines.append(f"  {display}: {v}")
     return "\n".join(lines)
 
 
-def sheet_to_text_90q(rows: list) -> str:
+def sheet_to_text_annual(rows: list) -> str:
     """Format multiple annual rows for a company as a table-like text."""
     if not rows:
         return "(no data)"
@@ -329,7 +348,7 @@ def run_multiturn_inference(tokenizer, model, messages: list, max_new_tokens: in
 # Evaluation loops
 # ---------------------------------------------------------------------------
 
-def evaluate_10q(
+def evaluate_sec10Q(
     questions: list,
     sheet_lookup: dict,
     tokenizer,
@@ -350,7 +369,7 @@ def evaluate_10q(
         if sheet_row is None:
             print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{company}')")
             results.append({
-                "source": "form10q",
+                "source": "sec10Q",
                 "id": q.get("id"),
                 "company": company,
                 "depth": q.get("depth"),
@@ -363,7 +382,7 @@ def evaluate_10q(
             })
             continue
 
-        sheet_text = sheet_to_text_10q(sheet_row)
+        sheet_text = sheet_to_text_sec10Q(sheet_row)
         prompt = build_prompt(sheet_text, question_text)
 
         response = run_inference(tokenizer, model, prompt)
@@ -374,7 +393,7 @@ def evaluate_10q(
         print(f"  [{i}/{len(subset)}] {status} | truth={ground_truth} pred={predicted} | {question_text[:60]}...")
 
         results.append({
-            "source": "form10q",
+            "source": "sec10Q",
             "id": q.get("id"),
             "company": company,
             "depth": q.get("depth"),
@@ -390,7 +409,7 @@ def evaluate_10q(
     return results
 
 
-def evaluate_90q(
+def evaluate_annual(
     questions: list,
     sheet_lookup: dict,
     tokenizer,
@@ -424,7 +443,7 @@ def evaluate_90q(
             })
             continue
 
-        sheet_text = sheet_to_text_90q(sheet_rows)
+        sheet_text = sheet_to_text_annual(sheet_rows)
         prompt = build_prompt(sheet_text, question_text)
 
         response = run_inference(tokenizer, model, prompt)
@@ -485,7 +504,7 @@ def evaluate_multiturn(
         if company:
             sheet_rows = sheet_lookup.get(company)
             if sheet_rows:
-                sheet_text = sheet_to_text_90q(sheet_rows)
+                sheet_text = sheet_to_text_annual(sheet_rows)
                 system_content = (
                     "You are a financial analyst. Answer using ONLY the data below. "
                     "No commentary.\n\n"
@@ -613,12 +632,13 @@ def compute_accuracy(results: list) -> dict:
     }
 
 
-def print_summary(model_name: str, results_10q: list, results_90q: list, results_mt: list) -> None:
-    acc10 = compute_accuracy(results_10q)
-    acc90 = compute_accuracy(results_90q)
+def print_summary(model_name: str, results_sec10Q: list, results_annual: list, results_mt: list, results_pipeline: list | None = None) -> None:
+    acc10 = compute_accuracy(results_sec10Q)
+    acc90 = compute_accuracy(results_annual)
     accmt = compute_accuracy(results_mt)
-    total_eval = acc10["total"] + acc90["total"] + accmt["total"]
-    total_correct = acc10["correct"] + acc90["correct"] + accmt["correct"]
+    accpl = compute_accuracy(results_pipeline or [])
+    total_eval = acc10["total"] + acc90["total"] + accmt["total"] + accpl["total"]
+    total_correct = acc10["correct"] + acc90["correct"] + accmt["correct"] + accpl["correct"]
     overall = total_correct / total_eval if total_eval else 0.0
 
     print(f"\n{'='*60}")
@@ -627,6 +647,8 @@ def print_summary(model_name: str, results_10q: list, results_90q: list, results
     print(f"  10-Q      : {acc10['correct']}/{acc10['total']}  accuracy = {acc10['accuracy']:.1%}  (skipped {acc10.get('skipped',0)})")
     print(f"  90-Q      : {acc90['correct']}/{acc90['total']}  accuracy = {acc90['accuracy']:.1%}  (skipped {acc90.get('skipped',0)})")
     print(f"  Multi-turn: {accmt['correct']}/{accmt['total']}  accuracy = {accmt['accuracy']:.1%}  (skipped {accmt.get('skipped',0)})")
+    if results_pipeline:
+        print(f"  Pipeline  : {accpl['correct']}/{accpl['total']}  accuracy = {accpl['accuracy']:.1%}  (skipped {accpl.get('skipped',0)})")
 
     # Break down multi-turn accuracy by number of turns + failure origin
     if results_mt:
@@ -669,7 +691,7 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for model_name, model_data in all_results.items():
-            for dataset_key in ("form10q", "annual", "mt"):
+            for dataset_key in ("sec10Q", "annual", "mt", "pipeline"):
                 for r in model_data.get(dataset_key, []):
                     gt = r.get("ground_truth")
                     pred = r.get("predicted")
@@ -730,8 +752,9 @@ def parse_args():
         help="Path to save per-question results CSV (default: eval_results.csv)",
     )
     parser.add_argument(
-        "--datasets", nargs="+", choices=["form10q", "annual", "mt"], default=["form10q", "annual", "mt"],
-        help="Which dataset(s) to evaluate: 10q, 90q, mt, or any combination (default: all)",
+        "--datasets", nargs="+", choices=["sec10Q", "annual", "mt", "pipeline"],
+        default=["sec10Q", "annual", "mt"],
+        help="Which dataset(s) to evaluate: sec10Q, annual, mt, pipeline (default: sec10Q annual mt)",
     )
     return parser.parse_args()
 
@@ -741,35 +764,46 @@ def main():
 
     # Load datasets
     print("Loading datasets...")
-    if "form10q" in args.datasets:
-        questions_10q = load_json(DATASET_10Q)
-        sheet_lookup_10q = build_10q_sheet_lookup(load_json(SHEET_10Q))
-        print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} companies")
+    if "sec10Q" in args.datasets:
+        questions_sec10Q = load_json(DATASET_SEC10Q)
+        sheet_lookup_sec10Q = build_sec10Q_sheet_lookup(load_json(SHEET_SEC10Q))
+        print(f"  sec10Q: {len(questions_sec10Q)} questions, {len(sheet_lookup_sec10Q)} companies")
     else:
-        questions_10q, sheet_lookup_10q = [], {}
+        questions_sec10Q, sheet_lookup_sec10Q = [], {}
 
     if "annual" in args.datasets:
-        questions_90q = load_json(DATASET_90Q)
-        sheet_lookup_90q = build_90q_sheet_lookup(load_json(SHEET_90Q))
-        print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
+        questions_annual = load_json(DATASET_ANNUAL)
+        sheet_lookup_annual = build_annual_sheet_lookup(load_json(SHEET_ANNUAL))
+        print(f"  annual: {len(questions_annual)} questions, {len(sheet_lookup_annual)} companies")
     else:
-        questions_90q, sheet_lookup_90q = [], {}
+        questions_annual, sheet_lookup_annual = [], {}
 
     if "mt" in args.datasets:
         questions_mt = load_json(DATASET_MT)
-        sheet_lookup_mt = build_90q_sheet_lookup(load_json(SHEET_MT))
+        sheet_lookup_mt = build_annual_sheet_lookup(load_json(SHEET_ANNUAL))
         non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
         print(f"  Multi-turn: {len(questions_mt)} total, {non_skipped} non-skipped, {len(sheet_lookup_mt)} companies")
     else:
         questions_mt, sheet_lookup_mt = [], {}
 
+    if "pipeline" in args.datasets:
+        questions_pipeline = load_csv_questions(DATASET_PIPELINE)
+        sheet_lookup_pipeline = build_pipeline_sheet_lookup(SHEET_PIPELINE)
+        print(f"  pipeline: {len(questions_pipeline)} questions, {len(sheet_lookup_pipeline)} companies")
+    else:
+        questions_pipeline, sheet_lookup_pipeline = [], {}
+
+    # Pre-flight: fail fast if any requested model is missing
+    missing_models = [m for m in args.models if not (MODELS_DIR / m).exists()]
+    if missing_models:
+        print("ERROR: the following models were not found under", MODELS_DIR)
+        for m in missing_models:
+            print(f"  {MODELS_DIR / m}")
+        sys.exit(1)
+
     all_results = {}
 
     for model_name in args.models:
-        model_path = MODELS_DIR / model_name
-        if not model_path.exists():
-            print(f"\nWARNING: model not found at {model_path}, skipping.")
-            continue
 
         print(f"\n{'='*60}")
         print(f"  Evaluating model: {model_name}")
@@ -777,23 +811,23 @@ def main():
 
         tokenizer, model = load_model(model_name)
 
-        if "form10q" in args.datasets:
-            print(f"\n-- 10-Q evaluation ({args.limit or len(questions_10q)} questions) --")
-            results_10q = evaluate_10q(
-                questions_10q, sheet_lookup_10q, tokenizer, model,
+        if "sec10Q" in args.datasets:
+            print(f"\n-- sec10Q evaluation ({args.limit or len(questions_sec10Q)} questions) --")
+            results_sec10Q = evaluate_sec10Q(
+                questions_sec10Q, sheet_lookup_sec10Q, tokenizer, model,
                 limit=args.limit, tol=args.tol,
             )
         else:
-            results_10q = []
+            results_sec10Q = []
 
         if "annual" in args.datasets:
-            print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
-            results_90q = evaluate_90q(
-                questions_90q, sheet_lookup_90q, tokenizer, model,
+            print(f"\n-- annual evaluation ({args.limit or len(questions_annual)} questions) --")
+            results_annual = evaluate_annual(
+                questions_annual, sheet_lookup_annual, tokenizer, model,
                 limit=args.limit, tol=args.tol,
             )
         else:
-            results_90q = []
+            results_annual = []
 
         if "mt" in args.datasets:
             non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
@@ -805,16 +839,34 @@ def main():
         else:
             results_mt = []
 
-        print_summary(model_name, results_10q, results_90q, results_mt)
+        if "pipeline" in args.datasets:
+            print(f"\n-- pipeline evaluation ({args.limit or len(questions_pipeline)} questions) --")
+            results_pipeline = evaluate_annual(
+                questions_pipeline, sheet_lookup_pipeline, tokenizer, model,
+                limit=args.limit, tol=args.tol,
+            )
+        else:
+            results_pipeline = []
+
+        print_summary(model_name, results_sec10Q, results_annual, results_mt, results_pipeline)
 
         all_results[model_name] = {
-            "form10q": results_10q,
-            "annual": results_90q,
+            "sec10Q": results_sec10Q,
+            "annual": results_annual,
             "mt": results_mt,
-            "accuracy_10q": compute_accuracy(results_10q),
-            "accuracy_90q": compute_accuracy(results_90q),
+            "pipeline": results_pipeline,
+            "accuracy_sec10Q": compute_accuracy(results_sec10Q),
+            "accuracy_annual": compute_accuracy(results_annual),
             "accuracy_mt": compute_accuracy(results_mt),
+            "accuracy_pipeline": compute_accuracy(results_pipeline),
         }
+
+        # Checkpoint after each model so a crash doesn't lose prior results
+        ckpt_path = Path(args.output).parent / (Path(args.output).stem + "_checkpoint.json")
+        ckpt_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(ckpt_path, "w") as f:
+            json.dump(all_results, f, indent=2, default=str)
+        print(f"  [checkpoint saved → {ckpt_path}]")
 
         # Free memory before loading next model
         del model, tokenizer
@@ -843,19 +895,22 @@ def main():
     # Final comparison across models
     if len(all_results) > 1:
         print("\n=== Model Comparison ===")
-        print(f"{'Model':<20} {'10-Q Acc':>10} {'90-Q Acc':>10} {'MT Acc':>10} {'Overall':>10}")
-        print("-" * 62)
+        print(f"{'Model':<20} {'10-Q Acc':>10} {'90-Q Acc':>10} {'MT Acc':>10} {'Pipeline':>10} {'Overall':>10}")
+        print("-" * 74)
         for m, r in all_results.items():
-            a10 = r["accuracy_10q"]["accuracy"]
-            a90 = r["accuracy_90q"]["accuracy"]
+            a10 = r["accuracy_sec10Q"]["accuracy"]
+            a90 = r["accuracy_annual"]["accuracy"]
             amt = r["accuracy_mt"]["accuracy"]
-            t10 = r["accuracy_10q"]["total"]
-            t90 = r["accuracy_90q"]["total"]
+            apl = r["accuracy_pipeline"]["accuracy"]
+            t10 = r["accuracy_sec10Q"]["total"]
+            t90 = r["accuracy_annual"]["total"]
             tmt = r["accuracy_mt"]["total"]
-            total = t10 + t90 + tmt
-            correct = r["accuracy_10q"]["correct"] + r["accuracy_90q"]["correct"] + r["accuracy_mt"]["correct"]
+            tpl = r["accuracy_pipeline"]["total"]
+            total = t10 + t90 + tmt + tpl
+            correct = (r["accuracy_sec10Q"]["correct"] + r["accuracy_annual"]["correct"]
+                       + r["accuracy_mt"]["correct"] + r["accuracy_pipeline"]["correct"])
             overall = correct / total if total else 0.0
-            print(f"{m:<20} {a10:>10.1%} {a90:>10.1%} {amt:>10.1%} {overall:>10.1%}")
+            print(f"{m:<20} {a10:>10.1%} {a90:>10.1%} {amt:>10.1%} {apl:>10.1%} {overall:>10.1%}")
 
 
 if __name__ == "__main__":
