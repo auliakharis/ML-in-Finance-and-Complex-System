@@ -197,7 +197,7 @@ def main() -> None:
                 )
                 analysis = analyzer.analyze(expr)
                 answer = evaluator.eval(expr)
-                question = renderer.render(analysis)
+                question = renderer.render(analysis, rng=random.Random(bind_seed))
                 expr_json = mod_lang.expr_to_json(expr)
                 expr_str = mod_lang.show_expr(expr)
                 template_stats = mod_sampler.count_nodes(tree_payload)

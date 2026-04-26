@@ -808,7 +808,7 @@ class SemanticAnalyzer:
             meaning = self._analyze_mul(expr, left_result, right_result)
         elif expr.op == "growth":
             meaning = self._analyze_growth(expr, left_result, right_result)
-        elif expr.op in {"min", "max", "avg"}:
+        elif expr.op in {"min", "max"}:
             meaning = self._analyze_time_aggregate(expr, left_result, right_result)
         else:
             raise SemanticError(f"Unsupported op: {expr.op}")
@@ -826,11 +826,16 @@ class SemanticAnalyzer:
         if leaves:
             atoms = [self.atom(leaf.key) for leaf in leaves]
             first = atoms[0]
+            total_expected = len({
+                a.concept for a in self.atoms.values()
+                if a.parent_concept == first.parent_concept and a.role == "component"
+            }) if (first.parent_concept is not None and first.role == "component") else 0
             if (
                 len(atoms) >= 2
                 and first.semantic_type == "amount"
                 and first.parent_concept is not None
                 and first.role == "component"
+                and len(atoms) == total_expected
                 and all(
                     a.semantic_type == "amount"
                     and a.parent_concept == first.parent_concept
@@ -906,20 +911,6 @@ class SemanticAnalyzer:
     def _analyze_diff(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
 
-        if self._same_amount_context(lm, rm) and lm.concept == rm.concept and lm.period != rm.period:
-            return Meaning(
-                kind="change_over_time",
-                semantic_type="amount",
-                text=f"change in {lm.label or lm.concept} for {lm.entity} from {rm.period} to {lm.period}",
-                entity=lm.entity,
-                unit=lm.unit,
-                concept=lm.concept,
-                label=lm.label or lm.concept,
-                from_period=rm.period,
-                to_period=lm.period,
-                derivation=f"diff over time: {rm.period} -> {lm.period}",
-            )
-
         if lm.semantic_type == rm.semantic_type == "amount" and self.same_context(lm, rm):
             left_label = lm.label or lm.concept or "value"
             right_label = rm.label or rm.concept or "value"
@@ -971,28 +962,6 @@ class SemanticAnalyzer:
                             period=periods[-1],
                             derivation=f"arithmetic mean of {n_int} yearly values",
                         )
-
-        if (
-            lm.kind == "change_over_time"
-            and rm.semantic_type == "amount"
-            and lm.concept == rm.concept
-            and lm.entity == rm.entity
-            and lm.unit == rm.unit
-            and lm.from_period == rm.period
-            and self._is_metric_like_amount(rm)
-        ):
-            return Meaning(
-                kind="growth_rate",
-                semantic_type="ratio",
-                text=f"growth rate of {rm.label or rm.concept} for {rm.entity} from {lm.from_period} to {lm.to_period}",
-                entity=rm.entity,
-                unit=rm.unit,
-                concept=rm.concept,
-                label=f"growth rate of {rm.label or rm.concept}",
-                from_period=lm.from_period,
-                to_period=lm.to_period,
-                derivation="change over time divided by base period",
-            )
 
         if self._same_amount_context(lm, rm):
             left_label = lm.label or lm.concept or "value"
@@ -1086,7 +1055,7 @@ class SemanticAnalyzer:
 
     def _analyze_time_aggregate(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
-        op_name = {"min": "minimum", "max": "maximum", "avg": "average"}[expr.op]
+        op_name = {"min": "minimum", "max": "maximum"}[expr.op]
 
         def _period_tokens(m: Meaning) -> List[str]:
             return [p for p in (m.period, m.from_period, m.to_period) if p is not None]
@@ -1193,14 +1162,12 @@ class Evaluator:
             return min(lv, rv)
         if expr.op == "max":
             return max(lv, rv)
-        if expr.op == "avg":
-            return (lv + rv) / 2.0
 
         raise ValueError(f"Unsupported op: {expr.op}")
 
 
 class QuestionRenderer:
-    def render(self, result: AnalysisResult) -> str:
+    def render(self, result: AnalysisResult, rng: Optional[random.Random] = None) -> str:
         m = result.meaning
 
         # --- specialized semantic kinds unchanged except for template insertion support ---
@@ -1210,39 +1177,40 @@ class QuestionRenderer:
                 f"total {self._clean_label(m.target_concept)} "
                 f"for {m.entity} in {m.period}"
             )
-            return self._apply_template(phrase=phrase, copula=copula)
+            return self._apply_template(phrase=phrase, copula=copula, rng=rng)
 
         if m.kind == "growth_rate":
             label = self._clean_label((m.label or '').replace('growth rate of ', ''))
             phrase = f"growth rate of {label} for {m.entity} from {m.from_period} to {m.to_period}"
             copula = "is"
-            return self._apply_template(phrase=phrase, copula=copula)
+            return self._apply_template(phrase=phrase, copula=copula, rng=rng)
 
         if m.kind == "avg_over_all_periods":
             label = self._clean_label(m.label or m.concept)
             phrase = f"average {label} for {m.entity} across years {m.from_period} through {m.to_period}"
             copula = "is"
-            return self._apply_template(phrase=phrase, copula=copula)
+            return self._apply_template(phrase=phrase, copula=copula, rng=rng)
 
         # --- default ---
         phrase = self._expr_phrase(result, top_level=True)
         copula = self._question_copula(m.label or m.concept)
-        return self._apply_template(phrase=phrase, copula=copula)
-    
-    def _apply_template(self, *, phrase: str, copula: str) -> str:
+        return self._apply_template(phrase=phrase, copula=copula, rng=rng)
+
+    def _apply_template(self, *, phrase: str, copula: str, rng: Optional[random.Random] = None) -> str:
+        _rng = rng if rng is not None else random
         # Flatten templates keeping category information
         all_templates = (
             [("question", t) for t in question_templates["question"]] +
             [("imperative", t) for t in question_templates["imperative"]]
         )
 
-        category, tmpl = random.choice(all_templates)
+        category, tmpl = _rng.choice(all_templates)
 
         # Perform substitution
         text = tmpl.format(phrase=phrase, copula=copula)
 
         # Add punctuation
-        punct_case = random.choice(["none", "space", "normal"])
+        punct_case = _rng.choice(["none", "space", "normal"])
 
         if category == "question":
             punct = "?"
@@ -1259,7 +1227,7 @@ class QuestionRenderer:
             result = stripped + punct
 
         # Randomize capitalization (uniform choice)
-        cap_case = random.choice(["capitalize", "lower"])
+        cap_case = _rng.choice(["capitalize", "lower"])
 
         if result:
             if cap_case == "lower":
@@ -1331,12 +1299,8 @@ class QuestionRenderer:
                 )
             return f"growth between {left} and {right}"
 
-        if expr.op in {"min", "max", "avg"}:
-            op_word = {
-                "min": "minimum",
-                "max": "maximum",
-                "avg": "average",
-            }[expr.op]
+        if expr.op in {"min", "max"}:
+            op_word = {"min": "minimum", "max": "maximum"}[expr.op]
 
             if m.kind == f"{expr.op}_over_time" and m.concept is not None:
                 base_name = self._base_metric_name_from_child(result.children[0].meaning)
