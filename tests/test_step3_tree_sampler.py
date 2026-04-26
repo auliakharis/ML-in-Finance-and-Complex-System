@@ -51,7 +51,7 @@ class TestMakeLeafAndNode:
 
     def test_make_leaf_ratio(self):
         leaf = make_leaf(family="ratio")
-        assert leaf["semantic_type_in"] == ["ratio", "rate"]
+        assert leaf["semantic_type_in"] == ["rate"]
 
     def test_make_leaf_unsupported_family_raises(self):
         with pytest.raises(ValueError, match="Unsupported family"):

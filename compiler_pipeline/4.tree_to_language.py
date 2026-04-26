@@ -288,7 +288,7 @@ class AtomIndex:
         self.entities: List[str] = sorted({a.entity for a in atoms.values()})
         self.periods: List[str] = sorted({a.period for a in atoms.values()})
         self.amount_concepts: List[str] = sorted({a.concept for a in atoms.values() if a.semantic_type == "amount"})
-        self.ratio_concepts: List[str] = sorted({a.concept for a in atoms.values() if a.semantic_type in {"ratio", "rate"}})
+        self.ratio_concepts: List[str] = sorted({a.concept for a in atoms.values() if a.semantic_type == "rate"})
         for atom in atoms.values():
             self.by_concept.setdefault(atom.concept, []).append(atom)
             self.by_entity.setdefault(atom.entity, []).append(atom)

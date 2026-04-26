@@ -110,7 +110,7 @@ def make_leaf(family: str) -> Dict[str, Any]:
     if family == "amount":
         return {"kind": "leaf", "family": family, "semantic_type_in": ["amount"]}
     if family == "ratio":
-        return {"kind": "leaf", "family": family, "semantic_type_in": ["ratio", "rate"]}
+        return {"kind": "leaf", "family": family, "semantic_type_in": ["rate"]}
     raise ValueError(f"Unsupported family: {family}")
 
 
