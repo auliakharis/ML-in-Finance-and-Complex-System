@@ -108,9 +108,9 @@ DERIVED_CONCEPTS: Dict[str, Dict[str, Any]] = {
 # ---------------------------------------------------------------------
 def make_leaf(family: str) -> Dict[str, Any]:
     if family == "amount":
-        return {"kind": "leaf", "family": family, "semantic_type_in": ["amount"]}
+        return {"kind": "leaf", "semantic_type_in": ["amount"]}
     if family == "ratio":
-        return {"kind": "leaf", "family": family, "semantic_type_in": ["rate"]}
+        return {"kind": "leaf", "semantic_type_in": ["rate"]}
     raise ValueError(f"Unsupported family: {family}")
 
 
@@ -118,7 +118,6 @@ def make_derived_concept(name: str, family: str, concept_depth: int) -> Dict[str
     return {
         "kind": "derived_concept",
         "name": name,
-        "family": family,
         "concept_depth": concept_depth,
     }
 
@@ -139,7 +138,6 @@ def make_node(
     return {
         "kind": "node",
         "op": op,
-        "family": family,
         "depth": depth,
         "left": left,
         "right": right,
@@ -155,7 +153,6 @@ def make_time_agg(op: str, family: str, depth: int) -> Dict[str, Any]:
     return {
         "kind": "time_agg",
         "op": op,
-        "family": family,
         "depth": depth,
     }
 

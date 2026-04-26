@@ -607,7 +607,7 @@ def instantiate_typed_tree(
     kind = tree.get("kind")
     if kind == "leaf":
         # Leaf nodes map to a single base atom matching semantic constraints.
-        semantic_types = tree.get("semantic_type_in") or ([tree["family"]] if "family" in tree else ["amount"])
+        semantic_types = tree.get("semantic_type_in") or ["amount"]
         return instantiate_base_atom(index, rng, semantic_types=semantic_types, env=env)
 
     if kind == "derived_concept":

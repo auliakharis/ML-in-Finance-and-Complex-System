@@ -46,8 +46,8 @@ class TestMakeLeafAndNode:
     def test_make_leaf_amount(self):
         leaf = make_leaf(family="amount")
         assert leaf["kind"] == "leaf"
-        assert leaf["family"] == "amount"
         assert leaf["semantic_type_in"] == ["amount"]
+        assert "family" not in leaf
 
     def test_make_leaf_ratio(self):
         leaf = make_leaf(family="ratio")
@@ -233,7 +233,7 @@ class TestSampleTreeWithRejection:
     def test_no_dead_keys_in_any_node(self):
         dead_keys = {"entity_group", "context_group", "concept_group", "time_series_group",
                      "over_years_group", "section_group", "aggregation_group", "statement_group",
-                     "node_id"}
+                     "node_id", "family"}
         for seed in range(50):
             tree, _ = sample_tree_with_rejection(3, random.Random(seed), 0.0)
             _check_no_dead_keys(tree, dead_keys)
