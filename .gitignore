@@ -11,7 +11,7 @@ dist/
 build/
 output_llm/
 output/
-compiler_pipeline/output/
+!compiler_pipeline/output/
 datasets/sec10Q/output_sec10Q/
 datasets/annual/output_annual/
 .DS_Store

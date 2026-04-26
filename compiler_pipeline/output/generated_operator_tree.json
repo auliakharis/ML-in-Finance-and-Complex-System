@@ -1,0 +1,112 @@
+{
+  "max_depth": 3,
+  "actual_depth": 1,
+  "seed": 37,
+  "derived_prob": 0.5,
+  "ops": [
+    "sum",
+    "diff",
+    "ratio",
+    "mul",
+    "growth",
+    "min",
+    "max",
+    "avg"
+  ],
+  "derived_concepts": {
+    "gross_profit": {
+      "formula": {
+        "op": "diff",
+        "args": [
+          "revenue",
+          "cost_of_goods_sold"
+        ]
+      }
+    },
+    "operating_income": {
+      "formula": {
+        "op": "diff",
+        "args": [
+          "gross_profit",
+          "operating_expenses"
+        ]
+      }
+    },
+    "pretax_income": {
+      "formula": {
+        "op": "diff",
+        "args": [
+          "operating_income",
+          "non_operating_expenses"
+        ]
+      }
+    },
+    "income_tax_expense": {
+      "formula": {
+        "op": "mul",
+        "args": [
+          "pretax_income",
+          "income_tax"
+        ]
+      }
+    },
+    "net_income": {
+      "formula": {
+        "op": "diff",
+        "args": [
+          "pretax_income",
+          "income_tax_expense"
+        ]
+      }
+    },
+    "current_assets": {
+      "formula": {
+        "op": "sum",
+        "args": [
+          "cash",
+          "accounts_receivable",
+          "inventories",
+          "short_term_investments"
+        ]
+      }
+    },
+    "longterm_assets": {
+      "formula": {
+        "op": "diff",
+        "args": [
+          "total_assets",
+          "current_assets"
+        ]
+      }
+    },
+    "longterm_liabilities": {
+      "formula": {
+        "op": "diff",
+        "args": [
+          "total_liabilities",
+          "current_liabilities"
+        ]
+      }
+    }
+  },
+  "stats": {
+    "internal_nodes": 1,
+    "leaves": 2,
+    "total_nodes": 3
+  },
+  "tree": {
+    "kind": "node",
+    "op": "sum",
+    "depth": 3,
+    "left": {
+      "kind": "time_agg",
+      "op": "avg",
+      "depth": 2
+    },
+    "right": {
+      "kind": "time_agg",
+      "op": "avg",
+      "depth": 2
+    }
+  }
+}

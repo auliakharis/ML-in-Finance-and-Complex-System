@@ -272,7 +272,7 @@ class AtomIndex:
 
     - ``entities``, ``periods``
     - ``amount_concepts`` — concepts whose ``semantic_type`` is ``amount``
-    - ``ratio_concepts`` — concepts with ``semantic_type`` in ``ratio`` or ``rate``
+    - ``ratio_concepts`` — concepts whose ``semantic_type`` is ``rate``
       (e.g. effective tax rate for ``mul`` branches)
 
     Typical use: :meth:`filter_atoms` narrows by any combination of
@@ -740,7 +740,7 @@ class SemanticAnalyzer:
         }
 
     def _is_metric_like_ratio(self, meaning: Meaning) -> bool:
-        return meaning.semantic_type in {"ratio", "rate"} and meaning.kind == "leaf_metric"
+        return meaning.semantic_type == "rate" and meaning.kind == "leaf_metric"
 
     def _same_amount_context(self, a: Meaning, b: Meaning) -> bool:
         return (

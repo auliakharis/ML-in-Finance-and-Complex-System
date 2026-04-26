@@ -110,6 +110,8 @@ def make_leaf(family: str) -> Dict[str, Any]:
     if family == "amount":
         return {"kind": "leaf", "semantic_type_in": ["amount"]}
     if family == "ratio":
+        # "ratio" is the internal family name for the dimensionless branch; at leaf level
+        # the only dimensionless atoms in the data have semantic_type "rate" (e.g. income_tax).
         return {"kind": "leaf", "semantic_type_in": ["rate"]}
     raise ValueError(f"Unsupported family: {family}")
 
