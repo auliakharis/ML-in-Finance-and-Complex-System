@@ -489,12 +489,7 @@ def main() -> None:
         "derived_prob": args.derived_prob,
         "ops": list(OPS),
         "derived_concepts": {
-            name: {
-                "family": spec["family"],
-                "concept_depth": spec["concept_depth"],
-                "formula": spec["formula"],
-                "protected": spec["protected"],
-            }
+            name: {"formula": spec["formula"]}
             for name, spec in DERIVED_CONCEPTS.items()
         },
         "stats": stats,

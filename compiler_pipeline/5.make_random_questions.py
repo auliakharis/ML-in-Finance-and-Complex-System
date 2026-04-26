@@ -180,11 +180,9 @@ def main() -> None:
             try:
                 # 1) sample typed template 2) bind atoms 3) analyze/render/evaluate.
                 tree_rng = random.Random(tree_seed)
-                idgen = mod_sampler.IdGen()
                 tree_payload, _ = mod_sampler.sample_tree_with_rejection(
                     max_depth=depth,
                     rng=tree_rng,
-                    idgen=idgen,
                     derived_prob=derived_prob,
                 )
                 expr = mod_lang.instantiate_typed_tree(
