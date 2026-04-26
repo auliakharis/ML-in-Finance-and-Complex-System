@@ -93,7 +93,7 @@ class Literal:
 
 
 Expr = Union[Leaf, Node, DerivedExpr, Literal]
-SUPPORTED_OPS = {"sum", "diff", "ratio", "mul", "growth", "min", "max", "avg"}
+SUPPORTED_OPS = {"sum", "diff", "ratio", "mul", "growth", "min", "max"}
 
 # counts the depth of an expression by recursively counting the depth of the left and right subtrees.
 def expr_depth(expr: Expr) -> int:

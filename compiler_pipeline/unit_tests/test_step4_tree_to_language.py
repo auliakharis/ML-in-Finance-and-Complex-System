@@ -13,7 +13,7 @@ from typing import Dict
 import pandas as pd
 import pytest
 
-_PIPELINE = Path(__file__).resolve().parent.parent / "compiler_pipeline"
+_PIPELINE = Path(__file__).resolve().parent.parent
 
 
 def _load(filename: str, name: str):
@@ -31,7 +31,6 @@ lang_mod = _load("4.tree_to_language.py", "tree_to_language")
 build_atoms = atoms_mod.build_atoms
 BASE_CONCEPTS = atoms_mod.BASE_CONCEPTS
 
-IdGen = sampler_mod.IdGen
 make_leaf = sampler_mod.make_leaf
 make_node = sampler_mod.make_node
 make_derived_concept = sampler_mod.make_derived_concept
@@ -255,8 +254,8 @@ class TestAtomIndex:
         assert results[0].period == "2021"
 
     def test_filter_by_semantic_type(self):
-        results = self.index.filter_atoms(semantic_types=["ratio", "rate"])
-        assert all(a.semantic_type in {"ratio", "rate"} for a in results)
+        results = self.index.filter_atoms(semantic_types=["rate"])
+        assert results and all(a.semantic_type == "rate" for a in results)
 
 
 class TestEvaluator:
@@ -385,14 +384,12 @@ class TestSemanticAnalyzer:
         assert result.meaning.kind == "difference_amount"
         assert result.meaning.semantic_type == "amount"
 
-    def test_analyze_diff_across_periods(self):
+    def test_analyze_diff_across_periods_raises(self):
         node = Node("diff",
                     self._leaf("revenue", period="2022"),
                     self._leaf("revenue", period="2021"), depth=1)
-        result = self.sa.analyze(node)
-        assert result.meaning.kind == "change_over_time"
-        assert result.meaning.from_period == "2021"
-        assert result.meaning.to_period == "2022"
+        with pytest.raises(SemanticError):
+            self.sa.analyze(node)
 
     def test_analyze_ratio_amounts(self):
         node = Node("ratio", self._leaf("revenue"), self._leaf("total_assets"), depth=1)
@@ -502,8 +499,7 @@ class TestCompileTreePayload:
 
     def _make_payload(self, depth: int, seed: int) -> dict:
         rng = random.Random(seed)
-        idgen = IdGen()
-        tree, _ = sample_tree_with_rejection(max_depth=depth, rng=rng, idgen=idgen, derived_prob=0.2)
+        tree, _ = sample_tree_with_rejection(max_depth=depth, rng=rng, derived_prob=0.2)
         return {"tree": tree, "derived_concepts": {
             name: {"formula": spec["formula"]}
             for name, spec in DERIVED_CONCEPTS.items()

@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pytest
 
-_PIPELINE = Path(__file__).resolve().parent.parent / "compiler_pipeline"
+_PIPELINE = Path(__file__).resolve().parent.parent
 
 
 def _load(filename: str, name: str):
