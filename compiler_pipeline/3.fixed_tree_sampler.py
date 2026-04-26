@@ -1,22 +1,27 @@
-from __future__ import annotations
-
 """
-Typed tree sampler for financial reasoning templates.
+Financial expression tree sampler.
 
-This file generates a random expression template made of:
-1. raw leaves            -> placeholders that will later be bound to spreadsheet atoms
-2. operator nodes        -> sum / diff / ratio / mul (binary)
-3. growth                -> built under the ratio tree as a binary node (two year-slots)
-4. time aggregations     -> min / max / avg as time_agg (binder folds min/max; avg -> sum/n)
-5. derived concepts      -> named financial formulas such as gross_profit
+Generates a random typed expression template — a tree of operators and
+placeholder leaves — that step 4 will bind to real spreadsheet atoms.
 
-Important distinction:
-- template depth = target recursive depth budget used while sampling
+Template components:
+1. raw leaves        -> blank slots, each bound to one atom by step 4
+2. operator nodes    -> sum / diff / mul / ratio (binary, type-checked)
+3. growth            -> year-over-year change of one concept (ratio)
+4. time aggregations -> min / max / avg of one concept across multiple years;
+                        step 4 picks the min/max or computes avg as sum / count
+5. derived concepts  -> named formulas such as gross_profit or net_income,
+                        expanded into their full formula by step 4
+
+This file only builds the template structure — no data, companies, years,
+or concept values are assigned here.
+
+Depth terminology:
+- template depth = recursive depth budget passed to the sampler
 - actual depth   = realized operator depth of the sampled tree
-- concept depth  = depth of the internal formula of a derived concept
-
-This file only samples templates, it does not plug in anything (including formulas for dervied concepts) yet
+- concept depth  = expansion depth of a derived concept's internal formula
 """
+from __future__ import annotations
 
 import argparse
 import json
@@ -101,23 +106,21 @@ DERIVED_CONCEPTS: Dict[str, Dict[str, Any]] = {
 # ---------------------------------------------------------------------
 # 3. ID generator
 # ---------------------------------------------------------------------
-#tree generator needs unique labels
-#every node gets a unique node id
-#every raw leaf gets a unique leaf name
-#every logical constraint group gets a unique label
-#for ex: two leaves with the same entity_group should refer to the same company
+# Tree generator needs unique labels:
+# every node gets a unique node id, every raw leaf gets a unique leaf name,
+# and every logical constraint group gets a unique label.
+# e.g. two leaves with the same entity_group must refer to the same company.
 class IdGen:
     """
-    Generates unique IDs and grouping labels.
+    Generates unique IDs and grouping labels for a single tree build.
 
-    node_id()   -> N0, N1, ...
-    leaf_name() -> L0, L1, ...
-    group("C")  -> C0, C1, ...
-    group("E")  -> E0, E1, ...
-    group("Y")  -> Y0, Y1, ...
-    group("T")  -> T0, T1, ...
-    group("S")  -> S0, S1, ...
-    group("A")  -> A0, A1, ...
+    node_id()     -> N0, N1, ...   unique ID per operator node
+    leaf_name()   -> L0, L1, ...   unique name per raw leaf
+    group(prefix) -> prefix + n    unique label per constraint group
+
+    All group prefixes share one counter, so the numbers are unique
+    within each prefix (e.g. no two entity_groups both labeled E0).
+    Prefixes: C=context, E=entity, Y=years, T=concept, S=section, A=aggregation.
     """
 
     def __init__(self) -> None:
@@ -223,6 +226,7 @@ def make_derived_concept(
         spec["aggregation_group"] = aggregation_group
     return spec
 
+
 def make_node(
     idgen: IdGen,
     op: str,
@@ -266,8 +270,9 @@ def make_time_agg(
 ) -> Dict[str, Any]:
     """Build a non-binary ``time_agg`` node (min/max/avg over multiple years).
 
-    Unlike :func:`make_node`, this does not embed ``left``/``right`` children; the
-    binder must attach two period-specific subtrees using the shared groups.
+    Unlike :func:`make_node`, this has no ``left``/``right`` children. Step 4
+    uses the group labels to collect all yearly atoms for the concept and entity,
+    then applies the aggregation directly.
     """
     node: Dict[str, Any] = {
         "kind": "time_agg",
@@ -320,7 +325,6 @@ def sample_amount_terminal(
     aggregation_group: Optional[str] = None,
 ) -> Dict[str, Any]:
     eligible = eligible_derived_concepts(depth=depth, family="amount")
-    # samples a derived concept node if the random number is less than the derived probability and the concept is eligible.
     if eligible and rng.random() < derived_prob:
         name = rng.choice(eligible)
         spec = DERIVED_CONCEPTS[name]
@@ -336,7 +340,6 @@ def sample_amount_terminal(
             section_group=section_group,
             aggregation_group=aggregation_group,
         )
-    # samples a leaf node if the random number is greater than the derived probability or the concept is not eligible.
     return make_leaf(
         idgen=idgen,
         family="amount",
@@ -353,8 +356,8 @@ def sample_amount_terminal(
 # ---------------------------------------------------------------------
 # 6. Tree builders
 # ---------------------------------------------------------------------
-# builds a pair of amount trees that are tied together by a time series group 
-# the time series group is used to tie the two trees together so that the values are tied across years.
+# builds a pair of amount trees tied together by a shared time series group,
+# so both subtrees refer to the same concept but are bound to different years.
 def build_time_series_amount_pair(
     depth: int,
     rng: random.Random,
@@ -413,7 +416,6 @@ def build_ratio_tree(
     if op == "ratio":
         # Keep both sides in the same section group for coherent comparisons.
         section_group = idgen.group("S")
-        
         left = build_amount_tree(
             depth=depth - 1,
             rng=rng,
@@ -432,7 +434,6 @@ def build_ratio_tree(
             derived_prob=derived_prob,
             forced_section_group=section_group,
         )
-        # creates a ratio node with the left and right subtrees.
         return make_node(
             idgen=idgen,
             op="ratio",
@@ -451,7 +452,6 @@ def build_ratio_tree(
             entity_group=entity_group,
             derived_prob=derived_prob,
         )
-        # creates a growth node with the left and right subtrees.
         return make_node(
             idgen=idgen,
             op="growth",
@@ -603,7 +603,7 @@ def build_amount_tree(
 
     if op == "mul":
         # Multiplication combines amount branch with ratio branch.
-        #f both sides were arbitrary amount trees, we would often get nonsense units (e.g. dollars × dollars)
+        # If both sides were arbitrary amount trees, we would often get nonsense units (e.g. dollars × dollars)
         left = build_amount_tree(
             depth=depth - 1,
             rng=rng,
@@ -713,14 +713,10 @@ def symbolic_from_tree(tree: Dict[str, Any]) -> Any:
 def protected_signatures() -> Dict[str, Any]:
     """Map each protected derived concept to its fully expanded formula signature.
 
-    ``violates_protected_canonical_form`` rejects a sampled tree whose *whole*
-    structure matches that signature (e.g. revenue − COGS for gross profit) but
-    does **not** include a ``derived_concept`` node with that name. That avoids
-    “silent” duplicates of the same named economics.
-
-    This does **not** block cross-company comparisons (e.g. gross profit A vs B):
-    those are different trees (often ratio/diff of two subtrees). Entities are
-    tied via ``entity_group`` when leaves are bound, not by this check.
+    Used by violates_protected_canonical_form to detect any node in the tree
+    (not just the root) whose structure silently duplicates a named concept without
+    using a derived_concept node. For example, raw leaves computing
+    revenue - COGS would match gross_profit and be rejected.
     """
     out: Dict[str, Any] = {}
     for name, spec in DERIVED_CONCEPTS.items():
@@ -743,17 +739,22 @@ def contains_named_derived(tree: Dict[str, Any], concept_name: str) -> bool:
     )
 
 
-def violates_protected_canonical_form(tree: Dict[str, Any], protected: Dict[str, Any]) -> Optional[str]:
-    if tree["kind"] == "time_agg":
+_PROTECTED_SIGNATURES: Dict[str, Any] = protected_signatures()
+
+
+def violates_protected_canonical_form(tree: Dict[str, Any]) -> Optional[str]:
+    if tree["kind"] in {"leaf", "time_agg", "derived_concept"}:
         return None
 
     tree_sig = symbolic_from_tree(tree)
-
-    for concept_name, concept_sig in protected.items():
+    for concept_name, concept_sig in _PROTECTED_SIGNATURES.items():
         if tree_sig == concept_sig and not contains_named_derived(tree, concept_name):
             return concept_name
 
-    return None
+    left_violation = violates_protected_canonical_form(tree["left"])
+    if left_violation is not None:
+        return left_violation
+    return violates_protected_canonical_form(tree["right"])
 
 
 # ---------------------------------------------------------------------
@@ -798,19 +799,16 @@ def sample_tree_with_rejection(
     if max_attempts <= 0:
         raise ValueError("max_attempts must be > 0.")
 
-    # Protected signatures prevent unnamed duplication of canonical formulas.
-    protected = protected_signatures()
     last_reason: Optional[str] = None
 
     for _ in range(max_attempts):
-        # Sample candidate tree then reject if it violates protected form rules.
         tree = build_amount_tree(
             depth=max_depth,
             rng=rng,
             idgen=idgen,
             derived_prob=derived_prob,
         )
-        violation = violates_protected_canonical_form(tree, protected)
+        violation = violates_protected_canonical_form(tree)
         if violation is None:
             return tree, last_reason
         last_reason = f"Rejected because tree duplicated protected concept: {violation}"
@@ -852,10 +850,6 @@ def main() -> None:
         help="Path to the output JSON file.",
     )
     args = parser.parse_args()
-    if args.depth < 0:
-        raise ValueError("--depth must be >= 0.")
-    if not (0.0 <= args.derived_prob <= 1.0):
-        raise ValueError("--derived-prob must be between 0 and 1.")
 
     rng = random.Random(args.seed)
     idgen = IdGen()
