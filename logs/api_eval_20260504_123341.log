@@ -1,0 +1,140 @@
+Loading datasets...
+  10-Q: 497 questions, 15 companies
+  90-Q: 90 questions, 15 companies
+  Multi-turn: 1000 total, 607 non-skipped, 15 companies
+
+============================================================
+  Evaluating model: swiss-ai/Apertus-70B-Instruct-2509
+============================================================
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+
+-- Multi-turn evaluation (1 questions) --
+  [1/1] WRONG  | turns=3 depth=3 first_fail@turn=2 | truth=-16736.4873 pred=21416.0 | Which result follows from the result of the maximu...
+
+============================================================
+  Model: swiss-ai/Apertus-70B-Instruct-2509
+============================================================
+  10-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/1  accuracy = 0.0%  (skipped 0)
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 2: 1  (of 1 failed)
+  Overall   : 2/3  accuracy = 66.7%
+============================================================
+
+
+============================================================
+  Evaluating model: Qwen/Qwen3-Coder-30B-A3B-Instruct
+============================================================
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+
+-- Multi-turn evaluation (1 questions) --
+  [1/1] WRONG  | turns=3 depth=3 first_fail@turn=2 | truth=-16736.4873 pred=50876.0 | Which result follows from the result of the maximu...
+
+============================================================
+  Model: Qwen/Qwen3-Coder-30B-A3B-Instruct
+============================================================
+  10-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/1  accuracy = 0.0%  (skipped 0)
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 2: 1  (of 1 failed)
+  Overall   : 2/3  accuracy = 66.7%
+============================================================
+
+
+============================================================
+  Evaluating model: meta-llama/Llama-3.3-70B-Instruct
+============================================================
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+
+-- Multi-turn evaluation (1 questions) --
+  [1/1] WRONG  | turns=3 depth=3 first_fail@turn=2 | truth=-16736.4873 pred=76691.1872 | Which result follows from the result of the maximu...
+
+============================================================
+  Model: meta-llama/Llama-3.3-70B-Instruct
+============================================================
+  10-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/1  accuracy = 0.0%  (skipped 0)
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 2: 1  (of 1 failed)
+  Overall   : 2/3  accuracy = 66.7%
+============================================================
+
+
+============================================================
+  Evaluating model: openai/gpt-oss-120b-evMj
+============================================================
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+
+-- Multi-turn evaluation (1 questions) --
+  [1/1] WRONG  | turns=3 depth=3 first_fail@turn=3 | truth=-16736.4873 pred=98010.32 | Which result follows from the result of the maximu...
+
+============================================================
+  Model: openai/gpt-oss-120b-evMj
+============================================================
+  10-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/1  accuracy = 0.0%  (skipped 0)
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 3: 1  (of 1 failed)
+  Overall   : 2/3  accuracy = 66.7%
+============================================================
+
+
+============================================================
+  Evaluating model: deepseek-ai/deepseek-coder-33b-instruct
+============================================================
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+
+-- Multi-turn evaluation (1 questions) --
+  [1/1] WRONG  | turns=3 depth=3 first_fail@turn=1 | truth=-16736.4873 pred=7305.0 | Which result follows from the result of the maximu...
+
+============================================================
+  Model: deepseek-ai/deepseek-coder-33b-instruct
+============================================================
+  10-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/1  accuracy = 0.0%  (skipped 0)
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 1: 1  (of 1 failed)
+  Overall   : 2/3  accuracy = 66.7%
+============================================================
+
+Results saved to output_llm/eval_results_20260504_123424.json
+CSV saved to output_llm/eval_results_20260504_123424.csv
+
+=== Model Comparison ===
+Model                  10-Q Acc   90-Q Acc     MT Acc    Overall
+--------------------------------------------------------------
+swiss-ai/Apertus-70B-Instruct-2509     100.0%     100.0%       0.0%      66.7%
+Qwen/Qwen3-Coder-30B-A3B-Instruct     100.0%     100.0%       0.0%      66.7%
+meta-llama/Llama-3.3-70B-Instruct     100.0%     100.0%       0.0%      66.7%
+openai/gpt-oss-120b-evMj     100.0%     100.0%       0.0%      66.7%
+deepseek-ai/deepseek-coder-33b-instruct     100.0%     100.0%       0.0%      66.7%

@@ -1,0 +1,31 @@
+Loading datasets...
+  10-Q: 497 questions, 15 companies
+  90-Q: 90 questions, 15 companies
+  Multi-turn: 1000 total, 607 non-skipped, 15 companies
+
+============================================================
+  Evaluating model: openai/gpt-oss-120b-evMj
+============================================================
+
+-- 10-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+
+-- Multi-turn evaluation (1 questions) --
+  [1/1] WRONG  | turns=3 depth=3 first_fail@turn=2 | truth=-16736.4873 pred=76549.35 | Which result follows from the result of the maximu...
+
+============================================================
+  Model: openai/gpt-oss-120b-evMj
+============================================================
+  10-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/1  accuracy = 0.0%  (skipped 0)
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 2: 1  (of 1 failed)
+  Overall   : 2/3  accuracy = 66.7%
+============================================================
+
+Results saved to output_llm/eval_results_20260504_122119.json
+CSV saved to output_llm/eval_results_20260504_122119.csv
