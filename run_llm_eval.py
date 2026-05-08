@@ -41,6 +41,13 @@ Since system_msg is always the first element in history, it's included in every 
 
 """
 
+# evaluate fine-tuned Qwen3.5-4B
+# python run_llm_eval.py --models Qwen3.5-4B --finetune ./qwen-lora-adapters
+
+# compare base vs fine-tuned in one run (run twice separately, results are tagged differently)
+# python run_llm_eval.py --models Qwen3.5-4B --finetune ./qwen-lora-adapters --datasets 90q
+
+
 import argparse
 import csv
 import json
@@ -202,8 +209,11 @@ def is_correct(predicted, ground_truth, tol: float) -> bool:
 # LLM inference
 # ---------------------------------------------------------------------------
 
-def load_model(model_name: str):
-    """Load a HuggingFace model and tokenizer from the models directory."""
+def load_model(model_name: str, adapter_path: str | None = None):
+    """Load a HuggingFace model and tokenizer from the models directory.
+
+    If adapter_path is given, LoRA adapters are loaded on top of the base model.
+    """
     from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
     import torch
 
@@ -226,6 +236,12 @@ def load_model(model_name: str):
         quantization_config=bnb_config,
         low_cpu_mem_usage=True,
     )
+
+    if adapter_path:
+        from peft import PeftModel
+        print(f"  Loading LoRA adapters from {adapter_path} ...")
+        model = PeftModel.from_pretrained(model, adapter_path)
+
     model.eval()
     print(f"  Model loaded on {device}.")
     return tokenizer, model
@@ -717,6 +733,10 @@ def parse_args():
         "--datasets", nargs="+", choices=["10q", "90q", "mt"], default=["10q", "90q", "mt"],
         help="Which dataset(s) to evaluate: 10q, 90q, mt, or any combination (default: all)",
     )
+    parser.add_argument(
+        "--finetune", type=str, default="./qwen-lora-adapters", metavar="ADAPTER_PATH",
+        help="Path to LoRA adapter directory to load on top of the base model (e.g. ./qwen-lora-adapters)",
+    )
     return parser.parse_args()
 
 
@@ -759,7 +779,7 @@ def main():
         print(f"  Evaluating model: {model_name}")
         print(f"{'='*60}")
 
-        tokenizer, model = load_model(model_name)
+        tokenizer, model = load_model(model_name, adapter_path=args.finetune)
 
         if "10q" in args.datasets:
             print(f"\n-- 10-Q evaluation ({args.limit or len(questions_10q)} questions) --")
@@ -789,9 +809,10 @@ def main():
         else:
             results_mt = []
 
-        print_summary(model_name, results_10q, results_90q, results_mt)
+        result_key = f"{model_name}+ft" if args.finetune else model_name
+        print_summary(result_key, results_10q, results_90q, results_mt)
 
-        all_results[model_name] = {
+        all_results[result_key] = {
             "10q": results_10q,
             "90q": results_90q,
             "mt": results_mt,
