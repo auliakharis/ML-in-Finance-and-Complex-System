@@ -167,10 +167,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate random financial questions through the v2 pipeline."
     )
-    parser.add_argument("--csv", default="synthetic_company_data.csv", help="Input spreadsheet CSV")
+    parser.add_argument("--csv", default="output/synthetic_company_data.csv", help="Input spreadsheet CSV")
     parser.add_argument(
         "--concept-metadata",
-        default="concept_metadata.json",
+        default="config/concept_metadata.json",
         help="Concept metadata JSON used to build atoms from the CSV",
     )
     parser.add_argument("--n", type=int, default=90, help="Number of questions to generate")

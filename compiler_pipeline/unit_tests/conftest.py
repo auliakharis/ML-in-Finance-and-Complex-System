@@ -34,7 +34,7 @@ def sample_company():
 def categorical_columns_model(v2_dir: Path):
     from data_prep import CategorialColumns
 
-    payload = json.loads((v2_dir / "categorical_cols.json").read_text(encoding="utf-8"))
+    payload = json.loads((v2_dir / "config/categorical_cols.json").read_text(encoding="utf-8"))
     return CategorialColumns.model_validate(payload)
 
 
@@ -42,14 +42,14 @@ def categorical_columns_model(v2_dir: Path):
 def yearly_numeric_columns_model(v2_dir: Path):
     from data_prep import YearlyNumericColumns
 
-    payload = json.loads((v2_dir / "yearly_numeric_cols.json").read_text(encoding="utf-8"))
+    payload = json.loads((v2_dir / "config/yearly_numeric_cols.json").read_text(encoding="utf-8"))
     payload["define"].pop("year", None)
     return YearlyNumericColumns.model_validate(payload)
 
 
 @pytest.fixture
 def concept_metadata(v2_dir: Path) -> dict[str, dict]:
-    payload = json.loads((v2_dir / "concept_metadata.json").read_text(encoding="utf-8"))
+    payload = json.loads((v2_dir / "config/concept_metadata.json").read_text(encoding="utf-8"))
     return payload["define"]
 
 

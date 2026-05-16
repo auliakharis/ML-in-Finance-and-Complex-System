@@ -11,9 +11,9 @@ import random
 random.seed(42)
 
 YEARS = list(range(2020, 2026))
-CATEGORICAL_COLS_FILE = "categorical_cols.json"
-YEARLY_NUMERIC_COLS_FILE = "yearly_numeric_cols.json"
-COMPANIES_FILE = "companies.json"
+CATEGORICAL_COLS_FILE = "config/categorical_cols.json"
+YEARLY_NUMERIC_COLS_FILE = "config/yearly_numeric_cols.json"
+COMPANIES_FILE = "config/companies.json"
 
 # BaseModel from Pydantic is used for:
 # Data saving to and from json
@@ -301,7 +301,7 @@ def build_schema(
 
 
 def load_concept_metadata_from_json() -> ConceptMetadataSchema:
-    with open("concept_metadata.json", "r", encoding="utf-8") as f:
+    with open("config/concept_metadata.json", "r", encoding="utf-8") as f:
         concept_metadata = ConceptMetadataSchema.model_validate(json.load(f))
     return concept_metadata
 
@@ -384,7 +384,7 @@ def generate_json_schema(schema_path: str, columns: list[str], categorical_cols:
 
 def main():
     csv_path = "output/synthetic_company_data.csv"
-    schema_path = "schema.json"
+    schema_path = "output/schema.json"
     atoms_path = "output/atoms.json"
     
     columns, rows = generate_csv(csv_path)
