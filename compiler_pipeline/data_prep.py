@@ -116,14 +116,14 @@ class OutputSchema(BaseModel):
 class ConceptMetadataSchema(BaseModel):
     define: dict[str, ConceptMetadata]
 
-def __normalize_range(range: dict[str, float] | None) -> tuple[float, float]:
+def normalize_range(range: dict[str, float] | None) -> tuple[float, float]:
     if range is None:
         return 100, 1_000_000_000
     if range["min"] > range["max"]:
         raise ValueError(f"Invalid range with min > max: {range}")
     return range["min"], range["max"]
 
-def _generate_company_row_for_given_year(
+def generate_company_row_for_given_year(
     company_tuple: Company,
     credit_rating: str,
     year: int,
@@ -212,27 +212,27 @@ def generate_company_row(
     # Generate base revenue, then derive everything else consistently
     range = yearly_numeric_cols.define["revenue"].range
 
-    base_revenue = random.uniform(*__normalize_range(range))
+    base_revenue = random.uniform(*normalize_range(range))
 
     # Collect one record per year for this company.
     rows = [] 
     for year in YEARS:
-        csv_row, base_revenue = _generate_company_row_for_given_year(
+        csv_row, base_revenue = generate_company_row_for_given_year(
             company_tuple=company_tuple,
             credit_rating=credit_rating,
             year=year,
             base_revenue=base_revenue,
-            income_tax_range=__normalize_range(yearly_numeric_cols.define["income_tax"].range),
-            shares_outstanding_range=__normalize_range(yearly_numeric_cols.define["shares_outstanding"].range),
-            stock_price_range=__normalize_range(yearly_numeric_cols.define["stock_price"].range),
-            employees_range=__normalize_range(yearly_numeric_cols.define["employees"].range),
+            income_tax_range=normalize_range(yearly_numeric_cols.define["income_tax"].range),
+            shares_outstanding_range=normalize_range(yearly_numeric_cols.define["shares_outstanding"].range),
+            stock_price_range=normalize_range(yearly_numeric_cols.define["stock_price"].range),
+            employees_range=normalize_range(yearly_numeric_cols.define["employees"].range),
         )
         rows.append(csv_row)
 
     return rows
 
 
-def _build_schema_for_column(
+def build_schema_for_column(
     col: str,
     categorical_cols: CategorialColumns,
     yearly_numeric_cols: YearlyNumericColumns,
@@ -292,7 +292,7 @@ def build_schema(
     yearly_numeric_cols = yearly_numeric_cols
 
     schema = {
-        col: _build_schema_for_column(col, categorical_cols, yearly_numeric_cols)
+        col: build_schema_for_column(col, categorical_cols, yearly_numeric_cols)
         for col in columns
     }
     schema = OutputSchema(columns=schema)

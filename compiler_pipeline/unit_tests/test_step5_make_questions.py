@@ -13,7 +13,7 @@ from make_random_questions import build_row, flatten_leaf_keys, resolve_path, va
 from tree import DerivedExpr, Leaf, Literal, Node
 
 
-def _make_args(**overrides) -> argparse.Namespace:
+def make_args(**overrides) -> argparse.Namespace:
     defaults = {
         "n": 10,
         "depth_min": 1,
@@ -27,37 +27,37 @@ def _make_args(**overrides) -> argparse.Namespace:
 
 class TestValidateArgs:
     def test_valid_args_passes(self):
-        validate_args(_make_args())
+        validate_args(make_args())
 
     def test_n_zero_raises(self):
         with pytest.raises(ValueError, match="--n"):
-            validate_args(_make_args(n=0))
+            validate_args(make_args(n=0))
 
     def test_n_negative_raises(self):
         with pytest.raises(ValueError, match="--n"):
-            validate_args(_make_args(n=-1))
+            validate_args(make_args(n=-1))
 
     def test_negative_depth_min_raises(self):
         with pytest.raises(ValueError, match="--depth-min"):
-            validate_args(_make_args(depth_min=-1))
+            validate_args(make_args(depth_min=-1))
 
     def test_depth_min_gt_depth_max_raises(self):
         with pytest.raises(ValueError, match="--depth-min"):
-            validate_args(_make_args(depth_min=5, depth_max=2))
+            validate_args(make_args(depth_min=5, depth_max=2))
 
     def test_derived_prob_out_of_range_raises(self):
         with pytest.raises(ValueError, match="--derived-prob"):
-            validate_args(_make_args(derived_prob_min=-0.1))
+            validate_args(make_args(derived_prob_min=-0.1))
 
     def test_derived_prob_min_gt_max_raises(self):
         with pytest.raises(ValueError, match="--derived-prob"):
-            validate_args(_make_args(derived_prob_min=0.8, derived_prob_max=0.2))
+            validate_args(make_args(derived_prob_min=0.8, derived_prob_max=0.2))
 
     def test_equal_depth_bounds_ok(self):
-        validate_args(_make_args(depth_min=2, depth_max=2))
+        validate_args(make_args(depth_min=2, depth_max=2))
 
     def test_equal_prob_bounds_ok(self):
-        validate_args(_make_args(derived_prob_min=0.3, derived_prob_max=0.3))
+        validate_args(make_args(derived_prob_min=0.3, derived_prob_max=0.3))
 
 
 class TestFlattenLeafKeys:

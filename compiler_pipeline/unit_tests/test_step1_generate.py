@@ -5,16 +5,16 @@ from __future__ import annotations
 
 from data_prep import (
     YEARS,
-    _build_schema_for_column,
-    _generate_company_row_for_given_year,
+    build_schema_for_column,
+    generate_company_row_for_given_year,
 )
 
 
-def _rows_for_company(sample_company):
+def rows_for_company(sample_company):
     base_revenue = 1_000.0
     rows = []
     for year in YEARS:
-        row, base_revenue = _generate_company_row_for_given_year(
+        row, base_revenue = generate_company_row_for_given_year(
             company_tuple=sample_company,
             credit_rating="A",
             year=year,
@@ -30,11 +30,11 @@ def _rows_for_company(sample_company):
 
 class TestGenerateCompanyRow:
     def test_returns_one_row_per_year(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         assert len(rows) == len(YEARS)
 
     def test_each_row_has_expected_columns(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         expected = {
             "company_name",
             "ticker",
@@ -66,38 +66,38 @@ class TestGenerateCompanyRow:
             assert expected.issubset(row.model_dump().keys())
 
     def test_year_values_match_years(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         assert [row.year for row in rows] == YEARS
 
     def test_company_name_constant_across_years(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         assert {row.company_name for row in rows} == {sample_company.name}
 
     def test_balance_sheet_balances(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         for row in rows:
             assert row.total_assets == row.total_liabilities + row.total_equity
 
     def test_revenue_is_positive(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         assert all(row.revenue > 0 for row in rows)
 
     def test_cogs_less_than_revenue(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         assert all(row.cost_of_goods_sold < row.revenue for row in rows)
 
     def test_income_tax_is_rate(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         assert all(0.0 < row.income_tax < 1.0 for row in rows)
 
     def test_dividends_non_negative(self, sample_company):
-        rows = _rows_for_company(sample_company)
+        rows = rows_for_company(sample_company)
         assert all(row.dividends_paid >= 0 for row in rows)
 
 
 class TestBuildSchema:
-    def _schema(self, sample_company, categorical_columns_model, yearly_numeric_columns_model):
-        one_row = _generate_company_row_for_given_year(
+    def schema(self, sample_company, categorical_columns_model, yearly_numeric_columns_model):
+        one_row = generate_company_row_for_given_year(
             company_tuple=sample_company,
             credit_rating="A",
             year=YEARS[0],
@@ -109,7 +109,7 @@ class TestBuildSchema:
         )[0]
         columns = list(one_row.model_dump().keys())
         return {
-            col: _build_schema_for_column(
+            col: build_schema_for_column(
                 col,
                 categorical_columns_model,
                 yearly_numeric_columns_model,
@@ -123,13 +123,13 @@ class TestBuildSchema:
         categorical_columns_model,
         yearly_numeric_columns_model,
     ):
-        schema = self._schema(
+        schema = self.schema(
             sample_company,
             categorical_columns_model,
             yearly_numeric_columns_model,
         )
         expected_columns = list(
-            _generate_company_row_for_given_year(
+            generate_company_row_for_given_year(
                 company_tuple=sample_company,
                 credit_rating="A",
                 year=YEARS[0],
@@ -149,7 +149,7 @@ class TestBuildSchema:
         categorical_columns_model,
         yearly_numeric_columns_model,
     ):
-        schema = self._schema(
+        schema = self.schema(
             sample_company,
             categorical_columns_model,
             yearly_numeric_columns_model,
@@ -163,7 +163,7 @@ class TestBuildSchema:
         categorical_columns_model,
         yearly_numeric_columns_model,
     ):
-        schema = self._schema(
+        schema = self.schema(
             sample_company,
             categorical_columns_model,
             yearly_numeric_columns_model,
@@ -177,7 +177,7 @@ class TestBuildSchema:
         categorical_columns_model,
         yearly_numeric_columns_model,
     ):
-        schema = self._schema(
+        schema = self.schema(
             sample_company,
             categorical_columns_model,
             yearly_numeric_columns_model,
@@ -190,7 +190,7 @@ class TestBuildSchema:
         categorical_columns_model,
         yearly_numeric_columns_model,
     ):
-        schema = self._schema(
+        schema = self.schema(
             sample_company,
             categorical_columns_model,
             yearly_numeric_columns_model,
@@ -203,7 +203,7 @@ class TestBuildSchema:
         categorical_columns_model,
         yearly_numeric_columns_model,
     ):
-        schema = self._schema(
+        schema = self.schema(
             sample_company,
             categorical_columns_model,
             yearly_numeric_columns_model,
@@ -216,7 +216,7 @@ class TestBuildSchema:
         categorical_columns_model,
         yearly_numeric_columns_model,
     ):
-        schema = self._schema(
+        schema = self.schema(
             sample_company,
             categorical_columns_model,
             yearly_numeric_columns_model,

@@ -9,7 +9,7 @@ from enum import StrEnum
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-from utils import _pick_random_contiguous_period_window
+from utils import pick_random_contiguous_period_window
 
 class SemanticError(Exception):
     """Raised when an expression violates semantic compatibility rules."""
@@ -61,13 +61,13 @@ class Expr(BaseModel, ABC):
         return current_expr
 
     @staticmethod
-    def _coerce_operation(op: Operation | str) -> Operation:
+    def coerce_operation(op: Operation | str) -> Operation:
         if isinstance(op, Operation):
             return op
         return Operation(str(op))
 
     @staticmethod
-    def _normalize_derived_registry(
+    def normalize_derived_registry(
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None,
     ) -> dict[str, DerivedConcept]:
         if derived_registry is None:
@@ -84,7 +84,7 @@ class Expr(BaseModel, ABC):
             formula = spec.get("formula", spec)
             normalized[name] = DerivedConcept(
                 name=name,
-                op=Expr._coerce_operation(formula["op"]),
+                op=Expr.coerce_operation(formula["op"]),
                 family=str(spec.get("family", "amount")),
                 concept_dept=int(spec.get("concept_depth", spec.get("concept_dept", 0))),
                 args=[str(arg) for arg in formula["args"]],
@@ -93,11 +93,11 @@ class Expr(BaseModel, ABC):
         return normalized
 
     @staticmethod
-    def _coerce_template_expr(tree: Expr | dict) -> Expr:
+    def coerce_template_expr(tree: Expr | dict) -> Expr:
         if isinstance(tree, Expr):
             return tree
         if isinstance(tree, dict) and "kind" in tree:
-            return Expr._parse_template_expr(tree)
+            return Expr.parse_template_expr(tree)
         if isinstance(tree, dict):
             return Expr.parse_expr(tree)
         raise TypeError(f"Unsupported tree value: {type(tree)!r}")    
@@ -115,7 +115,7 @@ class Expr(BaseModel, ABC):
         Expand a registry derived name into sub-expressions, or bind a base atom if ``name`` is primitive.
         """
         env = env or BindEnv()
-        registry = Expr._normalize_derived_registry(derived_registry)
+        registry = Expr.normalize_derived_registry(derived_registry)
 
         # One company-year for the whole expansion: operands must refer to the same slice.
         bound_env = BindEnv(
@@ -171,8 +171,8 @@ class Expr(BaseModel, ABC):
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> Expr:
         env = env or BindEnv()
-        registry = Expr._normalize_derived_registry(derived_registry)
-        tree = Expr._coerce_template_expr(tree)
+        registry = Expr.normalize_derived_registry(derived_registry)
+        tree = Expr.coerce_template_expr(tree)
 
         match tree:
             case Literal():
@@ -198,9 +198,9 @@ class Expr(BaseModel, ABC):
                 op = tree.op
                 match op:
                     case Operation.max | Operation.min:
-                        return index._bind_min_or_max_over_all_periods(op, env, purpose=f"time_agg {op}")
+                        return index.bind_min_or_max_over_all_periods(op, env, purpose=f"time_agg {op}")
                     case Operation.avg:
-                        return index._bind_avg_over_all_periods(env, purpose="time_agg avg")
+                        return index.bind_avg_over_all_periods(env, purpose="time_agg avg")
                     case _:
                         raise ValueError(f"Unsupported time aggregation op: {op}")
                     
@@ -227,7 +227,7 @@ class Expr(BaseModel, ABC):
                         right = Expr.instantiate_typed_tree(tree.right, index, BindEnv(entity=shared_entity, period=shared_period), registry)
                         return Node(op=Operation.mul, left=left, right=right)
                     case Operation.growth:
-                        entity, concept, p_left, p_right = index._pick_entity_concept_two_periods(
+                        entity, concept, p_left, p_right = index.pick_entity_concept_two_periods(
                             env, purpose="growth"
                         )
                         left = Expr.instantiate_typed_tree(
@@ -244,9 +244,9 @@ class Expr(BaseModel, ABC):
                         )
                         return Node(op=Operation.growth, left=left, right=right)
                     case Operation.min | Operation.max:
-                        return index._bind_min_or_max_over_all_periods(op, env, purpose=f"node {op}")
+                        return index.bind_min_or_max_over_all_periods(op, env, purpose=f"node {op}")
                     case Operation.avg:
-                        return index._bind_avg_over_all_periods(env, purpose="node avg")
+                        return index.bind_avg_over_all_periods(env, purpose="node avg")
                     case _:
                         raise ValueError(f"Unknown operation: {op}")
 
@@ -264,11 +264,11 @@ class Expr(BaseModel, ABC):
 
     @staticmethod
     def make_node(op: Operation | str, left: Expr, right: Expr) -> Node:
-        return Node(op=Expr._coerce_operation(op), left=left, right=right)
+        return Node(op=Expr.coerce_operation(op), left=left, right=right)
 
     @staticmethod
     def make_time_agg(op: Operation | str) -> TimeAgg:
-        return TimeAgg(op=Expr._coerce_operation(op))
+        return TimeAgg(op=Expr.coerce_operation(op))
 
     @staticmethod
     def eligible_derived_concepts(
@@ -276,7 +276,7 @@ class Expr(BaseModel, ABC):
         family: str,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> list[str]:
-        registry = Expr._normalize_derived_registry(derived_registry)
+        registry = Expr.normalize_derived_registry(derived_registry)
         return [
             name
             for name, spec in registry.items()
@@ -435,7 +435,7 @@ class Expr(BaseModel, ABC):
         name: str,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ):
-        registry = Expr._normalize_derived_registry(derived_registry)
+        registry = Expr.normalize_derived_registry(derived_registry)
         if name not in registry:
             return name
 
@@ -461,7 +461,7 @@ class Expr(BaseModel, ABC):
         tree: Expr | dict,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ):
-        tree = Expr._coerce_template_expr(tree)
+        tree = Expr.coerce_template_expr(tree)
         if isinstance(tree, Leaf):
             return "LEAF"
         if isinstance(tree, DerivedExpr):
@@ -483,7 +483,7 @@ class Expr(BaseModel, ABC):
 
     @staticmethod
     def contains_named_derived(tree: Expr | dict, concept_name: str) -> bool:
-        tree = Expr._coerce_template_expr(tree)
+        tree = Expr.coerce_template_expr(tree)
         if isinstance(tree, DerivedExpr):
             return tree.name == concept_name
         if isinstance(tree, (Leaf, Literal, TimeAgg)):
@@ -496,7 +496,7 @@ class Expr(BaseModel, ABC):
     def protected_signatures(
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> dict[str, object]:
-        registry = Expr._normalize_derived_registry(derived_registry)
+        registry = Expr.normalize_derived_registry(derived_registry)
         out: dict[str, object] = {}
         for name, spec in registry.items():
             if spec.protected:
@@ -508,7 +508,7 @@ class Expr(BaseModel, ABC):
         tree: Expr | dict,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> str | None:
-        tree = Expr._coerce_template_expr(tree)
+        tree = Expr.coerce_template_expr(tree)
         if isinstance(tree, (Leaf, Literal, TimeAgg, DerivedExpr)):
             return None
 
@@ -525,7 +525,7 @@ class Expr(BaseModel, ABC):
 
     @staticmethod
     def count_nodes(tree: Expr | dict) -> dict[str, int]:
-        tree = Expr._coerce_template_expr(tree)
+        tree = Expr.coerce_template_expr(tree)
         if isinstance(tree, (Leaf, Literal, DerivedExpr, TimeAgg)):
             return {"internal_nodes": 0, "leaves": 1, "total_nodes": 1}
 
@@ -539,7 +539,7 @@ class Expr(BaseModel, ABC):
 
     @staticmethod
     def actual_tree_depth(tree: Expr | dict) -> int:
-        tree = Expr._coerce_template_expr(tree)
+        tree = Expr.coerce_template_expr(tree)
         if isinstance(tree, (Leaf, Literal, DerivedExpr, TimeAgg)):
             return 0
         return 1 + max(Expr.actual_tree_depth(tree.left), Expr.actual_tree_depth(tree.right))
@@ -550,7 +550,7 @@ class Expr(BaseModel, ABC):
             raise ValueError("Expression parts must be JSON objects.")
 
         if "kind" in obj:
-            return Expr._parse_template_expr(obj)
+            return Expr.parse_template_expr(obj)
 
         if "leaf" in obj:
             return Leaf(key=str(obj["leaf"]))
@@ -567,7 +567,7 @@ class Expr(BaseModel, ABC):
             )
 
         if {"op", "left", "right"}.issubset(obj.keys()):
-            op = Expr._coerce_operation(obj["op"])
+            op = Expr.coerce_operation(obj["op"])
             left = Expr.parse_expr(obj["left"])
             right = Expr.parse_expr(obj["right"])
             parsed_depth = obj.get("depth")
@@ -617,7 +617,7 @@ class Expr(BaseModel, ABC):
             f"Last rejection reason: {last_reason}"
         )
     
-    def _is_template_expr(self) -> bool:
+    def is_template_expr(self) -> bool:
         if isinstance(self, Leaf):
             return self.key is None
         if isinstance(self, DerivedExpr):
@@ -660,7 +660,7 @@ class Expr(BaseModel, ABC):
             "right": self.right.expr_to_json(),
             "depth": self.depth if self.depth is not None else self.expr_depth(),
         }
-        if self._is_template_expr():
+        if self.is_template_expr():
             payload["kind"] = "node"
         return payload
 
@@ -684,20 +684,20 @@ class Expr(BaseModel, ABC):
 
 
     @staticmethod
-    def _parse_template_expr(obj: dict[str, Any]) -> Expr:
+    def parse_template_expr(obj: dict[str, Any]) -> Expr:
         kind = obj.get("kind")
         if kind == "leaf":
             raw_semantic_types = obj.get("semantic_type_in", [SemanticType.amount])
-            semantic_types = [SemanticType._coerce_semantic_type(value) for value in raw_semantic_types]
+            semantic_types = [SemanticType.coerce_semantic_type(value) for value in raw_semantic_types]
             return Leaf(semantic_type_in=semantic_types)
         if kind == "derived_concept":
             return DerivedExpr(name=str(obj["name"]))
         if kind == "time_agg":
-            return TimeAgg(op=Expr._coerce_operation(obj["op"]))
+            return TimeAgg(op=Expr.coerce_operation(obj["op"]))
         if kind == "node":
-            left = Expr._parse_template_expr(obj["left"])
-            right = Expr._parse_template_expr(obj["right"])
-            return Node(op=Expr._coerce_operation(obj["op"]), left=left, right=right)
+            left = Expr.parse_template_expr(obj["left"])
+            right = Expr.parse_template_expr(obj["right"])
+            return Node(op=Expr.coerce_operation(obj["op"]), left=left, right=right)
         raise ValueError(f"Unknown tree kind: {kind}")
 
 
@@ -722,7 +722,7 @@ class SemanticType(StrEnum):
     ratio = "ratio"
 
     @staticmethod
-    def _coerce_semantic_type(value: SemanticType | str) -> SemanticType:
+    def coerce_semantic_type(value: SemanticType | str) -> SemanticType:
         if isinstance(value, SemanticType):
             return value
         return SemanticType(str(value))
@@ -740,7 +740,7 @@ class Atom(BaseModel):
     parent_concept: str | None = None
     role: str | None = None
 
-    def _coerce_atom(item: dict[Any, Any] | Atom) -> Atom:
+    def coerce_atom(item: dict[Any, Any] | Atom) -> Atom:
         if isinstance(item, Atom):
             return item
         allowed = {
@@ -924,11 +924,11 @@ class Store:
     _atoms : list[Atom]
 
     @staticmethod
-    def _store_from_atoms(atoms: dict[str, Atom] | list[Atom] | list[dict]) -> Store:
+    def store_from_atoms(atoms: dict[str, Atom] | list[Atom] | list[dict]) -> Store:
         if isinstance(atoms, dict):
-            atom_list = [Atom._coerce_atom(atom) for atom in atoms.values()]
+            atom_list = [Atom.coerce_atom(atom) for atom in atoms.values()]
         else:
-            atom_list = [Atom._coerce_atom(atom) for atom in atoms]
+            atom_list = [Atom.coerce_atom(atom) for atom in atoms]
         return Store(
             concepts=sorted({atom.concept for atom in atom_list}),
             entities=sorted({atom.entity for atom in atom_list}),
@@ -1002,21 +1002,21 @@ class Store:
         return Leaf(key=atom.key)
     
 
-    def _pick_entity_concept_two_periods(
+    def pick_entity_concept_two_periods(
     self,
     env: BindEnv,
     *,
     purpose: str,
     ) -> tuple[str, str, str, str]:
         """Pick one amount metric and two random distinct years for the same company."""
-        entity, concept, periods = self._pick_entity_concept_all_periods(
+        entity, concept, periods = self.pick_entity_concept_all_periods(
             env=env,
             purpose=purpose,
         )
         p_left, p_right = random.sample(periods, 2)
         return entity, concept, p_left, p_right
     
-    def _pick_entity_concept_all_periods(
+    def pick_entity_concept_all_periods(
     self,
     env: BindEnv,
     *,
@@ -1037,15 +1037,15 @@ class Store:
             )
         return entity, concept, periods
     
-    def _bind_op_over_all_periods(
+    def bind_op_over_all_periods(
     self,
     env: BindEnv,
     *,
     purpose: str
     ) -> list[Leaf]:
         """Bind sum/diff over a random contiguous year window for one entity+concept."""
-        entity, concept, periods = self._pick_entity_concept_all_periods(env, purpose=purpose)
-        selected_periods = _pick_random_contiguous_period_window(periods)
+        entity, concept, periods = self.pick_entity_concept_all_periods(env, purpose=purpose)
+        selected_periods = pick_random_contiguous_period_window(periods)
         leaves = [
             self.instantiate_base_atom(
                 semantic_types=[SemanticType.amount],
@@ -1055,19 +1055,19 @@ class Store:
         ]
         return leaves
 
-    def _bind_avg_over_all_periods(
+    def bind_avg_over_all_periods(
     self,
     env: BindEnv,
     *,
     purpose: str,
     ) -> Expr:
         """Arithmetic mean over a random contiguous year window: sum(values) / n."""
-        leaves = self._bind_op_over_all_periods(env, purpose=purpose)
+        leaves = self.bind_op_over_all_periods(env, purpose=purpose)
         n = len(leaves)
         sum_expr = Expr.fold_narry(Operation.sum, leaves)
         return Node(op=Operation.ratio, left=sum_expr, right=Literal(float(n)))
     
-    def _bind_min_or_max_over_all_periods(
+    def bind_min_or_max_over_all_periods(
     self,
     op: Operation,
     env: BindEnv,
@@ -1077,7 +1077,7 @@ class Store:
         """Bind min/max over a random contiguous year window for one entity+concept."""
         if op not in {Operation.min, Operation.max}:
             raise ValueError(f"expected min or max, got {op!r}")
-        leaves = self._bind_op_over_all_periods(env, purpose=purpose)
+        leaves = self.bind_op_over_all_periods(env, purpose=purpose)
         return Expr.fold_narry(op, leaves)
 
 
@@ -1170,7 +1170,7 @@ def load_atoms_json(path: str | Path) -> dict[str, Atom]:
     else:
         items = raw
 
-    atoms = [Atom._coerce_atom(item) for item in items]
+    atoms = [Atom.coerce_atom(item) for item in items]
     return {atom.key: atom for atom in atoms}
 
 
@@ -1187,7 +1187,7 @@ def compile_tree_payload(
     atoms: dict[str, Atom] | list[Atom] | list[dict],
     seed: int = 0,
 ) -> Expr:
-    store = Store._store_from_atoms(atoms)
+    store = Store.store_from_atoms(atoms)
     derived_registry = tree_payload.get("derived_concepts") or DERIVED_CONCEPTS
     typed_tree = tree_payload.get("tree", tree_payload)
 

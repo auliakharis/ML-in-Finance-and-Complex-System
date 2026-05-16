@@ -22,14 +22,14 @@ from tree import (
 # ---------------------------------------------------------------------
 
 
-def _clean_label(label: str | None) -> str:
+def clean_label(label: str | None) -> str:
     if not label:
         return "value"
     return label.replace("_", " ")
 
 
-def _question_copula(label: str | None) -> str:
-    cleaned = _clean_label(label).strip().lower()
+def question_copula(label: str | None) -> str:
+    cleaned = clean_label(label).strip().lower()
     if not cleaned:
         return "is"
     if cleaned.endswith("s") and not cleaned.endswith("ss"):
@@ -37,7 +37,7 @@ def _question_copula(label: str | None) -> str:
     return "is"
 
 
-def _shared_entity_period_context(
+def shared_entity_period_context(
     left_meaning: "Meaning", right_meaning: "Meaning"
 ) -> tuple[str, str] | None:
     if (
@@ -52,14 +52,14 @@ def _shared_entity_period_context(
     return None
 
 
-def _strip_entity_period_suffix(phrase: str, entity: str, period: str) -> str:
+def strip_entity_period_suffix(phrase: str, entity: str, period: str) -> str:
     suffix = f" for {entity} in {period}"
     if phrase.endswith(suffix):
         return phrase[: -len(suffix)]
     return phrase
 
 
-def _both_have_entity_period_suffix(left: str, right: str, entity: str, period: str) -> bool:
+def both_have_entity_period_suffix(left: str, right: str, entity: str, period: str) -> bool:
     suffix = f" for {entity} in {period}"
     return left.endswith(suffix) and right.endswith(suffix)
 
@@ -100,7 +100,7 @@ class Meaning(BaseModel):
     def is_metric_like_ratio(self) -> bool:
         return self.semantic_type == SemanticType.rate and self.kind == "leaf_metric"
 
-    def _same_amount_context(self, other: Meaning) -> bool:
+    def same_amount_context(self, other: Meaning) -> bool:
         return (
             self.semantic_type == SemanticType.amount
             and other.semantic_type == SemanticType.amount
@@ -108,33 +108,33 @@ class Meaning(BaseModel):
             and self.unit == other.unit
         )
 
-    def _same_amount_timeseries_metric(self, other: Meaning) -> bool:
+    def same_amount_timeseries_metric(self, other: Meaning) -> bool:
         return (
-            self._same_amount_context(other)
+            self.same_amount_context(other)
             and self.concept == other.concept
             and self.period != other.period
             and self.is_metric_like_amount()
             and other.is_metric_like_amount()
         )
 
-    def _period_tokens(self) -> list[str]:
+    def period_tokens(self) -> list[str]:
         return [p for p in (self.period, self.from_period, self.to_period) if p is not None]
 
 
-def _base_metric_name_from_child(meaning: Meaning) -> str:
+def base_metric_name_from_child(meaning: Meaning) -> str:
     label = meaning.label or meaning.concept or "value"
     for prefix in ("minimum ", "maximum ", "average "):
         if label.startswith(prefix):
-            return _clean_label(label[len(prefix) :])
-    return _clean_label(label)
+            return clean_label(label[len(prefix) :])
+    return clean_label(label)
 
 
-def _base_metric_name(meaning: Meaning) -> str:
+def base_metric_name(meaning: Meaning) -> str:
     label = meaning.label or meaning.concept or "value"
     for prefix in ("growth rate of ", "minimum ", "maximum ", "average "):
         if label.startswith(prefix):
             label = label[len(prefix) :]
-    return _clean_label(label)
+    return clean_label(label)
 
 
 @dataclass
@@ -219,17 +219,17 @@ class SemanticAnalyzer:
 
         match expr.op:
             case Operation.sum:
-                meaning = self._analyze_sum(expr, left_result, right_result)
+                meaning = self.analyze_sum(expr, left_result, right_result)
             case Operation.diff:
-                meaning = self._analyze_diff(expr, left_result, right_result)
+                meaning = self.analyze_diff(expr, left_result, right_result)
             case Operation.ratio:
-                meaning = self._analyze_ratio(expr, left_result, right_result)
+                meaning = self.analyze_ratio(expr, left_result, right_result)
             case Operation.mul:
-                meaning = self._analyze_mul(expr, left_result, right_result)
+                meaning = self.analyze_mul(expr, left_result, right_result)
             case Operation.growth:
-                meaning = self._analyze_growth(expr, left_result, right_result)
+                meaning = self.analyze_growth(expr, left_result, right_result)
             case Operation.min | Operation.max:
-                meaning = self._analyze_time_aggregate(expr, left_result, right_result)
+                meaning = self.analyze_time_aggregate(expr, left_result, right_result)
             case _:
                 raise Exception(f"Unsupported op: {expr.op}")
         
@@ -237,7 +237,7 @@ class SemanticAnalyzer:
         node_depth = expr.depth if isinstance(expr, Node) and expr.depth is not None else 1 + max(left_result.depth, right_result.depth)
         return AnalysisResult(expr=expr, meaning=meaning, children=[left_result, right_result], depth=node_depth)
 
-    def _analyze_sum(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
+    def analyze_sum(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
         leaves = expr.flatten_sum()
 
@@ -331,7 +331,7 @@ class SemanticAnalyzer:
             f"Cannot sum these meanings: {lm.kind}/{lm.semantic_type} and {rm.kind}/{rm.semantic_type}"
         )
 
-    def _analyze_diff(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
+    def analyze_diff(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
         if lm.semantic_type == rm.semantic_type == SemanticType.amount and lm.same_context(rm):
             left_label = lm.label or lm.concept or "value"
@@ -350,7 +350,7 @@ class SemanticAnalyzer:
             )
         raise SemanticError(f"Cannot subtract these meanings: {lm.kind} and {rm.kind}")
 
-    def _analyze_ratio(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
+    def analyze_ratio(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
 
         if isinstance(expr.right, Literal):
@@ -384,7 +384,7 @@ class SemanticAnalyzer:
                             derivation=f"arithmetic mean of {n_int} yearly values",
                         )
 
-        if lm._same_amount_context(rm):
+        if lm.same_amount_context(rm):
             left_label = lm.label or lm.concept or "value"
             right_label = rm.label or rm.concept or "value"
             return Meaning(
@@ -401,7 +401,7 @@ class SemanticAnalyzer:
 
         raise SemanticError(f"Cannot divide these meanings: {lm.kind} and {rm.kind}")
 
-    def _analyze_mul(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
+    def analyze_mul(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
 
         if lm.semantic_type == SemanticType.amount and rm.semantic_type in {
@@ -444,9 +444,9 @@ class SemanticAnalyzer:
 
         raise SemanticError(f"Cannot multiply these meanings: {lm.kind} and {rm.kind}")
 
-    def _analyze_growth(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
+    def analyze_growth(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
-        if lm._same_amount_timeseries_metric(rm):
+        if lm.same_amount_timeseries_metric(rm):
             periods = sorted([lm.period, rm.period])
             assert periods[0] is not None and periods[1] is not None
             return Meaning(
@@ -462,7 +462,7 @@ class SemanticAnalyzer:
                 derivation="explicit growth operator",
             )
 
-        if lm._same_amount_context(rm):
+        if lm.same_amount_context(rm):
             periods = [p for p in [lm.period, rm.period] if p is not None]
             ordered = sorted(periods) if len(periods) == 2 and len(set(periods)) == 2 else periods
             from_period = ordered[0] if ordered else None
@@ -481,12 +481,12 @@ class SemanticAnalyzer:
             )
         raise SemanticError(f"Cannot compute growth for these meanings: {lm.kind} and {rm.kind}")
 
-    def _analyze_time_aggregate(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
+    def analyze_time_aggregate(self, expr: Node, left: AnalysisResult, right: AnalysisResult) -> Meaning:
         lm, rm = left.meaning, right.meaning
         op_human = {"min": "minimum", "max": "maximum"}[expr.op.value]
 
         if expr.op in {Operation.min, Operation.max}:
-            span_periods = sorted(set(lm._period_tokens() + rm._period_tokens()))
+            span_periods = sorted(set(lm.period_tokens() + rm.period_tokens()))
             if (
                 lm.semantic_type == SemanticType.amount
                 and rm.semantic_type == SemanticType.amount
@@ -514,7 +514,7 @@ class SemanticAnalyzer:
                     derivation=f"{expr.op.value} over {len(span_periods)} periods",
                 )
 
-        if lm._same_amount_timeseries_metric(rm):
+        if lm.same_amount_timeseries_metric(rm):
             periods = sorted([lm.period, rm.period])
             assert periods[0] is not None and periods[1] is not None
             base_label = lm.label or lm.concept or "value"
@@ -532,7 +532,7 @@ class SemanticAnalyzer:
                 derivation=f"{expr.op.value} over time",
             )
 
-        if lm._same_amount_context(rm):
+        if lm.same_amount_context(rm):
             return Meaning(
                 kind=f"{expr.op.value}_amounts",
                 semantic_type=SemanticType.amount,

@@ -232,11 +232,11 @@ class TestSampleTreeWithRejection:
 
         for seed in range(50):
             tree, _ = Expr.sample_tree_with_rejection(3, random.Random(seed), 0.0)
-            _check_no_dead_keys(tree.expr_to_json(), dead_keys)
+            check_no_dead_keys(tree.expr_to_json(), dead_keys)
 
 
-def _check_no_dead_keys(tree_json: dict, dead_keys: set[str]) -> None:
+def check_no_dead_keys(tree_json: dict, dead_keys: set[str]) -> None:
     assert not dead_keys.intersection(tree_json.keys())
     if {"left", "right"}.issubset(tree_json):
-        _check_no_dead_keys(tree_json["left"], dead_keys)
-        _check_no_dead_keys(tree_json["right"], dead_keys)
+        check_no_dead_keys(tree_json["left"], dead_keys)
+        check_no_dead_keys(tree_json["right"], dead_keys)

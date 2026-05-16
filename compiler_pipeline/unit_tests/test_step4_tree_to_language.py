@@ -29,7 +29,7 @@ from tree import (
 from utils import oxford_join
 
 
-def _leaf_for(atoms, concept: str, entity: str = "Corp0", period: str = "2021") -> Leaf:
+def leaf_for(atoms, concept: str, entity: str = "Corp0", period: str = "2021") -> Leaf:
     key = next(
         key
         for key, atom in atoms.items()
@@ -38,8 +38,8 @@ def _leaf_for(atoms, concept: str, entity: str = "Corp0", period: str = "2021") 
     return Leaf(key=key)
 
 
-def _value_for(atoms, concept: str, entity: str = "Corp0", period: str = "2021") -> float:
-    return atoms[_leaf_for(atoms, concept, entity=entity, period=period).key].value
+def value_for(atoms, concept: str, entity: str = "Corp0", period: str = "2021") -> float:
+    return atoms[leaf_for(atoms, concept, entity=entity, period=period).key].value
 
 
 class TestParseExpr:
@@ -162,39 +162,39 @@ class TestOxfordJoin:
 
 class TestAtomIndex:
     def test_entities_sorted(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         assert index.entities == sorted(index.entities)
 
     def test_periods_sorted(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         assert index.periods == sorted(index.periods)
 
     def test_amount_concepts_present(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         assert "revenue" in index.amount_concepts()
 
     def test_ratio_concepts_present(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         assert "income_tax" in index.rate_concepts()
 
     def test_filter_by_concept(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         results = index.filter_atoms(concept="revenue")
         assert len(results) == 6
         assert all(atom.concept == "revenue" for atom in results)
 
     def test_filter_by_entity(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         results = index.filter_atoms(entity="Corp0")
         assert results and all(atom.entity == "Corp0" for atom in results)
 
     def test_filter_by_period(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         results = index.filter_atoms(period="2022")
         assert results and all(atom.period == "2022" for atom in results)
 
     def test_filter_combined(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         results = index.filter_atoms(concept="cash", entity="Corp0", period="2021")
         assert len(results) == 1
         assert results[0].concept == "cash"
@@ -202,7 +202,7 @@ class TestAtomIndex:
         assert results[0].period == "2021"
 
     def test_filter_by_semantic_type(self, minimal_atoms):
-        index = AtomIndex._store_from_atoms(minimal_atoms)
+        index = AtomIndex.store_from_atoms(minimal_atoms)
         results = index.filter_atoms(semantic_types=[SemanticType.rate])
         assert results and all(atom.semantic_type == SemanticType.rate for atom in results)
 
@@ -210,27 +210,27 @@ class TestAtomIndex:
 class TestEvaluator:
     def test_eval_leaf(self, minimal_atoms):
         evaluator = Evaluator(minimal_atoms)
-        assert evaluator.eval(_leaf_for(minimal_atoms, "revenue")) == _value_for(minimal_atoms, "revenue")
+        assert evaluator.eval(leaf_for(minimal_atoms, "revenue")) == value_for(minimal_atoms, "revenue")
 
     def test_eval_literal(self, minimal_atoms):
         assert Evaluator(minimal_atoms).eval(Literal(7.0)) == 7.0
 
     def test_eval_sum(self, minimal_atoms):
         evaluator = Evaluator(minimal_atoms)
-        node = Node("sum", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "cost_of_goods_sold"))
-        expected = _value_for(minimal_atoms, "revenue") + _value_for(minimal_atoms, "cost_of_goods_sold")
+        node = Node("sum", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "cost_of_goods_sold"))
+        expected = value_for(minimal_atoms, "revenue") + value_for(minimal_atoms, "cost_of_goods_sold")
         assert evaluator.eval(node) == pytest.approx(expected)
 
     def test_eval_diff(self, minimal_atoms):
         evaluator = Evaluator(minimal_atoms)
-        node = Node("diff", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "cost_of_goods_sold"))
-        expected = _value_for(minimal_atoms, "revenue") - _value_for(minimal_atoms, "cost_of_goods_sold")
+        node = Node("diff", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "cost_of_goods_sold"))
+        expected = value_for(minimal_atoms, "revenue") - value_for(minimal_atoms, "cost_of_goods_sold")
         assert evaluator.eval(node) == pytest.approx(expected)
 
     def test_eval_ratio(self, minimal_atoms):
         evaluator = Evaluator(minimal_atoms)
-        node = Node("ratio", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "total_assets"))
-        expected = _value_for(minimal_atoms, "revenue") / _value_for(minimal_atoms, "total_assets")
+        node = Node("ratio", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "total_assets"))
+        expected = value_for(minimal_atoms, "revenue") / value_for(minimal_atoms, "total_assets")
         assert evaluator.eval(node) == pytest.approx(expected)
 
     def test_eval_ratio_division_by_zero(self, minimal_atoms):
@@ -239,19 +239,19 @@ class TestEvaluator:
 
     def test_eval_mul(self, minimal_atoms):
         evaluator = Evaluator(minimal_atoms)
-        node = Node("mul", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "income_tax"))
-        expected = _value_for(minimal_atoms, "revenue") * _value_for(minimal_atoms, "income_tax")
+        node = Node("mul", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "income_tax"))
+        expected = value_for(minimal_atoms, "revenue") * value_for(minimal_atoms, "income_tax")
         assert evaluator.eval(node) == pytest.approx(expected)
 
     def test_eval_growth(self, minimal_atoms):
         evaluator = Evaluator(minimal_atoms)
         node = Node(
             "growth",
-            _leaf_for(minimal_atoms, "revenue", period="2022"),
-            _leaf_for(minimal_atoms, "revenue", period="2021"),
+            leaf_for(minimal_atoms, "revenue", period="2022"),
+            leaf_for(minimal_atoms, "revenue", period="2021"),
         )
-        curr = _value_for(minimal_atoms, "revenue", period="2022")
-        base = _value_for(minimal_atoms, "revenue", period="2021")
+        curr = value_for(minimal_atoms, "revenue", period="2022")
+        base = value_for(minimal_atoms, "revenue", period="2021")
         assert evaluator.eval(node) == pytest.approx((curr - base) / base)
 
     def test_eval_growth_zero_base_raises(self, minimal_atoms):
@@ -266,14 +266,14 @@ class TestEvaluator:
 
     def test_eval_derived_expr(self, minimal_atoms):
         evaluator = Evaluator(minimal_atoms)
-        inner = Node("diff", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "cost_of_goods_sold"))
+        inner = Node("diff", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "cost_of_goods_sold"))
         derived = DerivedExpr("gross_profit", inner)
-        expected = _value_for(minimal_atoms, "revenue") - _value_for(minimal_atoms, "cost_of_goods_sold")
+        expected = value_for(minimal_atoms, "revenue") - value_for(minimal_atoms, "cost_of_goods_sold")
         assert evaluator.eval(derived) == pytest.approx(expected)
 
 class TestSemanticAnalyzer:
     def test_analyze_leaf(self, minimal_atoms):
-        result = SemanticAnalyzer(minimal_atoms).analyze(_leaf_for(minimal_atoms, "revenue"))
+        result = SemanticAnalyzer(minimal_atoms).analyze(leaf_for(minimal_atoms, "revenue"))
         assert result.meaning.kind == "leaf_metric"
         assert result.meaning.concept == "revenue"
         assert result.meaning.entity == "Corp0"
@@ -286,7 +286,7 @@ class TestSemanticAnalyzer:
         assert result.meaning.semantic_type == SemanticType.ratio
 
     def test_analyze_derived_expr(self, minimal_atoms):
-        inner = Node("diff", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "cost_of_goods_sold"))
+        inner = Node("diff", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "cost_of_goods_sold"))
         result = SemanticAnalyzer(minimal_atoms).analyze(DerivedExpr("gross_profit", inner))
         assert result.meaning.kind == "derived_metric"
         assert result.meaning.concept == "gross_profit"
@@ -298,25 +298,25 @@ class TestSemanticAnalyzer:
                 "sum",
                 Node(
                     "sum",
-                    _leaf_for(minimal_atoms, "cash"),
-                    _leaf_for(minimal_atoms, "accounts_receivable"),
+                    leaf_for(minimal_atoms, "cash"),
+                    leaf_for(minimal_atoms, "accounts_receivable"),
                 ),
-                _leaf_for(minimal_atoms, "inventories"),
+                leaf_for(minimal_atoms, "inventories"),
             ),
-            _leaf_for(minimal_atoms, "short_term_investments"),
+            leaf_for(minimal_atoms, "short_term_investments"),
         )
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert result.meaning.kind == "aggregate_components"
         assert result.meaning.concept == "current_assets"
 
     def test_analyze_sum_generic(self, minimal_atoms):
-        node = Node("sum", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "total_assets"))
+        node = Node("sum", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "total_assets"))
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert result.meaning.semantic_type == SemanticType.amount
         assert result.meaning.kind in {"sum_amount", "sum_amounts"}
 
     def test_analyze_diff_same_period(self, minimal_atoms):
-        node = Node("diff", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "cost_of_goods_sold"))
+        node = Node("diff", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "cost_of_goods_sold"))
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert result.meaning.kind == "difference_amount"
         assert result.meaning.semantic_type == SemanticType.amount
@@ -324,27 +324,27 @@ class TestSemanticAnalyzer:
     def test_analyze_diff_across_periods_raises(self, minimal_atoms):
         node = Node(
             "diff",
-            _leaf_for(minimal_atoms, "revenue", period="2022"),
-            _leaf_for(minimal_atoms, "revenue", period="2021"),
+            leaf_for(minimal_atoms, "revenue", period="2022"),
+            leaf_for(minimal_atoms, "revenue", period="2021"),
         )
         with pytest.raises(SemanticError):
             SemanticAnalyzer(minimal_atoms).analyze(node)
 
     def test_analyze_ratio_amounts(self, minimal_atoms):
-        node = Node("ratio", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "total_assets"))
+        node = Node("ratio", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "total_assets"))
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert result.meaning.kind == "ratio_amounts"
         assert result.meaning.semantic_type == SemanticType.ratio
 
     def test_analyze_ratio_avg_over_periods(self, minimal_atoms):
-        leaves = [_leaf_for(minimal_atoms, "revenue", period=period) for period in ("2021", "2022", "2023")]
+        leaves = [leaf_for(minimal_atoms, "revenue", period=period) for period in ("2021", "2022", "2023")]
         sum_expr = Node("sum", Node("sum", leaves[0], leaves[1]), leaves[2])
         avg_node = Node("ratio", sum_expr, Literal(3.0))
         result = SemanticAnalyzer(minimal_atoms).analyze(avg_node)
         assert result.meaning.kind == "avg_over_all_periods"
 
     def test_analyze_mul(self, minimal_atoms):
-        node = Node("mul", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "income_tax"))
+        node = Node("mul", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "income_tax"))
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert result.meaning.kind == "scaled_amount"
         assert result.meaning.semantic_type == SemanticType.amount
@@ -352,8 +352,8 @@ class TestSemanticAnalyzer:
     def test_analyze_growth(self, minimal_atoms):
         node = Node(
             "growth",
-            _leaf_for(minimal_atoms, "revenue", period="2022"),
-            _leaf_for(minimal_atoms, "revenue", period="2021"),
+            leaf_for(minimal_atoms, "revenue", period="2022"),
+            leaf_for(minimal_atoms, "revenue", period="2021"),
         )
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert result.meaning.kind == "growth_rate"
@@ -362,8 +362,8 @@ class TestSemanticAnalyzer:
     def test_analyze_min_over_time(self, minimal_atoms):
         node = Node(
             "min",
-            _leaf_for(minimal_atoms, "revenue", period="2021"),
-            _leaf_for(minimal_atoms, "revenue", period="2022"),
+            leaf_for(minimal_atoms, "revenue", period="2021"),
+            leaf_for(minimal_atoms, "revenue", period="2022"),
         )
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert "min" in result.meaning.kind
@@ -371,8 +371,8 @@ class TestSemanticAnalyzer:
     def test_analyze_max_over_time(self, minimal_atoms):
         node = Node(
             "max",
-            _leaf_for(minimal_atoms, "revenue", period="2022"),
-            _leaf_for(minimal_atoms, "revenue", period="2023"),
+            leaf_for(minimal_atoms, "revenue", period="2022"),
+            leaf_for(minimal_atoms, "revenue", period="2023"),
         )
         result = SemanticAnalyzer(minimal_atoms).analyze(node)
         assert "max" in result.meaning.kind
@@ -380,14 +380,14 @@ class TestSemanticAnalyzer:
     def test_sum_cross_entity_raises(self, minimal_atoms):
         node = Node(
             "sum",
-            _leaf_for(minimal_atoms, "revenue", entity="Corp0"),
-            _leaf_for(minimal_atoms, "revenue", entity="Corp1"),
+            leaf_for(minimal_atoms, "revenue", entity="Corp0"),
+            leaf_for(minimal_atoms, "revenue", entity="Corp1"),
         )
         with pytest.raises(SemanticError):
             SemanticAnalyzer(minimal_atoms).analyze(node)
 
     def test_diff_cross_unit_raises(self, minimal_atoms):
-        node = Node("diff", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "income_tax"))
+        node = Node("diff", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "income_tax"))
         with pytest.raises(SemanticError):
             SemanticAnalyzer(minimal_atoms).analyze(node)
 
@@ -399,7 +399,7 @@ class TestSemanticAnalyzer:
 class TestQuestionRenderer:
     def test_renders_leaf_question(self, minimal_atoms, monkeypatch):
         monkeypatch.setattr(question_renderer_module, "random", lambda: 0.0)
-        result = SemanticAnalyzer(minimal_atoms).analyze(_leaf_for(minimal_atoms, "revenue"))
+        result = SemanticAnalyzer(minimal_atoms).analyze(leaf_for(minimal_atoms, "revenue"))
         question = QuestionRenderer().render(result)
         assert question == "What is the revenue for Corp0 in 2021"
 
@@ -407,15 +407,15 @@ class TestQuestionRenderer:
         monkeypatch.setattr(question_renderer_module, "random", lambda: 0.0)
         node = Node(
             "growth",
-            _leaf_for(minimal_atoms, "revenue", period="2022"),
-            _leaf_for(minimal_atoms, "revenue", period="2021"),
+            leaf_for(minimal_atoms, "revenue", period="2022"),
+            leaf_for(minimal_atoms, "revenue", period="2021"),
         )
         question = QuestionRenderer().render(SemanticAnalyzer(minimal_atoms).analyze(node))
         assert "growth rate" in question.lower()
 
     def test_renders_avg_question(self, minimal_atoms, monkeypatch):
         monkeypatch.setattr(question_renderer_module, "random", lambda: 0.0)
-        leaves = [_leaf_for(minimal_atoms, "cash", period=period) for period in ("2021", "2022", "2023")]
+        leaves = [leaf_for(minimal_atoms, "cash", period=period) for period in ("2021", "2022", "2023")]
         sum_expr = Node("sum", Node("sum", leaves[0], leaves[1]), leaves[2])
         avg_node = Node("ratio", sum_expr, Literal(3.0))
         question = QuestionRenderer().render(SemanticAnalyzer(minimal_atoms).analyze(avg_node))
@@ -423,7 +423,7 @@ class TestQuestionRenderer:
 
     def test_renders_ratio_question(self, minimal_atoms, monkeypatch):
         monkeypatch.setattr(question_renderer_module, "random", lambda: 0.0)
-        node = Node("ratio", _leaf_for(minimal_atoms, "revenue"), _leaf_for(minimal_atoms, "total_assets"))
+        node = Node("ratio", leaf_for(minimal_atoms, "revenue"), leaf_for(minimal_atoms, "total_assets"))
         question = QuestionRenderer().render(SemanticAnalyzer(minimal_atoms).analyze(node))
         assert "ratio" in question.lower()
 
@@ -432,12 +432,12 @@ class TestQuestionRenderer:
         analyzer = SemanticAnalyzer(minimal_atoms)
         renderer = QuestionRenderer()
         for concept in ("revenue", "cash", "total_assets"):
-            question = renderer.render(analyzer.analyze(_leaf_for(minimal_atoms, concept)))
+            question = renderer.render(analyzer.analyze(leaf_for(minimal_atoms, concept)))
             assert question.strip() != ""
 
 
 class TestCompileTreePayload:
-    def _make_payload(self, depth: int, seed: int) -> dict:
+    def make_payload(self, depth: int, seed: int) -> dict:
         tree, _ = Expr.sample_tree_with_rejection(
             max_depth=depth,
             rng=random.Random(seed),
@@ -446,24 +446,24 @@ class TestCompileTreePayload:
         return {"tree": tree, "derived_concepts": DERIVED_CONCEPTS}
 
     def test_compile_depth_1(self, minimal_atoms):
-        payload = self._make_payload(1, seed=0)
+        payload = self.make_payload(1, seed=0)
         expr = compile_tree_payload(payload, minimal_atoms, seed=0)
         assert math.isfinite(Evaluator(minimal_atoms).eval(expr))
 
     def test_compile_depth_3(self, minimal_atoms):
-        payload = self._make_payload(3, seed=1)
+        payload = self.make_payload(3, seed=1)
         expr = compile_tree_payload(payload, minimal_atoms, seed=1)
         assert math.isfinite(Evaluator(minimal_atoms).eval(expr))
 
     def test_question_is_string(self, minimal_atoms, monkeypatch):
         monkeypatch.setattr(question_renderer_module, "random", lambda: 0.0)
-        payload = self._make_payload(2, seed=5)
+        payload = self.make_payload(2, seed=5)
         expr = compile_tree_payload(payload, minimal_atoms, seed=5)
         question = QuestionRenderer().render(SemanticAnalyzer(minimal_atoms).analyze(expr))
         assert isinstance(question, str) and len(question) > 0
 
     def test_different_seeds_produce_finite_values(self, minimal_atoms):
-        payload = self._make_payload(2, seed=10)
+        payload = self.make_payload(2, seed=10)
         expr_a = compile_tree_payload(payload, minimal_atoms, seed=10)
         expr_b = compile_tree_payload(payload, minimal_atoms, seed=99)
         evaluator = Evaluator(minimal_atoms)

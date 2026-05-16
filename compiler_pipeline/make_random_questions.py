@@ -206,7 +206,7 @@ def main() -> None:
     fieldnames, csv_rows = read_csv_rows(csv_path)
     concept_metadata = load_concept_metadata(concept_metadata_path)
     atoms = build_atoms_from_dataframe(fieldnames, csv_rows, concept_metadata)
-    store = Store._store_from_atoms(atoms)
+    store = Store.store_from_atoms(atoms)
     analyzer = SemanticAnalyzer(atoms)
     evaluator = Evaluator(atoms)
     renderer = QuestionRenderer()

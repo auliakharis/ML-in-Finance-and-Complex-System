@@ -5,13 +5,13 @@ from random import random
 
 from semantic_analyzer import (
     AnalysisResult,
-    _base_metric_name,
-    _base_metric_name_from_child,
-    _both_have_entity_period_suffix,
-    _clean_label,
-    _question_copula,
-    _shared_entity_period_context,
-    _strip_entity_period_suffix,
+    base_metric_name,
+    base_metric_name_from_child,
+    both_have_entity_period_suffix,
+    clean_label,
+    question_copula,
+    shared_entity_period_context,
+    strip_entity_period_suffix,
 )
 from tree import DerivedExpr, Leaf, Literal, Operation
 
@@ -51,31 +51,31 @@ class QuestionRenderer:
 
         # --- specialized semantic kinds unchanged except for template insertion support ---
         if m.kind == "aggregate_components":
-            copula = _question_copula(m.target_concept)
+            copula = question_copula(m.target_concept)
             phrase = (
-                f"total {_clean_label(m.target_concept)} "
+                f"total {clean_label(m.target_concept)} "
                 f"for {m.entity} in {m.period}"
             )
-            return self._apply_template(phrase=phrase, copula=copula)
+            return self.apply_template(phrase=phrase, copula=copula)
 
         if m.kind == "growth_rate":
-            label = _clean_label((m.label or '').replace('growth rate of ', ''))
+            label = clean_label((m.label or '').replace('growth rate of ', ''))
             phrase = f"growth rate of {label} for {m.entity} from {m.from_period} to {m.to_period}"
             copula = "is"
-            return self._apply_template(phrase=phrase, copula=copula)
+            return self.apply_template(phrase=phrase, copula=copula)
 
         if m.kind == "avg_over_all_periods":
-            label = _clean_label(m.label or m.concept)
+            label = clean_label(m.label or m.concept)
             phrase = f"average {label} for {m.entity} across years {m.from_period} through {m.to_period}"
             copula = "is"
-            return self._apply_template(phrase=phrase, copula=copula)
+            return self.apply_template(phrase=phrase, copula=copula)
 
         # --- default ---
-        phrase = self._expr_phrase(result, top_level=True)
-        copula = _question_copula(m.label or m.concept)
-        return self._apply_template(phrase=phrase, copula=copula)
+        phrase = self.expr_phrase(result, top_level=True)
+        copula = question_copula(m.label or m.concept)
+        return self.apply_template(phrase=phrase, copula=copula)
 
-    def _apply_template(self, *, phrase: str, copula: str) -> str:
+    def apply_template(self, *, phrase: str, copula: str) -> str:
         # Flatten templates keeping category information
         all_templates = (
             [("question", t) for t in QUESTION_TEMPLATES["question"]] +
@@ -115,64 +115,64 @@ class QuestionRenderer:
 
         return result
 
-    def _expr_phrase(self, result: AnalysisResult, top_level: bool = False) -> str:
+    def expr_phrase(self, result: AnalysisResult, top_level: bool = False) -> str:
         expr = result.expr
         m = result.meaning
 
         if isinstance(expr, Leaf):
-            return f"{_clean_label(m.label)} for {m.entity} in {m.period}"
+            return f"{clean_label(m.label)} for {m.entity} in {m.period}"
 
         if isinstance(expr, DerivedExpr):
-            return f"{_clean_label(m.label)} for {m.entity} in {m.period}"
+            return f"{clean_label(m.label)} for {m.entity} in {m.period}"
 
         if isinstance(expr, Literal):
             return str(expr.value)
 
-        left = self._expr_phrase(result.children[0])
-        right = self._expr_phrase(result.children[1])
+        left = self.expr_phrase(result.children[0])
+        right = self.expr_phrase(result.children[1])
         left_meaning = result.children[0].meaning
         right_meaning = result.children[1].meaning
         match expr.op:
             case Operation.sum:
-                shared_context = _shared_entity_period_context(left_meaning, right_meaning)
-                if shared_context is not None and _both_have_entity_period_suffix(left, right, *shared_context):
+                shared_context = shared_entity_period_context(left_meaning, right_meaning)
+                if shared_context is not None and both_have_entity_period_suffix(left, right, *shared_context):
                     entity, period = shared_context
-                    left = _strip_entity_period_suffix(left, entity, period)
-                    right = _strip_entity_period_suffix(right, entity, period)
+                    left = strip_entity_period_suffix(left, entity, period)
+                    right = strip_entity_period_suffix(right, entity, period)
                     return f"sum of {left} and {right} for {entity} in {period}"
                 return f"sum of {left} and {right}"
 
             case Operation.diff:
-                shared_context = _shared_entity_period_context(left_meaning, right_meaning)
-                if shared_context is not None and _both_have_entity_period_suffix(left, right, *shared_context):
+                shared_context = shared_entity_period_context(left_meaning, right_meaning)
+                if shared_context is not None and both_have_entity_period_suffix(left, right, *shared_context):
                     entity, period = shared_context
-                    left = _strip_entity_period_suffix(left, entity, period)
-                    right = _strip_entity_period_suffix(right, entity, period)
+                    left = strip_entity_period_suffix(left, entity, period)
+                    right = strip_entity_period_suffix(right, entity, period)
                     return f"difference between {left} and {right} for {entity} in {period}"
                 return f"difference between {left} and {right}"
 
             case Operation.ratio:
-                shared_context = _shared_entity_period_context(left_meaning, right_meaning)
-                if shared_context is not None and _both_have_entity_period_suffix(left, right, *shared_context):
+                shared_context = shared_entity_period_context(left_meaning, right_meaning)
+                if shared_context is not None and both_have_entity_period_suffix(left, right, *shared_context):
                     entity, period = shared_context
-                    left = _strip_entity_period_suffix(left, entity, period)
-                    right = _strip_entity_period_suffix(right, entity, period)
+                    left = strip_entity_period_suffix(left, entity, period)
+                    right = strip_entity_period_suffix(right, entity, period)
                     return f"ratio of {left} to {right} for {entity} in {period}"
                 return f"ratio of {left} to {right}"
 
             case Operation.mul:
-                shared_context = _shared_entity_period_context(left_meaning, right_meaning)
-                if shared_context is not None and _both_have_entity_period_suffix(left, right, *shared_context):
+                shared_context = shared_entity_period_context(left_meaning, right_meaning)
+                if shared_context is not None and both_have_entity_period_suffix(left, right, *shared_context):
                     entity, period = shared_context
-                    left = _strip_entity_period_suffix(left, entity, period)
-                    right = _strip_entity_period_suffix(right, entity, period)
+                    left = strip_entity_period_suffix(left, entity, period)
+                    right = strip_entity_period_suffix(right, entity, period)
                     return f"result of {left} scaled by {right} for {entity} in {period}"
                 return f"result of {left} scaled by {right}"
 
             case Operation.growth:
                 if m.kind == "growth_rate" and m.concept is not None:
                     return (
-                        f"growth in {_base_metric_name(m)} for {m.entity} "
+                        f"growth in {base_metric_name(m)} for {m.entity} "
                         f"from {m.from_period} to {m.to_period}"
                     )
                 return f"growth between {left} and {right}"
@@ -181,7 +181,7 @@ class QuestionRenderer:
                 op_word = {"min": "minimum", "max": "maximum"}[expr.op.value]
 
                 if m.kind == f"{expr.op.value}_over_time" and m.concept is not None:
-                    base_name = _base_metric_name_from_child(result.children[0].meaning)
+                    base_name = base_metric_name_from_child(result.children[0].meaning)
                     return (
                         f"the {op_word} of {base_name} for {m.entity} "
                         f"using values from {m.from_period} through {m.to_period}"

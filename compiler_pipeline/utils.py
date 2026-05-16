@@ -9,7 +9,7 @@ def oxford_join(items: list[str]) -> str:
         return f"{items[0]} and {items[1]}"
     return ", ".join(items[:-1]) + f", and {items[-1]}"
 
-def _pick_random_contiguous_period_window(periods: list[str]) -> list[str]:
+def pick_random_contiguous_period_window(periods: list[str]) -> list[str]:
     """Pick a random contiguous period window from sorted periods."""
     min_window = 2
     ordered = sorted(periods)
