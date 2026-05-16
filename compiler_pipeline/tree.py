@@ -626,7 +626,7 @@ class Expr(BaseModel, ABC):
             return self.expr is None
         if isinstance(self, Literal):
             return False
-        return self.left._is_template_expr() or self.right._is_template_expr()
+        return self.left.is_template_expr() or self.right.is_template_expr()
 
     def expr_to_json(self) -> dict:
         if isinstance(self, Leaf):
