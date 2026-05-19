@@ -734,7 +734,7 @@ def parse_args():
         help="Which dataset(s) to evaluate: 10q, 90q, mt, or any combination (default: all)",
     )
     parser.add_argument(
-        "--finetune", type=str, default="./qwen-lora-adapters", metavar="ADAPTER_PATH",
+        "--finetune", type=str, default=None, metavar="ADAPTER_PATH",
         help="Path to LoRA adapter directory to load on top of the base model (e.g. ./qwen-lora-adapters)",
     )
     return parser.parse_args()

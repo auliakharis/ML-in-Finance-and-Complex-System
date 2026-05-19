@@ -1,0 +1,107 @@
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpcore/_sync/connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpcore/_backends/sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/cluster/software/stacks/2025-06/linux-ubuntu22.04-x86_64_v3/gcc-12.2.0/python-3.13.0-vkvbm5dtu6g63eqfchm7bd5wohbcoitv/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/_base_client.py", line 1019, in request
+    response = self._send_request(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/_client.py", line 400, in _send_request
+    return self._send_with_auth_retry(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/_client.py", line 378, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/_base_client.py", line 947, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/cluster/software/stacks/2025-06/linux-ubuntu22.04-x86_64_v3/gcc-12.2.0/python-3.13.0-vkvbm5dtu6g63eqfchm7bd5wohbcoitv/lib/python3.13/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 111] Connection refused
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval_api_call.py", line 796, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval_api_call.py", line 725, in main
+    results_10q = evaluate_10q(
+        questions_10q, sheet_lookup_10q, model_name,
+        limit=args.limit, tol=args.tol,
+    )
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval_api_call.py", line 302, in evaluate_10q
+    response = run_inference(model_name, prompt)
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval_api_call.py", line 244, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=max_new_tokens,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/_utils/_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/resources/chat/completions/completions.py", line 1211, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<47 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/_base_client.py", line 1314, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/openai/_base_client.py", line 1054, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.

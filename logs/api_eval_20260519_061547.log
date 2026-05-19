@@ -1,0 +1,39 @@
+nohup: ignoring input
+Loading datasets...
+  10-Q: 497 questions, 15 companies
+  90-Q: 90 questions, 15 companies
+  Multi-turn: 1000 total, 607 non-skipped, 15 companies
+
+============================================================
+  Evaluating model: Qwen/Qwen3.5-27B
+============================================================
+
+-- 10-Q evaluation (3 questions) --
+  [1/3] CORRECT | truth=4375514.0 pred=4375514.0 | What was the basic shares used in computing EPS reported by ...
+  [2/3] CORRECT | truth=0.0506 pred=0.05061637 | For Zion Corp, what is the result of the following computati...
+  [3/3] CORRECT | truth=-0.0039 pred=-0.00391888 | For Nova Holdings, what is the result of the following compu...
+
+-- 90-Q evaluation (3 questions) --
+  [1/3] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+  [2/3] WRONG  | truth=-16736.4873 pred=630915360.0 | What are the result of the maximum of current liabilities fo...
+  [3/3] CORRECT | truth=37323.0000 pred=37323.0 | What are longterm liabilities for Pacific Crest Energy in 20...
+
+-- Multi-turn evaluation (3 questions) --
+  [1/3] WRONG  | turns=3 depth=3 first_fail@turn=2 | truth=-16736.4873 pred=630915360.0 | Which result follows from the result of the maximu...
+  [2/3] CORRECT | turns=1 depth=1 | truth=37323.0000 pred=37323.0 | Which value corresponds to the longterm liabilitie...
+  [3/3] CORRECT | turns=1 depth=1 | truth=59143.0000 pred=59143.0 | Provide the the maximum of total equity for Orion ...
+
+============================================================
+  Model: Qwen/Qwen3.5-27B
+============================================================
+  10-Q      : 3/3  accuracy = 100.0%  (skipped 0)
+  90-Q      : 2/3  accuracy = 66.7%  (skipped 0)
+  Multi-turn: 2/3  accuracy = 66.7%  (skipped 0)
+    turns=1: 2/2  accuracy = 100.0%
+    turns=3: 0/1  accuracy = 0.0%
+      first failure at — turn 2: 1  (of 1 failed)
+  Overall   : 7/9  accuracy = 77.8%
+============================================================
+
+Results saved to output_llm/eval_results_20260519_061600.json
+CSV saved to output_llm/eval_results_20260519_061600.csv

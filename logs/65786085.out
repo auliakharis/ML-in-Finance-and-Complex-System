@@ -1,0 +1,39 @@
+Checking model path...
+chat_template.jinja
+config.json
+generation_config.json
+model.safetensors
+tokenizer_config.json
+tokenizer.json
+Starting pipeline: Fri May  8 09:58:28 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Fri May  8 09:58:28 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA TITAN RTX               On  |   00000000:81:00.0 Off |                  N/A |
+| 41%   31C    P8             19W /  280W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+trainable params: 21,233,664 || all params: 4,226,984,960 || trainable%: 0.5023
+{'loss': '1.507', 'grad_norm': '4.969', 'learning_rate': '0.00018', 'entropy': '1.217', 'num_tokens': '3.544e+04', 'mean_token_accuracy': '0.6708', 'epoch': '0.16'}
+{'loss': '0.4834', 'grad_norm': '0.7891', 'learning_rate': '0.0001988', 'entropy': '0.5139', 'num_tokens': '7.194e+04', 'mean_token_accuracy': '0.8688', 'epoch': '0.32'}
+{'loss': '0.2836', 'grad_norm': '0.418', 'learning_rate': '0.0001945', 'entropy': '0.2831', 'num_tokens': '1.083e+05', 'mean_token_accuracy': '0.9037', 'epoch': '0.48'}
+{'loss': '0.265', 'grad_norm': '0.3301', 'learning_rate': '0.0001873', 'entropy': '0.2575', 'num_tokens': '1.444e+05', 'mean_token_accuracy': '0.9066', 'epoch': '0.64'}
+{'loss': '0.2647', 'grad_norm': '0.2441', 'learning_rate': '0.0001775', 'entropy': '0.2551', 'num_tokens': '1.822e+05', 'mean_token_accuracy': '0.9055', 'epoch': '0.8'}
+{'loss': '0.246', 'grad_norm': '0.2617', 'learning_rate': '0.0001652', 'entropy': '0.2341', 'num_tokens': '2.168e+05', 'mean_token_accuracy': '0.9101', 'epoch': '0.96'}
+Done: Fri May  8 10:23:00 AM CEST 2026

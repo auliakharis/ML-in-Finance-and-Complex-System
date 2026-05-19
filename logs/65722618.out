@@ -1,0 +1,33 @@
+Checking model path...
+chat_template.jinja
+config.json
+generation_config.json
+model.safetensors
+tokenizer_config.json
+tokenizer.json
+Starting pipeline: Thu May  7 08:13:13 PM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Thu May  7 20:13:13 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA TITAN RTX               On  |   00000000:22:00.0 Off |                  N/A |
+| 41%   30C    P8              4W /  280W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[0;32m[INFO][0m  Checking prerequisites...
+[0;31m[ERROR][0m lora2.py not found in /cluster/home/arakhmasari/ML-in-Finance-and-Complex-System. Place this script next to lora2.py.
+Done: Thu May  7 08:13:13 PM CEST 2026

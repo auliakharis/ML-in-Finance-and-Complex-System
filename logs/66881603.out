@@ -1,0 +1,41 @@
+Checking model path...
+chat_template.jinja
+config.json
+generation_config.json
+model.safetensors
+tokenizer_config.json
+tokenizer.json
+Starting pipeline: Sun May 17 09:25:13 PM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Sun May 17 21:25:13 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA TITAN RTX               On  |   00000000:C2:00.0 Off |                  N/A |
+| 40%   52C    P8             15W /  280W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  10-Q: 497 questions, 15 companies
+  90-Q: 90 questions, 15 companies
+  Multi-turn: 1000 total, 607 non-skipped, 15 companies
+
+============================================================
+  Evaluating model: Qwen/Qwen3.5-27B
+============================================================
+
+-- 10-Q evaluation (1 questions) --
+Done: Sun May 17 09:25:17 PM CEST 2026

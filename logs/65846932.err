@@ -1,0 +1,41 @@
+Loading weights:   0%|          | 0/2076 [00:00<?, ?it/s]Loading weights:   0%|          | 3/2076 [00:00<02:34, 13.39it/s]Loading weights:   6%|▌         | 127/2076 [00:00<00:05, 383.13it/s]Loading weights:  12%|█▏        | 243/2076 [00:00<00:02, 617.45it/s]Loading weights:  19%|█▉        | 392/2076 [00:00<00:01, 872.13it/s]Loading weights:  27%|██▋       | 561/2076 [00:00<00:01, 1110.32it/s]Loading weights:  35%|███▌      | 736/2076 [00:00<00:01, 1298.89it/s]Loading weights:  42%|████▏     | 879/2076 [00:07<00:17, 68.94it/s]  Loading weights:  47%|████▋     | 976/2076 [00:07<00:14, 77.83it/s]Loading weights:  50%|█████     | 1046/2076 [00:08<00:12, 84.59it/s]Loading weights:  53%|█████▎    | 1099/2076 [00:09<00:11, 81.86it/s]Loading weights:  55%|█████▍    | 1138/2076 [00:09<00:10, 86.08it/s]Loading weights:  56%|█████▋    | 1169/2076 [00:09<00:10, 88.55it/s]Loading weights:  58%|█████▊    | 1194/2076 [00:10<00:11, 78.75it/s]Loading weights:  58%|█████▊    | 1213/2076 [00:10<00:11, 77.57it/s]Loading weights:  59%|█████▉    | 1228/2076 [00:10<00:10, 77.33it/s]Loading weights:  60%|█████▉    | 1241/2076 [00:10<00:11, 71.61it/s]Loading weights:  60%|██████    | 1252/2076 [00:11<00:13, 62.67it/s]Loading weights:  61%|██████    | 1265/2076 [00:11<00:11, 69.47it/s]Loading weights:  62%|██████▏   | 1278/2076 [00:11<00:10, 73.35it/s]Loading weights:  62%|██████▏   | 1288/2076 [00:11<00:10, 77.12it/s]Loading weights:  63%|██████▎   | 1298/2076 [00:11<00:10, 72.22it/s]Loading weights:  63%|██████▎   | 1307/2076 [00:11<00:10, 74.78it/s]Loading weights:  64%|██████▎   | 1320/2076 [00:12<00:09, 77.83it/s]Loading weights:  64%|██████▍   | 1329/2076 [00:12<00:09, 79.50it/s]Loading weights:  64%|██████▍   | 1338/2076 [00:12<00:10, 69.74it/s]Loading weights:  65%|██████▍   | 1349/2076 [00:12<00:11, 61.91it/s]Loading weights:  66%|██████▌   | 1362/2076 [00:12<00:12, 58.12it/s]Loading weights:  66%|██████▋   | 1376/2076 [00:13<00:12, 57.95it/s]Loading weights:  67%|██████▋   | 1390/2076 [00:13<00:11, 62.07it/s]Loading weights:  67%|██████▋   | 1397/2076 [00:13<00:11, 57.22it/s]Loading weights:  68%|██████▊   | 1405/2076 [00:13<00:10, 61.22it/s]Loading weights:  68%|██████▊   | 1417/2076 [00:13<00:09, 67.74it/s]Loading weights:  72%|███████▏  | 1504/2076 [00:13<00:02, 206.58it/s]Loading weights:  81%|████████  | 1673/2076 [00:13<00:00, 515.20it/s]Loading weights:  93%|█████████▎| 1932/2076 [00:13<00:00, 990.97it/s]Loading weights: 100%|██████████| 2076/2076 [00:14<00:00, 147.62it/s]
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 867, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 782, in main
+    tokenizer, model = load_model(model_name, adapter_path=args.finetune)
+                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 243, in load_model
+    model = PeftModel.from_pretrained(model, adapter_path)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/peft_model.py", line 560, in from_pretrained
+    model = MODEL_TYPE_TO_PEFT_MODEL_MAPPING[config.task_type](
+        model,
+    ...<3 lines>...
+        low_cpu_mem_usage=low_cpu_mem_usage,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/peft_model.py", line 1885, in __init__
+    super().__init__(model, peft_config, adapter_name, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/peft_model.py", line 129, in __init__
+    self.base_model = cls(model, {adapter_name: peft_config}, adapter_name)
+                      ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/tuners/tuners_utils.py", line 298, in __init__
+    self.inject_adapter(self.model, adapter_name, low_cpu_mem_usage=low_cpu_mem_usage, state_dict=state_dict)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/tuners/tuners_utils.py", line 804, in inject_adapter
+    self._create_and_replace(
+    ~~~~~~~~~~~~~~~~~~~~~~~~^
+        peft_config, adapter_name, target, target_name, parent, current_key=key
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/tuners/lora/model.py", line 250, in _create_and_replace
+    new_module = self._create_new_module(lora_config, adapter_name, target, device_map=device_map, **kwargs)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/tuners/lora/model.py", line 343, in _create_new_module
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: Target module Gemma4ClippableLinear(
+  (linear): Linear4bit(in_features=768, out_features=768, bias=False)
+) is not supported. Currently, only the following modules are supported: `torch.nn.Linear`, `torch.nn.Embedding`, `torch.nn.Conv1d`, `torch.nn.Conv2d`, `torch.nn.Conv3d`, `transformers.pytorch_utils.Conv1D`, `torch.nn.MultiheadAttention.`.

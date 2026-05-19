@@ -3,7 +3,7 @@
 #SBATCH --gpus=1
 #SBATCH --gres=gpumem:16g
 #SBATCH --cpus-per-task=4
-#SBATCH --time=04:00:00
+#SBATCH --time=12:00:00
 #SBATCH --output=logs/%j.out
 #SBATCH --error=logs/%j.err
 
@@ -36,8 +36,11 @@ nvidia-smi
 
 
 # python run_llm_eval.py --datasets mt  --models gemma-4-E4B-it --limit 5
-# python run_llm_eval.py --datasets mt 90q  --models gemma-4-E4B-it Qwen3.5-4B Qwen3.5-9B --limit 90
-python test_api.py
+# python run_llm_eval.py --datasets 10q  --models gemma-4-E4B-it Qwen3.5-4B Qwen3.5-9B --limit 90
+# python test_api.py
+# python lora/lora2.py
+# python -u run_llm_eval.py --models Qwen3.5-4B --finetune ./qwen-lora-adapters --limit 90
+python run_llm_eval_api_call.py --limit 1
 
 
 echo "Done: $(date)"

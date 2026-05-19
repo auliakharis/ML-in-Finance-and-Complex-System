@@ -42,7 +42,9 @@ else:
 # ══════════════════════════════════════════════════════════════════
 # 2. MODEL + TOKENIZER
 # ══════════════════════════════════════════════════════════════════
-MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
+MODEL_PATH = "/cluster/scratch/arakhmasari/models"
+MODEL      = "Qwen3.5-4B"
+MODEL_ID   = os.path.join(MODEL_PATH, MODEL)
 
 if CUDA_AVAILABLE:
     bnb_config = BitsAndBytesConfig(
@@ -89,7 +91,7 @@ model.print_trainable_parameters()
 # ══════════════════════════════════════════════════════════════════
 # 4. DATASET
 # ══════════════════════════════════════════════════════════════════
-df = pd.read_csv("random_1000.csv")
+df = pd.read_csv("/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/random_1000.csv")
 
 SYSTEM_PROMPT = """You are a financial reasoning assistant.
 Given a set of financial facts and a question, compute the answer step by step.
@@ -162,7 +164,7 @@ training_args = SFTConfig(
     bf16=CUDA_AVAILABLE,
     fp16=False,
     logging_steps=10,
-    save_strategy="epoch",
+    save_strategy="no",
     optim="paged_adamw_8bit" if CUDA_AVAILABLE else "adamw_torch",
     report_to="none",
     dataset_text_field="text",

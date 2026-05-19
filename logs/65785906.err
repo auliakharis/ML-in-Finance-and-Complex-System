@@ -1,0 +1,29 @@
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<07:30,  1.06s/it]Loading weights:   1%|▏         | 6/426 [00:01<01:08,  6.10it/s]Loading weights:   2%|▏         | 8/426 [00:01<00:54,  7.73it/s]Loading weights:   3%|▎         | 13/426 [00:01<00:29, 14.14it/s]Loading weights:   6%|▌         | 25/426 [00:01<00:12, 31.77it/s]Loading weights:   7%|▋         | 31/426 [00:01<00:12, 31.31it/s]Loading weights:   8%|▊         | 36/426 [00:01<00:11, 33.10it/s]Loading weights:  10%|▉         | 41/426 [00:02<00:11, 32.48it/s]Loading weights:  11%|█         | 45/426 [00:02<00:13, 27.41it/s]Loading weights:  12%|█▏        | 50/426 [00:02<00:12, 29.19it/s]Loading weights:  14%|█▍        | 61/426 [00:02<00:09, 38.50it/s]Loading weights:  15%|█▌        | 66/426 [00:02<00:10, 33.87it/s]Loading weights:  19%|█▊        | 79/426 [00:02<00:06, 50.95it/s]Loading weights:  21%|██        | 90/426 [00:03<00:05, 60.24it/s]Loading weights:  23%|██▎       | 97/426 [00:03<00:05, 60.17it/s]Loading weights:  24%|██▍       | 104/426 [00:03<00:05, 59.49it/s]Loading weights:  28%|██▊       | 118/426 [00:03<00:03, 77.72it/s]Loading weights:  30%|███       | 129/426 [00:03<00:03, 85.74it/s]Loading weights:  33%|███▎      | 139/426 [00:03<00:03, 82.02it/s]Loading weights:  35%|███▍      | 148/426 [00:03<00:03, 71.63it/s]Loading weights:  37%|███▋      | 156/426 [00:03<00:03, 73.60it/s]Loading weights:  39%|███▉      | 168/426 [00:04<00:03, 84.17it/s]Loading weights:  42%|████▏     | 181/426 [00:04<00:02, 93.41it/s]Loading weights:  45%|████▍     | 191/426 [00:04<00:02, 87.54it/s]Loading weights:  47%|████▋     | 201/426 [00:04<00:02, 77.66it/s]Loading weights:  49%|████▉     | 210/426 [00:04<00:02, 78.60it/s]Loading weights:  53%|█████▎    | 224/426 [00:04<00:02, 91.17it/s]Loading weights:  55%|█████▌    | 235/426 [00:04<00:02, 92.10it/s]Loading weights:  58%|█████▊    | 245/426 [00:04<00:01, 92.77it/s]Loading weights:  60%|█████▉    | 255/426 [00:05<00:02, 81.64it/s]Loading weights:  62%|██████▏   | 265/426 [00:05<00:01, 83.35it/s]Loading weights:  65%|██████▌   | 278/426 [00:05<00:01, 89.45it/s]Loading weights:  68%|██████▊   | 291/426 [00:05<00:01, 96.48it/s]Loading weights:  71%|███████   | 302/426 [00:05<00:01, 96.61it/s]Loading weights:  73%|███████▎  | 312/426 [00:05<00:01, 77.81it/s]Loading weights:  77%|███████▋  | 327/426 [00:05<00:01, 92.79it/s]Loading weights:  79%|███████▉  | 338/426 [00:05<00:00, 94.88it/s]Loading weights:  82%|████████▏ | 349/426 [00:06<00:00, 88.37it/s]Loading weights:  84%|████████▍ | 359/426 [00:06<00:00, 90.54it/s]Loading weights:  87%|████████▋ | 369/426 [00:06<00:00, 83.35it/s]Loading weights:  90%|████████▉ | 383/426 [00:06<00:00, 92.95it/s]Loading weights:  92%|█████████▏| 393/426 [00:06<00:00, 92.35it/s]Loading weights:  96%|█████████▌| 407/426 [00:06<00:00, 99.28it/s]Loading weights:  98%|█████████▊| 418/426 [00:06<00:00, 78.20it/s]Loading weights: 100%|██████████| 426/426 [00:06<00:00, 61.43it/s]
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/lora2.py", line 94, in <module>
+    df = pd.read_csv("random_1000.csv")
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'random_1000.csv'

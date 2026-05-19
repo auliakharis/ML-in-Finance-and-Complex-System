@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/_lazy_module.py", line 71, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/software/stacks/2025-06/linux-ubuntu22.04-x86_64_v3/gcc-12.2.0/python-3.13.0-vkvbm5dtu6g63eqfchm7bd5wohbcoitv/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1022, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/trainer/sft_config.py", line 24, in <module>
+    class SFTConfig(BaseConfig):
+    ...<223 lines>...
+        )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/trainer/sft_config.py", line 107, in SFTConfig
+    _VALID_DICT_FIELDS = TrainingArguments._VALID_DICT_FIELDS + ["model_init_kwargs"]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'TrainingArguments' has no attribute '_VALID_DICT_FIELDS'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/lora2.py", line 13, in <module>
+    from trl import SFTConfig, SFTTrainer
+  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/_lazy_module.py", line 62, in __getattr__
+    value = getattr(module, name)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/_lazy_module.py", line 61, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/_lazy_module.py", line 73, in _get_module
+    raise RuntimeError(
+    ...<2 lines>...
+    ) from e
+RuntimeError: Failed to import trl.trainer.sft_config because of the following error (look up to see its traceback):
+type object 'TrainingArguments' has no attribute '_VALID_DICT_FIELDS'

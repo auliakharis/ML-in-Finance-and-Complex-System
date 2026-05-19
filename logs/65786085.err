@@ -1,0 +1,204 @@
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:00<06:45,  1.05it/s]
+Loading weights:   1%|▏         | 6/426 [00:01<00:57,  7.33it/s]
+Loading weights:   2%|▏         | 9/426 [00:01<00:40, 10.22it/s]
+Loading weights:   3%|▎         | 14/426 [00:01<00:24, 16.62it/s]
+Loading weights:   6%|▋         | 27/426 [00:01<00:10, 36.56it/s]
+Loading weights:   8%|▊         | 36/426 [00:01<00:09, 42.67it/s]
+Loading weights:  10%|▉         | 42/426 [00:01<00:10, 37.77it/s]
+Loading weights:  11%|█         | 47/426 [00:02<00:11, 33.83it/s]
+Loading weights:  12%|█▏        | 52/426 [00:02<00:10, 35.78it/s]
+Loading weights:  14%|█▍        | 61/426 [00:02<00:08, 40.88it/s]
+Loading weights:  15%|█▌        | 66/426 [00:02<00:10, 35.59it/s]
+Loading weights:  19%|█▊        | 79/426 [00:02<00:06, 52.15it/s]
+Loading weights:  21%|██        | 90/426 [00:02<00:05, 62.82it/s]
+Loading weights:  23%|██▎       | 98/426 [00:02<00:05, 61.80it/s]
+Loading weights:  25%|██▍       | 106/426 [00:02<00:04, 64.03it/s]
+Loading weights:  28%|██▊       | 119/426 [00:03<00:03, 76.93it/s]
+Loading weights:  31%|███       | 132/426 [00:03<00:03, 86.83it/s]
+Loading weights:  34%|███▎      | 143/426 [00:03<00:03, 89.02it/s]
+Loading weights:  36%|███▌      | 153/426 [00:03<00:03, 73.75it/s]
+Loading weights:  40%|███▉      | 170/426 [00:03<00:02, 94.14it/s]
+Loading weights:  42%|████▏     | 181/426 [00:03<00:02, 95.02it/s]
+Loading weights:  45%|████▌     | 192/426 [00:03<00:02, 90.54it/s]
+Loading weights:  47%|████▋     | 202/426 [00:04<00:02, 80.33it/s]
+Loading weights:  50%|████▉     | 211/426 [00:04<00:02, 78.26it/s]
+Loading weights:  53%|█████▎    | 224/426 [00:04<00:02, 86.86it/s]
+Loading weights:  55%|█████▌    | 235/426 [00:04<00:02, 87.94it/s]
+Loading weights:  58%|█████▊    | 245/426 [00:04<00:02, 89.80it/s]
+Loading weights:  60%|█████▉    | 255/426 [00:04<00:02, 84.41it/s]
+Loading weights:  62%|██████▏   | 264/426 [00:04<00:01, 84.24it/s]
+Loading weights:  65%|██████▌   | 277/426 [00:04<00:01, 94.79it/s]
+Loading weights:  67%|██████▋   | 287/426 [00:05<00:01, 85.38it/s]
+Loading weights:  69%|██████▉   | 296/426 [00:05<00:01, 83.18it/s]
+Loading weights:  72%|███████▏  | 306/426 [00:05<00:01, 77.06it/s]
+Loading weights:  74%|███████▎  | 314/426 [00:05<00:01, 71.73it/s]
+Loading weights:  77%|███████▋  | 329/426 [00:05<00:01, 89.38it/s]
+Loading weights:  80%|███████▉  | 340/426 [00:05<00:00, 92.05it/s]
+Loading weights:  82%|████████▏ | 350/426 [00:05<00:00, 87.71it/s]
+Loading weights:  85%|████████▍ | 360/426 [00:05<00:00, 82.79it/s]
+Loading weights:  87%|████████▋ | 369/426 [00:06<00:00, 80.95it/s]
+Loading weights:  90%|████████▉ | 383/426 [00:06<00:00, 93.44it/s]
+Loading weights:  92%|█████████▏| 394/426 [00:06<00:00, 94.03it/s]
+Loading weights:  96%|█████████▌| 407/426 [00:06<00:00, 101.53it/s]
+Loading weights:  98%|█████████▊| 418/426 [00:06<00:00, 78.30it/s] 
+Loading weights: 100%|██████████| 426/426 [00:06<00:00, 64.53it/s]
+[transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
+
+Adding EOS to train dataset:   0%|          | 0/1000 [00:00<?, ? examples/s]
+Adding EOS to train dataset: 100%|██████████| 1000/1000 [00:00<00:00, 18467.19 examples/s]
+
+Tokenizing train dataset:   0%|          | 0/1000 [00:00<?, ? examples/s]
+Tokenizing train dataset:  22%|██▏       | 221/1000 [00:00<00:00, 2183.34 examples/s]
+Tokenizing train dataset:  45%|████▌     | 454/1000 [00:00<00:00, 2261.90 examples/s]
+Tokenizing train dataset:  68%|██████▊   | 681/1000 [00:00<00:00, 2257.86 examples/s]
+Tokenizing train dataset: 100%|██████████| 1000/1000 [00:00<00:00, 1756.51 examples/s]
+Tokenizing train dataset: 100%|██████████| 1000/1000 [00:00<00:00, 1886.37 examples/s]
+
+Truncating train dataset:   0%|          | 0/1000 [00:00<?, ? examples/s]
+Truncating train dataset: 100%|██████████| 1000/1000 [00:00<00:00, 283820.81 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046, 'pad_token_id': 248046}.
+
+  0%|          | 0/189 [00:00<?, ?it/s]
+  1%|          | 1/189 [00:25<1:20:17, 25.63s/it]
+  1%|          | 2/189 [00:47<1:13:01, 23.43s/it]
+  2%|▏         | 3/189 [01:14<1:18:05, 25.19s/it]
+  2%|▏         | 4/189 [01:33<1:09:41, 22.60s/it]
+  3%|▎         | 5/189 [01:58<1:12:16, 23.57s/it]
+  3%|▎         | 6/189 [02:17<1:07:04, 21.99s/it]
+  4%|▎         | 7/189 [02:38<1:05:19, 21.53s/it]
+  4%|▍         | 8/189 [02:59<1:04:29, 21.38s/it]
+  5%|▍         | 9/189 [03:24<1:07:21, 22.45s/it]
+  5%|▌         | 10/189 [03:44<1:04:39, 21.68s/it]
+                                                  
+
+  5%|▌         | 10/189 [03:44<1:04:39, 21.68s/it]
+  6%|▌         | 11/189 [04:09<1:08:10, 22.98s/it]
+  6%|▋         | 12/189 [04:33<1:08:35, 23.25s/it]
+  7%|▋         | 13/189 [04:56<1:07:53, 23.14s/it]
+  7%|▋         | 14/189 [05:17<1:05:43, 22.53s/it]
+  8%|▊         | 15/189 [05:39<1:04:53, 22.38s/it]
+  8%|▊         | 16/189 [06:05<1:07:27, 23.40s/it]
+  9%|▉         | 17/189 [06:28<1:06:26, 23.18s/it]
+ 10%|▉         | 18/189 [06:53<1:07:28, 23.67s/it]
+ 10%|█         | 19/189 [07:13<1:04:25, 22.74s/it]
+ 11%|█         | 20/189 [07:37<1:05:13, 23.16s/it]
+                                                  
+
+ 11%|█         | 20/189 [07:37<1:05:13, 23.16s/it]
+ 11%|█         | 21/189 [07:58<1:02:46, 22.42s/it]
+ 12%|█▏        | 22/189 [08:24<1:05:09, 23.41s/it]
+ 12%|█▏        | 23/189 [08:44<1:02:29, 22.59s/it]
+ 13%|█▎        | 24/189 [09:09<1:04:01, 23.28s/it]
+ 13%|█▎        | 25/189 [09:29<1:00:48, 22.24s/it]
+ 14%|█▍        | 26/189 [09:54<1:02:12, 22.90s/it]
+ 14%|█▍        | 27/189 [10:19<1:04:08, 23.75s/it]
+ 15%|█▍        | 28/189 [10:40<1:01:09, 22.79s/it]
+ 15%|█▌        | 29/189 [11:06<1:03:04, 23.66s/it]
+ 16%|█▌        | 30/189 [11:29<1:02:26, 23.56s/it]
+                                                  
+
+ 16%|█▌        | 30/189 [11:29<1:02:26, 23.56s/it]
+ 16%|█▋        | 31/189 [11:53<1:02:08, 23.60s/it]
+ 17%|█▋        | 32/189 [12:13<58:56, 22.53s/it]  
+ 17%|█▋        | 33/189 [12:36<59:06, 22.73s/it]
+ 18%|█▊        | 34/189 [12:59<58:48, 22.77s/it]
+ 19%|█▊        | 35/189 [13:27<1:02:53, 24.50s/it]
+ 19%|█▉        | 36/189 [13:52<1:02:49, 24.64s/it]
+ 20%|█▉        | 37/189 [14:14<1:00:40, 23.95s/it]
+ 20%|██        | 38/189 [14:41<1:01:59, 24.63s/it]
+ 21%|██        | 39/189 [15:01<58:27, 23.39s/it]  
+ 21%|██        | 40/189 [15:20<54:33, 21.97s/it]
+                                                
+
+ 21%|██        | 40/189 [15:20<54:33, 21.97s/it]
+ 22%|██▏       | 41/189 [15:42<54:24, 22.05s/it]
+ 22%|██▏       | 42/189 [16:12<59:27, 24.27s/it]
+ 23%|██▎       | 43/189 [16:37<59:51, 24.60s/it]
+ 23%|██▎       | 44/189 [17:00<58:25, 24.17s/it]
+ 24%|██▍       | 45/189 [17:31<1:02:49, 26.17s/it]
+ 24%|██▍       | 46/189 [17:52<58:53, 24.71s/it]  
+ 25%|██▍       | 47/189 [18:15<56:57, 24.06s/it]
+ 25%|██▌       | 48/189 [18:37<55:12, 23.50s/it]
+ 26%|██▌       | 49/189 [19:01<55:09, 23.64s/it]
+ 26%|██▋       | 50/189 [19:28<57:11, 24.69s/it]
+                                                
+
+ 26%|██▋       | 50/189 [19:28<57:11, 24.69s/it]
+ 27%|██▋       | 51/189 [19:49<54:29, 23.69s/it]
+ 28%|██▊       | 52/189 [20:12<53:04, 23.25s/it]
+ 28%|██▊       | 53/189 [20:31<49:53, 22.01s/it]
+ 29%|██▊       | 54/189 [20:52<49:01, 21.79s/it]
+ 29%|██▉       | 55/189 [21:19<52:22, 23.45s/it]
+ 30%|██▉       | 56/189 [21:42<51:25, 23.20s/it]
+ 30%|███       | 57/189 [22:06<51:41, 23.50s/it]
+ 31%|███       | 58/189 [22:24<47:39, 21.83s/it]
+ 31%|███       | 59/189 [22:45<46:33, 21.49s/it]
+ 32%|███▏      | 60/189 [23:07<46:40, 21.71s/it]
+                                                
+
+ 32%|███▏      | 60/189 [23:07<46:40, 21.71s/it]
+ 32%|███▏      | 61/189 [23:30<47:15, 22.15s/it]
+ 33%|███▎      | 62/189 [23:52<46:53, 22.16s/it]
+ 33%|███▎      | 63/189 [24:02<38:45, 18.46s/it]Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/lora2.py", line 184, in <module>
+    trainer.train()
+    ~~~~~~~~~~~~~^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 1427, in train
+    return inner_training_loop(
+        args=args,
+    ...<2 lines>...
+        ignore_keys_for_eval=ignore_keys_for_eval,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 1509, in _inner_training_loop
+    self._run_epoch(
+    ~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<9 lines>...
+        steps_trained_in_current_epoch=steps_trained_in_current_epoch,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 1810, in _run_epoch
+    self._maybe_log_save_evaluate(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._tr_loss,
+        ^^^^^^^^^^^^^^
+    ...<6 lines>...
+        learning_rate=learning_rate,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 2091, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/trainer/sft_trainer.py", line 1360, in _save_checkpoint
+    super()._save_checkpoint(model, trial)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 3053, in _save_checkpoint
+    self.save_model(output_dir, _internal_call=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 3804, in save_model
+    self._save(output_dir)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 3847, in _save
+    torch.save(self.args, os.path.join(output_dir, TRAINING_ARGS_NAME))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/torch/serialization.py", line 850, in save
+    _save(
+    ~~~~~^
+        obj,
+        ^^^^
+    ...<3 lines>...
+        _disable_byteorder_record,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/torch/serialization.py", line 1087, in _save
+    pickler.persistent_id = persistent_id
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_pickle.Pickler' object attribute 'persistent_id' is read-only
+/var/spool/slurm/slurmd/state/job65786085/slurm_script: line 41: 3877316 Segmentation fault      python lora/lora2.py

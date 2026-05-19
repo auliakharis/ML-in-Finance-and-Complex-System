@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/lora2.py", line 56, in <module>
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID,
+    ...<2 lines>...
+        trust_remote_code=True,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 405, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/modeling_utils.py", line 4130, in from_pretrained
+    hf_quantizer, config, device_map = get_hf_quantizer(
+                                       ~~~~~~~~~~~~~~~~^
+        config, quantization_config, device_map, weights_only, user_agent
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/quantizers/auto.py", line 342, in get_hf_quantizer
+    hf_quantizer.validate_environment(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        device_map=device_map,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        weights_only=weights_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/quantizers/quantizer_bnb_4bit.py", line 62, in validate_environment
+    raise ImportError(
+        f"Using `bitsandbytes` 4-bit quantization requires bitsandbytes: `pip install -U bitsandbytes>={BITSANDBYTES_MIN_VERSION}`"
+    )
+ImportError: Using `bitsandbytes` 4-bit quantization requires bitsandbytes: `pip install -U bitsandbytes>=0.46.1`
