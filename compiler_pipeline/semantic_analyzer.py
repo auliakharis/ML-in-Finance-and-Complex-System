@@ -36,7 +36,6 @@ def question_copula(label: str | None) -> str:
         return "are"
     return "is"
 
-
 def shared_entity_period_context(
     left_meaning: "Meaning", right_meaning: "Meaning"
 ) -> tuple[str, str] | None:

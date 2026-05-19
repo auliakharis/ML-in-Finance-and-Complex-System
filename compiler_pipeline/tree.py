@@ -370,7 +370,7 @@ class Expr(BaseModel, ABC):
     def build_amount_tree(
         depth: int,
         rng: random.Random,
-        derived_prob: float = 0.30,
+        derived_prob: float,
         allow_time_aggregates: bool = True,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> Expr:
@@ -378,7 +378,6 @@ class Expr(BaseModel, ABC):
             return Expr.sample_amount_terminal(
                 rng=rng,
                 depth=0,
-                derived_prob=0.0,
                 derived_registry=derived_registry,
             )
 
@@ -591,6 +590,7 @@ class Expr(BaseModel, ABC):
         derived_prob: float,
         max_attempts: int = 200,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
+        require_derived: bool = False,
     ) -> tuple[Expr, str | None]:
         if max_depth < 0:
             raise ValueError("max_depth must be >= 0.")
@@ -598,6 +598,11 @@ class Expr(BaseModel, ABC):
             raise ValueError("derived_prob must be within [0, 1].")
         if max_attempts <= 0:
             raise ValueError("max_attempts must be > 0.")
+        if require_derived and max_depth == 0:
+            raise ValueError(
+                "require_derived=True is unsatisfiable at max_depth=0: no concept "
+                "has concept_depth <= 0, so no derived concept can be placed."
+            )
 
         last_reason: str | None = None
         for _ in range(max_attempts):
@@ -608,9 +613,13 @@ class Expr(BaseModel, ABC):
                 derived_registry=derived_registry,
             )
             violation = Expr.violates_protected_canonical_form(tree, derived_registry)
-            if violation is None:
-                return tree, last_reason
-            last_reason = f"Rejected because tree duplicated protected concept: {violation}"
+            if violation is not None:
+                last_reason = f"Rejected because tree duplicated protected concept: {violation}"
+                continue
+            if require_derived and not Expr.contains_derived(tree):
+                last_reason = "Rejected because tree contained no derived concepts."
+                continue
+            return tree, last_reason
 
         raise RuntimeError(
             f"Failed to sample a valid tree after {max_attempts} attempts. "
