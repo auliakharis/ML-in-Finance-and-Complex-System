@@ -76,11 +76,7 @@ SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
 SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
 
-DEFAULT_MODELS = ["swiss-ai/Apertus-70B-Instruct-2509",
-                  "Qwen/Qwen3-Coder-30B-A3B-Instruct", 
-                  "meta-llama/Llama-3.3-70B-Instruct",
-                  "openai/gpt-oss-120b-evMj",
-                  "deepseek-ai/deepseek-coder-33b-instruct",]
+DEFAULT_MODELS = ["Qwen/Qwen3.5-27B"]
 
 
 # ---------------------------------------------------------------------------
@@ -243,22 +239,24 @@ def _sanitize_messages(messages: list) -> list:
     return sanitized
 
 
-def run_inference(model_name: str, prompt: str, max_new_tokens: int = 512) -> str:
+def run_inference(model_name: str, prompt: str, max_new_tokens: int = 2048) -> str:
     """Call the API with a single user prompt and return the response text."""
     response = _client.chat.completions.create(
         model=model_name,
         messages=[{"role": "user", "content": prompt}],
         max_tokens=max_new_tokens,
+        extra_body={"enable_thinking": False},
     )
     return response.choices[0].message.content.strip()
 
 
-def run_multiturn_inference(model_name: str, messages: list, max_new_tokens: int = 512) -> str:
+def run_multiturn_inference(model_name: str, messages: list, max_new_tokens: int = 2048) -> str:
     """Call the API with a full conversation history and return the response text."""
     response = _client.chat.completions.create(
         model=model_name,
         messages=_sanitize_messages(messages),
         max_tokens=max_new_tokens,
+        extra_body={"enable_thinking": False},
     )
     return response.choices[0].message.content.strip()
 
@@ -273,6 +271,7 @@ def evaluate_10q(
     model_name: str,
     limit: int | None,
     tol: float,
+    max_new_tokens: int = 2048,
 ) -> list:
     """Evaluate on 10-Q questions. Returns per-question result dicts."""
     results = []
@@ -303,7 +302,7 @@ def evaluate_10q(
         sheet_text = sheet_to_text_10q(sheet_row)
         prompt = build_prompt(sheet_text, question_text)
 
-        response = run_inference(model_name, prompt)
+        response = run_inference(model_name, prompt, max_new_tokens)
         predicted = extract_number(response)
         correct = is_correct(predicted, ground_truth, tol)
 
@@ -333,6 +332,7 @@ def evaluate_90q(
     model_name: str,
     limit: int | None,
     tol: float,
+    max_new_tokens: int = 2048,
 ) -> list:
     """Evaluate on 90-question dataset. Returns per-question result dicts."""
     results = []
@@ -363,7 +363,7 @@ def evaluate_90q(
         sheet_text = sheet_to_text_90q(sheet_rows)
         prompt = build_prompt(sheet_text, question_text)
 
-        response = run_inference(model_name, prompt)
+        response = run_inference(model_name, prompt, max_new_tokens)
         predicted = extract_number(response)
         correct = is_correct(predicted, ground_truth, tol)
 
@@ -728,7 +728,7 @@ def main():
             print(f"\n-- 10-Q evaluation ({args.limit or len(questions_10q)} questions) --")
             results_10q = evaluate_10q(
                 questions_10q, sheet_lookup_10q, model_name,
-                limit=args.limit, tol=args.tol,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
             )
         else:
             results_10q = []
@@ -737,7 +737,7 @@ def main():
             print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
             results_90q = evaluate_90q(
                 questions_90q, sheet_lookup_90q, model_name,
-                limit=args.limit, tol=args.tol,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
             )
         else:
             results_90q = []
