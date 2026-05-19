@@ -1,33 +1,50 @@
 {
   "company_name": {
-    "type": "categorical",
+    "col_type": "categorical",
+    "base_name": "company_name",
     "desc": "Company name",
-    "year": null
+    "year": null,
+    "unit": null,
+    "order": null
   },
   "ticker": {
-    "type": "categorical",
+    "col_type": "categorical",
+    "base_name": "ticker",
     "desc": "Stock ticker symbol",
-    "year": null
+    "year": null,
+    "unit": null,
+    "order": null
   },
   "sector": {
-    "type": "categorical",
+    "col_type": "categorical",
+    "base_name": "sector",
     "desc": "Industry sector",
-    "year": null
+    "year": null,
+    "unit": null,
+    "order": null
   },
   "country": {
-    "type": "categorical",
+    "col_type": "categorical",
+    "base_name": "country",
     "desc": "Country of headquarters",
-    "year": null
+    "year": null,
+    "unit": null,
+    "order": null
   },
   "exchange": {
-    "type": "categorical",
+    "col_type": "categorical",
+    "base_name": "exchange",
     "desc": "Stock exchange",
-    "year": null
+    "year": null,
+    "unit": null,
+    "order": null
   },
   "credit_rating": {
-    "type": "ordinal",
+    "col_type": "ordinal",
+    "base_name": "credit_rating",
     "desc": "Credit rating",
     "year": null,
+    "unit": null,
     "order": [
       "CCC",
       "B",
@@ -39,136 +56,155 @@
     ]
   },
   "year": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "year",
+    "desc": "reporting year",
     "year": null,
     "unit": "year",
-    "desc": "reporting year"
+    "order": null
   },
   "revenue": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "revenue",
+    "desc": "revenue",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "revenue"
+    "order": null
   },
   "cost_of_goods_sold": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "cost_of_goods_sold",
+    "desc": "cost of goods sold",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "cost of goods sold"
+    "order": null
   },
   "operating_expenses": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "operating_expenses",
+    "desc": "operating expenses",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "operating expenses"
+    "order": null
   },
   "non_operating_expenses": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "non_operating_expenses",
+    "desc": "non operating expenses",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "non operating expenses"
+    "order": null
   },
   "income_tax": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "income_tax",
+    "desc": "income tax",
     "year": "row_level",
-    "unit": "M_USD",
-    "desc": "income tax"
+    "unit": "ratio",
+    "order": null
   },
   "total_assets": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "total_assets",
+    "desc": "total assets",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "total assets"
+    "order": null
   },
   "total_liabilities": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "total_liabilities",
+    "desc": "total liabilities",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "total liabilities"
+    "order": null
   },
   "total_equity": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "total_equity",
+    "desc": "total equity",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "total equity"
+    "order": null
   },
   "cash": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "cash",
+    "desc": "cash",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "cash"
+    "order": null
   },
   "accounts_receivable": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "accounts_receivable",
+    "desc": "accounts receivable",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "accounts receivable"
+    "order": null
   },
   "inventories": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "inventories",
+    "desc": "inventories",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "inventories"
+    "order": null
   },
   "short_term_investments": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "short_term_investments",
+    "desc": "short term investments",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "short term investments"
+    "order": null
   },
   "current_liabilities": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "current_liabilities",
+    "desc": "current liabilities",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "current liabilities"
+    "order": null
   },
   "capex": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "capex",
+    "desc": "capex",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "capex"
+    "order": null
   },
   "dividends_paid": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "dividends_paid",
+    "desc": "dividends paid",
     "year": "row_level",
     "unit": "M_USD",
-    "desc": "dividends paid"
+    "order": null
   },
   "shares_outstanding": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "shares_outstanding",
+    "desc": "shares outstanding",
     "year": "row_level",
-    "unit": "millions",
-    "desc": "shares outstanding"
+    "unit": "M_shares",
+    "order": null
   },
   "stock_price": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "stock_price",
+    "desc": "stock price",
     "year": "row_level",
     "unit": "USD",
-    "desc": "stock price"
+    "order": null
   },
   "employees": {
-    "type": "numeric",
+    "col_type": "numeric",
     "base_name": "employees",
+    "desc": "employees",
     "year": "row_level",
     "unit": "count",
-    "desc": "employees"
+    "order": null
   }
 }
