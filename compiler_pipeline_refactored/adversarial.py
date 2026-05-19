@@ -1,19 +1,23 @@
 """Adversarial CSV generator.
 
 Reads a questions CSV (produced by make_random_questions.py) and the original
-synthetic company data CSV, then writes a corrupted copy of the data CSV where
-every cell NOT referenced by any question is randomly replaced with either a
-missing value (empty string) or a garbage value.
+synthetic company data CSV, then writes five corrupted variants where every cell
+NOT referenced by any question is randomly replaced:
+
+  missing_values.csv      — empty string
+  garbage.csv             — extreme/nonsense numeric values or "ERROR"
+  lookalike.csv           — digits swapped with visually similar characters (e.g. 1→I, 0→O)
+  cross_contaminated.csv  — real value stolen from a different company/year
+  combined_adversarial.csv — all four types mixed equally
 
 Usage:
-    python adversarial.py \
-        --questions output/random_questions_90.csv \
-        --csv       output/synthetic_company_data.csv \
-        --output    output/adversarial_company_data.csv
+    python adversarial.py \\
+        --questions output/random_questions_90.csv \\
+        --csv       output/synthetic_company_data.csv \\
+        --output-dir output/adversarial/
 
 Optional:
     --corruption-rate  fraction of unused cells to corrupt  (default 0.4)
-    --garbage-fraction of those, fraction that become garbage vs empty (default 0.5)
     --seed             random seed for reproducibility
 """
 from __future__ import annotations
@@ -24,8 +28,22 @@ import json
 import random
 import re
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
+Mode = Literal["missing", "garbage", "lookalike", "cross", "combined"]
+
+_OUTPUT_FILES: dict[Mode, str] = {
+    "missing":  "missing_values.csv",
+    "garbage":  "garbage.csv",
+    "lookalike": "lookalike.csv",
+    "cross":    "cross_contaminated.csv",
+    "combined": "combined_adversarial.csv",
+}
+
+
+# ---------------------------------------------------------------------------
+# I/O helpers
+# ---------------------------------------------------------------------------
 
 def read_csv_rows(path: Path) -> tuple[list[str], list[dict[str, str]]]:
     with open(path, "r", newline="", encoding="utf-8") as f:
@@ -39,11 +57,7 @@ _LEAF_PATTERN = re.compile(r'"leaf":\s*"(\d+_\w+)"')
 
 
 def collect_used_atom_keys(questions_path: Path) -> set[str]:
-    """Extract every leaf atom key from the expression_json column of each question.
-
-    expression_json always contains the fully expanded tree (including derived
-    concepts), so every leaf atom key appears as {"leaf": "<key>"} in that JSON.
-    """
+    """Extract every leaf atom key from the expression_json column of each question."""
     _, rows = read_csv_rows(questions_path)
     used: set[str] = set()
     for row in rows:
@@ -57,7 +71,10 @@ def load_concept_names(concept_metadata_path: Path) -> list[str]:
     return list(payload["define"].keys())
 
 
-# Digits that have a visually similar character (OCR-confusion style)
+# ---------------------------------------------------------------------------
+# Corruption helpers
+# ---------------------------------------------------------------------------
+
 _LOOKALIKE_MAP: dict[str, list[str]] = {
     "0": ["O", "o"],
     "1": ["I", "l"],
@@ -68,14 +85,12 @@ _LOOKALIKE_MAP: dict[str, list[str]] = {
     "9": ["g"],
 }
 
+_HARD_GARBAGE: list[Any] = [-9999999, 999999999999, -1, "ERROR"]
+
 
 def make_lookalike(value: str, rng: random.Random) -> str:
-    """Replace 1-2 digits in value with a visually similar character.
-
-    E.g. "12920" -> "l2920" or "12O20" — looks numeric but isn't parseable as float.
-    Returns the original value unchanged if no digit has a lookalike.
-    """
-    chars = list(value.split(".")[0])  # work on the integer part only
+    """Replace 1-2 digits with visually similar characters. Returns value unchanged if none apply."""
+    chars = list(value.split(".")[0])
     candidates = [i for i, c in enumerate(chars) if c in _LOOKALIKE_MAP]
     if not candidates:
         return value
@@ -87,7 +102,7 @@ def make_lookalike(value: str, rng: random.Random) -> str:
 def build_concept_pool(
     csv_rows: list[dict[str, str]], concept_names: list[str]
 ) -> dict[str, list[tuple[int, str]]]:
-    """For each concept, build a list of (row_idx, value) from all rows."""
+    """For each concept, list of (row_idx, value) for all non-empty rows."""
     pool: dict[str, list[tuple[int, str]]] = {c: [] for c in concept_names}
     for idx, row in enumerate(csv_rows):
         for concept in concept_names:
@@ -97,58 +112,73 @@ def build_concept_pool(
     return pool
 
 
+def corrupt_cell(
+    mode: Mode,
+    row_idx: int,
+    concept: str,
+    original_value: str,
+    rng: random.Random,
+    concept_pool: dict[str, list[tuple[int, str]]],
+) -> tuple[str, str]:
+    """Return (corrupted_value, corruption_kind) for a single cell."""
+    if mode == "missing":
+        return "", "missing"
+
+    if mode == "garbage":
+        return str(rng.choice(_HARD_GARBAGE)), "garbage"
+
+    if mode == "lookalike":
+        return make_lookalike(original_value, rng), "lookalike"
+
+    if mode == "cross":
+        candidates = [(i, v) for i, v in concept_pool[concept] if i != row_idx]
+        if candidates:
+            return rng.choice(candidates)[1], "cross"
+        return "", "missing"  # fallback if only one row exists for this concept
+
+    # combined: pick one of the four types with equal probability
+    roll = rng.random()
+    if roll < 0.25:
+        return "", "missing"
+    if roll < 0.50:
+        return str(rng.choice(_HARD_GARBAGE)), "garbage"
+    if roll < 0.75:
+        return make_lookalike(original_value, rng), "lookalike"
+    candidates = [(i, v) for i, v in concept_pool[concept] if i != row_idx]
+    if candidates:
+        return rng.choice(candidates)[1], "cross"
+    return "", "missing"
+
+
+# ---------------------------------------------------------------------------
+# Main writer
+# ---------------------------------------------------------------------------
+
 def write_corrupted_csv(
     csv_path: Path,
     used_atom_keys: set[str],
     concept_names: list[str],
     output_path: Path,
+    mode: Mode,
     corruption_rate: float,
-    garbage_fraction: float,
     seed: int | None,
 ) -> None:
     rng = random.Random(seed)
     fieldnames, csv_rows = read_csv_rows(csv_path)
-
-    hard_garbage: list[Any] = [-9999999, 999999999999, -1, "ERROR"]
     concept_pool = build_concept_pool(csv_rows, concept_names)
 
     corrupted_rows = []
-    stats = {
-        "protected": 0,
-        "corrupted_missing": 0,
-        "corrupted_garbage": 0,
-        "corrupted_lookalike": 0,
-        "corrupted_cross": 0,
-        "untouched": 0,
-    }
+    stats: dict[str, int] = {"protected": 0, "missing": 0, "garbage": 0, "lookalike": 0, "cross": 0, "untouched": 0}
 
     for idx, row in enumerate(csv_rows):
         new_row = dict(row)
         for concept in concept_names:
-            atom_key = f"{idx}_{concept}"
-            if atom_key in used_atom_keys:
+            if f"{idx}_{concept}" in used_atom_keys:
                 stats["protected"] += 1
             elif rng.random() < corruption_rate:
-                roll = rng.random()
-                if roll < garbage_fraction / 3:
-                    new_row[concept] = rng.choice(hard_garbage)
-                    stats["corrupted_garbage"] += 1
-                elif roll < 2 * garbage_fraction / 3:
-                    new_row[concept] = make_lookalike(row[concept], rng)
-                    stats["corrupted_lookalike"] += 1
-                elif roll < garbage_fraction:
-                    # cross-contamination: real value from a different row
-                    candidates = [(i, v) for i, v in concept_pool[concept] if i != idx]
-                    if candidates:
-                        _, cross_val = rng.choice(candidates)
-                        new_row[concept] = cross_val
-                        stats["corrupted_cross"] += 1
-                    else:
-                        new_row[concept] = ""
-                        stats["corrupted_missing"] += 1
-                else:
-                    new_row[concept] = ""
-                    stats["corrupted_missing"] += 1
+                new_val, kind = corrupt_cell(mode, idx, concept, row[concept], rng, concept_pool)
+                new_row[concept] = new_val
+                stats[kind] += 1
             else:
                 stats["untouched"] += 1
         corrupted_rows.append(new_row)
@@ -159,17 +189,21 @@ def write_corrupted_csv(
         writer.writeheader()
         writer.writerows(corrupted_rows)
 
-    print(f"Adversarial CSV written to {output_path}")
-    print(f"  Protected (used by questions):   {stats['protected']}")
-    print(f"  Corrupted — missing:             {stats['corrupted_missing']}")
-    print(f"  Corrupted — garbage:             {stats['corrupted_garbage']}")
-    print(f"  Corrupted — lookalike:           {stats['corrupted_lookalike']}")
-    print(f"  Corrupted — cross-contaminated:  {stats['corrupted_cross']}")
-    print(f"  Left untouched:                  {stats['untouched']}")
+    print(f"\n[{mode}] -> {output_path.name}")
+    print(f"  Protected:          {stats['protected']}")
+    print(f"  Missing:            {stats['missing']}")
+    print(f"  Garbage:            {stats['garbage']}")
+    print(f"  Lookalike:          {stats['lookalike']}")
+    print(f"  Cross-contaminated: {stats['cross']}")
+    print(f"  Untouched:          {stats['untouched']}")
 
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate an adversarially corrupted data CSV.")
+    parser = argparse.ArgumentParser(description="Generate adversarially corrupted data CSVs.")
     parser.add_argument(
         "--questions",
         default="output/random_questions_90.csv",
@@ -183,24 +217,18 @@ def main() -> None:
     parser.add_argument(
         "--concept-metadata",
         default="config/concept_metadata.json",
-        help="Concept metadata JSON (used to enumerate concept column names)",
+        help="Concept metadata JSON",
     )
     parser.add_argument(
-        "--output",
-        default="output/adversarial_company_data.csv",
-        help="Output path for the corrupted CSV",
+        "--output-dir",
+        default="output/adversarial",
+        help="Directory to write all five output CSVs (default: output/adversarial/)",
     )
     parser.add_argument(
         "--corruption-rate",
         type=float,
         default=0.4,
         help="Fraction of unused cells to corrupt (default 0.4)",
-    )
-    parser.add_argument(
-        "--garbage-fraction",
-        type=float,
-        default=0.5,
-        help="Of corrupted cells, fraction that become a garbage value vs empty string (default 0.5)",
     )
     parser.add_argument("--seed", type=int, default=None, help="Random seed for reproducibility")
     args = parser.parse_args()
@@ -213,16 +241,18 @@ def main() -> None:
 
     used_keys = collect_used_atom_keys(resolve(args.questions))
     concept_names = load_concept_names(resolve(args.concept_metadata))
+    output_dir = resolve(args.output_dir)
 
-    write_corrupted_csv(
-        csv_path=resolve(args.csv),
-        used_atom_keys=used_keys,
-        concept_names=concept_names,
-        output_path=resolve(args.output),
-        corruption_rate=args.corruption_rate,
-        garbage_fraction=args.garbage_fraction,
-        seed=args.seed,
-    )
+    for mode, filename in _OUTPUT_FILES.items():
+        write_corrupted_csv(
+            csv_path=resolve(args.csv),
+            used_atom_keys=used_keys,
+            concept_names=concept_names,
+            output_path=output_dir / filename,
+            mode=mode,
+            corruption_rate=args.corruption_rate,
+            seed=args.seed,
+        )
 
 
 if __name__ == "__main__":

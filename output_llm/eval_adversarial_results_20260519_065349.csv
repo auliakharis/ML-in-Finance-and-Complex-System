@@ -1,0 +1,2971 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+Qwen/Qwen3.5-27B,baseline,1,Ironclad Manufacturing,4,which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 231556
+    operating_expenses: 87678
+    non_operating_expenses: 68643
+    income_tax: 0.13830819460210894
+    total_assets: 307723
+    total_liabilities: 157361
+    total_equity: 150362
+    cash: 49146
+    accounts_receivable: 42355
+    inventories: 22596
+    short_term_investments: 45319
+    current_liabilities: 72096
+    capex: 17841
+    dividends_paid: 0
+    shares_outstanding: 4604
+    stock_price: 570.79
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 81319
+    income_tax: 0.2275739310211855
+    total_assets: 282967
+    total_liabilities: 103532
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: 23302
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 8718
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: 248415
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 224248
+    operating_expenses: 29590
+    non_operating_expenses: 78160
+    income_tax: 0.28982512847160624
+    total_assets: 915630
+    total_liabilities: 450870
+    total_equity: 464760
+    cash: 139886
+    accounts_receivable: 30058
+    inventories: 21863
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 3921
+    shares_outstanding: 4531
+    stock_price: 476.99
+    employees: 217271
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 0.25254742087094173
+    total_assets: 378307
+    total_liabilities: 190519
+    total_equity: 187788
+    cash: 18106
+    accounts_receivable: 25432
+    inventories: 11929
+    short_term_investments: 12074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 29575
+    shares_outstanding: 586
+    stock_price: 241.16
+    employees: 144946
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 461323
+    cost_of_goods_sold: 153173
+    operating_expenses: 44603
+    non_operating_expenses: 47475
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 33656
+    accounts_receivable: 23748
+    inventories: 7540
+    short_term_investments: 14126
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 9119
+    shares_outstanding: 11910
+    stock_price: 482.11
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 543408
+    cost_of_goods_sold: 270410
+    operating_expenses: 78109
+    non_operating_expenses: 60220
+    income_tax: 0.18050170383256112
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 109521
+    accounts_receivable: 54234
+    inventories: 36674
+    short_term_investments: 97839
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 1142
+    shares_outstanding: 10147
+    stock_price: 690.51
+    employees: 295626
+=== END ===
+
+QUESTION: which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",221593.0,221593.0,"Current Liabilities (2021-2025): 50,873; 200,152; 67,087; 103,109; 221,593.
+Maximum value: 221,593 (Year 2025).
+Answer: 221593",True,0.000000,True,False
+Qwen/Qwen3.5-27B,baseline,2,Helix BioSciences,5,which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 214045
+    cost_of_goods_sold: 144323
+    operating_expenses: 13987
+    non_operating_expenses: 47700
+    income_tax: 0.27105867429121805
+    total_assets: 206207
+    total_liabilities: 128949
+    total_equity: 77258
+    cash: 27177
+    accounts_receivable: 20427
+    inventories: 17743
+    short_term_investments: 27925
+    current_liabilities: 46735
+    capex: 15443
+    dividends_paid: 1897
+    shares_outstanding: 4891
+    stock_price: 388.37
+    employees: 79676
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 200630
+    cost_of_goods_sold: 69534
+    operating_expenses: 46110
+    non_operating_expenses: 23812
+    income_tax: 0.24286310983349252
+    total_assets: 221578
+    total_liabilities: 96103
+    total_equity: 125475
+    cash: 18724
+    accounts_receivable: 16808
+    inventories: 5363
+    short_term_investments: 18432
+    current_liabilities: 27840
+    capex: 8553
+    dividends_paid: 6908
+    shares_outstanding: 6191
+    stock_price: 280.62
+    employees: 300954
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 228916
+    cost_of_goods_sold: 135355
+    operating_expenses: 14463
+    non_operating_expenses: 15773
+    income_tax: 0.2356758689680162
+    total_assets: 357136
+    total_liabilities: 247386
+    total_equity: 109750
+    cash: 62300
+    accounts_receivable: 29904
+    inventories: 18073
+    short_term_investments: 20239
+    current_liabilities: 97887
+    capex: 10985
+    dividends_paid: 2738
+    shares_outstanding: 14519
+    stock_price: 563.31
+    employees: 199019
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 248743
+    cost_of_goods_sold: 179618
+    operating_expenses: 27838
+    non_operating_expenses: 31176
+    income_tax: 0.2583323915727087
+    total_assets: 194967
+    total_liabilities: 132263
+    total_equity: 62704
+    cash: 41405
+    accounts_receivable: 28326
+    inventories: 19597
+    short_term_investments: 16318
+    current_liabilities: 54427
+    capex: 12175
+    dividends_paid: 1270
+    shares_outstanding: 5503
+    stock_price: 156.51
+    employees: 111025
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 294847
+    cost_of_goods_sold: 152973
+    operating_expenses: 28101
+    non_operating_expenses: 22854
+    income_tax: 0.11543301686017526
+    total_assets: 224506
+    total_liabilities: 81789
+    total_equity: 142717
+    cash: 44810
+    accounts_receivable: 36417
+    inventories: 20633
+    short_term_investments: 3431
+    current_liabilities: 27333
+    capex: 8988
+    dividends_paid: 24652
+    shares_outstanding: 5713
+    stock_price: 142.36
+    employees: 416516
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 334919
+    cost_of_goods_sold: 222410
+    operating_expenses: 27834
+    non_operating_expenses: 46063
+    income_tax: 0.1821717222993067
+    total_assets: 301285
+    total_liabilities: 146090
+    total_equity: 155195
+    cash: 38481
+    accounts_receivable: 22940
+    inventories: 26091
+    short_term_investments: 21949
+    current_liabilities: 56026
+    capex: 28364
+    dividends_paid: 3909
+    shares_outstanding: 7088
+    stock_price: 670.56
+    employees: 187081
+=== END ===
+
+QUESTION: which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",46110.0,46110.0,"Operating Expenses by Year:
+2020: 13987
+2021: 46110
+2022: 14463
+2023: 27838
+2024: 28101
+2025: 27834
+Max(13987, 46110, 14463, 27838, 28101, 27834) = 46110
+
+Answer: 46110",True,0.000000,True,False
+Qwen/Qwen3.5-27B,baseline,3,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 150714
+    cost_of_goods_sold: 52780
+    operating_expenses: 20641
+    non_operating_expenses: 21212
+    income_tax: 0.290763185504216
+    total_assets: 111555
+    total_liabilities: 56087
+    total_equity: 55468
+    cash: 15632
+    accounts_receivable: 8721
+    inventories: 7318
+    short_term_investments: 14711
+    current_liabilities: 18206
+    capex: 10357
+    dividends_paid: 10166
+    shares_outstanding: 2377
+    stock_price: 613.57
+    employees: 271993
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 171515
+    cost_of_goods_sold: 92388
+    operating_expenses: 8595
+    non_operating_expenses: 19695
+    income_tax: 0.10389534847716647
+    total_assets: 121219
+    total_liabilities: 88212
+    total_equity: 33007
+    cash: 25816
+    accounts_receivable: 12135
+    inventories: 2543
+    short_term_investments: 16113
+    current_liabilities: 42936
+    capex: 10099
+    dividends_paid: 1561
+    shares_outstanding: 1131
+    stock_price: 612.07
+    employees: 384088
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 163960
+    cost_of_goods_sold: 84255
+    operating_expenses: 26227
+    non_operating_expenses: 16890
+    income_tax: 0.2744866082170515
+    total_assets: 202980
+    total_liabilities: 94542
+    total_equity: 108438
+    cash: 30172
+    accounts_receivable: 18526
+    inventories: 3888
+    short_term_investments: 10888
+    current_liabilities: 47156
+    capex: 9026
+    dividends_paid: 6900
+    shares_outstanding: 7812
+    stock_price: 109.99
+    employees: 116225
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 166364
+    cost_of_goods_sold: 93952
+    operating_expenses: 15975
+    non_operating_expenses: 15645
+    income_tax: 0.11419861720180652
+    total_assets: 157344
+    total_liabilities: 75315
+    total_equity: 82029
+    cash: 36062
+    accounts_receivable: 20956
+    inventories: 2744
+    short_term_investments: 6816
+    current_liabilities: 31425
+    capex: 5088
+    dividends_paid: 3096
+    shares_outstanding: 14039
+    stock_price: 463.27
+    employees: 238972
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 189604
+    cost_of_goods_sold: 125778
+    operating_expenses: 16701
+    non_operating_expenses: 13156
+    income_tax: 0.1862102364812755
+    total_assets: 234573
+    total_liabilities: 142978
+    total_equity: 91595
+    cash: 44662
+    accounts_receivable: 20351
+    inventories: 18608
+    short_term_investments: 5578
+    current_liabilities: 50136
+    capex: 16862
+    dividends_paid: 3752
+    shares_outstanding: 3805
+    stock_price: 164.31
+    employees: 227064
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 196833
+    cost_of_goods_sold: 83722
+    operating_expenses: 19676
+    non_operating_expenses: 46187
+    income_tax: 0.18862614901069139
+    total_assets: 147593
+    total_liabilities: 94614
+    total_equity: 52979
+    cash: 6070
+    accounts_receivable: 27542
+    inventories: 10774
+    short_term_investments: 21498
+    current_liabilities: 45565
+    capex: 6556
+    dividends_paid: 13014
+    shares_outstanding: 7336
+    stock_price: 182.79
+    employees: 203515
+=== END ===
+
+QUESTION: could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26227.0,26227.0,"Operating Expenses (2020–2025): 20641, 8595, 26227, 15975, 16701, 19676
+Max(20641, 8595, 26227, 15975, 16701, 19676) = 26227
+Answer: 26227",True,0.000000,True,False
+Qwen/Qwen3.5-27B,missing,1,Ironclad Manufacturing,4,which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 
+    cost_of_goods_sold: 231556
+    operating_expenses: 87678
+    non_operating_expenses: 
+    income_tax: 0.13830819460210894
+    total_assets: 
+    total_liabilities: 157361
+    total_equity: 
+    cash: 49146
+    accounts_receivable: 42355
+    inventories: 22596
+    short_term_investments: 
+    current_liabilities: 72096
+    capex: 17841
+    dividends_paid: 0
+    shares_outstanding: 4604
+    stock_price: 570.79
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 81319
+    income_tax: 0.2275739310211855
+    total_assets: 
+    total_liabilities: 103532
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: 23302
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: 
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 224248
+    operating_expenses: 29590
+    non_operating_expenses: 
+    income_tax: 0.28982512847160624
+    total_assets: 915630
+    total_liabilities: 450870
+    total_equity: 
+    cash: 139886
+    accounts_receivable: 
+    inventories: 21863
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 476.99
+    employees: 
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 
+    total_assets: 
+    total_liabilities: 190519
+    total_equity: 
+    cash: 18106
+    accounts_receivable: 25432
+    inventories: 11929
+    short_term_investments: 12074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 29575
+    shares_outstanding: 586
+    stock_price: 241.16
+    employees: 
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 
+    cost_of_goods_sold: 153173
+    operating_expenses: 
+    non_operating_expenses: 47475
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 33656
+    accounts_receivable: 
+    inventories: 7540
+    short_term_investments: 14126
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 
+    employees: 
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 
+    cost_of_goods_sold: 270410
+    operating_expenses: 78109
+    non_operating_expenses: 
+    income_tax: 
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 109521
+    accounts_receivable: 54234
+    inventories: 36674
+    short_term_investments: 
+    current_liabilities: 221593
+    capex: 
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 
+    employees: 
+=== END ===
+
+QUESTION: which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",221593.0,221593.0,"Current Liabilities (2021-2025): 50,873; 200,152; 67,087; 103,109; 221,593.
+Max(50873, 200152, 67087, 103109, 221593) = 221,593.
+Answer: 221593",True,0.000000,True,False
+Qwen/Qwen3.5-27B,missing,2,Helix BioSciences,5,which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 214045
+    cost_of_goods_sold: 144323
+    operating_expenses: 
+    non_operating_expenses: 
+    income_tax: 0.27105867429121805
+    total_assets: 
+    total_liabilities: 128949
+    total_equity: 
+    cash: 
+    accounts_receivable: 20427
+    inventories: 17743
+    short_term_investments: 27925
+    current_liabilities: 46735
+    capex: 15443
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 
+    employees: 79676
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 200630
+    cost_of_goods_sold: 69534
+    operating_expenses: 46110
+    non_operating_expenses: 23812
+    income_tax: 0.24286310983349252
+    total_assets: 221578
+    total_liabilities: 
+    total_equity: 125475
+    cash: 
+    accounts_receivable: 16808
+    inventories: 
+    short_term_investments: 
+    current_liabilities: 27840
+    capex: 
+    dividends_paid: 6908
+    shares_outstanding: 6191
+    stock_price: 280.62
+    employees: 300954
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 228916
+    cost_of_goods_sold: 135355
+    operating_expenses: 14463
+    non_operating_expenses: 15773
+    income_tax: 0.2356758689680162
+    total_assets: 357136
+    total_liabilities: 247386
+    total_equity: 
+    cash: 62300
+    accounts_receivable: 29904
+    inventories: 18073
+    short_term_investments: 20239
+    current_liabilities: 97887
+    capex: 10985
+    dividends_paid: 2738
+    shares_outstanding: 
+    stock_price: 
+    employees: 199019
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 
+    cost_of_goods_sold: 179618
+    operating_expenses: 
+    non_operating_expenses: 31176
+    income_tax: 
+    total_assets: 194967
+    total_liabilities: 132263
+    total_equity: 62704
+    cash: 41405
+    accounts_receivable: 
+    inventories: 19597
+    short_term_investments: 
+    current_liabilities: 54427
+    capex: 12175
+    dividends_paid: 1270
+    shares_outstanding: 
+    stock_price: 156.51
+    employees: 
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 
+    cost_of_goods_sold: 152973
+    operating_expenses: 28101
+    non_operating_expenses: 22854
+    income_tax: 0.11543301686017526
+    total_assets: 
+    total_liabilities: 
+    total_equity: 
+    cash: 44810
+    accounts_receivable: 36417
+    inventories: 20633
+    short_term_investments: 
+    current_liabilities: 27333
+    capex: 8988
+    dividends_paid: 24652
+    shares_outstanding: 5713
+    stock_price: 
+    employees: 416516
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 334919
+    cost_of_goods_sold: 222410
+    operating_expenses: 
+    non_operating_expenses: 46063
+    income_tax: 0.1821717222993067
+    total_assets: 
+    total_liabilities: 146090
+    total_equity: 155195
+    cash: 38481
+    accounts_receivable: 22940
+    inventories: 
+    short_term_investments: 
+    current_liabilities: 56026
+    capex: 
+    dividends_paid: 3909
+    shares_outstanding: 
+    stock_price: 
+    employees: 
+=== END ===
+
+QUESTION: which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",46110.0,46110.0,"Operating Expenses by Year:
+2020: Missing
+2021: 46110
+2022: 14463
+2023: Missing
+2024: 28101
+2025: Missing
+
+Maximum of available values: 46110
+
+Answer: 46110",True,0.000000,True,False
+Qwen/Qwen3.5-27B,missing,3,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 150714
+    cost_of_goods_sold: 52780
+    operating_expenses: 20641
+    non_operating_expenses: 21212
+    income_tax: 
+    total_assets: 111555
+    total_liabilities: 56087
+    total_equity: 55468
+    cash: 
+    accounts_receivable: 8721
+    inventories: 
+    short_term_investments: 14711
+    current_liabilities: 18206
+    capex: 10357
+    dividends_paid: 10166
+    shares_outstanding: 2377
+    stock_price: 
+    employees: 271993
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 
+    cost_of_goods_sold: 92388
+    operating_expenses: 8595
+    non_operating_expenses: 
+    income_tax: 0.10389534847716647
+    total_assets: 121219
+    total_liabilities: 
+    total_equity: 33007
+    cash: 25816
+    accounts_receivable: 12135
+    inventories: 2543
+    short_term_investments: 
+    current_liabilities: 42936
+    capex: 10099
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 612.07
+    employees: 384088
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 163960
+    cost_of_goods_sold: 
+    operating_expenses: 26227
+    non_operating_expenses: 
+    income_tax: 0.2744866082170515
+    total_assets: 202980
+    total_liabilities: 
+    total_equity: 108438
+    cash: 
+    accounts_receivable: 18526
+    inventories: 3888
+    short_term_investments: 
+    current_liabilities: 47156
+    capex: 9026
+    dividends_paid: 6900
+    shares_outstanding: 7812
+    stock_price: 
+    employees: 116225
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 166364
+    cost_of_goods_sold: 
+    operating_expenses: 15975
+    non_operating_expenses: 15645
+    income_tax: 0.11419861720180652
+    total_assets: 
+    total_liabilities: 
+    total_equity: 82029
+    cash: 36062
+    accounts_receivable: 20956
+    inventories: 2744
+    short_term_investments: 
+    current_liabilities: 31425
+    capex: 5088
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 463.27
+    employees: 
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 
+    cost_of_goods_sold: 
+    operating_expenses: 16701
+    non_operating_expenses: 13156
+    income_tax: 
+    total_assets: 234573
+    total_liabilities: 142978
+    total_equity: 
+    cash: 
+    accounts_receivable: 20351
+    inventories: 18608
+    short_term_investments: 
+    current_liabilities: 50136
+    capex: 16862
+    dividends_paid: 
+    shares_outstanding: 3805
+    stock_price: 164.31
+    employees: 227064
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 196833
+    cost_of_goods_sold: 83722
+    operating_expenses: 19676
+    non_operating_expenses: 
+    income_tax: 
+    total_assets: 147593
+    total_liabilities: 94614
+    total_equity: 52979
+    cash: 6070
+    accounts_receivable: 27542
+    inventories: 10774
+    short_term_investments: 
+    current_liabilities: 45565
+    capex: 6556
+    dividends_paid: 
+    shares_outstanding: 7336
+    stock_price: 
+    employees: 
+=== END ===
+
+QUESTION: could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26227.0,26227.0,"Operating Expenses by Year:
+2020: 20641
+2021: 8595
+2022: 26227
+2023: 15975
+2024: 16701
+2025: 19676
+Max(20641, 8595, 26227, 15975, 16701, 19676) = 26227
+Answer: 26227",True,0.000000,True,False
+Qwen/Qwen3.5-27B,garbage,1,Ironclad Manufacturing,4,which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 231556
+    operating_expenses: 999999999999
+    non_operating_expenses: 68643
+    income_tax: -9999999
+    total_assets: 307723
+    total_liabilities: -9999999
+    total_equity: 150362
+    cash: 49146
+    accounts_receivable: 999999999999
+    inventories: 22596
+    short_term_investments: 45319
+    current_liabilities: 72096
+    capex: ERROR
+    dividends_paid: 0
+    shares_outstanding: 4604
+    stock_price: 999999999999
+    employees: 999999999999
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 81319
+    income_tax: ERROR
+    total_assets: -1
+    total_liabilities: 103532
+    total_equity: -1
+    cash: 9253
+    accounts_receivable: 23302
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 8718
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: ERROR
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 224248
+    operating_expenses: 29590
+    non_operating_expenses: 999999999999
+    income_tax: 0.28982512847160624
+    total_assets: ERROR
+    total_liabilities: 450870
+    total_equity: ERROR
+    cash: 139886
+    accounts_receivable: ERROR
+    inventories: 21863
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 3921
+    shares_outstanding: 999999999999
+    stock_price: 476.99
+    employees: -1
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 0.25254742087094173
+    total_assets: 378307
+    total_liabilities: 190519
+    total_equity: 187788
+    cash: 18106
+    accounts_receivable: 25432
+    inventories: ERROR
+    short_term_investments: 12074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: ERROR
+    shares_outstanding: 586
+    stock_price: 241.16
+    employees: 144946
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 461323
+    cost_of_goods_sold: -1
+    operating_expenses: 44603
+    non_operating_expenses: 47475
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: -1
+    accounts_receivable: 23748
+    inventories: 7540
+    short_term_investments: 14126
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 9119
+    shares_outstanding: -9999999
+    stock_price: 482.11
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 543408
+    cost_of_goods_sold: -9999999
+    operating_expenses: -1
+    non_operating_expenses: 60220
+    income_tax: ERROR
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: -9999999
+    accounts_receivable: 54234
+    inventories: 36674
+    short_term_investments: 999999999999
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 1142
+    shares_outstanding: -1
+    stock_price: 690.51
+    employees: 295626
+=== END ===
+
+QUESTION: which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",221593.0,221593.0,"Current Liabilities (2021-2025): 50873, 200152, 67087, 103109, 221593
+Maximum: 221593
+Answer: 221593",True,0.000000,True,False
+Qwen/Qwen3.5-27B,garbage,2,Helix BioSciences,5,which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: -1
+    cost_of_goods_sold: -9999999
+    operating_expenses: 13987
+    non_operating_expenses: 47700
+    income_tax: 0.27105867429121805
+    total_assets: -9999999
+    total_liabilities: 128949
+    total_equity: 77258
+    cash: -1
+    accounts_receivable: -9999999
+    inventories: 999999999999
+    short_term_investments: 27925
+    current_liabilities: -9999999
+    capex: -1
+    dividends_paid: 1897
+    shares_outstanding: -1
+    stock_price: 388.37
+    employees: 79676
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 999999999999
+    cost_of_goods_sold: 69534
+    operating_expenses: 46110
+    non_operating_expenses: 23812
+    income_tax: 0.24286310983349252
+    total_assets: 221578
+    total_liabilities: -1
+    total_equity: 125475
+    cash: 18724
+    accounts_receivable: 16808
+    inventories: -1
+    short_term_investments: 18432
+    current_liabilities: 27840
+    capex: 8553
+    dividends_paid: 6908
+    shares_outstanding: 6191
+    stock_price: 280.62
+    employees: 999999999999
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 228916
+    cost_of_goods_sold: 135355
+    operating_expenses: 14463
+    non_operating_expenses: ERROR
+    income_tax: -1
+    total_assets: 357136
+    total_liabilities: 247386
+    total_equity: 109750
+    cash: 62300
+    accounts_receivable: 29904
+    inventories: 18073
+    short_term_investments: 20239
+    current_liabilities: -9999999
+    capex: ERROR
+    dividends_paid: 2738
+    shares_outstanding: 14519
+    stock_price: 563.31
+    employees: 199019
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 248743
+    cost_of_goods_sold: 179618
+    operating_expenses: 27838
+    non_operating_expenses: 31176
+    income_tax: -1
+    total_assets: 194967
+    total_liabilities: 132263
+    total_equity: 62704
+    cash: 41405
+    accounts_receivable: 999999999999
+    inventories: 19597
+    short_term_investments: -9999999
+    current_liabilities: 54427
+    capex: 12175
+    dividends_paid: 1270
+    shares_outstanding: 5503
+    stock_price: 999999999999
+    employees: 999999999999
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: -1
+    cost_of_goods_sold: 152973
+    operating_expenses: 28101
+    non_operating_expenses: -1
+    income_tax: -1
+    total_assets: 224506
+    total_liabilities: 999999999999
+    total_equity: 142717
+    cash: 44810
+    accounts_receivable: 36417
+    inventories: -1
+    short_term_investments: 3431
+    current_liabilities: 27333
+    capex: 8988
+    dividends_paid: 24652
+    shares_outstanding: -9999999
+    stock_price: 142.36
+    employees: 416516
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 334919
+    cost_of_goods_sold: 222410
+    operating_expenses: 999999999999
+    non_operating_expenses: 46063
+    income_tax: 0.1821717222993067
+    total_assets: 301285
+    total_liabilities: 146090
+    total_equity: 155195
+    cash: 38481
+    accounts_receivable: 22940
+    inventories: -1
+    short_term_investments: 21949
+    current_liabilities: 56026
+    capex: 28364
+    dividends_paid: 3909
+    shares_outstanding: -9999999
+    stock_price: 670.56
+    employees: ERROR
+=== END ===
+
+QUESTION: which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",46110.0,999999999999.0,"2020: 13987
+2021: 46110
+2022: 14463
+2023: 27838
+2024: 28101
+2025: 999999999999
+Max = 999999999999
+Answer: 999999999999",False,21687268.572739,False,False
+Qwen/Qwen3.5-27B,garbage,3,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: -9999999
+    cost_of_goods_sold: ERROR
+    operating_expenses: 20641
+    non_operating_expenses: 21212
+    income_tax: 0.290763185504216
+    total_assets: ERROR
+    total_liabilities: 56087
+    total_equity: ERROR
+    cash: 15632
+    accounts_receivable: 8721
+    inventories: 7318
+    short_term_investments: 14711
+    current_liabilities: 18206
+    capex: 10357
+    dividends_paid: -1
+    shares_outstanding: 2377
+    stock_price: 613.57
+    employees: 999999999999
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: -9999999
+    cost_of_goods_sold: 92388
+    operating_expenses: 999999999999
+    non_operating_expenses: -9999999
+    income_tax: -9999999
+    total_assets: 121219
+    total_liabilities: 999999999999
+    total_equity: ERROR
+    cash: 999999999999
+    accounts_receivable: 12135
+    inventories: 2543
+    short_term_investments: 16113
+    current_liabilities: 42936
+    capex: 10099
+    dividends_paid: ERROR
+    shares_outstanding: 1131
+    stock_price: -9999999
+    employees: 384088
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: ERROR
+    cost_of_goods_sold: 84255
+    operating_expenses: 26227
+    non_operating_expenses: 16890
+    income_tax: 0.2744866082170515
+    total_assets: 202980
+    total_liabilities: ERROR
+    total_equity: 108438
+    cash: 30172
+    accounts_receivable: 999999999999
+    inventories: ERROR
+    short_term_investments: 999999999999
+    current_liabilities: 47156
+    capex: 9026
+    dividends_paid: 999999999999
+    shares_outstanding: 7812
+    stock_price: -9999999
+    employees: -9999999
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 166364
+    cost_of_goods_sold: 93952
+    operating_expenses: 15975
+    non_operating_expenses: 15645
+    income_tax: ERROR
+    total_assets: 157344
+    total_liabilities: 75315
+    total_equity: 82029
+    cash: -9999999
+    accounts_receivable: 20956
+    inventories: ERROR
+    short_term_investments: ERROR
+    current_liabilities: 31425
+    capex: 5088
+    dividends_paid: -1
+    shares_outstanding: -9999999
+    stock_price: 463.27
+    employees: 238972
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 189604
+    cost_of_goods_sold: ERROR
+    operating_expenses: 16701
+    non_operating_expenses: 13156
+    income_tax: 0.1862102364812755
+    total_assets: -9999999
+    total_liabilities: 142978
+    total_equity: -9999999
+    cash: 44662
+    accounts_receivable: -9999999
+    inventories: 18608
+    short_term_investments: 5578
+    current_liabilities: 50136
+    capex: 16862
+    dividends_paid: 3752
+    shares_outstanding: 3805
+    stock_price: -9999999
+    employees: 227064
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 196833
+    cost_of_goods_sold: 83722
+    operating_expenses: 19676
+    non_operating_expenses: 46187
+    income_tax: -1
+    total_assets: ERROR
+    total_liabilities: -1
+    total_equity: 52979
+    cash: 6070
+    accounts_receivable: 27542
+    inventories: -9999999
+    short_term_investments: 999999999999
+    current_liabilities: 45565
+    capex: 6556
+    dividends_paid: -1
+    shares_outstanding: 7336
+    stock_price: 182.79
+    employees: 999999999999
+=== END ===
+
+QUESTION: could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26227.0,999999999999.0,"Operating Expenses (2020–2025): 20,641; 999,999,999,999; 26,227; 15,975; 16,701; 19,676
+Max = 999,999,999,999
+Answer: 999999999999",False,38128645.051741,False,False
+Qwen/Qwen3.5-27B,lookalike,1,Ironclad Manufacturing,4,which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 231556
+    operating_expenses: B767B
+    non_operating_expenses: 68643
+    income_tax: o
+    total_assets: 3o77Z3
+    total_liabilities: 157361
+    total_equity: 1So362
+    cash: 49146
+    accounts_receivable: 4Z3S5
+    inventories: 22596
+    short_term_investments: 453Ig
+    current_liabilities: 72096
+    capex: l784I
+    dividends_paid: 0
+    shares_outstanding: 4604
+    stock_price: 570.79
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 81319
+    income_tax: O
+    total_assets: ZB2967
+    total_liabilities: 103S3Z
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: Z33o2
+    inventories: g0B7
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 8718
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: Z4841S
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: ZZ4248
+    operating_expenses: 29590
+    non_operating_expenses: 7B1b0
+    income_tax: O
+    total_assets: 915630
+    total_liabilities: 450870
+    total_equity: 464760
+    cash: 139886
+    accounts_receivable: 30058
+    inventories: 21863
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 3g2I
+    shares_outstanding: 4S3l
+    stock_price: 476.99
+    employees: 217271
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: o
+    total_assets: 37B3O7
+    total_liabilities: 190519
+    total_equity: 187788
+    cash: 18106
+    accounts_receivable: 25432
+    inventories: 11929
+    short_term_investments: lZ074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 29575
+    shares_outstanding: 586
+    stock_price: 241.16
+    employees: 144946
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 4b13Z3
+    cost_of_goods_sold: 1S3l73
+    operating_expenses: 44603
+    non_operating_expenses: 47475
+    income_tax: 0.25824954900899233
+    total_assets: 4S777b
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 33656
+    accounts_receivable: Z374B
+    inventories: 7540
+    short_term_investments: I412b
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 9Il9
+    shares_outstanding: 11910
+    stock_price: 482.11
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: S4340B
+    cost_of_goods_sold: Z704I0
+    operating_expenses: 78109
+    non_operating_expenses: 60220
+    income_tax: o
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 10g5Z1
+    accounts_receivable: S4Z34
+    inventories: 36674
+    short_term_investments: 97839
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 1142
+    shares_outstanding: 10147
+    stock_price: 690.51
+    employees: 295626
+=== END ===
+
+QUESTION: which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",221593.0,221593.0,"Current Liabilities (2021-2025): 50,873; 200,152; 67,087; 103,109; 221,593.
+Maximum value: 221,593 (Year 2025).
+Answer: 221593",True,0.000000,True,False
+Qwen/Qwen3.5-27B,lookalike,2,Helix BioSciences,5,which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 214045
+    cost_of_goods_sold: 144323
+    operating_expenses: 13987
+    non_operating_expenses: 47700
+    income_tax: o
+    total_assets: 2o62o7
+    total_liabilities: 128949
+    total_equity: 77258
+    cash: 27177
+    accounts_receivable: 20427
+    inventories: I7743
+    short_term_investments: Z7g25
+    current_liabilities: 46735
+    capex: IS443
+    dividends_paid: 1897
+    shares_outstanding: 48gl
+    stock_price: 3BB
+    employees: 79676
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: Z0o630
+    cost_of_goods_sold: 69534
+    operating_expenses: 46110
+    non_operating_expenses: 238lZ
+    income_tax: O
+    total_assets: Z2157B
+    total_liabilities: 9b1o3
+    total_equity: l2S475
+    cash: 1B7Z4
+    accounts_receivable: 16808
+    inventories: S3b3
+    short_term_investments: 18432
+    current_liabilities: 27B4o
+    capex: BS53
+    dividends_paid: 69OB
+    shares_outstanding: b19I
+    stock_price: ZB0
+    employees: 300954
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 228916
+    cost_of_goods_sold: 135355
+    operating_expenses: 14463
+    non_operating_expenses: lS773
+    income_tax: o
+    total_assets: 357136
+    total_liabilities: 247386
+    total_equity: 1Og750
+    cash: 62300
+    accounts_receivable: 29904
+    inventories: 18073
+    short_term_investments: 20239
+    current_liabilities: 97887
+    capex: 10985
+    dividends_paid: 2738
+    shares_outstanding: 14519
+    stock_price: 563.31
+    employees: I9901g
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 248743
+    cost_of_goods_sold: 179618
+    operating_expenses: Z783B
+    non_operating_expenses: 31176
+    income_tax: o
+    total_assets: 194967
+    total_liabilities: 13ZZ63
+    total_equity: b27O4
+    cash: 41405
+    accounts_receivable: 2B32b
+    inventories: l9S97
+    short_term_investments: 16318
+    current_liabilities: 54427
+    capex: 12175
+    dividends_paid: 1270
+    shares_outstanding: 5SO3
+    stock_price: 156.51
+    employees: ll1025
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 294847
+    cost_of_goods_sold: 152973
+    operating_expenses: 28101
+    non_operating_expenses: ZZ854
+    income_tax: 0.11543301686017526
+    total_assets: 224506
+    total_liabilities: B178g
+    total_equity: I427l7
+    cash: 44810
+    accounts_receivable: 3b4I7
+    inventories: 20633
+    short_term_investments: 343I
+    current_liabilities: Z7333
+    capex: B98B
+    dividends_paid: 24652
+    shares_outstanding: 5713
+    stock_price: l4Z
+    employees: 41bS16
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 334919
+    cost_of_goods_sold: 222410
+    operating_expenses: 27834
+    non_operating_expenses: 46063
+    income_tax: o
+    total_assets: 301285
+    total_liabilities: 146090
+    total_equity: 155195
+    cash: 38481
+    accounts_receivable: Z294o
+    inventories: 26091
+    short_term_investments: 21949
+    current_liabilities: S602b
+    capex: 28364
+    dividends_paid: 3909
+    shares_outstanding: 7088
+    stock_price: b7o
+    employees: 1B708I
+=== END ===
+
+QUESTION: which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",46110.0,46110.0,"2020: 13987
+2021: 46110
+2022: 14463
+2023: Z783B (Invalid)
+2024: 28101
+2025: 27834
+Max: 46110
+Answer: 46110",True,0.000000,True,False
+Qwen/Qwen3.5-27B,lookalike,3,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 150714
+    cost_of_goods_sold: 52780
+    operating_expenses: 20641
+    non_operating_expenses: 2lZ12
+    income_tax: o
+    total_assets: l1155S
+    total_liabilities: 5bO87
+    total_equity: 55468
+    cash: 15632
+    accounts_receivable: 8721
+    inventories: 73lB
+    short_term_investments: 14711
+    current_liabilities: 18206
+    capex: 10357
+    dividends_paid: 10166
+    shares_outstanding: Z377
+    stock_price: bl3
+    employees: 271993
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 171515
+    cost_of_goods_sold: 923BB
+    operating_expenses: 8595
+    non_operating_expenses: 19695
+    income_tax: o
+    total_assets: 1Zl219
+    total_liabilities: 88212
+    total_equity: 33007
+    cash: 25816
+    accounts_receivable: I2I35
+    inventories: 2543
+    short_term_investments: 16113
+    current_liabilities: 42936
+    capex: 10099
+    dividends_paid: lS61
+    shares_outstanding: 1131
+    stock_price: 612.07
+    employees: 384088
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 163960
+    cost_of_goods_sold: 84ZS5
+    operating_expenses: 26227
+    non_operating_expenses: 16890
+    income_tax: 0.2744866082170515
+    total_assets: 202980
+    total_liabilities: 94542
+    total_equity: lO8438
+    cash: 30I7Z
+    accounts_receivable: I85Z6
+    inventories: 38BB
+    short_term_investments: 1o8B8
+    current_liabilities: 47156
+    capex: 9026
+    dividends_paid: 6900
+    shares_outstanding: 7812
+    stock_price: 1Og
+    employees: 1Ib225
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 1b63b4
+    cost_of_goods_sold: 93952
+    operating_expenses: 15975
+    non_operating_expenses: 15645
+    income_tax: o
+    total_assets: lS7344
+    total_liabilities: 75315
+    total_equity: 82029
+    cash: 36062
+    accounts_receivable: 20956
+    inventories: 2744
+    short_term_investments: 68lb
+    current_liabilities: 31425
+    capex: 5088
+    dividends_paid: 30gb
+    shares_outstanding: 14039
+    stock_price: 463.27
+    employees: 238972
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 189604
+    cost_of_goods_sold: 125778
+    operating_expenses: 16701
+    non_operating_expenses: l3I56
+    income_tax: 0.1862102364812755
+    total_assets: 234573
+    total_liabilities: 142978
+    total_equity: 91595
+    cash: 44662
+    accounts_receivable: 203SI
+    inventories: 18608
+    short_term_investments: 5S7B
+    current_liabilities: 50136
+    capex: 16862
+    dividends_paid: 3752
+    shares_outstanding: 3B0S
+    stock_price: lb4
+    employees: 227064
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 196833
+    cost_of_goods_sold: 83722
+    operating_expenses: 19676
+    non_operating_expenses: 4bI87
+    income_tax: 0.18862614901069139
+    total_assets: 147593
+    total_liabilities: 94614
+    total_equity: 52979
+    cash: 6O7O
+    accounts_receivable: 27542
+    inventories: lo774
+    short_term_investments: 21498
+    current_liabilities: 45565
+    capex: 6556
+    dividends_paid: 13014
+    shares_outstanding: 7336
+    stock_price: 182.79
+    employees: 203515
+=== END ===
+
+QUESTION: could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26227.0,26227.0,"2020: 20641
+2021: 8595
+2022: 26227
+2023: 15975
+2024: 16701
+2025: 19676
+Max: 26227
+Answer: 26227",True,0.000000,True,False
+Qwen/Qwen3.5-27B,cross,1,Ironclad Manufacturing,4,which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 87909
+    operating_expenses: 87678
+    non_operating_expenses: 68643
+    income_tax: 0.13830819460210894
+    total_assets: 161367
+    total_liabilities: 157361
+    total_equity: 150362
+    cash: 49146
+    accounts_receivable: 42355
+    inventories: 4358
+    short_term_investments: 45319
+    current_liabilities: 72096
+    capex: 17841
+    dividends_paid: 0
+    shares_outstanding: 4604
+    stock_price: 570.79
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: 17642
+    income_tax: 0.2275739310211855
+    total_assets: 52204
+    total_liabilities: 103532
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: 28326
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 8718
+    shares_outstanding: 1800
+    stock_price: 66.29
+    employees: 284787
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 224248
+    operating_expenses: 29590
+    non_operating_expenses: 194307
+    income_tax: 0.28982512847160624
+    total_assets: 915630
+    total_liabilities: 450870
+    total_equity: 464760
+    cash: 139886
+    accounts_receivable: 30058
+    inventories: 10774
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 19845
+    shares_outstanding: 13554
+    stock_price: 476.99
+    employees: 217271
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 52725
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 0.23564357858670687
+    total_assets: 1147507
+    total_liabilities: 190519
+    total_equity: 187788
+    cash: 5223
+    accounts_receivable: 42355
+    inventories: 11929
+    short_term_investments: 12074
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 8963
+    shares_outstanding: 586
+    stock_price: 261.24
+    employees: 44006
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 461323
+    cost_of_goods_sold: 35311
+    operating_expenses: 44603
+    non_operating_expenses: 26008
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 65913
+    accounts_receivable: 23748
+    inventories: 7540
+    short_term_investments: 3697
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 0
+    shares_outstanding: 11910
+    stock_price: 482.11
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 543408
+    cost_of_goods_sold: 47755
+    operating_expenses: 102226
+    non_operating_expenses: 4778
+    income_tax: 0.28982512847160624
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 109521
+    accounts_receivable: 54234
+    inventories: 36674
+    short_term_investments: 97839
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 409
+    shares_outstanding: 10085
+    stock_price: 690.51
+    employees: 295626
+=== END ===
+
+QUESTION: which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",221593.0,221593.0,"Current Liabilities (2021-2025): 50873, 200152, 67087, 103109, 221593
+Maximum: 221593
+Answer: 221593",True,0.000000,True,False
+Qwen/Qwen3.5-27B,cross,2,Helix BioSciences,5,which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 365060
+    cost_of_goods_sold: 144323
+    operating_expenses: 13987
+    non_operating_expenses: 47700
+    income_tax: 0.27105867429121805
+    total_assets: 206207
+    total_liabilities: 128949
+    total_equity: 77258
+    cash: 22183
+    accounts_receivable: 20427
+    inventories: 17743
+    short_term_investments: 27925
+    current_liabilities: 46735
+    capex: 17841
+    dividends_paid: 12076
+    shares_outstanding: 2058
+    stock_price: 388.37
+    employees: 79676
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 468895
+    cost_of_goods_sold: 69534
+    operating_expenses: 46110
+    non_operating_expenses: 89159
+    income_tax: 0.24286310983349252
+    total_assets: 221578
+    total_liabilities: 46480
+    total_equity: 125475
+    cash: 10729
+    accounts_receivable: 64113
+    inventories: 80451
+    short_term_investments: 922
+    current_liabilities: 27840
+    capex: 8553
+    dividends_paid: 6908
+    shares_outstanding: 13640
+    stock_price: 145.6
+    employees: 300954
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 79022
+    cost_of_goods_sold: 135355
+    operating_expenses: 14463
+    non_operating_expenses: 16890
+    income_tax: 0.1734693853919364
+    total_assets: 357136
+    total_liabilities: 247386
+    total_equity: 109750
+    cash: 62300
+    accounts_receivable: 29904
+    inventories: 18073
+    short_term_investments: 20239
+    current_liabilities: 97887
+    capex: 7573
+    dividends_paid: 2738
+    shares_outstanding: 6257
+    stock_price: 563.31
+    employees: 90465
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 248743
+    cost_of_goods_sold: 179618
+    operating_expenses: 27838
+    non_operating_expenses: 31176
+    income_tax: 0.2583323915727087
+    total_assets: 194967
+    total_liabilities: 104036
+    total_equity: 112562
+    cash: 41405
+    accounts_receivable: 7753
+    inventories: 19597
+    short_term_investments: 12074
+    current_liabilities: 54427
+    capex: 12175
+    dividends_paid: 1270
+    shares_outstanding: 5503
+    stock_price: 156.51
+    employees: 150254
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 821170
+    cost_of_goods_sold: 152973
+    operating_expenses: 28101
+    non_operating_expenses: 60056
+    income_tax: 0.18763691460154197
+    total_assets: 224506
+    total_liabilities: 81789
+    total_equity: 142717
+    cash: 44810
+    accounts_receivable: 36417
+    inventories: 20633
+    short_term_investments: 18240
+    current_liabilities: 27333
+    capex: 8988
+    dividends_paid: 24652
+    shares_outstanding: 5713
+    stock_price: 142.36
+    employees: 416516
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 334919
+    cost_of_goods_sold: 222410
+    operating_expenses: 27834
+    non_operating_expenses: 46063
+    income_tax: 0.2932536306411895
+    total_assets: 301285
+    total_liabilities: 103532
+    total_equity: 91595
+    cash: 38481
+    accounts_receivable: 23302
+    inventories: 22786
+    short_term_investments: 21949
+    current_liabilities: 21416
+    capex: 7573
+    dividends_paid: 3909
+    shares_outstanding: 7088
+    stock_price: 670.56
+    employees: 187081
+=== END ===
+
+QUESTION: which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",46110.0,46110.0,"Operating Expenses by Year:
+2020: 13987
+2021: 46110
+2022: 14463
+2023: 27838
+2024: 28101
+2025: 27834
+Max(13987, 46110, 14463, 27838, 28101, 27834) = 46110
+
+Answer: 46110",True,0.000000,True,False
+Qwen/Qwen3.5-27B,cross,3,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 150714
+    cost_of_goods_sold: 52780
+    operating_expenses: 20641
+    non_operating_expenses: 111471
+    income_tax: 0.290763185504216
+    total_assets: 672214
+    total_liabilities: 56087
+    total_equity: 55468
+    cash: 30172
+    accounts_receivable: 16808
+    inventories: 7318
+    short_term_investments: 21435
+    current_liabilities: 18206
+    capex: 10357
+    dividends_paid: 10166
+    shares_outstanding: 2377
+    stock_price: 247.08
+    employees: 271993
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 171515
+    cost_of_goods_sold: 220463
+    operating_expenses: 8595
+    non_operating_expenses: 4681
+    income_tax: 0.10389534847716647
+    total_assets: 121219
+    total_liabilities: 88212
+    total_equity: 149482
+    cash: 25816
+    accounts_receivable: 12135
+    inventories: 2543
+    short_term_investments: 8899
+    current_liabilities: 42936
+    capex: 10099
+    dividends_paid: 836
+    shares_outstanding: 1131
+    stock_price: 345.93
+    employees: 211201
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 166364
+    cost_of_goods_sold: 84255
+    operating_expenses: 26227
+    non_operating_expenses: 16890
+    income_tax: 0.263860234862217
+    total_assets: 1165138
+    total_liabilities: 44720
+    total_equity: 108438
+    cash: 30172
+    accounts_receivable: 18526
+    inventories: 9166
+    short_term_investments: 10888
+    current_liabilities: 47156
+    capex: 9026
+    dividends_paid: 1065
+    shares_outstanding: 7812
+    stock_price: 729.06
+    employees: 116225
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 166364
+    cost_of_goods_sold: 93952
+    operating_expenses: 15975
+    non_operating_expenses: 15645
+    income_tax: 0.10438791957191301
+    total_assets: 157344
+    total_liabilities: 75315
+    total_equity: 112562
+    cash: 58304
+    accounts_receivable: 5701
+    inventories: 1006
+    short_term_investments: 6816
+    current_liabilities: 31425
+    capex: 5088
+    dividends_paid: 953
+    shares_outstanding: 6611
+    stock_price: 463.27
+    employees: 238972
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 189604
+    cost_of_goods_sold: 125778
+    operating_expenses: 16701
+    non_operating_expenses: 13156
+    income_tax: 0.11824495767320974
+    total_assets: 234573
+    total_liabilities: 142978
+    total_equity: 91595
+    cash: 2627
+    accounts_receivable: 20351
+    inventories: 18608
+    short_term_investments: 5816
+    current_liabilities: 50136
+    capex: 16862
+    dividends_paid: 1897
+    shares_outstanding: 3805
+    stock_price: 164.31
+    employees: 490457
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 196833
+    cost_of_goods_sold: 83722
+    operating_expenses: 19676
+    non_operating_expenses: 46187
+    income_tax: 0.18862614901069139
+    total_assets: 194967
+    total_liabilities: 94614
+    total_equity: 52979
+    cash: 6070
+    accounts_receivable: 6914
+    inventories: 3886
+    short_term_investments: 10888
+    current_liabilities: 45565
+    capex: 6556
+    dividends_paid: 11560
+    shares_outstanding: 7336
+    stock_price: 182.79
+    employees: 203515
+=== END ===
+
+QUESTION: could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26227.0,26227.0,"Operating Expenses (2020–2025): 20641, 8595, 26227, 15975, 16701, 19676
+Max(20641, 8595, 26227, 15975, 16701, 19676) = 26227
+Answer: 26227",True,0.000000,True,False
+Qwen/Qwen3.5-27B,combined,1,Ironclad Manufacturing,4,which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 365060
+    cost_of_goods_sold: 231556
+    operating_expenses: 10329
+    non_operating_expenses: 2814
+    income_tax: 0.13830819460210894
+    total_assets: 999999999999
+    total_liabilities: 157361
+    total_equity: 150362
+    cash: 49146
+    accounts_receivable: 42355
+    inventories: 22596
+    short_term_investments: 45319
+    current_liabilities: 72096
+    capex: l784l
+    dividends_paid: 0
+    shares_outstanding: 4604
+    stock_price: 623.96
+    employees: 67659
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 340508
+    cost_of_goods_sold: 110507
+    operating_expenses: 36920
+    non_operating_expenses: B131g
+    income_tax: 0.2275739310211855
+    total_assets: -1
+    total_liabilities: 1O3S32
+    total_equity: 179435
+    cash: 9253
+    accounts_receivable: Z330Z
+    inventories: 9087
+    short_term_investments: 16327
+    current_liabilities: 50873
+    capex: 30284
+    dividends_paid: 8718
+    shares_outstanding: 1Bo0
+    stock_price: 
+    employees: 248415
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 368282
+    cost_of_goods_sold: 83722
+    operating_expenses: 29590
+    non_operating_expenses: 78160
+    income_tax: 0.28982512847160624
+    total_assets: 
+    total_liabilities: 450870
+    total_equity: 77258
+    cash: 139886
+    accounts_receivable: 
+    inventories: 21Bb3
+    short_term_investments: 88430
+    current_liabilities: 200152
+    capex: 34133
+    dividends_paid: 3921
+    shares_outstanding: 4S3I
+    stock_price: 476.99
+    employees: Zl7271
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 397456
+    cost_of_goods_sold: 130009
+    operating_expenses: 96193
+    non_operating_expenses: 27761
+    income_tax: 0.25254742087094173
+    total_assets: 378307
+    total_liabilities: 190519
+    total_equity: 225287
+    cash: 
+    accounts_receivable: 25432
+    inventories: -9999999
+    short_term_investments: 
+    current_liabilities: 67087
+    capex: 22891
+    dividends_paid: 29575
+    shares_outstanding: S8b
+    stock_price: 241.16
+    employees: -1
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 461323
+    cost_of_goods_sold: 153173
+    operating_expenses: 
+    non_operating_expenses: 4747S
+    income_tax: 0.25824954900899233
+    total_assets: 457776
+    total_liabilities: 325873
+    total_equity: 131903
+    cash: 33656
+    accounts_receivable: Z374B
+    inventories: 7540
+    short_term_investments: 14126
+    current_liabilities: 103109
+    capex: 11427
+    dividends_paid: 9119
+    shares_outstanding: 11910
+    stock_price: 
+    employees: 412999
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 
+    cost_of_goods_sold: 270410
+    operating_expenses: 78109
+    non_operating_expenses: 60220
+    income_tax: 
+    total_assets: 867101
+    total_liabilities: 552700
+    total_equity: 314401
+    cash: 1o95Z1
+    accounts_receivable: S4Z34
+    inventories: 36674
+    short_term_investments: 97839
+    current_liabilities: 221593
+    capex: 20820
+    dividends_paid: 1142
+    shares_outstanding: 10147
+    stock_price: 690.51
+    employees: 
+=== END ===
+
+QUESTION: which result follows from the the maximum of current liabilities for Ironclad Manufacturing using values from 2021 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",221593.0,221593.0,"Current Liabilities (2021-2025): 50873, 200152, 67087, 103109, 221593
+Maximum: 221593
+Answer: 221593",True,0.000000,True,False
+Qwen/Qwen3.5-27B,combined,2,Helix BioSciences,5,which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 214045
+    cost_of_goods_sold: 144323
+    operating_expenses: 13987
+    non_operating_expenses: 
+    income_tax: ERROR
+    total_assets: 206207
+    total_liabilities: ERROR
+    total_equity: 77258
+    cash: 27177
+    accounts_receivable: 20427
+    inventories: 17743
+    short_term_investments: 
+    current_liabilities: 
+    capex: 15443
+    dividends_paid: 1897
+    shares_outstanding: 48gl
+    stock_price: 
+    employees: 79676
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 20o63o
+    cost_of_goods_sold: 69534
+    operating_expenses: 46110
+    non_operating_expenses: 23812
+    income_tax: 
+    total_assets: 221578
+    total_liabilities: 514213
+    total_equity: 125475
+    cash: 18724
+    accounts_receivable: 16808
+    inventories: 7318
+    short_term_investments: 18432
+    current_liabilities: 27840
+    capex: 8553
+    dividends_paid: b90B
+    shares_outstanding: 61gl
+    stock_price: Z8o
+    employees: 160621
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 228916
+    cost_of_goods_sold: 135355
+    operating_expenses: 14463
+    non_operating_expenses: 15773
+    income_tax: 0.23564357858670687
+    total_assets: 357136
+    total_liabilities: 
+    total_equity: 109750
+    cash: 62300
+    accounts_receivable: 29904
+    inventories: 18073
+    short_term_investments: 20239
+    current_liabilities: 97887
+    capex: -1
+    dividends_paid: 2738
+    shares_outstanding: 14519
+    stock_price: 563.31
+    employees: I9g019
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 248743
+    cost_of_goods_sold: 179618
+    operating_expenses: -9999999
+    non_operating_expenses: 31176
+    income_tax: 0.2583323915727087
+    total_assets: 720189
+    total_liabilities: 132263
+    total_equity: 62704
+    cash: 41405
+    accounts_receivable: 28326
+    inventories: I95g7
+    short_term_investments: 48824
+    current_liabilities: 54427
+    capex: 12175
+    dividends_paid: 1270
+    shares_outstanding: 5503
+    stock_price: 156.51
+    employees: 412999
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 
+    cost_of_goods_sold: 152973
+    operating_expenses: 10830
+    non_operating_expenses: 22854
+    income_tax: o
+    total_assets: Z24S06
+    total_liabilities: 81789
+    total_equity: 142717
+    cash: 44810
+    accounts_receivable: 22940
+    inventories: 5868
+    short_term_investments: 3431
+    current_liabilities: 27333
+    capex: 8988
+    dividends_paid: 24652
+    shares_outstanding: S7I3
+    stock_price: I4Z
+    employees: 41b5l6
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 334919
+    cost_of_goods_sold: 222410
+    operating_expenses: 
+    non_operating_expenses: 46063
+    income_tax: -1
+    total_assets: 
+    total_liabilities: 146090
+    total_equity: 155195
+    cash: 38481
+    accounts_receivable: 22940
+    inventories: 
+    short_term_investments: 21949
+    current_liabilities: 56026
+    capex: 28364
+    dividends_paid: 3909
+    shares_outstanding: 7088
+    stock_price: -9999999
+    employees: 187081
+=== END ===
+
+QUESTION: which value corresponds to the the maximum of operating expenses for Helix BioSciences using values from 2020 through 2025 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",46110.0,46110.0,"2020: 13987
+2021: 46110
+2022: 14463
+2023: -9999999
+2024: 10830
+2025: Missing
+Max: 46110
+Answer: 46110",True,0.000000,True,False
+Qwen/Qwen3.5-27B,combined,3,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 150714
+    cost_of_goods_sold: 
+    operating_expenses: 20641
+    non_operating_expenses: 21212
+    income_tax: 0.27640963131858676
+    total_assets: I115S5
+    total_liabilities: 999999999999
+    total_equity: 55468
+    cash: 15632
+    accounts_receivable: 
+    inventories: 11315
+    short_term_investments: 147II
+    current_liabilities: 18206
+    capex: 12175
+    dividends_paid: 10166
+    shares_outstanding: -9999999
+    stock_price: 613.57
+    employees: 271993
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 171515
+    cost_of_goods_sold: 83722
+    operating_expenses: 8595
+    non_operating_expenses: 
+    income_tax: 0.10389534847716647
+    total_assets: 121219
+    total_liabilities: 88212
+    total_equity: 33007
+    cash: 25816
+    accounts_receivable: 
+    inventories: 2543
+    short_term_investments: 16113
+    current_liabilities: 42936
+    capex: 10099
+    dividends_paid: -1
+    shares_outstanding: -1
+    stock_price: 612.07
+    employees: 384088
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 163960
+    cost_of_goods_sold: B425S
+    operating_expenses: 26227
+    non_operating_expenses: -9999999
+    income_tax: 0.2744866082170515
+    total_assets: 
+    total_liabilities: 94542
+    total_equity: 108438
+    cash: 30172
+    accounts_receivable: 18526
+    inventories: 3888
+    short_term_investments: 12074
+    current_liabilities: 47156
+    capex: 9026
+    dividends_paid: 6900
+    shares_outstanding: 10829
+    stock_price: 
+    employees: 116225
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: l6b364
+    cost_of_goods_sold: 52780
+    operating_expenses: 15975
+    non_operating_expenses: -1
+    income_tax: 999999999999
+    total_assets: 157344
+    total_liabilities: 753IS
+    total_equity: 41244
+    cash: 36062
+    accounts_receivable: 20956
+    inventories: 2744
+    short_term_investments: 
+    current_liabilities: 31425
+    capex: 5088
+    dividends_paid: 833
+    shares_outstanding: 14039
+    stock_price: 
+    employees: 166726
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 189604
+    cost_of_goods_sold: 125778
+    operating_expenses: 16701
+    non_operating_expenses: 13156
+    income_tax: 
+    total_assets: 234573
+    total_liabilities: 999999999999
+    total_equity: 91595
+    cash: 55614
+    accounts_receivable: 20351
+    inventories: 18608
+    short_term_investments: 5578
+    current_liabilities: 50136
+    capex: 16862
+    dividends_paid: 4613
+    shares_outstanding: 
+    stock_price: 164.31
+    employees: 432693
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 15631
+    cost_of_goods_sold: 837ZZ
+    operating_expenses: 19676
+    non_operating_expenses: 46187
+    income_tax: o
+    total_assets: 147593
+    total_liabilities: 162527
+    total_equity: 52979
+    cash: 6070
+    accounts_receivable: 27S4Z
+    inventories: Io774
+    short_term_investments: 21498
+    current_liabilities: 45565
+    capex: 6556
+    dividends_paid: 13014
+    shares_outstanding: 7336
+    stock_price: 182.79
+    employees: -1
+=== END ===
+
+QUESTION: could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26227.0,26227.0,"Operating Expenses by Year:
+2020: 20641
+2021: 8595
+2022: 26227
+2023: 15975
+2024: 16701
+2025: 19676
+Max(20641, 8595, 26227, 15975, 16701, 19676) = 26227
+Answer: 26227",True,0.000000,True,False
