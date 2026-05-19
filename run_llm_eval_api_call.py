@@ -243,9 +243,12 @@ def run_inference(model_name: str, prompt: str, max_new_tokens: int = 2048) -> s
     """Call the API with a single user prompt and return the response text."""
     response = _client.chat.completions.create(
         model=model_name,
-        messages=[{"role": "user", "content": prompt}],
+        messages=[
+            {"role": "system", "content": "Do not show your thinking process. Output only the answer."},
+            {"role": "user", "content": prompt},
+        ],
         max_tokens=max_new_tokens,
-        extra_body={"enable_thinking": False},
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
     )
     return response.choices[0].message.content.strip()
 
@@ -256,7 +259,7 @@ def run_multiturn_inference(model_name: str, messages: list, max_new_tokens: int
         model=model_name,
         messages=_sanitize_messages(messages),
         max_tokens=max_new_tokens,
-        extra_body={"enable_thinking": False},
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
     )
     return response.choices[0].message.content.strip()
 
