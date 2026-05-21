@@ -63,6 +63,20 @@ def _period_type(period: str) -> str:
     return "balance_sheet"
 
 
+def _period_group_key(period: str) -> str:
+    """Finer grouping that includes calendar month for flow periods.
+
+    Prevents mixing April quarters with October quarters when a company
+    appears in multiple filings with different quarter-end months.
+    """
+    ptype = _period_type(period)
+    if ptype == "balance_sheet":
+        return ptype
+    m = period.split("Ended ")
+    month = m[1].split()[0] if len(m) > 1 else "unknown"
+    return f"{ptype}_{month}"
+
+
 @dataclass
 class Store10Q(Store):
     """Store subclass that caps time-aggregation windows and skips outflow concepts."""
@@ -96,14 +110,15 @@ class Store10Q(Store):
             raise Exception(
                 f"Need at least two periods for concept={concept}, entity={entity} ({purpose})."
             )
-        # Group by period type — only compare same-length time spans
+        # Group by period type + calendar month — prevents mixing April and
+        # October quarters when a company appears in multiple filings.
         by_type: dict[str, list[str]] = {}
         for p in all_periods:
-            by_type.setdefault(_period_type(p), []).append(p)
+            by_type.setdefault(_period_group_key(p), []).append(p)
         eligible_types = [t for t, ps in by_type.items() if len(ps) >= 2]
         if not eligible_types:
             raise Exception(
-                f"No period type with 2+ periods for concept={concept}, entity={entity} ({purpose})."
+                f"No period group with 2+ periods for concept={concept}, entity={entity} ({purpose})."
             )
         chosen_type = random.choice(eligible_types)
         periods = by_type[chosen_type]
@@ -364,12 +379,12 @@ def main() -> None:
                     raise ValueError("Duplicate atom keys in expression — degenerate reuse")
                 leaf_periods = [atoms[k].period for k in leaf_keys_check]
                 flow_types = {
-                    _period_type(p) for p in leaf_periods
+                    _period_group_key(p) for p in leaf_periods
                     if _period_type(p) != "balance_sheet"
                 }
                 if len(flow_types) > 1:
                     raise ValueError(
-                        f"Mixed flow period types {flow_types} — quarter and YTD cannot be combined"
+                        f"Mixed flow period groups {flow_types} — cannot combine different quarter months or quarter/YTD"
                     )
                 analysis = analyzer.analyze(expr)
                 answer = evaluator.eval(expr)

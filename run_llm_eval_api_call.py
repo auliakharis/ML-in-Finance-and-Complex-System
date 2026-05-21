@@ -67,11 +67,11 @@ _client = openai.Client(
 BASE_DIR = Path(__file__).parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
-DATASET_10Q = BASE_DIR / "10q" / "final_qa_dataset.json"
-SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
+DATASET_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "random_questions_10q.csv"
+ATOMS_10Q   = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "atoms_10q.json"
 
-DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
-SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
+DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output" / "random_questions_90.csv"
+SHEET_90Q   = BASE_DIR / "compiler_pipeline_refactored" / "output" / "synthetic_company_data.csv"
 
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
 SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
@@ -88,9 +88,29 @@ def load_json(path: Path) -> list:
         return json.load(f)
 
 
-def build_10q_sheet_lookup(sheet: list) -> dict:
-    """company_name -> dict of financial fields."""
-    return {row["company_name"]: row for row in sheet}
+def _parse_period_date(period: str):
+    from datetime import datetime, date
+    date_str = period.split("Ended ")[-1].strip() if "Ended " in period else period.strip()
+    for fmt in ("%B %d, %Y", "%B %Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(date_str, fmt).date()
+        except ValueError:
+            pass
+    return date.min
+
+
+def build_10q_sheet_lookup(atoms: list) -> dict:
+    """entity -> list of atom dicts, grouped for 10Q prompt context."""
+    lookup: dict = {}
+    for atom in atoms:
+        lookup.setdefault(atom["entity"], []).append(atom)
+    return lookup
+
+
+def load_10q_questions(path: Path) -> list:
+    """Load 10Q compiler pipeline questions from CSV."""
+    with open(path, newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
 
 
 def build_90q_sheet_lookup(sheet: list) -> dict:
@@ -108,11 +128,18 @@ def build_90q_sheet_lookup(sheet: list) -> dict:
 # Prompt builders
 # ---------------------------------------------------------------------------
 
-def sheet_to_text_10q(row: dict) -> str:
-    """Format a 10-Q spreadsheet row as readable key-value text."""
+def sheet_to_text_10q(atoms: list) -> str:
+    """Format 10Q atoms grouped by period (chronological) as readable text."""
+    from collections import defaultdict
+    by_period: dict = defaultdict(list)
+    for a in atoms:
+        by_period[a["period"]].append(a)
     lines = []
-    for k, v in row.items():
-        lines.append(f"  {k}: {v}")
+    for period in sorted(by_period, key=_parse_period_date):
+        lines.append(f"  {period}:")
+        for a in sorted(by_period[period], key=lambda x: x.get("label") or x["concept"]):
+            unit = f" ({a['unit']})" if a.get("unit") else ""
+            lines.append(f"    {a.get('label') or a['concept']}{unit}: {a['value']}")
     return "\n".join(lines)
 
 
@@ -276,22 +303,22 @@ def evaluate_10q(
     tol: float,
     max_new_tokens: int = 2048,
 ) -> list:
-    """Evaluate on 10-Q questions. Returns per-question result dicts."""
+    """Evaluate on 10Q compiler pipeline questions. Returns per-question result dicts."""
     results = []
     subset = questions[:limit] if limit else questions
 
     for i, q in enumerate(subset, 1):
-        company = q.get("company", "")
+        entity = q.get("leaf_1_entity", "")
         question_text = q.get("question", "")
         ground_truth = q.get("answer")
 
-        sheet_row = sheet_lookup.get(company)
-        if sheet_row is None:
-            print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{company}')")
+        atoms = sheet_lookup.get(entity)
+        if not atoms:
+            print(f"  [{i}/{len(subset)}] SKIP (no atoms for '{entity}')")
             results.append({
                 "source": "10q",
-                "id": q.get("id"),
-                "company": company,
+                "id": q.get("question_id"),
+                "entity": entity,
                 "depth": q.get("depth"),
                 "question": question_text,
                 "ground_truth": ground_truth,
@@ -302,7 +329,7 @@ def evaluate_10q(
             })
             continue
 
-        sheet_text = sheet_to_text_10q(sheet_row)
+        sheet_text = sheet_to_text_10q(atoms)
         prompt = build_prompt(sheet_text, question_text)
 
         response = run_inference(model_name, prompt, max_new_tokens)
@@ -310,12 +337,16 @@ def evaluate_10q(
         correct = is_correct(predicted, ground_truth, tol)
 
         status = "CORRECT" if correct else "WRONG "
-        print(f"  [{i}/{len(subset)}] {status} | truth={ground_truth} pred={predicted} | {question_text[:60]}...")
+        try:
+            gt_display = f"{float(ground_truth):.4f}"
+        except (TypeError, ValueError):
+            gt_display = str(ground_truth)
+        print(f"  [{i}/{len(subset)}] {status} | truth={gt_display} pred={predicted} | {question_text[:60]}...")
 
         results.append({
             "source": "10q",
-            "id": q.get("id"),
-            "company": company,
+            "id": q.get("question_id"),
+            "entity": entity,
             "depth": q.get("depth"),
             "question": question_text,
             "ground_truth": ground_truth,
@@ -699,15 +730,15 @@ def main():
     # Load datasets
     print("Loading datasets...")
     if "10q" in args.datasets:
-        questions_10q = load_json(DATASET_10Q)
-        sheet_lookup_10q = build_10q_sheet_lookup(load_json(SHEET_10Q))
-        print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} companies")
+        questions_10q = load_10q_questions(DATASET_10Q)
+        sheet_lookup_10q = build_10q_sheet_lookup(load_json(ATOMS_10Q))
+        print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} entities")
     else:
         questions_10q, sheet_lookup_10q = [], {}
 
     if "90q" in args.datasets:
-        questions_90q = load_json(DATASET_90Q)
-        sheet_lookup_90q = build_90q_sheet_lookup(load_json(SHEET_90Q))
+        questions_90q = load_10q_questions(DATASET_90Q)
+        sheet_lookup_90q = build_90q_sheet_lookup(load_10q_questions(SHEET_90Q))
         print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
     else:
         questions_90q, sheet_lookup_90q = [], {}
