@@ -1,0 +1,372 @@
+{
+    "define": {
+
+        "total_revenues": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": "top_line",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "cost_of_sales": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_revenues",
+            "statement": "income_statement",
+            "role": "component",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "gross_profit": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3],
+            "optional": true
+        },
+        "research_and_development": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_costs_and_expenses",
+            "statement": "income_statement",
+            "role": "component",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "selling_general_and_administrative": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_costs_and_expenses",
+            "statement": "income_statement",
+            "role": "component",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "total_costs_and_expenses": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": "component",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "operating_income": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "other_income_expense_net": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": "component",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "provision_for_income_taxes": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": "component",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "net_income": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "earnings_per_share_basic": {
+            "semantic_type": "price",
+            "unit": "USD_per_share",
+            "parent_concept": null,
+            "statement": "income_statement",
+            "role": null,
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+        "earnings_per_share_diluted": {
+            "semantic_type": "price",
+            "unit": "USD_per_share",
+            "parent_concept": "earnings_per_share_basic",
+            "statement": "income_statement",
+            "role": null,
+            "allowed_period_types": ["current_quarter", "prior_year_quarter", "current_ytd", "prior_year_ytd"],
+            "ytd_requires_quarter": [2, 3]
+        },
+
+        "cash_and_cash_equivalents": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "short_term_investments": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "accounts_receivable_net": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "inventories": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "prepaid_expenses_and_other": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "total_current_assets": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_assets",
+            "statement": "balance_sheet",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "long_term_marketable_securities": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_non_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "property_plant_and_equipment_net": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_non_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "goodwill": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_non_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "other_non_current_assets": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_non_current_assets",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "total_non_current_assets": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_assets",
+            "statement": "balance_sheet",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "total_assets": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "balance_sheet",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "accounts_payable": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_liabilities",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "deferred_revenue_current": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_liabilities",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "accrued_expenses_and_other": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_liabilities",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "current_portion_of_long_term_debt": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_current_liabilities",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "total_current_liabilities": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_liabilities",
+            "statement": "balance_sheet",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "long_term_debt": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_non_current_liabilities",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "other_non_current_liabilities": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_non_current_liabilities",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "total_non_current_liabilities": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_liabilities",
+            "statement": "balance_sheet",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "total_liabilities": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "balance_sheet",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "retained_earnings": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "total_shareholders_equity",
+            "statement": "balance_sheet",
+            "role": "component",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+        "total_shareholders_equity": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "balance_sheet",
+            "role": "derived",
+            "allowed_period_types": ["current_quarter_end", "prior_fy_end"]
+        },
+
+        "net_cash_from_operating": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "cash_flow_statement",
+            "role": "derived",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "capital_expenditures": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "net_cash_from_investing",
+            "statement": "cash_flow_statement",
+            "role": "component",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "depreciation_and_amortization": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "net_cash_from_operating",
+            "statement": "cash_flow_statement",
+            "role": "component",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "stock_based_compensation": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "net_cash_from_operating",
+            "statement": "cash_flow_statement",
+            "role": "component",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "net_cash_from_investing": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "cash_flow_statement",
+            "role": "derived",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "share_repurchases": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "net_cash_from_financing",
+            "statement": "cash_flow_statement",
+            "role": "component",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "dividends_paid": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": "net_cash_from_financing",
+            "statement": "cash_flow_statement",
+            "role": "component",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "net_cash_from_financing": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "cash_flow_statement",
+            "role": "derived",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        },
+        "net_change_in_cash": {
+            "semantic_type": "amount",
+            "unit": "M_USD",
+            "parent_concept": null,
+            "statement": "cash_flow_statement",
+            "role": "derived",
+            "allowed_period_types": ["current_ytd", "prior_ytd"]
+        }
+    }
+}
