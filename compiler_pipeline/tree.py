@@ -5,7 +5,7 @@ import random
 from pathlib import Path
 from typing import Any
 from pydantic import BaseModel
-from enum import StrEnum
+from enum import Enum
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
@@ -701,7 +701,7 @@ class Expr(BaseModel, ABC):
         raise ValueError(f"Unknown tree kind: {kind}")
 
 
-class Operation(StrEnum):
+class Operation(str, Enum):
     sum = "sum"
     diff = "diff"
     ratio = "ratio"
@@ -714,7 +714,7 @@ class Operation(StrEnum):
     def is_time_aggregation(self) -> bool:
         return self in {Operation.min, Operation.max, Operation.avg}
 
-class SemanticType(StrEnum):
+class SemanticType(str, Enum):
     amount = "amount"
     count = "count"
     price = "price"

@@ -13,7 +13,7 @@ from semantic_analyzer import SemanticAnalyzer
 from tree import Atom, BindEnv, DERIVED_CONCEPTS, Expr, Store
 
 T = TypeVar("T")
-
+#--csv --depth-min 20 --depth-max 20 --derived-prob-min 1 --derived-prob-max 1
 
 def validate_args(args: argparse.Namespace) -> None:
     if args.n <= 0:
@@ -162,6 +162,7 @@ def build_row(
 
     return row
 
+# python make_random_questions.py --depth-max 25 --depth-min 20 --derived-prob-min 1 --derived-prob-max 1
 
 def main() -> None:
     parser = argparse.ArgumentParser(
@@ -191,7 +192,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=None, help="Master seed; default is random")
     parser.add_argument(
         "--output",
-        default="output/random_questions_90.csv",
+        default="output/random_questions_90_alicia.csv",
         help="Output CSV path",
     )
     args = parser.parse_args()

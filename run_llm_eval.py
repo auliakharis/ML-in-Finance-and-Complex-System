@@ -26,7 +26,7 @@ of the ground-truth numeric answer (default ±1%).
 Usage:
   python run_llm_eval.py
   python run_llm_eval.py --limit 20 --tol 0.1
-  python run_llm_eval.py --models Qwen3.5-4B --limit 10
+  python run_llm_eval.py --models Qwen3.5-4B --limit 90 --finetune "" --datasets 90q
   python run_llm_eval.py --output results.json
 
 for the multi turn : 
@@ -62,13 +62,17 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 BASE_DIR = Path(__file__).parent
-MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
+# MODELS_DIR = Path(f"{os.environ.get('USER', 'user')}/models")
+MODELS_DIR = Path.home() / "models"
+print(MODELS_DIR)
 
 DATASET_10Q = BASE_DIR / "10q" / "final_qa_dataset.json"
 SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
 
-DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
-SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
+# DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
+# SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
+DATASET_90Q = BASE_DIR / "compiler_pipeline" / "output" / "json_format" / "questions_multfact1000000_depth20.json"
+SHEET_90Q   = BASE_DIR / "compiler_pipeline" / "output" / "json_format" / "synthetic_company_data_multfact1000000.json"
 
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
 SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies

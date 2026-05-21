@@ -10,6 +10,7 @@ import random
 
 random.seed(42)
 
+MULTI_FACTOR = 1000000
 YEARS = list(range(2020, 2026))
 CATEGORICAL_COLS_FILE = "config/categorical_cols.json"
 YEARLY_NUMERIC_COLS_FILE = "config/yearly_numeric_cols.json"
@@ -133,43 +134,40 @@ def generate_company_row_for_given_year(
     stock_price_range: tuple[float, float],
     employees_range: tuple[float, float],
 ) -> tuple[CSVRow, float]:
+    # Revenue growth
     growth = random.uniform(-0.08, 0.20)
-    revenue = round(base_revenue * (1 + growth))
+    revenue = round(MULTI_FACTOR * base_revenue * (1 + growth))
 
-    # Derive income-statement drivers from revenue.
+    # Income-statement items (scale automatically because revenue is scaled)
     cogs = round(revenue * random.uniform(0.30, 0.75))
     opex = round(revenue * random.uniform(0.05, 0.25))
     nonopex = round(revenue * random.uniform(0.05, 0.25))
     income_tax = random.uniform(*income_tax_range)
 
-    # Derive balance-sheet items tied to revenue scale.
-    # Asset turnover (revenue / assets) derives total assets from revenue.
+    # Balance sheet items (derived from revenue, already implicitly scaled)
     asset_turnover = random.uniform(0.3, 1.5)
     total_assets = round(revenue / asset_turnover)
-    # Debt-to-equity ratio splits assets into equity and liabilities; enforces assets = liabilities + equity.
+
     de_ratio = random.uniform(0.3, 3.0)
     total_equity = round(total_assets / (1 + de_ratio))
     total_liabilities = total_assets - total_equity
 
-    # Cash: 3-25% of total assets (liquidity buffer).
+    # Current assets (percentages; safe)
     cash = round(total_assets * random.uniform(0.03, 0.25))
-    # Accounts receivable: 4-14% of revenue (~15-51 days sales outstanding).
     ar = round(revenue * random.uniform(0.04, 0.14))
-    # Inventories: 2-15% of COGS (days inventory outstanding anchor).
     inv = round(cogs * random.uniform(0.02, 0.15))
-    # Short-term investments: 1-15% of total assets (excess cash parked in securities).
     short_term_investments = round(total_assets * random.uniform(0.01, 0.15))
-    # Current liabilities: 25-50% of total liabilities (remainder is long-term).
     cl = round(total_liabilities * random.uniform(0.25, 0.50))
 
-    # Derive cash-flow and market/profile fields.
+    # Cash-flow items (scale via revenue)
     net_income = round((revenue - cogs - opex - nonopex) * (1 - income_tax))
     dividends = round(max(0, net_income * random.uniform(0.0, 0.40)))
     capex = round(revenue * random.uniform(0.02, 0.10))
 
-    shares = round(random.uniform(*shares_outstanding_range))
-    price = round(random.uniform(*stock_price_range), 2)
-    employees = round(random.uniform(*employees_range))
+    # SCALE ranges that represent absolute magnitudes
+    shares = round(random.uniform(*shares_outstanding_range) * MULTI_FACTOR)
+    price = round(random.uniform(*stock_price_range) * MULTI_FACTOR, 2)
+    employees = round(random.uniform(*employees_range) * MULTI_FACTOR)
 
     row = CSVRow(
         company_name=company_tuple.name,
@@ -198,6 +196,7 @@ def generate_company_row_for_given_year(
         stock_price=price,
         employees=employees,
     )
+
     return row, revenue
 
 

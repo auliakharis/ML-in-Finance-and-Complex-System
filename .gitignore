@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 .env
 batch*.sh
+
+output_llm/
+compiler_pipeline/output/
+lora/
+.venv/
