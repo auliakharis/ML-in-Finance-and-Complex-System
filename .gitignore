@@ -1,10 +1,9 @@
 nano .gitignore
 ```
 
-Add these lines:
-```
+.venv/
 venv/
-__pycache__/
-*.pyc
-.env
-batch*.sh
+compiler_pipeline/
+lora/
+output_llm/
+compiler_pipeline_refactored/output/
