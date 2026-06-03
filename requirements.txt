@@ -8,10 +8,12 @@ pypdf==4.3.1
 
 # Data handling
 pandas==2.2.3
+pydantic==2.13.4
 
 # LLM inference (for question generation)
 transformers==4.46.3
-torch==2.5.1
+# torch==2.5.1
+torch>=2.9.0
 accelerate==1.1.1
 bitsandbytes==0.44.1        
 

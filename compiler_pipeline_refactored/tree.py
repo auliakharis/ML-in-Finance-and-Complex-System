@@ -49,6 +49,10 @@ class Expr(BaseModel, ABC):
     def flatten_sum(self) -> list["Leaf"]:
         ...
 
+    @abstractmethod
+    def contains_a_derived_concept(self) -> bool:
+        ...
+
     @staticmethod
     def fold_narry(op: Operation, operands: list[Expr]) -> Expr:
         if not operands:
@@ -280,19 +284,17 @@ class Expr(BaseModel, ABC):
         return [
             name
             for name, spec in registry.items()
-            if spec.family == family and spec.concept_depth <= depth
+            if spec.family == family and spec.concept_depth < depth
         ]
 
     @staticmethod
-    def choose_amount_op(rng: random.Random, allow_time_aggregates: bool) -> Operation:
+    def choose_amount_op( allow_time_aggregates: bool) -> Operation:
         ops = list(AMOUNT_BINARY_OPS)
         if allow_time_aggregates:
             ops.extend(TIME_AGG_OPS)
-        return rng.choice(ops)
-
+        return random.choice(ops)
     @staticmethod
     def sample_amount_terminal(
-        rng: random.Random,
         depth: int,
         derived_prob: float,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
@@ -302,27 +304,24 @@ class Expr(BaseModel, ABC):
             family="amount",
             derived_registry=derived_registry,
         )
-        if eligible and rng.random() < derived_prob:
-            return Expr.make_derived_concept(rng.choice(eligible))
+        if eligible and random.uniform(0, 1) < derived_prob:
+            return Expr.make_derived_concept(random.choice(eligible))
         return Expr.make_leaf("amount")
 
     @staticmethod
     def build_time_series_amount_pair(
         depth: int,
-        rng: random.Random,
         derived_prob: float,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> tuple[Expr, Expr]:
         left = Expr.build_amount_tree(
             depth=depth,
-            rng=rng,
             derived_prob=derived_prob,
             allow_time_aggregates=False,
             derived_registry=derived_registry,
         )
         right = Expr.build_amount_tree(
             depth=depth,
-            rng=rng,
             derived_prob=derived_prob,
             allow_time_aggregates=False,
             derived_registry=derived_registry,
@@ -332,24 +331,21 @@ class Expr(BaseModel, ABC):
     @staticmethod
     def build_ratio_tree(
         depth: int,
-        rng: random.Random,
         derived_prob: float,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> Expr:
         if depth == 0:
             return Expr.make_leaf("ratio")
 
-        op = rng.choice(RATIO_OPS)
+        op = random.choice(RATIO_OPS)
         if op == Operation.ratio:
             left = Expr.build_amount_tree(
                 depth=depth - 1,
-                rng=rng,
                 derived_prob=derived_prob,
                 derived_registry=derived_registry,
             )
             right = Expr.build_amount_tree(
                 depth=depth - 1,
-                rng=rng,
                 derived_prob=derived_prob,
                 derived_registry=derived_registry,
             )
@@ -358,7 +354,6 @@ class Expr(BaseModel, ABC):
         if op == Operation.growth:
             left, right = Expr.build_time_series_amount_pair(
                 depth=depth - 1,
-                rng=rng,
                 derived_prob=derived_prob,
                 derived_registry=derived_registry,
             )
@@ -369,40 +364,35 @@ class Expr(BaseModel, ABC):
     @staticmethod
     def build_amount_tree(
         depth: int,
-        rng: random.Random,
         derived_prob: float = 0.30,
         allow_time_aggregates: bool = True,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
     ) -> Expr:
         if depth == 0:
             return Expr.sample_amount_terminal(
-                rng=rng,
                 depth=0,
                 derived_prob=0.0,
                 derived_registry=derived_registry,
             )
 
-        if rng.random() < 0.35:
+        if random.uniform(0, 1) < 0.35:
             return Expr.sample_amount_terminal(
-                rng=rng,
                 depth=depth,
                 derived_prob=derived_prob,
                 derived_registry=derived_registry,
             )
 
-        op = Expr.choose_amount_op(rng, allow_time_aggregates)
+        op = Expr.choose_amount_op(allow_time_aggregates)
 
         if op in {Operation.sum, Operation.diff}:
             left = Expr.build_amount_tree(
                 depth=depth - 1,
-                rng=rng,
                 derived_prob=derived_prob,
                 allow_time_aggregates=allow_time_aggregates,
                 derived_registry=derived_registry,
             )
             right = Expr.build_amount_tree(
                 depth=depth - 1,
-                rng=rng,
                 derived_prob=derived_prob,
                 allow_time_aggregates=allow_time_aggregates,
                 derived_registry=derived_registry,
@@ -412,14 +402,12 @@ class Expr(BaseModel, ABC):
         if op == Operation.mul:
             left = Expr.build_amount_tree(
                 depth=depth - 1,
-                rng=rng,
                 derived_prob=derived_prob,
                 allow_time_aggregates=allow_time_aggregates,
                 derived_registry=derived_registry,
             )
             right = Expr.build_ratio_tree(
                 depth=depth - 1,
-                rng=rng,
                 derived_prob=derived_prob,
                 derived_registry=derived_registry,
             )
@@ -587,7 +575,6 @@ class Expr(BaseModel, ABC):
     @staticmethod
     def sample_tree_with_rejection(
         max_depth: int,
-        rng: random.Random,
         derived_prob: float,
         max_attempts: int = 200,
         derived_registry: dict[str, DerivedConcept] | list[DerivedConcept] | None = None,
@@ -603,7 +590,6 @@ class Expr(BaseModel, ABC):
         for _ in range(max_attempts):
             tree = Expr.build_amount_tree(
                 depth=max_depth,
-                rng=rng,
                 derived_prob=derived_prob,
                 derived_registry=derived_registry,
             )
@@ -785,6 +771,9 @@ class Leaf(Expr, BaseModel):
     def flatten_sum(self) -> list["Leaf"]:
         return [self] if self.key is not None else []
     
+    def contains_a_derived_concept(self) -> bool:
+        return False
+    
 class Node(Expr, BaseModel):
     op: Operation
     left: "Expr"
@@ -816,6 +805,9 @@ class Node(Expr, BaseModel):
         if self.op == Operation.sum:
             return self.left.flatten_sum() + self.right.flatten_sum()
         return []
+    
+    def contains_a_derived_concept(self) -> bool:
+        return self.left.contains_a_derived_concept() or self.right.contains_a_derived_concept()
     
 
 class DerivedExpr(Expr, BaseModel):
@@ -850,6 +842,9 @@ class DerivedExpr(Expr, BaseModel):
 
     def flatten_sum(self) -> list["Leaf"]:
         return []
+    
+    def contains_a_derived_concept(self) -> bool:
+        return True
 
 class TimeAgg(Expr, BaseModel):
     name: str | None = None
@@ -884,6 +879,11 @@ class TimeAgg(Expr, BaseModel):
 
     def flatten_sum(self) -> list["Leaf"]:
         return []
+    
+    def contains_a_derived_concept(self) -> bool:
+        if self.expr is None:
+            return False
+        return self.expr.contains_a_derived_concept()
 
 
 class Literal(Expr, BaseModel):
@@ -911,6 +911,9 @@ class Literal(Expr, BaseModel):
     def flatten_sum(self) -> list["Leaf"]:
         return []
     
+    def contains_a_derived_concept(self) -> bool:
+        return False
+
 class BindEnv(BaseModel):
     entity: str | None = None
     period: str | None = None

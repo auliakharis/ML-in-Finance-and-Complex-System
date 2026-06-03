@@ -7,6 +7,7 @@ import pandas as pd
 import json
 from pydantic import BaseModel
 import random
+import argparse 
 
 random.seed(42)
 
@@ -132,9 +133,10 @@ def generate_company_row_for_given_year(
     shares_outstanding_range: tuple[float, float],
     stock_price_range: tuple[float, float],
     employees_range: tuple[float, float],
+    multi_factor: int,
 ) -> tuple[CSVRow, float]:
     growth = random.uniform(-0.08, 0.20)
-    revenue = round(base_revenue * (1 + growth))
+    revenue = round(multi_factor * base_revenue * (1 + growth))
 
     # Derive income-statement drivers from revenue.
     cogs = round(revenue * random.uniform(0.30, 0.75))
@@ -167,9 +169,9 @@ def generate_company_row_for_given_year(
     dividends = round(max(0, net_income * random.uniform(0.0, 0.40)))
     capex = round(revenue * random.uniform(0.02, 0.10))
 
-    shares = round(random.uniform(*shares_outstanding_range))
-    price = round(random.uniform(*stock_price_range), 2)
-    employees = round(random.uniform(*employees_range))
+    shares = round(random.uniform(*shares_outstanding_range) * multi_factor)
+    price = round(random.uniform(*stock_price_range) * multi_factor, 2)
+    employees = round(random.uniform(*employees_range) * multi_factor)
 
     row = CSVRow(
         company_name=company_tuple.name,
@@ -205,6 +207,7 @@ def generate_company_row(
     company_tuple: Company,
     categorical_cols: CategorialColumns,
     yearly_numeric_cols: YearlyNumericColumns,
+    multi_factor: int,
 ) -> list[CSVRow]:
     """Generate one row of the spreadsheet for one company."""
     credit_rating = random.choice(categorical_cols.define["credit_rating"].order)
@@ -226,6 +229,7 @@ def generate_company_row(
             shares_outstanding_range=normalize_range(yearly_numeric_cols.define["shares_outstanding"].range),
             stock_price_range=normalize_range(yearly_numeric_cols.define["stock_price"].range),
             employees_range=normalize_range(yearly_numeric_cols.define["employees"].range),
+            multi_factor=multi_factor,
         )
         rows.append(csv_row)
 
@@ -350,13 +354,13 @@ def generate_atoms_and_write_to_json(
         f.write(json_data)
 
 
-def generate_csv(csv_path: str) -> tuple[list[str], list[CSVRow]]:
+def generate_csv(csv_path: str, multi_factor: int) -> tuple[list[str], list[CSVRow]]:
     # Generate all company-year rows.
     companies, categorical_cols, yearly_numeric_cols = (
         load_companies_and_columns_from_jsons()
     )
     row = [
-        generate_company_row(company, categorical_cols, yearly_numeric_cols)
+        generate_company_row(company, categorical_cols, yearly_numeric_cols, multi_factor)
         for company in companies.define
     ]
     row: list[CSVRow] = [inner_row for sublist in row for inner_row in sublist]
@@ -387,7 +391,11 @@ def main():
     schema_path = "output/schema.json"
     atoms_path = "output/atoms.json"
     
-    columns, rows = generate_csv(csv_path)
+    parser = argparse.ArgumentParser(description="Data preparation")
+    parser.add_argument("--factor", type=int, default=1, help="Multiplication factor of data.")
+    args = parser.parse_args()
+    
+    columns, rows = generate_csv(csv_path, args.factor)
     concept_metadata_schema = load_concept_metadata_from_json()
     _, categorical_cols, yearly_numeric_cols = load_companies_and_columns_from_jsons()
     generate_json_schema(schema_path, columns, categorical_cols, yearly_numeric_cols)
