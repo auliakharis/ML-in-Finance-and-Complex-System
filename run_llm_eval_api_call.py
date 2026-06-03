@@ -70,6 +70,15 @@ MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 DATASET_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "random_questions_10q.csv"
 ATOMS_10Q   = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "atoms_10q.json"
 
+_ADV_DIR_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "adversarial"
+ADV_ATOMS_10Q: dict[str, Path] = {
+    "10q_missing":   _ADV_DIR_10Q / "atoms_missing.json",
+    "10q_garbage":   _ADV_DIR_10Q / "atoms_garbage.json",
+    "10q_lookalike": _ADV_DIR_10Q / "atoms_lookalike.json",
+    "10q_cross":     _ADV_DIR_10Q / "atoms_cross.json",
+    "10q_combined":  _ADV_DIR_10Q / "atoms_combined.json",
+}
+
 DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output" / "random_questions_90.csv"
 SHEET_90Q   = BASE_DIR / "compiler_pipeline_refactored" / "output" / "synthetic_company_data.csv"
 
@@ -129,7 +138,11 @@ def build_90q_sheet_lookup(sheet: list) -> dict:
 # ---------------------------------------------------------------------------
 
 def sheet_to_text_10q(atoms: list) -> str:
-    """Format 10Q atoms grouped by period (chronological) as readable text."""
+    """Format 10Q atoms grouped by period (chronological) as readable text.
+
+    Handles corrupted atoms: None values are shown as blank, value_display
+    (used by lookalike corruption) overrides the numeric value.
+    """
     from collections import defaultdict
     by_period: dict = defaultdict(list)
     for a in atoms:
@@ -139,7 +152,8 @@ def sheet_to_text_10q(atoms: list) -> str:
         lines.append(f"  {period}:")
         for a in sorted(by_period[period], key=lambda x: x.get("label") or x["concept"]):
             unit = f" ({a['unit']})" if a.get("unit") else ""
-            lines.append(f"    {a.get('label') or a['concept']}{unit}: {a['value']}")
+            display = a.get("value_display") or (a["value"] if a.get("value") is not None else "")
+            lines.append(f"    {a.get('label') or a['concept']}{unit}: {display}")
     return "\n".join(lines)
 
 
@@ -657,7 +671,8 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for model_name, model_data in all_results.items():
-            for dataset_key in ("10q", "90q", "mt"):
+            adv_keys = [k for k in model_data if k.startswith("10q_")]
+            for dataset_key in ["10q", "90q", "mt"] + adv_keys:
                 for r in model_data.get(dataset_key, []):
                     gt = r.get("ground_truth")
                     pred = r.get("predicted")
@@ -717,9 +732,12 @@ def parse_args():
         "--csv", type=str, default="output_llm/eval_results.csv",
         help="Path to save per-question results CSV (default: eval_results.csv)",
     )
+    _adv_choices = ["10q_missing", "10q_garbage", "10q_lookalike", "10q_cross", "10q_combined"]
     parser.add_argument(
-        "--datasets", nargs="+", choices=["10q", "90q", "mt"], default=["10q", "90q", "mt"],
-        help="Which dataset(s) to evaluate: 10q, 90q, mt, or any combination (default: all)",
+        "--datasets", nargs="+",
+        choices=["10q", "90q", "mt"] + _adv_choices,
+        default=["10q", "90q", "mt"],
+        help="Which dataset(s) to evaluate: 10q, 90q, mt, or adversarial 10Q variants (default: all)",
     )
     return parser.parse_args()
 
@@ -751,6 +769,16 @@ def main():
     else:
         questions_mt, sheet_lookup_mt = [], {}
 
+    # Pre-load adversarial atom lookups
+    adv_lookups: dict[str, dict] = {}
+    for adv_key, adv_path in ADV_ATOMS_10Q.items():
+        if adv_key in args.datasets:
+            if not adv_path.exists():
+                print(f"  WARNING: {adv_path} not found — run adversarial_10q.py first")
+            else:
+                adv_lookups[adv_key] = build_10q_sheet_lookup(load_json(adv_path))
+                print(f"  {adv_key}: {len(adv_lookups[adv_key])} entities")
+
     all_results = {}
 
     for model_name in args.models:
@@ -766,6 +794,15 @@ def main():
             )
         else:
             results_10q = []
+
+        # Adversarial 10Q variants
+        results_adv: dict[str, list] = {}
+        for adv_key, adv_lookup in adv_lookups.items():
+            print(f"\n-- {adv_key} evaluation ({args.limit or len(questions_10q)} questions) --")
+            results_adv[adv_key] = evaluate_10q(
+                questions_10q, adv_lookup, model_name,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+            )
 
         if "90q" in args.datasets:
             print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
@@ -788,6 +825,11 @@ def main():
 
         print_summary(model_name, results_10q, results_90q, results_mt)
 
+        # Print adversarial accuracy summary
+        for adv_key, adv_results in results_adv.items():
+            acc = compute_accuracy(adv_results)
+            print(f"  {adv_key}: {acc['correct']}/{acc['total']}  accuracy = {acc['accuracy']:.1%}  (skipped {acc.get('skipped', 0)})")
+
         all_results[model_name] = {
             "10q": results_10q,
             "90q": results_90q,
@@ -795,6 +837,8 @@ def main():
             "accuracy_10q": compute_accuracy(results_10q),
             "accuracy_90q": compute_accuracy(results_90q),
             "accuracy_mt": compute_accuracy(results_mt),
+            **{adv_key: adv_results for adv_key, adv_results in results_adv.items()},
+            **{f"accuracy_{adv_key}": compute_accuracy(adv_results) for adv_key, adv_results in results_adv.items()},
         }
 
     # Save results
