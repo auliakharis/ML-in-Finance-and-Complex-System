@@ -346,8 +346,16 @@ def main() -> None:
     rows: list[dict[str, Any]] = []
     max_leaf_count = 0
 
-    for i in range(args.n_questions):
+    i = 0
+    derived_true_count = 0
+
+    while i < args.n_questions:
         last_error: Exception | None = None
+
+        current_ratio = derived_true_count / (i + 1)
+        target_ratio = (args.derived_prob_min + args.derived_prob_max) / 2
+        need_derived = current_ratio < target_ratio
+
         for attempt in range(1, 1001):
             tree_seed = master_rng.randint(0, 10**9)
             bind_seed = master_rng.randint(0, 10**9)
@@ -360,7 +368,6 @@ def main() -> None:
             try:
                 tree_payload, _ = Expr.sample_tree_with_rejection(
                     max_depth=depth,
-                    rng=random.Random(tree_seed),
                     derived_prob=derived_prob,
                     derived_registry=DERIVED_CONCEPTS_10Q,
                 )
@@ -372,8 +379,6 @@ def main() -> None:
                     BindEnv(),
                     DERIVED_CONCEPTS_10Q,
                 )
-                if expr.expr_depth() > args.depth_max:
-                    raise ValueError(f"Expression depth {expr.expr_depth()} exceeds depth_max {args.depth_max}")
                 leaf_keys_check = flatten_leaf_keys(expr)
                 if len(leaf_keys_check) != len(set(leaf_keys_check)):
                     raise ValueError("Duplicate atom keys in expression — degenerate reuse")
@@ -396,6 +401,14 @@ def main() -> None:
                 template_stats = Expr.count_nodes(tree_payload)
                 leaf_keys = flatten_leaf_keys(expr)
                 max_leaf_count = max(max_leaf_count, len(leaf_keys))
+
+                does_expr_contain_derived = expr.contains_a_derived_concept()
+                actual_depth = expr.expr_depth()
+
+                if need_derived and not does_expr_contain_derived:
+                    continue
+                if not (args.depth_min <= actual_depth <= args.depth_max):
+                    continue
                 break
             except Exception as err:
                 last_error = err
@@ -404,6 +417,10 @@ def main() -> None:
                         f"Failed to generate question {i + 1} after 1000 attempts. "
                         f"Last error: {type(last_error).__name__}: {last_error}"
                     ) from last_error
+
+        i += 1
+        if does_expr_contain_derived:
+            derived_true_count += 1
 
         row = build_row(
             i=i,
