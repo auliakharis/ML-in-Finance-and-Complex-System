@@ -1,0 +1,94 @@
+nohup: ignoring input
+Loading questions...
+  90 questions loaded from /cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/compiler_pipeline_refactored/output/questions/useless_info/questions.json
+Loading sheet lookups...
+  [baseline] 15 companies loaded from synthetic_company_data.csv
+  [missing] 15 companies loaded from missing_values.csv
+  [garbage] 15 companies loaded from garbage.csv
+  [lookalike] 15 companies loaded from lookalike.csv
+  [cross] 15 companies loaded from cross_contaminated.csv
+  [combined] 15 companies loaded from combined_adversarial.csv
+
+=================================================================
+  Evaluating model: swiss-ai/Apertus-70B-Instruct-2509
+=================================================================
+
+-- [baseline] (1 questions) --
+  [1/1] WRONG  | truth=130622258473.0000 pred=130622.0 | The company has created a committee to oversee internal cont...
+
+-- [missing] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [garbage] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [lookalike] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [cross] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [combined] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+=================================================================
+  Model: swiss-ai/Apertus-70B-Instruct-2509
+=================================================================
+  Dataset               Correct    Total   Accuracy  Skipped
+  --------------------------------------------------------
+  baseline                    0        1       0.0%        0
+  missing                     1        1     100.0%        0
+  garbage                     1        1     100.0%        0
+  lookalike                   1        1     100.0%        0
+  cross                       1        1     100.0%        0
+  combined                    1        1     100.0%        0
+  --------------------------------------------------------
+  Overall                     5        6      83.3%
+=================================================================
+
+
+=================================================================
+  Evaluating model: meta-llama/Llama-3.3-70B-Instruct
+=================================================================
+
+-- [baseline] (1 questions) --
+  [1/1] WRONG  | truth=130622258473.0000 pred=130622.0 | The company has created a committee to oversee internal cont...
+
+-- [missing] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [garbage] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [lookalike] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [cross] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+-- [combined] (1 questions) --
+  [1/1] CORRECT | truth=130622258473.0000 pred=130622258473.0 | The company has created a committee to oversee internal cont...
+
+=================================================================
+  Model: meta-llama/Llama-3.3-70B-Instruct
+=================================================================
+  Dataset               Correct    Total   Accuracy  Skipped
+  --------------------------------------------------------
+  baseline                    0        1       0.0%        0
+  missing                     1        1     100.0%        0
+  garbage                     1        1     100.0%        0
+  lookalike                   1        1     100.0%        0
+  cross                       1        1     100.0%        0
+  combined                    1        1     100.0%        0
+  --------------------------------------------------------
+  Overall                     5        6      83.3%
+=================================================================
+
+Results saved to output_llm/eval_adversarial_results_20260522_175623.json
+CSV saved to output_llm/eval_adversarial_results_20260522_175623.csv
+
+=== Model Comparison ===
+Model                        baseline     missing     garbage   lookalike       cross    combined
+-------------------------------------------------------------------------------------------------
+swiss-ai/Apertus-70B-Instruct-2509        0.0%      100.0%      100.0%      100.0%      100.0%      100.0%
+meta-llama/Llama-3.3-70B-Instruct        0.0%      100.0%      100.0%      100.0%      100.0%      100.0%

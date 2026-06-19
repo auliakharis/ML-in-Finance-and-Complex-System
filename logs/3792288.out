@@ -1,0 +1,115 @@
+Checking model path...
+Starting pipeline: Thu Jun 18 05:57:17 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Thu Jun 18 05:57:17 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA TITAN RTX               On  |   00000000:22:00.0 Off |                  N/A |
+| 40%   32C    P8             17W /  280W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 20: using 20 examples (smoke test mode)
+[INFO]  Pool: 20 examples | depth dist: {0: 1, 1: 9, 2: 2, 3: 4, 4: 2, 6: 1, 7: 1}
+
+[PHASE 1] Generating CoT traces from base model ...
+  [1/20] depth=1 SKIP | truth=85599.0 pred=False
+         Q: what does the following give: the minimum of operating expenses for CRPH using v
+         R: Answer: False
+
+  [2/20] depth=3 SKIP | truth=-782.0 pred=False
+         Q: determine the pretax income for PNHG in 2020
+         R: Answer: False
+
+  [3/20] depth=2 SKIP | truth=20286.0 pred=False
+         Q: may you calculate the the minimum of current liabilities for NVST using values f
+         R: Answer: False
+
+  [4/20] depth=1 SKIP | truth=3681.1436759660687 pred=False
+         Q: What is the result of current liabilities scaled by income tax for APEX in 2024
+         R: Answer: False
+
+  [5/20] depth=1 SKIP | truth=-266175.0 pred=False
+         Q: may you calculate the difference between dividends paid and total assets for NVS
+         R: No data provided for NVST dividends paid or total assets in 2024.
+Answer: False
+
+  [6/20] depth=1 SKIP | truth=-7589.0 pred=False
+         Q: State the difference between accounts receivable and cost of goods sold for PNHG
+         R: Answer: False
+
+  [7/20] depth=6 SKIP | truth=-53784.29110414865 pred=False
+         Q: Compute the result of difference between inventories and longterm liabilities sc
+         R: Answer: False
+
+  [8/20] depth=2 SKIP | truth=129984.0 pred=False
+         Q: Evaluate the operating income for TICB in 2025
+         R: Answer: False
+
+  [9/20] depth=3 SKIP | truth=36239.0 pred=False
+         Q: What's the value of the pretax income for ATGL in 2023 ?
+         R: Answer: False
+
+  [10/20] depth=1 SKIP | truth=12144.0 pred=False
+         Q: give the the maximum of accounts receivable for ORFG using values from 2024 thro
+         R: Answer: False
+
+  [11/20] depth=4 SKIP | truth=65249.0 pred=False
+         Q: What does the following give: the minimum of current liabilities for CRPH using 
+         R: Answer: False
+
+  [12/20] depth=1 SKIP | truth=3456.0 pred=False
+         Q: state the the maximum of operating expenses for PNHG using values from 2024 thro
+         R: Answer: False
+
+  [13/20] depth=3 SKIP | truth=29918.0 pred=False
+         Q: what is the pretax income for APEX in 2020?
+         R: Answer: False
+
+  [14/20] depth=0 SKIP | truth=19203.0 pred=False
+         Q: state the revenue for PNHG in 2023 .
+         R: Answer: False
+
+  [15/20] depth=7 SKIP | truth=-18527.662039045557 pred=False
+         Q: determine the result of ratio of sum of sum of sum of sum of sum of total liabil
+         R: Answer: False
+
+  [16/20] depth=4 SKIP | truth=66789.0 pred=False
+         Q: You should calculate the the maximum of total equity for APEX using values from 
+         R: Answer: False
+
+  [17/20] depth=1 SKIP | truth=-321417.0 pred=False
+         Q: What does the following give: difference between non operating expenses and tota
+         R: Answer: False
+
+  [18/20] depth=1 SKIP | truth=8680.0 pred=False
+         Q: compute the sum of inventories and inventories for QBHD in 2021.
+         R: Answer: False
+
+  [19/20] depth=3 SKIP | truth=55302.5 pred=False
+         Q: Which value corresponds to the sum of ratio of sum of operating expenses for HLX
+         R: Answer: False
+
+  [20/20] depth=1 SKIP | truth=4121.0 pred=False
+         Q: state the longterm liabilities for PNHG in 2022 .
+         R: Answer: False
+
+  [20/20]  kept=0  skipped=20  (0% pass rate so far)
+
+[PHASE 1] Done: 0/20 kept (0%)
+[PHASE 1] Depth dist of kept CoT examples: {}
+Done: Thu Jun 18 05:58:10 AM CEST 2026

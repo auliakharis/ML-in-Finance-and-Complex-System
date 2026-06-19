@@ -1,0 +1,29 @@
+Checking model path...
+Starting pipeline: Wed Jun 17 05:07:57 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Wed Jun 17 05:07:57 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        On  |   00000000:22:00.0 Off |                  N/A |
+|  0%   28C    P8             27W /  370W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+trainable params: 21,233,664 || all params: 4,226,984,960 || trainable%: 0.5023
+[INFO]  --limit 20: using 20 examples (smoke test mode)
+[INFO]  Training set: 20 examples | depth dist: {0: 5, 1: 4, 2: 2, 3: 5, 4: 3, 5: 1}
+Done: Wed Jun 17 05:09:40 AM CEST 2026

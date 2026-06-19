@@ -1,0 +1,29 @@
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<09:52,  1.39s/it]Loading weights:   1%|▏         | 6/426 [00:01<01:24,  4.99it/s]Loading weights:   2%|▏         | 8/426 [00:01<01:14,  5.62it/s]Loading weights:   3%|▎         | 12/426 [00:01<00:42,  9.68it/s]Loading weights:   4%|▎         | 15/426 [00:02<00:34, 11.85it/s]Loading weights:   6%|▌         | 25/426 [00:02<00:15, 25.99it/s]Loading weights:   7%|▋         | 30/426 [00:02<00:14, 27.58it/s]Loading weights:   8%|▊         | 36/426 [00:02<00:14, 27.58it/s]Loading weights:   9%|▉         | 40/426 [00:02<00:14, 26.30it/s]Loading weights:  10%|█         | 44/426 [00:02<00:13, 27.76it/s]Loading weights:  11%|█▏        | 48/426 [00:03<00:17, 21.37it/s]Loading weights:  12%|█▏        | 51/426 [00:03<00:18, 20.36it/s]Loading weights:  14%|█▍        | 60/426 [00:03<00:11, 31.82it/s]Loading weights:  15%|█▌        | 64/426 [00:03<00:14, 24.30it/s]Loading weights:  16%|█▌        | 68/426 [00:04<00:18, 19.87it/s]Loading weights:  18%|█▊        | 76/426 [00:04<00:13, 26.73it/s]Loading weights:  19%|█▉        | 81/426 [00:04<00:11, 29.75it/s]Loading weights:  22%|██▏       | 92/426 [00:04<00:07, 44.40it/s]Loading weights:  23%|██▎       | 98/426 [00:04<00:07, 41.64it/s]Loading weights:  24%|██▍       | 104/426 [00:04<00:07, 42.75it/s]Loading weights:  27%|██▋       | 115/426 [00:04<00:05, 54.48it/s]Loading weights:  29%|██▊       | 122/426 [00:04<00:05, 51.75it/s]Loading weights:  30%|███       | 129/426 [00:05<00:05, 52.70it/s]Loading weights:  32%|███▏      | 135/426 [00:05<00:05, 50.38it/s]Loading weights:  34%|███▍      | 146/426 [00:05<00:04, 62.83it/s]Loading weights:  36%|███▌      | 153/426 [00:05<00:05, 47.93it/s]Loading weights:  39%|███▉      | 167/426 [00:05<00:04, 63.04it/s]Loading weights:  41%|████      | 175/426 [00:06<00:05, 48.13it/s]Loading weights:  44%|████▎     | 186/426 [00:06<00:04, 53.58it/s]Loading weights:  46%|████▋     | 198/426 [00:06<00:03, 58.56it/s]Loading weights:  48%|████▊     | 205/426 [00:06<00:04, 48.19it/s]Loading weights:  52%|█████▏    | 220/426 [00:06<00:03, 60.60it/s]Loading weights:  53%|█████▎    | 227/426 [00:06<00:03, 52.92it/s]Loading weights:  56%|█████▌    | 239/426 [00:07<00:03, 60.15it/s]Loading weights:  58%|█████▊    | 249/426 [00:07<00:02, 65.94it/s]Loading weights:  60%|██████    | 257/426 [00:07<00:02, 59.38it/s]Loading weights:  62%|██████▏   | 265/426 [00:07<00:02, 58.51it/s]Loading weights:  65%|██████▌   | 277/426 [00:07<00:02, 71.22it/s]Loading weights:  67%|██████▋   | 285/426 [00:07<00:01, 72.82it/s]Loading weights:  69%|██████▉   | 293/426 [00:07<00:02, 59.20it/s]Loading weights:  72%|███████▏  | 305/426 [00:08<00:01, 72.55it/s]Loading weights:  74%|███████▎  | 314/426 [00:08<00:01, 61.13it/s]Loading weights:  77%|███████▋  | 326/426 [00:08<00:01, 71.58it/s]Loading weights:  79%|███████▊  | 335/426 [00:08<00:01, 65.12it/s]Loading weights:  81%|████████  | 344/426 [00:08<00:01, 70.21it/s]Loading weights:  83%|████████▎ | 354/426 [00:08<00:00, 75.57it/s]Loading weights:  85%|████████▌ | 363/426 [00:08<00:01, 60.35it/s]Loading weights:  87%|████████▋ | 370/426 [00:09<00:00, 56.19it/s]Loading weights:  89%|████████▉ | 379/426 [00:09<00:00, 63.12it/s]Loading weights:  91%|█████████ | 386/426 [00:09<00:00, 42.21it/s]Loading weights:  92%|█████████▏| 393/426 [00:09<00:00, 44.79it/s]Loading weights:  94%|█████████▎| 399/426 [00:09<00:00, 41.25it/s]Loading weights:  96%|█████████▌| 407/426 [00:09<00:00, 45.17it/s]Loading weights:  97%|█████████▋| 413/426 [00:10<00:00, 34.02it/s]Loading weights:  98%|█████████▊| 418/426 [00:10<00:00, 35.57it/s]Loading weights: 100%|██████████| 426/426 [00:10<00:00, 40.73it/s]
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/tokenization_utils_base.py", line 286, in __getattr__
+    return self.data[item]
+           ~~~~~~~~~^^^^^^
+KeyError: 'shape'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/lora2_cot.py", line 170, in <module>
+    response = generate_response(prompt)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/lora2_cot.py", line 136, in generate_response
+    out = model.generate(
+        inputs,
+    ...<4 lines>...
+        pad_token_id=tokenizer.eos_token_id,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/generation/utils.py", line 2415, in generate
+    batch_size = inputs_tensor.shape[0]
+                 ^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/tokenization_utils_base.py", line 288, in __getattr__
+    raise AttributeError
+AttributeError

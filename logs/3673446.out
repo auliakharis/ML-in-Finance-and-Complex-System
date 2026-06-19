@@ -1,0 +1,49 @@
+Checking model path...
+Starting pipeline: Wed Jun 17 04:15:17 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Wed Jun 17 04:15:17 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 6000                On  |   00000000:41:00.0 Off |                  Off |
+| 33%   30C    P8             17W /  260W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Model loaded on cuda.
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=442481.0000 pred=442481.0 | What are total assets for Crimson Pharmaceuticals in 2022?...
+
+============================================================
+  Model: Qwen3.5-4B
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 1/1  accuracy = 100.0%
+============================================================
+
+Results saved to output_llm/eval_results_20260617_042000.json
+CSV saved to output_llm/eval_results_20260617_042000.csv
+Done: Wed Jun 17 04:20:04 AM CEST 2026

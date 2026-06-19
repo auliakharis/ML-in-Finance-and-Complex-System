@@ -55,10 +55,11 @@ _client = openai.Client(
 
 BASE_DIR = Path(__file__).parent
 
-DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output"/ "random_questions_90.json"
+DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output"/"questions"/"useless_info" /"questions.json"
 
 ADV_DIR = BASE_DIR / "compiler_pipeline_refactored" / "output" / "adversarial"
-CLEAN_SHEET = BASE_DIR / "compiler_pipeline_refactored" / "output" / "synthetic_company_data.csv"
+
+CLEAN_SHEET = BASE_DIR / "compiler_pipeline_refactored" / "output" /"data"/"big_numbers_prompt_injection"/ "synthetic_company_data.csv"
 
 ADVERSARIAL_SHEETS: dict[str, Path] = {
     "baseline": CLEAN_SHEET,
@@ -69,7 +70,7 @@ ADVERSARIAL_SHEETS: dict[str, Path] = {
     "combined": ADV_DIR / "combined_adversarial.csv",
 }
 
-DEFAULT_MODELS = ["Qwen/Qwen3.5-27B"]
+DEFAULT_MODELS = ["swiss-ai/Apertus-70B-Instruct-2509", "meta-llama/Llama-3.3-70B-Instruct", "Qwen/Qwen3.5-27B"]
 
 
 # ---------------------------------------------------------------------------

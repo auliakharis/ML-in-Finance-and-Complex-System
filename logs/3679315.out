@@ -1,0 +1,50 @@
+Checking model path...
+Starting pipeline: Wed Jun 17 06:27:42 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Wed Jun 17 06:27:42 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        On  |   00000000:22:00.0 Off |                  N/A |
+|  0%   28C    P8             27W /  370W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading LoRA adapters from /cluster/scratch/arakhmasari/lora-checkpoints/adapters ...
+  Model loaded on cuda.
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=174053.0000 pred=174053.0 | whats the value of the total equity for ClearPath Logistics ...
+
+============================================================
+  Model: Qwen3.5-4B+ft
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 1/1  accuracy = 100.0%
+============================================================
+
+Results saved to output_llm/eval_results_20260617_063128.json
+CSV saved to output_llm/eval_results_20260617_063128.csv
+Done: Wed Jun 17 06:31:29 AM CEST 2026

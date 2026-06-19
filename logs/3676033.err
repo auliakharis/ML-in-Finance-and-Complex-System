@@ -1,0 +1,67 @@
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<10:05,  1.43s/it]Loading weights:   1%|▏         | 6/426 [00:01<01:27,  4.78it/s]Loading weights:   2%|▏         | 8/426 [00:01<01:17,  5.37it/s]Loading weights:   3%|▎         | 13/426 [00:02<00:41, 10.01it/s]Loading weights:   5%|▌         | 22/426 [00:02<00:19, 20.52it/s]Loading weights:   6%|▋         | 27/426 [00:02<00:16, 24.55it/s]Loading weights:   8%|▊         | 36/426 [00:02<00:16, 23.94it/s]Loading weights:   9%|▉         | 40/426 [00:02<00:16, 23.57it/s]Loading weights:  11%|█         | 45/426 [00:03<00:18, 20.65it/s]Loading weights:  12%|█▏        | 50/426 [00:03<00:17, 20.94it/s]Loading weights:  12%|█▏        | 53/426 [00:03<00:17, 21.41it/s]Loading weights:  14%|█▍        | 60/426 [00:03<00:12, 29.51it/s]Loading weights:  15%|█▌        | 64/426 [00:03<00:14, 24.68it/s]Loading weights:  16%|█▌        | 68/426 [00:04<00:16, 21.38it/s]Loading weights:  19%|█▉        | 80/426 [00:04<00:09, 35.69it/s]Loading weights:  22%|██▏       | 92/426 [00:04<00:06, 50.41it/s]Loading weights:  23%|██▎       | 99/426 [00:04<00:07, 46.22it/s]Loading weights:  25%|██▍       | 106/426 [00:04<00:06, 47.50it/s]Loading weights:  28%|██▊       | 119/426 [00:04<00:05, 58.77it/s]Loading weights:  31%|███       | 131/426 [00:04<00:04, 69.37it/s]Loading weights:  33%|███▎      | 139/426 [00:05<00:04, 69.86it/s]Loading weights:  35%|███▍      | 147/426 [00:05<00:04, 65.53it/s]Loading weights:  36%|███▌      | 154/426 [00:05<00:04, 57.37it/s]Loading weights:  39%|███▉      | 167/426 [00:05<00:03, 72.82it/s]Loading weights:  41%|████      | 175/426 [00:05<00:03, 67.44it/s]Loading weights:  44%|████▎     | 186/426 [00:05<00:03, 69.00it/s]Loading weights:  47%|████▋     | 199/426 [00:05<00:02, 79.51it/s]Loading weights:  49%|████▉     | 208/426 [00:06<00:03, 67.48it/s]Loading weights:  52%|█████▏    | 221/426 [00:06<00:02, 77.18it/s]Loading weights:  54%|█████▍    | 230/426 [00:06<00:02, 68.55it/s]Loading weights:  56%|█████▌    | 238/426 [00:06<00:02, 68.78it/s]Loading weights:  58%|█████▊    | 248/426 [00:06<00:02, 73.10it/s]Loading weights:  60%|██████    | 256/426 [00:06<00:02, 65.42it/s]Loading weights:  62%|██████▏   | 263/426 [00:06<00:02, 64.17it/s]Loading weights:  64%|██████▍   | 274/426 [00:06<00:02, 72.54it/s]Loading weights:  66%|██████▌   | 282/426 [00:07<00:02, 70.57it/s]Loading weights:  68%|██████▊   | 290/426 [00:07<00:01, 71.26it/s]Loading weights:  70%|██████▉   | 298/426 [00:07<00:02, 57.95it/s]Loading weights:  72%|███████▏  | 305/426 [00:07<00:02, 60.40it/s]Loading weights:  73%|███████▎  | 312/426 [00:07<00:02, 42.27it/s]Loading weights:  77%|███████▋  | 326/426 [00:07<00:01, 58.33it/s]Loading weights:  78%|███████▊  | 334/426 [00:08<00:02, 45.52it/s]Loading weights:  81%|████████  | 343/426 [00:08<00:01, 48.99it/s]Loading weights:  82%|████████▏ | 349/426 [00:08<00:01, 44.02it/s]Loading weights:  84%|████████▍ | 359/426 [00:08<00:01, 48.94it/s]Loading weights:  86%|████████▌ | 365/426 [00:08<00:01, 44.01it/s]Loading weights:  87%|████████▋ | 372/426 [00:09<00:01, 48.86it/s]Loading weights:  89%|████████▉ | 379/426 [00:09<00:00, 49.72it/s]Loading weights:  90%|█████████ | 385/426 [00:09<00:00, 44.62it/s]Loading weights:  93%|█████████▎| 396/426 [00:09<00:00, 58.46it/s]Loading weights:  95%|█████████▍| 403/426 [00:09<00:00, 40.58it/s]Loading weights:  96%|█████████▌| 409/426 [00:09<00:00, 37.98it/s]Loading weights:  97%|█████████▋| 414/426 [00:10<00:00, 33.86it/s]Loading weights:  98%|█████████▊| 418/426 [00:10<00:00, 32.62it/s]Loading weights: 100%|██████████| 426/426 [00:10<00:00, 41.27it/s]
+[transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
+Adding EOS to train dataset:   0%|          | 0/20 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 20/20 [00:00<00:00, 1060.25 examples/s]
+Tokenizing train dataset:   0%|          | 0/20 [00:00<?, ? examples/s]Tokenizing train dataset: 100%|██████████| 20/20 [00:00<00:00, 275.74 examples/s]
+Truncating train dataset:   0%|          | 0/20 [00:00<?, ? examples/s]Truncating train dataset: 100%|██████████| 20/20 [00:00<00:00, 4545.69 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046, 'pad_token_id': 248046}.
+  0%|          | 0/2 [00:00<?, ?it/s] 50%|█████     | 1/2 [00:49<00:49, 49.47s/it]100%|██████████| 2/2 [01:01<00:00, 27.33s/it]Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/lora/lora2.py", line 210, in <module>
+    trainer.train()
+    ~~~~~~~~~~~~~^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 1427, in train
+    return inner_training_loop(
+        args=args,
+    ...<2 lines>...
+        ignore_keys_for_eval=ignore_keys_for_eval,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 1509, in _inner_training_loop
+    self._run_epoch(
+    ~~~~~~~~~~~~~~~^
+        model=model,
+        ^^^^^^^^^^^^
+    ...<9 lines>...
+        steps_trained_in_current_epoch=steps_trained_in_current_epoch,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 1810, in _run_epoch
+    self._maybe_log_save_evaluate(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self._tr_loss,
+        ^^^^^^^^^^^^^^
+    ...<6 lines>...
+        learning_rate=learning_rate,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 2091, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/trl/trainer/sft_trainer.py", line 1360, in _save_checkpoint
+    super()._save_checkpoint(model, trial)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 3053, in _save_checkpoint
+    self.save_model(output_dir, _internal_call=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 3804, in save_model
+    self._save(output_dir)
+    ~~~~~~~~~~^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/trainer.py", line 3847, in _save
+    torch.save(self.args, os.path.join(output_dir, TRAINING_ARGS_NAME))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/torch/serialization.py", line 850, in save
+    _save(
+    ~~~~~^
+        obj,
+        ^^^^
+    ...<3 lines>...
+        _disable_byteorder_record,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/torch/serialization.py", line 1087, in _save
+    pickler.persistent_id = persistent_id
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: '_pickle.Pickler' object attribute 'persistent_id' is read-only
+/var/spool/slurm/slurmd/state/job3676033/slurm_script: line 44: 1801356 Segmentation fault      python lora/lora2.py --limit 20 --epochs 1

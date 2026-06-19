@@ -372,10 +372,10 @@ def resolve_yearly_numeric_cols(
         from adversarial import validate_obstacle_name
 
         validate_obstacle_name(obstacle)
-        if obstacle != "big_numbers":
+        if obstacle not in ("big_numbers", "prompt_injection"):
             raise ValueError(
                 f"Obstacle {obstacle!r} is not supported by data_prep. "
-                "Only 'big_numbers' applies here."
+                "Only 'big_numbers' and 'prompt_injection' apply here."
             )
     return yearly_numeric_cols
 
@@ -507,6 +507,8 @@ def run_data_prep(
     atoms_path: str = "output/atoms.json",
     financial_spreadsheet_path: str = "output/financial_spreadsheet.json",
     multi_factor: float = 1.0,
+    injection_rate: float | None = None,
+    apply_prompt_injection: bool = False,
 ) -> list[CSVRow]:
     """Regenerate synthetic CSV, schema, atoms, and financial_spreadsheet.json."""
     yearly_numeric_cols = resolve_yearly_numeric_cols(
@@ -521,10 +523,12 @@ def run_data_prep(
         rows=rows,
         output_path=atoms_path,
     )
-    write_financial_spreadsheet_json(
-        csv_rows_to_financial_spreadsheet_records(rows),
-        financial_spreadsheet_path,
-    )
+    records = csv_rows_to_financial_spreadsheet_records(rows)
+    if obstacle == "prompt_injection" or apply_prompt_injection:
+        from adversarial import PROMPT_INJECTION_RATE, inject_prompt_injections
+        rate = injection_rate if injection_rate is not None else PROMPT_INJECTION_RATE
+        records = inject_prompt_injections(records, rate=rate)
+    write_financial_spreadsheet_json(records, financial_spreadsheet_path)
     return rows
 
 
@@ -543,7 +547,7 @@ def main():
         "--obstacle",
         choices=OBSTACLE_NAMES,
         default=None,
-        help="Apply a data-prep obstacle (only big_numbers is supported here)",
+        help="Apply a data-prep obstacle (big_numbers or prompt_injection)",
     )
     parser.add_argument(
         "--big-numbers-factor",
@@ -560,10 +564,17 @@ def main():
         default=1.0,
         help="Multiply revenue, shares, price, and employees by this factor (default: 1.0)",
     )
+    parser.add_argument(
+        "--injection-rate",
+        type=float,
+        default=None,
+        help="With --obstacle prompt_injection, fraction of rows to inject (default: PROMPT_INJECTION_RATE)",
+    )
     args = parser.parse_args()
     validate_obstacle_name(args.obstacle)
     validate_big_numbers_factor(args.big_numbers_factor)
-    if args.obstacle is not None and args.obstacle != "big_numbers":
+    _DATA_PREP_OBSTACLE_NAMES = ("big_numbers", "prompt_injection")
+    if args.obstacle is not None and args.obstacle not in _DATA_PREP_OBSTACLE_NAMES:
         parser.error(
             f"--obstacle {args.obstacle!r} applies to question generation, not data_prep. "
             "Use make_random_questions.py for that obstacle."
@@ -573,10 +584,13 @@ def main():
         and args.big_numbers_factor != BIG_NUMBERS_SCALE_FACTOR
     ):
         parser.error("--big-numbers-factor requires --obstacle big_numbers")
+    if args.injection_rate is not None and args.obstacle != "prompt_injection":
+        parser.error("--injection-rate requires --obstacle prompt_injection")
     run_data_prep(
         obstacle=args.obstacle,
         big_numbers_factor=args.big_numbers_factor,
         multi_factor=args.multi_factor,
+        injection_rate=args.injection_rate,
     )
     if args.obstacle:
         print(f"Data prep complete with obstacle: {args.obstacle}")

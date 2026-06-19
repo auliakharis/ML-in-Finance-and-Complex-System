@@ -1,0 +1,1936 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-70B-Instruct-2509,baseline,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 51889479530
+    non_operating_expenses: 60056163625
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 91954663117
+    accounts_receivable: 31783137209
+    inventories: 27044131083
+    short_term_investments: 8907706651
+    current_liabilities: 62984178958
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 329017093.1
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 437826791697
+    total_liabilities: 221096506859
+    total_equity: 216730284838
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 15521032897
+    dividends_paid: 14517501793
+    shares_outstanding: 4986006590
+    stock_price: 247077360.23
+    employees: 225728302734
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: 149481915570
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 122413949763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 140589580.37
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 0.14719907608407046
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 291812635807
+    cash: 158783639323
+    accounts_receivable: 30872740946
+    inventories: 17260121467
+    short_term_investments: 48515364490
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 19676950758
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: 0.2035490548416784
+    total_assets: 510370665736
+    total_liabilities: 194928787433
+    total_equity: 315441878303
+    cash: 102325330636
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: 28423579558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: 90464900172
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 499181752477
+    total_equity: 225286992693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: 27071781398
+    dividends_paid: 0
+    shares_outstanding: 5486233529
+    stock_price: 191029667.97
+    employees: 492640610631
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"Current_liabilities_2021 + Short_term_investments_2021 = 65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+swiss-ai/Apertus-70B-Instruct-2509,missing,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 
+    non_operating_expenses: 
+    income_tax: 
+    total_assets: 
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 
+    accounts_receivable: 
+    inventories: 
+    short_term_investments: 8907706651
+    current_liabilities: 
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 
+    employees: 
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 
+    total_liabilities: 
+    total_equity: 
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 15521032897
+    dividends_paid: 14517501793
+    shares_outstanding: 
+    stock_price: 247077360.23
+    employees: 225728302734
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 
+    total_liabilities: 292999353515
+    total_equity: 149481915570
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 
+    cash: 158783639323
+    accounts_receivable: 30872740946
+    inventories: 17260121467
+    short_term_investments: 48515364490
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 303055709.69
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 
+    non_operating_expenses: 62146052544
+    income_tax: 0.2035490548416784
+    total_assets: 510370665736
+    total_liabilities: 
+    total_equity: 315441878303
+    cash: 
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: 
+    shares_outstanding: 2122353424
+    stock_price: 
+    employees: 
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 
+    total_assets: 724468745170
+    total_liabilities: 
+    total_equity: 
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: 
+    dividends_paid: 
+    shares_outstanding: 5486233529
+    stock_price: 191029667.97
+    employees: 
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"Current_liabilities_2021 + Short_term_investments_2021 = 65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+swiss-ai/Apertus-70B-Instruct-2509,garbage,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: -9999999
+    operating_expenses: 51889479530
+    non_operating_expenses: 999999999999
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 999999999999
+    accounts_receivable: 31783137209
+    inventories: ERROR
+    short_term_investments: 8907706651
+    current_liabilities: -1
+    capex: 38887467389
+    dividends_paid: -9999999
+    shares_outstanding: 6610575609
+    stock_price: ERROR
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 437826791697
+    total_liabilities: 221096506859
+    total_equity: 216730284838
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: -9999999
+    dividends_paid: ERROR
+    shares_outstanding: 4986006590
+    stock_price: 247077360.23
+    employees: -1
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: ERROR
+    total_liabilities: 292999353515
+    total_equity: 149481915570
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: -9999999
+    current_liabilities: 999999999999
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: ERROR
+    stock_price: -1
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: -9999999
+    operating_expenses: -1
+    non_operating_expenses: 53726393715
+    income_tax: 0.14719907608407046
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: -9999999
+    cash: 158783639323
+    accounts_receivable: 30872740946
+    inventories: 17260121467
+    short_term_investments: -1
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 19676950758
+    shares_outstanding: 999999999999
+    stock_price: 999999999999
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: ERROR
+    total_assets: 510370665736
+    total_liabilities: 194928787433
+    total_equity: 315441878303
+    cash: 102325330636
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: 28423579558
+    shares_outstanding: -9999999
+    stock_price: 999999999999
+    employees: 90464900172
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: -1
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 499181752477
+    total_equity: 225286992693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 999999999999
+    current_liabilities: 213345762317
+    capex: 27071781398
+    dividends_paid: ERROR
+    shares_outstanding: 5486233529
+    stock_price: -9999999
+    employees: -9999999
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"Current_liabilities_2021 + Short_term_investments_2021 = 65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+swiss-ai/Apertus-70B-Instruct-2509,lookalike,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 51889479530
+    non_operating_expenses: 600S616362S
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 91954663117
+    accounts_receivable: 31783137209
+    inventories: Z70441310B3
+    short_term_investments: 8907706651
+    current_liabilities: 62984178958
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 329017Og3
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: O
+    total_assets: 437826791697
+    total_liabilities: 2210g650b859
+    total_equity: 216730Z8483B
+    cash: 21092100550
+    accounts_receivable: 453b713B051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 155Z1O32897
+    dividends_paid: 14517501793
+    shares_outstanding: 4986006590
+    stock_price: 247o773b0
+    employees: 225728302734
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: o
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: 14g48191S570
+    cash: 55614103843
+    accounts_receivable: 64113150ob6
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 12Z41394g763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 1405B95B0
+    employees: Z04l4606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 4320759S59B3
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: o
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 29181263SB07
+    cash: 158783639323
+    accounts_receivable: 3O87Z740946
+    inventories: 17260121467
+    short_term_investments: 48S153b4490
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: l967695O758
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 52l794o33426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: o
+    total_assets: 51O37066573b
+    total_liabilities: 194g287B7433
+    total_equity: 315441878303
+    cash: 102325330636
+    accounts_receivable: 78674347B2b
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: Z8423S79558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: 90464900172
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 16924422b81I
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 499181752477
+    total_equity: 225Z8699Z693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: Z70717B1398
+    dividends_paid: 0
+    shares_outstanding: 5486233529
+    stock_price: 191029667.97
+    employees: 492640610631
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"Current_liabilities_2021: 65248701385
+Short_term_investments_2021: 65373557088
+Sum: 65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+swiss-ai/Apertus-70B-Instruct-2509,cross,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 51889479530
+    non_operating_expenses: 60056163625
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 91954663117
+    accounts_receivable: 25741711829
+    inventories: 1872624738
+    short_term_investments: 3350330636
+    current_liabilities: 43730891779
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 519994428
+    stock_price: 329017093.1
+    employees: 29820456946
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.21001932179435656
+    total_assets: 437826791697
+    total_liabilities: 43129817199
+    total_equity: 159893114361
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 4494212033
+    dividends_paid: 19845096399
+    shares_outstanding: 4986006590
+    stock_price: 247077360.23
+    employees: 371779684264
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 220463585656
+    operating_expenses: 10830155224
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: 339511595313
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 122413949763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 10084989292
+    stock_price: 140589580.37
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 0.14719907608407046
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 291812635807
+    cash: 158783639323
+    accounts_receivable: 32678057530
+    inventories: 17260121467
+    short_term_investments: 77315574556
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 19676950758
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: 60037495860
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: 0.14719907608407046
+    total_assets: 221577417753
+    total_liabilities: 194928787433
+    total_equity: 66788861215
+    cash: 102325330636
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 279245350567
+    capex: 25663966957
+    dividends_paid: 28423579558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: 24747964665
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 106445960366
+    total_equity: 225286992693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: 27071781398
+    dividends_paid: 0
+    shares_outstanding: 10711076667
+    stock_price: 507385280.55
+    employees: 217270768890
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"Current_liabilities_2021 + short_term_investments_2021 = 65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+swiss-ai/Apertus-70B-Instruct-2509,combined,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 3016801205
+    non_operating_expenses: 17099589774
+    income_tax: 0.18862614901069139
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 41405024527
+    accounts_receivable: 31783137209
+    inventories: 27044131083
+    short_term_investments: 8907706651
+    current_liabilities: 62984178958
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 329017093.1
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 437826791697
+    total_liabilities: 103531484272
+    total_equity: -9999999
+    cash: 21092100550
+    accounts_receivable: 24096216983
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 15521032897
+    dividends_paid: 14517501793
+    shares_outstanding: 4986006590
+    stock_price: 507385280.55
+    employees: 999999999999
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: ERROR
+    cash: 55614103843
+    accounts_receivable: 27542388575
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 122413949763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 140589580.37
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 0.2587798217278876
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 291812635807
+    cash: 158783639323
+    accounts_receivable: 
+    inventories: 17260121467
+    short_term_investments: 48515364490
+    current_liabilities: 999999999999
+    capex: 18671955043
+    dividends_paid: 999999999999
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: I6062079345l
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 63527167691
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: 0.28349400289108806
+    total_assets: 510370665736
+    total_liabilities: 194928787433
+    total_equity: 315441878303
+    cash: 4012765358
+    accounts_receivable: -9999999
+    inventories: 24990884474
+    short_term_investments: 54586062859
+    current_liabilities: 825S1398O73
+    capex: 999999999999
+    dividends_paid: 28423579558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: -9999999
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 
+    total_assets: 7Z446874517o
+    total_liabilities: 499181752477
+    total_equity: 20648817604
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 232l97556g8
+    current_liabilities: 213345762317
+    capex: ERROR
+    dividends_paid: 0
+    shares_outstanding: 
+    stock_price: 191029667.97
+    employees: 492640610631
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"Current_liabilities_2021 + short_term_investments_2021 = 65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct,baseline,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 51889479530
+    non_operating_expenses: 60056163625
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 91954663117
+    accounts_receivable: 31783137209
+    inventories: 27044131083
+    short_term_investments: 8907706651
+    current_liabilities: 62984178958
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 329017093.1
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 437826791697
+    total_liabilities: 221096506859
+    total_equity: 216730284838
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 15521032897
+    dividends_paid: 14517501793
+    shares_outstanding: 4986006590
+    stock_price: 247077360.23
+    employees: 225728302734
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: 149481915570
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 122413949763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 140589580.37
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 0.14719907608407046
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 291812635807
+    cash: 158783639323
+    accounts_receivable: 30872740946
+    inventories: 17260121467
+    short_term_investments: 48515364490
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 19676950758
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: 0.2035490548416784
+    total_assets: 510370665736
+    total_liabilities: 194928787433
+    total_equity: 315441878303
+    cash: 102325330636
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: 28423579558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: 90464900172
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 499181752477
+    total_equity: 225286992693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: 27071781398
+    dividends_paid: 0
+    shares_outstanding: 5486233529
+    stock_price: 191029667.97
+    employees: 492640610631
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct,missing,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 
+    non_operating_expenses: 
+    income_tax: 
+    total_assets: 
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 
+    accounts_receivable: 
+    inventories: 
+    short_term_investments: 8907706651
+    current_liabilities: 
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 
+    employees: 
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 
+    total_liabilities: 
+    total_equity: 
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 15521032897
+    dividends_paid: 14517501793
+    shares_outstanding: 
+    stock_price: 247077360.23
+    employees: 225728302734
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 
+    total_liabilities: 292999353515
+    total_equity: 149481915570
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 
+    cash: 158783639323
+    accounts_receivable: 30872740946
+    inventories: 17260121467
+    short_term_investments: 48515364490
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 
+    shares_outstanding: 
+    stock_price: 303055709.69
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 
+    non_operating_expenses: 62146052544
+    income_tax: 0.2035490548416784
+    total_assets: 510370665736
+    total_liabilities: 
+    total_equity: 315441878303
+    cash: 
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: 
+    shares_outstanding: 2122353424
+    stock_price: 
+    employees: 
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 
+    total_assets: 724468745170
+    total_liabilities: 
+    total_equity: 
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: 
+    dividends_paid: 
+    shares_outstanding: 5486233529
+    stock_price: 191029667.97
+    employees: 
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct,garbage,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: -9999999
+    operating_expenses: 51889479530
+    non_operating_expenses: 999999999999
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 999999999999
+    accounts_receivable: 31783137209
+    inventories: ERROR
+    short_term_investments: 8907706651
+    current_liabilities: -1
+    capex: 38887467389
+    dividends_paid: -9999999
+    shares_outstanding: 6610575609
+    stock_price: ERROR
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 437826791697
+    total_liabilities: 221096506859
+    total_equity: 216730284838
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: -9999999
+    dividends_paid: ERROR
+    shares_outstanding: 4986006590
+    stock_price: 247077360.23
+    employees: -1
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: ERROR
+    total_liabilities: 292999353515
+    total_equity: 149481915570
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: -9999999
+    current_liabilities: 999999999999
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: ERROR
+    stock_price: -1
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: -9999999
+    operating_expenses: -1
+    non_operating_expenses: 53726393715
+    income_tax: 0.14719907608407046
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: -9999999
+    cash: 158783639323
+    accounts_receivable: 30872740946
+    inventories: 17260121467
+    short_term_investments: -1
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 19676950758
+    shares_outstanding: 999999999999
+    stock_price: 999999999999
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: ERROR
+    total_assets: 510370665736
+    total_liabilities: 194928787433
+    total_equity: 315441878303
+    cash: 102325330636
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: 28423579558
+    shares_outstanding: -9999999
+    stock_price: 999999999999
+    employees: 90464900172
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: -1
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 499181752477
+    total_equity: 225286992693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 999999999999
+    current_liabilities: 213345762317
+    capex: 27071781398
+    dividends_paid: ERROR
+    shares_outstanding: 5486233529
+    stock_price: -9999999
+    employees: -9999999
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct,lookalike,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 51889479530
+    non_operating_expenses: 600S616362S
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 91954663117
+    accounts_receivable: 31783137209
+    inventories: Z70441310B3
+    short_term_investments: 8907706651
+    current_liabilities: 62984178958
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 329017Og3
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: O
+    total_assets: 437826791697
+    total_liabilities: 2210g650b859
+    total_equity: 216730Z8483B
+    cash: 21092100550
+    accounts_receivable: 453b713B051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 155Z1O32897
+    dividends_paid: 14517501793
+    shares_outstanding: 4986006590
+    stock_price: 247o773b0
+    employees: 225728302734
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: o
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: 14g48191S570
+    cash: 55614103843
+    accounts_receivable: 64113150ob6
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 12Z41394g763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 1405B95B0
+    employees: Z04l4606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 4320759S59B3
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: o
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 29181263SB07
+    cash: 158783639323
+    accounts_receivable: 3O87Z740946
+    inventories: 17260121467
+    short_term_investments: 48S153b4490
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: l967695O758
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: 160620793451
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 52l794o33426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: o
+    total_assets: 51O37066573b
+    total_liabilities: 194g287B7433
+    total_equity: 315441878303
+    cash: 102325330636
+    accounts_receivable: 78674347B2b
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 82551398073
+    capex: 25663966957
+    dividends_paid: Z8423S79558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: 90464900172
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 16924422b81I
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 499181752477
+    total_equity: 225Z8699Z693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: Z70717B1398
+    dividends_paid: 0
+    shares_outstanding: 5486233529
+    stock_price: 191029667.97
+    employees: 492640610631
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"65248701385 + 65373557088
+= 130622258473
+Answer: 130622258473",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct,cross,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 51889479530
+    non_operating_expenses: 60056163625
+    income_tax: 0.26308121613119645
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 91954663117
+    accounts_receivable: 25741711829
+    inventories: 1872624738
+    short_term_investments: 3350330636
+    current_liabilities: 43730891779
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 519994428
+    stock_price: 329017093.1
+    employees: 29820456946
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.21001932179435656
+    total_assets: 437826791697
+    total_liabilities: 43129817199
+    total_equity: 159893114361
+    cash: 21092100550
+    accounts_receivable: 45367138051
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 4494212033
+    dividends_paid: 19845096399
+    shares_outstanding: 4986006590
+    stock_price: 247077360.23
+    employees: 371779684264
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 220463585656
+    operating_expenses: 10830155224
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: 339511595313
+    cash: 55614103843
+    accounts_receivable: 64113150066
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 122413949763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 10084989292
+    stock_price: 140589580.37
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 0.14719907608407046
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 291812635807
+    cash: 158783639323
+    accounts_receivable: 32678057530
+    inventories: 17260121467
+    short_term_investments: 77315574556
+    current_liabilities: 127801347066
+    capex: 18671955043
+    dividends_paid: 19676950758
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: 60037495860
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 521794033426
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: 0.14719907608407046
+    total_assets: 221577417753
+    total_liabilities: 194928787433
+    total_equity: 66788861215
+    cash: 102325330636
+    accounts_receivable: 78674347826
+    inventories: 24990884474
+    short_term_investments: 48823489774
+    current_liabilities: 279245350567
+    capex: 25663966957
+    dividends_paid: 28423579558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: 24747964665
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 0.29731493192849723
+    total_assets: 724468745170
+    total_liabilities: 106445960366
+    total_equity: 225286992693
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 23219755698
+    current_liabilities: 213345762317
+    capex: 27071781398
+    dividends_paid: 0
+    shares_outstanding: 10711076667
+    stock_price: 507385280.55
+    employees: 217270768890
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct,combined,1,Crimson Pharmaceuticals,1,The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 463236153443
+    cost_of_goods_sold: 204758773208
+    operating_expenses: 3016801205
+    non_operating_expenses: 17099589774
+    income_tax: 0.18862614901069139
+    total_assets: 533633193039
+    total_liabilities: 152160381067
+    total_equity: 381472811972
+    cash: 41405024527
+    accounts_receivable: 31783137209
+    inventories: 27044131083
+    short_term_investments: 8907706651
+    current_liabilities: 62984178958
+    capex: 38887467389
+    dividends_paid: 11800989076
+    shares_outstanding: 6610575609
+    stock_price: 329017093.1
+    employees: 222669633685
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 550238407354
+    cost_of_goods_sold: 249019460709
+    operating_expenses: 48070722022
+    non_operating_expenses: 103672453234
+    income_tax: 0.1734693853919364
+    total_assets: 437826791697
+    total_liabilities: 103531484272
+    total_equity: -9999999
+    cash: 21092100550
+    accounts_receivable: 24096216983
+    inventories: 18920232114
+    short_term_investments: 65373557088
+    current_liabilities: 65248701385
+    capex: 15521032897
+    dividends_paid: 14517501793
+    shares_outstanding: 4986006590
+    stock_price: 507385280.55
+    employees: 999999999999
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 616787330020
+    cost_of_goods_sold: 231289171817
+    operating_expenses: 85598779532
+    non_operating_expenses: 85996148293
+    income_tax: 0.24536287914222057
+    total_assets: 442481269085
+    total_liabilities: 292999353515
+    total_equity: ERROR
+    cash: 55614103843
+    accounts_receivable: 27542388575
+    inventories: 28423616137
+    short_term_investments: 7977994364
+    current_liabilities: 122413949763
+    capex: 37652943082
+    dividends_paid: 26228071400
+    shares_outstanding: 11273479966
+    stock_price: 140589580.37
+    employees: 20414606450
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 714009917393
+    cost_of_goods_sold: 432075955983
+    operating_expenses: 98272444378
+    non_operating_expenses: 53726393715
+    income_tax: 0.2587798217278876
+    total_assets: 664692739887
+    total_liabilities: 372880104080
+    total_equity: 291812635807
+    cash: 158783639323
+    accounts_receivable: 
+    inventories: 17260121467
+    short_term_investments: 48515364490
+    current_liabilities: 999999999999
+    capex: 18671955043
+    dividends_paid: 999999999999
+    shares_outstanding: 2151657107
+    stock_price: 303055709.69
+    employees: I6062079345l
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 712605555965
+    cost_of_goods_sold: 63527167691
+    operating_expenses: 39323475933
+    non_operating_expenses: 62146052544
+    income_tax: 0.28349400289108806
+    total_assets: 510370665736
+    total_liabilities: 194928787433
+    total_equity: 315441878303
+    cash: 4012765358
+    accounts_receivable: -9999999
+    inventories: 24990884474
+    short_term_investments: 54586062859
+    current_liabilities: 825S1398O73
+    capex: 999999999999
+    dividends_paid: 28423579558
+    shares_outstanding: 2122353424
+    stock_price: 73130850.75
+    employees: -9999999
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 797935489539
+    cost_of_goods_sold: 597468625911
+    operating_expenses: 169244226811
+    non_operating_expenses: 194307064236
+    income_tax: 
+    total_assets: 7Z446874517o
+    total_liabilities: 499181752477
+    total_equity: 20648817604
+    cash: 109394325878
+    accounts_receivable: 55086456607
+    inventories: 35247284087
+    short_term_investments: 232l97556g8
+    current_liabilities: 213345762317
+    capex: ERROR
+    dividends_paid: 0
+    shares_outstanding: 
+    stock_price: 191029667.97
+    employees: 492640610631
+=== END ===
+
+QUESTION: The company has created a committee to oversee internal controls. what does the following give: sum of current liabilities and short term investments for Crimson Pharmaceuticals in 2021?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+- Do NOT show your thinking process.
+
+SOLVE NOW:",130622258473.0,130622258473.0,"65248701385 + 65373557088 = 130622258473
+Answer: 130622258473",True,0.000000,True,False

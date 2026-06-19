@@ -1,0 +1,39 @@
+{
+  "Qwen3.5-4B+ft": {
+    "10q": [],
+    "90q": [
+      {
+        "source": "90q",
+        "id": "1",
+        "entity": "ClearPath Logistics",
+        "depth": "0",
+        "question": "whats the value of the total equity for ClearPath Logistics in 2024?",
+        "ground_truth": "174053.0",
+        "prompt": "ROLE: You are a very expert of Financial analyst. Answer using ONLY the data below. No commentary.\n\n=== DATA ===\n  Year 2020:\n    ticker: CPTH\n    sector: Industrials\n    country: USA\n    exchange: NYSE\n    credit_rating: A\n    revenue: 516553\n    cost_of_goods_sold: 220463\n    operating_expenses: 65279\n    non_operating_expenses: 80320\n    income_tax: 0.2932536306411895\n    total_assets: 403472\n    total_liabilities: 286976\n    total_equity: 116496\n    cash: 24389\n    accounts_receivable: 33576\n    inventories: 22786\n    short_term_investments: 53410\n    current_liabilities: 111529\n    capex: 45287\n    dividends_paid: 4365\n    shares_outstanding: 12782\n    stock_price: 238.77\n    employees: 382743\n  Year 2021:\n    ticker: CPTH\n    sector: Industrials\n    country: USA\n    exchange: NYSE\n    credit_rating: A\n    revenue: 514684\n    cost_of_goods_sold: 364081\n    operating_expenses: 40902\n    non_operating_expenses: 70766\n    income_tax: 0.2892826526023521\n    total_assets: 908620\n    total_liabilities: 547777\n    total_equity: 360843\n    cash: 97139\n    accounts_receivable: 21960\n    inventories: 9802\n    short_term_investments: 72945\n    current_liabilities: 169233\n    capex: 25731\n    dividends_paid: 11008\n    shares_outstanding: 520\n    stock_price: 745.7\n    employees: 420392\n  Year 2022:\n    ticker: CPTH\n    sector: Industrials\n    country: USA\n    exchange: NYSE\n    credit_rating: A\n    revenue: 567176\n    cost_of_goods_sold: 372136\n    operating_expenses: 43967\n    non_operating_expenses: 60901\n    income_tax: 0.2659523166305645\n    total_assets: 499588\n    total_liabilities: 201280\n    total_equity: 298308\n    cash: 92533\n    accounts_receivable: 48131\n    inventories: 7697\n    short_term_investments: 10537\n    current_liabilities: 63198\n    capex: 36245\n    dividends_paid: 22107\n    shares_outstanding: 10936\n    stock_price: 429.3\n    employees: 60037\n  Year 2023:\n    ticker: CPTH\n    sector: Industrials\n    country: USA\n    exchange: NYSE\n    credit_rating: A\n    revenue: 567556\n    cost_of_goods_sold: 247181\n    operating_expenses: 33798\n    non_operating_expenses: 76033\n    income_tax: 0.2587798217278876\n    total_assets: 668865\n    total_liabilities: 250646\n    total_equity: 418219\n    cash: 153259\n    accounts_receivable: 56571\n    inventories: 5472\n    short_term_investments: 54949\n    current_liabilities: 77822\n    capex: 30840\n    dividends_paid: 8963\n    shares_outstanding: 9261\n    stock_price: 203.84\n    employees: 211201\n  Year 2024:\n    ticker: CPTH\n    sector: Industrials\n    country: USA\n    exchange: NYSE\n    credit_rating: A\n    revenue: 627730\n    cost_of_goods_sold: 212503\n    operating_expenses: 153750\n    non_operating_expenses: 39883\n    income_tax: 0.2052118890644341\n    total_assets: 690729\n    total_liabilities: 516676\n    total_equity: 174053\n    cash: 104931\n    accounts_receivable: 49619\n    inventories: 17238\n    short_term_investments: 68378\n    current_liabilities: 255889\n    capex: 13370\n    dividends_paid: 17869\n    shares_outstanding: 11849\n    stock_price: 285.67\n    employees: 367806\n  Year 2025:\n    ticker: CPTH\n    sector: Industrials\n    country: USA\n    exchange: NYSE\n    credit_rating: A\n    revenue: 687937\n    cost_of_goods_sold: 445216\n    operating_expenses: 135549\n    non_operating_expenses: 80147\n    income_tax: 0.10886713765904164\n    total_assets: 720190\n    total_liabilities: 514214\n    total_equity: 205976\n    cash: 49347\n    accounts_receivable: 81118\n    inventories: 35796\n    short_term_investments: 77316\n    current_liabilities: 209765\n    capex: 17231\n    dividends_paid: 7817\n    shares_outstanding: 11665\n    stock_price: 374.28\n    employees: 150254\n=== END ===\n\nQUESTION: whats the value of the total equity for ClearPath Logistics in 2024?\n\nRULES:\n- Extract only the numbers you need.\n- Show calculations in 1\u20133 lines max if needed.\n- Last line MUST be: Answer: <value>\n- <value> is either a number, True, or False. Nothing else.\n- Do NOT explain, summarize, or add anything after the Answer line.\n\n- Think briefly. Output only your calculation steps, not deliberation.- Do NOT show your thinking process.\n\nSOLVE NOW:",
+        "thinking": "",
+        "llm_response": "Answer: 174053",
+        "predicted": 174053.0,
+        "status": "ok",
+        "correct": true,
+        "skip": false
+      }
+    ],
+    "mt": [],
+    "accuracy_10q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_90q": {
+      "total": 1,
+      "skipped": 0,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "accuracy_mt": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  }
+}

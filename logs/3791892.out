@@ -1,0 +1,34 @@
+Checking model path...
+Starting pipeline: Thu Jun 18 05:38:01 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Thu Jun 18 05:38:01 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Quadro RTX 6000                On  |   00000000:A1:00.0 Off |                  Off |
+| 33%   33C    P8             13W /  260W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 20: using 20 examples (smoke test mode)
+[INFO]  Pool: 20 examples | depth dist: {0: 1, 1: 9, 2: 2, 3: 4, 4: 2, 6: 1, 7: 1}
+
+[PHASE 1] Generating CoT traces from base model ...
+  [20/20]  kept=0  skipped=20  (0% pass rate so far)
+
+[PHASE 1] Done: 0/20 kept (0%)
+[PHASE 1] Depth dist of kept CoT examples: {}
+Done: Thu Jun 18 05:52:53 AM CEST 2026

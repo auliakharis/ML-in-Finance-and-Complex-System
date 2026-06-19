@@ -27,10 +27,15 @@ import argparse
 import os
 from pathlib import Path
 
+import csv as _csv
+
 from adversarial import (
+    PROMPT_INJECTION_RATE,
     _OUTPUT_FILES,
     collect_used_atom_keys,
+    inject_prompt_injections,
     load_concept_names,
+    read_csv_rows,
     write_corrupted_csv,
 )
 from make_random_questions_adversarial import (
@@ -93,12 +98,25 @@ def generate_variant(
     return csv_out
 
 
+def _apply_injection_to_csv(path: Path, injection_rate: float | None) -> None:
+    """Read a written CSV, apply prompt injection to its rows, and overwrite it."""
+    rate = injection_rate if injection_rate is not None else PROMPT_INJECTION_RATE
+    fieldnames, rows = read_csv_rows(path)
+    injected = inject_prompt_injections(rows, rate=rate)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = _csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(injected)
+
+
 def generate_adversarial(
     questions_csv: Path,
     data_dir: Path,
     adv_dir: Path,
     corruption_rate: float,
     seed: int | None,
+    apply_prompt_injection: bool = False,
+    injection_rate: float | None = None,
 ) -> None:
     adv_dir.mkdir(parents=True, exist_ok=True)
     concept_names = load_concept_names(BASE_DIR / "config" / "concept_metadata.json")
@@ -106,15 +124,18 @@ def generate_adversarial(
     csv_path = data_dir / "synthetic_company_data.csv"
 
     for mode, filename in _OUTPUT_FILES.items():
+        out_path = adv_dir / filename
         write_corrupted_csv(
             csv_path=csv_path,
             used_atom_keys=used_keys,
             concept_names=concept_names,
-            output_path=adv_dir / filename,
+            output_path=out_path,
             mode=mode,
             corruption_rate=corruption_rate,
             seed=seed,
         )
+        if apply_prompt_injection:
+            _apply_injection_to_csv(out_path, injection_rate=injection_rate)
     print(f"  [adversarial] 5 variants -> {adv_dir.relative_to(BASE_DIR)}/")
 
 
@@ -156,6 +177,18 @@ def main() -> None:
         "--skip-adversarial", action="store_true",
         help="Skip generating adversarial corruptions",
     )
+    parser.add_argument(
+        "--prompt-injection", action=argparse.BooleanOptionalAction, default=None,
+        help=(
+            "Apply prompt injection to adversarial CSVs. "
+            "Auto-detected when --data-dir contains 'prompt_injection'. "
+            "Use --no-prompt-injection to force off."
+        ),
+    )
+    parser.add_argument(
+        "--injection-rate", type=float, default=None,
+        help="Fraction of rows to inject (default: uses PROMPT_INJECTION_RATE from adversarial.py)",
+    )
     args = parser.parse_args()
 
     data_dir = Path(args.data_dir)
@@ -185,13 +218,23 @@ def main() -> None:
         if baseline_csv is None:
             baseline_csv = questions_dir / "baseline" / "questions.csv"
         if baseline_csv.exists():
+            # Auto-detect prompt injection from the data-dir name if flag not set explicitly.
+            apply_pi = (
+                args.prompt_injection
+                if args.prompt_injection is not None
+                else "prompt_injection" in str(data_dir)
+            )
             print("\nGenerating adversarial corruptions...")
+            if apply_pi:
+                print("  (prompt injection will be layered on top of each corruption variant)")
             generate_adversarial(
                 questions_csv=baseline_csv,
                 data_dir=data_dir,
                 adv_dir=adv_dir,
                 corruption_rate=args.corruption_rate,
                 seed=args.seed,
+                apply_prompt_injection=apply_pi,
+                injection_rate=args.injection_rate,
             )
         else:
             print(f"\nWARNING: baseline questions not found at {baseline_csv}")

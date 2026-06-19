@@ -1,0 +1,43 @@
+Checking model path...
+Starting pipeline: Wed Jun 17 05:50:12 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Wed Jun 17 05:50:12 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        On  |   00000000:22:00.0 Off |                  N/A |
+|  0%   28C    P8             27W /  370W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+trainable params: 21,233,664 || all params: 4,226,984,960 || trainable%: 0.5023
+[INFO]  --limit 1000: using 688 examples (smoke test mode)
+[INFO]  Training set: 688 examples | depth dist: {0: 150, 1: 203, 2: 135, 3: 63, 4: 56, 5: 46, 6: 23, 7: 9, 8: 2, 9: 1}
+{'loss': '2.287', 'grad_norm': '4.594', 'learning_rate': '0.0001999', 'entropy': '1.798', 'num_tokens': '2.992e+04', 'mean_token_accuracy': '0.5284', 'epoch': '0.2326'}
+{'loss': '0.3773', 'grad_norm': '0.6875', 'learning_rate': '0.0001953', 'entropy': '0.423', 'num_tokens': '5.968e+04', 'mean_token_accuracy': '0.9115', 'epoch': '0.4651'}
+{'loss': '0.2082', 'grad_norm': '0.332', 'learning_rate': '0.0001844', 'entropy': '0.2127', 'num_tokens': '8.927e+04', 'mean_token_accuracy': '0.9359', 'epoch': '0.6977'}
+{'loss': '0.1813', 'grad_norm': '0.332', 'learning_rate': '0.0001679', 'entropy': '0.1812', 'num_tokens': '1.186e+05', 'mean_token_accuracy': '0.9382', 'epoch': '0.9302'}
+{'loss': '0.1749', 'grad_norm': '0.2812', 'learning_rate': '0.000147', 'entropy': '0.1742', 'num_tokens': '1.483e+05', 'mean_token_accuracy': '0.9388', 'epoch': '1.163'}
+{'loss': '0.1624', 'grad_norm': '0.2422', 'learning_rate': '0.000123', 'entropy': '0.1621', 'num_tokens': '1.776e+05', 'mean_token_accuracy': '0.9425', 'epoch': '1.395'}
+{'loss': '0.1671', 'grad_norm': '0.2197', 'learning_rate': '9.743e-05', 'entropy': '0.1668', 'num_tokens': '2.073e+05', 'mean_token_accuracy': '0.9403', 'epoch': '1.628'}
+{'loss': '0.1581', 'grad_norm': '0.1836', 'learning_rate': '7.205e-05', 'entropy': '0.1607', 'num_tokens': '2.368e+05', 'mean_token_accuracy': '0.9421', 'epoch': '1.86'}
+{'loss': '0.1552', 'grad_norm': '0.2354', 'learning_rate': '4.852e-05', 'entropy': '0.1557', 'num_tokens': '2.663e+05', 'mean_token_accuracy': '0.944', 'epoch': '2.093'}
+{'loss': '0.1534', 'grad_norm': '0.1982', 'learning_rate': '2.838e-05', 'entropy': '0.1568', 'num_tokens': '2.96e+05', 'mean_token_accuracy': '0.9455', 'epoch': '2.326'}
+{'loss': '0.1485', 'grad_norm': '0.2031', 'learning_rate': '1.297e-05', 'entropy': '0.1533', 'num_tokens': '3.255e+05', 'mean_token_accuracy': '0.9463', 'epoch': '2.558'}
+{'loss': '0.1512', 'grad_norm': '0.2285', 'learning_rate': '3.297e-06', 'entropy': '0.1546', 'num_tokens': '3.553e+05', 'mean_token_accuracy': '0.9454', 'epoch': '2.791'}
+{'train_runtime': '1797', 'train_samples_per_second': '1.148', 'train_steps_per_second': '0.072', 'train_loss': '0.3457', 'entropy': '0.1549', 'num_tokens': '3.819e+05', 'mean_token_accuracy': '0.9452', 'epoch': '3'}
+[INFO]  Adapters saved to /cluster/scratch/arakhmasari/lora-checkpoints/adapters
+Done: Wed Jun 17 06:20:46 AM CEST 2026

@@ -1,0 +1,39 @@
+{
+  "Qwen3.5-4B": {
+    "10q": [],
+    "90q": [
+      {
+        "source": "90q",
+        "id": "1",
+        "entity": "Crimson Pharmaceuticals",
+        "depth": "0",
+        "question": "What are total assets for Crimson Pharmaceuticals in 2022?",
+        "ground_truth": "442481.0",
+        "prompt": "ROLE: Financial analyst. Answer using ONLY the data below. No commentary.\n\n=== DATA ===\n  Year 2020:\n    ticker: CRPH\n    sector: Healthcare\n    country: Switzerland\n    exchange: SIX\n    credit_rating: CCC\n    revenue: 463236\n    cost_of_goods_sold: 204759\n    operating_expenses: 51889\n    non_operating_expenses: 60056\n    income_tax: 0.26308121613119645\n    total_assets: 533633\n    total_liabilities: 152160\n    total_equity: 381473\n    cash: 91955\n    accounts_receivable: 31783\n    inventories: 27044\n    short_term_investments: 8908\n    current_liabilities: 62984\n    capex: 38887\n    dividends_paid: 11801\n    shares_outstanding: 6611\n    stock_price: 329.02\n    employees: 222670\n  Year 2021:\n    ticker: CRPH\n    sector: Healthcare\n    country: Switzerland\n    exchange: SIX\n    credit_rating: CCC\n    revenue: 550238\n    cost_of_goods_sold: 249019\n    operating_expenses: 48071\n    non_operating_expenses: 103672\n    income_tax: 0.1734693853919364\n    total_assets: 437826\n    total_liabilities: 221096\n    total_equity: 216730\n    cash: 21092\n    accounts_receivable: 45367\n    inventories: 18920\n    short_term_investments: 65373\n    current_liabilities: 65249\n    capex: 15521\n    dividends_paid: 14517\n    shares_outstanding: 4986\n    stock_price: 247.08\n    employees: 225728\n  Year 2022:\n    ticker: CRPH\n    sector: Healthcare\n    country: Switzerland\n    exchange: SIX\n    credit_rating: CCC\n    revenue: 616787\n    cost_of_goods_sold: 231289\n    operating_expenses: 85599\n    non_operating_expenses: 85996\n    income_tax: 0.24536287914222057\n    total_assets: 442481\n    total_liabilities: 292999\n    total_equity: 149482\n    cash: 55614\n    accounts_receivable: 64113\n    inventories: 28424\n    short_term_investments: 7978\n    current_liabilities: 122414\n    capex: 37653\n    dividends_paid: 26228\n    shares_outstanding: 11273\n    stock_price: 140.59\n    employees: 20415\n  Year 2023:\n    ticker: CRPH\n    sector: Healthcare\n    country: Switzerland\n    exchange: SIX\n    credit_rating: CCC\n    revenue: 714010\n    cost_of_goods_sold: 432076\n    operating_expenses: 98272\n    non_operating_expenses: 53726\n    income_tax: 0.14719907608407046\n    total_assets: 664693\n    total_liabilities: 372880\n    total_equity: 291813\n    cash: 158784\n    accounts_receivable: 30873\n    inventories: 17260\n    short_term_investments: 48515\n    current_liabilities: 127801\n    capex: 18672\n    dividends_paid: 19677\n    shares_outstanding: 2152\n    stock_price: 303.06\n    employees: 160621\n  Year 2024:\n    ticker: CRPH\n    sector: Healthcare\n    country: Switzerland\n    exchange: SIX\n    credit_rating: CCC\n    revenue: 712606\n    cost_of_goods_sold: 521794\n    operating_expenses: 39324\n    non_operating_expenses: 62146\n    income_tax: 0.2035490548416784\n    total_assets: 510371\n    total_liabilities: 194929\n    total_equity: 315442\n    cash: 102325\n    accounts_receivable: 78674\n    inventories: 24991\n    short_term_investments: 48824\n    current_liabilities: 82551\n    capex: 25664\n    dividends_paid: 28424\n    shares_outstanding: 2122\n    stock_price: 73.13\n    employees: 90465\n  Year 2025:\n    ticker: CRPH\n    sector: Healthcare\n    country: Switzerland\n    exchange: SIX\n    credit_rating: CCC\n    revenue: 797936\n    cost_of_goods_sold: 597469\n    operating_expenses: 169244\n    non_operating_expenses: 194307\n    income_tax: 0.29731493192849723\n    total_assets: 724469\n    total_liabilities: 499182\n    total_equity: 225287\n    cash: 109394\n    accounts_receivable: 55086\n    inventories: 35247\n    short_term_investments: 23220\n    current_liabilities: 213346\n    capex: 27072\n    dividends_paid: 0\n    shares_outstanding: 5486\n    stock_price: 191.03\n    employees: 492641\n=== END ===\n\nQUESTION: What are total assets for Crimson Pharmaceuticals in 2022?\n\nRULES:\n- Extract only the numbers you need.\n- Show calculations in 1\u20133 lines max if needed.\n- Last line MUST be: Answer: <value>\n- <value> is either a number, True, or False. Nothing else.\n- Do NOT explain, summarize, or add anything after the Answer line.\n\nSOLVE NOW:",
+        "thinking": "",
+        "llm_response": "The user is asking for the total assets for Crimson Pharmaceuticals in 2022.\nI need to look at the data provided for Year 2022.\nIn the Year 2022 section, there is a field `total_assets`.\nThe value is 442481.\n\nI will extract this number directly.\n\nAnswer: 442481\n</think>\n\nAnswer: 442481",
+        "predicted": 442481.0,
+        "status": "ok",
+        "correct": true,
+        "skip": false
+      }
+    ],
+    "mt": [],
+    "accuracy_10q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_90q": {
+      "total": 1,
+      "skipped": 0,
+      "correct": 1,
+      "accuracy": 1.0
+    },
+    "accuracy_mt": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    }
+  }
+}

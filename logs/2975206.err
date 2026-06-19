@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 897, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 811, in main
+    tokenizer, model = load_model(model_name, adapter_path=args.finetune)
+                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/run_llm_eval.py", line 236, in load_model
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/models/auto/tokenization_auto.py", line 837, in from_pretrained
+    return tokenizer_class.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/tokenization_utils_base.py", line 1743, in from_pretrained
+    return cls._from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~^
+        resolved_vocab_files,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/tokenization_utils_base.py", line 1933, in _from_pretrained
+    tokenizer = cls(*init_inputs, **init_kwargs)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/transformers/tokenization_utils_tokenizers.py", line 376, in __init__
+    raise ValueError(
+    ...<5 lines>...
+    )
+ValueError: Couldn't instantiate the backend tokenizer from one of: 
+(1) a `tokenizers` library serialization file, 
+(2) a slow tokenizer instance to convert or 
+(3) an equivalent slow tokenizer class to instantiate and convert. 
+You need to have sentencepiece or tiktoken installed to convert a slow tokenizer to a fast one.
