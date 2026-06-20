@@ -1,9 +1,18 @@
-nano .gitignore
-```
-
 .venv/
 venv/
 compiler_pipeline/
 lora/
 output_llm/
 compiler_pipeline_refactored/output/
+__pycache__/
+**/__pycache__/
+*.pyc
+.env
+logs/
+datasets/
+tests/
+pipeline_sec10Q/
+output/
+!compiler_pipeline_refactored_10Q/output/
+qwen-lora-adapters-refactored/
+qwen-lora-adapters-refactored-thinking/
