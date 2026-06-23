@@ -224,14 +224,11 @@ if len(cot_records) < 10:
 print("\n[PHASE 2] Applying LoRA adapters ...")
 lora_config = LoraConfig(
     task_type=TaskType.CAUSAL_LM,
-    r=16,
-    lora_alpha=32,
-    lora_dropout=0.05,
+    r=8,
+    lora_alpha=16,
+    lora_dropout=0.10,
     bias="none",
-    target_modules=[
-        "q_proj", "k_proj", "v_proj", "o_proj",
-        "gate_proj", "up_proj", "down_proj",
-    ],
+    target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
 )
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
