@@ -43,7 +43,7 @@ ATOMS_PATH  = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "atoms_
 CSV_PATH    = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "random_questions_10q_1000.csv"
 
 sys.path.insert(0, str(BASE_DIR))
-from run_llm_eval_api_call import build_prompt, sheet_to_text_10q, build_10q_sheet_lookup
+from run_llm_eval import build_prompt, sheet_to_text_10q, build_10q_sheet_lookup
 
 # ══════════════════════════════════════════════════════════════════
 # 2. DEVICE DETECTION
