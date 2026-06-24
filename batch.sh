@@ -41,8 +41,10 @@ nvidia-smi
 # python test_api.py
 # python lora/lora2.py
 # python -u run_llm_eval.py --models Qwen3.5-4B --datasets 90q --thinking-mode --thinking-budget 512 --limit 90
-# python lora/lora2_cot.py --epochs 3
+
 # python lora/lora2.py --limit 1000 --epochs 3
+python lora/lora2_cot.py --epochs 3
+
 python -u run_llm_eval.py \
   --models Qwen3.5-4B \
   --datasets 90q \
