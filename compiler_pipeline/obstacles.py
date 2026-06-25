@@ -14,7 +14,7 @@ from semantic_analyzer import AnalysisResult
 
 if TYPE_CHECKING:
     from data_prep import YearlyNumericColumn, YearlyNumericColumns
-from tree import Atom
+from tree import Atom, DerivedExpr, Expr, Node, TimeAgg
 
 OBSTACLE_NAMES: tuple[str, ...] = (
     "big_numbers",
@@ -22,18 +22,59 @@ OBSTACLE_NAMES: tuple[str, ...] = (
     "unit_scale_change",
     "negation",
     "conditional",
+    "balanced_tree",
 )
 
 QUESTION_OBSTACLES: frozenset[str] = frozenset(
     {"useless_info", "unit_scale_change", "negation", "conditional"}
 )
 DATA_PREP_OBSTACLES: frozenset[str] = frozenset({"big_numbers"})
+GENERATION_OBSTACLES: frozenset[str] = frozenset({"balanced_tree"})
 
 BIG_NUMBERS_SCALE_FACTOR: float = 100.0
 RATIO_COLUMNS: frozenset[str] = frozenset({"income_tax"})
 
 USELESS_INFO_TEMPLATES_FILE = "config/useless_info_templates.json"
 M_USD_UNIT: str = "M_USD"
+
+# Leaf + derived concept ids that must have template families (plus "generic").
+REQUIRED_USELESS_INFO_CONCEPTS: frozenset[str] = frozenset(
+    {
+        "revenue",
+        "cost_of_goods_sold",
+        "operating_expenses",
+        "non_operating_expenses",
+        "income_tax",
+        "total_assets",
+        "total_liabilities",
+        "total_equity",
+        "cash",
+        "accounts_receivable",
+        "inventories",
+        "short_term_investments",
+        "current_liabilities",
+        "capex",
+        "dividends_paid",
+        "shares_outstanding",
+        "stock_price",
+        "employees",
+        "gross_profit",
+        "operating_income",
+        "pretax_income",
+        "income_tax_expense",
+        "net_income",
+        "current_assets",
+        "longterm_assets",
+        "longterm_liabilities",
+    }
+)
+
+TAX_USELESS_INFO_CONCEPTS: tuple[str, ...] = (
+    "income_tax",
+    "income_tax_expense",
+    "pretax_income",
+    "net_income",
+)
 
 # (display unit label, divisor applied to M_USD amounts in financial data)
 UNIT_SCALE_OPTIONS: tuple[tuple[str, float], ...] = (
@@ -216,6 +257,27 @@ def validate_useless_info_family(family: str | None, path: Path) -> None:
         )
 
 
+def validate_useless_info_template_coverage(path: Path) -> None:
+    """Ensure every required concept has a non-empty useless_info family."""
+    families = load_useless_info_clauses(path)
+    missing = sorted(REQUIRED_USELESS_INFO_CONCEPTS - set(families))
+    if missing:
+        raise ValueError(
+            "useless_info_templates.json is missing families for: "
+            f"{', '.join(missing)}. "
+            "Run: python scripts/ensure_useless_info_coverage.py"
+        )
+    empty = sorted(
+        c for c in REQUIRED_USELESS_INFO_CONCEPTS if not families.get(c)
+    )
+    if empty:
+        raise ValueError(
+            f"useless_info_templates.json has empty families for: {', '.join(empty)}"
+        )
+    if "generic" not in families or not families["generic"]:
+        raise ValueError('useless_info_templates.json must include a non-empty "generic" family')
+
+
 def select_useless_info_families(
     families: dict[str, list[str]],
     family: str | None = None,
@@ -231,11 +293,87 @@ def select_useless_info_families(
     return {family: families[family]}
 
 
-def pick_useless_info_clause(families: dict[str, list[str]]) -> str:
-    if not families:
-        raise ValueError("No useless_info families available to sample from.")
-    family_name = random.choice(list(families.keys()))
-    return random.choice(families[family_name])
+def _collect_derived_names(expr: Expr, out: set[str]) -> None:
+    if isinstance(expr, DerivedExpr):
+        out.add(expr.name)
+        if expr.expr is not None:
+            _collect_derived_names(expr.expr, out)
+    elif isinstance(expr, Node):
+        _collect_derived_names(expr.left, out)
+        _collect_derived_names(expr.right, out)
+    elif isinstance(expr, TimeAgg) and expr.expr is not None:
+        _collect_derived_names(expr.expr, out)
+
+
+def concepts_in_expr(expr: Expr, leaf_atoms: list[Atom]) -> frozenset[str]:
+    """Concept ids present in a bound expression (leaf atoms + derived node names)."""
+    atom_by_key = {a.key: a for a in leaf_atoms}
+    concepts: set[str] = set()
+    for leaf in expr.flatten_leaves():
+        if leaf.key and leaf.key in atom_by_key:
+            concepts.add(atom_by_key[leaf.key].concept)
+    derived: set[str] = set()
+    _collect_derived_names(expr, derived)
+    concepts |= derived
+    return frozenset(concepts)
+
+
+def _concept_label(concept: str) -> str:
+    return concept.replace("_", " ")
+
+
+def _score_concept_in_question(concept: str, question_lc: str) -> int:
+    """Higher score = stronger match between concept id and question wording."""
+    label = _concept_label(concept)
+    if not question_lc:
+        return 0
+    if label in question_lc:
+        return 100 + len(label)
+    words = [w for w in label.split() if len(w) > 2]
+    if not words:
+        return 0
+    word_hits = sum(1 for w in words if w in question_lc)
+    if word_hits == len(words):
+        return 50 + word_hits
+    return word_hits
+
+
+def pick_useless_info_family(
+    families: dict[str, list[str]],
+    concepts: frozenset[str],
+    *,
+    forced_family: str | None = None,
+    question: str | None = None,
+) -> str:
+    if forced_family is not None:
+        return forced_family
+    eligible = [c for c in concepts if c in families and c != "generic"]
+    if eligible:
+        question_lc = (question or "").lower()
+        if "tax" in question_lc:
+            for preferred in TAX_USELESS_INFO_CONCEPTS:
+                if preferred in eligible:
+                    return preferred
+        return max(eligible, key=lambda c: (_score_concept_in_question(c, question_lc), c))
+    if "generic" in families:
+        return "generic"
+    return random.choice(list(families.keys()))
+
+
+def pick_useless_info_clause(
+    families: dict[str, list[str]],
+    *,
+    family_name: str,
+) -> str:
+    if family_name not in families:
+        raise ValueError(
+            f"Unknown useless_info family {family_name!r}. "
+            f"Choose one of: {', '.join(sorted(families))}"
+        )
+    clauses = families[family_name]
+    if not clauses:
+        raise ValueError(f"useless_info family {family_name!r} has no clauses.")
+    return random.choice(clauses)
 
 
 def random_useless_info_placeholder_value(name: str) -> str:
@@ -247,6 +385,10 @@ def random_useless_info_placeholder_value(name: str) -> str:
         return f"{random.randint(3, 12)} percentage points"
     if lower == "decade":
         return f"{random.choice(range(1960, 2000, 10))}s"
+    if lower == "months":
+        return f"{random.choice(range(1,28))}"
+    if lower == "amount":
+        return f"{random.choice(range(5000,34000))}"
     if lower == "year" or lower.startswith("year"):
         return str(random.randint(1900, 2018))
     if lower == "rate" or lower.startswith("rate"):
@@ -287,11 +429,13 @@ def _row_matches_entity(row: dict[str, str], entity: str) -> bool:
 class ObstacleContext:
     question: str
     analysis: AnalysisResult
+    expr: Expr
     leaf_atoms: list[Atom]
     spreadsheet_rows: list[dict[str, str]]
     base_dir: Path
     unit_scale_label: str | None = None
     useless_info_family: str | None = None
+    useless_info_family_used: str | None = None
 
     def entities(self) -> set[str]:
         entities: set[str] = set()
@@ -336,11 +480,19 @@ class ObstacleContext:
 
     def apply_useless_info(self) -> str:
         templates_path = self.base_dir / USELESS_INFO_TEMPLATES_FILE
-        families = select_useless_info_families(
-            load_useless_info_clauses(templates_path),
-            self.useless_info_family,
+        all_families = load_useless_info_clauses(templates_path)
+        concepts = concepts_in_expr(self.expr, self.leaf_atoms)
+        family_name = pick_useless_info_family(
+            all_families,
+            concepts,
+            forced_family=self.useless_info_family,
+            question=self.question,
         )
-        snippet = format_useless_info_clause(pick_useless_info_clause(families))
+        self.useless_info_family_used = family_name
+        families = select_useless_info_families(all_families, family_name)
+        snippet = format_useless_info_clause(
+            pick_useless_info_clause(families, family_name=family_name)
+        )
         return self._prepend_or_append(snippet)
 
     def apply_unit_scale_change(self) -> str:

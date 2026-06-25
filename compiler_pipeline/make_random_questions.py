@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 import argparse
 import csv
 import json
@@ -11,6 +12,7 @@ from data_prep import run_data_prep
 from evaluator import Evaluator
 from obstacles import (
     DATA_PREP_OBSTACLES,
+    GENERATION_OBSTACLES,
     OBSTACLE_NAMES,
     USELESS_INFO_TEMPLATES_FILE,
     ObstacleContext,
@@ -25,6 +27,7 @@ from obstacles import (
     validate_big_numbers_factor,
     validate_obstacle_name,
     validate_useless_info_family,
+    validate_useless_info_template_coverage,
 )
 from question_renderer import QuestionRenderer
 from semantic_analyzer import SemanticAnalyzer
@@ -32,6 +35,27 @@ from tree import Atom, BindEnv, DERIVED_CONCEPTS, Expr, Store
 
 T = TypeVar("T")
 
+@dataclass
+class RowData:
+    i: int
+    expr: Expr
+    question: str
+    answer: float
+    expr_json: dict[str, Any]
+    expr_str: str
+    tree_payload: Expr
+    tree_seed: int
+    bind_seed: int
+    master_seed: int
+    derived_prob: float
+    depth: int
+    template_stats: dict[str, int]
+    leaf_keys: list[str]
+    atoms: dict[str, Atom]
+    does_expr_contain_derived: bool
+    original_question: str
+    useless_info_family_used: str
+    obstacle: str | None
 
 def validate_args(args: argparse.Namespace, *, base_dir: Path | None = None) -> None:
     if args.n <= 0:
@@ -40,7 +64,9 @@ def validate_args(args: argparse.Namespace, *, base_dir: Path | None = None) -> 
         raise ValueError("--depth-min/--depth-max must be >= 0.")
     if args.depth_min > args.depth_max:
         raise ValueError("--depth-min must be <= --depth-max.")
-    if not (0.0 <= args.derived_prob_min <= 1.0 and 0.0 <= args.derived_prob_max <= 1.0):
+    if not (
+        0.0 <= args.derived_prob_min <= 1.0 and 0.0 <= args.derived_prob_max <= 1.0
+    ):
         raise ValueError("--derived-prob-min and --derived-prob-max must be in [0, 1].")
     if args.derived_prob_min > args.derived_prob_max:
         raise ValueError("--derived-prob-min must be <= --derived-prob-max.")
@@ -49,10 +75,12 @@ def validate_args(args: argparse.Namespace, *, base_dir: Path | None = None) -> 
     useless_info_family = getattr(args, "useless_info_family", None)
     if useless_info_family and obstacle != "useless_info":
         raise ValueError("--useless-info-family requires --obstacle useless_info")
-    if useless_info_family and base_dir is not None:
-        validate_useless_info_family(
-            useless_info_family, base_dir / USELESS_INFO_TEMPLATES_FILE
-        )
+    if base_dir is not None:
+        templates_path = base_dir / USELESS_INFO_TEMPLATES_FILE
+        if obstacle == "useless_info":
+            validate_useless_info_template_coverage(templates_path)
+        if useless_info_family:
+            validate_useless_info_family(useless_info_family, templates_path)
     big_numbers_factor = getattr(args, "big_numbers_factor", BIG_NUMBERS_SCALE_FACTOR)
     validate_big_numbers_factor(big_numbers_factor)
     if (
@@ -147,31 +175,53 @@ def with_random_seed(seed: int, fn: Callable[..., T], *args: Any, **kwargs: Any)
         random.setstate(previous_state)
 
 
-def build_row(
-    i: int,
-    expr: Expr,
-    question: str,
-    answer: float,
-    expr_json: dict[str, Any],
-    expr_str: str,
-    tree_payload: Expr,
-    tree_seed: int,
-    bind_seed: int,
-    master_seed: int,
-    derived_prob: float,
-    depth: int,
-    template_stats: dict[str, int],
-    leaf_keys: list[str],
-    atoms: dict[str, Atom],
-    obstacle: str | None = None,
-    question_original: str = "",
-) -> dict[str, Any]:
+def build_row(data=RowData) -> dict[str, Any]:
+    (
+        i,
+        expr,
+        question,
+        answer,
+        expr_json,
+        expr_str,
+        tree_payload,
+        tree_seed,
+        bind_seed,
+        master_seed,
+        derived_prob,
+        depth,
+        template_stats,
+        leaf_keys,
+        atoms,
+        original_question,
+        useless_info_family_used,
+        obstacle
+    ) = (
+        data.i,
+        data.expr,
+        data.question,
+        data.answer,
+        data.expr_json,
+        data.expr_str,
+        data.tree_payload,
+        data.tree_seed,
+        data.bind_seed,
+        data.master_seed,
+        data.derived_prob,
+        data.depth,
+        data.template_stats,
+        data.leaf_keys,
+        data.atoms,
+        data.original_question,
+        data.useless_info_family_used,
+        data.obstacle
+    )
     row: dict[str, Any] = {
         "question_id": i + 1,
         "depth": expr.expr_depth(),
         "question": question,
-        "question_original": question_original,
+        "question_original": original_question,
         "obstacle": obstacle or "",
+        "useless_info_family_used": useless_info_family_used,
         "expression": expr_str,
         "expression_json": json.dumps(expr_json, ensure_ascii=False),
         "template_expression": json.dumps(tree_payload.expr_to_json(), ensure_ascii=False),
@@ -209,6 +259,7 @@ ORIGINAL_QUESTIONS_BASE_FIELDS: list[str] = [
     "question",
     "question_original",
     "obstacle",
+    "useless_info_family_used",
     "expression",
     "expression_json",
     "template_expression",
@@ -375,11 +426,21 @@ def generate_question_rows(
     master_seed = seed if seed is not None else random.SystemRandom().randint(0, 10**9)
     master_rng = random.Random(master_seed)
 
-    rows: list[dict[str, Any]] = []
+    rows: RowData = []
     max_leaf_count = 0
+    balanced_tree = obstacle == "balanced_tree"
 
-    for i in range(n):
+    i = 0
+    derived_true_count = 0
+
+
+    while i < n:
         last_error: Exception | None = None
+
+        current_ratio = derived_true_count / (i + 1)
+        target_ratio = (derived_prob_min + derived_prob_max) / 2
+        need_derived = current_ratio < target_ratio
+
         for attempt in range(1, 1001):
             tree_seed = master_rng.randint(0, 10**9)
             bind_seed = master_rng.randint(0, 10**9)
@@ -392,9 +453,9 @@ def generate_question_rows(
             try:
                 tree_payload, _ = Expr.sample_tree_with_rejection(
                     max_depth=depth,
-                    rng=random.Random(tree_seed),
                     derived_prob=derived_prob,
                     derived_registry=DERIVED_CONCEPTS,
+                    balanced=balanced_tree,
                 )
                 expr = with_random_seed(
                     bind_seed,
@@ -403,6 +464,7 @@ def generate_question_rows(
                     store,
                     BindEnv(),
                     DERIVED_CONCEPTS,
+                    balanced=balanced_tree,
                 )
                 analysis = analyzer.analyze(expr)
                 answer = evaluator.eval(expr)
@@ -414,11 +476,13 @@ def generate_question_rows(
                     )
                 question = with_random_seed(bind_seed, renderer.render, analysis)
                 question_original = ""
-                if obstacle and obstacle not in DATA_PREP_OBSTACLES:
+                useless_info_family_used = ""
+                if obstacle and obstacle not in DATA_PREP_OBSTACLES and obstacle not in GENERATION_OBSTACLES:
                     question_original = question
                     ctx = ObstacleContext(
                         question=question,
                         analysis=analysis,
+                        expr=expr,
                         leaf_atoms=[atoms[k] for k in flatten_leaf_keys(expr)],
                         spreadsheet_rows=spreadsheet_rows,
                         base_dir=pipeline_base,
@@ -426,11 +490,23 @@ def generate_question_rows(
                         useless_info_family=useless_info_family,
                     )
                     question = ctx.apply(obstacle)
+                    if obstacle == "useless_info" and ctx.useless_info_family_used:
+                        useless_info_family_used = ctx.useless_info_family_used
                 expr_json = expr.expr_to_json()
                 expr_str = expr.show_expr()
                 template_stats = Expr.count_nodes(tree_payload)
                 leaf_keys = flatten_leaf_keys(expr)
                 max_leaf_count = max(max_leaf_count, len(leaf_keys))
+
+                does_expr_contain_derived = expr.contains_a_derived_concept()
+                actual_depth = expr.expr_depth()
+                
+                if need_derived and not does_expr_contain_derived:
+                    continue
+                if not (depth_min <= actual_depth <= depth_max):
+                    continue
+
+
                 break
             except Exception as err:
                 last_error = err
@@ -440,7 +516,11 @@ def generate_question_rows(
                         f"Last error: {type(last_error).__name__}: {last_error}"
                     ) from last_error
 
-        row = build_row(
+        i += 1
+        if does_expr_contain_derived:
+            derived_true_count += 1
+
+        row_data = RowData(
             i=i,
             expr=expr,
             question=question,
@@ -456,11 +536,17 @@ def generate_question_rows(
             template_stats=template_stats,
             leaf_keys=leaf_keys,
             atoms=atoms,
+            does_expr_contain_derived=does_expr_contain_derived,
+            original_question=question_original,
+            useless_info_family_used=useless_info_family_used,
             obstacle=obstacle,
-            question_original=question_original,
+        )
+
+        row = build_row(
+            row_data
         )
         rows.append(row)
-
+    
     return rows, master_seed, max_leaf_count
 
 
@@ -593,7 +679,7 @@ def main() -> None:
         default=None,
         help=(
             "Apply one obstacle (big_numbers / unit_scale_change scale persisted data; "
-            "others mainly modify question text)"
+            "balanced_tree changes tree shape; others mainly modify question text)"
         ),
     )
     parser.add_argument(
@@ -614,8 +700,8 @@ def main() -> None:
         default=None,
         metavar="FAMILY",
         help=(
-            "With --obstacle useless_info, use only this clause family from "
-            "config/useless_info_templates.json (default: all families)"
+            "With --obstacle useless_info, force this concept family from "
+            "config/useless_info_templates.json (default: auto-match from expression)"
         ),
     )
     parser.add_argument(
