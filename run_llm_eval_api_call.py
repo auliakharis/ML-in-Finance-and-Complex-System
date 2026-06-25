@@ -80,7 +80,7 @@ ADV_ATOMS_10Q: dict[str, Path] = {
     "10q_combined":  _ADV_DIR_10Q / "atoms_combined.json",
 }
 
-DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output" / "random_questions_90.csv"
+DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output" / "random_questions_90_1000.csv"
 SHEET_90Q   = BASE_DIR / "compiler_pipeline_refactored" / "output" / "synthetic_company_data.csv"
 
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
@@ -138,23 +138,282 @@ def build_90q_sheet_lookup(sheet: list) -> dict:
 # Prompt builders
 # ---------------------------------------------------------------------------
 
-def sheet_to_text_10q(atoms: list) -> str:
-    """Format 10Q atoms grouped by period (chronological) as readable text.
+# Balance sheet concept → section mapping (derived from BS_ACCESSORS in data_prep_10q.py)
+_BS_SECTION: dict[str, str] = {
+    "cash_and_cash_equivalents":         "Current Assets",
+    "short_term_investments":            "Current Assets",
+    "accounts_receivable_net":           "Current Assets",
+    "inventories":                       "Current Assets",
+    "prepaid_expenses_and_other":        "Current Assets",
+    "long_term_marketable_securities":   "Non-Current Assets",
+    "property_plant_and_equipment_net":  "Non-Current Assets",
+    "goodwill":                          "Non-Current Assets",
+    "other_non_current_assets":          "Non-Current Assets",
+    "accounts_payable":                  "Current Liabilities",
+    "deferred_revenue_current":          "Current Liabilities",
+    "accrued_expenses_and_other":        "Current Liabilities",
+    "current_portion_of_long_term_debt": "Current Liabilities",
+    "long_term_debt":                    "Non-Current Liabilities",
+    "other_non_current_liabilities":     "Non-Current Liabilities",
+    "common_stock_and_additional_paid_in_capital": "Shareholders Equity",
+    "retained_earnings":                 "Shareholders Equity",
+    "accumulated_other_comprehensive_income_loss": "Shareholders Equity",
+    # derived totals (shown when leaf_only=False)
+    "total_current_assets":              "Current Assets",
+    "total_non_current_assets":          "Non-Current Assets",
+    "total_assets":                      "Total Assets",
+    "total_current_liabilities":         "Current Liabilities",
+    "total_non_current_liabilities":     "Non-Current Liabilities",
+    "total_liabilities":                 "Total Liabilities",
+    "total_shareholders_equity":         "Shareholders Equity",
+}
 
-    Handles corrupted atoms: None values are shown as blank, value_display
-    (used by lookalike corruption) overrides the numeric value.
-    """
+_BS_SECTION_ORDER = [
+    "Current Assets", "Non-Current Assets", "Total Assets",
+    "Current Liabilities", "Non-Current Liabilities", "Total Liabilities",
+    "Shareholders Equity",
+]
+
+# Explicit item order within each balance sheet section (matches real 10-Q layout)
+_BS_ITEM_ORDER: dict[str, list] = {
+    "Current Assets":       ["cash_and_cash_equivalents", "short_term_investments", "accounts_receivable_net", "inventories", "prepaid_expenses_and_other", "total_current_assets"],
+    "Non-Current Assets":   ["long_term_marketable_securities", "property_plant_and_equipment_net", "goodwill", "other_non_current_assets", "total_non_current_assets"],
+    "Total Assets":         ["total_assets"],
+    "Current Liabilities":  ["accounts_payable", "deferred_revenue_current", "accrued_expenses_and_other", "current_portion_of_long_term_debt", "total_current_liabilities"],
+    "Non-Current Liabilities": ["long_term_debt", "other_non_current_liabilities", "total_non_current_liabilities"],
+    "Total Liabilities":    ["total_liabilities"],
+    "Shareholders Equity":  ["common_stock_and_additional_paid_in_capital", "retained_earnings", "accumulated_other_comprehensive_income_loss", "total_shareholders_equity"],
+}
+
+# Income statement concept → section (for "Ended" periods)
+_OPS_SECTION: dict[str, str] = {
+    "total_revenues":                    "Revenue",
+    "cost_of_sales":                     "Cost of Sales",
+    "gross_profit":                      "Gross Profit",
+    "research_and_development":          "Operating Expenses",
+    "selling_general_and_administrative":"Operating Expenses",
+    "total_costs_and_expenses":          "Total Costs and Expenses",
+    "operating_income":                  "Operating Income",
+    "other_income_expense_net":          "Other Income / Expense",
+    "provision_for_income_taxes":        "Income Tax",
+    "net_income":                        "Net Income",
+    "earnings_per_share_basic":          "Earnings Per Share",
+    "earnings_per_share_diluted":        "Earnings Per Share",
+    "shares_used_basic":                 "Shares Used in Computing EPS",
+    "shares_used_diluted":               "Shares Used in Computing EPS",
+}
+
+_OPS_SECTION_ORDER = [
+    "Revenue", "Cost of Sales", "Gross Profit", "Operating Expenses",
+    "Total Costs and Expenses", "Operating Income",
+    "Other Income / Expense", "Income Tax", "Net Income",
+    "Earnings Per Share", "Shares Used in Computing EPS",
+]
+
+# Explicit item order within each income statement section
+_OPS_ITEM_ORDER: dict[str, list] = {
+    # Revenue and Cost of Sales: aggregates go last (breakdowns first)
+    "Gross Profit":              ["gross_profit"],
+    "Operating Expenses":        ["research_and_development", "selling_general_and_administrative"],
+    "Total Costs and Expenses":  ["total_costs_and_expenses"],
+    "Operating Income":          ["operating_income"],
+    "Other Income / Expense":    ["other_income_expense_net"],
+    "Income Tax":                ["provision_for_income_taxes"],
+    "Net Income":                ["net_income"],
+    "Earnings Per Share":        ["earnings_per_share_basic", "earnings_per_share_diluted"],
+    "Shares Used in Computing EPS": ["shares_used_basic", "shares_used_diluted"],
+}
+
+# Cash flow concept → section
+_CF_SECTION: dict[str, str] = {
+    "depreciation_and_amortization":          "Operating Activities",
+    "stock_based_compensation":               "Operating Activities",
+    "change_in_accounts_receivable":          "Operating Activities",
+    "change_in_inventories":                  "Operating Activities",
+    "change_in_accounts_payable":             "Operating Activities",
+    "change_in_other_working_capital":        "Operating Activities",
+    "net_cash_from_operating":                "Operating Activities",
+    "capital_expenditures":                   "Investing Activities",
+    "purchases_of_marketable_securities":     "Investing Activities",
+    "proceeds_from_maturities_of_securities": "Investing Activities",
+    "net_cash_from_investing":                "Investing Activities",
+    "repayments_of_debt":                     "Financing Activities",
+    "share_repurchases":                      "Financing Activities",
+    "proceeds_from_stock_option_exercises":   "Financing Activities",
+    "dividends_paid":                         "Financing Activities",
+    "net_cash_from_financing":                "Financing Activities",
+    "effect_of_exchange_rate_on_cash":        "Net Change in Cash",
+    "opening_cash_and_equivalents":           "Net Change in Cash",
+    "net_change_in_cash":                     "Net Change in Cash",
+}
+
+_CF_SECTION_ORDER = [
+    "Operating Activities", "Investing Activities",
+    "Financing Activities", "Net Change in Cash",
+]
+
+# Explicit item order within each cash flow section (totals last)
+_CF_ITEM_ORDER: dict[str, list] = {
+    "Operating Activities": ["depreciation_and_amortization", "stock_based_compensation", "change_in_accounts_receivable", "change_in_inventories", "change_in_accounts_payable", "change_in_other_working_capital", "net_cash_from_operating"],
+    "Investing Activities": ["capital_expenditures", "purchases_of_marketable_securities", "proceeds_from_maturities_of_securities", "net_cash_from_investing"],
+    "Financing Activities": ["repayments_of_debt", "share_repurchases", "proceeds_from_stock_option_exercises", "dividends_paid", "net_cash_from_financing"],
+    "Net Change in Cash":   ["effect_of_exchange_rate_on_cash", "opening_cash_and_equivalents", "net_change_in_cash"],
+}
+
+_CF_CONCEPTS = set(_CF_SECTION.keys())
+
+# Comprehensive income statement concept → section
+_CI_SECTION: dict[str, str] = {
+    "foreign_currency_translation":          "Other Comprehensive Income",
+    "unrealized_gains_losses_on_securities": "Other Comprehensive Income",
+    "total_other_comprehensive_income":      "Total OCI",
+    "comprehensive_income":                  "Total Comprehensive Income",
+}
+
+_CI_SECTION_ORDER = [
+    "Other Comprehensive Income",
+    "Total OCI",
+    "Total Comprehensive Income",
+]
+
+_CI_ITEM_ORDER: dict[str, list] = {
+    "Other Comprehensive Income": ["foreign_currency_translation", "unrealized_gains_losses_on_securities"],
+    "Total OCI":                  ["total_other_comprehensive_income"],
+    "Total Comprehensive Income": ["comprehensive_income"],
+}
+
+_CI_CONCEPTS = set(_CI_SECTION.keys())
+
+
+def _atom_section(a: dict, is_balance_sheet: bool) -> str:
+    """Return the display section for an atom."""
+    concept = a["concept"]
+    parent = a.get("parent_concept") or ""
+    if is_balance_sheet:
+        return _BS_SECTION.get(concept, "Other")
+    if concept in _CF_CONCEPTS:
+        return _CF_SECTION[concept]
+    if concept in _CI_CONCEPTS:
+        return _CI_SECTION[concept]
+    if concept in _OPS_SECTION:
+        return _OPS_SECTION[concept]
+    if parent == "total_revenues":
+        return "Revenue"
+    if parent == "cost_of_sales":
+        return "Cost of Sales"
+    return "Other"
+
+
+def _sort_section_items(items: list, section: str, is_bs: bool) -> list:
+    """Sort atoms within a section in logical financial order (matching real 10-Q layout)."""
+    if is_bs:
+        order = _BS_ITEM_ORDER.get(section, [])
+    elif section in _CF_ITEM_ORDER:
+        order = _CF_ITEM_ORDER[section]
+    elif section in _CI_ITEM_ORDER:
+        order = _CI_ITEM_ORDER[section]
+    elif section in _OPS_ITEM_ORDER:
+        order = _OPS_ITEM_ORDER[section]
+    elif section == "Revenue":
+        # Breakdown items alphabetically, total_revenues last
+        return sorted(items, key=lambda a: (1 if a["concept"] == "total_revenues" else 0, a.get("label") or a["concept"]))
+    elif section == "Cost of Sales":
+        # Breakdown items alphabetically, cost_of_sales last
+        return sorted(items, key=lambda a: (1 if a["concept"] == "cost_of_sales" else 0, a.get("label") or a["concept"]))
+    else:
+        order = []
+
+    def key(a):
+        try:
+            return (order.index(a["concept"]), a.get("label") or a["concept"])
+        except ValueError:
+            return (len(order), a.get("label") or a["concept"])
+
+    return sorted(items, key=key)
+
+
+def _render_sections(lines: list, period_atoms: list, section_order: list, item_order_map: dict, is_bs: bool, indent: str) -> None:
+    """Group atoms by section and render with headers and ordered items."""
     from collections import defaultdict
-    by_period: dict = defaultdict(list)
-    for a in atoms:
-        by_period[a["period"]].append(a)
-    lines = []
-    for period in sorted(by_period, key=_parse_period_date):
-        lines.append(f"  {period}:")
-        for a in sorted(by_period[period], key=lambda x: x.get("label") or x["concept"]):
+    by_section: dict = defaultdict(list)
+    for a in period_atoms:
+        by_section[_atom_section(a, is_bs)].append(a)
+
+    seen: set = set()
+    ordered = [s for s in section_order if s in by_section]
+    remaining = [s for s in by_section if s not in section_order]
+    for section in ordered + remaining:
+        if section in seen:
+            continue
+        seen.add(section)
+        lines.append(f"{indent}[{section}]")
+        for a in _sort_section_items(by_section[section], section, is_bs):
             unit = f" ({a['unit']})" if a.get("unit") else ""
             display = a.get("value_display") or (a["value"] if a.get("value") is not None else "")
-            lines.append(f"    {a.get('label') or a['concept']}{unit}: {display}")
+            lines.append(f"{indent}  {a.get('label') or a['concept']}{unit}: {display}")
+
+
+def sheet_to_text_10q(atoms: list, leaf_only: bool = False) -> str:
+    """Format 10Q atoms as four labelled statement blocks matching real 10-Q structure.
+
+    Statements: Income Statement → Balance Sheet → Cash Flow → Comprehensive Income.
+    Within each section items follow real filing order (not alphabetical).
+    If leaf_only=True, derived atoms (role='derived') are excluded.
+    """
+    from collections import defaultdict
+    entity = None
+    ops_by_period: dict = defaultdict(list)
+    bs_by_period:  dict = defaultdict(list)
+    cf_by_period:  dict = defaultdict(list)
+    ci_by_period:  dict = defaultdict(list)
+
+    for a in atoms:
+        if entity is None:
+            entity = a.get("entity")
+        if leaf_only and a.get("role") == "derived":
+            continue
+        period = a["period"]
+        if "Ended" not in period:
+            bs_by_period[period].append(a)
+        elif a["concept"] in _CF_CONCEPTS:
+            cf_by_period[period].append(a)
+        elif a["concept"] in _CI_CONCEPTS:
+            ci_by_period[period].append(a)
+        else:
+            ops_by_period[period].append(a)
+
+    lines = []
+    if entity:
+        lines.append(f"  Entity: {entity}")
+        lines.append("")
+
+    if ops_by_period:
+        lines.append("  === Income Statement ===")
+        for period in sorted(ops_by_period, key=_parse_period_date):
+            lines.append(f"    {period}:")
+            _render_sections(lines, ops_by_period[period], _OPS_SECTION_ORDER, _OPS_ITEM_ORDER, is_bs=False, indent="      ")
+
+    if bs_by_period:
+        lines.append("")
+        lines.append("  === Balance Sheet ===")
+        for period in sorted(bs_by_period, key=_parse_period_date):
+            lines.append(f"    {period}:")
+            _render_sections(lines, bs_by_period[period], _BS_SECTION_ORDER, _BS_ITEM_ORDER, is_bs=True, indent="      ")
+
+    if cf_by_period:
+        lines.append("")
+        lines.append("  === Cash Flow Statement ===")
+        for period in sorted(cf_by_period, key=_parse_period_date):
+            lines.append(f"    {period}:")
+            _render_sections(lines, cf_by_period[period], _CF_SECTION_ORDER, _CF_ITEM_ORDER, is_bs=False, indent="      ")
+
+    if ci_by_period:
+        lines.append("")
+        lines.append("  === Comprehensive Income Statement ===")
+        for period in sorted(ci_by_period, key=_parse_period_date):
+            lines.append(f"    {period}:")
+            _render_sections(lines, ci_by_period[period], _CI_SECTION_ORDER, _CI_ITEM_ORDER, is_bs=False, indent="      ")
+
     return "\n".join(lines)
 
 
@@ -326,6 +585,7 @@ def evaluate_10q(
     tol: float,
     max_new_tokens: int = 2048,
     thinking: bool = False,
+    leaf_only: bool = False,
 ) -> list:
     """Evaluate on 10Q compiler pipeline questions. Returns per-question result dicts."""
     results = []
@@ -353,7 +613,7 @@ def evaluate_10q(
             })
             continue
 
-        sheet_text = sheet_to_text_10q(atoms)
+        sheet_text = sheet_to_text_10q(atoms, leaf_only=leaf_only)
         prompt = build_prompt(sheet_text, question_text)
 
         response = run_inference(model_name, prompt, max_new_tokens, thinking=thinking)
@@ -789,7 +1049,7 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
         writer.writeheader()
         for model_name, model_data in all_results.items():
             adv_keys = [k for k in model_data if k.startswith("10q_")]
-            for dataset_key in ["10q", "90q", "mt", "mt_10q"] + adv_keys:
+            for dataset_key in ["10q", "10q_leaf", "90q", "mt", "mt_10q"] + adv_keys:
                 for r in model_data.get(dataset_key, []):
                     gt = r.get("ground_truth")
                     pred = r.get("predicted")
@@ -856,9 +1116,9 @@ def parse_args():
     _adv_choices = ["10q_missing", "10q_garbage", "10q_lookalike", "10q_cross", "10q_combined"]
     parser.add_argument(
         "--datasets", nargs="+",
-        choices=["10q", "90q", "mt", "mt_10q"] + _adv_choices,
+        choices=["10q", "10q_leaf", "90q", "mt", "mt_10q"] + _adv_choices,
         default=["10q", "90q", "mt"],
-        help="Which dataset(s) to evaluate: 10q, 90q, mt, mt_10q, or adversarial 10Q variants (default: all)",
+        help="Which dataset(s) to evaluate: 10q, 10q_leaf (no derived atoms), 90q, mt, mt_10q, or adversarial 10Q variants (default: all)",
     )
     return parser.parse_args()
 
@@ -868,7 +1128,7 @@ def main():
 
     # Load datasets
     print("Loading datasets...")
-    if "10q" in args.datasets:
+    if "10q" in args.datasets or "10q_leaf" in args.datasets:
         questions_10q = load_10q_questions(DATASET_10Q)
         sheet_lookup_10q = build_10q_sheet_lookup(load_json(ATOMS_10Q))
         print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} entities")
@@ -920,10 +1180,20 @@ def main():
             results_10q = evaluate_10q(
                 questions_10q, sheet_lookup_10q, model_name,
                 limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
-                thinking=args.thinking,
+                thinking=args.thinking, leaf_only=False,
             )
         else:
             results_10q = []
+
+        if "10q_leaf" in args.datasets:
+            print(f"\n-- 10-Q (leaf-only, no derived atoms) evaluation ({args.limit or len(questions_10q)} questions) --")
+            results_10q_leaf = evaluate_10q(
+                questions_10q, sheet_lookup_10q, model_name,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+                thinking=args.thinking, leaf_only=True,
+            )
+        else:
+            results_10q_leaf = []
 
         # Adversarial 10Q variants
         results_adv: dict[str, list] = {}
@@ -971,12 +1241,18 @@ def main():
             acc = compute_accuracy(adv_results)
             print(f"  {adv_key}: {acc['correct']}/{acc['total']}  accuracy = {acc['accuracy']:.1%}  (skipped {acc.get('skipped', 0)})")
 
+        if results_10q_leaf:
+            acc_leaf = compute_accuracy(results_10q_leaf)
+            print(f"  10q_leaf: {acc_leaf['correct']}/{acc_leaf['total']}  accuracy = {acc_leaf['accuracy']:.1%}  (skipped {acc_leaf.get('skipped', 0)})")
+
         all_results[model_name] = {
             "10q": results_10q,
+            "10q_leaf": results_10q_leaf,
             "90q": results_90q,
             "mt": results_mt,
             "mt_10q": results_mt_10q,
             "accuracy_10q": compute_accuracy(results_10q),
+            "accuracy_10q_leaf": compute_accuracy(results_10q_leaf),
             "accuracy_90q": compute_accuracy(results_90q),
             "accuracy_mt": compute_accuracy(results_mt),
             "accuracy_mt_10q": compute_accuracy(results_mt_10q),

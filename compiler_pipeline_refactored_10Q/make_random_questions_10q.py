@@ -149,12 +149,20 @@ DERIVED_CONCEPTS_10Q: dict[str, DerivedConcept] = {
         args=["total_revenues", "total_costs_and_expenses"],
         protected=True,
     ),
+    "income_before_taxes": DerivedConcept(
+        name="income_before_taxes",
+        op=Operation.sum,
+        family="amount",
+        concept_dept=2,
+        args=["operating_income", "other_income_expense_net"],
+        protected=False,
+    ),
     "net_income": DerivedConcept(
         name="net_income",
         op=Operation.diff,
         family="amount",
         concept_dept=3,
-        args=["operating_income", "provision_for_income_taxes"],
+        args=["income_before_taxes", "provision_for_income_taxes"],
         protected=True,
     ),
     # Balance sheet — protected
@@ -204,7 +212,7 @@ DERIVED_CONCEPTS_10Q: dict[str, DerivedConcept] = {
     # Unprotected derived concepts (not direct atoms)
     "free_cash_flow": DerivedConcept(
         name="free_cash_flow",
-        op=Operation.diff,
+        op=Operation.sum,
         family="amount",
         concept_dept=1,
         args=["net_cash_from_operating", "capital_expenditures"],

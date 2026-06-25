@@ -49,6 +49,8 @@ OPS_ACCESSORS = {
     "net_income":                       lambda ops: ops.net_income,
     "earnings_per_share_basic":         lambda ops: ops.earnings_per_share.basic if ops.earnings_per_share else None,
     "earnings_per_share_diluted":       lambda ops: ops.earnings_per_share.diluted if ops.earnings_per_share else None,
+    "shares_used_basic":                lambda ops: ops.shares_used_in_computing_eps.basic if ops.shares_used_in_computing_eps else None,
+    "shares_used_diluted":              lambda ops: ops.shares_used_in_computing_eps.diluted if ops.shares_used_in_computing_eps else None,
 }
 
 BS_ACCESSORS = {
@@ -73,20 +75,32 @@ BS_ACCESSORS = {
     "other_non_current_liabilities":    lambda bs: bs.non_current_liabilities.other_non_current_liabilities,
     "total_non_current_liabilities":    lambda bs: bs.total_non_current_liabilities,
     "total_liabilities":                lambda bs: bs.total_liabilities,
+    "common_stock_and_additional_paid_in_capital": lambda bs: bs.shareholders_equity.common_stock_and_additional_paid_in_capital,
     "retained_earnings":                lambda bs: bs.shareholders_equity.retained_earnings,
+    "accumulated_other_comprehensive_income_loss": lambda bs: bs.shareholders_equity.accumulated_other_comprehensive_income_loss,
     "total_shareholders_equity":        lambda bs: bs.total_shareholders_equity,
 }
 
 CF_ACCESSORS = {
-    "net_cash_from_operating":          lambda cf: cf.net_cash_from_operating,
-    "depreciation_and_amortization":    lambda cf: cf.operating_activities.depreciation_and_amortization,
-    "stock_based_compensation":         lambda cf: cf.operating_activities.stock_based_compensation,
-    "capital_expenditures":             lambda cf: cf.investing_activities.capital_expenditures,
-    "net_cash_from_investing":          lambda cf: cf.net_cash_from_investing,
-    "share_repurchases":                lambda cf: cf.financing_activities.share_repurchases,
-    "dividends_paid":                   lambda cf: cf.financing_activities.dividends_paid,
-    "net_cash_from_financing":          lambda cf: cf.net_cash_from_financing,
-    "net_change_in_cash":               lambda cf: cf.net_change_in_cash,
+    "net_cash_from_operating":                lambda cf: cf.net_cash_from_operating,
+    "depreciation_and_amortization":          lambda cf: cf.operating_activities.depreciation_and_amortization,
+    "stock_based_compensation":               lambda cf: cf.operating_activities.stock_based_compensation,
+    "change_in_accounts_receivable":          lambda cf: cf.operating_activities.change_in_accounts_receivable,
+    "change_in_inventories":                  lambda cf: cf.operating_activities.change_in_inventories,
+    "change_in_accounts_payable":             lambda cf: cf.operating_activities.change_in_accounts_payable,
+    "change_in_other_working_capital":        lambda cf: cf.operating_activities.change_in_other_working_capital,
+    "capital_expenditures":                   lambda cf: cf.investing_activities.capital_expenditures,
+    "purchases_of_marketable_securities":     lambda cf: cf.investing_activities.purchases_of_marketable_securities,
+    "proceeds_from_maturities_of_securities": lambda cf: cf.investing_activities.proceeds_from_maturities_of_securities,
+    "net_cash_from_investing":                lambda cf: cf.net_cash_from_investing,
+    "repayments_of_debt":                     lambda cf: cf.financing_activities.repayments_of_debt,
+    "share_repurchases":                      lambda cf: cf.financing_activities.share_repurchases,
+    "proceeds_from_stock_option_exercises":   lambda cf: cf.financing_activities.proceeds_from_stock_option_exercises,
+    "dividends_paid":                         lambda cf: cf.financing_activities.dividends_paid,
+    "net_cash_from_financing":                lambda cf: cf.net_cash_from_financing,
+    "opening_cash_and_equivalents":           lambda cf: cf.opening_cash_and_equivalents,
+    "net_change_in_cash":                     lambda cf: cf.net_change_in_cash,
+    "effect_of_exchange_rate_on_cash":        lambda cf: cf.effect_of_exchange_rate_on_cash,
 }
 
 # period_type -> slot getter on FinancialStatements
@@ -105,6 +119,20 @@ BS_PERIOD_SLOTS = {
 CF_PERIOD_SLOTS = {
     "current_ytd": lambda fs: fs.cf_current_ytd,
     "prior_ytd":   lambda fs: fs.cf_prior_ytd,
+}
+
+CI_ACCESSORS = {
+    "foreign_currency_translation":          lambda ci: ci.other_comprehensive_income.foreign_currency_translation,
+    "unrealized_gains_losses_on_securities": lambda ci: ci.other_comprehensive_income.unrealized_gains_losses_on_securities,
+    "total_other_comprehensive_income":      lambda ci: ci.total_other_comprehensive_income,
+    "comprehensive_income":                  lambda ci: ci.comprehensive_income,
+}
+
+CI_PERIOD_SLOTS = {
+    "current_quarter":    lambda fs: fs.ci_current_quarter,
+    "prior_year_quarter": lambda fs: fs.ci_prior_year_quarter,
+    "current_ytd":        lambda fs: fs.ci_current_ytd,
+    "prior_year_ytd":     lambda fs: fs.ci_prior_year_ytd,
 }
 
 
@@ -151,16 +179,18 @@ def _atomize_breakdown(
     idx: int,
 ) -> list[Atom]:
     """Emit one atom per entry in a dynamic breakdown dict, inheriting metadata from parent."""
+    is_cos = parent_concept == "cost_of_sales"
     atoms = []
     for label, value in items.items():
         if value is None:
             continue
-        concept = _label_to_concept(label)
+        concept = ("cos_" if is_cos else "") + _label_to_concept(label)
+        display_label = f"cost of {label.lower()}" if is_cos else label
         atoms.append(Atom(
             key=f"{idx}_{concept}_{period_type}",
             concept=concept,
             semantic_type=SemanticType(parent_meta["semantic_type"]),
-            label=label,
+            label=display_label,
             entity=entity,
             period=period,
             unit=parent_meta["unit"],
@@ -208,6 +238,9 @@ def atomize_report(
         elif stmt == "cash_flow_statement":
             accessors = CF_ACCESSORS
             slots = CF_PERIOD_SLOTS
+        elif stmt == "comprehensive_income_statement":
+            accessors = CI_ACCESSORS
+            slots = CI_PERIOD_SLOTS
         else:
             continue
 
@@ -216,7 +249,7 @@ def atomize_report(
             continue
 
         for period_type in allowed_period_types:
-            if period_type in ("current_ytd", "prior_year_ytd") and stmt == "income_statement":
+            if period_type in ("current_ytd", "prior_year_ytd") and stmt in ("income_statement", "comprehensive_income_statement"):
                 if report.quarter not in ytd_quarters:
                     continue
 
@@ -329,14 +362,24 @@ def generate_atoms(
 
     atoms: dict[str, Atom] = {}
     offset = 0
+    used_tickers: set[str] = set()
+    attempts = 0
+    max_attempts = n_reports * 20
 
-    for _ in range(n_reports):
+    while len(used_tickers) < n_reports and attempts < max_attempts:
         report_seed = rng.randint(0, 10_000_000)
         report = generate_report(seed=report_seed)
+        attempts += 1
+        if report.ticker in used_tickers:
+            continue
+        used_tickers.add(report.ticker)
         report_atoms = atomize_report(report, concept_metadata, atom_index_offset=offset)
         for atom in report_atoms:
             atoms[atom.key] = atom
         offset += len(report_atoms)
+
+    if len(used_tickers) < n_reports:
+        print(f"[WARN] Only generated {len(used_tickers)} unique-ticker reports after {max_attempts} attempts")
 
     return atoms
 
