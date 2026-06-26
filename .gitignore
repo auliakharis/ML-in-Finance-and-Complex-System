@@ -7,3 +7,4 @@ compiler_pipeline/
 lora/
 output_llm/
 compiler_pipeline_refactored/output/
+.env

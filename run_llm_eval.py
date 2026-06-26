@@ -28,6 +28,7 @@ Usage:
   python run_llm_eval.py --limit 20 --tol 0.1
   python run_llm_eval.py --models Qwen3.5-4B --limit 10
   python run_llm_eval.py --output results.json
+  python run_llm_eval.py --thinking-mode           # enable extended thinking; <think> traces saved to results
 
 for the multi turn : 
 the system message (financial data) is added once at the start of history and stays there for all turns — it's never re-added. But because history is passed in full each time, the model does see it on every turn:
@@ -53,7 +54,6 @@ import csv
 import json
 import os
 import re
-import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -64,14 +64,14 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
-DATASET_10Q = BASE_DIR / "10q" / "final_qa_dataset.json"
-SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
+DATASET_10Q = BASE_DIR / "dataset_output" / "random_questions_10q.json"
+SHEET_10Q   = BASE_DIR / "dataset_output" / "atoms_10q.json"
 
-DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
-SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
+DATASET_90Q = BASE_DIR / "dataset_output" / "random_questions_90.json"
+SHEET_90Q   = BASE_DIR / "dataset_output" / "synthetic_company_data_refactored.json"
 
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
-SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
+SHEET_MT    = BASE_DIR / "dataset_output" / "synthetic_company_data_refactored.json"  # same synthetic companies
 
 DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B", "gemma-4-E4B-it"]
 
@@ -135,9 +135,10 @@ def find_company(question_text: str, sheet_lookup: dict) -> str | None:
     return None
 
 
-def build_prompt(sheet_text: str, question: str) -> str:
+def build_prompt(sheet_text: str, question: str, thinking_mode: bool = False) -> str:
+    no_think_rule = "" if thinking_mode else "- Do NOT show your thinking process.\n\n"
     return (
-    "ROLE: Financial analyst. Answer using ONLY the data below. No commentary.\n\n"
+    "ROLE: You are a very expert of Financial analyst. Answer using ONLY the data below. No commentary.\n\n"
     "=== DATA ===\n"
     f"{sheet_text}\n"
     "=== END ===\n\n"
@@ -148,40 +149,53 @@ def build_prompt(sheet_text: str, question: str) -> str:
     "- Last line MUST be: Answer: <value>\n"
     "- <value> is either a number, True, or False. Nothing else.\n"
     "- Do NOT explain, summarize, or add anything after the Answer line.\n\n"
-    "- Do NOT show your thinking process.\n\n" 
+    "- Think briefly. Output only your calculation steps, not deliberation."
+    f"{no_think_rule}"
     "SOLVE NOW:"
     )
+
+# ---------------------------------------------------------------------------
+# Thinking extraction
+# ---------------------------------------------------------------------------
+
+def split_thinking(response: str) -> tuple[str, str]:
+    """Return (thinking_content, answer_text) split on <think>...</think>.
+
+    Qwen3 with skip_special_tokens=True strips the opening <think> token but
+    keeps </think> as plain text, so we also handle the no-opening-tag case.
+    """
+    match = re.search(r'<think>(.*?)</think>', response, re.DOTALL)
+    if match:
+        return match.group(1).strip(), response[match.end():].strip()
+    if '</think>' in response:
+        parts = response.split('</think>', 1)
+        return parts[0].strip(), parts[1].strip()
+    return "", response
+
 
 # ---------------------------------------------------------------------------
 # Answer extraction
 # ---------------------------------------------------------------------------
 
-def extract_number(text: str) -> float | bool | None:
+def parse_answer_line(text: str) -> float | bool | None:
     """
-    Extract the value from the 'Answer: <value>' line.
-    Handles numbers, True/False. Falls back to last number if no Answer line found.
+    Extract the value from the last 'Answer: <value>' line.
+    Using the last match avoids false hits on echoed template text like
+    'Last line: Answer: <value>' that appears inside the thinking block.
+    Returns None if no such line is present — no fallback scraping.
     """
-    # 1. Look for explicit "Answer: <value>" line (case-insensitive)
-    match = re.search(r'Answer\s*:\s*(.+)', text, re.IGNORECASE)
-    if match:
-        raw = match.group(1).strip().rstrip(".,;")
-
-        # Check for True/False first
-        if raw.lower() == "true":
-            return True
-        if raw.lower() == "false":
-            return False
-
-        # Try to parse as number
-        cleaned = re.sub(r'(\d),(\d)', r'\1\2', raw)
-        num_match = re.search(r'-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?', cleaned)
-        if num_match:
-            return float(num_match.group())
-
-    # 2. Fallback: last number in text (less reliable)
-    cleaned = re.sub(r'(\d),(\d)', r'\1\2', text)
-    matches = re.findall(r'-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?', cleaned)
-    return float(matches[-1]) if matches else None
+    matches = list(re.finditer(r'Answer\s*:\s*(.+)', text, re.IGNORECASE))
+    if not matches:
+        return None
+    match = matches[-1]
+    raw = match.group(1).strip().rstrip(".,;")
+    if raw.lower() == "true":
+        return True
+    if raw.lower() == "false":
+        return False
+    cleaned = re.sub(r'(\d),(\d)', r'\1\2', raw)
+    num_match = re.search(r'-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?', cleaned)
+    return float(num_match.group()) if num_match else None
 
 
 def is_correct(predicted, ground_truth, tol: float) -> bool:
@@ -247,8 +261,8 @@ def load_model(model_name: str, adapter_path: str | None = None):
     return tokenizer, model
 
 
-def run_inference(tokenizer, model, prompt: str, max_new_tokens: int = 512) -> str:
-    """Run a single forward pass and return the decoded response."""
+def run_inference(tokenizer, model, prompt: str, max_new_tokens: int = 2048, thinking_mode: bool = False, thinking_budget: int = 1024) -> tuple[str, bool]:
+    """Run a single forward pass. Returns (decoded_text, finished_on_eos)."""
     import torch
 
     # Use chat template if available, otherwise plain tokenization
@@ -260,7 +274,8 @@ def run_inference(tokenizer, model, prompt: str, max_new_tokens: int = 512) -> s
                 tokenize=True,
                 add_generation_prompt=True,
                 return_tensors="pt",
-                enable_thinking=False,
+                enable_thinking=thinking_mode,
+                thinking_budget=thinking_budget if thinking_mode else None,
             )
             input_ids = result if isinstance(result, torch.Tensor) else result["input_ids"]
         except Exception:
@@ -272,20 +287,23 @@ def run_inference(tokenizer, model, prompt: str, max_new_tokens: int = 512) -> s
     input_ids = input_ids.to(device)
 
     with torch.no_grad():
-        output_ids = model.generate(
+        output = model.generate(
             input_ids,
             max_new_tokens=max_new_tokens,
             do_sample=False,
             pad_token_id=tokenizer.eos_token_id,
+            return_dict_in_generate=True,
         )
 
-    # Decode only the newly generated tokens
-    new_tokens = output_ids[0][input_ids.shape[-1]:]
-    return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+    output_seq = output.sequences[0]
+    finished_on_eos = bool(output_seq[-1] == tokenizer.eos_token_id)
+    new_tokens = output_seq[input_ids.shape[-1]:]
+    text = tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+    return text, finished_on_eos
 
 
-def run_multiturn_inference(tokenizer, model, messages: list, max_new_tokens: int = 512) -> str:
-    """Run inference with a full conversation history (list of role/content dicts)."""
+def run_multiturn_inference(tokenizer, model, messages: list, max_new_tokens: int = 2048, thinking_mode: bool = False) -> tuple[str, bool]:
+    """Run inference with a full conversation history. Returns (decoded_text, finished_on_eos)."""
     import torch
 
     if hasattr(tokenizer, "apply_chat_template"):
@@ -295,7 +313,7 @@ def run_multiturn_inference(tokenizer, model, messages: list, max_new_tokens: in
                 tokenize=True,
                 add_generation_prompt=True,
                 return_tensors="pt",
-                enable_thinking=False,
+                enable_thinking=thinking_mode,
             )
         except TypeError:
             result = tokenizer.apply_chat_template(
@@ -306,7 +324,6 @@ def run_multiturn_inference(tokenizer, model, messages: list, max_new_tokens: in
             )
         input_ids = result if isinstance(result, torch.Tensor) else result["input_ids"]
     else:
-        # Fallback: concatenate all turns as plain text
         text = "\n".join(f"{m['role'].upper()}: {m['content']}" for m in messages)
         input_ids = tokenizer(text, return_tensors="pt").input_ids
 
@@ -314,15 +331,19 @@ def run_multiturn_inference(tokenizer, model, messages: list, max_new_tokens: in
     input_ids = input_ids.to(device)
 
     with torch.no_grad():
-        output_ids = model.generate(
+        output = model.generate(
             input_ids,
             max_new_tokens=max_new_tokens,
             do_sample=False,
             pad_token_id=tokenizer.eos_token_id,
+            return_dict_in_generate=True,
         )
 
-    new_tokens = output_ids[0][input_ids.shape[-1]:]
-    return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+    output_seq = output.sequences[0]
+    finished_on_eos = bool(output_seq[-1] == tokenizer.eos_token_id)
+    new_tokens = output_seq[input_ids.shape[-1]:]
+    text = tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+    return text, finished_on_eos
 
 
 # ---------------------------------------------------------------------------
@@ -336,6 +357,8 @@ def evaluate_10q(
     model,
     limit: int | None,
     tol: float,
+    thinking_mode: bool = False,
+    thinking_budget: int = 1024,
 ) -> list:
     """Evaluate on 10-Q questions. Returns per-question result dicts."""
     results = []
@@ -364,14 +387,19 @@ def evaluate_10q(
             continue
 
         sheet_text = sheet_to_text_10q(sheet_row)
-        prompt = build_prompt(sheet_text, question_text)
+        prompt = build_prompt(sheet_text, question_text, thinking_mode=thinking_mode)
 
-        response = run_inference(tokenizer, model, prompt)
-        predicted = extract_number(response)
+        response, finished_on_eos = run_inference(tokenizer, model, prompt, thinking_mode=thinking_mode, thinking_budget=thinking_budget)
+        thinking, answer_text = split_thinking(response)
+        predicted = parse_answer_line(answer_text)
+        if predicted is None:
+            gen_status = "truncated" if not finished_on_eos else "no_answer_parsed"
+        else:
+            gen_status = "ok"
         correct = is_correct(predicted, ground_truth, tol)
 
-        status = "CORRECT" if correct else "WRONG "
-        print(f"  [{i}/{len(subset)}] {status} | truth={ground_truth} pred={predicted} | {question_text[:60]}...")
+        label = "CORRECT" if correct else ("TRUNC  " if gen_status == "truncated" else "WRONG  ")
+        print(f"  [{i}/{len(subset)}] {label} | truth={ground_truth} pred={predicted} | {question_text[:60]}...")
 
         results.append({
             "source": "10q",
@@ -381,8 +409,10 @@ def evaluate_10q(
             "question": question_text,
             "ground_truth": ground_truth,
             "prompt": prompt,
-            "llm_response": response,
+            "thinking": thinking,
+            "llm_response": answer_text,
             "predicted": predicted,
+            "status": gen_status,
             "correct": correct,
             "skip": False,
         })
@@ -397,6 +427,8 @@ def evaluate_90q(
     model,
     limit: int | None,
     tol: float,
+    thinking_mode: bool = False,
+    thinking_budget: int = 1024,
 ) -> list:
     """Evaluate on 90-question dataset. Returns per-question result dicts."""
     results = []
@@ -425,14 +457,19 @@ def evaluate_90q(
             continue
 
         sheet_text = sheet_to_text_90q(sheet_rows)
-        prompt = build_prompt(sheet_text, question_text)
+        prompt = build_prompt(sheet_text, question_text, thinking_mode=thinking_mode)
 
-        response = run_inference(tokenizer, model, prompt)
-        predicted = extract_number(response)
+        response, finished_on_eos = run_inference(tokenizer, model, prompt, thinking_mode=thinking_mode, thinking_budget=thinking_budget)
+        thinking, answer_text = split_thinking(response)
+        predicted = parse_answer_line(answer_text)
+        if predicted is None:
+            gen_status = "truncated" if not finished_on_eos else "no_answer_parsed"
+        else:
+            gen_status = "ok"
         correct = is_correct(predicted, ground_truth, tol)
 
-        status = "CORRECT" if correct else "WRONG "
-        print(f"  [{i}/{len(subset)}] {status} | truth={float(ground_truth):.4f} pred={predicted} | {question_text[:60]}...")
+        label = "CORRECT" if correct else ("TRUNC  " if gen_status == "truncated" else "WRONG  ")
+        print(f"  [{i}/{len(subset)}] {label} | truth={float(ground_truth):.4f} pred={predicted} | {question_text[:60]}...")
 
         results.append({
             "source": "90q",
@@ -442,8 +479,10 @@ def evaluate_90q(
             "question": question_text,
             "ground_truth": ground_truth,
             "prompt": prompt,
-            "llm_response": response,
+            "thinking": thinking,
+            "llm_response": answer_text,
             "predicted": predicted,
+            "status": gen_status,
             "correct": correct,
             "skip": False,
         })
@@ -459,6 +498,7 @@ def evaluate_multiturn(
     limit: int | None,
     tol: float,
     max_new_tokens: int = 512,
+    thinking_mode: bool = False,
 ) -> list:
     """
     Evaluate multi-turn questions.
@@ -498,7 +538,7 @@ def evaluate_multiturn(
                     "- Last line MUST be: Answer: <value>\n"
                     "- <value> is either a number, True, or False. Nothing else.\n"
                     "- Do NOT explain or add anything after the Answer line.\n"
-                    "- Do NOT show your thinking process.\n"
+                    + ("" if thinking_mode else "- Do NOT show your thinking process.\n")
                 )
                 system_msg = {"role": "system", "content": system_content}
 
@@ -522,7 +562,9 @@ def evaluate_multiturn(
         # Replay conversation turn by turn
         history = [system_msg] if system_msg else []
         final_response = None
-        turn_responses = []        # raw model output per turn
+        final_eos = True
+        turn_responses = []        # decoded text per turn
+        turn_eos_flags = []        # finished_on_eos per turn
         turn_questions = []        # user question text per turn
         turn_prompt_snapshots = [] # full messages list sent to the model at each turn
 
@@ -530,16 +572,24 @@ def evaluate_multiturn(
             if msg["role"] == "user":
                 question_text = msg["content"].strip()
                 history.append({"role": "user", "content": question_text})
-                # Snapshot the full context sent to the model (copy before adding response)
                 turn_prompt_snapshots.append(list(history))
-                response = run_multiturn_inference(tokenizer, model, history, max_new_tokens)
+                response, finished_on_eos = run_multiturn_inference(tokenizer, model, history, max_new_tokens, thinking_mode=thinking_mode)
                 history.append({"role": "assistant", "content": response})
                 turn_responses.append(response)
+                turn_eos_flags.append(finished_on_eos)
                 turn_questions.append(question_text)
                 final_response = response
+                final_eos = finished_on_eos
             # assistant placeholder messages are skipped — we fill them ourselves
 
-        predicted = extract_number(final_response) if final_response else None
+        final_thinking, final_answer = split_thinking(final_response) if final_response else ("", "")
+        predicted = parse_answer_line(final_answer) if final_response else None
+        if predicted is None and final_response:
+            final_gen_status = "truncated" if not final_eos else "no_answer_parsed"
+        elif final_response:
+            final_gen_status = "ok"
+        else:
+            final_gen_status = "no_response"
         correct = is_correct(predicted, ground_truth, tol)
 
         # Per-turn correctness against intermediate ground truths
@@ -548,19 +598,29 @@ def evaluate_multiturn(
         first_failure_depth = None
         for idx, tr in enumerate(turns_meta):
             tr_gt = tr.get("ground_truth")
-            tr_response = turn_responses[idx] if idx < len(turn_responses) else None
+            tr_raw = turn_responses[idx] if idx < len(turn_responses) else None
+            tr_eos = turn_eos_flags[idx] if idx < len(turn_eos_flags) else True
+            tr_thinking, tr_answer = split_thinking(tr_raw) if tr_raw else ("", "")
             tr_question = turn_questions[idx] if idx < len(turn_questions) else tr.get("question", "")
             tr_prompt = turn_prompt_snapshots[idx] if idx < len(turn_prompt_snapshots) else []
-            tr_pred = extract_number(tr_response) if tr_response else None
+            tr_pred = parse_answer_line(tr_answer) if tr_raw else None
+            if tr_pred is None and tr_raw:
+                tr_status = "truncated" if not tr_eos else "no_answer_parsed"
+            elif tr_raw:
+                tr_status = "ok"
+            else:
+                tr_status = "no_response"
             tr_correct = is_correct(tr_pred, tr_gt, tol)
             turn_correctness.append({
                 "turn_number": tr.get("turn_number"),
                 "op": tr.get("op"),
                 "question": tr_question,
-                "prompt_messages": tr_prompt,  # full messages list sent to model at this turn
+                "prompt_messages": tr_prompt,
                 "ground_truth": tr_gt,
                 "predicted": tr_pred,
-                "llm_response": tr_response,
+                "status": tr_status,
+                "thinking": tr_thinking,
+                "llm_response": tr_answer,
                 "correct": tr_correct,
                 "is_final": tr.get("is_final", False),
             })
@@ -572,8 +632,9 @@ def evaluate_multiturn(
             gt_display = f"{float(ground_truth):.4f}"
         except (TypeError, ValueError):
             gt_display = str(ground_truth)
+        label = "CORRECT" if correct else ("TRUNC  " if final_gen_status == "truncated" else "WRONG  ")
         failure_info = f" first_fail@turn={first_failure_depth}" if not correct and num_turns > 1 else ""
-        print(f"  [{i}/{len(subset)}] {status} | turns={num_turns} depth={depth}{failure_info} | "
+        print(f"  [{i}/{len(subset)}] {label} | turns={num_turns} depth={depth}{failure_info} | "
               f"truth={gt_display} pred={predicted} | {original_q[:50]}...")
 
         results.append({
@@ -587,8 +648,10 @@ def evaluate_multiturn(
             "turn_responses": turn_responses,
             "turn_correctness": turn_correctness,
             "first_failure_depth": first_failure_depth,
-            "llm_response": final_response,
+            "thinking": final_thinking,
+            "llm_response": final_answer,
             "predicted": predicted,
+            "status": final_gen_status,
             "correct": correct,
             "skip": False,
         })
@@ -663,7 +726,7 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
     fieldnames = [
         "model", "dataset", "id", "entity", "depth",
         "question", "prompt", "ground_truth", "predicted_answer",
-        "reasoning", "correct", "relative_error", "within_tol", "skipped",
+        "reasoning", "status", "correct", "relative_error", "within_tol", "skipped",
     ]
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -692,6 +755,7 @@ def save_csv(all_results: dict, path: Path, tol: float) -> None:
                         "ground_truth": gt,
                         "predicted_answer": pred,
                         "reasoning": r.get("llm_response", ""),
+                        "status": r.get("status", "ok"),
                         "correct": r.get("correct", False),
                         "relative_error": f"{rel_err:.6f}" if rel_err is not None else "",
                         "within_tol": (rel_err is not None and rel_err <= tol),
@@ -718,8 +782,8 @@ def parse_args():
         help="Relative tolerance for numeric correctness (default: 0.01 = 1%%)",
     )
     parser.add_argument(
-        "--max-new-tokens", type=int, default=512,
-        help="Max new tokens to generate per answer (default: 512)",
+        "--max-new-tokens", type=int, default=2048,
+        help="Max new tokens to generate per answer (default: 2048)",
     )
     parser.add_argument(
         "--output", type=str, default="output_llm/eval_results.json",
@@ -736,6 +800,14 @@ def parse_args():
     parser.add_argument(
         "--finetune", type=str, default=None, metavar="ADAPTER_PATH",
         help="Path to LoRA adapter directory to load on top of the base model (e.g. ./qwen-lora-adapters)",
+    )
+    parser.add_argument(
+        "--thinking-mode", action="store_true", default=False,
+        help="Enable extended thinking in the model (stores <think> traces for failure analysis)",
+    )
+    parser.add_argument(
+        "--thinking-budget", type=int, default=1024,
+        help="Max tokens the model may spend inside <think> (default: 1024). Only applies with --thinking-mode.",
     )
     return parser.parse_args()
 
@@ -785,7 +857,8 @@ def main():
             print(f"\n-- 10-Q evaluation ({args.limit or len(questions_10q)} questions) --")
             results_10q = evaluate_10q(
                 questions_10q, sheet_lookup_10q, tokenizer, model,
-                limit=args.limit, tol=args.tol,
+                limit=args.limit, tol=args.tol, thinking_mode=args.thinking_mode,
+                thinking_budget=args.thinking_budget,
             )
         else:
             results_10q = []
@@ -794,7 +867,8 @@ def main():
             print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
             results_90q = evaluate_90q(
                 questions_90q, sheet_lookup_90q, tokenizer, model,
-                limit=args.limit, tol=args.tol,
+                limit=args.limit, tol=args.tol, thinking_mode=args.thinking_mode,
+                thinking_budget=args.thinking_budget,
             )
         else:
             results_90q = []
@@ -805,6 +879,7 @@ def main():
             results_mt = evaluate_multiturn(
                 questions_mt, sheet_lookup_mt, tokenizer, model,
                 limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+                thinking_mode=args.thinking_mode,
             )
         else:
             results_mt = []
