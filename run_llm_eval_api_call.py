@@ -1120,6 +1120,10 @@ def parse_args():
         default=["10q", "90q", "mt"],
         help="Which dataset(s) to evaluate: 10q, 10q_leaf (no derived atoms), 90q, mt, mt_10q, or adversarial 10Q variants (default: all)",
     )
+    parser.add_argument(
+        "--questions-10q", type=str, default=None,
+        help="Override path to 10Q questions CSV (default: random_questions_10q_1000.csv)",
+    )
     return parser.parse_args()
 
 
@@ -1128,8 +1132,10 @@ def main():
 
     # Load datasets
     print("Loading datasets...")
-    if "10q" in args.datasets or "10q_leaf" in args.datasets:
-        questions_10q = load_10q_questions(DATASET_10Q)
+    _adv_keys = {"10q_missing", "10q_garbage", "10q_lookalike", "10q_cross", "10q_combined"}
+    if "10q" in args.datasets or "10q_leaf" in args.datasets or any(k in args.datasets for k in _adv_keys):
+        dataset_10q_path = Path(args.questions_10q) if args.questions_10q else DATASET_10Q
+        questions_10q = load_10q_questions(dataset_10q_path)
         sheet_lookup_10q = build_10q_sheet_lookup(load_json(ATOMS_10Q))
         print(f"  10-Q: {len(questions_10q)} questions, {len(sheet_lookup_10q)} entities")
     else:
@@ -1202,7 +1208,7 @@ def main():
             results_adv[adv_key] = evaluate_10q(
                 questions_10q, adv_lookup, model_name,
                 limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
-                thinking=args.thinking,
+                thinking=args.thinking, leaf_only=True,
             )
 
         if "90q" in args.datasets:
