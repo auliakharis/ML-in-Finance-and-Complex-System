@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 
-from tree import Atom, DerivedExpr, Expr, Leaf, Literal, Node, Operation
+from script.compiler_pipeline_refactored.tree import Atom, DerivedExpr, Expr, Leaf, Literal, Node, Operation
 
 
 class Evaluator:

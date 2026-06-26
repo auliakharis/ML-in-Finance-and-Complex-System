@@ -9,7 +9,7 @@ from typing import Any, Callable, Sequence, TypeVar
 
 from data_prep_adversarial import run_data_prep
 from evaluator import Evaluator
-from adversarial import (
+from script.compiler_pipeline_adversarial.adversarial import (
     DATA_PREP_OBSTACLES,
     OBSTACLE_NAMES,
     USELESS_INFO_TEMPLATES_FILE,

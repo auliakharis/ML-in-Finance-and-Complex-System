@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 from pydantic import BaseModel
 
-from tree import (
+from script.compiler_pipeline_refactored.tree import (
     Atom,
     DerivedExpr,
     Expr,

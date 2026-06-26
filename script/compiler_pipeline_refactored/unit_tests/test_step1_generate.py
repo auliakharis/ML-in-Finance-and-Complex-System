@@ -3,7 +3,7 @@ Unit tests for the v2 data-prep layer, adapted from the v1 step-1 suite.
 """
 from __future__ import annotations
 
-from data_prep import (
+from script.compiler_pipeline_refactored.data_prep import (
     YEARS,
     build_schema_for_column,
     generate_company_row_for_given_year,

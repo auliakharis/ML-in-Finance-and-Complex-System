@@ -8,7 +8,7 @@ import random
 
 import pytest
 
-from tree import (
+from script.compiler_pipeline_refactored.tree import (
     DERIVED_CONCEPTS,
     DerivedExpr,
     Expr,

@@ -19,7 +19,7 @@ def v2_dir() -> Path:
 
 @pytest.fixture
 def sample_company():
-    from data_prep import Company
+    from script.compiler_pipeline_refactored.data_prep import Company
 
     return Company(
         name="Acme Holdings",
@@ -32,7 +32,7 @@ def sample_company():
 
 @pytest.fixture
 def categorical_columns_model(v2_dir: Path):
-    from data_prep import CategorialColumns
+    from script.compiler_pipeline_refactored.data_prep import CategorialColumns
 
     payload = json.loads((v2_dir / "config/categorical_cols.json").read_text(encoding="utf-8"))
     return CategorialColumns.model_validate(payload)
@@ -40,7 +40,7 @@ def categorical_columns_model(v2_dir: Path):
 
 @pytest.fixture
 def yearly_numeric_columns_model(v2_dir: Path):
-    from data_prep import YearlyNumericColumns
+    from script.compiler_pipeline_refactored.data_prep import YearlyNumericColumns
 
     payload = json.loads((v2_dir / "config/yearly_numeric_cols.json").read_text(encoding="utf-8"))
     payload["define"].pop("year", None)
@@ -93,6 +93,6 @@ def minimal_atoms(
     minimal_csv_rows: list[dict[str, object]],
     concept_metadata: dict[str, dict],
 ):
-    from make_random_questions import build_atoms_from_dataframe
+    from script.compiler_pipeline_refactored.make_random_questions import build_atoms_from_dataframe
 
     return build_atoms_from_dataframe(minimal_fieldnames, minimal_csv_rows, concept_metadata)
