@@ -69,7 +69,7 @@ MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
 DATASET_10Q    = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "random_questions_10q.csv"
 ATOMS_10Q      = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "atoms_10q.json"
-DATASET_MT_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "multi_turn_10q.json"
+DATASET_MT_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "multi_turn_10q_90.json"
 
 _ADV_DIR_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "adversarial"
 ADV_ATOMS_10Q: dict[str, Path] = {
@@ -84,7 +84,7 @@ DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output" / "random_que
 SHEET_90Q   = BASE_DIR / "compiler_pipeline_refactored" / "output" / "synthetic_company_data.csv"
 
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
-SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
+SHEET_MT    = BASE_DIR / "dataset_output" / "financial_spreadsheet.json"  # same synthetic companies
 
 DEFAULT_MODELS = ["Qwen/Qwen3.5-27B"]
 
