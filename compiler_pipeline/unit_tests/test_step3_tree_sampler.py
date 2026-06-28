@@ -240,3 +240,51 @@ def check_no_dead_keys(tree_json: dict, dead_keys: set[str]) -> None:
     if {"left", "right"}.issubset(tree_json):
         check_no_dead_keys(tree_json["left"], dead_keys)
         check_no_dead_keys(tree_json["right"], dead_keys)
+
+
+class TestBalancedTree:
+    def test_fold_narry_balanced_is_not_left_chain(self):
+        leaves = [Leaf(key=f"L{i}") for i in range(4)]
+        folded = Expr.fold_narry(Operation.sum, leaves, balanced=True)
+        assert isinstance(folded, Node)
+        assert isinstance(folded.left, Node)
+        assert isinstance(folded.right, Node)
+
+    def test_fold_narry_default_stays_left_nested(self):
+        leaves = [Leaf(key=f"L{i}") for i in range(4)]
+        folded = Expr.fold_narry(Operation.sum, leaves)
+        assert isinstance(folded.left, Node)
+        assert isinstance(folded.left.left, Node)
+        assert isinstance(folded.right, Leaf)
+
+    def test_build_amount_tree_balanced(self):
+        tree = Expr.build_amount_tree(
+            depth=3,
+            rng=random.Random(42),
+            derived_prob=0.0,
+            balanced=True,
+        )
+        assert Expr.is_height_balanced(tree)
+
+    def test_sample_tree_with_rejection_balanced(self):
+        tree, _ = Expr.sample_tree_with_rejection(
+            max_depth=4,
+            rng=random.Random(7),
+            derived_prob=0.0,
+            balanced=True,
+        )
+        assert Expr.is_height_balanced(tree)
+
+    def test_unbalanced_default_sampling_exists(self):
+        found_unbalanced = False
+        for seed in range(100):
+            tree, _ = Expr.sample_tree_with_rejection(
+                max_depth=4,
+                rng=random.Random(seed),
+                derived_prob=0.0,
+                balanced=False,
+            )
+            if not Expr.is_height_balanced(tree):
+                found_unbalanced = True
+                break
+        assert found_unbalanced

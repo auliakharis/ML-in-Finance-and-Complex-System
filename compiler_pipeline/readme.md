@@ -39,9 +39,34 @@ Optional: regenerate synthetic data first:
 python data_prep.py
 ```
 
-That writes `output/synthetic_company_data.csv`, `output/schema.json`, and `output/atoms.json`.
+That writes `output/financial_spreadsheet.csv`, `output/schema.json`, and `output/atoms.json`.
 
-Question generation defaults: read `output/synthetic_company_data.csv`, write `output/random_questions_90.csv`, 90 questions. See `python make_random_questions.py --help` for `--n`, depth, seeds, and paths.
+Question generation defaults: read `output/financial_spreadsheet.csv`, write `output/random_questions_90.csv`, 90 questions. See `python make_random_questions.py --help` for `--n`, depth, seeds, and paths.
+
+### Obstacles (optional)
+
+Activate **one** obstacle at a time via `--obstacle`:
+
+| Obstacle | Effect |
+|----------|--------|
+| `big_numbers` | Regenerates synthetic data with larger numeric sampling ranges (`data_prep`; default 100×, override with `--big-numbers-factor`) |
+| `useless_info` | Appends concept-matched distractor text from `config/useless_info_templates.json` (one family per leaf/derived concept + `generic` fallback; optional `--useless-info-family` to force one family) |
+| `unit_scale_change` | Scales M_USD data into thousands/millions/etc., prepends unit instructions, and stores answers in raw numbers |
+| `negation` | Adds linguistic negation wrappers (answer unchanged) |
+| `conditional` | Prepends a vacuously true `If revenue …` clause |
+| `balanced_tree` | Samples fully balanced binary template trees (equal-depth left/right at every node; no time-agg templates). Derived sum expansions use balanced folds. Bound time-aggregate chains stay left-nested. Question text unchanged. |
+
+```bash
+python make_random_questions.py --obstacle useless_info
+python make_random_questions.py --obstacle balanced_tree --seed 42
+python make_random_questions.py --obstacle useless_info --useless-info-family income_tax
+python make_random_questions.py --obstacle big_numbers --seed 42
+python make_random_questions.py --obstacle big_numbers --big-numbers-factor 50
+python data_prep.py --obstacle big_numbers   # data only
+python data_prep.py --obstacle big_numbers --big-numbers-factor 200
+```
+
+Question-level obstacles keep the same numeric `answer`, except `unit_scale_change` (answers are converted to raw numbers). For `useless_info`, each generated row records `useless_info_family_used` so you can verify concept-to-family matching. If you add concepts, run `python scripts/ensure_useless_info_coverage.py` so every concept has a template family (otherwise rows fall back to `generic`). `big_numbers` and `unit_scale_change` scale persisted CSV/spreadsheet automatically unless `--skip-data-prep`.
 
 ---
 
@@ -52,7 +77,7 @@ Question generation defaults: read `output/synthetic_company_data.csv`, write `o
 Run when you need a new synthetic dataset. This step:
 
 1. Loads **`config/`** (companies, column definitions, concept metadata).
-2. Generates **`output/synthetic_company_data.csv`** — one row per company per year with financial fields.
+2. Generates **`output/financial_spreadsheet.csv`** — one row per company per year with financial fields.
 3. Writes **`output/schema.json`** describing columns.
 4. Builds **`output/atoms.json`** — one atom per spreadsheet cell (entity, period, concept, value, units, etc.).
 
