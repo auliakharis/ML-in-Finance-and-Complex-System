@@ -9,7 +9,7 @@ from enum import StrEnum
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
-from script.compiler_pipeline_refactored.utils import pick_random_contiguous_period_window
+from temp.compiler_pipeline_refactored.utils import pick_random_contiguous_period_window
 
 class SemanticError(Exception):
     """Raised when an expression violates semantic compatibility rules."""
@@ -1218,9 +1218,9 @@ def compile_and_analyze(
     atoms_json_path: str | Path,
     seed: int = 0,
 ) -> dict:
-    from script.compiler_pipeline_refactored.evaluator import Evaluator
-    from script.compiler_pipeline_refactored.question_renderer import QuestionRenderer
-    from script.compiler_pipeline_refactored.semantic_analyzer import SemanticAnalyzer
+    from temp.compiler_pipeline_refactored.evaluator import Evaluator
+    from temp.compiler_pipeline_refactored.question_renderer import QuestionRenderer
+    from temp.compiler_pipeline_refactored.semantic_analyzer import SemanticAnalyzer
 
     atoms = load_atoms_json(atoms_json_path)
     with open(tree_json_path, "r", encoding="utf-8") as f:

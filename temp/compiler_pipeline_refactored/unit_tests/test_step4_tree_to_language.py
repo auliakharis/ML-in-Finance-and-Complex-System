@@ -9,11 +9,11 @@ import random
 
 import pytest
 
-import script.compiler_pipeline_refactored.question_renderer as question_renderer_module
-from script.compiler_pipeline_refactored.evaluator import Evaluator
-from script.compiler_pipeline_refactored.question_renderer import QuestionRenderer
-from script.compiler_pipeline_refactored.semantic_analyzer import SemanticAnalyzer
-from script.compiler_pipeline_refactored.tree import (
+import temp.compiler_pipeline_refactored.question_renderer as question_renderer_module
+from temp.compiler_pipeline_refactored.evaluator import Evaluator
+from temp.compiler_pipeline_refactored.question_renderer import QuestionRenderer
+from temp.compiler_pipeline_refactored.semantic_analyzer import SemanticAnalyzer
+from temp.compiler_pipeline_refactored.tree import (
     AtomIndex,
     DERIVED_CONCEPTS,
     DerivedExpr,
@@ -26,7 +26,7 @@ from script.compiler_pipeline_refactored.tree import (
     SemanticType,
     compile_tree_payload,
 )
-from script.compiler_pipeline_refactored.utils import oxford_join
+from temp.compiler_pipeline_refactored.utils import oxford_join
 
 
 def leaf_for(atoms, concept: str, entity: str = "Corp0", period: str = "2021") -> Leaf:

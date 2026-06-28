@@ -5,12 +5,12 @@ from __future__ import annotations
 
 import pytest
 
-from script.compiler_pipeline_refactored.make_random_questions import (
+from temp.compiler_pipeline_refactored.make_random_questions import (
     build_atoms_from_dataframe,
     normalize_value,
     resolve_entity_column,
 )
-from script.compiler_pipeline_refactored.tree import SemanticType
+from temp.compiler_pipeline_refactored.tree import SemanticType
 
 
 class TestNormalizeValue:

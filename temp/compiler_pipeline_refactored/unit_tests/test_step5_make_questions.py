@@ -9,8 +9,8 @@ from pathlib import Path
 
 import pytest
 
-from script.compiler_pipeline_refactored.make_random_questions import build_row, flatten_leaf_keys, resolve_path, validate_args
-from script.compiler_pipeline_refactored.tree import DerivedExpr, Leaf, Literal, Node
+from temp.compiler_pipeline_refactored.make_random_questions import build_row, flatten_leaf_keys, resolve_path, validate_args
+from temp.compiler_pipeline_refactored.tree import DerivedExpr, Leaf, Literal, Node
 
 
 def make_args(**overrides) -> argparse.Namespace:

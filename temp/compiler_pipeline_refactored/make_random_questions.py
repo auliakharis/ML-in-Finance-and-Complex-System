@@ -8,10 +8,10 @@ import random
 from pathlib import Path
 from typing import Any, Callable, Sequence, TypeVar
 
-from script.compiler_pipeline_refactored.evaluator import Evaluator
-from script.compiler_pipeline_refactored.question_renderer import QuestionRenderer
-from script.compiler_pipeline_refactored.semantic_analyzer import SemanticAnalyzer
-from script.compiler_pipeline_refactored.tree import Atom, BindEnv, DERIVED_CONCEPTS, Expr, Store
+from temp.compiler_pipeline_refactored.evaluator import Evaluator
+from temp.compiler_pipeline_refactored.question_renderer import QuestionRenderer
+from temp.compiler_pipeline_refactored.semantic_analyzer import SemanticAnalyzer
+from temp.compiler_pipeline_refactored.tree import Atom, BindEnv, DERIVED_CONCEPTS, Expr, Store
 
 T = TypeVar("T")
 

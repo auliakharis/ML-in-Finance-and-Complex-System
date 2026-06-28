@@ -3,7 +3,7 @@ from __future__ import annotations
 from random import random
 
 
-from script.compiler_pipeline_refactored.semantic_analyzer import (
+from temp.compiler_pipeline_refactored.semantic_analyzer import (
     AnalysisResult,
     base_metric_name,
     base_metric_name_from_child,
@@ -13,7 +13,7 @@ from script.compiler_pipeline_refactored.semantic_analyzer import (
     shared_entity_period_context,
     strip_entity_period_suffix,
 )
-from script.compiler_pipeline_refactored.tree import DerivedExpr, Leaf, Literal, Operation
+from temp.compiler_pipeline_refactored.tree import DerivedExpr, Leaf, Literal, Operation
 
 QUESTION_TEMPLATES = {
     "question": [
