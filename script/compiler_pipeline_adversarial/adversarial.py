@@ -47,6 +47,7 @@ OBSTACLE_NAMES: tuple[str, ...] = (
     "negation",
     "conditional",
     "prompt_injection",
+    "balanced_tree",
 )
 
 QUESTION_OBSTACLES: frozenset[str] = frozenset(

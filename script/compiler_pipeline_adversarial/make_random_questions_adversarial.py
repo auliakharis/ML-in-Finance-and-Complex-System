@@ -9,11 +9,10 @@ from typing import Any, Callable, Sequence, TypeVar
 
 from data_prep_adversarial import run_data_prep
 from evaluator import Evaluator
-from script.compiler_pipeline_adversarial.adversarial import (
+from adversarial import (
     DATA_PREP_OBSTACLES,
     OBSTACLE_NAMES,
     USELESS_INFO_TEMPLATES_FILE,
-    ObstacleContext,
     load_financial_spreadsheet,
     m_usd_concepts_from_metadata,
     obstacle_requires_spreadsheet,
@@ -25,6 +24,10 @@ from script.compiler_pipeline_adversarial.adversarial import (
     validate_big_numbers_factor,
     validate_obstacle_name,
     validate_useless_info_family,
+)
+from obstacles import (
+    GENERATION_OBSTACLES,
+    ObstacleContext,   # newer version with expr + useless_info_family_used
 )
 from question_renderer import QuestionRenderer
 from semantic_analyzer import SemanticAnalyzer
