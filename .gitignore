@@ -1,6 +1,4 @@
-nano .gitignore
-```
-
 .venv/
 venv/
 .env
+.idea
