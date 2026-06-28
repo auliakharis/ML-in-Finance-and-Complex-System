@@ -55,11 +55,11 @@ _client = openai.Client(
 
 BASE_DIR = Path(__file__).parent
 
-DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output"/"questions"/"useless_info" /"questions.json"
+DATASET_90Q = BASE_DIR / "script" / "compiler_pipeline_adverserial" / "output"/"questions"/"useless_info" /"questions.json"
 
-ADV_DIR = BASE_DIR / "compiler_pipeline_refactored" / "output" / "adversarial"
+ADV_DIR = BASE_DIR / "script" / "compiler_pipeline_adverserial" / "output" / "adversarial"
 
-CLEAN_SHEET = BASE_DIR / "compiler_pipeline_refactored" / "output" /"data"/"big_numbers_prompt_injection"/ "synthetic_company_data.csv"
+CLEAN_SHEET = BASE_DIR / "script" / "compiler_pipeline_adverserial" / "output" /"data"/"big_numbers_prompt_injection"/ "synthetic_company_data.csv"
 
 ADVERSARIAL_SHEETS: dict[str, Path] = {
     "baseline": CLEAN_SHEET,
