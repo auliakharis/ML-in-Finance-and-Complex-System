@@ -76,7 +76,11 @@ SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
 DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
 SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
 
-DEFAULT_MODELS = ["Qwen/Qwen3.5-27B"]
+DEFAULT_MODELS = ["swiss-ai/Apertus-70B-Instruct-2509",
+                  "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+                  "meta-llama/Llama-3.3-70B-Instruct",
+                  "openai/gpt-oss-120b-evMj",
+                  "deepseek-ai/deepseek-coder-33b-instruct",]
 
 
 # ---------------------------------------------------------------------------

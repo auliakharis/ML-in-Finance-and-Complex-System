@@ -164,6 +164,7 @@ def build_row(
     leaf_keys: list[str],
     atoms: dict[str, Atom],
     obstacle: str | None = None,
+    useless_info_family_used: str = "",
     question_original: str = "",
 ) -> dict[str, Any]:
     row: dict[str, Any] = {
@@ -172,6 +173,7 @@ def build_row(
         "question": question,
         "question_original": question_original,
         "obstacle": obstacle or "",
+        "useless_info_family_used": useless_info_family_used,
         "expression": expr_str,
         "expression_json": json.dumps(expr_json, ensure_ascii=False),
         "template_expression": json.dumps(tree_payload.expr_to_json(), ensure_ascii=False),
@@ -209,6 +211,7 @@ ORIGINAL_QUESTIONS_BASE_FIELDS: list[str] = [
     "question",
     "question_original",
     "obstacle",
+    "useless_info_family_used",
     "expression",
     "expression_json",
     "template_expression",
@@ -377,9 +380,18 @@ def generate_question_rows(
 
     rows: list[dict[str, Any]] = []
     max_leaf_count = 0
+    balanced_tree = obstacle == "balanced_tree"
 
-    for i in range(n):
+    i = 0
+    derived_true_count = 0
+
+    while i < n:
         last_error: Exception | None = None
+
+        current_ratio = derived_true_count / (i + 1)
+        target_ratio = (derived_prob_min + derived_prob_max) / 2
+        need_derived = current_ratio < target_ratio
+
         for attempt in range(1, 1001):
             tree_seed = master_rng.randint(0, 10**9)
             bind_seed = master_rng.randint(0, 10**9)
@@ -390,11 +402,12 @@ def generate_question_rows(
             )
 
             try:
+                does_expr_contain_derived = False
                 tree_payload, _ = Expr.sample_tree_with_rejection(
                     max_depth=depth,
-                    rng=random.Random(tree_seed),
                     derived_prob=derived_prob,
                     derived_registry=DERIVED_CONCEPTS,
+                    balanced=balanced_tree,
                 )
                 expr = with_random_seed(
                     bind_seed,
@@ -403,6 +416,7 @@ def generate_question_rows(
                     store,
                     BindEnv(),
                     DERIVED_CONCEPTS,
+                    balanced=balanced_tree,
                 )
                 analysis = analyzer.analyze(expr)
                 answer = evaluator.eval(expr)
@@ -414,11 +428,13 @@ def generate_question_rows(
                     )
                 question = with_random_seed(bind_seed, renderer.render, analysis)
                 question_original = ""
-                if obstacle and obstacle not in DATA_PREP_OBSTACLES:
+                useless_info_family_used = ""
+                if obstacle and obstacle not in DATA_PREP_OBSTACLES and obstacle not in GENERATION_OBSTACLES:
                     question_original = question
                     ctx = ObstacleContext(
                         question=question,
                         analysis=analysis,
+                        expr=expr,
                         leaf_atoms=[atoms[k] for k in flatten_leaf_keys(expr)],
                         spreadsheet_rows=spreadsheet_rows,
                         base_dir=pipeline_base,
@@ -426,11 +442,22 @@ def generate_question_rows(
                         useless_info_family=useless_info_family,
                     )
                     question = ctx.apply(obstacle)
+                    if obstacle == "useless_info" and ctx.useless_info_family_used:
+                        useless_info_family_used = ctx.useless_info_family_used
+
                 expr_json = expr.expr_to_json()
                 expr_str = expr.show_expr()
                 template_stats = Expr.count_nodes(tree_payload)
                 leaf_keys = flatten_leaf_keys(expr)
                 max_leaf_count = max(max_leaf_count, len(leaf_keys))
+
+                does_expr_contain_derived = expr.contains_a_derived_concept()
+                actual_depth = expr.expr_depth()
+
+                if need_derived and not does_expr_contain_derived:
+                    continue
+                if not (depth_min <= actual_depth <= depth_max):
+                    continue
                 break
             except Exception as err:
                 last_error = err
@@ -439,6 +466,9 @@ def generate_question_rows(
                         f"Failed to generate question {i + 1} after 1000 attempts. "
                         f"Last error: {type(last_error).__name__}: {last_error}"
                     ) from last_error
+            i += 1
+            if does_expr_contain_derived:
+                derived_true_count += 1
 
         row = build_row(
             i=i,
@@ -458,6 +488,7 @@ def generate_question_rows(
             atoms=atoms,
             obstacle=obstacle,
             question_original=question_original,
+            useless_info_family_used=useless_info_family_used
         )
         rows.append(row)
 
