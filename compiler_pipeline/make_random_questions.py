@@ -70,6 +70,8 @@ def validate_args(args: argparse.Namespace, *, base_dir: Path | None = None) -> 
         raise ValueError("--derived-prob-min and --derived-prob-max must be in [0, 1].")
     if args.derived_prob_min > args.derived_prob_max:
         raise ValueError("--derived-prob-min must be <= --derived-prob-max.")
+    if args.depth_max == 0 and args.derived_prob_min > 0.0:
+        raise ValueError("--derived-prob-min must be 0 when --depth-max=0: at depth 0 the sampler always emits a plain leaf.")
     obstacle = getattr(args, "obstacle", None)
     validate_obstacle_name(obstacle)
     useless_info_family = getattr(args, "useless_info_family", None)
