@@ -1,0 +1,333 @@
+{
+  "company_name": "Alto Group",
+  "form_type": "10-Q",
+  "fiscal_year": "2025",
+  "quarter": 3,
+  "period": "Three Months Ended October 31, 2025",
+  "fiscal_year_start": "January 01, 2025",
+  "financial_statements": {
+    "income_statement": {
+      "current_quarter": {
+        "period": "Three Months Ended October 31, 2025",
+        "revenue": {
+          "net_sales": 98077.0,
+          "other_components": {},
+          "other_operating_revenue": {
+            "Membership and other income": 527.0
+          },
+          "total_revenues": 98604.0
+        },
+        "costs_and_expenses": {
+          "cost_of_sales": 75576.0,
+          "operating_expenses": {
+            "research_and_development": 526.0,
+            "selling_general_and_administrative": 20523.0,
+            "total": 21049.0
+          },
+          "total_costs_and_expenses": 96625.0
+        },
+        "gross_profit": 22501.0,
+        "operating_income": 1979.0,
+        "other_income_expense_net": -924.0,
+        "income_before_taxes": 1055.0,
+        "provision_for_income_taxes": 264.0,
+        "net_income": 791.0,
+        "earnings_per_share": {
+          "basic": 0.2,
+          "diluted": 0.2
+        },
+        "shares_used_in_computing_eps": {
+          "basic": 4016000.0,
+          "diluted": 4024000.0
+        }
+      },
+      "prior_year_quarter": {
+        "period": "Three Months Ended October 31, 2024",
+        "revenue": {
+          "net_sales": 104345.0,
+          "other_components": {},
+          "other_operating_revenue": {
+            "Membership and other income": 561.0
+          },
+          "total_revenues": 104906.0
+        },
+        "costs_and_expenses": {
+          "cost_of_sales": 80406.0,
+          "operating_expenses": {
+            "research_and_development": 560.0,
+            "selling_general_and_administrative": 21835.0,
+            "total": 22395.0
+          },
+          "total_costs_and_expenses": 102801.0
+        },
+        "gross_profit": 23939.0,
+        "operating_income": 2105.0,
+        "other_income_expense_net": -983.0,
+        "income_before_taxes": 1122.0,
+        "provision_for_income_taxes": 281.0,
+        "net_income": 841.0,
+        "earnings_per_share": {
+          "basic": 0.21,
+          "diluted": 0.21
+        },
+        "shares_used_in_computing_eps": {
+          "basic": 4134223.0,
+          "diluted": 4104075.0
+        }
+      },
+      "current_ytd": {
+        "period": "Nine Months Ended October 31, 2025",
+        "revenue": {
+          "net_sales": 294231.0,
+          "other_components": {},
+          "other_operating_revenue": {
+            "Membership and other income": 1581.0
+          },
+          "total_revenues": 295812.0
+        },
+        "costs_and_expenses": {
+          "cost_of_sales": 226728.0,
+          "operating_expenses": {
+            "research_and_development": 1578.0,
+            "selling_general_and_administrative": 61569.0,
+            "total": 63147.0
+          },
+          "total_costs_and_expenses": 289875.0
+        },
+        "gross_profit": 67503.0,
+        "operating_income": 5937.0,
+        "other_income_expense_net": -2772.0,
+        "income_before_taxes": 3165.0,
+        "provision_for_income_taxes": 792.0,
+        "net_income": 2373.0,
+        "earnings_per_share": {
+          "basic": 0.59,
+          "diluted": 0.59
+        },
+        "shares_used_in_computing_eps": {
+          "basic": 4026119.0,
+          "diluted": 4174955.0
+        }
+      },
+      "prior_year_ytd": {
+        "period": "Nine Months Ended October 31, 2024",
+        "revenue": {
+          "net_sales": 313035.0,
+          "other_components": {},
+          "other_operating_revenue": {
+            "Membership and other income": 1683.0
+          },
+          "total_revenues": 314718.0
+        },
+        "costs_and_expenses": {
+          "cost_of_sales": 241218.0,
+          "operating_expenses": {
+            "research_and_development": 1680.0,
+            "selling_general_and_administrative": 65505.0,
+            "total": 67185.0
+          },
+          "total_costs_and_expenses": 308403.0
+        },
+        "gross_profit": 71817.0,
+        "operating_income": 6315.0,
+        "other_income_expense_net": -2949.0,
+        "income_before_taxes": 3366.0,
+        "provision_for_income_taxes": 843.0,
+        "net_income": 2523.0,
+        "earnings_per_share": {
+          "basic": 0.63,
+          "diluted": 0.63
+        },
+        "shares_used_in_computing_eps": {
+          "basic": 4108145.0,
+          "diluted": 3938666.0
+        }
+      }
+    },
+    "comprehensive_income": {
+      "current_quarter": {
+        "period": "Three Months Ended October 31, 2025",
+        "net_income": 791.0,
+        "other_comprehensive_income": {
+          "foreign_currency_translation": 86.0,
+          "unrealized_gains_losses_on_securities": 57.0,
+          "total": 143.0
+        },
+        "total_comprehensive_income": 934.0
+      },
+      "prior_year_quarter": {
+        "period": "Three Months Ended October 31, 2024",
+        "net_income": 841.0,
+        "other_comprehensive_income": {
+          "foreign_currency_translation": 28.0,
+          "unrealized_gains_losses_on_securities": 18.0,
+          "total": 46.0
+        },
+        "total_comprehensive_income": 887.0
+      },
+      "current_ytd": {
+        "period": "Nine Months Ended October 31, 2025",
+        "net_income": 2373.0,
+        "other_comprehensive_income": {
+          "foreign_currency_translation": 83.0,
+          "unrealized_gains_losses_on_securities": 55.0,
+          "total": 138.0
+        },
+        "total_comprehensive_income": 2511.0
+      },
+      "prior_year_ytd": {
+        "period": "Nine Months Ended October 31, 2024",
+        "net_income": 2523.0,
+        "other_comprehensive_income": {
+          "foreign_currency_translation": 69.0,
+          "unrealized_gains_losses_on_securities": 65.0,
+          "total": 134.0
+        },
+        "total_comprehensive_income": 2657.0
+      }
+    },
+    "balance_sheet": {
+      "current": {
+        "as_of": "October 31, 2025",
+        "current_assets": {
+          "cash_and_cash_equivalents": 6421.0,
+          "short_term_investments": 6761.0,
+          "accounts_receivable_net": 15956.0,
+          "inventories": 11022.0,
+          "prepaid_expenses_and_other": 2837.0,
+          "total": 42997.0
+        },
+        "non_current_assets": {
+          "long_term_marketable_securities": 12613.0,
+          "property_plant_and_equipment_net": 38205.0,
+          "goodwill": 13394.0,
+          "other_non_current_assets": 4296.0,
+          "total": 68508.0
+        },
+        "total_assets": 111505.0,
+        "current_liabilities": {
+          "accounts_payable": 24081.0,
+          "deferred_revenue": 3666.0,
+          "accrued_expenses_and_other": 8975.0,
+          "current_portion_of_long_term_debt": 2527.0,
+          "total": 39249.0
+        },
+        "non_current_liabilities": {
+          "long_term_debt": 17022.0,
+          "other_non_current_liabilities": 3777.0,
+          "total": 20799.0
+        },
+        "total_liabilities": 60048.0,
+        "shareholders_equity": {
+          "common_stock_and_apic": 41581.0,
+          "retained_earnings": 15735.0,
+          "accumulated_other_comprehensive_loss": -5859.0,
+          "total": 51457.0
+        },
+        "total_liabilities_and_equity": 111505.0
+      },
+      "prior_fiscal_year_end": {
+        "as_of": "December 31, 2024",
+        "current_assets": {
+          "cash_and_cash_equivalents": 6243.0,
+          "short_term_investments": 6573.0,
+          "accounts_receivable_net": 15513.0,
+          "inventories": 10716.0,
+          "prepaid_expenses_and_other": 2758.0,
+          "total": 41803.0
+        },
+        "non_current_assets": {
+          "long_term_marketable_securities": 12263.0,
+          "property_plant_and_equipment_net": 37144.0,
+          "goodwill": 13022.0,
+          "other_non_current_assets": 4177.0,
+          "total": 66606.0
+        },
+        "total_assets": 108409.0,
+        "current_liabilities": {
+          "accounts_payable": 23413.0,
+          "deferred_revenue": 3564.0,
+          "accrued_expenses_and_other": 8726.0,
+          "current_portion_of_long_term_debt": 2457.0,
+          "total": 38160.0
+        },
+        "non_current_liabilities": {
+          "long_term_debt": 16549.0,
+          "other_non_current_liabilities": 3672.0,
+          "total": 20221.0
+        },
+        "total_liabilities": 58381.0,
+        "shareholders_equity": {
+          "common_stock_and_apic": 35020.0,
+          "retained_earnings": 15008.0,
+          "accumulated_other_comprehensive_loss": 0,
+          "total": 50028.0
+        },
+        "total_liabilities_and_equity": 108409.0
+      },
+      "prior_year_quarter": null
+    },
+    "cash_flows": {
+      "current_ytd": {
+        "period": "Nine Months Ended October 31, 2025",
+        "operating_activities": {
+          "net_income": 2373.0,
+          "depreciation_and_amortization": 9108.0,
+          "stock_based_compensation": 2122.0,
+          "change_in_accounts_receivable": -2821.0,
+          "change_in_inventories": -1945.0,
+          "change_in_accounts_payable": 5064.0,
+          "change_in_other_working_capital": -321.0,
+          "total": 13580.0
+        },
+        "investing_activities": {
+          "capital_expenditures": -6439.0,
+          "purchases_of_marketable_securities": -2054.0,
+          "proceeds_from_maturities": 1739.0,
+          "total": -6754.0
+        },
+        "financing_activities": {
+          "share_repurchases": -2442.0,
+          "dividends_paid": -231.0,
+          "repayments_of_debt": -1331.0,
+          "proceeds_from_stock_option_exercises": 534.0,
+          "total": -3470.0
+        },
+        "effect_of_exchange_rate_on_cash": -137.0,
+        "net_change_in_cash": 3219.0,
+        "opening_cash": 6142.0,
+        "closing_cash": 9361.0
+      },
+      "prior_ytd": {
+        "period": "Nine Months Ended October 31, 2024",
+        "operating_activities": {
+          "net_income": 2523.0,
+          "depreciation_and_amortization": 9690.0,
+          "stock_based_compensation": 2258.0,
+          "change_in_accounts_receivable": -3001.0,
+          "change_in_inventories": -2069.0,
+          "change_in_accounts_payable": 5388.0,
+          "change_in_other_working_capital": -1923.0,
+          "total": 12866.0
+        },
+        "investing_activities": {
+          "capital_expenditures": -6851.0,
+          "purchases_of_marketable_securities": -2185.0,
+          "proceeds_from_maturities": 1850.0,
+          "total": -7186.0
+        },
+        "financing_activities": {
+          "share_repurchases": -2598.0,
+          "dividends_paid": -246.0,
+          "repayments_of_debt": -1416.0,
+          "proceeds_from_stock_option_exercises": 527.0,
+          "total": -3733.0
+        },
+        "effect_of_exchange_rate_on_cash": 104.0,
+        "net_change_in_cash": 2051.0,
+        "opening_cash": 6535.0,
+        "closing_cash": 8586.0
+      }
+    }
+  }
+}

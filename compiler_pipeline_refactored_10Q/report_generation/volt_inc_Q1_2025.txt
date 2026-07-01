@@ -1,0 +1,177 @@
+                                 UNITED STATES                                  
+                       SECURITIES AND EXCHANGE COMMISSION                       
+                             Washington, D.C. 20549                             
+
+                                   FORM 10-Q                                    
+
+(Mark One)
+
+[X] QUARTERLY REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE
+    SECURITIES EXCHANGE ACT OF 1934
+
+    For the quarterly period ended January 31, 2026.
+
+[ ] TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE
+    SECURITIES EXCHANGE ACT OF 1934
+
+    For the transition period from ______ to ______.
+
+                         Commission File Number 5-12077                         
+
+                                    Volt Inc                                    
+             (Exact name of registrant as specified in its charter)             
+
+California                                                            68-6779179
+(State or other jurisdiction of incorporation or organization)          (I.R.S. Employer Identification No.)
+
+500 Technology Way                                                         77001
+Houston, TX
+(Address of principal executive offices)                         (Zip Code)
+
+Registrant's telephone number, including area code: (597) 748-1816
+
+Former name, former address and former fiscal year, if changed since last report: N/A
+
+Securities registered pursuant to Section 12(b) of the Act:
+
+  Title of each class                 Trading Symbol  Exchange
+  --------------------------------- ------------- -------------------------
+  Common Stock, par value $0.01 per share VOLT            New York Stock Exchange
+
+Indicate by check mark whether the registrant is a large accelerated filer,
+an accelerated filer, a non-accelerated filer, a smaller reporting company,
+or an emerging growth company.
+
+  Large Accelerated Filer  [X]    Accelerated Filer          [ ]
+  Non-Accelerated Filer    [ ]    Smaller Reporting Company  [ ]
+                                  Emerging Growth Company    [ ]
+
+The registrant had 4,144,000 shares of common stock outstanding
+as of January 31, 2026.
+
+================================================================================
+
+PART I — FINANCIAL INFORMATION
+
+Item 1.  Financial Statements (Unaudited)
+
+================================================================================
+
+
+  ──────────────────────────────────────────────────────────────────────
+  CONDENSED CONSOLIDATED STATEMENT OF OPERATIONS
+  ──────────────────────────────────────────────────────────────────────
+                                              Jan 31, 2026  Jan 31, 2025
+  ──────────────────────────────────────────────────────────────────────
+  Revenues:
+    Net sales:
+      Products                                          56,209        51,953
+      Services                                          18,075        16,706
+        Total net sales                                   74,284        68,659
+    Total revenues                                    74,284        68,659
+  Costs and expenses:
+    Cost of sales:
+      Products                                          25,694        23,749
+      Services                                          10,192         9,420
+        Total cost of sales                               35,886        33,169
+    Research and development                           8,258         7,633
+    Selling, general and administrative                6,400         5,915
+    Total costs and expenses                          50,544        46,717
+
+  Gross profit                                      38,398        35,490
+  Operating income                                  23,740        21,942
+  Other income/(expense), net                        1,100         1,017
+  Income before taxes                               24,840        22,959
+  Provision for income taxes                         4,290         3,965
+  Net income                                        20,550        18,994
+
+  Earnings per share:
+      Basic                                           5.00          4.63
+      Diluted                                         4.96          4.58
+
+  Shares used in computing earnings per share:
+      Basic                                      4,106,000     4,305,232
+      Diluted                                    4,145,000     4,292,279
+
+  ──────────────────────────────────────────────────────────────────────
+  CONDENSED CONSOLIDATED STATEMENT OF COMPREHENSIVE INCOME
+  ──────────────────────────────────────────────────────────────────────
+                                              Jan 31, 2026  Jan 31, 2025
+  ──────────────────────────────────────────────────────────────────────
+  Net income                                        20,550        18,994
+  Other comprehensive income/(loss):
+    Change in foreign currency translation, net of tax          -382           -12
+    Change in unrealized gains/(losses) on securities, net of tax          -255            -8
+      Total other comprehensive income/(loss)             -637           -20
+
+  Total comprehensive income                        19,913        18,974
+
+  ──────────────────────────────────────────────────────────────────────
+  CONDENSED CONSOLIDATED BALANCE SHEET
+  ──────────────────────────────────────────────────────────────────────
+                                              Jan 31, 2026  Sep 30, 2025
+  ──────────────────────────────────────────────────────────────────────
+  Current assets:
+    Cash and cash equivalents                         21,780        20,447
+    Short-term investments                            13,805        12,960
+    Accounts receivable, net                          11,152        10,470
+    Inventories                                        2,732         2,565
+    Prepaid expenses and other                         2,820         2,647
+    Total current assets                              52,289        49,089
+  Non-current assets:
+    Long-term marketable securities                   24,697        23,186
+    Property, plant and equipment, net                10,172         9,550
+    Goodwill                                          24,339        22,850
+    Other non-current assets                           2,197         2,063
+    Total non-current assets                          61,405        57,649
+  Total assets                                     113,694       106,738
+  Current liabilities:
+    Accounts payable                                  12,248        11,499
+    Deferred revenue                                   4,889         4,590
+    Accrued expenses and other                         3,931         3,690
+    Current portion of long-term debt                  1,789         1,680
+    Total current liabilities                         22,857        21,459
+  Non-current liabilities:
+    Long-term debt                                    15,895        14,923
+    Other non-current liabilities                      3,086         2,897
+    Total non-current liabilities                     18,981        17,820
+  Total liabilities                                 41,838        39,279
+  Shareholders equity:
+    Common stock and APIC                             41,100        47,221
+    Retained earnings/(accumulated deficit)           37,733        20,238
+    Accumulated other comprehensive loss              -6,977             0
+    Total shareholders equity                         71,856        67,459
+  Total liabilities and equity                     113,694       106,738
+
+  ──────────────────────────────────────────────────────────────────────
+  CONDENSED CONSOLIDATED STATEMENT OF CASH FLOWS
+  ──────────────────────────────────────────────────────────────────────
+                                                  Jan 31, 2026      Jan 31, 2025
+  ──────────────────────────────────────────────────────────────────────────────
+  Operating activities:
+    Net income                                        20,550        18,994
+    Depreciation and amortization                      4,284         3,960
+    Stock-based compensation                             807           746
+    Change in accounts receivable                     -1,048          -969
+    Change in inventories                                 70            65
+    Change in accounts payable                         1,486         1,373
+    Change in other working capital                     -138           467
+    Net cash from operating                           26,011        24,636
+  Investing activities:
+    Capital expenditures                              -2,463        -2,277
+    Purchases of marketable securities                -3,419        -3,160
+    Proceeds from maturities                           1,493         1,380
+    Net cash from investing                           -4,389        -4,057
+  Financing activities:
+    Repayments of debt                                -1,128        -1,043
+    Share repurchases                                 -1,114        -1,030
+    Proceeds from stock option exercises                 215           179
+    Dividends paid                                    -4,887        -4,517
+    Net cash from financing                           -6,914        -6,411
+
+  Effect of exchange rate on cash                     -100            55
+  Net change in cash                                14,608        14,223
+  Cash at beginning of period                       19,972        18,460
+  Cash at end of period                             34,580        32,683
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
