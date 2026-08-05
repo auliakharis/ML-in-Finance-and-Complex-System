@@ -45,6 +45,7 @@ import argparse
 import csv
 import json
 import os
+import random
 import re
 import sys
 from datetime import datetime
@@ -66,6 +67,9 @@ _client = openai.Client(
 
 BASE_DIR = Path(__file__).parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
+
+sys.path.insert(0, str(BASE_DIR / "compiler_pipeline_refactored_10Q"))
+from adversarial_10q import ObstacleContext10Q, scale_atoms, pick_unit_scale  # noqa: E402
 
 DATASET_10Q    = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "random_questions_10q.csv"
 ATOMS_10Q      = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "atoms_10q.json"
@@ -586,10 +590,15 @@ def evaluate_10q(
     max_new_tokens: int = 2048,
     thinking: bool = False,
     leaf_only: bool = False,
+    obstacle: str | None = None,
+    source: str = "10q",
 ) -> list:
     """Evaluate on 10Q compiler pipeline questions. Returns per-question result dicts."""
     results = []
     subset = questions[:limit] if limit else questions
+
+    _scale_label, _scale_factor = pick_unit_scale() if obstacle == "scaling" else (None, 1.0)
+    _base_dir = BASE_DIR / "compiler_pipeline_refactored_10Q"
 
     for i, q in enumerate(subset, 1):
         entity = q.get("leaf_1_entity", "")
@@ -600,7 +609,7 @@ def evaluate_10q(
         if not atoms:
             print(f"  [{i}/{len(subset)}] SKIP (no atoms for '{entity}')")
             results.append({
-                "source": "10q",
+                "source": source,
                 "id": q.get("question_id"),
                 "entity": entity,
                 "depth": q.get("depth"),
@@ -612,6 +621,29 @@ def evaluate_10q(
                 "skip": True,
             })
             continue
+
+        if obstacle == "useless_info":
+            question_text = ObstacleContext10Q(
+                question=question_text, leaf_atoms=[], all_atoms=atoms,
+                base_dir=_base_dir,
+            ).apply_useless_info()
+        elif obstacle == "scaling":
+            atoms = scale_atoms(atoms, _scale_factor)
+            question_text = ObstacleContext10Q(
+                question=question_text, leaf_atoms=[], all_atoms=atoms,
+                base_dir=_base_dir, unit_scale_label=_scale_label,
+            ).apply_unit_scale_change()
+        elif obstacle == "combined_all":
+            unit_label, factor = pick_unit_scale()
+            atoms = scale_atoms(atoms, factor)
+            question_text = ObstacleContext10Q(
+                question=question_text, leaf_atoms=[], all_atoms=atoms,
+                base_dir=_base_dir, unit_scale_label=unit_label,
+            ).apply_unit_scale_change()
+            question_text = ObstacleContext10Q(
+                question=question_text, leaf_atoms=[], all_atoms=atoms,
+                base_dir=_base_dir,
+            ).apply_useless_info()
 
         sheet_text = sheet_to_text_10q(atoms, leaf_only=leaf_only)
         prompt = build_prompt(sheet_text, question_text)
@@ -628,7 +660,7 @@ def evaluate_10q(
         print(f"  [{i}/{len(subset)}] {status} | truth={gt_display} pred={predicted} | {question_text[:60]}...")
 
         results.append({
-            "source": "10q",
+            "source": source,
             "id": q.get("question_id"),
             "entity": entity,
             "depth": q.get("depth"),
@@ -1113,7 +1145,7 @@ def parse_args():
         "--thinking", action="store_true", default=False,
         help="Enable thinking mode for models that support it (e.g. Qwen3)",
     )
-    _adv_choices = ["10q_missing", "10q_garbage", "10q_lookalike", "10q_cross", "10q_combined"]
+    _adv_choices = ["10q_missing", "10q_garbage", "10q_lookalike", "10q_cross", "10q_combined", "10q_useless_info", "10q_scaling", "10q_combined_all"]
     parser.add_argument(
         "--datasets", nargs="+",
         choices=["10q", "10q_leaf", "90q", "mt", "mt_10q"] + _adv_choices,
@@ -1132,7 +1164,7 @@ def main():
 
     # Load datasets
     print("Loading datasets...")
-    _adv_keys = {"10q_missing", "10q_garbage", "10q_lookalike", "10q_cross", "10q_combined"}
+    _adv_keys = {"10q_missing", "10q_garbage", "10q_lookalike", "10q_cross", "10q_combined", "10q_useless_info", "10q_scaling", "10q_combined_all"}
     if "10q" in args.datasets or "10q_leaf" in args.datasets or any(k in args.datasets for k in _adv_keys):
         dataset_10q_path = Path(args.questions_10q) if args.questions_10q else DATASET_10Q
         questions_10q = load_10q_questions(dataset_10q_path)
@@ -1201,14 +1233,40 @@ def main():
         else:
             results_10q_leaf = []
 
-        # Adversarial 10Q variants
+        # Adversarial 10Q variants (atom-level corruptions)
         results_adv: dict[str, list] = {}
         for adv_key, adv_lookup in adv_lookups.items():
             print(f"\n-- {adv_key} evaluation ({args.limit or len(questions_10q)} questions) --")
             results_adv[adv_key] = evaluate_10q(
                 questions_10q, adv_lookup, model_name,
                 limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
-                thinking=args.thinking, leaf_only=True,
+                thinking=args.thinking, leaf_only=True, source=adv_key,
+            )
+
+        # Query-level obstacles (question text modified, atoms unchanged)
+        if "10q_useless_info" in args.datasets:
+            print(f"\n-- 10q_useless_info evaluation ({args.limit or len(questions_10q)} questions) --")
+            results_adv["10q_useless_info"] = evaluate_10q(
+                questions_10q, sheet_lookup_10q, model_name,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+                thinking=args.thinking, leaf_only=False, obstacle="useless_info", source="10q_useless_info",
+            )
+
+        if "10q_scaling" in args.datasets:
+            print(f"\n-- 10q_scaling evaluation ({args.limit or len(questions_10q)} questions) --")
+            results_adv["10q_scaling"] = evaluate_10q(
+                questions_10q, sheet_lookup_10q, model_name,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+                thinking=args.thinking, leaf_only=False, obstacle="scaling", source="10q_scaling",
+            )
+
+        if "10q_combined_all" in args.datasets:
+            print(f"\n-- 10q_combined_all evaluation ({args.limit or len(questions_10q)} questions) --")
+            combined_lookup = adv_lookups.get("10q_combined") or build_10q_sheet_lookup(load_json(ADV_ATOMS_10Q["10q_combined"]))
+            results_adv["10q_combined_all"] = evaluate_10q(
+                questions_10q, combined_lookup, model_name,
+                limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+                thinking=args.thinking, leaf_only=False, obstacle="combined_all", source="10q_combined_all",
             )
 
         if "90q" in args.datasets:
