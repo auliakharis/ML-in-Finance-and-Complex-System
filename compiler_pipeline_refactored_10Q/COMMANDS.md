@@ -1,7 +1,6 @@
 # 10Q Eval Commands
 
-Question-generation commands run from `compiler_pipeline_refactored_10Q/`.
-Eval commands run from the repo root.
+All commands run from inside `compiler_pipeline_refactored_10Q/`.
 
 Note: per-depth goes only to depth 4. Depth 5+ has too few samples in the
 generated dataset to reach 100 — the generator fails when constrained to a
@@ -60,7 +59,7 @@ Replace `<model>` with e.g. `Qwen/Qwen3.5-27B`.
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```
 
@@ -75,7 +74,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1_100.csv \
+  --questions-10q output/random_questions_10q_d1_100.csv \
   --models <model>
 ```
 
@@ -83,7 +82,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d2_100.csv \
+  --questions-10q output/random_questions_10q_d2_100.csv \
   --models <model>
 ```
 
@@ -91,7 +90,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d3_100.csv \
+  --questions-10q output/random_questions_10q_d3_100.csv \
   --models <model>
 ```
 
@@ -99,7 +98,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d4_100.csv \
+  --questions-10q output/random_questions_10q_d4_100.csv \
   --models <model>
 ```
 
@@ -107,7 +106,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q_missing \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```
 
@@ -115,7 +114,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q_garbage \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```
 
@@ -123,7 +122,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q_lookalike \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```
 
@@ -131,7 +130,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q_cross \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```
 
@@ -139,7 +138,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q_scaling \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```
 
@@ -147,7 +146,7 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q_useless_info \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```
 
@@ -155,6 +154,6 @@ python3 run_llm_eval_api_call.py \
 ```bash
 python3 run_llm_eval_api_call.py \
   --datasets 10q_combined_all \
-  --questions-10q compiler_pipeline_refactored_10Q/output/random_questions_10q_d1-5.csv \
+  --questions-10q output/random_questions_10q_d1-5.csv \
   --models <model>
 ```

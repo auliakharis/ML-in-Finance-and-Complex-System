@@ -68,14 +68,14 @@ _client = openai.Client(
 BASE_DIR = Path(__file__).parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
-sys.path.insert(0, str(BASE_DIR / "compiler_pipeline_refactored_10Q"))
+sys.path.insert(0, str(BASE_DIR))
 from adversarial_10q import ObstacleContext10Q, scale_atoms, pick_unit_scale  # noqa: E402
 
-DATASET_10Q    = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "random_questions_10q.csv"
-ATOMS_10Q      = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "atoms_10q.json"
-DATASET_MT_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "multi_turn_10q_90.json"
+DATASET_10Q    = BASE_DIR / "output" / "random_questions_10q.csv"
+ATOMS_10Q      = BASE_DIR / "output" / "atoms_10q.json"
+DATASET_MT_10Q = BASE_DIR / "output" / "multi_turn_10q_90.json"
 
-_ADV_DIR_10Q = BASE_DIR / "compiler_pipeline_refactored_10Q" / "output" / "adversarial"
+_ADV_DIR_10Q = BASE_DIR / "output" / "adversarial"
 ADV_ATOMS_10Q: dict[str, Path] = {
     "10q_missing":   _ADV_DIR_10Q / "atoms_missing.json",
     "10q_garbage":   _ADV_DIR_10Q / "atoms_garbage.json",
@@ -84,11 +84,11 @@ ADV_ATOMS_10Q: dict[str, Path] = {
     "10q_combined":  _ADV_DIR_10Q / "atoms_combined.json",
 }
 
-DATASET_90Q = BASE_DIR / "compiler_pipeline_refactored" / "output" / "random_questions_90_1000.csv"
-SHEET_90Q   = BASE_DIR / "compiler_pipeline_refactored" / "output" / "synthetic_company_data.csv"
+DATASET_90Q = BASE_DIR / ".." / "compiler_pipeline_refactored" / "output" / "random_questions_90_1000.csv"
+SHEET_90Q   = BASE_DIR / ".." / "compiler_pipeline_refactored" / "output" / "synthetic_company_data.csv"
 
-DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
-SHEET_MT    = BASE_DIR / "dataset_output" / "financial_spreadsheet.json"  # same synthetic companies
+DATASET_MT  = BASE_DIR / ".." / "dataset_output" / "multi_turn_and_augmented_questions.json"
+SHEET_MT    = BASE_DIR / ".." / "dataset_output" / "financial_spreadsheet.json"  # same synthetic companies
 
 DEFAULT_MODELS = ["Qwen/Qwen3.5-27B"]
 
@@ -598,7 +598,7 @@ def evaluate_10q(
     subset = questions[:limit] if limit else questions
 
     _scale_label, _scale_factor = pick_unit_scale() if obstacle == "scaling" else (None, 1.0)
-    _base_dir = BASE_DIR / "compiler_pipeline_refactored_10Q"
+    _base_dir = BASE_DIR
 
     for i, q in enumerate(subset, 1):
         entity = q.get("leaf_1_entity", "")
