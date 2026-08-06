@@ -24,6 +24,14 @@ parser.add_argument("--gen-tokens", type=int, default=512,
                     help="Max new tokens for CoT generation per example")
 parser.add_argument("--tol", type=float, default=0.01,
                     help="Relative tolerance for accepting a CoT trace as correct")
+# LoRA hyperparameters
+parser.add_argument("--r", type=int, default=8, help="LoRA rank")
+parser.add_argument("--lora-alpha", type=int, default=16, help="LoRA alpha")
+parser.add_argument("--lora-dropout", type=float, default=0.10, help="LoRA dropout")
+# CoT trace cache — generate once, reuse across hyperparameter sweeps
+parser.add_argument("--cot-cache", type=str, default=None,
+                    help="Path to a JSON file for saving/loading Phase 1 CoT traces. "
+                         "If the file exists, Phase 1 is skipped and traces are loaded from it.")
 args = parser.parse_args()
 
 # ══════════════════════════════════════════════════════════════════
@@ -37,16 +45,17 @@ ssl._create_default_https_context = ssl.create_default_context
 # ══════════════════════════════════════════════════════════════════
 # 1. PATHS
 # ══════════════════════════════════════════════════════════════════
-BASE_DIR    = Path(__file__).parent.parent
+BASE_DIR    = Path(__file__).parent.parent.parent
 MODEL_PATH  = Path(f"/cluster/scratch/{os.environ.get('USER', 'arakhmasari')}/models")
-SCRATCH_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'arakhmasari')}/lora-cot-checkpoints")
+_run_tag   = f"r{args.r}_alpha{args.lora_alpha}_dropout{args.lora_dropout}"
+SCRATCH_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'arakhmasari')}/lora-cot-checkpoints") / _run_tag
 MODEL       = "Qwen3.5-4B"
 MODEL_ID    = str(MODEL_PATH / MODEL)
 
-SHEET_PATH  = BASE_DIR / "dataset_output" / "synthetic_company_data_refactored.json"
-CSV_PATH    = BASE_DIR / "lora" / "random_1000.csv"
+SHEET_PATH  = BASE_DIR / "output"/ "dataset_output" / "synthetic_company_data_refactored.json"
+CSV_PATH    = BASE_DIR / "script" / "lora" / "random_1000.csv"
 
-sys.path.insert(0, str(BASE_DIR))
+sys.path.insert(0, str(BASE_DIR / "script" / "benchmark"))
 from run_llm_eval import build_prompt, sheet_to_text_90q, parse_answer_line, is_correct
 
 # ══════════════════════════════════════════════════════════════════
@@ -100,10 +109,9 @@ with open(SHEET_PATH) as f:
 
 sheet_lookup: dict = {}
 for row in sheet_raw:
-    ticker = row["ticker"]
-    sheet_lookup.setdefault(ticker, []).append(row)
-for ticker in sheet_lookup:
-    sheet_lookup[ticker].sort(key=lambda r: r.get("year", "0"))
+    sheet_lookup.setdefault(row["company_name"], []).append(row)
+for company in sheet_lookup:
+    sheet_lookup[company].sort(key=lambda r: r.get("year", "0"))
 
 df = pd.read_csv(CSV_PATH)
 depth0  = df[df["depth"] == 0].sample(n=150, random_state=42)
@@ -158,55 +166,72 @@ def generate_response(prompt: str) -> str:
 
 
 # ══════════════════════════════════════════════════════════════════
-# PHASE 1 — Generate CoT traces from the base model
+# PHASE 1 — Generate CoT traces from the base model (or load cache)
 #
 # For each training example we run the base model (no LoRA) and only
 # keep the trace if it produces the CORRECT final answer. These traces
 # become the assistant targets for LoRA training, so the model learns
 # to reason through the computation AND land on the right answer.
+#
+# Pass --cot-cache <path> to save traces on the first run and skip
+# generation entirely on subsequent hyperparameter sweep runs.
 # ══════════════════════════════════════════════════════════════════
-print("\n[PHASE 1] Generating CoT traces from base model ...")
-model.eval()
+cot_cache_path = Path(args.cot_cache) if args.cot_cache else None
 
-cot_records = []
-n_skipped   = 0
+if cot_cache_path and cot_cache_path.exists():
+    print(f"\n[PHASE 1] Loading cached CoT traces from {cot_cache_path} ...")
+    with open(cot_cache_path) as f:
+        cot_records = json.load(f)
+    print(f"[PHASE 1] Loaded {len(cot_records)} traces — skipping generation.")
+else:
+    print("\n[PHASE 1] Generating CoT traces from base model ...")
+    model.eval()
 
-for i, (_, row) in enumerate(df.iterrows()):
-    entity     = get_entity(row)
-    sheet_rows = sheet_lookup.get(entity, [])
-    sheet_text = sheet_to_text_90q(sheet_rows)
-    question   = row["question"]
-    truth      = float(row["answer"])
+    cot_records = []
+    n_skipped   = 0
 
-    prompt   = build_prompt(sheet_text, question, thinking_mode=False)
-    response = generate_response(prompt)
-    pred     = parse_answer_line(response)
-    correct  = is_correct(pred, truth, tol=args.tol)
+    for i, (_, row) in enumerate(df.iterrows()):
+        entity     = get_entity(row)
+        sheet_rows = sheet_lookup.get(entity, [])
+        sheet_text = sheet_to_text_90q(sheet_rows)
+        question   = row["question"]
+        truth      = float(row["answer"])
 
-    status = "KEEP" if correct else "SKIP"
-    print(f"  [{i+1}/{len(df)}] depth={row.get('depth',0)} {status} | truth={truth} pred={pred}")
-    print(f"         Q: {question[:80]}")
-    print(f"         R: {response[:300].strip()}")
-    print()
+        prompt   = build_prompt(sheet_text, question, thinking_mode=False)
+        response = generate_response(prompt)
+        pred     = parse_answer_line(response)
+        correct  = is_correct(pred, truth, tol=args.tol)
 
-    if correct:
-        cot_records.append({
-            "prompt":   prompt,
-            "response": response,
-            "depth":    row.get("depth", 0),
-        })
-    else:
-        n_skipped += 1
+        status = "KEEP" if correct else "SKIP"
+        print(f"  [{i+1}/{len(df)}] depth={row.get('depth',0)} {status} | truth={truth} pred={pred}")
+        print(f"         Q: {question[:80]}")
+        print(f"         R: {response[:300].strip()}")
+        print()
 
-    done = i + 1
-    if done % 50 == 0 or done == len(df):
-        print(f"  [{done}/{len(df)}]  kept={len(cot_records)}  skipped={n_skipped}  "
-              f"({len(cot_records)/done*100:.0f}% pass rate so far)")
+        if correct:
+            cot_records.append({
+                "prompt":   prompt,
+                "response": response,
+                "depth":    row.get("depth", 0),
+            })
+        else:
+            n_skipped += 1
+
+        done = i + 1
+        if done % 50 == 0 or done == len(df):
+            print(f"  [{done}/{len(df)}]  kept={len(cot_records)}  skipped={n_skipped}  "
+                  f"({len(cot_records)/done*100:.0f}% pass rate so far)")
+
+    if cot_cache_path:
+        cot_cache_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(cot_cache_path, "w") as f:
+            json.dump(cot_records, f)
+        print(f"[PHASE 1] CoT traces saved to {cot_cache_path}")
 
 kept_pct   = len(cot_records) / len(df) * 100
 depth_dist = {}
-for r in cot_records:
-    d = r["depth"]
+for rec in cot_records:
+    d = rec["depth"]
     depth_dist[d] = depth_dist.get(d, 0) + 1
 
 print(f"\n[PHASE 1] Done: {len(cot_records)}/{len(df)} kept ({kept_pct:.0f}%)")
@@ -221,12 +246,12 @@ if len(cot_records) < 10:
 # ══════════════════════════════════════════════════════════════════
 # PHASE 2 — Wrap base model with LoRA adapters
 # ══════════════════════════════════════════════════════════════════
-print("\n[PHASE 2] Applying LoRA adapters ...")
+print(f"\n[PHASE 2] Applying LoRA adapters (r={args.r}, alpha={args.lora_alpha}, dropout={args.lora_dropout}) ...")
 lora_config = LoraConfig(
     task_type=TaskType.CAUSAL_LM,
-    r=8,
-    lora_alpha=16,
-    lora_dropout=0.10,
+    r=args.r,
+    lora_alpha=args.lora_alpha,
+    lora_dropout=args.lora_dropout,
     bias="none",
     target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
 )
@@ -237,14 +262,24 @@ model.print_trainable_parameters()
 # PHASE 3 — Build HF Dataset from CoT traces
 # ══════════════════════════════════════════════════════════════════
 def format_record(record):
-    text = tokenizer.apply_chat_template(
-        [
-            {"role": "user",      "content": record["prompt"]},
-            {"role": "assistant", "content": record["response"]},
-        ],
-        tokenize=False,
-        add_generation_prompt=False,
-    )
+    kwargs = dict(tokenize=False, add_generation_prompt=False)
+    try:
+        text = tokenizer.apply_chat_template(
+            [
+                {"role": "user",      "content": record["prompt"]},
+                {"role": "assistant", "content": record["response"]},
+            ],
+            enable_thinking=False,
+            **kwargs,
+        )
+    except TypeError:
+        text = tokenizer.apply_chat_template(
+            [
+                {"role": "user",      "content": record["prompt"]},
+                {"role": "assistant", "content": record["response"]},
+            ],
+            **kwargs,
+        )
     return {"text": text}
 
 dataset = Dataset.from_list([format_record(r) for r in cot_records])

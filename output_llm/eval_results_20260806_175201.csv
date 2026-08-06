@@ -1,0 +1,48 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-70B-Instruct-2509,mt,2,Pinnacle Health Group,1,Determine the gross profit for Pinnacle Health Group in 2021 .,,6450.0,6450.0,"To calculate the gross profit for 2021, we need to subtract the cost of goods sold from the revenue.
+Gross Profit (2021) = Revenue (2021) - Cost of Goods Sold (2021)
+Gross Profit (2021) = 15115 - 8665 = 6450
+
+Answer: 6450",True,0.000000,True,False
+swiss-ai/Apertus-70B-Instruct-2509,mt,3,Pinnacle Health Group,4,determine the longterm assets for Pinnacle Health Group in 2023,,9640.0,9640.0,"Therefore, I'll first note the non-current or ""long-term"" assets not listed in current assets but given in the data:
+
+1. Property, plant, and equipment (fixed assets)
+2. Other non-current assets (other than current)
+
+### Step 1: Identify potential long-term assets as per given data:
+- The given data does not provide a separate item ""Property, plant, and equipment"" in the 2023 data.
+- However, the ""total_assets"" is 15122 for 2023.
+
+Assuming: 
+- Long-term assets ≈ Total_assets - Current Assets in 2023.
+
+### Step 2: Calculate
+Let's calculate:
+Long-term assets ≈ Total_assets - Current Assets
+= 15122 - 5482 (Current assets for 2023)
+
+### Perform the calculation
+Long-term assets = 15122 - 5482 = 9640
+
+### Conclusion
+Based on available data, the long-term (or non-current) assets for Pinnacle Health Group in 2023 are approximately 9640.
+
+Answer: 9640
+
+Note: This is an approximate calculation, as the actual non-current assets might include other items not explicitly listed in the given data (like property, plant, and equipment), but since those aren’t explicitly provided, we cannot include them. Potential items like intangible assets, goodwill, or longer-term investments not within current assets would need additional data to factor. The provided calculation uses what was available for approximation. 
+
+**Note for further clarity:** The correct way if all assets were listed would subtract current ones from total but since those don't exist elsewhere, this is the best data-driven estimation.",True,0.000000,True,False
+swiss-ai/Apertus-70B-Instruct-2509,mt,4,Crimson Pharmaceuticals,1,what does the following give: longterm liabilities for Crimson Pharmaceuticals in 2025?,,285836.0,499181.0,Answer: 499181,False,0.746390,False,False
+swiss-ai/Apertus-70B-Instruct-2509,mt,5,Pacific Crest Energy,3,Provide the the minimum of revenue for Pacific Crest Energy using values from 2020 through 2023,,160549.0,176894.0,"To find the minimum revenue of Pacific Crest Energy (PCEN) from 2020 to 2023, we need to look at the revenue values for each year in the given data:
+
+Year 2020: 160549
+Year 2021: 190597
+Year 2022: 176894
+Year 2023: 185506
+
+The minimum revenue is found in 2022: 176894
+
+Answer: 176894",False,0.101807,False,False
+swiss-ai/Apertus-70B-Instruct-2509,mt,7,Orion Financial Group,1,give the sum of revenue and capex for Orion Financial Group in 2024 .,,153870.0,153870.0,"Sum: (142085 + 11785) = 153870 
+
+Answer: 153870",True,0.000000,True,False

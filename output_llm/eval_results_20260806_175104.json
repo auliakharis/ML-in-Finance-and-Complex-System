@@ -1,0 +1,64 @@
+{
+  "swiss-ai/Apertus-70B-Instruct-2509": {
+    "10q": [],
+    "90q": [],
+    "mt": [
+      {
+        "source": "mt",
+        "id": "2",
+        "entity": "Pinnacle Health Group",
+        "depth": 1,
+        "num_turns": 1,
+        "question": "Determine the gross profit for Pinnacle Health Group in 2021 .",
+        "ground_truth": "6450.0",
+        "turn_responses": [
+          ". Gross profit = revenue - cost_of_goods_sold - operating_expenses \n\n2021 gross profit: 15115 - 8665 - 3017 = 3433 \n\nAnswer: 3433"
+        ],
+        "turn_correctness": [
+          {
+            "turn_number": 1,
+            "op": "diff",
+            "question": "Determine the gross profit for Pinnacle Health Group in 2021 .",
+            "prompt_messages": [
+              {
+                "role": "system",
+                "content": "You are a financial analyst. Answer using ONLY the data below. No commentary.\n\n=== DATA ===\n  Year 2020:\n    ticker: PNHG\n    sector: Healthcare\n    country: USA\n    exchange: NYSE\n    credit_rating: BBB\n    revenue: 15631\n    cost_of_goods_sold: 11723\n    operating_expenses: 1876\n    non_operating_expenses: 2814\n    income_tax: 0.25624660992217896\n    total_assets: 14445\n    total_liabilities: 10116\n    total_equity: 4329\n    cash: 3451\n    accounts_receivable: 937\n    inventories: 266\n    short_term_investments: 453\n    current_liabilities: 2848\n    capex: 1018\n    dividends_paid: 0\n    shares_outstanding: 3348\n    stock_price: 564.08\n    employees: 384615\n  Year 2021:\n    ticker: PNHG\n    sector: Healthcare\n    country: USA\n    exchange: NYSE\n    credit_rating: BBB\n    revenue: 15115\n    cost_of_goods_sold: 8665\n    operating_expenses: 3017\n    non_operating_expenses: 1102\n    income_tax: 0.263860234862217\n    total_assets: 10369\n    total_liabilities: 3855\n    total_equity: 6514\n    cash: 370\n    accounts_receivable: 1076\n    inventories: 936\n    short_term_investments: 1495\n    current_liabilities: 1346\n    capex: 394\n    dividends_paid: 491\n    shares_outstanding: 10390\n    stock_price: 507.39\n    employees: 55441\n  Year 2022:\n    ticker: PNHG\n    sector: Healthcare\n    country: USA\n    exchange: NYSE\n    credit_rating: BBB\n    revenue: 17176\n    cost_of_goods_sold: 11725\n    operating_expenses: 2921\n    non_operating_expenses: 1275\n    income_tax: 0.29676887030293425\n    total_assets: 13861\n    total_liabilities: 7666\n    total_equity: 6195\n    cash: 1722\n    accounts_receivable: 1324\n    inventories: 1006\n    short_term_investments: 801\n    current_liabilities: 3545\n    capex: 489\n    dividends_paid: 290\n    shares_outstanding: 14416\n    stock_price: 513.93\n    employees: 415210\n  Year 2023:\n    ticker: PNHG\n    sector: Healthcare\n    country: USA\n    exchange: NYSE\n    credit_rating: BBB\n    revenue: 19203\n    cost_of_goods_sold: 9524\n    operating_expenses: 3778\n    non_operating_expenses: 4668\n    income_tax: 0.15401647927748016\n    total_assets: 15122\n    total_liabilities: 9629\n    total_equity: 5493\n    cash: 2062\n    accounts_receivable: 1605\n    inventories: 1096\n    short_term_investments: 719\n    current_liabilities: 4458\n    capex: 517\n    dividends_paid: 347\n    shares_outstanding: 13236\n    stock_price: 206.43\n    employees: 235031\n  Year 2024:\n    ticker: PNHG\n    sector: Healthcare\n    country: USA\n    exchange: NYSE\n    credit_rating: BBB\n    revenue: 20948\n    cost_of_goods_sold: 9857\n    operating_expenses: 1168\n    non_operating_expenses: 4613\n    income_tax: 0.13636797143153837\n    total_assets: 37775\n    total_liabilities: 26839\n    total_equity: 10936\n    cash: 3962\n    accounts_receivable: 2682\n    inventories: 1096\n    short_term_investments: 1839\n    current_liabilities: 6778\n    capex: 562\n    dividends_paid: 1739\n    shares_outstanding: 10829\n    stock_price: 398.53\n    employees: 380292\n  Year 2025:\n    ticker: PNHG\n    sector: Healthcare\n    country: USA\n    exchange: NYSE\n    credit_rating: BBB\n    revenue: 23323\n    cost_of_goods_sold: 13776\n    operating_expenses: 3456\n    non_operating_expenses: 4865\n    income_tax: 0.11861067011093435\n    total_assets: 41213\n    total_liabilities: 28203\n    total_equity: 13010\n    cash: 4013\n    accounts_receivable: 2289\n    inventories: 1123\n    short_term_investments: 3475\n    current_liabilities: 10051\n    capex: 1084\n    dividends_paid: 323\n    shares_outstanding: 10573\n    stock_price: 227.67\n    employees: 129445\n=== END ===\n\nRULES:\n- Extract only the numbers you need.\n- Show calculations in 1-3 lines max if needed.\n- Last line MUST be: Answer: <value>\n- <value> is either a number, True, or False. Nothing else.\n- Do NOT explain or add anything after the Answer line.\n- Do NOT show your thinking process.\n"
+              },
+              {
+                "role": "user",
+                "content": "Determine the gross profit for Pinnacle Health Group in 2021 ."
+              }
+            ],
+            "ground_truth": 6450.0,
+            "predicted": 3433.0,
+            "llm_response": ". Gross profit = revenue - cost_of_goods_sold - operating_expenses \n\n2021 gross profit: 15115 - 8665 - 3017 = 3433 \n\nAnswer: 3433",
+            "correct": false,
+            "is_final": true
+          }
+        ],
+        "first_failure_depth": 1,
+        "llm_response": ". Gross profit = revenue - cost_of_goods_sold - operating_expenses \n\n2021 gross profit: 15115 - 8665 - 3017 = 3433 \n\nAnswer: 3433",
+        "predicted": 3433.0,
+        "correct": false,
+        "skip": false
+      }
+    ],
+    "accuracy_10q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_90q": {
+      "total": 0,
+      "correct": 0,
+      "accuracy": 0.0
+    },
+    "accuracy_mt": {
+      "total": 1,
+      "skipped": 0,
+      "correct": 0,
+      "accuracy": 0.0,
+      "recovered": 0
+    }
+  }
+}

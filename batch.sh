@@ -1,46 +1,66 @@
 #!/bin/bash
-#SBATCH --job-name=eu_reg_pipeline
+#SBATCH --job-name=lora_retrain
 #SBATCH --gpus=1
-#SBATCH --gres=gpumem:16g
+#SBATCH --gres=gpumem:24g
 #SBATCH --cpus-per-task=4
-#SBATCH --time=12:00:00
+#SBATCH --time=48:00:00
 #SBATCH --output=logs/%j.out
 #SBATCH --error=logs/%j.err
 
-# ─── EDIT THESE ───
-
-MODEL="gemma-4-E4B-it"
-# ──────────────────
-
 mkdir -p logs
 
-# Load modules (adjust to your cluster)
 module load python/3.13.0
 module load cuda/13.0.2
 
-# Install deps
-# pip install torch accelerate bitsandbytes
-# pip install git+https://github.com/huggingface/transformers.git
-
 source /cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/bin/activate
 
-
-MODEL_PATH="$SCRATCH/models/$MODEL"
-echo "Checking model path..."
-ls "$MODEL_PATH" || echo "ERROR: Model path not found: $MODEL_PATH"
-
-echo "Starting pipeline: $(date)"
-echo "Model: $MODEL"
-echo "GPU: $CUDA_VISIBLE_DEVICES"
+echo "Starting LoRA retraining: $(date)"
 nvidia-smi
 
+# ── LoRA configurations ──────────────────────────────────────────────
+NAMES=(
+  r8_alpha16_dropout0.1
+  r8_alpha4_dropout0.1
+  r8_alpha8_dropout0.1
+  r4_alpha4_dropout0.1
+  r8_alpha16_dropout0.15
+  r8_alpha4_dropout0.15
+  r8_alpha8_dropout0.15
+)
+RS=(    8   8   8   4   8   8   8)
+ALPHAS=(16  4   8   4  16   4   8)
+DROPS=( 0.1 0.1 0.1 0.1 0.15 0.15 0.15)
 
-# python run_llm_eval.py --datasets mt  --models gemma-4-E4B-it --limit 5
-# python run_llm_eval.py --datasets 10q  --models gemma-4-E4B-it Qwen3.5-4B Qwen3.5-9B --limit 90
-# python test_api.py
-# python lora/lora2.py
-# python -u run_llm_eval.py --models Qwen3.5-4B --finetune ./qwen-lora-adapters --limit 90
-python run_llm_eval_api_call.py --limit 1
+COT_CACHE="/cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_cache.json"
 
+# ── Phase 1: Train ───────────────────────────────────────────────────
+for i in "${!NAMES[@]}"; do
+  NAME="${NAMES[$i]}"
+  R="${RS[$i]}"
+  ALPHA="${ALPHAS[$i]}"
+  DROP="${DROPS[$i]}"
+  echo ""
+  echo "══════════════════════════════════════════════════"
+  echo " TRAIN [$((i+1))/${#NAMES[@]}]: $NAME"
+  echo "══════════════════════════════════════════════════"
+  python -u script/lora/lora2_cot.py \
+    --r "$R" --lora-alpha "$ALPHA" --lora-dropout "$DROP" \
+    --cot-cache "$COT_CACHE"
+done
 
-echo "Done: $(date)"
+# ── Phase 2: Benchmark ───────────────────────────────────────────────
+for i in "${!NAMES[@]}"; do
+  NAME="${NAMES[$i]}"
+  echo ""
+  echo "══════════════════════════════════════════════════"
+  echo " BENCHMARK [$((i+1))/${#NAMES[@]}]: $NAME"
+  echo "══════════════════════════════════════════════════"
+  python -u script/benchmark/run_llm_eval.py \
+    --models Qwen3.5-4B \
+    --datasets 90q \
+    --finetune "/cluster/scratch/arakhmasari/lora-cot-checkpoints/${NAME}/adapters" \
+    --limit 90
+done
+
+echo ""
+echo "All done: $(date)"

@@ -57,6 +57,9 @@ import openai
 from dotenv import load_dotenv
 from fireworks import Fireworks
 
+sys.path.insert(0, str(Path(__file__).parent.parent / "Multi-turn"))
+from multi_turn_parser import process_dataset as generate_multiturn
+
 load_dotenv()
 
 class ModelSource(Enum):
@@ -64,7 +67,7 @@ class ModelSource(Enum):
     Together = auto()
     Firework = auto()
 
-MODEL_SOURCE = ModelSource.Firework
+MODEL_SOURCE = ModelSource.Apertus
 
 if MODEL_SOURCE == ModelSource.Apertus:
     _client = openai.Client(
@@ -97,6 +100,7 @@ DEFAULT_MODELS = ["swiss-ai/Apertus-70B-Instruct-2509",
                   "meta-llama/Llama-3.3-70B-Instruct",
                   "openai/gpt-oss-120b-evMj",
                   "deepseek-ai/deepseek-coder-33b-instruct",]
+# DEFAULT_MODELS = ["swiss-ai/Apertus-70B-Instruct-2509"]
 
 
 # ---------------------------------------------------------------------------
@@ -730,8 +734,11 @@ def parse_args():
         help="Path to save per-question results CSV (default: eval_results.csv)",
     )
     parser.add_argument(
-        "--datasets", nargs="+", choices=["10q", "90q", "mt"], default=["10q", "90q", "mt"],
-        help="Which dataset(s) to evaluate: 10q, 90q, mt, or any combination (default: all)",
+        "--datasets", nargs="+",
+        choices=["10q", "90q", "mt", "multiturn-90q", "multiturn-10q"],
+        default=["10q", "90q", "mt"],
+        help="Which dataset(s) to evaluate. Use multiturn-90q or multiturn-10q to auto-generate "
+             "multi-turn chains from the source dataset (default: all)",
     )
     return parser.parse_args()
 
@@ -748,20 +755,51 @@ def main():
     else:
         questions_10q, sheet_lookup_10q = [], {}
 
-    if "90q" in args.datasets:
+    if "90q" in args.datasets or "multiturn-90q" in args.datasets:
         questions_90q = load_json(DATASET_90Q)
         sheet_lookup_90q = build_90q_sheet_lookup(load_json(SHEET_90Q))
-        print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
+        if "90q" in args.datasets:
+            print(f"  90-Q: {len(questions_90q)} questions, {len(sheet_lookup_90q)} companies")
     else:
         questions_90q, sheet_lookup_90q = [], {}
+
+    if "10q" in args.datasets or "multiturn-10q" in args.datasets:
+        if not questions_10q:
+            questions_10q = load_json(DATASET_10Q)
+            sheet_lookup_10q = build_10q_sheet_lookup(load_json(SHEET_10Q))
+
+    questions_mt, sheet_lookup_mt = [], {}
 
     if "mt" in args.datasets:
         questions_mt = load_json(DATASET_MT)
         sheet_lookup_mt = build_90q_sheet_lookup(load_json(SHEET_MT))
         non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
         print(f"  Multi-turn: {len(questions_mt)} total, {non_skipped} non-skipped, {len(sheet_lookup_mt)} companies")
-    else:
-        questions_mt, sheet_lookup_mt = [], {}
+
+    elif "multiturn-90q" in args.datasets:
+        print(f"  Generating multi-turn chains from {len(questions_90q)} 90q questions...")
+        questions_mt = generate_multiturn(questions_90q)
+        sheet_lookup_mt = sheet_lookup_90q
+        ts_now = datetime.now().strftime("%Y%m%d_%H%M%S")
+        mt_cache = Path("output_llm") / f"mt_from_90q_{ts_now}.json"
+        mt_cache.parent.mkdir(parents=True, exist_ok=True)
+        with open(mt_cache, "w") as f:
+            json.dump(questions_mt, f, indent=2)
+        non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
+        print(f"  Generated {len(questions_mt)} MT questions ({non_skipped} multi-turn) → {mt_cache}")
+
+    elif "multiturn-10q" in args.datasets:
+        print(f"  Generating multi-turn chains from {len(questions_10q)} 10q questions...")
+        questions_mt = generate_multiturn(questions_10q)
+        # wrap single-row dicts in a list so sheet_to_text_90q works
+        sheet_lookup_mt = {k: [v] for k, v in sheet_lookup_10q.items()}
+        ts_now = datetime.now().strftime("%Y%m%d_%H%M%S")
+        mt_cache = Path("output_llm") / f"mt_from_10q_{ts_now}.json"
+        mt_cache.parent.mkdir(parents=True, exist_ok=True)
+        with open(mt_cache, "w") as f:
+            json.dump(questions_mt, f, indent=2)
+        non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
+        print(f"  Generated {len(questions_mt)} MT questions ({non_skipped} multi-turn) → {mt_cache}")
 
     all_results = {}
 
@@ -788,7 +826,7 @@ def main():
         else:
             results_90q = []
 
-        if "mt" in args.datasets:
+        if questions_mt:
             non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
             print(f"\n-- Multi-turn evaluation ({args.limit or non_skipped} questions) --")
             results_mt = evaluate_multiturn(

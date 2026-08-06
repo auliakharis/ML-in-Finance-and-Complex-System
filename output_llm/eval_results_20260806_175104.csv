@@ -1,0 +1,6 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-70B-Instruct-2509,mt,2,Pinnacle Health Group,1,Determine the gross profit for Pinnacle Health Group in 2021 .,,6450.0,3433.0,". Gross profit = revenue - cost_of_goods_sold - operating_expenses 
+
+2021 gross profit: 15115 - 8665 - 3017 = 3433 
+
+Answer: 3433",False,0.467752,False,False
