@@ -67,7 +67,7 @@ class ModelSource(Enum):
     Together = auto()
     Firework = auto()
 
-MODEL_SOURCE = ModelSource.Apertus
+MODEL_SOURCE = ModelSource.Together
 
 if MODEL_SOURCE == ModelSource.Apertus:
     _client = openai.Client(

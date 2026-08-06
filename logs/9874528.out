@@ -1280,3 +1280,30 @@ Answer: -46204.11
 Sum = 32,151 + 553,885 = 586,036.
 Answer: 586036
 
+  [206/667] depth=1 KEEP | truth=83579.0 pred=83579.0
+         Q: may you give the gross profit for NovaStar Technologies in 2023 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2023: Revenue = 158,696 and Cost of Goods Sold = 75,117.
+Calculation: 158,696 - 75,117 = 83,579.
+Answer: 83579
+
+  [207/667] depth=4 KEEP | truth=105445.5 pred=105445.5
+         Q: whats the value of the average current liabilities for ClearPath Logistics acros
+         R: Current liabilities for 2020: 111,529; 2021: 169,233; 2022: 63,198; 2023: 77,822.
+Sum = 111,529 + 169,233 + 63,198 + 77,822 = 421,782.
+Average = 421,782 / 4 = 105,445.5.
+Answer: 105445.5
+
+  [208/667] depth=1 KEEP | truth=28997.0 pred=28997.0
+         Q: What would be the gross profit for Cobalt Semiconductor in 2023?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2023: Revenue = 56007, COGS = 27010.
+Calculation: 56007 - 27010 = 28997.
+Answer: 28997
+
+  [209/667] depth=0 KEEP | truth=10888.0 pred=10888.0
+         Q: could you give the short term investments for Meridian Systems Inc in 2022 ?
+         R: Based on the data for Year 2022, the short_term_investments value is explicitly listed as 10888.
+
+Answer: 10888
+
