@@ -5,7 +5,8 @@ import csv
 import json
 import random
 from pathlib import Path
-from typing import Any, Callable, Sequence, TypeVar
+from random import Random
+from typing import Any, Callable, Sequence, TypeVar, Literal
 
 from data_prep_adversarial import run_data_prep
 from evaluator import Evaluator
@@ -385,96 +386,25 @@ def generate_question_rows(
     max_leaf_count = 0
     balanced_tree = obstacle == "balanced_tree"
 
-    i = 0
+    question_count = 0
     derived_true_count = 0
 
-    while i < n:
+    while question_count < n:
         last_error: Exception | None = None
 
-        current_ratio = derived_true_count / (i + 1)
+        current_ratio = derived_true_count / (question_count + 1)
         target_ratio = (derived_prob_min + derived_prob_max) / 2
         need_derived = current_ratio < target_ratio
 
-        for attempt in range(1, 1001):
-            tree_seed = master_rng.randint(0, 10**9)
-            bind_seed = master_rng.randint(0, 10**9)
-            depth = master_rng.randint(depth_min, depth_max)
-            derived_prob = round(
-                master_rng.uniform(derived_prob_min, derived_prob_max),
-                3,
-            )
-
-            try:
-                does_expr_contain_derived = False
-                tree_payload, _ = Expr.sample_tree_with_rejection(
-                    max_depth=depth,
-                    derived_prob=derived_prob,
-                    derived_registry=DERIVED_CONCEPTS,
-                    balanced=balanced_tree,
-                )
-                expr = with_random_seed(
-                    bind_seed,
-                    Expr.instantiate_typed_tree,
-                    tree_payload,
-                    store,
-                    BindEnv(),
-                    DERIVED_CONCEPTS,
-                    balanced=balanced_tree,
-                )
-                analysis = analyzer.analyze(expr)
-                answer = evaluator.eval(expr)
-                if obstacle == "unit_scale_change" and unit_scale_factor is not None:
-                    answer = scale_answer_from_display_units(
-                        answer,
-                        semantic_type=analysis.meaning.semantic_type,
-                        factor=unit_scale_factor,
-                    )
-                question = with_random_seed(bind_seed, renderer.render, analysis)
-                question_original = ""
-                useless_info_family_used = ""
-                if obstacle and obstacle not in DATA_PREP_OBSTACLES and obstacle not in GENERATION_OBSTACLES:
-                    question_original = question
-                    ctx = ObstacleContext(
-                        question=question,
-                        analysis=analysis,
-                        expr=expr,
-                        leaf_atoms=[atoms[k] for k in flatten_leaf_keys(expr)],
-                        spreadsheet_rows=spreadsheet_rows,
-                        base_dir=pipeline_base,
-                        unit_scale_label=unit_scale_label,
-                        useless_info_family=useless_info_family,
-                    )
-                    question = ctx.apply(obstacle)
-                    if obstacle == "useless_info" and ctx.useless_info_family_used:
-                        useless_info_family_used = ctx.useless_info_family_used
-
-                expr_json = expr.expr_to_json()
-                expr_str = expr.show_expr()
-                template_stats = Expr.count_nodes(tree_payload)
-                leaf_keys = flatten_leaf_keys(expr)
-                max_leaf_count = max(max_leaf_count, len(leaf_keys))
-
-                does_expr_contain_derived = expr.contains_a_derived_concept()
-                actual_depth = expr.expr_depth()
-
-                if need_derived and not does_expr_contain_derived:
-                    continue
-                if not (depth_min <= actual_depth <= depth_max):
-                    continue
-                break
-            except Exception as err:
-                last_error = err
-                if attempt == 1000:
-                    raise RuntimeError(
-                        f"Failed to generate question {i + 1} after 1000 attempts. "
-                        f"Last error: {type(last_error).__name__}: {last_error}"
-                    ) from last_error
-            i += 1
-            if does_expr_contain_derived:
-                derived_true_count += 1
-
+        answer, bind_seed, depth, derived_prob, expr, expr_json, expr_str, leaf_keys, max_leaf_count, question, question_original, template_stats, tree_payload, tree_seed, useless_info_family_used, does_expr_contain_derived = generate_one_question(
+            analyzer, atoms, balanced_tree, depth_max, depth_min, derived_prob_max, derived_prob_min,
+            evaluator, master_rng, max_leaf_count, need_derived, obstacle, pipeline_base,
+            renderer, spreadsheet_rows, store, unit_scale_factor, unit_scale_label, useless_info_family)
+        question_count += 1
+        if does_expr_contain_derived:
+            derived_true_count += 1
         row = build_row(
-            i=i,
+            i=question_count,
             expr=expr,
             question=question,
             answer=answer,
@@ -497,6 +427,94 @@ def generate_question_rows(
 
     return rows, master_seed, max_leaf_count
 
+
+def generate_one_question(analyzer: SemanticAnalyzer, atoms: dict[str, Atom], balanced_tree: bool, depth_max: int, depth_min: int,
+                          derived_prob_max: float, derived_prob_min: float, evaluator: Evaluator,
+                          master_rng: Random, max_leaf_count: int, need_derived: bool,
+                          obstacle: str | None | Literal["unit_scale_change"], pipeline_base: Path,
+                          renderer: QuestionRenderer, spreadsheet_rows: list[dict[str, str]], store: Store,
+                          unit_scale_factor: float | None, unit_scale_label: str | None, useless_info_family: str | None) -> \
+tuple[int, int, Expr, str, float, dict, str, Expr, int, int, float, int, dict[str, int], list[str], str, str, int]:
+    last_error: Exception | None = "hello"
+    for attempt in range(1, 1000001):
+        tree_seed = master_rng.randint(0, 10 ** 9)
+        bind_seed = master_rng.randint(0, 10 ** 9)
+        depth = master_rng.randint(depth_min, depth_max)
+        derived_prob = round(
+            master_rng.uniform(derived_prob_min, derived_prob_max),
+            3,
+        )
+
+        try:
+            does_expr_contain_derived = False
+            tree_payload, _ = Expr.sample_tree_with_rejection(
+                max_depth=depth,
+                derived_prob=derived_prob,
+                derived_registry=DERIVED_CONCEPTS,
+                balanced=balanced_tree,
+            )
+            expr = with_random_seed(
+                bind_seed,
+                Expr.instantiate_typed_tree,
+                tree_payload,
+                store,
+                BindEnv(),
+                DERIVED_CONCEPTS,
+                balanced=balanced_tree,
+            )
+            analysis = analyzer.analyze(expr)
+            answer = evaluator.eval(expr)
+            if obstacle == "unit_scale_change" and unit_scale_factor is not None:
+                answer = scale_answer_from_display_units(
+                    answer,
+                    semantic_type=analysis.meaning.semantic_type,
+                    factor=unit_scale_factor,
+                )
+            question = with_random_seed(bind_seed, renderer.render, analysis)
+            question_original = ""
+            useless_info_family_used = ""
+            if obstacle and obstacle not in DATA_PREP_OBSTACLES and obstacle not in GENERATION_OBSTACLES:
+                question_original = question
+                ctx = ObstacleContext(
+                    question=question,
+                    analysis=analysis,
+                    expr=expr,
+                    leaf_atoms=[atoms[k] for k in flatten_leaf_keys(expr)],
+                    spreadsheet_rows=spreadsheet_rows,
+                    base_dir=pipeline_base,
+                    unit_scale_label=unit_scale_label,
+                    useless_info_family=useless_info_family,
+                )
+                question = ctx.apply(obstacle)
+                if obstacle == "useless_info" and ctx.useless_info_family_used:
+                    useless_info_family_used = ctx.useless_info_family_used
+
+            expr_json = expr.expr_to_json()
+            expr_str = expr.show_expr()
+            template_stats = Expr.count_nodes(tree_payload)
+            leaf_keys = flatten_leaf_keys(expr)
+            max_leaf_count = max(max_leaf_count, len(leaf_keys))
+
+            does_expr_contain_derived = expr.contains_a_derived_concept()
+            actual_depth = expr.expr_depth()
+
+            if need_derived and not does_expr_contain_derived:
+                continue
+            if not (depth_min <= actual_depth <= depth_max):
+                continue
+            return answer, bind_seed, depth, derived_prob, expr, expr_json, expr_str, leaf_keys, max_leaf_count, question, question_original, template_stats, tree_payload, tree_seed, useless_info_family_used, does_expr_contain_derived
+        except Exception as err:
+            last_error = err
+            if attempt == 1000:
+                raise RuntimeError(
+                    f"Failed to generate question after 1000 attempts. "
+                    f"Last error: {type(last_error).__name__}: {last_error}"
+                ) from last_error
+
+    raise RuntimeError(
+        f"Failed to generate question after 1000 attempts. "
+        f"Last error:{last_error}"
+    )
 
 def write_questions_csv(rows: list[dict[str, Any]], output_path: Path) -> int:
     """Write question rows to CSV; return max leaf count."""

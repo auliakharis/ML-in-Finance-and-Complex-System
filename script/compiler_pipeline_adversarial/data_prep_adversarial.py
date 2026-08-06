@@ -11,9 +11,9 @@ import random
 random.seed(42)
 
 YEARS = list(range(2020, 2026))
-CATEGORICAL_COLS_FILE = "config/categorical_cols.json"
-YEARLY_NUMERIC_COLS_FILE = "config/yearly_numeric_cols.json"
-COMPANIES_FILE = "config/companies.json"
+CATEGORICAL_COLS_FILE = "./script/compiler_pipeline_adversarial/config/categorical_cols.json"
+YEARLY_NUMERIC_COLS_FILE = "./script/compiler_pipeline_adversarial/config/yearly_numeric_cols.json"
+COMPANIES_FILE = "./script/compiler_pipeline_adversarial/config/companies.json"
 
 # BaseModel from Pydantic is used for:
 # Data saving to and from json
@@ -304,7 +304,7 @@ def build_schema(
 
 
 def load_concept_metadata_from_json() -> ConceptMetadataSchema:
-    with open("config/concept_metadata.json", "r", encoding="utf-8") as f:
+    with open("./script/compiler_pipeline_adversarial/config/concept_metadata.json", "r", encoding="utf-8") as f:
         concept_metadata = ConceptMetadataSchema.model_validate(json.load(f))
     return concept_metadata
 
@@ -502,10 +502,10 @@ def generate_financial_spreadsheet_json(
 def run_data_prep(
     obstacle: str | None = None,
     big_numbers_factor: float | None = None,
-    csv_path: str = "output/financial_spreadsheet.csv",
-    schema_path: str = "output/schema.json",
-    atoms_path: str = "output/atoms.json",
-    financial_spreadsheet_path: str = "output/financial_spreadsheet.json",
+    csv_path: str = "script/compiler_pipeline_adversarial/output/financial_spreadsheet.csv",
+    schema_path: str = "script/compiler_pipeline_adversarial/output/schema.json",
+    atoms_path: str = "script/compiler_pipeline_adversarial/output/atoms.json",
+    financial_spreadsheet_path: str = "script/compiler_pipeline_adversarial/output/financial_spreadsheet.json",
     multi_factor: float = 1.0,
     injection_rate: float | None = None,
     apply_prompt_injection: bool = False,

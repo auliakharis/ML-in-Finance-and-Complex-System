@@ -49,33 +49,49 @@ import re
 import sys
 from datetime import datetime
 from pathlib import Path
+from random import choice, choices
+from enum import Enum, auto
 
+from together import Together
 import openai
 from dotenv import load_dotenv
+from fireworks import Fireworks
 
 load_dotenv()
 
-_client = openai.Client(
-    api_key=os.environ.get("CSCS_SERVING_API"),
-    base_url="https://api.swissai.svc.cscs.ch/v1",
-)
+class ModelSource(Enum):
+    Apertus = auto()
+    Together = auto()
+    Firework = auto()
+
+MODEL_SOURCE = ModelSource.Firework
+
+if MODEL_SOURCE == ModelSource.Apertus:
+    _client = openai.Client(
+        api_key=os.environ.get("CSCS_SERVING_API"),
+        base_url="https://api.swissai.svc.cscs.ch/v1",
+    )
+elif MODEL_SOURCE == ModelSource.Together:
+    _client = Together()
+else:
+    _client = Fireworks()
 
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
-
+BASE_DIR = BASE_DIR / "compiler_pipeline_adversarial"
 DATASET_10Q = BASE_DIR / "10q" / "final_qa_dataset.json"
 SHEET_10Q   = BASE_DIR / "10q" / "financial_spreadsheet.json"
 
-DATASET_90Q = BASE_DIR / "dataset_output" / "original_questions.json"
-SHEET_90Q   = BASE_DIR / "90q" / "financial_spreadsheet.json"
-
-DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
-SHEET_MT    = BASE_DIR / "90q" / "financial_spreadsheet.json"  # same synthetic companies
-
+DATASET_90Q = BASE_DIR / "output" / "original_questions.json"
+SHEET_90Q   = BASE_DIR / "output" / "financial_spreadsheet.json"
+DATASET_MT  = BASE_DIR.parent.parent /  "output_augmented.json"
+SHEET_MT    = BASE_DIR / "output" / "financial_spreadsheet.json"  # same synthetic companies
+print(f"90Q are Sheet: {SHEET_90Q}")
+print(f"90Q are Questions: {DATASET_90Q}")
 DEFAULT_MODELS = ["swiss-ai/Apertus-70B-Instruct-2509",
                   "Qwen/Qwen3-Coder-30B-A3B-Instruct",
                   "meta-llama/Llama-3.3-70B-Instruct",
@@ -243,17 +259,27 @@ def _sanitize_messages(messages: list) -> list:
     return sanitized
 
 
-def run_inference(model_name: str, prompt: str, max_new_tokens: int = 2048) -> str:
+def run_inference(model_name: str, prompt: str, max_new_tokens: int = 512) -> str:
     """Call the API with a single user prompt and return the response text."""
-    response = _client.chat.completions.create(
-        model=model_name,
-        messages=[
-            {"role": "system", "content": "Do not show your thinking process. Output only the answer."},
-            {"role": "user", "content": prompt},
-        ],
-        max_tokens=max_new_tokens,
-        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
-    )
+    if MODEL_SOURCE != ModelSource.Firework:
+        response = _client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": "Do not show your thinking process. Output only the answer."},
+                {"role": "user", "content": prompt},
+            ],
+            max_tokens=max_new_tokens,
+            extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+        )
+    else:
+        response = _client.chat.completions.create(
+            model=model_name,
+            messages=[
+                {"role": "system", "content": "Do not show your thinking process. Output only the answer."},
+                {"role": "user", "content": prompt},
+            ],
+            max_tokens=max_new_tokens,
+        )
     return response.choices[0].message.content.strip()
 
 
@@ -332,6 +358,19 @@ def evaluate_10q(
 
     return results
 
+def get_sheets(entity: str, sheet_lookup: dict) -> list:
+    from random import choices
+    # randomly select up 5 five entities, in addition to the given one
+    entities = choices(list(sheet_lookup.keys()), k=5)
+    entities = set(entities)
+    entities.add(entity)
+    while len(entities) < 5:
+        entities.add(choice(list(sheet_lookup.keys())))
+    sheets = []
+    for entity in entities:
+        sheet = sheet_lookup.get(entity)
+        sheets += sheet
+    return sheets
 
 def evaluate_90q(
     questions: list,
@@ -350,7 +389,7 @@ def evaluate_90q(
         question_text = q.get("question", "")
         ground_truth = q.get("answer")
 
-        sheet_rows = sheet_lookup.get(entity)
+        sheet_rows = get_sheets(entity, sheet_lookup)
         if not sheet_rows:
             print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{entity}')")
             results.append({
