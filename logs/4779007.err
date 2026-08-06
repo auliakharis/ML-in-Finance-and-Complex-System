@@ -1,0 +1,284 @@
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:01<07:40,  1.08s/it]
+Loading weights:   2%|▏         | 8/426 [00:01<00:53,  7.88it/s]
+Loading weights:   3%|▎         | 13/426 [00:01<00:31, 13.00it/s]
+Loading weights:   5%|▌         | 23/426 [00:01<00:15, 26.10it/s]
+Loading weights:   7%|▋         | 29/426 [00:01<00:12, 31.45it/s]
+Loading weights:   8%|▊         | 36/426 [00:01<00:10, 35.72it/s]
+Loading weights:  10%|▉         | 42/426 [00:01<00:11, 33.55it/s]
+Loading weights:  11%|█         | 47/426 [00:02<00:12, 29.99it/s]
+Loading weights:  12%|█▏        | 51/426 [00:02<00:12, 30.57it/s]
+Loading weights:  14%|█▍        | 61/426 [00:02<00:09, 38.22it/s]
+Loading weights:  15%|█▌        | 66/426 [00:02<00:11, 30.77it/s]
+Loading weights:  18%|█▊        | 78/426 [00:02<00:07, 46.40it/s]
+Loading weights:  21%|██        | 89/426 [00:02<00:05, 57.96it/s]
+Loading weights:  23%|██▎       | 97/426 [00:03<00:05, 58.68it/s]
+Loading weights:  24%|██▍       | 104/426 [00:03<00:05, 59.34it/s]
+Loading weights:  28%|██▊       | 118/426 [00:03<00:04, 75.70it/s]
+Loading weights:  30%|███       | 128/426 [00:03<00:03, 81.15it/s]
+Loading weights:  32%|███▏      | 137/426 [00:03<00:03, 73.90it/s]
+Loading weights:  35%|███▍      | 147/426 [00:03<00:03, 74.66it/s]
+Loading weights:  36%|███▋      | 155/426 [00:03<00:03, 68.76it/s]
+Loading weights:  39%|███▉      | 168/426 [00:03<00:03, 82.42it/s]
+Loading weights:  42%|████▏     | 177/426 [00:04<00:03, 82.07it/s]
+Loading weights:  44%|████▎     | 186/426 [00:04<00:03, 75.19it/s]
+Loading weights:  47%|████▋     | 199/426 [00:04<00:02, 84.71it/s]
+Loading weights:  49%|████▉     | 208/426 [00:04<00:03, 69.76it/s]
+Loading weights:  52%|█████▏    | 221/426 [00:04<00:02, 81.44it/s]
+Loading weights:  54%|█████▍    | 230/426 [00:04<00:02, 78.52it/s]
+Loading weights:  56%|█████▌    | 239/426 [00:04<00:02, 76.32it/s]
+Loading weights:  59%|█████▉    | 251/426 [00:05<00:02, 87.05it/s]
+Loading weights:  61%|██████▏   | 261/426 [00:05<00:02, 70.81it/s]
+Loading weights:  65%|██████▍   | 276/426 [00:05<00:01, 86.99it/s]
+Loading weights:  67%|██████▋   | 286/426 [00:05<00:01, 88.05it/s]
+Loading weights:  69%|██████▉   | 296/426 [00:05<00:01, 78.00it/s]
+Loading weights:  72%|███████▏  | 306/426 [00:05<00:01, 78.72it/s]
+Loading weights:  74%|███████▍  | 315/426 [00:05<00:01, 71.27it/s]
+Loading weights:  77%|███████▋  | 327/426 [00:05<00:01, 80.78it/s]
+Loading weights:  79%|███████▉  | 336/426 [00:06<00:01, 78.93it/s]
+Loading weights:  81%|████████  | 345/426 [00:06<00:01, 78.28it/s]
+Loading weights:  84%|████████▍ | 358/426 [00:06<00:00, 87.16it/s]
+Loading weights:  86%|████████▌ | 367/426 [00:06<00:00, 71.99it/s]
+Loading weights:  90%|████████▉ | 382/426 [00:06<00:00, 88.10it/s]
+Loading weights:  92%|█████████▏| 393/426 [00:06<00:00, 86.94it/s]
+Loading weights:  96%|█████████▌| 407/426 [00:06<00:00, 96.19it/s]
+Loading weights:  98%|█████████▊| 418/426 [00:07<00:00, 71.95it/s]
+Loading weights: 100%|██████████| 426/426 [00:07<00:00, 59.33it/s]
+[transformers] warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
+
+Adding EOS to train dataset:   0%|          | 0/525 [00:00<?, ? examples/s]
+Adding EOS to train dataset: 100%|██████████| 525/525 [00:00<00:00, 12379.81 examples/s]
+
+Tokenizing train dataset:   0%|          | 0/525 [00:00<?, ? examples/s]
+Tokenizing train dataset:   8%|▊         | 41/525 [00:00<00:01, 395.92 examples/s]
+Tokenizing train dataset:  16%|█▌        | 83/525 [00:00<00:01, 399.52 examples/s]
+Tokenizing train dataset:  24%|██▎       | 124/525 [00:00<00:01, 400.10 examples/s]
+Tokenizing train dataset:  32%|███▏      | 166/525 [00:00<00:00, 401.40 examples/s]
+Tokenizing train dataset:  39%|███▉      | 207/525 [00:00<00:00, 401.54 examples/s]
+Tokenizing train dataset:  47%|████▋     | 249/525 [00:00<00:00, 402.46 examples/s]
+Tokenizing train dataset:  55%|█████▌    | 291/525 [00:00<00:00, 403.00 examples/s]
+Tokenizing train dataset:  63%|██████▎   | 332/525 [00:00<00:00, 402.49 examples/s]
+Tokenizing train dataset:  71%|███████   | 373/525 [00:00<00:00, 401.52 examples/s]
+Tokenizing train dataset:  79%|███████▉  | 414/525 [00:01<00:00, 400.85 examples/s]
+Tokenizing train dataset:  87%|████████▋ | 455/525 [00:01<00:00, 400.38 examples/s]
+Tokenizing train dataset:  98%|█████████▊| 515/525 [00:01<00:00, 400.10 examples/s]
+Tokenizing train dataset: 100%|██████████| 525/525 [00:01<00:00, 328.37 examples/s]
+
+Truncating train dataset:   0%|          | 0/525 [00:00<?, ? examples/s]
+Truncating train dataset: 100%|██████████| 525/525 [00:00<00:00, 111959.00 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046, 'pad_token_id': 248046}.
+
+  0%|          | 0/99 [00:00<?, ?it/s]
+  1%|          | 1/99 [02:21<3:51:16, 141.60s/it]
+  2%|▏         | 2/99 [04:44<3:49:45, 142.12s/it]
+  3%|▎         | 3/99 [07:08<3:48:53, 143.06s/it]
+  4%|▍         | 4/99 [09:33<3:47:38, 143.77s/it]
+  5%|▌         | 5/99 [11:56<3:45:16, 143.79s/it]
+  6%|▌         | 6/99 [14:19<3:42:19, 143.44s/it]
+  7%|▋         | 7/99 [16:44<3:40:28, 143.79s/it]
+  8%|▊         | 8/99 [19:08<3:38:25, 144.02s/it]
+  9%|▉         | 9/99 [21:31<3:35:24, 143.60s/it]
+ 10%|█         | 10/99 [23:55<3:33:24, 143.87s/it]
+                                                  
+
+ 10%|█         | 10/99 [23:55<3:33:24, 143.87s/it]
+ 11%|█         | 11/99 [26:19<3:30:43, 143.68s/it]
+ 12%|█▏        | 12/99 [28:43<3:28:38, 143.89s/it]
+ 13%|█▎        | 13/99 [31:05<3:25:24, 143.31s/it]
+ 14%|█▍        | 14/99 [33:27<3:22:38, 143.04s/it]
+ 15%|█▌        | 15/99 [35:53<3:21:21, 143.83s/it]
+ 16%|█▌        | 16/99 [38:15<3:18:20, 143.38s/it]
+ 17%|█▋        | 17/99 [40:39<3:16:11, 143.56s/it]
+ 18%|█▊        | 18/99 [43:01<3:12:52, 142.87s/it]
+ 19%|█▉        | 19/99 [45:24<3:10:50, 143.13s/it]
+ 20%|██        | 20/99 [47:44<3:07:15, 142.22s/it]
+                                                  
+
+ 20%|██        | 20/99 [47:44<3:07:15, 142.22s/it]
+ 21%|██        | 21/99 [50:08<3:05:27, 142.66s/it]
+ 22%|██▏       | 22/99 [52:30<3:02:57, 142.57s/it]
+ 23%|██▎       | 23/99 [54:54<3:01:05, 142.97s/it]
+ 24%|██▍       | 24/99 [57:17<2:58:34, 142.86s/it]
+ 25%|██▌       | 25/99 [59:39<2:55:50, 142.57s/it]
+ 26%|██▋       | 26/99 [1:02:01<2:53:22, 142.50s/it]
+ 27%|██▋       | 27/99 [1:04:24<2:51:06, 142.59s/it]
+ 28%|██▊       | 28/99 [1:06:48<2:49:23, 143.15s/it]
+ 29%|██▉       | 29/99 [1:09:11<2:46:41, 142.88s/it]
+ 30%|███       | 30/99 [1:11:35<2:44:41, 143.21s/it]
+                                                    
+
+ 30%|███       | 30/99 [1:11:35<2:44:41, 143.21s/it]
+ 31%|███▏      | 31/99 [1:14:00<2:43:09, 143.96s/it]
+ 32%|███▏      | 32/99 [1:16:26<2:41:09, 144.32s/it]
+ 33%|███▎      | 33/99 [1:18:22<2:29:26, 135.85s/it]
+ 34%|███▍      | 34/99 [1:20:45<2:29:41, 138.18s/it]
+ 35%|███▌      | 35/99 [1:23:07<2:28:38, 139.35s/it]
+ 36%|███▋      | 36/99 [1:25:30<2:27:30, 140.48s/it]
+ 37%|███▋      | 37/99 [1:27:53<2:25:39, 140.97s/it]
+ 38%|███▊      | 38/99 [1:30:16<2:24:09, 141.79s/it]
+ 39%|███▉      | 39/99 [1:32:40<2:22:26, 142.44s/it]
+ 40%|████      | 40/99 [1:35:04<2:20:18, 142.69s/it]
+                                                    
+
+ 40%|████      | 40/99 [1:35:04<2:20:18, 142.69s/it]
+ 41%|████▏     | 41/99 [1:37:26<2:17:57, 142.72s/it]
+ 42%|████▏     | 42/99 [1:39:50<2:15:52, 143.02s/it]
+ 43%|████▎     | 43/99 [1:42:13<2:13:24, 142.93s/it]
+ 44%|████▍     | 44/99 [1:44:34<2:10:32, 142.41s/it]
+ 45%|████▌     | 45/99 [1:46:58<2:08:36, 142.89s/it]
+ 46%|████▋     | 46/99 [1:49:24<2:06:56, 143.71s/it]
+ 47%|████▋     | 47/99 [1:51:47<2:04:34, 143.73s/it]
+ 48%|████▊     | 48/99 [1:54:11<2:02:02, 143.58s/it]
+ 49%|████▉     | 49/99 [1:56:33<1:59:22, 143.25s/it]
+ 51%|█████     | 50/99 [1:58:57<1:57:07, 143.41s/it]
+                                                    
+
+ 51%|█████     | 50/99 [1:58:57<1:57:07, 143.41s/it]
+ 52%|█████▏    | 51/99 [2:01:21<1:54:53, 143.61s/it]
+ 53%|█████▎    | 52/99 [2:03:46<1:52:53, 144.12s/it]
+ 54%|█████▎    | 53/99 [2:06:10<1:50:17, 143.86s/it]
+ 55%|█████▍    | 54/99 [2:08:33<1:47:51, 143.81s/it]
+ 56%|█████▌    | 55/99 [2:10:56<1:45:11, 143.45s/it]
+ 57%|█████▋    | 56/99 [2:13:19<1:42:41, 143.30s/it]
+ 58%|█████▊    | 57/99 [2:15:42<1:40:16, 143.25s/it]
+ 59%|█████▊    | 58/99 [2:18:04<1:37:39, 142.91s/it]
+ 60%|█████▉    | 59/99 [2:20:26<1:35:03, 142.58s/it]
+ 61%|██████    | 60/99 [2:22:50<1:33:03, 143.17s/it]
+                                                    
+
+ 61%|██████    | 60/99 [2:22:50<1:33:03, 143.17s/it]
+ 62%|██████▏   | 61/99 [2:25:13<1:30:37, 143.09s/it]
+ 63%|██████▎   | 62/99 [2:27:37<1:28:19, 143.22s/it]
+ 64%|██████▎   | 63/99 [2:30:00<1:26:00, 143.36s/it]
+ 65%|██████▍   | 64/99 [2:32:26<1:23:57, 143.93s/it]
+ 66%|██████▌   | 65/99 [2:34:48<1:21:13, 143.33s/it]
+ 67%|██████▋   | 66/99 [2:36:45<1:14:32, 135.54s/it]
+ 68%|██████▊   | 67/99 [2:39:10<1:13:50, 138.44s/it]
+ 69%|██████▊   | 68/99 [2:41:33<1:12:11, 139.73s/it]
+ 70%|██████▉   | 69/99 [2:43:58<1:10:37, 141.26s/it]
+ 71%|███████   | 70/99 [2:46:22<1:08:39, 142.04s/it]
+                                                    
+
+ 71%|███████   | 70/99 [2:46:22<1:08:39, 142.04s/it]
+ 72%|███████▏  | 71/99 [2:48:46<1:06:33, 142.61s/it]
+ 73%|███████▎  | 72/99 [2:51:09<1:04:16, 142.83s/it]
+ 74%|███████▎  | 73/99 [2:53:30<1:01:39, 142.29s/it]
+ 75%|███████▍  | 74/99 [2:55:53<59:20, 142.42s/it]  
+ 76%|███████▌  | 75/99 [2:58:18<57:18, 143.25s/it]
+ 77%|███████▋  | 76/99 [3:00:41<54:51, 143.12s/it]
+ 78%|███████▊  | 77/99 [3:03:02<52:14, 142.49s/it]
+ 79%|███████▉  | 78/99 [3:05:24<49:49, 142.37s/it]
+ 80%|███████▉  | 79/99 [3:07:46<47:24, 142.20s/it]
+ 81%|████████  | 80/99 [3:10:09<45:05, 142.40s/it]
+                                                  
+
+ 81%|████████  | 80/99 [3:10:09<45:05, 142.40s/it]
+ 82%|████████▏ | 81/99 [3:12:31<42:42, 142.37s/it]
+ 83%|████████▎ | 82/99 [3:14:54<40:26, 142.73s/it]
+ 84%|████████▍ | 83/99 [3:17:17<38:03, 142.70s/it]
+ 85%|████████▍ | 84/99 [3:19:39<35:38, 142.57s/it]
+ 86%|████████▌ | 85/99 [3:22:03<33:21, 142.95s/it]
+ 87%|████████▋ | 86/99 [3:24:25<30:55, 142.73s/it]
+ 88%|████████▊ | 87/99 [3:26:47<28:30, 142.52s/it]
+ 89%|████████▉ | 88/99 [3:29:11<26:11, 142.90s/it]
+ 90%|████████▉ | 89/99 [3:31:36<23:55, 143.55s/it]
+ 91%|█████████ | 90/99 [3:33:58<21:27, 143.07s/it]
+                                                  
+
+ 91%|█████████ | 90/99 [3:33:58<21:27, 143.07s/it]
+ 92%|█████████▏| 91/99 [3:36:24<19:10, 143.87s/it]
+ 93%|█████████▎| 92/99 [3:38:48<16:46, 143.79s/it]
+ 94%|█████████▍| 93/99 [3:41:11<14:22, 143.73s/it]
+ 95%|█████████▍| 94/99 [3:43:34<11:57, 143.53s/it]
+ 96%|█████████▌| 95/99 [3:45:57<09:33, 143.42s/it]
+ 97%|█████████▋| 96/99 [3:48:19<07:08, 142.90s/it]
+ 98%|█████████▊| 97/99 [3:50:43<04:46, 143.15s/it]
+ 99%|█████████▉| 98/99 [3:53:05<02:22, 142.80s/it]
+100%|██████████| 99/99 [3:55:01<00:00, 134.74s/it]
+                                                  
+
+100%|██████████| 99/99 [3:55:01<00:00, 134.74s/it]
+100%|██████████| 99/99 [3:55:01<00:00, 142.44s/it]
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/426 [00:01<07:05,  1.00s/it]
+Loading weights:   2%|▏         | 8/426 [00:01<00:48,  8.55it/s]
+Loading weights:   3%|▎         | 14/426 [00:01<00:28, 14.59it/s]
+Loading weights:   6%|▋         | 27/426 [00:01<00:12, 31.20it/s]
+Loading weights:   8%|▊         | 36/426 [00:01<00:11, 33.88it/s]
+Loading weights:  10%|▉         | 42/426 [00:01<00:11, 32.99it/s]
+Loading weights:  11%|█         | 47/426 [00:02<00:12, 30.44it/s]
+Loading weights:  12%|█▏        | 51/426 [00:02<00:12, 31.25it/s]
+Loading weights:  14%|█▍        | 61/426 [00:02<00:09, 39.14it/s]
+Loading weights:  15%|█▌        | 66/426 [00:02<00:10, 34.46it/s]
+Loading weights:  19%|█▊        | 79/426 [00:02<00:06, 51.08it/s]
+Loading weights:  21%|██        | 90/426 [00:02<00:05, 60.43it/s]
+Loading weights:  23%|██▎       | 97/426 [00:02<00:05, 61.09it/s]
+Loading weights:  24%|██▍       | 104/426 [00:03<00:05, 62.09it/s]
+Loading weights:  28%|██▊       | 118/426 [00:03<00:03, 78.47it/s]
+Loading weights:  30%|███       | 129/426 [00:03<00:03, 86.40it/s]
+Loading weights:  33%|███▎      | 139/426 [00:03<00:03, 82.88it/s]
+Loading weights:  35%|███▍      | 148/426 [00:03<00:03, 73.37it/s]
+Loading weights:  37%|███▋      | 157/426 [00:03<00:03, 75.83it/s]
+Loading weights:  40%|████      | 171/426 [00:03<00:02, 88.54it/s]
+Loading weights:  43%|████▎     | 182/426 [00:03<00:02, 90.38it/s]
+Loading weights:  45%|████▌     | 192/426 [00:04<00:02, 89.94it/s]
+Loading weights:  47%|████▋     | 202/426 [00:04<00:02, 80.91it/s]
+Loading weights:  50%|████▉     | 211/426 [00:04<00:02, 80.62it/s]
+Loading weights:  52%|█████▏    | 223/426 [00:04<00:02, 90.34it/s]
+Loading weights:  55%|█████▍    | 233/426 [00:04<00:02, 90.31it/s]
+Loading weights:  57%|█████▋    | 243/426 [00:04<00:02, 81.14it/s]
+Loading weights:  59%|█████▉    | 253/426 [00:04<00:02, 76.34it/s]
+Loading weights:  61%|██████▏   | 261/426 [00:04<00:02, 73.18it/s]
+Loading weights:  65%|██████▌   | 277/426 [00:05<00:01, 89.75it/s]
+Loading weights:  67%|██████▋   | 287/426 [00:05<00:01, 86.10it/s]
+Loading weights:  69%|██████▉   | 296/426 [00:05<00:01, 83.63it/s]
+Loading weights:  72%|███████▏  | 306/426 [00:05<00:01, 83.13it/s]
+Loading weights:  74%|███████▍  | 315/426 [00:05<00:01, 76.33it/s]
+Loading weights:  77%|███████▋  | 329/426 [00:05<00:01, 90.94it/s]
+Loading weights:  80%|███████▉  | 339/426 [00:05<00:00, 92.29it/s]
+Loading weights:  82%|████████▏ | 349/426 [00:05<00:00, 83.61it/s]
+Loading weights:  85%|████████▍ | 360/426 [00:06<00:00, 83.70it/s]
+Loading weights:  87%|████████▋ | 369/426 [00:06<00:00, 81.50it/s]
+Loading weights:  90%|████████▉ | 383/426 [00:06<00:00, 89.63it/s]
+Loading weights:  92%|█████████▏| 394/426 [00:06<00:00, 94.27it/s]
+Loading weights:  96%|█████████▌| 407/426 [00:06<00:00, 100.64it/s]
+Loading weights:  98%|█████████▊| 418/426 [00:06<00:00, 75.74it/s] 
+Loading weights: 100%|██████████| 426/426 [00:06<00:00, 62.87it/s]
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/config.py", line 317, in _get_peft_type
+    config_file = hf_hub_download(
+        model_id,
+        CONFIG_NAME,
+        **hf_hub_download_kwargs,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.10/adapters'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 942, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 854, in main
+    tokenizer, model = load_model(model_name, adapter_path=args.finetune)
+                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 257, in load_model
+    model = PeftModel.from_pretrained(model, adapter_path)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/peft_model.py", line 459, in from_pretrained
+    config = PEFT_TYPE_TO_CONFIG_MAPPING[PeftConfig._get_peft_type(model_id, **hf_kwargs)].from_pretrained(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/config.py", line 323, in _get_peft_type
+    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
+ValueError: Can't find 'adapter_config.json' at '/cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.10/adapters'
+

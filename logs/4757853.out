@@ -1,0 +1,10 @@
+>>> r=4 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 9 traces — skipping generation.
+
+[PHASE 1] Done: 9/100 kept (9%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 4, 1: 2, 3: 1, 4: 2}

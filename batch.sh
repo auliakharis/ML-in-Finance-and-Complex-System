@@ -40,7 +40,26 @@ nvidia-smi
 # python test_api.py
 # python lora/lora2.py
 # python -u run_llm_eval.py --models Qwen3.5-4B --finetune ./qwen-lora-adapters --limit 90
-python run_llm_eval_api_call.py --limit 1
+# python run_llm_eval_api_call.py --limit 1
+
+CHECKPOINTS=(
+  r8_alpha16_dropout0.1
+  r8_alpha4_dropout0.1
+  r8_alpha8_dropout0.1
+  r4_alpha4_dropout0.1
+  r8_alpha16_dropout0.15
+  r8_alpha4_dropout0.15
+  r8_alpha8_dropout0.15
+)
+
+for CKPT in "${CHECKPOINTS[@]}"; do
+  echo "--- Running checkpoint: $CKPT ---"
+  python -u script/benchmark/run_llm_eval.py \
+    --models Qwen3.5-4B \
+    --datasets 90q \
+    --finetune /cluster/scratch/arakhmasari/lora-cot-checkpoints/${CKPT}/adapters \
+    --limit 90
+done
 
 
 echo "Done: $(date)"

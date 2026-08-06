@@ -1,0 +1,6 @@
+/cluster/software/stacks/2025-06/linux-ubuntu22.04-x86_64_v3/gcc-12.2.0/python-3.13.0-vkvbm5dtu6g63eqfchm7bd5wohbcoitv/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.5.0) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/lora/lora2_cot.py", line 59, in <module>
+    from run_llm_eval import build_prompt, sheet_to_text_90q, parse_answer_line, is_correct
+ModuleNotFoundError: No module named 'run_llm_eval'

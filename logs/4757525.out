@@ -1,0 +1,70 @@
+>>> r=4 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 10: using 10 examples (smoke test mode)
+[INFO]  Pool: 10 examples | depth dist: {0: 4, 1: 3, 3: 1, 4: 2}
+
+[PHASE 1] Generating CoT traces from base model ...
+  [1/10] depth=1 KEEP | truth=105101.61231478713 pred=105083.53
+         Q: State the result of revenue scaled by income tax for Crimson Pharmaceuticals in 
+         R: 2023 Revenue: 714,010; 2023 Income Tax Rate: 0.14719907608407046; Calculation: 714,010 * 0.14719907608407046 = 105,083.53.
+Answer: 105083.53
+
+  [2/10] depth=3 KEEP | truth=73995.33333333333 pred=73994.67
+         Q: Which quantity is given by the average cost of goods sold for NovaStar Technolog
+         R: Cost of goods sold for 2021: 83340
+Cost of goods sold for 2022: 63527
+Cost of goods sold for 2023: 75117
+Sum: 83340 + 63527 + 75117 = 221984
+Average: 221984 / 3 = 73994.666...
+Answer: 73994.67
+
+  [3/10] depth=0 KEEP | truth=33171.0 pred=33171.0
+         Q: Could you give the total liabilities for Atlas Global Industries in 2023?
+         R: Based on the data for Year 2023, the total liabilities for Atlas Global Industries are explicitly listed as 33171.
+
+Answer: 33171
+
+  [4/10] depth=1 KEEP | truth=68263.0 pred=68263.0
+         Q: You should give the longterm liabilities for Helix BioSciences in 2021 .
+         R: Total liabilities in 2021 are 96,102. Current liabilities are 27,839. Long-term liabilities = Total liabilities - Current liabilities = 96,102 - 27,839 = 68,263.
+Answer: 68263
+
+  [5/10] depth=0 KEEP | truth=867101.0 pred=867099.0
+         Q: Which result follows from the total assets for Ironclad Manufacturing in 2025?
+         R: 2025 Total Assets = 867099.
+Answer: 867099
+
+  [6/10] depth=4 KEEP | truth=163671.0 pred=163671.0
+         Q: whats the value of the longterm assets for Orion Financial Group in 2024 ?
+         R: To calculate long-term assets, subtract current assets (current liabilities + current assets components) from total assets.
+Current Assets = Cash (58304) + Accounts Receivable (12144) + Inventories (8221) + Short-term Investments (26878) = 105547.
+Long-term Assets = Total Assets (269218) - Current A
+
+  [7/10] depth=0 KEEP | truth=2921.0 pred=2921.0
+         Q: State the operating expenses for Pinnacle Health Group in 2022 .
+         R: Based on the data for Year 2022, the operating_expenses value is explicitly listed as 2921.
+
+Answer: 2921
+
+  [8/10] depth=0 KEEP | truth=98792.0 pred=98792.0
+         Q: compute the revenue for Orion Financial Group in 2021
+         R: 2021 revenue is explicitly listed in the data for ticker ORFG.
+Answer: 98792
+
+  [9/10] depth=4 KEEP | truth=75862.5 pred=75862.5
+         Q: Which quantity is given by the average non operating expenses for Crimson Pharma
+         R: Non-operating expenses for 2020: 60056; 2021: 103672; 2022: 85996; 2023: 53726.
+Sum = 60056 + 103672 + 85996 + 53726 = 303450.
+Average = 303450 / 4 = 75862.5.
+Answer: 75862.5
+
+  [10/10] depth=1 SKIP | truth=9171.0 pred=9828.0
+         Q: evaluate the difference between cash and dividends paid for Pacific Crest Energy
+         R: In 2025, Pacific Crest Energy's cash balance is 10,729 and dividends paid are 901. The difference is calculated as 10,729 - 901 = 9,828.
+Answer: 9828
+
+  [10/10]  kept=9  skipped=1  (90% pass rate so far)
+[PHASE 1] CoT traces saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json
+
+[PHASE 1] Done: 9/10 kept (90%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 4, 1: 2, 3: 1, 4: 2}

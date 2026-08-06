@@ -1,0 +1,43 @@
+Checking model path...
+Starting pipeline: Sat Jun 27 02:09:00 AM CEST 2026
+Model: gemma-4-E4B-it
+GPU: 0
+Sat Jun 27 02:09:00 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.159.04             Driver Version: 580.159.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA TITAN RTX               On  |   00000000:41:00.0 Off |                  N/A |
+| 41%   31C    P8             14W /  280W |       1MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loading datasets...
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading LoRA adapters from /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.1 ...
+Loading datasets...
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading LoRA adapters from /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha8_dropout0.15 ...
+Done: Sat Jun 27 02:09:48 AM CEST 2026

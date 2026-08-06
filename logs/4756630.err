@@ -1,0 +1,37 @@
+/cluster/software/stacks/2025-06/linux-ubuntu22.04-x86_64_v3/gcc-12.2.0/python-3.13.0-vkvbm5dtu6g63eqfchm7bd5wohbcoitv/lib/python3.13/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.5.0) or chardet (7.4.3)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/lora/lora2_cot.py", line 87, in <module>
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID,
+    ...<2 lines>...
+        trust_remote_code=True,
+    )
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/models/auto/auto_factory.py", line 381, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/modeling_utils.py", line 4029, in from_pretrained
+    hf_quantizer, config, device_map = get_hf_quantizer(
+                                       ~~~~~~~~~~~~~~~~^
+        config, quantization_config, device_map, weights_only, user_agent
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/quantizers/auto.py", line 342, in get_hf_quantizer
+    hf_quantizer.validate_environment(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        device_map=device_map,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        weights_only=weights_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/cluster/home/arakhmasari/.local/lib/python3.13/site-packages/transformers/quantizers/quantizer_bnb_4bit.py", line 62, in validate_environment
+    raise ImportError(
+        f"Using `bitsandbytes` 4-bit quantization requires bitsandbytes: `pip install -U bitsandbytes>={BITSANDBYTES_MIN_VERSION}`"
+    )
+ImportError: Using `bitsandbytes` 4-bit quantization requires bitsandbytes: `pip install -U bitsandbytes>=0.46.1`

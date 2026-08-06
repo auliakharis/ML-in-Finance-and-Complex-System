@@ -1,0 +1,4024 @@
+>>> r=4 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 1000: using 636 examples (smoke test mode)
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Generating CoT traces from base model ...
+  [1/636] depth=1 KEEP | truth=105101.61231478713 pred=105083.52
+         Q: State the result of revenue scaled by income tax for Crimson Pharmaceuticals in 
+         R: 2023 Revenue: 714,010; 2023 Income Tax Rate: 0.14719907608407046; Calculation: 714,010 * 0.14719907608407046 = 105,083.52.
+Answer: 105083.52
+
+  [2/636] depth=3 KEEP | truth=73995.33333333333 pred=73994.67
+         Q: Which quantity is given by the average cost of goods sold for NovaStar Technolog
+         R: Cost of goods sold for 2021: 83340
+Cost of goods sold for 2022: 63527
+Cost of goods sold for 2023: 75117
+Sum: 83340 + 63527 + 75117 = 221984
+Average: 221984 / 3 = 73994.666...
+Answer: 73994.67
+
+  [3/636] depth=0 KEEP | truth=33171.0 pred=33171.0
+         Q: Could you give the total liabilities for Atlas Global Industries in 2023?
+         R: Based on the data for Year 2023, the total liabilities for Atlas Global Industries are explicitly listed as 33171.
+
+Answer: 33171
+
+  [4/636] depth=1 KEEP | truth=68263.0 pred=68263.0
+         Q: You should give the longterm liabilities for Helix BioSciences in 2021 .
+         R: Total liabilities in 2021 are 96,102. Current liabilities are 27,839. Long-term liabilities = Total liabilities - Current liabilities = 96,102 - 27,839 = 68,263.
+Answer: 68263
+
+  [5/636] depth=0 KEEP | truth=867101.0 pred=867099.0
+         Q: Which result follows from the total assets for Ironclad Manufacturing in 2025?
+         R: 2025 Total Assets = 867099.
+Answer: 867099
+
+  [6/636] depth=4 KEEP | truth=163671.0 pred=163671.0
+         Q: whats the value of the longterm assets for Orion Financial Group in 2024 ?
+         R: To calculate long-term assets, subtract current assets (current liabilities + current assets components) from total assets.
+Current Assets = Cash (58304) + Accounts Receivable (12144) + Inventories (8221) + Short-term Investments (26878) = 105547.
+Long-term Assets = Total Assets (269218) - Current A
+
+  [7/636] depth=0 KEEP | truth=2921.0 pred=2921.0
+         Q: State the operating expenses for Pinnacle Health Group in 2022 .
+         R: Based on the data for Year 2022, the operating_expenses value is explicitly listed as 2921.
+
+Answer: 2921
+
+  [8/636] depth=0 KEEP | truth=98792.0 pred=98792.0
+         Q: compute the revenue for Orion Financial Group in 2021
+         R: 2021 revenue is explicitly listed in the data for ticker ORFG.
+Answer: 98792
+
+  [9/636] depth=4 KEEP | truth=75862.5 pred=75862.5
+         Q: Which quantity is given by the average non operating expenses for Crimson Pharma
+         R: Non-operating expenses for 2020: 60056; 2021: 103672; 2022: 85996; 2023: 53726.
+Sum = 60056 + 103672 + 85996 + 53726 = 303450.
+Average = 303450 / 4 = 75862.5.
+Answer: 75862.5
+
+  [10/636] depth=1 SKIP | truth=9171.0 pred=9828.0
+         Q: evaluate the difference between cash and dividends paid for Pacific Crest Energy
+         R: In 2025, Pacific Crest Energy's cash balance is 10,729 and dividends paid are 901. The difference is calculated as 10,729 - 901 = 9,828.
+Answer: 9828
+
+  [11/636] depth=4 KEEP | truth=58868.0 pred=58867.0
+         Q: Could you give the the maximum of cost of goods sold for Apex Dynamics Corp usin
+         R: Cost of Goods Sold values from 2021 to 2025 are: 50583, 46060, 53607, 58867, 41447.
+Comparing these values, 58867 is the highest.
+Answer: 58867
+
+  [12/636] depth=1 KEEP | truth=11090.0 pred=11091.0
+         Q: give the gross profit for Pinnacle Health Group in 2024
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: 20948 - 9857 = 11091.
+Answer: 11091
+
+  [13/636] depth=3 KEEP | truth=211364.0 pred=211363.33333333334
+         Q: Determine the average total equity for Ironclad Manufacturing across years 2023 
+         R: Total Equity 2023: 187,787; Total Equity 2024: 131,903; Total Equity 2025: 314,400.
+Sum = 187,787 + 131,903 + 314,400 = 634,090.
+Average = 634,090 / 3 = 211,363.333...
+Answer: 211363.33333333334
+
+  [14/636] depth=3 KEEP | truth=93272.0 pred=93272.0
+         Q: What would be the current assets for Helix BioSciences in 2020
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2020: 27177 + 20427 + 17743 + 27925 = 93272.
+Answer: 93272
+
+  [15/636] depth=5 KEEP | truth=5578.0 pred=5578.0
+         Q: evaluate the the minimum of short term investments for Meridian Systems Inc usin
+         R: Short-term investments for Meridian Systems Inc from 2020 to 2025 are: 14711, 16112, 10888, 6816, 5578, and 21498. The minimum value among these is 5578.
+
+Answer: 5578
+
+  [16/636] depth=3 KEEP | truth=103532.0 pred=103532.0
+         Q: calculate the the minimum of total liabilities for Ironclad Manufacturing using 
+         R: Total liabilities for 2021: 103,532; 2022: 450,869; 2023: 190,519; 2024: 325,872. The minimum value among these is 103,532.
+Answer: 103532
+
+  [17/636] depth=3 KEEP | truth=2433.0 pred=2433.0
+         Q: determine the the minimum of inventories for Orion Financial Group using values 
+         R: Inventories for 2021: 7867; 2022: 2433; 2023: 5922; 2024: 8221.
+Minimum value is 2433.
+Answer: 2433
+
+  [18/636] depth=0 KEEP | truth=6556.0 pred=6555.0
+         Q: state the capex for Meridian Systems Inc in 2025.
+         R: Based on the data for Year 2025, the capex value is explicitly listed as 6555.
+
+Answer: 6555
+
+  [19/636] depth=2 KEEP | truth=23215.150074294204 pred=23207.7
+         Q: May you give the result of sum of cost of goods sold and capex for Pinnacle Heal
+         R: 2023 (COGS + Capex) = 9524 + 517 = 10041.
+2021 Current Liabilities = 1346; 2023 Current Liabilities = 4458.
+Growth = (4458 - 1346) / 1346 = 3112 / 1346 ≈ 2.3113.
+Scaled Value = 10041 * 2.3113 ≈ 23207.7.
+Answer: 23207.7
+
+  [20/636] depth=2 KEEP | truth=5021.0 pred=5021.0
+         Q: may you calculate the the maximum of capex for Cobalt Semiconductor using values
+         R: Capex values for 2022, 2023, and 2024 are 2520, 5021, and 4257 respectively. The maximum of these values is 5021.
+Answer: 5021
+
+  [21/636] depth=3 KEEP | truth=189604.0 pred=189603.0
+         Q: which result follows from the the maximum of revenue for Meridian Systems Inc us
+         R: Revenue values for 2021–2024: 171514, 163959, 166363, 189603.
+Maximum is 189603 (Year 2024).
+Answer: 189603
+
+  [22/636] depth=0 KEEP | truth=4078.0 pred=4078.0
+         Q: Provide the capex for Atlas Global Industries in 2022 .
+         R: Based on the data for Year 2022, the capex value is explicitly listed as 4078.
+
+Answer: 4078
+
+  [23/636] depth=1 KEEP | truth=9802.0 pred=9802.0
+         Q: which quantity is given by the the minimum of inventories for ClearPath Logistic
+         R: 2020 inventories: 22786; 2021 inventories: 9802; Minimum(22786, 9802) = 9802.
+Answer: 9802
+
+  [24/636] depth=1 KEEP | truth=339437.0 pred=339437.0
+         Q: Whats the value of the sum of total liabilities and total equity for Pacific Cre
+         R: 2020 Total Liabilities: 246479
+2020 Total Equity: 92958
+Sum: 246479 + 92958 = 339437
+Answer: 339437
+
+  [25/636] depth=1 KEEP | truth=-46981.0 pred=-46982.0
+         Q: what is the value of the difference between cost of goods sold and revenue for Q
+         R: Cost of Goods Sold (2025) = 46761
+Revenue (2025) = 93743
+Difference = 46761 - 93743 = -46982
+Answer: -46982
+
+  [26/636] depth=2 SKIP | truth=-307.0 pred=1778.0
+         Q: what would be the difference between non operating expenses and sum of dividends
+         R: Non-operating expenses in 2024 are 4613. Dividends paid in 2024 are 1739. Inventories in 2024 are 1096. Sum of dividends and inventories = 1739 + 1096 = 2835. Difference = 4613 - 2835 = 1778.
+Answer: 1778
+
+  [27/636] depth=0 KEEP | truth=5493.0 pred=5493.0
+         Q: You should calculate the total equity for Pinnacle Health Group in 2023.
+         R: Based on the data for Year 2023, the total equity is explicitly listed as 5493.
+
+Answer: 5493
+
+  [28/636] depth=4 KEEP | truth=17116.0 pred=17116.0
+         Q: What is the sum of the maximum of inventories for NovaStar Technologies using va
+         R: Inventories 2024-2025: 8368, 3554 → Max = 8368.
+Inventories 2020-2023: 5488, 6654, 2745, 8748 → Max = 8748.
+Sum: 8368 + 8748 = 17116.
+Answer: 17116
+
+  [29/636] depth=0 KEEP | truth=202980.0 pred=202978.0
+         Q: compute the total assets for Meridian Systems Inc in 2022.
+         R: Based on the data for Year 2022, the total_assets value is explicitly listed as 202978.
+
+Answer: 202978
+
+  [30/636] depth=1 KEEP | truth=21636.53945373657 pred=21636.88
+         Q: Which result follows from the result of non operating expenses scaled by income 
+         R: 2020 non-operating expenses: 111,471.
+2020 income tax rate: 0.1941001646503267.
+Calculation: 111,471 * 0.1941001646503267 = 21,636.88.
+Answer: 21636.88
+
+  [31/636] depth=1 KEEP | truth=-195127.0 pred=-195124.0
+         Q: Which quantity is given by the difference between accounts receivable and total 
+         R: Accounts Receivable (2022) = 10946
+Total Assets (2022) = 206070
+Difference = 10946 - 206070 = -195124
+Answer: -195124
+
+  [32/636] depth=1 KEEP | truth=518082.0 pred=518082.0
+         Q: what do we obtain as the difference between revenue and cash for SilverLine Reta
+         R: Revenue in 2020 is 553,885 and Cash is 35,803.
+Calculation: 553,885 - 35,803 = 518,082.
+Answer: 518082
+
+  [33/636] depth=0 KEEP | truth=25742.0 pred=25742.0
+         Q: what do we obtain as the accounts receivable for Pacific Crest Energy in 2023
+         R: Based on the data for Year 2023, the accounts_receivable value is explicitly listed as 25742.
+
+Answer: 25742
+
+  [34/636] depth=1 KEEP | truth=206207.0 pred=206207.0
+         Q: Which quantity is given by the the minimum of total assets for Helix BioSciences
+         R: Total Assets 2020 = 206207
+Total Assets 2021 = 221577
+Minimum(206207, 221577) = 206207
+Answer: 206207
+
+  [35/636] depth=6 KEEP | truth=43969.8 pred=43969.6
+         Q: what is the value of the sum of the minimum of accounts receivable for NovaStar 
+         R: Minimum accounts receivable (2020-2023): min(13643, 15250, 20455, 17765) = 13643.
+Sum of cash (2020-2024): 24222 + 7348 + 8761 + 78005 + 33297 = 151633.
+Ratio: 151633 / 5.0 = 30326.6.
+Final Sum: 13643 + 30326.6 = 43969.6.
+Answer: 43969.6
+
+  [36/636] depth=0 KEEP | truth=24969.0 pred=24969.0
+         Q: You should calculate the total equity for Apex Dynamics Corp in 2024 .
+         R: Based on the data for Year 2024, the total equity is explicitly listed as 24969.
+
+Answer: 24969
+
+  [37/636] depth=2 KEEP | truth=110812.0 pred=110812.0
+         Q: Determine the operating income for Titan Consumer Brands in 2024.
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2024: 486,911 - 346,744 - 29,355 = 110,812.
+Answer: 110812
+
+  [38/636] depth=1 KEEP | truth=1639.7369646082911 pred=1639.737165028708
+         Q: what is the value of the result of current liabilities scaled by income tax for 
+         R: 2021 Current Liabilities = 8135; 2021 Income Tax = 0.20156569939868368; Calculation: 8135 * 0.20156569939868368 = 1639.737165028708.
+Answer: 1639.737165028708
+
+  [39/636] depth=0 KEEP | truth=2093.0 pred=2093.0
+         Q: give the short term investments for Quantum Bridge Holdings in 2022
+         R: Based on the data for Year 2022, the short_term_investments value is explicitly listed as 2093.
+
+Answer: 2093
+
+  [40/636] depth=0 KEEP | truth=73095.0 pred=73095.0
+         Q: Which value corresponds to the total assets for Cobalt Semiconductor in 2024 ?
+         R: Based on the data for Year 2024 under the ticker CBSM (Cobalt Semiconductor), the total_assets value is explicitly listed as 73095.
+
+Answer: 73095
+
+  [41/636] depth=1 KEEP | truth=1824.322909798859 pred=1824.42
+         Q: you should calculate the result of operating expenses scaled by income tax for M
+         R: Operating Expenses for 2023 = 15975; Income Tax Rate for 2023 = 0.11419861720180652; Calculation: 15975 * 0.11419861720180652 = 1824.42.
+Answer: 1824.42
+
+  [42/636] depth=3 KEEP | truth=19511.666666666668 pred=19511.67
+         Q: You should give the average total equity for Cobalt Semiconductor across years 2
+         R: Total Equity 2021: 19173; Total Equity 2022: 18575; Total Equity 2023: 20787.
+Sum = 19173 + 18575 + 20787 = 58535; Average = 58535 / 3 = 19511.666...
+Answer: 19511.67
+
+  [43/636] depth=1 KEEP | truth=73911.0 pred=73911.0
+         Q: What does the following give: longterm liabilities for Quantum Bridge Holdings i
+         R: To calculate long-term liabilities for Quantum Bridge Holdings in 2022, subtract current liabilities from total liabilities using the provided data: 124280 (total_liabilities) - 50369 (current_liabilities) = 73911.
+Answer: 73911
+
+  [44/636] depth=4 KEEP | truth=4671.0 pred=4671.0
+         Q: provide the the minimum of cash for Pacific Crest Energy using values from 2020 
+         R: Cash values for 2020–2024: 82616, 33062, 53690, 46177, 4671.
+Minimum is 4671 (Year 2024).
+Answer: 4671
+
+  [45/636] depth=0 KEEP | truth=96103.0 pred=96102.0
+         Q: what would be the total liabilities for Helix BioSciences in 2021 ?
+         R: Based on the data for Year 2021, the total liabilities for HLXB are explicitly listed as 96102.
+
+Answer: 96102
+
+  [46/636] depth=1 KEEP | truth=1168.0 pred=1168.0
+         Q: Which quantity is given by the the minimum of operating expenses for Pinnacle He
+         R: Operating expenses for 2024: 1168; Operating expenses for 2025: 3456.
+Minimum of 1168 and 3456 is 1168.
+Answer: 1168
+
+  [47/636] depth=1 SKIP | truth=813.4402839079332 pred=47716.0
+         Q: Determine the result of accounts receivable scaled by income tax for Apex Dynami
+         R: Accounts Receivable in 2025: 6230
+Income Tax in 2025: 0.1305682638696522
+Calculation: 6230 / 0.1305682638696522 = 47715.999...
+Answer: 47716
+
+  [48/636] depth=0 KEEP | truth=67721.0 pred=67721.0
+         Q: may you give the short term investments for Titan Consumer Brands in 2024
+         R: Based on the data for Year 2024, the short_term_investments value is explicitly listed as 67721.
+
+Answer: 67721
+
+  [49/636] depth=1 KEEP | truth=-62795.0 pred=-62794.0
+         Q: Compute the difference between inventories and current liabilities for NovaStar 
+         R: In 2025, inventories are 3554 and current liabilities are 66348.
+Difference = 3554 - 66348 = -62794.
+Answer: -62794
+
+  [50/636] depth=1 KEEP | truth=12187.0 pred=12187.0
+         Q: Whats the value of the difference between current liabilities and capex for Coba
+         R: Current liabilities in 2020 = 15174.
+Capex in 2020 = 2987.
+Difference = 15174 - 2987 = 12187.
+Answer: 12187
+
+  [50/636]  kept=47  skipped=3  (94% pass rate so far)
+  [51/636] depth=0 KEEP | truth=23220.0 pred=23220.0
+         Q: Determine the short term investments for Crimson Pharmaceuticals in 2025.
+         R: Based on the data for Year 2025, the short_term_investments value is explicitly listed as 23220.
+
+Answer: 23220
+
+  [52/636] depth=1 KEEP | truth=97842.195479549 pred=97837.38
+         Q: compute the result of total assets scaled by income tax for Crimson Pharmaceutic
+         R: Total Assets in 2023 = 664,693; Income Tax Rate in 2023 = 0.14719907608407046.
+Calculation: 664,693 * 0.14719907608407046 = 97,837.38.
+Answer: 97837.38
+
+  [53/636] depth=1 KEEP | truth=73042.22115989374 pred=73039.29
+         Q: Which quantity is given by the result of total liabilities scaled by income tax 
+         R: Calculation: 376312 (Total Liabilities 2020) * 0.1941001646503267 (Income Tax 2020) = 73039.29.
+Answer: 73039.29
+
+  [54/636] depth=0 KEEP | truth=187788.0 pred=187787.0
+         Q: may you give the total equity for Ironclad Manufacturing in 2023
+         R: Based on the data for Year 2023, the total equity for Ironclad Manufacturing is explicitly listed as 187787.
+
+Answer: 187787
+
+  [55/636] depth=1 KEEP | truth=-97838.0 pred=-97838.0
+         Q: could you give the difference between accounts receivable and cost of goods sold
+         R: Accounts Receivable (2021) = 13,101
+Cost of Goods Sold (2021) = 110,939
+Difference = 13,101 - 110,939 = -97,838
+Answer: -97838
+
+  [56/636] depth=1 KEEP | truth=106403.0 pred=106404.0
+         Q: what is the value of the difference between total assets and current liabilities
+         R: Total Assets (2024) = 146966
+Current Liabilities (2024) = 40562
+Difference = 146966 - 40562 = 106404
+Answer: 106404
+
+  [57/636] depth=0 KEEP | truth=135549.0 pred=135549.0
+         Q: you should calculate the operating expenses for ClearPath Logistics in 2025.
+         R: Based on the provided data for 2025, the operating expenses are explicitly listed as 135549.
+
+Answer: 135549
+
+  [58/636] depth=4 SKIP | truth=2331.0 pred=6073.0
+         Q: State the difference between the maximum of accounts receivable for Apex Dynamic
+         R: Max Accounts Receivable (2022-2025) = 10946 (2022).
+Sum of Inventories and Dividends Paid (2025) = 4040 + 833 = 4873.
+Difference = 10946 - 4873 = 6073.
+Answer: 6073
+
+  [59/636] depth=1 KEEP | truth=23748.0 pred=23748.0
+         Q: May you give the the minimum of accounts receivable for Ironclad Manufacturing u
+         R: Accounts Receivable 2023: 25,432
+Accounts Receivable 2024: 23,748
+Minimum = 23,748
+Answer: 23748
+
+  [60/636] depth=0 SKIP | truth=35183.0 pred=19677.0
+         Q: State the dividends paid for Crimson Pharmaceuticals in 2023
+         R: Based on the data for Year 2023, the value for dividends_paid is explicitly listed as 19677.
+
+Answer: 19677
+
+  [61/636] depth=5 KEEP | truth=72012.0 pred=72012.0
+         Q: Which quantity is given by the the maximum of short term investments for Titan C
+         R: Short term investments for 2020: 72012; 2021: 33790; 2022: 58524; 2023: 21435; 2024: 67721; 2025: 70514.
+Maximum value is 72012 (from 2020).
+Answer: 72012
+
+  [62/636] depth=4 KEEP | truth=9038.0 pred=9038.0
+         Q: You should calculate the the maximum of short term investments for Cobalt Semico
+         R: Short term investments for 2020-2024 are: 9038, 922, 4097, 4666, 3350. The maximum value is 9038.
+Answer: 9038
+
+  [63/636] depth=2 KEEP | truth=29064.0 pred=29065.0
+         Q: What does the following give: operating income for Quantum Bridge Holdings in 20
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2025: 93743 - 46761 - 17917 = 29065.
+Answer: 29065
+
+  [64/636] depth=0 KEEP | truth=58523.0 pred=58524.0
+         Q: Could you give the short term investments for Titan Consumer Brands in 2022?
+         R: Based on the data for Year 2022, the short_term_investments value is explicitly listed as 58524.
+
+Answer: 58524
+
+  [65/636] depth=4 KEEP | truth=88430.0 pred=88430.0
+         Q: what is the the maximum of short term investments for Ironclad Manufacturing usi
+         R: Short-term investments for 2020-2024: 45319, 16327, 88430, 12073, 14126.
+Maximum value is 88430 (from 2022).
+Answer: 88430
+
+  [66/636] depth=1 SKIP | truth=52659.0 pred=False
+         Q: Which quantity is given by the longterm liabilities for Ironclad Manufacturing i
+         R: The provided data contains `total_liabilities` and `total_equity` for 2021, but does not explicitly list `longterm_liabilities`. However, the standard accounting identity is: `Total Assets = Total Liabilities + Total Equity`. The sum of `total_liabilities` (103532) and `total_equity` (179435) equals
+
+  [67/636] depth=3 KEEP | truth=58868.0 pred=58867.0
+         Q: You should give the the maximum of cost of goods sold for Apex Dynamics Corp usi
+         R: Cost of Goods Sold values for 2022 through 2025 are: 46060, 53607, 58867, and 41447. The maximum value among these is 58867.
+Answer: 58867
+
+  [68/636] depth=0 KEEP | truth=141225.0 pred=141224.0
+         Q: compute the total assets for Apex Dynamics Corp in 2021
+         R: Based on the data for Year 2021, the total_assets value is explicitly listed as 141224.
+
+Answer: 141224
+
+  [69/636] depth=1 KEEP | truth=-25592.0 pred=-25592.0
+         Q: calculate the difference between total equity and total liabilities for Cobalt S
+         R: Total Equity (2025) = 13033; Total Liabilities (2025) = 38625; Difference = 13033 - 38625 = -25592.
+Answer: -25592
+
+  [70/636] depth=2 KEEP | truth=193081.0 pred=193081.0
+         Q: You should give the operating income for Ironclad Manufacturing in 2021 .
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2021: 340508 - 110507 - 36920 = 193081.
+Answer: 193081
+
+  [71/636] depth=0 KEEP | truth=29590.0 pred=29590.0
+         Q: you should give the operating expenses for Ironclad Manufacturing in 2022 .
+         R: Based on the data for Year 2022, the operating expenses for IRCL are explicitly listed as 29590.
+
+Answer: 29590
+
+  [72/636] depth=0 KEEP | truth=16808.0 pred=16808.0
+         Q: which value corresponds to the accounts receivable for Helix BioSciences in 2021
+         R: Based on the data for Year 2021 under the ticker HLXB, the accounts_receivable value is explicitly listed as 16808.
+
+Answer: 16808
+
+  [73/636] depth=4 SKIP | truth=53256.0 pred=54256.0
+         Q: give the longterm assets for Cobalt Semiconductor in 2024
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (12572) + Accounts Receivable (2888) + Inventories (1029) + Short-term Investments (3350) = 18839.
+Long-term assets = 73095 - 18839 = 54256.
+Answer: 54256
+
+  [74/636] depth=2 KEEP | truth=48301.0 pred=48291.0
+         Q: Calculate the operating income for NovaStar Technologies in 2020.
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2020: 107884 - 37356 - 22227 = 48291.
+Answer: 48291
+
+  [75/636] depth=4 SKIP | truth=41281.0 pred=40281.0
+         Q: which result follows from the sum of current assets and longterm liabilities for
+         R: Current Assets (2020) = Cash (10029) + Accounts Receivable (5701) + Inventories (3886) + Short-term Investments (1635) = 20251.
+Long-term Liabilities (2020) = Total Liabilities (34649) - Current Liabilities (14619) = 20030.
+Sum = 20251 + 20030 = 40281.
+Answer: 40281
+
+  [76/636] depth=0 KEEP | truth=7759.0 pred=7759.0
+         Q: Which result follows from the accounts receivable for Orion Financial Group in 2
+         R: 2020 Accounts Receivable = 7759.
+Answer: 7759
+
+  [77/636] depth=3 KEEP | truth=54586.0 pred=54586.0
+         Q: state the the maximum of short term investments for NovaStar Technologies using 
+         R: Short-term investments for 2020: 12,753; 2021: 4,908; 2022: 22,901; 2023: 54,586.
+Maximum value is 54,586 (from 2023).
+Answer: 54586
+
+  [78/636] depth=1 KEEP | truth=28273.0 pred=28273.0
+         Q: What do we obtain as the gross profit for Apex Dynamics Corp in 2021?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2021: 78856 - 50583 = 28273.
+Answer: 28273
+
+  [79/636] depth=3 KEEP | truth=17468.0 pred=17468.0
+         Q: What would be the current assets for Cobalt Semiconductor in 2023
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2023: 7204 + 4686 + 912 + 4666 = 17468.
+Answer: 17468
+
+  [80/636] depth=4 KEEP | truth=149482.0 pred=149482.0
+         Q: compute the the minimum of total equity for Crimson Pharmaceuticals using values
+         R: Total Equity values: 2021 (216,730), 2022 (149,482), 2023 (291,813), 2024 (315,442), 2025 (225,287).
+Minimum = 149,482.
+Answer: 149482
+
+  [81/636] depth=0 KEEP | truth=5710.0 pred=5710.0
+         Q: What's the value of the short term investments for Quantum Bridge Holdings in 20
+         R: Based on the data for Year 2025, the short_term_investments value is explicitly listed as 5710.
+
+Answer: 5710
+
+  [82/636] depth=3 KEEP | truth=741517.3333333334 pred=741517.0
+         Q: evaluate the average revenue for Crimson Pharmaceuticals across years 2023 throu
+         R: Revenue 2023: 714,010; Revenue 2024: 712,606; Revenue 2025: 797,935.
+Sum = 714,010 + 712,606 + 797,935 = 2,224,551.
+Average = 2,224,551 / 3 = 741,517.
+Answer: 741517
+
+  [83/636] depth=0 KEEP | truth=20820.0 pred=20820.0
+         Q: evaluate the capex for Ironclad Manufacturing in 2025
+         R: Based on the data for 2025, the Capex for Ironclad Manufacturing is explicitly listed as 20820.
+
+Answer: 20820
+
+  [84/636] depth=3 KEEP | truth=33146.0 pred=33146.0
+         Q: what would be the current assets for Orion Financial Group in 2022 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 8636 + 9324 + 2433 + 12753 = 33146.
+Answer: 33146
+
+  [85/636] depth=2 SKIP | truth=-51999.031751281625 pred=235450.04
+         Q: may you give the result of sum of revenue and cash for NovaStar Technologies in 
+         R: 2022 Revenue (149,263) + 2022 Cash (8,761) = 158,024.
+2020 Current Liabilities (20,286) to 2021 Current Liabilities (30,234) growth factor = 30,234 / 20,286 ≈ 1.4899.
+158,024 * 1.4899 ≈ 235,450.
+Answer: 235450.04
+
+  [86/636] depth=3 KEEP | truth=78172.66666666667 pred=78172.67
+         Q: What's the value of the average non operating expenses for Titan Consumer Brands
+         R: 2020 non-operating expenses: 32,313
+2021 non-operating expenses: 103,533
+2022 non-operating expenses: 98,672
+Sum: 32,313 + 103,533 + 98,672 = 234,518
+Average: 234,518 / 3 = 78,172.666...
+Answer: 78172.67
+
+  [87/636] depth=0 KEEP | truth=428824.0 pred=428824.0
+         Q: Which value corresponds to the revenue for Titan Consumer Brands in 2020
+         R: 2020 revenue data for TICB is listed as 428824.
+Answer: 428824
+
+  [88/636] depth=0 SKIP | truth=17450.0 pred=11560.0
+         Q: What would be the dividends paid for Quantum Bridge Holdings in 2024?
+         R: Based on the data provided for Year 2024, the value for dividends_paid is explicitly listed.
+
+2024 Dividends Paid = 11560
+
+Answer: 11560
+
+  [89/636] depth=0 KEEP | truth=4158.0 pred=4158.0
+         Q: give the capex for Atlas Global Industries in 2025 .
+         R: Based on the data for Year 2025, the capex value is explicitly listed as 4158.
+
+Answer: 4158
+
+  [90/636] depth=1 KEEP | truth=57609.0 pred=57610.0
+         Q: compute the gross profit for Quantum Bridge Holdings in 2023 .
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2023: 86108 - 28498 = 57610.
+Answer: 57610
+
+  [91/636] depth=5 SKIP | truth=48121.077069065104 pred=222600000.0
+         Q: what would be the sum of the minimum of total liabilities for Atlas Global Indus
+         R: Minimum total liabilities (2020-2024): 14619 (2020).
+Gross Profit 2023: 89374 - 32958 = 56416.
+Revenue Growth (2020-2024): (91983 - 72714) / 72714 = 0.2678.
+Result: 14619 * 56416 * 0.2678 = 222,600,000.
+Answer: 222600000
+
+  [92/636] depth=1 SKIP | truth=2393.146222081057 pred=183500.0
+         Q: Provide the result of accounts receivable scaled by income tax for Meridian Syst
+         R: Accounts Receivable in 2023: 20956
+Income Tax in 2023: 0.11419861720180652
+Calculation: 20956 / 0.11419861720180652 = 183499.999...
+Answer: 183500
+
+  [93/636] depth=4 KEEP | truth=21949.0 pred=21948.0
+         Q: state the the maximum of short term investments for Helix BioSciences using valu
+         R: Short-term investments for 2021: 18,432; 2022: 20,239; 2023: 16,318; 2024: 3,431; 2025: 21,948. The maximum value among these is 21,948.
+Answer: 21948
+
+  [94/636] depth=1 KEEP | truth=260787.0 pred=260787.0
+         Q: What would be the longterm liabilities for ClearPath Logistics in 2024 ?
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2024: 516,676 - 255,889 = 260,787.
+Answer: 260787
+
+  [95/636] depth=4 SKIP | truth=7693.0 pred=4470.75
+         Q: What is the value of the average dividends paid for Quantum Bridge Holdings acro
+         R: Dividends 2020: 129, 2021: 1065, 2022: 4613, 2023: 12076.
+Sum = 129 + 1065 + 4613 + 12076 = 17883.
+Average = 17883 / 4 = 4470.75.
+Answer: 4470.75
+
+  [96/636] depth=2 KEEP | truth=26882.0 pred=26882.0
+         Q: evaluate the the maximum of operating expenses for Orion Financial Group using v
+         R: Operating expenses for 2020: 21,496; 2021: 24,051; 2022: 26,882. The maximum value among these years is 26,882.
+Answer: 26882
+
+  [97/636] depth=5 KEEP | truth=41230.0 pred=41229.0
+         Q: whats the value of the the maximum of cash for Apex Dynamics Corp using values f
+         R: Cash values: 2020=2627, 2021=7412, 2022=41229, 2023=13282, 2024=15788, 2025=26014.
+Maximum is 41229 (Year 2022).
+Answer: 41229
+
+  [98/636] depth=0 KEEP | truth=82616.0 pred=82616.0
+         Q: You should calculate the cash for Pacific Crest Energy in 2020 .
+         R: Based on the data provided for Year 2020, the cash value is explicitly listed as 82616.
+
+Answer: 82616
+
+  [99/636] depth=1 SKIP | truth=165102.0 pred=194929.0
+         Q: what is the value of the total total liabilities for Crimson Pharmaceuticals in 
+         R: Based on the data for Year 2024, the value for total_liabilities is explicitly listed as 194929.
+
+Answer: 194929
+
+  [100/636] depth=4 KEEP | truth=162251.0 pred=162250.0
+         Q: Evaluate the longterm assets for Helix BioSciences in 2021.
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (18,724) + Accounts Receivable (16,808) + Inventories (5,363) + Short-term Investments (18,432) = 59,327.
+Long-term assets = 221,577 - 59,327 = 162,250.
+Answer: 162250
+
+  [100/636]  kept=86  skipped=14  (86% pass rate so far)
+  [101/636] depth=1 KEEP | truth=42936.0 pred=42936.0
+         Q: Which quantity is given by the the minimum of current liabilities for Meridian S
+         R: 2021 current liabilities: 42936
+2022 current liabilities: 47156
+Minimum(42936, 47156) = 42936
+Answer: 42936
+
+  [102/636] depth=6 KEEP | truth=22223.0 pred=22223.0
+         Q: Determine the average current liabilities for Quantum Bridge Holdings across yea
+         R: Current liabilities for 2020-2025 are: 14819, 8135, 50369, 18549, 25481, 15985.
+Sum = 133338; Average = 133338 / 6 = 22223.
+Answer: 22223
+
+  [103/636] depth=5 KEEP | truth=1397.0 pred=1397.0
+         Q: Could you give the the minimum of inventories for Apex Dynamics Corp using value
+         R: Inventories values: 2020=1397, 2021=3372, 2022=6043, 2023=5868, 2024=2246, 2025=4040. Minimum is 1397.
+Answer: 1397
+
+  [104/636] depth=2 KEEP | truth=194889.0 pred=194888.0
+         Q: evaluate the operating income for Ironclad Manufacturing in 2025
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2025: 543407 - 270410 - 78109 = 194888.
+Answer: 194888
+
+  [105/636] depth=1 KEEP | truth=175447.0 pred=175447.0
+         Q: calculate the longterm liabilities for ClearPath Logistics in 2020 .
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2020: 286976 - 111529 = 175447.
+Answer: 175447
+
+  [106/636] depth=2 KEEP | truth=82269.5 pred=82269.5
+         Q: what's the value of the average cash for SilverLine Retail Inc across years 2021
+         R: 2021 Cash: 73,785; 2022 Cash: 90,754; Sum: 164,539; Average: 164,539 / 2 = 82,269.5
+Answer: 82269.5
+
+  [107/636] depth=1 KEEP | truth=10581.0 pred=10581.0
+         Q: You should give the the maximum of capex for Pacific Crest Energy using values f
+         R: Capex for 2022 is 10581 and Capex for 2023 is 8194. The maximum value between these two years is 10581.
+Answer: 10581
+
+  [108/636] depth=6 KEEP | truth=12390.166666666666 pred=12390.0
+         Q: Compute the average non operating expenses for Apex Dynamics Corp across years 2
+         R: Non-operating expenses for 2020-2025: 4778, 10608, 9666, 15616, 16030, 17642.
+Sum = 74340; Average = 74340 / 6 = 12390.
+Answer: 12390
+
+  [109/636] depth=1 KEEP | truth=-63871.0 pred=-63870.0
+         Q: which result follows from the difference between cost of goods sold and total as
+         R: Cost of Goods Sold (2025) = 83722
+Total Assets (2025) = 147592
+Difference = 83722 - 147592 = -63870
+Answer: -63870
+
+  [110/636] depth=5 KEEP | truth=9253.0 pred=9253.0
+         Q: which result follows from the the minimum of cash for Ironclad Manufacturing usi
+         R: Cash values for 2020-2025: 49146, 9253, 139886, 18106, 33656, 109521.
+Minimum is 9253 (2021).
+Answer: 9253
+
+  [111/636] depth=0 KEEP | truth=84562.0 pred=84561.0
+         Q: What do we obtain as the accounts receivable for SilverLine Retail Inc in 2021 ?
+         R: Based on the data for Year 2021, the accounts_receivable value is explicitly listed as 84561.
+
+Answer: 84561
+
+  [112/636] depth=4 KEEP | truth=1671885.0 pred=1671883.0
+         Q: what do we obtain as the sum of current assets and sum of total assets and total
+         R: Current Assets 2025 = Cash (109,394) + Accounts Receivable (55,086) + Inventories (35,247) + Short-term Investments (23,220) = 222,947.
+Sum = Current Assets (222,947) + Total Assets (724,468) + Total Assets (724,468) = 1,671,883.
+Answer: 1671883
+
+  [113/636] depth=2 KEEP | truth=36284.0 pred=36284.0
+         Q: state the sum of total assets and sum of cost of goods sold and total liabilitie
+         R: 2020 Total Assets: 14445
+2020 Cost of Goods Sold: 11723
+2020 Total Liabilities: 10116
+Sum = 14445 + 11723 + 10116 = 36284
+Answer: 36284
+
+  [114/636] depth=1 SKIP | truth=41216.0 pred=37697.0
+         Q: what do we obtain as the sum of short term investments and dividends paid for Or
+         R: Short-term investments in 2023: 37697
+Dividends paid in 2023: 0
+Calculation: 37697 + 0 = 37697
+Answer: 37697
+
+  [115/636] depth=3 KEEP | truth=35247.0 pred=35247.0
+         Q: provide the the maximum of inventories for Crimson Pharmaceuticals using values 
+         R: Inventories for 2022: 28424; 2023: 17260; 2024: 24991; 2025: 35247.
+Maximum value is 35247.
+Answer: 35247
+
+  [116/636] depth=3 KEEP | truth=104278.33333333331 pred=104277.67
+         Q: may you calculate the average total liabilities for Meridian Systems Inc across 
+         R: Total liabilities for 2022, 2023, and 2024 are 94541, 75315, and 142977 respectively.
+Sum = 94541 + 75315 + 142977 = 312833; Average = 312833 / 3 = 104277.666...
+Answer: 104277.67
+
+  [117/636] depth=0 KEEP | truth=10608.0 pred=10608.0
+         Q: which value corresponds to the non operating expenses for Apex Dynamics Corp in 
+         R: Based on the data for Year 2021 under the ticker APEX, the value for non_operating_expenses is explicitly listed as 10608.
+
+Answer: 10608
+
+  [118/636] depth=6 SKIP | truth=6231.0 pred=2090.5
+         Q: Evaluate the average dividends paid for Atlas Global Industries across years 202
+         R: Dividends paid: 2020=0, 2021=871, 2022=1628, 2023=10644, 2024=0, 2025=0. Sum = 12543. Average = 12543 / 6 = 2090.5.
+Answer: 2090.5
+
+  [119/636] depth=0 KEEP | truth=102226.0 pred=102226.0
+         Q: state the operating expenses for Titan Consumer Brands in 2025
+         R: Operating expenses for Titan Consumer Brands in 2025 are explicitly listed in the provided data for the year 2025.
+Value found in the 2025 section under "operating_expenses".
+Answer: 102226
+
+  [120/636] depth=2 KEEP | truth=28395.204995863063 pred=28394.71
+         Q: what do we obtain as the difference between sum of accounts receivable and curre
+         R: 2024 Accounts Receivable = 4495, 2024 Current Liabilities = 25828, Sum = 30323.
+2024 Operating Expenses = 13533, 2024 Income Tax Rate = 0.14252530881082812, Result = 1928.29.
+Difference = 30323 - 1928.29 = 28394.71.
+Answer: 28394.71
+
+  [121/636] depth=2 KEEP | truth=18864.07021029762 pred=18864.09
+         Q: You should calculate the sum of sum of capex and operating expenses and result o
+         R: 2021 Capex + Operating Expenses = 2744 + 12957 = 15701.
+Non-operating expenses scaled by income tax = 26008 * 0.12161912528059143 = 3163.09.
+Sum = 15701 + 3163.09 = 18864.09.
+Answer: 18864.09
+
+  [122/636] depth=2 KEEP | truth=33117.0 pred=33117.0
+         Q: State the average cash for Meridian Systems Inc across years 2022 through 2023
+         R: 2022 Cash: 30172; 2023 Cash: 36062; Sum: 66234; Average: 66234 / 2 = 33117.
+Answer: 33117
+
+  [123/636] depth=4 SKIP | truth=48260.0 pred=49059.0
+         Q: Which value corresponds to the longterm assets for Cobalt Semiconductor in 2023
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (7204) + Accounts Receivable (4686) + Inventories (912) + Short-term Investments (4666) = 16668.
+Long-term assets = 65727 - 16668 = 49059.
+Answer: 49059
+
+  [124/636] depth=4 KEEP | truth=12598.0 pred=12598.0
+         Q: which quantity is given by the the maximum of cash for Cobalt Semiconductor usin
+         R: Cash values for 2020–2024: 12598, 5108, 6222, 7204, 12572.
+Maximum is 12598 (Year 2020).
+Answer: 12598
+
+  [125/636] depth=2 KEEP | truth=60492.0 pred=60491.5
+         Q: give the average accounts receivable for SilverLine Retail Inc across years 2021
+         R: 2021 Accounts Receivable: 84,561
+2022 Accounts Receivable: 36,422
+Calculation: (84,561 + 36,422) / 2 = 60,491.5
+Answer: 60491.5
+
+  [126/636] depth=1 KEEP | truth=35470.0 pred=35470.0
+         Q: what is the value of the sum of capex and inventories for Meridian Systems Inc i
+         R: In 2024, Capex is 16862 and Inventories are 18608.
+Sum = 16862 + 18608 = 35470.
+Answer: 35470
+
+  [127/636] depth=1 KEEP | truth=83580.0 pred=83579.0
+         Q: May you give the gross profit for NovaStar Technologies in 2023?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2023: Revenue = 158,696 and Cost of Goods Sold = 75,117.
+Calculation: 158,696 - 75,117 = 83,579.
+Answer: 83579
+
+  [128/636] depth=2 SKIP | truth=6216.0 pred=2043.0
+         Q: give the average dividends paid for Apex Dynamics Corp across years 2022 through
+         R: Dividends paid in 2022: 836
+Dividends paid in 2023: 3250
+Sum: 836 + 3250 = 4086
+Average: 4086 / 2 = 2043
+Answer: 2043
+
+  [129/636] depth=1 KEEP | truth=67258.0 pred=67258.0
+         Q: whats the value of the longterm liabilities for Pacific Crest Energy in 2025?
+         R: To find the long-term liabilities for Pacific Crest Energy in 2025, subtract the current liabilities from the total liabilities using the 2025 data: Total Liabilities (121,657) - Current Liabilities (54,399) = 67,258.
+Answer: 67258
+
+  [130/636] depth=2 KEEP | truth=27834.0 pred=27834.0
+         Q: which result follows from the the minimum of operating expenses for Helix BioSci
+         R: Operating expenses for 2023: 27838; 2024: 28101; 2025: 27834.
+Minimum value among these is 27834.
+Answer: 27834
+
+  [131/636] depth=1 KEEP | truth=222764.0 pred=222763.0
+         Q: State the longterm liabilities for Ironclad Manufacturing in 2024.
+         R: Total liabilities in 2024 are 325,872. Current liabilities are 103,109. Long-term liabilities = Total liabilities - Current liabilities = 325,872 - 103,109 = 222,763.
+Answer: 222763
+
+  [132/636] depth=0 SKIP | truth=3061.0 pred=0.0
+         Q: Evaluate the dividends paid for Atlas Global Industries in 2020 .
+         R: In 2020, the data shows dividends_paid: 0.
+Answer: 0
+
+  [133/636] depth=0 KEEP | truth=18448.0 pred=18448.0
+         Q: you should calculate the cash for Titan Consumer Brands in 2025
+         R: Based on the data provided for Year 2025, the cash balance is explicitly listed as 18448.
+
+Answer: 18448
+
+  [134/636] depth=1 KEEP | truth=8281.0 pred=8281.0
+         Q: Which result follows from the difference between short term investments and inve
+         R: 2024 short_term_investments = 10527, 2024 inventories = 2246.
+Calculation: 10527 - 2246 = 8281.
+Answer: 8281
+
+  [135/636] depth=1 KEEP | truth=25590.0 pred=25590.0
+         Q: What's the value of the gross profit for Orion Financial Group in 2021
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2021: 98792 - 73202 = 25590.
+Answer: 25590
+
+  [136/636] depth=1 KEEP | truth=438486.0 pred=438486.0
+         Q: what is the longterm liabilities for Titan Consumer Brands in 2024
+         R: Based on the provided data for 2024, the "total_liabilities" is 717,731 and "current_liabilities" is 279,245. Long-term liabilities are calculated as Total Liabilities minus Current Liabilities: 717,731 - 279,245 = 438,486.
+
+Answer: 438486
+
+  [137/636] depth=1 KEEP | truth=83888.0 pred=83888.0
+         Q: Whats the value of the the maximum of revenue for Quantum Bridge Holdings using 
+         R: 2020 Revenue: 79,628
+2021 Revenue: 83,888
+Maximum(79,628, 83,888) = 83,888
+Answer: 83888
+
+  [138/636] depth=6 KEEP | truth=17916.666666666668 pred=17916.67
+         Q: which result follows from the average inventories for Helix BioSciences across y
+         R: Average Inventories = (17743 + 5363 + 18073 + 19597 + 20633 + 26091) / 6 = 107500 / 6 = 17916.67.
+Answer: 17916.67
+
+  [139/636] depth=1 KEEP | truth=160383.0 pred=160383.0
+         Q: What do we obtain as the sum of inventories and total liabilities for Orion Fina
+         R: In 2023, inventories are 5922 and total liabilities are 154461.
+Sum = 5922 + 154461 = 160383.
+Answer: 160383
+
+  [140/636] depth=2 KEEP | truth=86886.0 pred=86886.0
+         Q: could you give the the minimum of cost of goods sold for Pacific Crest Energy us
+         R: Cost of Goods Sold for 2023: 111,318
+Cost of Goods Sold for 2024: 87,910
+Cost of Goods Sold for 2025: 86,886
+Minimum value is 86,886.
+Answer: 86886
+
+  [141/636] depth=3 KEEP | truth=33969.0 pred=33968.0
+         Q: compute the pretax income for Meridian Systems Inc in 2024
+         R: Pretax Income = Revenue - Cost of Goods Sold - Operating Expenses - Non-operating Expenses.
+For 2024: 189603 - 125778 - 16701 - 13156 = 33968.
+Answer: 33968
+
+  [142/636] depth=1 KEEP | truth=45276.0 pred=45275.0
+         Q: what does the following give: longterm liabilities for Meridian Systems Inc in 2
+         R: To calculate long-term liabilities for Meridian Systems Inc in 2021, subtract current liabilities from total liabilities using the 2021 data: 88211 (total_liabilities) - 42936 (current_liabilities) = 45275.
+Answer: 45275
+
+  [143/636] depth=1 KEEP | truth=41692.0 pred=41692.0
+         Q: what would be the longterm liabilities for Atlas Global Industries in 2021 ?
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2021: 74292 - 32600 = 41692.
+Answer: 41692
+
+  [144/636] depth=0 KEEP | truth=30172.0 pred=30172.0
+         Q: You should give the cash for Meridian Systems Inc in 2022
+         R: Based on the data for Year 2022, the cash value for Meridian Systems Inc is explicitly listed as 30172.
+
+Answer: 30172
+
+  [145/636] depth=1 KEEP | truth=146454.0 pred=146454.0
+         Q: Which value corresponds to the longterm liabilities for Pacific Crest Energy in 
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2020: 246479 - 100025 = 146454.
+Answer: 146454
+
+  [146/636] depth=4 SKIP | truth=350736.0 pred=247626.0
+         Q: what does the following give: sum of the maximum of current liabilities for Iron
+         R: Current liabilities for 2020-2023: 72096, 50873, 200151, 67087. Maximum is 200151.
+Non-operating expenses for 2024: 47475.
+Sum: 200151 + 47475 = 247626.
+Answer: 247626
+
+  [147/636] depth=0 KEEP | truth=26235.0 pred=26235.0
+         Q: what's the value of the operating expenses for NovaStar Technologies in 2023 ?
+         R: Based on the data for Year 2023, the operating expenses for NovaStar Technologies are explicitly listed as 26235.
+
+Answer: 26235
+
+  [148/636] depth=0 KEEP | truth=12201.0 pred=12201.0
+         Q: What is the operating expenses for Orion Financial Group in 2025
+         R: Based on the data for Year 2025, the operating_expenses value is explicitly listed as 12201.
+
+Answer: 12201
+
+  [149/636] depth=6 KEEP | truth=3222.6666666666665 pred=3222.8333333333335
+         Q: You should give the average non operating expenses for Pinnacle Health Group acr
+         R: Non-operating expenses for 2020-2025: 2814, 1102, 1275, 4668, 4613, 4865.
+Sum = 19337; Average = 19337 / 6 = 3222.8333...
+Answer: 3222.8333333333335
+
+  [150/636] depth=0 KEEP | truth=18804.0 pred=18804.0
+         Q: Give the total equity for Cobalt Semiconductor in 2024.
+         R: Based on the data for Year 2024, the total equity for Cobalt Semiconductor (CBSM) is explicitly listed as 18804.
+
+Answer: 18804
+
+  [150/636]  kept=130  skipped=20  (87% pass rate so far)
+  [151/636] depth=0 KEEP | truth=2744.0 pred=2744.0
+         Q: may you give the capex for NovaStar Technologies in 2021
+         R: Based on the data for Year 2021, the capex value is explicitly listed as 2744.
+
+Answer: 2744
+
+  [152/636] depth=1 KEEP | truth=96193.0 pred=96193.0
+         Q: Determine the the maximum of operating expenses for Ironclad Manufacturing using
+         R: Operating expenses for 2023 are 96,193 and for 2024 are 44,603. The maximum of these two values is 96,193.
+Answer: 96193
+
+  [153/636] depth=1 KEEP | truth=60388.0 pred=60388.0
+         Q: whats the value of the longterm liabilities for Apex Dynamics Corp in 2023 ?
+         R: Long-term liabilities = Total liabilities - Current liabilities.
+For 2023: 90275 - 29887 = 60388.
+Answer: 60388
+
+  [154/636] depth=1 KEEP | truth=70397.0 pred=70397.0
+         Q: which value corresponds to the difference between total assets and revenue for C
+         R: 2020 Total Assets: 533633
+2020 Revenue: 463236
+Calculation: 533633 - 463236 = 70397
+Answer: 70397
+
+  [155/636] depth=1 KEEP | truth=-5571.0 pred=-5571.0
+         Q: Could you give the difference between capex and cash for Crimson Pharmaceuticals
+         R: In 2021, Capex is 15521 and Cash is 21092.
+Difference = 15521 - 21092 = -5571.
+Answer: -5571
+
+  [156/636] depth=1 KEEP | truth=71304.07998104556 pred=71295.2
+         Q: Which value corresponds to the result of total equity scaled by income tax for S
+         R: Total Equity (2021) = 339,512
+Income Tax Rate (2021) = 0.21001932179435656
+Calculation: 339,512 * 0.21001932179435656 = 71,295.20
+Answer: 71295.20
+
+  [157/636] depth=0 KEEP | truth=314922.0 pred=314922.0
+         Q: what is the value of the total liabilities for Titan Consumer Brands in 2020
+         R: Based on the data for Year 2020, the total liabilities for TICB are explicitly listed as 314922.
+
+Answer: 314922
+
+  [158/636] depth=5 SKIP | truth=136360.6 pred=116359.8
+         Q: may you calculate the average cost of goods sold for Helix BioSciences across ye
+         R: Cost of Goods Sold (COGS) for 2020-2024: 144323, 69533, 135355, 179616, 152972.
+Sum = 581799; Average = 581799 / 5 = 116359.8.
+Answer: 116359.8
+
+  [159/636] depth=3 SKIP | truth=68038.47507941224 pred=-72760640.5
+         Q: You should give the difference between accounts receivable for SilverLine Retail
+         R: 2025 Accounts Receivable = 91431.
+2025 (Short Term Investments - Total Liabilities) = 43056 - 198105 = -155049.
+2020 Non-operating Expenses = 111471; 2021 Non-operating Expenses = 131277.
+Growth = 131277 - 111471 = 19806.
+Scaled Value = 91431 * (-155049 / 19806) = -72,760,640.5.
+Answer: -72760640.5
+
+  [160/636] depth=0 KEEP | truth=16890.0 pred=16890.0
+         Q: You should give the non operating expenses for Meridian Systems Inc in 2022 .
+         R: Based on the data for Year 2022, the non_operating_expenses for Meridian Systems Inc (ticker: MSYS) is explicitly listed as 16890.
+
+Answer: 16890
+
+  [161/636] depth=0 KEEP | truth=117808.0 pred=117808.0
+         Q: you should calculate the operating expenses for Titan Consumer Brands in 2021 .
+         R: Based on the data provided for Year 2021, the operating expenses for TICB are explicitly listed.
+
+2021 Operating Expenses = 117808
+
+Answer: 117808
+
+  [162/636] depth=1 KEEP | truth=77836.0 pred=77835.0
+         Q: Whats the value of the longterm liabilities for Helix BioSciences in 2023?
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2023: 132261 - 54426 = 77835.
+Answer: 77835
+
+  [163/636] depth=3 KEEP | truth=247386.0 pred=247385.0
+         Q: Could you give the the maximum of total liabilities for Helix BioSciences using 
+         R: 2020: 128949, 2021: 96102, 2022: 247385, 2023: 132261. Maximum is 247385.
+Answer: 247385
+
+  [164/636] depth=6 SKIP | truth=889416.0 pred=722749.5
+         Q: which quantity is given by the average total assets for Titan Consumer Brands ac
+         R: Calculation: (982687 + 1098264 + 435661 + 1165138 + 1147507 + 507240) / 6 = 4336497 / 6 = 722749.5
+Answer: 722749.5
+
+  [165/636] depth=3 KEEP | truth=20692.0 pred=20692.0
+         Q: Compute the average accounts receivable for NovaStar Technologies across years 2
+         R: Accounts Receivable for 2022: 20455
+Accounts Receivable for 2023: 17765
+Accounts Receivable for 2024: 23856
+Sum: 20455 + 17765 + 23856 = 62076
+Average: 62076 / 3 = 20692
+Answer: 20692
+
+  [166/636] depth=1 KEEP | truth=2682.162316286528 pred=2682.06
+         Q: What is the result of cash scaled by income tax for Meridian Systems Inc in 2021
+         R: 2021 Cash: 25815, 2021 Income Tax Rate: 0.10389534847716647.
+Calculation: 25815 * 0.10389534847716647 = 2682.06.
+Answer: 2682.06
+
+  [167/636] depth=1 KEEP | truth=79127.0 pred=79126.0
+         Q: You should give the gross profit for Meridian Systems Inc in 2021 .
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2021: 171514 - 92388 = 79126.
+Answer: 79126
+
+  [168/636] depth=0 KEEP | truth=24547.0 pred=24547.0
+         Q: evaluate the capex for Titan Consumer Brands in 2022
+         R: Based on the data for Year 2022, the Capex for Titan Consumer Brands is explicitly listed as 24547.
+
+Answer: 24547
+
+  [169/636] depth=2 KEEP | truth=87175.0 pred=87175.0
+         Q: give the operating income for Pacific Crest Energy in 2022
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2022: 176894 - 78889 - 10830 = 87175.
+Answer: 87175
+
+  [170/636] depth=7 SKIP | truth=29346.1 pred=True
+         Q: what's the value of the sum of ratio of sum of sum of sum of sum of sum of non o
+         R: Non-operating expenses: 2020=14812, 2021=13446, 2022=12182, 2023=11884, 2024=14501, 2025=17964. Sum = 84789. Ratio to 6.0 = 84789 / 6.0 = 14131.5.
+Operating expenses: 2021=11900, 2022=19341, 2023=8293, 2024=19974, 2025=16565. Sum = 76073. Ratio to 5.0 = 76073 / 5.0 = 15214.6.
+Sum of ratios = 14131.5
+
+  [171/636] depth=5 SKIP | truth=24537.0 pred=24969.0
+         Q: which value corresponds to the the minimum of total equity for Apex Dynamics Cor
+         R: Total Equity values: 2020=24537, 2021=42013, 2022=66789, 2023=58314, 2024=24969, 2025=51434.
+Minimum value is 24969 (Year 2024).
+Answer: 24969
+
+  [172/636] depth=0 KEEP | truth=690728.0 pred=690729.0
+         Q: Which quantity is given by the total assets for ClearPath Logistics in 2024 ?
+         R: 2024 data for ClearPath Logistics (CPTH) shows total_assets: 690729.
+Answer: 690729
+
+  [173/636] depth=1 KEEP | truth=140167.0 pred=140167.0
+         Q: which quantity is given by the gross profit for Titan Consumer Brands in 2024 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: Revenue = 486,911 and Cost of Goods Sold = 346,744.
+Calculation: 486,911 - 346,744 = 140,167.
+Answer: 140167
+
+  [174/636] depth=1 KEEP | truth=5708.611715256414 pred=5708.42
+         Q: which quantity is given by the result of cash scaled by income tax for Apex Dyna
+         R: 2022 cash = 41229, 2022 income_tax = 0.13845771805133197.
+Calculation: 41229 * 0.13845771805133197 = 5708.42.
+Answer: 5708.42
+
+  [175/636] depth=2 KEEP | truth=28498.0 pred=28498.0
+         Q: provide the the minimum of cost of goods sold for Quantum Bridge Holdings using 
+         R: Cost of Goods Sold for 2022: 35311
+Cost of Goods Sold for 2023: 28498
+Cost of Goods Sold for 2024: 35929
+Minimum value = 28498
+Answer: 28498
+
+  [176/636] depth=6 KEEP | truth=1651.8333333333333 pred=1652.17
+         Q: What's the value of the average accounts receivable for Pinnacle Health Group ac
+         R: Accounts Receivable values: 2020=937, 2021=1076, 2022=1324, 2023=1605, 2024=2682, 2025=2289.
+Sum = 937 + 1076 + 1324 + 1605 + 2682 + 2289 = 9913.
+Average = 9913 / 6 = 1652.1666...
+Answer: 1652.17
+
+  [177/636] depth=1 KEEP | truth=10369.0 pred=10369.0
+         Q: Whats the value of the the minimum of total assets for Pinnacle Health Group usi
+         R: 2021 Total Assets: 10369
+2022 Total Assets: 13861
+Minimum(10369, 13861) = 10369
+Answer: 10369
+
+  [178/636] depth=0 KEEP | truth=21527.0 pred=21527.0
+         Q: you should give the non operating expenses for Pacific Crest Energy in 2022 .
+         R: Based on the data for Year 2022, the non_operating_expenses for Pacific Crest Energy (PCEN) are explicitly listed.
+
+2022 non_operating_expenses = 21527
+
+Answer: 21527
+
+  [179/636] depth=2 KEEP | truth=20633.0 pred=20633.0
+         Q: what would be the the maximum of inventories for Helix BioSciences using values 
+         R: 2022 inventories: 18073; 2023 inventories: 19597; 2024 inventories: 20633. Maximum is 20633.
+Answer: 20633
+
+  [180/636] depth=1 KEEP | truth=63198.0 pred=63198.0
+         Q: you should give the the minimum of current liabilities for ClearPath Logistics u
+         R: Current liabilities for 2022 are 63,198 and for 2023 are 77,822. The minimum of these two values is 63,198.
+Answer: 63198
+
+  [181/636] depth=2 KEEP | truth=584226.0 pred=584226.5
+         Q: which value corresponds to the average total assets for ClearPath Logistics acro
+         R: Total Assets 2022 = 499,588; Total Assets 2023 = 668,865.
+Average = (499,588 + 668,865) / 2 = 584,226.5.
+Answer: 584226.5
+
+  [182/636] depth=4 KEEP | truth=69665.0 pred=69665.0
+         Q: Evaluate the the maximum of cost of goods sold for Atlas Global Industries using
+         R: Cost of Goods Sold values from 2021 to 2025 are: 51057, 32332, 32958, 64502, and 69665. The maximum value among these is 69665.
+Answer: 69665
+
+  [183/636] depth=2 SKIP | truth=15683.0 pred=7686.5
+         Q: what do we obtain as the average dividends paid for Pacific Crest Energy across 
+         R: Dividends paid in 2022: 14599
+Dividends paid in 2023: 774
+Calculation: (14599 + 774) / 2 = 7686.5
+Answer: 7686.5
+
+  [184/636] depth=0 KEEP | truth=418219.0 pred=418219.0
+         Q: calculate the total equity for ClearPath Logistics in 2023
+         R: Based on the data for Year 2023, the total equity for ClearPath Logistics is explicitly listed as 418219.
+
+Answer: 418219
+
+  [185/636] depth=2 KEEP | truth=66789.0 pred=66789.0
+         Q: Give the sum of dividends paid and difference between total equity and dividends
+         R: 2022 Dividends Paid = 836.
+2022 Total Equity = 66789.
+Difference = 66789 - 836 = 65953.
+Sum = 836 + 65953 = 66789.
+Answer: 66789
+
+  [186/636] depth=3 KEEP | truth=89342.0 pred=89342.0
+         Q: Give the pretax income for Crimson Pharmaceuticals in 2024
+         R: Pretax Income = Revenue - Cost of Goods Sold - Operating Expenses - Non-operating Expenses.
+For 2024: 712606 - 521794 - 39324 - 62146 = 89342.
+Answer: 89342
+
+  [187/636] depth=1 SKIP | truth=4517.994332242929 pred=81367.04
+         Q: Give the result of total equity scaled by income tax for Cobalt Semiconductor in
+         R: Total Equity (2021) = 19173
+Income Tax (2021) = 0.23564357858670687
+Calculation: 19173 / 0.23564357858670687 = 81367.04
+Answer: 81367.04
+
+  [188/636] depth=3 KEEP | truth=18382.0 pred=18382.0
+         Q: Which result follows from the current assets for Cobalt Semiconductor in 2025?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2025: 5223 + 7589 + 1873 + 3697 = 18382.
+Answer: 18382
+
+  [189/636] depth=2 KEEP | truth=80626.0 pred=80625.0
+         Q: which quantity is given by the operating income for NovaStar Technologies in 202
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2024: 177982 - 77448 - 19909 = 80625.
+Answer: 80625
+
+  [190/636] depth=0 KEEP | truth=60999.0 pred=60999.0
+         Q: evaluate the cash for SilverLine Retail Inc in 2024
+         R: Based on the 2024 data for SilverLine Retail Inc (SLRI), the cash balance is explicitly listed as 60,999.
+
+Answer: 60999
+
+  [191/636] depth=0 KEEP | truth=627729.0 pred=627730.0
+         Q: calculate the revenue for ClearPath Logistics in 2024
+         R: Based on the data provided for Year 2024, the revenue for ClearPath Logistics (ticker: CPTH) is explicitly listed as 627730.
+
+Answer: 627730
+
+  [192/636] depth=1 KEEP | truth=13920.0 pred=13920.0
+         Q: which quantity is given by the difference between non operating expenses and sho
+         R: Non-operating expenses in 2020: 16485
+Short-term investments in 2020: 2565
+Calculation: 16485 - 2565 = 13920
+Answer: 13920
+
+  [193/636] depth=0 KEEP | truth=38161.0 pred=38161.0
+         Q: Determine the inventories for Titan Consumer Brands in 2025.
+         R: In 2025, the data for TICB shows inventories as 38161.
+Answer: 38161
+
+  [194/636] depth=4 KEEP | truth=821170.0 pred=821168.0
+         Q: evaluate the the maximum of revenue for SilverLine Retail Inc using values from 
+         R: Revenue values for 2020–2024: 553,885; 617,154; 698,498; 821,168; 818,992.
+Maximum value is 821,168 (Year 2023).
+Answer: 821168
+
+  [195/636] depth=3 KEEP | truth=19434.33333333333 pred=19434.333333333332
+         Q: which quantity is given by the average inventories for Helix BioSciences across 
+         R: Inventories for 2022: 18073, 2023: 19597, 2024: 20633.
+Sum = 18073 + 19597 + 20633 = 58303.
+Average = 58303 / 3 = 19434.333...
+Answer: 19434.333333333332
+
+  [196/636] depth=2 KEEP | truth=57345.0 pred=57344.0
+         Q: Which result follows from the operating income for NovaStar Technologies in 2023
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2023: 158696 - 75117 - 26235 = 57344.
+Answer: 57344
+
+  [197/636] depth=0 KEEP | truth=908620.0 pred=908620.0
+         Q: May you calculate the total assets for ClearPath Logistics in 2021?
+         R: Based on the data for Year 2021, the total assets for ClearPath Logistics (CPTH) are explicitly listed as 908620.
+
+Answer: 908620
+
+  [198/636] depth=1 KEEP | truth=813.1511782718447 pred=813.1511782916507
+         Q: What does the following give: result of inventories scaled by income tax for Nov
+         R: In 2022, inventories are 2745 and income_tax is 0.296229937439652.
+Calculation: 2745 * 0.296229937439652 = 813.1511782916507.
+Answer: 813.1511782916507
+
+  [199/636] depth=2 KEEP | truth=70860.0 pred=70860.0
+         Q: What does the following give: the maximum of total equity for Atlas Global Indus
+         R: 2023 Total Equity: 70860
+2024 Total Equity: 19605
+2025 Total Equity: 33185
+Maximum(70860, 19605, 33185) = 70860
+Answer: 70860
+
+  [200/636] depth=0 KEEP | truth=17964.0 pred=17964.0
+         Q: what's the value of the non operating expenses for Atlas Global Industries in 20
+         R: Based on the data for Year 2025, the non_operating_expenses value is explicitly listed as 17964.
+
+Answer: 17964
+
+  [200/636]  kept=173  skipped=27  (86% pass rate so far)
+  [201/636] depth=5 SKIP | truth=22160.0 pred=10295.0
+         Q: What does the following give: average dividends paid for Ironclad Manufacturing 
+         R: Dividends paid: 8718 (2021) + 3921 (2022) + 29575 (2023) + 9119 (2024) + 1142 (2025) = 51475.
+Average = 51475 / 5 = 10295.
+Answer: 10295
+
+  [202/636] depth=0 KEEP | truth=165373.0 pred=165371.0
+         Q: what does the following give: total equity for NovaStar Technologies in 2024 ?
+         R: Based on the data for Year 2024, the total equity for NovaStar Technologies is explicitly listed as 165371.
+
+Answer: 165371
+
+  [203/636] depth=1 KEEP | truth=-4040.0 pred=-4040.0
+         Q: What is the difference between inventories and cash for Apex Dynamics Corp in 20
+         R: In 2021, Apex Dynamics Corp's inventories are 3,372 and cash is 7,412. The difference is calculated as 3,372 - 7,412 = -4,040.
+Answer: -4040
+
+  [204/636] depth=7 KEEP | truth=331872.3333333334 pred=331871.0
+         Q: which quantity is given by the sum of longterm liabilities for SilverLine Retail
+         R: Long-term liabilities for 2021 = Total Liabilities (390,165) - Current Liabilities (193,924) = 196,241.
+Sum of non-operating expenses (2020-2025) = 111,471 + 131,277 + 63,362 + 177,724 + 193,978 + 135,968 = 813,780.
+Ratio = 813,780 / 6.0 = 135,630.
+Result = 196,241 + 135,630 = 331,871.
+Answer: 33187
+
+  [205/636] depth=0 KEEP | truth=58868.0 pred=58867.0
+         Q: give the cost of goods sold for Apex Dynamics Corp in 2024 .
+         R: Based on the data for Year 2024, the cost of goods sold for Apex Dynamics Corp is explicitly listed as 58867.
+
+Answer: 58867
+
+  [206/636] depth=0 KEEP | truth=4612.0 pred=4613.0
+         Q: May you give the non operating expenses for Pinnacle Health Group in 2024 ?
+         R: Based on the data for Year 2024, the non_operating_expenses for Pinnacle Health Group (PNHG) is explicitly listed as 4613.
+
+Answer: 4613
+
+  [207/636] depth=3 KEEP | truth=154669.0 pred=154669.0
+         Q: You should give the current assets for SilverLine Retail Inc in 2020
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2020: 35803 + 54576 + 23923 + 40367 = 154669.
+Answer: 154669
+
+  [208/636] depth=2 SKIP | truth=218113.1781534461 pred=-6.433854166666667
+         Q: provide the result of gross profit for Cobalt Semiconductor in 2025 scaled by gr
+         R: Gross Profit 2025 = Revenue 2025 (55356) - COGS 2025 (30650) = 24706.
+Dividend Growth 2021-2022 = Dividends 2022 (408) - Dividends 2021 (4248) = -3840.
+Scaled Result = 24706 / -3840 = -6.433854166666667.
+Answer: -6.433854166666667
+
+  [209/636] depth=2 KEEP | truth=10469.905185353004 pred=10470.04
+         Q: What's the value of the result of longterm liabilities scaled by ratio of invent
+         R: 2022 Long-term Liabilities = Total Liabilities (124,280) - Current Liabilities (50,369) = 73,911.
+2022 Inventory to COGS Ratio = 5,002 / 35,311 ≈ 0.141656.
+Result = 73,911 * 0.141656 ≈ 10,470.04.
+Answer: 10470.04
+
+  [210/636] depth=1 KEEP | truth=422948.0 pred=422947.0
+         Q: state the sum of current liabilities and total liabilities for SilverLine Retail
+         R: Current liabilities for 2024: 94,355
+Total liabilities for 2024: 328,592
+Sum: 94,355 + 328,592 = 422,947
+Answer: 422947
+
+  [211/636] depth=3 SKIP | truth=-9138.570047686557 pred=26650.46
+         Q: you should calculate the result of operating income for Orion Financial Group in
+         R: Operating Income 2024 = Revenue 2024 (142,085) - COGS 2024 (77,438) - Operating Expenses 2024 (34,892) = 30,755.
+Current Assets 2020 = Cash (14,348) + AR (7,759) + Inv (5,962) + ST Inv (7,772) = 35,841.
+Current Assets 2025 = Cash (43,847) + AR (5,376) + Inv (11,315) + ST Inv (5,816) = 66,354.
+Growth
+
+  [212/636] depth=1 KEEP | truth=1192.1558452850006 pred=1192.131840885335
+         Q: State the result of current liabilities scaled by income tax for Pinnacle Health
+         R: Current liabilities for PNHG in 2025 are 10051. Income tax rate is 0.11861067011093435. Calculation: 10051 * 0.11861067011093435 = 1192.131840885335.
+Answer: 1192.131840885335
+
+  [213/636] depth=0 KEEP | truth=92101.0 pred=92100.0
+         Q: which value corresponds to the total assets for Apex Dynamics Corp in 2024?
+         R: Based on the data for Year 2024, the total_assets value is explicitly listed as 92100.
+
+Answer: 92100
+
+  [214/636] depth=3 KEEP | truth=177984.0 pred=177982.0
+         Q: What does the following give: the maximum of revenue for NovaStar Technologies u
+         R: 2021 Revenue: 125354
+2022 Revenue: 149263
+2023 Revenue: 158696
+2024 Revenue: 177982
+Maximum = 177982
+Answer: 177982
+
+  [215/636] depth=0 KEEP | truth=797936.0 pred=797935.0
+         Q: what's the value of the revenue for Crimson Pharmaceuticals in 2025?
+         R: Based on the data for Year 2025, the revenue for Crimson Pharmaceuticals (CRPH) is explicitly listed as 797,935.
+
+Answer: 797935
+
+  [216/636] depth=0 KEEP | truth=3961.0 pred=3962.0
+         Q: Which result follows from the cash for Pinnacle Health Group in 2024 ?
+         R: 2024 Cash = 3962.
+Answer: 3962
+
+  [217/636] depth=2 KEEP | truth=35330.0 pred=35330.0
+         Q: State the operating income for Atlas Global Industries in 2022
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2022: 87003 - 32332 - 19341 = 35330.
+Answer: 35330
+
+  [218/636] depth=1 KEEP | truth=544268.0 pred=544268.0
+         Q: you should calculate the longterm liabilities for Titan Consumer Brands in 2021.
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2021: 757,557 - 213,289 = 544,268.
+Answer: 544268
+
+  [219/636] depth=5 KEEP | truth=54571.0 pred=54570.6
+         Q: Determine the average revenue for Cobalt Semiconductor across years 2021 through
+         R: Revenue 2021: 52817, 2022: 55948, 2023: 56007, 2024: 52725, 2025: 55356.
+Sum = 52817 + 55948 + 56007 + 52725 + 55356 = 272853.
+Average = 272853 / 5 = 54570.6.
+Answer: 54570.6
+
+  [220/636] depth=0 KEEP | truth=61460.0 pred=61459.0
+         Q: you should calculate the inventories for SilverLine Retail Inc in 2023.
+         R: Based on the provided data for Year 2023, the inventory value is explicitly listed as 61459.
+
+Answer: 61459
+
+  [221/636] depth=1 KEEP | truth=15174.0 pred=15174.0
+         Q: Calculate the the maximum of current liabilities for Cobalt Semiconductor using 
+         R: 2020 Current Liabilities: 15174
+2021 Current Liabilities: 9946
+Maximum(15174, 9946) = 15174
+Answer: 15174
+
+  [222/636] depth=1 KEEP | truth=78006.0 pred=78005.0
+         Q: what is the the maximum of cash for NovaStar Technologies using values from 2022
+         R: 2022 Cash: 8761; 2023 Cash: 78005; Maximum = 78005.
+Answer: 78005
+
+  [223/636] depth=0 KEEP | truth=6195.0 pred=6195.0
+         Q: whats the value of the total equity for Pinnacle Health Group in 2022?
+         R: Based on the data for Year 2022, the total equity for Pinnacle Health Group is explicitly listed as 6195.
+
+Answer: 6195
+
+  [224/636] depth=1 KEEP | truth=8231.0 pred=8231.0
+         Q: what would be the the minimum of operating expenses for Cobalt Semiconductor usi
+         R: Operating expenses for 2024 are 8231 and for 2025 are 9183. The minimum of these two values is 8231.
+Answer: 8231
+
+  [225/636] depth=2 KEEP | truth=129984.0 pred=130000.0
+         Q: Could you give the operating income for Titan Consumer Brands in 2025 ?
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2025: 552,586 - 320,376 - 102,226 = 130,000.
+Answer: 130000
+
+  [226/636] depth=3 KEEP | truth=1010570.3504456092 pred=1010574.38
+         Q: Which value corresponds to the sum of total assets and sum of cost of goods sold
+         R: 2025 Total Assets: 672213
+2025 Cost of Goods Sold: 318407
+2025 Non-operating Expenses: 135968
+2025 Income Tax Rate: 0.14671248921157862
+Calculation: (672213 + 318407) + (135968 * 0.14671248921157862) = 990620 + 19954.38 = 1010574.38
+Answer: 1010574.38
+
+  [227/636] depth=1 KEEP | truth=37881.0 pred=37881.0
+         Q: determine the longterm liabilities for Meridian Systems Inc in 2020
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2020: 56087 - 18206 = 37881.
+Answer: 37881
+
+  [228/636] depth=1 KEEP | truth=522588.0 pred=522587.0
+         Q: give the difference between revenue and capex for Ironclad Manufacturing in 2025
+         R: Revenue in 2025 is 543,407 and Capex is 20,820.
+Difference = 543,407 - 20,820 = 522,587.
+Answer: 522587
+
+  [229/636] depth=3 KEEP | truth=85278.0 pred=85277.0
+         Q: What would be the current assets for Apex Dynamics Corp in 2022 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 41229 + 10946 + 6043 + 27059 = 85277.
+Answer: 85277
+
+  [230/636] depth=2 KEEP | truth=323622.0 pred=323622.0
+         Q: which result follows from the result of gross profit scaled by ratio of revenue 
+         R: 2021 Gross Profit = Revenue (471,764) - COGS (148,142) = 323,622.
+Ratio = Revenue / Revenue = 1.
+Result = 323,622 * 1 = 323,622.
+Answer: 323622
+
+  [231/636] depth=5 KEEP | truth=2530.0 pred=2530.0
+         Q: You should calculate the the minimum of inventories for Quantum Bridge Holdings 
+         R: Inventories for 2020-2025: 3154, 4340, 5002, 2530, 4960, 3180.
+Minimum value is 2530.
+Answer: 2530
+
+  [232/636] depth=2 KEEP | truth=55046.5 pred=55047.0
+         Q: what is the value of the average total liabilities for Quantum Bridge Holdings a
+         R: Total liabilities 2023 = 47727; Total liabilities 2024 = 62367; Sum = 47727 + 62367 = 110094; Average = 110094 / 2 = 55047.
+Answer: 55047
+
+  [233/636] depth=0 KEEP | truth=10261.0 pred=10261.0
+         Q: you should give the accounts receivable for Pacific Crest Energy in 2022 .
+         R: Based on the data for Year 2022, the accounts_receivable value is explicitly listed as 10261.
+
+Answer: 10261
+
+  [234/636] depth=1 KEEP | truth=24706.0 pred=24706.0
+         Q: evaluate the the maximum of cash for Atlas Global Industries using values from 2
+         R: 2021 Cash: 24706; 2022 Cash: 13377; Maximum(24706, 13377) = 24706.
+Answer: 24706
+
+  [235/636] depth=0 KEEP | truth=17841.0 pred=17841.0
+         Q: May you give the capex for Ironclad Manufacturing in 2020?
+         R: Based on the data for Year 2020, the capex value is explicitly listed as 17841.
+
+Answer: 17841
+
+  [236/636] depth=0 KEEP | truth=58304.0 pred=58304.0
+         Q: compute the cash for Orion Financial Group in 2024
+         R: Based on the data for Year 2024, the cash balance is explicitly listed as 58304.
+
+Answer: 58304
+
+  [237/636] depth=1 KEEP | truth=-4671.0 pred=-4671.0
+         Q: may you give the difference between inventories and cash for Atlas Global Indust
+         R: In 2024, inventories are 5362 and cash is 10033.
+Difference = 5362 - 10033 = -4671.
+Answer: -4671
+
+  [238/636] depth=3 KEEP | truth=298285.0 pred=298285.0
+         Q: State the the maximum of total assets for Pacific Crest Energy using values from
+         R: 2021 Total Assets: 183,099
+2022 Total Assets: 298,285
+2023 Total Assets: 194,061
+2024 Total Assets: 146,966
+Maximum value among 2021–2024 is 298,285.
+Answer: 298285
+
+  [239/636] depth=0 KEEP | truth=397456.0 pred=397455.0
+         Q: Whats the value of the revenue for Ironclad Manufacturing in 2023
+         R: 2023 revenue data is explicitly listed as 397455 in the provided dataset for Ironclad Manufacturing (IRCL).
+Answer: 397455
+
+  [240/636] depth=3 KEEP | truth=3548.741863541106 pred=3548.61
+         Q: What is the value of the result of ratio of sum of revenue for Pacific Crest Ene
+         R: 2021 Revenue (190,597) + 2022 Revenue (176,894) = 367,491.
+2022 Inventories (3,373) / 2022 Total Liabilities (174,646) = 0.0193129.
+(367,491 / 2.0) * 0.0193129 = 183,745.5 * 0.0193129 ≈ 3,548.61.
+Answer: 3548.61
+
+  [241/636] depth=1 KEEP | truth=21191.0 pred=21191.0
+         Q: You should calculate the difference between total equity and accounts receivable
+         R: Total Equity (2020) = 24537; Accounts Receivable (2020) = 3346; Difference = 24537 - 3346 = 21191.
+Answer: 21191
+
+  [242/636] depth=6 KEEP | truth=2596.5 pred=2596.67
+         Q: Give the average cash for Pinnacle Health Group across years 2020 through 2025.
+         R: Cash values for 2020–2025: 3451, 370, 1722, 2062, 3962, 4013.
+Sum = 3451 + 370 + 1722 + 2062 + 3962 + 4013 = 15580.
+Average = 15580 / 6 = 2596.666... ≈ 2596.67.
+Answer: 2596.67
+
+  [243/636] depth=5 SKIP | truth=98663.4 pred=100663.2
+         Q: Determine the average current liabilities for Ironclad Manufacturing across year
+         R: Current liabilities for 2020-2024 are: 72096, 50873, 200151, 67087, 103109.
+Sum = 503316; Average = 503316 / 5 = 100663.2.
+Answer: 100663.2
+
+  [244/636] depth=3 SKIP | truth=-44754.17147114392 pred=-382847.54
+         Q: What do we obtain as the result of revenue scaled by ratio of difference between
+         R: 2024 values: Revenue=91983, Total Equity=19605, Current Liabilities=22282, Income Tax=0.24692681215127155.
+Calculation: (91983 / ((19605 - 22282) / 22282)) / 0.24692681215127155 = (91983 / -0.9730000000000001) / 0.24692681215127155 = -94535.29 / 0.24692681215127155 = -382847.54.
+Answer: -382847.54
+
+  [245/636] depth=1 KEEP | truth=272998.0 pred=272997.0
+         Q: May you calculate the gross profit for Ironclad Manufacturing in 2025 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2025: 543407 - 270410 = 272997.
+Answer: 272997
+
+  [246/636] depth=2 SKIP | truth=207921.0128401785 pred=244372.0
+         Q: determine the total current assets for Titan Consumer Brands in 2021.
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2021: 140121 + 61295 + 9166 + 33790 = 244372.
+Answer: 244372
+
+  [247/636] depth=1 KEEP | truth=-79157.0 pred=-79157.0
+         Q: Provide the difference between inventories and current liabilities for Titan Con
+         R: In 2025, inventories are 38,161 and current liabilities are 117,318.
+Difference = 38,161 - 117,318 = -79,157.
+Answer: -79157
+
+  [248/636] depth=0 KEEP | truth=6230.0 pred=6230.0
+         Q: What is the accounts receivable for Apex Dynamics Corp in 2025?
+         R: Based on the data for Year 2025, the accounts_receivable value is explicitly listed as 6230.
+
+Answer: 6230
+
+  [249/636] depth=5 SKIP | truth=48863.0 pred=None
+         Q: compute the sum of longterm assets and sum of current assets and gross profit fo
+         R: Based on the 2024 data for PNHG:
+- Total Assets: 37775
+- Total Liabilities: 26839
+- Current Liabilities: 6778
+- Current Assets = Total Assets - Total Liabilities + Total Equity (since Equity = Assets - Liabilities, Current Assets = Total Assets - Non-Current Liabilities. However, standard balance sh
+
+  [250/636] depth=5 KEEP | truth=75889.0 pred=75889.0
+         Q: What is the value of the sum of the minimum of cost of goods sold for Orion Fina
+         R: Cost of Goods Sold (2021-2024): 73202, 63745, 81062, 77438. Minimum = 63745.
+Accounts Receivable (2020-2024): 7759, 8445, 9324, 11364, 12144. Maximum = 12144.
+Sum = 63745 + 12144 = 75889.
+Answer: 75889
+
+  [250/636]  kept=216  skipped=34  (86% pass rate so far)
+  [251/636] depth=1 KEEP | truth=1076.0 pred=1076.0
+         Q: May you give the the maximum of accounts receivable for Pinnacle Health Group us
+         R: Accounts Receivable 2020: 937
+Accounts Receivable 2021: 1076
+Maximum = 1076
+Answer: 1076
+
+  [252/636] depth=1 KEEP | truth=37127.0 pred=37127.0
+         Q: compute the longterm liabilities for NovaStar Technologies in 2021 .
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2021: 67361 - 30234 = 37127.
+Answer: 37127
+
+  [253/636] depth=1 KEEP | truth=5451.0 pred=5451.0
+         Q: Compute the gross profit for Pinnacle Health Group in 2022
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2022: 17176 - 11725 = 5451.
+Answer: 5451
+
+  [254/636] depth=3 KEEP | truth=29714.511696707392 pred=29714.89
+         Q: May you calculate the difference between longterm liabilities and result of sum 
+         R: 2024 Long-term Liabilities = Total Liabilities (53407) - Current Liabilities (22282) = 31125.
+Ratio = Inventories (5362) / Total Assets (73012) ≈ 0.07344.
+Sum of Non-operating Expenses (14501) and Short-term Investments (4705) = 19206.
+Result = 19206 * 0.07344 ≈ 1410.11.
+Difference = 31125 - 1410.11
+
+  [255/636] depth=0 KEEP | truth=6222.0 pred=6222.0
+         Q: what is the cash for Cobalt Semiconductor in 2022
+         R: Based on the data for Year 2022, the cash value for CBSM is explicitly listed as 6222.
+
+Answer: 6222
+
+  [256/636] depth=1 SKIP | truth=35487.257314817245 pred=890050.38
+         Q: State the result of non operating expenses scaled by income tax for SilverLine R
+         R: 2023 non-operating expenses: 177,724; 2023 income tax rate: 0.19967510094143903.
+Calculation: 177,724 / 0.19967510094143903 = 890,050.38.
+Answer: 890050.38
+
+  [257/636] depth=6 SKIP | truth=312242.0 pred=273337.0
+         Q: what do we obtain as the difference between total liabilities and difference bet
+         R: 2020-2024 Cash: 35803, 73785, 90754, 63824, 60999; Min = 35803.
+2024 Inventories - 2024 Cash: 80451 - 60999 = 19452.
+Difference between Total Liabilities (2024: 328592) and Min Cash (35803): 328592 - 35803 = 292789.
+Final Result: 292789 - 19452 = 273337.
+Answer: 273337
+
+  [258/636] depth=4 KEEP | truth=142293.0 pred=142293.0
+         Q: you should give the difference between current assets and current liabilities fo
+         R: Current Assets 2022 = Cash (90754) + Accounts Receivable (36422) + Inventories (59502) + Short-term Investments (47075) = 233753.
+Current Liabilities 2022 = 91460.
+Difference = 233753 - 91460 = 142293.
+Answer: 142293
+
+  [259/636] depth=0 KEEP | truth=10585.0 pred=10585.0
+         Q: What does the following give: accounts receivable for Quantum Bridge Holdings in
+         R: Based on the data for Year 2021 under the ticker QBHD (Quantum Bridge Holdings), the accounts_receivable value is explicitly listed.
+
+2021 accounts_receivable = 10585
+
+Answer: 10585
+
+  [260/636] depth=0 KEEP | truth=59873.0 pred=59873.0
+         Q: Determine the cost of goods sold for Quantum Bridge Holdings in 2021 .
+         R: In 2021, the data for ticker QBHD shows a cost_of_goods_sold value of 59873.
+
+Answer: 59873
+
+  [261/636] depth=3 KEEP | truth=50369.0 pred=50369.0
+         Q: which value corresponds to the the maximum of current liabilities for Quantum Br
+         R: Current liabilities for 2022: 50369; 2023: 18549; 2024: 25481; 2025: 15985.
+Maximum value is 50369 (from 2022).
+Answer: 50369
+
+  [262/636] depth=3 KEEP | truth=25147.0 pred=25147.0
+         Q: What do we obtain as the current assets for Apex Dynamics Corp in 2021 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2021: 7412 + 6150 + 3372 + 8213 = 25147.
+Answer: 25147
+
+  [263/636] depth=1 KEEP | truth=80217.0 pred=80217.0
+         Q: What is the value of the difference between revenue and short term investments f
+         R: Revenue in 2020 is 87989. Short-term investments in 2020 are 7772. Calculation: 87989 - 7772 = 80217.
+Answer: 80217
+
+  [264/636] depth=1 KEEP | truth=130257.0 pred=130257.0
+         Q: Which value corresponds to the sum of operating expenses and cash for Titan Cons
+         R: Operating Expenses (2022) = 64344
+Cash (2022) = 65913
+Sum = 64344 + 65913 = 130257
+Answer: 130257
+
+  [265/636] depth=1 KEEP | truth=28716.0 pred=28716.0
+         Q: what do we obtain as the gross profit for Atlas Global Industries in 2025
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2025: 98381 - 69665 = 28716.
+Answer: 28716
+
+  [266/636] depth=4 SKIP | truth=47869.66666666666 pred=43308.3333
+         Q: Could you give the sum of ratio of sum of sum of total liabilities for Cobalt Se
+         R: Total liabilities 2020: 57819, 2021: 33030, 2022: 39076. Sum = 57819 + 33030 + 39076 = 129925. Ratio = 129925 / 3.0 = 43308.3333. Dividends 2022-2025: 408, 4248, 409, 953. Maximum = 4248.
+Answer: 43308.3333
+
+  [267/636] depth=5 SKIP | truth=1558.0 pred=405.0
+         Q: determine the the minimum of dividends paid for Pacific Crest Energy using value
+         R: Dividends paid values: 2020=405, 2021=1968, 2022=14599, 2023=774, 2024=12175, 2025=901.
+Minimum value is 405.
+Answer: 405
+
+  [268/636] depth=0 KEEP | truth=510371.0 pred=510371.0
+         Q: State the total assets for Crimson Pharmaceuticals in 2024.
+         R: 2024 total assets value is directly listed in the data.
+Answer: 510371
+
+  [269/636] depth=0 KEEP | truth=5149.0 pred=5149.0
+         Q: determine the non operating expenses for Quantum Bridge Holdings in 2021 .
+         R: Based on the data for Year 2021, the non_operating_expenses for QBHD are explicitly listed as 5149.
+
+Answer: 5149
+
+  [270/636] depth=2 KEEP | truth=-2530.0 pred=-2530.0
+         Q: Which quantity is given by the difference between operating expenses and gross p
+         R: 2022 Gross Profit = Revenue (17176) - Cost of Goods Sold (11725) = 5451.
+Difference = Operating Expenses (2921) - Gross Profit (5451) = -2530.
+Answer: -2530
+
+  [271/636] depth=0 KEEP | truth=4762.0 pred=4762.0
+         Q: determine the short term investments for Atlas Global Industries in 2022.
+         R: Based on the data for Year 2022, the short_term_investments value is explicitly listed as 4762.
+
+Answer: 4762
+
+  [272/636] depth=2 KEEP | truth=279795.0 pred=279795.0
+         Q: What do we obtain as the difference between revenue and longterm liabilities for
+         R: Long-term liabilities = Total Liabilities - Current Liabilities = 157,361 - 72,096 = 85,265.
+Difference = Revenue - Long-term Liabilities = 365,060 - 85,265 = 279,795.
+Answer: 279795
+
+  [273/636] depth=3 KEEP | truth=115348.0 pred=115348.0
+         Q: May you give the the minimum of revenue for Orion Financial Group using values f
+         R: Revenue values for 2022 through 2025 are: 115348, 127775, 142085, and 133448. The minimum of these values is 115348.
+Answer: 115348
+
+  [274/636] depth=0 KEEP | truth=2369.0 pred=2369.0
+         Q: Could you give the capex for Quantum Bridge Holdings in 2022
+         R: Based on the data for Year 2022, the capex for Quantum Bridge Holdings (QBHD) is explicitly listed as 2369.
+
+Answer: 2369
+
+  [275/636] depth=0 KEEP | truth=4705.0 pred=4705.0
+         Q: Determine the short term investments for Atlas Global Industries in 2024 .
+         R: Based on the data for Year 2024, the short_term_investments value is explicitly listed as 4705.
+
+Answer: 4705
+
+  [276/636] depth=2 KEEP | truth=7978.0 pred=7978.0
+         Q: Compute the the minimum of short term investments for Crimson Pharmaceuticals us
+         R: Short-term investments for 2021: 65373; 2022: 7978; 2023: 48515. Minimum value is 7978.
+Answer: 7978
+
+  [277/636] depth=6 SKIP | truth=10757.333333333334 pred=9090.67
+         Q: Which result follows from the average non operating expenses for Quantum Bridge 
+         R: Non-operating expenses: 2020=16485, 2021=5149, 2022=9547, 2023=9213, 2024=8947, 2025=15203.
+Sum = 16485 + 5149 + 9547 + 9213 + 8947 + 15203 = 54544.
+Average = 54544 / 6 = 9090.67.
+Answer: 9090.67
+
+  [278/636] depth=2 KEEP | truth=19741.0 pred=19741.0
+         Q: provide the average accounts receivable for Meridian Systems Inc across years 20
+         R: Accounts Receivable 2022: 18,526
+Accounts Receivable 2023: 20,956
+Average = (18,526 + 20,956) / 2 = 19,741
+Answer: 19741
+
+  [279/636] depth=1 SKIP | truth=6220.701768223588 pred=68997.0
+         Q: what do we obtain as the result of dividends paid scaled by income tax for Merid
+         R: Dividends paid in 2025: 13014
+Income tax rate in 2025: 0.18862614901069139
+Calculation: 13014 / 0.18862614901069139 = 68996.999...
+Answer: 68997
+
+  [280/636] depth=1 KEEP | truth=35929.0 pred=35929.0
+         Q: evaluate the the minimum of cost of goods sold for Quantum Bridge Holdings using
+         R: Cost of Goods Sold for 2024 is 35929.
+Cost of Goods Sold for 2025 is 46761.
+The minimum of 35929 and 46761 is 35929.
+Answer: 35929
+
+  [281/636] depth=3 KEEP | truth=83722.0 pred=83722.0
+         Q: May you give the the minimum of cost of goods sold for Meridian Systems Inc usin
+         R: Cost of goods sold values for 2022–2025: 84255, 93952, 83722, 83722.
+Minimum value is 83722.
+Answer: 83722
+
+  [282/636] depth=1 KEEP | truth=2477.416706313707 pred=2477.792886112917
+         Q: You should calculate the result of cash scaled by income tax for Atlas Global In
+         R: 2024 cash = 10033, 2024 income_tax = 0.24692681215127155, calculation = 10033 * 0.24692681215127155 = 2477.792886112917.
+Answer: 2477.792886112917
+
+  [283/636] depth=1 KEEP | truth=28316.0 pred=28316.0
+         Q: what does the following give: difference between total liabilities and non opera
+         R: Total liabilities for CBSM in 2025 are 38625. Non-operating expenses for CBSM in 2025 are 10309. The difference is calculated as 38625 - 10309 = 28316.
+Answer: 28316
+
+  [284/636] depth=0 KEEP | truth=10985.0 pred=10985.0
+         Q: which quantity is given by the capex for Helix BioSciences in 2022?
+         R: Based on the data for Year 2022, the capex value is explicitly listed as 10985.
+
+Answer: 10985
+
+  [285/636] depth=1 KEEP | truth=81032.0 pred=81032.0
+         Q: You should give the difference between total assets and operating expenses for N
+         R: 2020 Total Assets: 103259
+2020 Operating Expenses: 22227
+Calculation: 103259 - 22227 = 81032
+Answer: 81032
+
+  [286/636] depth=0 KEEP | truth=60901.0 pred=60901.0
+         Q: what do we obtain as the non operating expenses for ClearPath Logistics in 2022?
+         R: Based on the data for Year 2022, the non_operating_expenses for ClearPath Logistics (CPTH) is explicitly listed as 60901.
+
+Answer: 60901
+
+  [287/636] depth=1 KEEP | truth=544268.0 pred=544268.0
+         Q: what's the value of the longterm liabilities for Titan Consumer Brands in 2021
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2021: 757,557 - 213,289 = 544,268.
+Answer: 544268
+
+  [288/636] depth=1 KEEP | truth=127016.0 pred=127016.0
+         Q: calculate the gross profit for Titan Consumer Brands in 2023 .
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2023: Revenue = 468,895 and Cost of Goods Sold = 341,879.
+Calculation: 468,895 - 341,879 = 127,016.
+Answer: 127016
+
+  [289/636] depth=0 KEEP | truth=12175.0 pred=12175.0
+         Q: what do we obtain as the capex for Helix BioSciences in 2023
+         R: Based on the data for Year 2023, the capex value is explicitly listed as 12175.
+
+Answer: 12175
+
+  [290/636] depth=2 SKIP | truth=-21762.338317504586 pred=29693.15
+         Q: Could you give the result of capex for SilverLine Retail Inc in 2025 scaled by g
+         R: 2020 CoGS: 233,341; 2025 CoGS: 318,407; Growth = (318,407 - 233,341) / 233,341 ≈ 0.3645; 2025 Capex: 81,457; Scaled Capex = 81,457 * 0.3645 ≈ 29,693.
+Answer: 29693.15
+
+  [291/636] depth=1 KEEP | truth=67848.0 pred=67847.0
+         Q: what would be the longterm liabilities for Apex Dynamics Corp in 2021
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2021: 99211 - 31364 = 67847.
+Answer: 67847
+
+  [292/636] depth=1 KEEP | truth=73589.0 pred=73589.0
+         Q: may you give the sum of operating expenses and current liabilities for Pacific C
+         R: Operating Expenses (2025) = 19190
+Current Liabilities (2025) = 54399
+Sum = 19190 + 54399 = 73589
+Answer: 73589
+
+  [293/636] depth=0 KEEP | truth=66524.0 pred=66524.0
+         Q: You should give the total assets for Atlas Global Industries in 2022 .
+         R: Based on the data for Year 2022, the total assets for Atlas Global Industries are explicitly listed as 66524.
+
+Answer: 66524
+
+  [294/636] depth=1 KEEP | truth=224248.0 pred=224247.0
+         Q: What do we obtain as the the maximum of cost of goods sold for Ironclad Manufact
+         R: 2021 Cost of Goods Sold: 110,507
+2022 Cost of Goods Sold: 224,247
+Maximum(110507, 224247) = 224247
+Answer: 224247
+
+  [295/636] depth=1 KEEP | truth=200467.0 pred=200467.0
+         Q: calculate the gross profit for Crimson Pharmaceuticals in 2025.
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2025: 797,935 - 597,468 = 200,467.
+Answer: 200467
+
+  [296/636] depth=1 KEEP | truth=9826.0 pred=9826.0
+         Q: Compute the difference between current liabilities and short term investments fo
+         R: In 2022, current liabilities are 14588 and short-term investments are 4762.
+Calculation: 14588 - 4762 = 9826.
+Answer: 9826
+
+  [297/636] depth=5 KEEP | truth=21527.0 pred=21527.0
+         Q: May you calculate the the minimum of non operating expenses for Pacific Crest En
+         R: Non-operating expenses for 2020-2025 are: 37262, 28130, 21527, 26537, 36163, 21828. The minimum value among these is 21527 (from 2022).
+Answer: 21527
+
+  [298/636] depth=1 SKIP | truth=1602.0 pred=4853.0
+         Q: whats the value of the total current assets for Pinnacle Health Group in 2022 ?
+         R: To calculate Total Current Assets for 2022, sum the current asset components: Cash (1722) + Accounts Receivable (1324) + Inventories (1006) + Short-term Investments (801).
+Calculation: 1722 + 1324 + 1006 + 801 = 4853.
+Answer: 4853
+
+  [299/636] depth=2 KEEP | truth=50860.0 pred=50861.0
+         Q: may you give the operating income for Quantum Bridge Holdings in 2024?
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2024: 97119 - 35929 - 10329 = 50861.
+Answer: 50861
+
+  [300/636] depth=4 SKIP | truth=21679.0 pred=29765.0
+         Q: Could you give the sum of the maximum of short term investments for Quantum Brid
+         R: Short-term investments (2022-2025): 2093, 9363, 1477, 5710. Max = 9363.
+Cost of goods sold (2025) = 46761. Short-term investments (2025) = 5710. Long-term liabilities (2025) = Total Assets (65369) - Total Liabilities (44720) = 20649.
+Difference = (46761 - 5710) - 20649 = 41051 - 20649 = 20402.
+Sum =
+
+  [300/636]  kept=257  skipped=43  (86% pass rate so far)
+  [301/636] depth=1 KEEP | truth=43890.0 pred=43890.0
+         Q: What would be the longterm liabilities for Meridian Systems Inc in 2023
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2023: 75315 - 31425 = 43890.
+Answer: 43890
+
+  [302/636] depth=0 KEEP | truth=514213.0 pred=514214.0
+         Q: state the total liabilities for ClearPath Logistics in 2025 .
+         R: Based on the data for Year 2025, the total liabilities for ClearPath Logistics are explicitly listed as 514214.
+
+Answer: 514214
+
+  [303/636] depth=2 SKIP | truth=424082.0 pred=416138.0
+         Q: what would be the sum of sum of dividends paid and revenue and difference betwee
+         R: 2023 Dividends Paid: 1270
+2023 Revenue: 248741
+2023 Total Assets: 194965
+2023 Operating Expenses: 27838
+Sum of Dividends and Revenue: 1270 + 248741 = 249,011
+Difference between Total Assets and Operating Expenses: 194965 - 27838 = 167,127
+Final Sum: 249,011 + 167,127 = 416,138
+Answer: 416138
+
+  [304/636] depth=2 KEEP | truth=8237.0 pred=8237.0
+         Q: Calculate the the minimum of short term investments for Orion Financial Group us
+         R: Short-term investments for 2021: 8237; 2022: 12753; 2023: 37697. Minimum value is 8237.
+Answer: 8237
+
+  [305/636] depth=1 KEEP | truth=-6149.0 pred=-6149.0
+         Q: Could you give the difference between cash and short term investments for Quantu
+         R: In 2021, cash is 2853 and short-term investments are 9002.
+Difference = 2853 - 9002 = -6149.
+Answer: -6149
+
+  [306/636] depth=2 KEEP | truth=5663.5 pred=5663.5
+         Q: compute the average capex for Atlas Global Industries across years 2024 through 
+         R: Capex 2024 = 7169; Capex 2025 = 4158; Average = (7169 + 4158) / 2 = 5663.5.
+Answer: 5663.5
+
+  [307/636] depth=1 KEEP | truth=85669.0 pred=85668.0
+         Q: Could you give the difference between total liabilities and inventories for Meri
+         R: In 2021, Total Liabilities are 88,211 and Inventories are 2,543.
+Calculation: 88,211 - 2,543 = 85,668.
+Answer: 85668
+
+  [308/636] depth=2 KEEP | truth=-192488.0 pred=-192488.0
+         Q: Calculate the difference between difference between current liabilities and acco
+         R: 2023 Current Liabilities: 27,315; Accounts Receivable: 25,742; Total Assets: 194,061.
+Difference = (27,315 - 25,742) - 194,061 = 1,573 - 194,061 = -192,488.
+Answer: -192488
+
+  [309/636] depth=0 KEEP | truth=104031.0 pred=104031.0
+         Q: What do we obtain as the total assets for Atlas Global Industries in 2023
+         R: Based on the data for Year 2023, the total assets for Atlas Global Industries are explicitly listed as 104031.
+
+Answer: 104031
+
+  [310/636] depth=0 KEEP | truth=4671.0 pred=4671.0
+         Q: May you calculate the cash for Pacific Crest Energy in 2024 ?
+         R: Based on the data provided for Year 2024, the cash value for Pacific Crest Energy (PCEN) is explicitly listed as 4671.
+
+Answer: 4671
+
+  [311/636] depth=2 KEEP | truth=190473.0 pred=190474.0
+         Q: Which result follows from the the maximum of revenue for Pacific Crest Energy us
+         R: 2022 Revenue: 176894; 2023 Revenue: 185506; 2024 Revenue: 190474.
+Maximum of [176894, 185506, 190474] is 190474.
+Answer: 190474
+
+  [312/636] depth=6 SKIP | truth=6510.345366712229 pred=1289000000.0
+         Q: May you calculate the result of the maximum of cost of goods sold for Atlas Glob
+         R: Max(COGS) = 69665 (2025). Capex_2022/Capex_2023 = 4078/5904 ≈ 0.6907. Ratio = 0.6907/2.0 ≈ 0.3454. Total_Liab_2024 = 53407. Result = 69665 * 0.3454 * 53407 ≈ 1,289,000,000.
+Answer: 1289000000.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+  [313/636] depth=2 KEEP | truth=109701.0 pred=109701.0
+         Q: may you calculate the operating income for ClearPath Logistics in 2021
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2021: 514684 - 364081 - 40902 = 109701.
+Answer: 109701
+
+  [314/636] depth=0 SKIP | truth=712606.0 pred=0.2678
+         Q: Which result follows from the revenue for Crimson Pharmaceuticals in 2024
+         R: 2024 Revenue = 712,606.
+2024 Cost of Goods Sold = 521,794.
+Gross Profit = 712,606 - 521,794 = 190,812.
+Gross Margin = 190,812 / 712,606 ≈ 0.2678 (26.78%).
+Answer: 0.2678
+
+  [315/636] depth=0 KEEP | truth=25816.0 pred=25815.0
+         Q: evaluate the cash for Meridian Systems Inc in 2021.
+         R: Based on the data for 2021, the cash balance for Meridian Systems Inc is explicitly listed as 25,815.
+
+Answer: 25815
+
+  [316/636] depth=3 SKIP | truth=14825.666666666666 pred=9416.333333333332
+         Q: which value corresponds to the average dividends paid for Quantum Bridge Holding
+         R: Dividends paid in 2022: 4613; 2023: 12076; 2024: 11560.
+Sum = 4613 + 12076 + 11560 = 28249.
+Average = 28249 / 3 = 9416.333...
+Answer: 9416.333333333333
+
+  [317/636] depth=5 KEEP | truth=100025.0 pred=100025.0
+         Q: provide the the maximum of current liabilities for Pacific Crest Energy using va
+         R: Current liabilities for Pacific Crest Energy from 2020 to 2025 are: 100025 (2020), 43731 (2021), 60364 (2022), 27315 (2023), 40562 (2024), and 54399 (2025). The maximum value among these is 100025.
+
+Answer: 100025
+
+  [318/636] depth=0 KEEP | truth=82616.0 pred=82616.0
+         Q: You should calculate the cash for Pacific Crest Energy in 2020.
+         R: Based on the data provided for Year 2020, the cash value is explicitly listed as 82616.
+
+Answer: 82616
+
+  [319/636] depth=1 KEEP | truth=1839.0 pred=1839.0
+         Q: determine the the maximum of short term investments for Pinnacle Health Group us
+         R: 2023 short_term_investments: 719
+2024 short_term_investments: 1839
+Maximum = 1839
+Answer: 1839
+
+  [320/636] depth=2 KEEP | truth=26834.0 pred=26834.0
+         Q: Provide the difference between gross profit and sum of total equity and cash for
+         R: Gross Profit 2020 = Revenue (150,714) - Cost of Goods Sold (52,780) = 97,934.
+Sum of Total Equity and Cash 2020 = 55,468 + 15,632 = 71,100.
+Difference = 97,934 - 71,100 = 26,834.
+Answer: 26834
+
+  [321/636] depth=1 KEEP | truth=547777.0 pred=547777.0
+         Q: which result follows from the the maximum of total liabilities for ClearPath Log
+         R: Total liabilities for 2021: 547,777. Total liabilities for 2022: 201,280. The maximum value between 547,777 and 201,280 is 547,777.
+Answer: 547777
+
+  [322/636] depth=3 KEEP | truth=56008.0 pred=56007.0
+         Q: Calculate the the maximum of revenue for Cobalt Semiconductor using values from 
+         R: Revenue values for 2021–2024: 52817, 55948, 56007, 52725.
+Maximum is 56007 (from 2023).
+Answer: 56007
+
+  [323/636] depth=1 KEEP | truth=0.0 pred=0.0
+         Q: Provide the difference between total equity and total equity for ClearPath Logis
+         R: 2022 Total Equity: 298308
+2022 Total Equity (repeated): 298308
+Difference: 298308 - 298308 = 0
+Answer: 0
+
+  [324/636] depth=4 KEEP | truth=74292.0 pred=74292.0
+         Q: what do we obtain as the the maximum of total liabilities for Atlas Global Indus
+         R: Total liabilities for 2020: 34649
+Total liabilities for 2021: 74292
+Total liabilities for 2022: 34053
+Total liabilities for 2023: 33171
+Total liabilities for 2024: 53407
+Maximum value is 74292.
+Answer: 74292
+
+  [325/636] depth=1 SKIP | truth=3658.816276686722 pred=121585.45
+         Q: evaluate the result of cash scaled by income tax for Crimson Pharmaceuticals in 
+         R: Calculation: Cash in 2021 is 21,092; Income Tax in 2021 is 0.1734693853919364. Ratio = 21,092 / 0.1734693853919364 ≈ 121,585.45.
+Answer: 121585.45
+
+  [326/636] depth=1 KEEP | truth=46713.0 pred=46713.0
+         Q: determine the gross profit for Orion Financial Group in 2023.
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2023: Revenue = 127,775 and Cost of Goods Sold = 81,062.
+Calculation: 127,775 - 81,062 = 46,713.
+Answer: 46713
+
+  [327/636] depth=0 SKIP | truth=523.0 pred=204.0
+         Q: Compute the dividends paid for Quantum Bridge Holdings in 2025.
+         R: Based on the data for Year 2025, the value for `dividends_paid` is explicitly listed as 204.
+
+Answer: 204
+
+  [328/636] depth=4 KEEP | truth=398615.0 pred=398614.0
+         Q: What is the longterm assets for ClearPath Logistics in 2023?
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets (2023) = Cash (153,259) + Accounts Receivable (56,571) + Inventories (5,472) + Short-term Investments (54,949) = 270,251.
+Long-term assets = 668,865 - 270,251 = 398,614.
+Answer: 398614
+
+  [329/636] depth=2 SKIP | truth=-531.6723102129984 pred=2.155
+         Q: state the result of longterm liabilities for Pinnacle Health Group in 2021 scale
+         R: Long-term liabilities for 2021 = Total Liabilities (3855) - Current Liabilities (1346) = 2509.
+Total Equity 2020 = 4329; Total Equity 2023 = 5493; Growth = 5493 - 4329 = 1164.
+Result = 2509 / 1164 ≈ 2.155.
+Answer: 2.155
+
+  [330/636] depth=0 KEEP | truth=42355.0 pred=42355.0
+         Q: What's the value of the accounts receivable for Ironclad Manufacturing in 2020
+         R: Based on the data for Year 2020, the accounts_receivable value is explicitly listed as 42355.
+
+Answer: 42355
+
+  [331/636] depth=2 SKIP | truth=941.5 pred=245.5
+         Q: Which result follows from the average dividends paid for Pinnacle Health Group a
+         R: 2020 Dividends: 0
+2021 Dividends: 491
+Average = (0 + 491) / 2 = 245.5
+Answer: 245.5
+
+  [332/636] depth=0 KEEP | truth=67132.0 pred=67131.0
+         Q: may you calculate the total liabilities for Apex Dynamics Corp in 2024 ?
+         R: Based on the data for Year 2024, the total liabilities for Apex Dynamics Corp are explicitly listed as 67131.
+
+Answer: 67131
+
+  [333/636] depth=1 KEEP | truth=323622.0 pred=323622.0
+         Q: determine the gross profit for Titan Consumer Brands in 2021.
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2021: 471764 - 148142 = 323622.
+Answer: 323622
+
+  [334/636] depth=1 SKIP | truth=82896.0 pred=4330.0
+         Q: what is the total income statement for Apex Dynamics Corp in 2025
+         R: To calculate the total income statement for Apex Dynamics Corp in 2025, we sum Revenue, Cost of Goods Sold, Operating Expenses, Non-operating Expenses, and Income Tax.
+
+Revenue (2025): 79,388
+Cost of Goods Sold (2025): 41,447
+Operating Expenses (2025): 15,969
+Non-operating Expenses (2025): 17,642
+In
+
+  [335/636] depth=5 SKIP | truth=168085.8 pred=166084.4
+         Q: give the average total liabilities for NovaStar Technologies across years 2021 t
+         R: Total liabilities for 2021-2025: 67361 + 116964 + 387126 + 106446 + 162525 = 830422.
+Average = 830422 / 5 = 166084.4.
+Answer: 166084.4
+
+  [336/636] depth=1 KEEP | truth=47425.3750705124 pred=47422.29
+         Q: Compute the result of total equity scaled by income tax for Ironclad Manufacturi
+         R: Total Equity (2023) = 187,787; Income Tax Rate (2023) = 0.25254742087094173.
+Calculation: 187,787 * 0.25254742087094173 = 47,422.29.
+Answer: 47422.29
+
+  [337/636] depth=3 KEEP | truth=27514.0 pred=27514.0
+         Q: which quantity is given by the sum of accounts receivable and operating income f
+         R: Accounts Receivable (2023) = 11364.
+Operating Income = Revenue - Cost of Goods Sold - Operating Expenses = 127775 - 81062 - 30563 = 16150.
+Sum = 11364 + 16150 = 27514.
+Answer: 27514
+
+  [338/636] depth=1 KEEP | truth=58326.0 pred=58326.0
+         Q: Provide the longterm liabilities for Atlas Global Industries in 2025
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2025: 87626 - 29300 = 58326.
+Answer: 58326
+
+  [339/636] depth=1 KEEP | truth=93561.0 pred=93560.0
+         Q: What is the gross profit for Helix BioSciences in 2022
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2022: 228915 - 135355 = 93560.
+Answer: 93560
+
+  [340/636] depth=3 KEEP | truth=3238.6666666666665 pred=3238.67
+         Q: What is the value of the average operating expenses for Pinnacle Health Group ac
+         R: Operating expenses for 2021: 3017, 2022: 2921, 2023: 3778.
+Sum = 3017 + 2921 + 3778 = 9716.
+Average = 9716 / 3 = 3238.666...
+Answer: 3238.67
+
+  [341/636] depth=5 KEEP | truth=269218.0 pred=269218.0
+         Q: What does the following give: the maximum of total assets for Orion Financial Gr
+         R: Total Assets values: 2020=67863, 2021=79108, 2022=89512, 2023=263222, 2024=269218, 2025=192213. Maximum is 269218 (Year 2024).
+Answer: 269218
+
+  [342/636] depth=3 SKIP | truth=159690.0 pred=381473.0
+         Q: which result follows from the current assets for Crimson Pharmaceuticals in 2020
+         R: Current Assets = Total Assets - Total Liabilities.
+For 2020: 533633 - 152160 = 381473.
+Answer: 381473
+
+  [343/636] depth=3 SKIP | truth=37199.0 pred=29762.0
+         Q: Provide the sum of dividends paid for Helix BioSciences in 2021 and the minimum 
+         R: Dividends paid in 2021: 6908.
+Non-operating expenses 2023: 31176, 2024: 22854, 2025: 46063.
+Minimum of non-operating expenses (2023-2025): 22854.
+Sum: 6908 + 22854 = 29762.
+Answer: 29762
+
+  [344/636] depth=0 KEEP | truth=20239.0 pred=20239.0
+         Q: May you calculate the short term investments for Helix BioSciences in 2022 ?
+         R: Based on the data for Year 2022, the short_term_investments value is explicitly listed as 20239.
+
+Answer: 20239
+
+  [345/636] depth=1 SKIP | truth=7558.0 pred=4248.0
+         Q: Determine the the maximum of dividends paid for Cobalt Semiconductor using value
+         R: Dividends paid in 2021: 4248
+Dividends paid in 2022: 408
+Maximum of 4248 and 408 is 4248.
+Answer: 4248
+
+  [346/636] depth=2 SKIP | truth=15773.0 pred=6900.0
+         Q: What is the the maximum of dividends paid for Meridian Systems Inc using values 
+         R: Dividends paid in 2022: 6900
+Dividends paid in 2023: 3096
+Dividends paid in 2024: 3752
+Maximum value among 6900, 3096, and 3752 is 6900.
+Answer: 6900
+
+  [347/636] depth=1 KEEP | truth=21883.0 pred=21883.0
+         Q: Calculate the gross profit for Cobalt Semiconductor in 2024.
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: 52725 - 30842 = 21883.
+Answer: 21883
+
+  [348/636] depth=1 SKIP | truth=-31599.0 pred=31599.0
+         Q: state the difference between capex and cost of goods sold for Quantum Bridge Hol
+         R: In 2020, Cost of Goods Sold (COGS) is 37,878 and Capital Expenditures (Capex) is 6,279.
+Difference = 37,878 - 6,279 = 31,599.
+Answer: 31599
+
+  [349/636] depth=1 KEEP | truth=37881.0 pred=37881.0
+         Q: could you give the longterm liabilities for Meridian Systems Inc in 2020?
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2020: 56087 - 18206 = 37881.
+Answer: 37881
+
+  [350/636] depth=1 KEEP | truth=1341.210127677737 pred=1341.0085276761358
+         Q: could you give the result of inventories scaled by income tax for Atlas Global I
+         R: Inventories in 2021: 4731
+Income tax rate in 2021: 0.28349400289108806
+Calculation: 4731 * 0.28349400289108806 = 1341.0085276761358
+Answer: 1341.0085276761358
+
+  [350/636]  kept=292  skipped=58  (83% pass rate so far)
+  [351/636] depth=3 SKIP | truth=123141.0 pred=60542.0
+         Q: You should calculate the the maximum of dividends paid for SilverLine Retail Inc
+         R: Dividends paid for SLRI from 2022 to 2025 are: 4401 (2022), 20412 (2023), 0 (2024), and 60542 (2025). The maximum value among these is 60542.
+Answer: 60542
+
+  [352/636] depth=2 KEEP | truth=-5881.0 pred=-5872.0
+         Q: You should calculate the sum of longterm liabilities and difference between cash
+         R: Based on the data for 2022:
+- Long-term liabilities = Total Liabilities (7666) - Current Liabilities (3545) = 4121
+- Difference between Cash (1722) and Cost of Goods Sold (11725) = 1722 - 11725 = -9993
+- Sum = 4121 + (-9993) = -5872
+
+Answer: -5872
+
+  [353/636] depth=2 KEEP | truth=46156.5 pred=46157.0
+         Q: What's the value of the average short term investments for Titan Consumer Brands
+         R: Short-term investments for 2021: 33,790; Short-term investments for 2022: 58,524.
+Calculation: (33,790 + 58,524) / 2 = 46,157.
+Answer: 46157
+
+  [354/636] depth=2 KEEP | truth=81097.5 pred=81096.5
+         Q: Determine the average revenue for Apex Dynamics Corp across years 2024 through 2
+         R: Revenue 2024 = 82805, Revenue 2025 = 79388.
+Average = (82805 + 79388) / 2 = 81096.5.
+Answer: 81096.5
+
+  [355/636] depth=1 KEEP | truth=-48057.0 pred=-48056.0
+         Q: Calculate the difference between inventories and total assets for Cobalt Semicon
+         R: In 2021, inventories are 4147 and total assets are 52203.
+Difference = 4147 - 52203 = -48056.
+Answer: -48056
+
+  [356/636] depth=2 KEEP | truth=580403.7348448656 pred=579980.04
+         Q: Compute the result of total assets scaled by ratio of total equity to cost of go
+         R: 2024 Total Assets = 271,817; 2024 Total Equity = 165,371; 2024 Cost of Goods Sold = 77,448; Ratio = 165,371 / 77,448 ≈ 2.1352; Result = 271,817 * 2.1352 ≈ 579,980.
+Answer: 579980.04
+
+  [357/636] depth=3 KEEP | truth=2159.0 pred=2159.0
+         Q: you should give the the minimum of capex for Apex Dynamics Corp using values fro
+         R: Capex values for 2020–2023 are: 5159, 4475, 6853, 2159.
+Minimum value is 2159.
+Answer: 2159
+
+  [358/636] depth=3 KEEP | truth=63325.0 pred=63324.0
+         Q: What is the value of the pretax income for Helix BioSciences in 2022?
+         R: To calculate pretax income, subtract Cost of Goods Sold (COGS), Operating Expenses, and Non-operating Expenses from Revenue.
+2022 Revenue (228,915) - COGS (135,355) - Operating Expenses (14,463) - Non-operating Expenses (15,773) = 63,324.
+Answer: 63324
+
+  [359/636] depth=0 KEEP | truth=97839.0 pred=97839.0
+         Q: calculate the short term investments for Ironclad Manufacturing in 2025
+         R: Based on the data for Year 2025, the short_term_investments value is explicitly listed as 97839.
+
+Answer: 97839
+
+  [360/636] depth=5 KEEP | truth=218004.0 pred=218005.0
+         Q: May you calculate the the maximum of revenue for Pacific Crest Energy using valu
+         R: Revenue values: 2020=160549, 2021=190597, 2022=176894, 2023=185506, 2024=190474, 2025=218005.
+Maximum is 218005 (Year 2025).
+Answer: 218005
+
+  [361/636] depth=0 KEEP | truth=7582.0 pred=7582.0
+         Q: what does the following give: operating expenses for Cobalt Semiconductor in 202
+         R: 2020 operating_expenses value is 7582.
+Answer: 7582
+
+  [362/636] depth=4 SKIP | truth=-3941.200371507026 pred=-223959.6
+         Q: Provide the sum of result of current liabilities for Atlas Global Industries in 
+         R: 2024 Current Liabilities = 22282.
+2021 Total Liabilities = 74292, 2023 Total Liabilities = 33171. Growth = 33171 - 74292 = -41121.
+Sum of Dividends (2022 + 2023 + 2024) = 1628 + 10644 + 0 = 12272.
+Ratio = 12272 / 3.0 = 4090.6667.
+Result = 22282 * (-41121 / 4090.6667) = 22282 * -10.05238 = -223959.6.
+
+  [363/636] depth=5 KEEP | truth=90001.8 pred=90001.8
+         Q: calculate the average revenue for Atlas Global Industries across years 2021 thro
+         R: Revenue for 2021: 83,268; 2022: 87,003; 2023: 89,374; 2024: 91,983; 2025: 98,381.
+Sum = 83,268 + 87,003 + 89,374 + 91,983 + 98,381 = 450,009.
+Average = 450,009 / 5 = 90,001.8.
+Answer: 90001.8
+
+  [364/636] depth=0 KEEP | truth=1323.0 pred=1324.0
+         Q: Which result follows from the accounts receivable for Pinnacle Health Group in 2
+         R: Accounts Receivable for Pinnacle Health Group in 2022 is explicitly listed in the data.
+Value from 2022 data: 1324.
+Answer: 1324
+
+  [365/636] depth=5 KEEP | truth=95188.2 pred=95188.4
+         Q: Which value corresponds to the average cost of goods sold for Pacific Crest Ener
+         R: Cost of Goods Sold for 2021: 110,939
+Cost of Goods Sold for 2022: 78,889
+Cost of Goods Sold for 2023: 111,318
+Cost of Goods Sold for 2024: 87,910
+Cost of Goods Sold for 2025: 86,886
+Sum: 475,942
+Average: 475,942 / 5 = 95,188.4
+Answer: 95188.4
+
+  [366/636] depth=3 KEEP | truth=105646.0 pred=105646.0
+         Q: compute the current assets for Helix BioSciences in 2023.
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2023: 41405 + 28326 + 19597 + 16318 = 105646.
+Answer: 105646
+
+  [367/636] depth=4 KEEP | truth=58929.0 pred=58879.0
+         Q: Which result follows from the longterm assets for NovaStar Technologies in 2021
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (7348) + Accounts Receivable (15250) + Inventories (6654) + Short-term Investments (4908) = 34210.
+Long-term assets = 93089 - 34210 = 58879.
+Answer: 58879
+
+  [368/636] depth=2 KEEP | truth=234573.0 pred=234572.0
+         Q: What's the value of the the maximum of total assets for Meridian Systems Inc usi
+         R: 2023 Total Assets: 157,344
+2024 Total Assets: 234,572
+2025 Total Assets: 147,592
+Maximum value among 157,344, 234,572, and 147,592 is 234,572.
+Answer: 234572
+
+  [369/636] depth=1 KEEP | truth=71059.07101304574 pred=71048.53
+         Q: Calculate the result of cost of goods sold scaled by income tax for Titan Consum
+         R: Cost of Goods Sold (2025) = 320,376; Income Tax Rate (2025) = 0.22179898311061305.
+Calculation: 320,376 * 0.22179898311061305 = 71,048.53.
+Answer: 71048.53
+
+  [370/636] depth=2 KEEP | truth=194929.0 pred=194929.0
+         Q: What is the the minimum of total liabilities for Crimson Pharmaceuticals using v
+         R: Total liabilities for 2022: 292,999; 2023: 372,880; 2024: 194,929.
+Minimum value is 194,929.
+Answer: 194929
+
+  [371/636] depth=3 KEEP | truth=47172.0 pred=47172.0
+         Q: What would be the average total liabilities for Atlas Global Industries across y
+         R: Total liabilities for 2021: 74292; 2022: 34053; 2023: 33171.
+Sum = 74292 + 34053 + 33171 = 141516.
+Average = 141516 / 3 = 47172.
+Answer: 47172
+
+  [372/636] depth=3 KEEP | truth=112025.0 pred=112026.0
+         Q: You should give the the minimum of current liabilities for Titan Consumer Brands
+         R: 2021: 213289, 2022: 112026, 2023: 338824, 2024: 279245. Minimum is 112026.
+Answer: 112026
+
+  [373/636] depth=0 KEEP | truth=98672.0 pred=98672.0
+         Q: What is the non operating expenses for Titan Consumer Brands in 2022?
+         R: Based on the data for Year 2022, the non_operating_expenses for TICB (Titan Consumer Brands) is explicitly listed as 98672.
+
+Answer: 98672
+
+  [374/636] depth=1 KEEP | truth=258477.0 pred=258477.0
+         Q: provide the gross profit for Crimson Pharmaceuticals in 2020
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2020: 463236 - 204759 = 258477.
+Answer: 258477
+
+  [375/636] depth=0 KEEP | truth=339512.0 pred=339512.0
+         Q: you should calculate the total equity for SilverLine Retail Inc in 2021.
+         R: Based on the data for Year 2021, the total equity for SilverLine Retail Inc is explicitly listed as 339512.
+
+Answer: 339512
+
+  [376/636] depth=0 KEEP | truth=4329.0 pred=4329.0
+         Q: What is the value of the total equity for Pinnacle Health Group in 2020 ?
+         R: Based on the data for Year 2020, the total equity for Pinnacle Health Group is explicitly listed as 4329.
+
+Answer: 4329
+
+  [377/636] depth=1 KEEP | truth=109216.0 pred=109216.0
+         Q: could you give the the minimum of cost of goods sold for Pacific Crest Energy us
+         R: 2020 Cost of Goods Sold: 109216
+2021 Cost of Goods Sold: 110939
+Minimum(109216, 110939) = 109216
+Answer: 109216
+
+  [378/636] depth=2 KEEP | truth=18986.5 pred=18986.5
+         Q: determine the average capex for Titan Consumer Brands across years 2024 through 
+         R: Capex 2024 = 20589; Capex 2025 = 17384; Sum = 20589 + 17384 = 37973; Average = 37973 / 2 = 18986.5.
+Answer: 18986.5
+
+  [379/636] depth=6 SKIP | truth=32609.42033555264 pred=29798.22
+         Q: What is the sum of result of dividends paid scaled by income tax for Crimson Pha
+         R: 2021 Dividends (14517) * 2021 Income Tax (0.1734693853919364) = 2518.82; Sum Capex 2020-2024 = 38887 + 15521 + 37653 + 18672 + 25664 = 136397; Ratio = 136397 / 5.0 = 27279.4; Total = 2518.82 + 27279.4 = 29798.22.
+Answer: 29798.22
+
+  [380/636] depth=2 KEEP | truth=20115.0 pred=20115.0
+         Q: what is the average inventories for Helix BioSciences across years 2023 through 
+         R: Inventories for 2023: 19,597; Inventories for 2024: 20,633.
+Calculation: (19,597 + 20,633) / 2 = 20,115.
+Answer: 20115
+
+  [381/636] depth=0 KEEP | truth=21212.0 pred=21212.0
+         Q: Which value corresponds to the non operating expenses for Meridian Systems Inc i
+         R: Based on the data for Year 2020, the non_operating_expenses for MSYS is explicitly listed as 21212.
+
+Answer: 21212
+
+  [382/636] depth=0 KEEP | truth=34053.0 pred=34053.0
+         Q: What is the value of the total liabilities for Atlas Global Industries in 2022
+         R: Based on the data for Year 2022, the total liabilities for Atlas Global Industries are explicitly listed as 34053.
+
+Answer: 34053
+
+  [383/636] depth=1 KEEP | truth=89176.0 pred=89176.0
+         Q: give the longterm liabilities for Crimson Pharmaceuticals in 2020.
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2020: 152160 - 62984 = 89176.
+Answer: 89176
+
+  [384/636] depth=5 KEEP | truth=1397.0 pred=1397.0
+         Q: What do we obtain as the the minimum of inventories for Apex Dynamics Corp using
+         R: Inventories values: 2020=1397, 2021=3372, 2022=6043, 2023=5868, 2024=2246, 2025=4040. Minimum is 1397.
+Answer: 1397
+
+  [385/636] depth=4 SKIP | truth=2792.75 pred=627.0
+         Q: give the average dividends paid for Orion Financial Group across years 2021 thro
+         R: Dividends paid in 2021: 0, 2022: 2421, 2023: 0, 2024: 87.
+Sum = 0 + 2421 + 0 + 87 = 2508.
+Average = 2508 / 4 = 627.
+Answer: 627
+
+  [386/636] depth=2 KEEP | truth=16890.0 pred=16890.0
+         Q: which quantity is given by the the minimum of non operating expenses for Meridia
+         R: Non-operating expenses for 2020: 21212
+Non-operating expenses for 2021: 19695
+Non-operating expenses for 2022: 16890
+Minimum value = 16890
+Answer: 16890
+
+  [387/636] depth=6 SKIP | truth=-97886.12144852836 pred=53.37
+         Q: which result follows from the result of the maximum of dividends paid for Silver
+         R: Max dividends paid (2025: 60542) / Min dividends paid (2022: 4401) = 13.756.
+Operating expenses growth (2020: 32151 to 2025: 156766) = (156766 - 32151) / 32151 = 3.881.
+Result = 13.756 * 3.881 = 53.37.
+Answer: 53.37
+
+  [388/636] depth=1 KEEP | truth=385498.0 pred=385498.0
+         Q: Which result follows from the gross profit for Crimson Pharmaceuticals in 2022?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2022: Revenue = 616,787; COGS = 231,289.
+Calculation: 616,787 - 231,289 = 385,498.
+Answer: 385498
+
+  [389/636] depth=1 KEEP | truth=37323.0 pred=37323.0
+         Q: May you calculate the longterm liabilities for Pacific Crest Energy in 2023
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2023: 64638 - 27315 = 37323.
+Answer: 37323
+
+  [390/636] depth=1 KEEP | truth=27011.0 pred=27010.0
+         Q: Provide the the minimum of cost of goods sold for Cobalt Semiconductor using val
+         R: Cost of goods sold for 2023 is 27010.
+Cost of goods sold for 2024 is 30842.
+Minimum value is 27010.
+Answer: 27010
+
+  [391/636] depth=3 SKIP | truth=3049.0 pred=33049.0
+         Q: give the pretax income for NovaStar Technologies in 2021.
+         R: To calculate pretax income, we use the formula: Revenue - Cost of Goods Sold - Operating Expenses - Non-operating Expenses.
+For 2021: 125354 - 83340 - 12957 - 26008 = 33049.
+Answer: 33049
+
+  [392/636] depth=1 KEEP | truth=273650.0 pred=273650.0
+         Q: which value corresponds to the longterm liabilities for SilverLine Retail Inc in
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2020: 376312 - 102662 = 273650.
+Answer: 273650
+
+  [393/636] depth=4 KEEP | truth=1033.5 pred=1033.5
+         Q: You should give the average inventories for Pinnacle Health Group across years 2
+         R: Inventories for 2021: 936, 2022: 1006, 2023: 1096, 2024: 1096.
+Sum = 936 + 1006 + 1096 + 1096 = 4134.
+Average = 4134 / 4 = 1033.5.
+Answer: 1033.5
+
+  [394/636] depth=0 KEEP | truth=90754.0 pred=90754.0
+         Q: Which result follows from the cash for SilverLine Retail Inc in 2022?
+         R: 2022 Cash: 90754.
+Answer: 90754
+
+  [395/636] depth=6 SKIP | truth=97994.2 pred=-40255.8
+         Q: Give the sum of ratio of sum of sum of sum of sum of operating expenses for Heli
+         R: Operating Expenses (2021-2025): 46110 + 14463 + 27838 + 28101 + 27834 = 144346.
+Sum of Operating Expenses / 5.0 = 144346 / 5.0 = 28869.2.
+Gross Profit (2023) = Revenue (248741) - COGS (179616) = 69125.
+Result = 28869.2 - 69125 = -40255.8.
+Answer: -40255.8
+
+  [396/636] depth=1 KEEP | truth=11090.0 pred=11091.0
+         Q: Provide the gross profit for Pinnacle Health Group in 2024
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: 20948 - 9857 = 11091.
+Answer: 11091
+
+  [397/636] depth=1 KEEP | truth=203738.0 pred=203738.0
+         Q: which value corresponds to the longterm liabilities for SilverLine Retail Inc in
+         R: To find the long-term liabilities for SilverLine Retail Inc in 2022, subtract the current liabilities from the total liabilities using the 2022 data: 295198 (total_liabilities) - 91460 (current_liabilities) = 203738.
+Answer: 203738
+
+  [398/636] depth=1 KEEP | truth=26227.0 pred=26227.0
+         Q: which value corresponds to the the maximum of operating expenses for Meridian Sy
+         R: Operating expenses for 2022: 26227.
+Operating expenses for 2023: 15975.
+Maximum value between 26227 and 15975 is 26227.
+Answer: 26227
+
+  [399/636] depth=1 KEEP | truth=212503.0 pred=212503.0
+         Q: Compute the the minimum of cost of goods sold for ClearPath Logistics using valu
+         R: 2024 Cost of Goods Sold: 212,503
+2025 Cost of Goods Sold: 445,216
+Minimum(212,503, 445,216) = 212,503
+Answer: 212503
+
+  [400/636] depth=0 KEEP | truth=2062.0 pred=2062.0
+         Q: which quantity is given by the cash for Pinnacle Health Group in 2023?
+         R: Based on the data for Year 2023, the value associated with the key "cash" for Pinnacle Health Group (PNHG) is 2062.
+
+Answer: 2062
+
+  [400/636]  kept=335  skipped=65  (84% pass rate so far)
+  [401/636] depth=6 SKIP | truth=100761.0 pred=84094.33
+         Q: Which result follows from the average total assets for Atlas Global Industries a
+         R: 2020: 53334, 2021: 186854, 2022: 66524, 2023: 104031, 2024: 73012, 2025: 120811. Sum = 504566. Average = 504566 / 6 = 84094.33.
+Answer: 84094.33
+
+  [402/636] depth=3 KEEP | truth=162063.0 pred=162062.33333333334
+         Q: determine the average revenue for Meridian Systems Inc across years 2020 through
+         R: 2020 Revenue: 150714; 2021 Revenue: 171514; 2022 Revenue: 163959.
+Sum = 150714 + 171514 + 163959 = 486187.
+Average = 486187 / 3 = 162062.333...
+Answer: 162062.33333333334
+
+  [403/636] depth=0 KEEP | truth=231556.0 pred=231556.0
+         Q: determine the cost of goods sold for Ironclad Manufacturing in 2020.
+         R: Based on the data for Year 2020, the Cost of Goods Sold (COGS) for IRCL is explicitly listed as 231,556.
+
+Answer: 231556
+
+  [404/636] depth=3 KEEP | truth=78165.0 pred=78165.0
+         Q: What does the following give: the maximum of total assets for Cobalt Semiconduct
+         R: Total Assets values: 2020=78165, 2021=52203, 2022=57651, 2023=65727.
+Maximum is 78165.
+Answer: 78165
+
+  [405/636] depth=2 KEEP | truth=41244.0 pred=41244.0
+         Q: what would be the the minimum of total equity for NovaStar Technologies using va
+         R: Total Equity values for 2022, 2023, and 2024 are 41244, 138306, and 165371 respectively. The minimum of these values is 41244.
+Answer: 41244
+
+  [406/636] depth=1 KEEP | truth=37127.0 pred=37127.0
+         Q: What does the following give: longterm liabilities for NovaStar Technologies in 
+         R: To calculate long-term liabilities for NovaStar Technologies in 2021, subtract current liabilities from total liabilities using the provided data: 67361 (total_liabilities) - 30234 (current_liabilities) = 37127.
+Answer: 37127
+
+  [407/636] depth=4 KEEP | truth=62033.0 pred=62032.75
+         Q: Whats the value of the average total assets for Cobalt Semiconductor across year
+         R: Total Assets for 2022: 57651
+Total Assets for 2023: 65727
+Total Assets for 2024: 73095
+Total Assets for 2025: 51658
+Sum: 57651 + 65727 + 73095 + 51658 = 248131
+Average: 248131 / 4 = 62032.75
+Answer: 62032.75
+
+  [408/636] depth=0 KEEP | truth=65728.0 pred=65727.0
+         Q: What do we obtain as the total assets for Cobalt Semiconductor in 2023 ?
+         R: Based on the data for Year 2023, the total_assets value is explicitly listed as 65727.
+
+Answer: 65727
+
+  [409/636] depth=3 KEEP | truth=53575.66666666666 pred=53575.67
+         Q: What does the following give: average capex for SilverLine Retail Inc across yea
+         R: Capex 2022: 44751, Capex 2023: 76984, Capex 2024: 38992.
+Sum = 44751 + 76984 + 38992 = 160727.
+Average = 160727 / 3 = 53575.666...
+Answer: 53575.67
+
+  [410/636] depth=0 KEEP | truth=4078.0 pred=4078.0
+         Q: whats the value of the capex for Atlas Global Industries in 2022?
+         R: Based on the data for Year 2022, the capex value is explicitly listed as 4078.
+
+Answer: 4078
+
+  [411/636] depth=0 KEEP | truth=183099.0 pred=183099.0
+         Q: which quantity is given by the total assets for Pacific Crest Energy in 2021?
+         R: 2021 data for Pacific Crest Energy (PCEN) shows total_assets: 183099.
+Answer: 183099
+
+  [412/636] depth=1 SKIP | truth=13581.0 pred=17100.0
+         Q: Whats the value of the difference between non operating expenses and dividends p
+         R: Non-operating expenses in 2023 are 17100. Dividends paid in 2023 are 0. The difference is 17100 - 0 = 17100.
+Answer: 17100
+
+  [413/636] depth=1 KEEP | truth=34892.0 pred=34892.0
+         Q: You should give the the maximum of operating expenses for Orion Financial Group 
+         R: Operating expenses for 2024 are 34,892 and for 2025 are 12,201. The maximum value between these two years is 34,892.
+Answer: 34892
+
+  [414/636] depth=3 KEEP | truth=280237.0 pred=280237.0
+         Q: calculate the current assets for Ironclad Manufacturing in 2022 .
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 139886 + 30058 + 21863 + 88430 = 280237.
+Answer: 280237
+
+  [415/636] depth=0 KEEP | truth=982687.0 pred=982687.0
+         Q: what do we obtain as the total assets for Titan Consumer Brands in 2020?
+         R: Based on the data for Year 2020, the total_assets value is explicitly listed as 982687.
+
+Answer: 982687
+
+  [416/636] depth=2 KEEP | truth=31561.0 pred=31562.0
+         Q: May you give the operating income for Pacific Crest Energy in 2023?
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2023: 185506 - 111318 - 42626 = 31562.
+Answer: 31562
+
+  [417/636] depth=2 KEEP | truth=3154.0 pred=3154.0
+         Q: could you give the the minimum of inventories for Quantum Bridge Holdings using 
+         R: 2020 inventories: 3154
+2021 inventories: 4340
+2022 inventories: 5002
+Minimum value = 3154
+Answer: 3154
+
+  [418/636] depth=1 KEEP | truth=195040.0 pred=195040.0
+         Q: May you calculate the gross profit for ClearPath Logistics in 2022
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2022: 567176 - 372136 = 195040.
+Answer: 195040
+
+  [419/636] depth=1 KEEP | truth=16318.0 pred=16318.0
+         Q: Determine the the maximum of short term investments for Helix BioSciences using 
+         R: 2023 short term investments: 16318
+2024 short term investments: 3431
+Maximum(16318, 3431) = 16318
+Answer: 16318
+
+  [420/636] depth=1 KEEP | truth=50704.0 pred=50704.0
+         Q: May you calculate the sum of operating expenses and inventories for ClearPath Lo
+         R: Operating Expenses (2021) = 40902
+Inventories (2021) = 9802
+Sum = 40902 + 9802 = 50704
+Answer: 50704
+
+  [421/636] depth=1 KEEP | truth=3349.003614603468 pred=3349.0
+         Q: Which value corresponds to the result of cash scaled by income tax for Atlas Glo
+         R: Calculation: Cash in 2022 is 13377. Income tax rate in 2022 is 0.2503553573001023.
+Result: 13377 * 0.2503553573001023 = 3349.0000000000005 (approximately 3349).
+Answer: 3349
+
+  [422/636] depth=0 KEEP | truth=59143.0 pred=59143.0
+         Q: which quantity is given by the total equity for Orion Financial Group in 2021 ?
+         R: Based on the data for Year 2021, the total equity for Orion Financial Group (ticker: ORFG) is explicitly listed as 59143.
+
+Answer: 59143
+
+  [423/636] depth=1 KEEP | truth=208410.0 pred=208410.0
+         Q: what is the sum of current liabilities and non operating expenses for Crimson Ph
+         R: Current liabilities in 2022: 122414
+Non-operating expenses in 2022: 85996
+Sum: 122414 + 85996 = 208410
+Answer: 208410
+
+  [424/636] depth=1 KEEP | truth=190812.0 pred=190812.0
+         Q: Which result follows from the gross profit for Crimson Pharmaceuticals in 2024?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: Revenue = 712,606; COGS = 521,794.
+Calculation: 712,606 - 521,794 = 190,812.
+Answer: 190812
+
+  [425/636] depth=1 SKIP | truth=319381.0 pred=285170.0
+         Q: What does the following give: sum of total equity and dividends paid for SilverL
+         R: Total Equity in 2023: 264758
+Dividends Paid in 2023: 20412
+Calculation: 264758 + 20412 = 285170
+Answer: 285170
+
+  [426/636] depth=1 KEEP | truth=204920.0 pred=204920.0
+         Q: Evaluate the longterm liabilities for Titan Consumer Brands in 2022
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2022: 316,946 - 112,026 = 204,920.
+Answer: 204920
+
+  [427/636] depth=2 SKIP | truth=12074.0 pred=16327.0
+         Q: state the the minimum of short term investments for Ironclad Manufacturing using
+         R: Short-term investments for 2021: 16,327; 2022: 88,430; 2023: 12,073.
+Minimum value is 16,327.
+Answer: 16327
+
+  [428/636] depth=4 KEEP | truth=223083.5 pred=223082.5
+         Q: What is the average revenue for Helix BioSciences across years 2020 through 2023
+         R: 2020 Revenue: 214,045; 2021 Revenue: 200,629; 2022 Revenue: 228,915; 2023 Revenue: 248,741.
+Sum = 214,045 + 200,629 + 228,915 + 248,741 = 892,330.
+Average = 892,330 / 4 = 223,082.5.
+Answer: 223082.5
+
+  [429/636] depth=5 KEEP | truth=4078.0 pred=4078.0
+         Q: Whats the value of the the minimum of capex for Atlas Global Industries using va
+         R: Capex values: 2020=6460, 2021=7094, 2022=4078, 2023=5904, 2024=7169, 2025=4158. Minimum is 4078.
+Answer: 4078
+
+  [430/636] depth=3 KEEP | truth=83352.33333333333 pred=83018.0
+         Q: Whats the value of the average revenue for Apex Dynamics Corp across years 2022 
+         R: Revenue 2022: 79021, Revenue 2023: 88228, Revenue 2024: 82805.
+Sum = 79021 + 88228 + 82805 = 249,054.
+Average = 249,054 / 3 = 83,018.
+Answer: 83018
+
+  [431/636] depth=3 KEEP | truth=79070.0 pred=79070.0
+         Q: Whats the value of the current assets for Ironclad Manufacturing in 2024?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2024: 33656 + 23748 + 7540 + 14126 = 79070.
+Answer: 79070
+
+  [432/636] depth=6 KEEP | truth=2175.0 pred=2175.0
+         Q: What would be the sum of cash for Pinnacle Health Group in 2022 and the minimum 
+         R: 2022 Cash: 1722. Short-term investments (2020-2025): 453, 1495, 801, 1006, 1096, 1123. Minimum is 453. Sum: 1722 + 453 = 2175.
+Answer: 2175
+
+  [433/636] depth=3 KEEP | truth=63325.0 pred=63324.0
+         Q: what is the pretax income for Helix BioSciences in 2022
+         R: To calculate pretax income for Helix BioSciences in 2022, we use the formula: Revenue - Cost of Goods Sold - Operating Expenses - Non-operating Expenses.
+Using 2022 data: Revenue (228,915) - COGS (135,355) - Operating Expenses (14,463) - Non-operating Expenses (15,773) = 63,324.
+Answer: 63324
+
+  [434/636] depth=0 KEEP | truth=109932.0 pred=109931.0
+         Q: you should give the total liabilities for Apex Dynamics Corp in 2025 .
+         R: Based on the data for Year 2025, the total liabilities for Apex Dynamics Corp are explicitly listed as 109931.
+
+Answer: 109931
+
+  [435/636] depth=2 KEEP | truth=21971.0 pred=21972.0
+         Q: which value corresponds to the operating income for Apex Dynamics Corp in 2025
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2025: 79388 - 41447 - 15969 = 21972.
+Answer: 21972
+
+  [436/636] depth=5 SKIP | truth=22519.65091813313 pred=-0.168056
+         Q: what is the result of ratio of sum of sum of sum of short term investments for A
+         R: Short-term investments: 2021=10169, 2022=4762, 2023=14819, 2024=4705. Sum = 34455. Ratio = 34455 / 4.0 = 8613.75. Total Equity: 2023=70860, 2024=19605. Growth = 19605 - 70860 = -51255. Result = 8613.75 / -51255 = -0.168056.
+Answer: -0.168056
+
+  [437/636] depth=3 KEEP | truth=39728.0 pred=39728.0
+         Q: what does the following give: pretax income for NovaStar Technologies in 2022 ?
+         R: To calculate pretax income, we need to determine Net Income first.
+Net Income = Revenue - Cost of Goods Sold - Operating Expenses - Non-operating Expenses - Income Tax.
+For 2022: Revenue (149263) - COGS (63527) - Operating Expenses (26613) - Non-operating Expenses (19395) = Operating Income before t
+
+  [438/636] depth=1 KEEP | truth=61189.0 pred=61190.0
+         Q: What does the following give: gross profit for Quantum Bridge Holdings in 2024 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: 97119 - 35929 = 61190.
+Answer: 61190
+
+  [439/636] depth=1 KEEP | truth=37323.0 pred=37323.0
+         Q: What's the value of the longterm liabilities for Pacific Crest Energy in 2023?
+         R: To calculate long-term liabilities, subtract total current liabilities from total liabilities.
+For 2023: Total Liabilities (64,638) - Current Liabilities (27,315) = 37,323.
+Answer: 37323
+
+  [440/636] depth=0 KEEP | truth=20351.0 pred=20351.0
+         Q: Give the accounts receivable for Meridian Systems Inc in 2024.
+         R: Based on the data for Year 2024, the accounts_receivable value is explicitly listed as 20351.
+
+Answer: 20351
+
+  [441/636] depth=2 KEEP | truth=14618.0 pred=14618.0
+         Q: what's the value of the average operating expenses for Meridian Systems Inc acro
+         R: 2020 operating expenses: 20641
+2021 operating expenses: 8595
+Calculation: (20641 + 8595) / 2 = 14618
+Answer: 14618
+
+  [442/636] depth=0 KEEP | truth=59873.0 pred=59873.0
+         Q: Which quantity is given by the cost of goods sold for Quantum Bridge Holdings in
+         R: 2021 data for QBHD shows cost_of_goods_sold: 59873.
+Answer: 59873
+
+  [443/636] depth=5 SKIP | truth=5311.0 pred=0.0
+         Q: what would be the the minimum of dividends paid for Titan Consumer Brands using 
+         R: Dividends paid values from 2020 to 2025 are: 44284, 20810, 17554, 0, 2250, 2305. The minimum value among these is 0 (from 2023).
+Answer: 0
+
+  [444/636] depth=5 KEEP | truth=29200.0 pred=29199.0
+         Q: what would be the difference between longterm assets and current assets for Tita
+         R: To calculate the difference between long-term assets and current assets for Titan Consumer Brands in 2022, we first identify the relevant figures from the data:
+- Total Assets (2022): 435,661
+- Total Liabilities (2022): 316,946
+- Current Liabilities (2022): 112,026
+- Current Assets = Total Assets -
+
+  [445/636] depth=5 SKIP | truth=134537.74780560908 pred=33333.0
+         Q: Give the result of sum of sum of dividends paid and dividends paid for Pacific C
+         R: 2022 Dividends = 14599; 2020-2023 Min Capex = 4243 (2020); 2021 Cash = 33062; 2024 Cash = 4671; Sum 2021+2024 Cash = 37733; Growth Factor = 37733/33062 ≈ 1.1413; Result = (14599 + 14599) * 1.1413 = 29198 * 1.1413 ≈ 33333.
+
+Answer: 33333
+
+  [446/636] depth=3 SKIP | truth=3959.3333333333335 pred=1935.67
+         Q: what is the average dividends paid for Quantum Bridge Holdings across years 2020
+         R: Dividends paid in 2020: 129
+Dividends paid in 2021: 1065
+Dividends paid in 2022: 4613
+Sum: 129 + 1065 + 4613 = 5807
+Average: 5807 / 3 = 1935.666...
+Answer: 1935.67
+
+  [447/636] depth=5 KEEP | truth=87989.0 pred=87989.0
+         Q: What does the following give: the minimum of revenue for Orion Financial Group u
+         R: Revenue values: 2020=87989, 2021=98792, 2022=115348, 2023=127775, 2024=142085, 2025=133448. Minimum is 87989.
+Answer: 87989
+
+  [448/636] depth=5 KEEP | truth=15201.0 pred=15201.0
+         Q: give the average inventories for ClearPath Logistics across years 2021 through 2
+         R: Inventories for 2021-2025: 9802, 7697, 5472, 17238, 35796.
+Sum = 76005; Average = 76005 / 5 = 15201.
+Answer: 15201
+
+  [449/636] depth=0 SKIP | truth=821170.0 pred=True
+         Q: which result follows from the revenue for SilverLine Retail Inc in 2023
+         R: 2023 Revenue: 821,168.
+2022 Revenue: 698,498.
+2024 Revenue: 818,992.
+2023 revenue is higher than 2022 and 2024.
+Answer: True
+
+  [450/636] depth=5 SKIP | truth=-99093.25 pred=38478.01
+         Q: you should calculate the result of ratio of sum of sum of sum of cost of goods s
+         R: 2021 COGS: 92388, 2022 COGS: 84255, 2023 COGS: 93952, 2024 COGS: 125778. Sum = 396373. Ratio = 396373 / 4.0 = 99093.25. 2021 AR: 12135, 2025 AR: 27542. Diff = 15407. Sum AR (2021+2025) = 39677. Growth = 15407 / 39677 ≈ 0.3883. Result = 99093.25 * 0.3883 ≈ 38478.01.
+Answer: 38478.01
+
+  [450/636]  kept=375  skipped=75  (83% pass rate so far)
+  [451/636] depth=1 KEEP | truth=172824.0 pred=172824.0
+         Q: give the longterm liabilities for ClearPath Logistics in 2023.
+         R: Total liabilities in 2023 are 250,646. Current liabilities are 77,822. Long-term liabilities = Total liabilities - Current liabilities = 250,646 - 77,822 = 172,824.
+Answer: 172824
+
+  [452/636] depth=3 KEEP | truth=70860.0 pred=70860.0
+         Q: Provide the the maximum of total equity for Atlas Global Industries using values
+         R: Total Equity values for 2022–2025 are: 32,471 (2022), 70,860 (2023), 19,605 (2024), and 33,185 (2025). The maximum value among these is 70,860.
+Answer: 70860
+
+  [453/636] depth=1 KEEP | truth=29913.0 pred=29913.0
+         Q: You should calculate the sum of operating expenses and capex for Pacific Crest E
+         R: Operating Expenses (2025) = 19190; Capex (2025) = 10723; Sum = 19190 + 10723 = 29913.
+Answer: 29913
+
+  [454/636] depth=2 SKIP | truth=-691544.0 pred=-11644.0
+         Q: compute the difference between inventories and difference between total liabilit
+         R: 2021 Inventories = 9166; 2021 Total Liabilities = 757557; 2021 Dividends Paid = 20810.
+Difference 1 = 9166 - 757557 = -748391.
+Difference 2 = 20810 - 757557 = -736747.
+Final Difference = -748391 - (-736747) = -11644.
+Answer: -11644
+
+  [455/636] depth=0 KEEP | truth=78857.0 pred=78856.0
+         Q: whats the value of the revenue for Apex Dynamics Corp in 2021?
+         R: Based on the data for Year 2021, the revenue for Apex Dynamics Corp is explicitly listed as 78856.
+
+Answer: 78856
+
+  [456/636] depth=5 KEEP | truth=87989.0 pred=87989.0
+         Q: whats the value of the the minimum of revenue for Orion Financial Group using va
+         R: Revenue values from 2020 to 2025 are: 87989, 98792, 115348, 127775, 142085, 133448. The minimum value among these is 87989.
+Answer: 87989
+
+  [457/636] depth=3 KEEP | truth=174646.0 pred=174646.0
+         Q: Which value corresponds to the the maximum of total liabilities for Pacific Cres
+         R: 2022 Total Liabilities: 174646
+2023 Total Liabilities: 64638
+2024 Total Liabilities: 84920
+2025 Total Liabilities: 121657
+Maximum value is 174646.
+Answer: 174646
+
+  [458/636] depth=0 KEEP | truth=57819.0 pred=57819.0
+         Q: Compute the total liabilities for Cobalt Semiconductor in 2020 .
+         R: Based on the data for Year 2020, the total liabilities for Cobalt Semiconductor (CBSM) are explicitly listed as 57819.
+
+Answer: 57819
+
+  [459/636] depth=1 KEEP | truth=16254.0 pred=16254.0
+         Q: State the sum of short term investments and current liabilities for Atlas Global
+         R: Short-term investments in 2020: 1635
+Current liabilities in 2020: 14619
+Sum: 1635 + 14619 = 16254
+Answer: 16254
+
+  [460/636] depth=3 KEEP | truth=8666.0 pred=8666.0
+         Q: give the average cash for Cobalt Semiconductor across years 2022 through 2024.
+         R: Cash values for 2022, 2023, and 2024 are 6222, 7204, and 12572 respectively.
+Sum = 6222 + 7204 + 12572 = 25998; Average = 25998 / 3 = 8666.
+Answer: 8666
+
+  [461/636] depth=3 KEEP | truth=19839.0 pred=19839.0
+         Q: evaluate the current assets for Cobalt Semiconductor in 2024.
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2024: 12572 + 2888 + 1029 + 3350 = 19839.
+Answer: 19839
+
+  [462/636] depth=4 SKIP | truth=-64596.57888622415 pred=-65913.0
+         Q: determine the difference between result of dividends paid scaled by income tax f
+         R: 2023 Dividends (0) * 2023 Income Tax (0.11824495767320974) = 0.
+Minimum Cash 2020-2023: min(126394, 140121, 65913, 225815) = 65913.
+Difference: 0 - 65913 = -65913.
+Answer: -65913
+
+  [463/636] depth=2 KEEP | truth=49097.0 pred=49098.0
+         Q: Which result follows from the operating income for Quantum Bridge Holdings in 20
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2023: 86108 - 28498 - 8512 = 49098.
+Answer: 49098
+
+  [464/636] depth=2 KEEP | truth=103672.0 pred=103672.0
+         Q: may you give the the maximum of non operating expenses for Crimson Pharmaceutica
+         R: Non-operating expenses for 2021: 103,672
+Non-operating expenses for 2022: 85,996
+Non-operating expenses for 2023: 53,726
+Maximum value among 103,672, 85,996, and 53,726 is 103,672.
+Answer: 103672
+
+  [465/636] depth=3 KEEP | truth=23836.0 pred=23836.0
+         Q: Could you give the the minimum of total equity for Orion Financial Group using v
+         R: Total Equity values: 2020=34037, 2021=59143, 2022=23836, 2023=108761. Minimum is 23836.
+Answer: 23836
+
+  [466/636] depth=1 KEEP | truth=59143.0 pred=59143.0
+         Q: what is the the maximum of total equity for Orion Financial Group using values f
+         R: 2021 Total Equity: 59143
+2022 Total Equity: 23836
+Maximum(59143, 23836) = 59143
+Answer: 59143
+
+  [467/636] depth=2 KEEP | truth=21502.0 pred=21502.0
+         Q: state the result of total equity scaled by ratio of short term investments to to
+         R: 2024 Total Equity = 62046; 2024 Short-term Investments = 21502; Ratio = 21502 / 62046 ≈ 0.34655; Result = 62046 * 0.34655 ≈ 21502.
+Answer: 21502
+
+  [468/636] depth=1 KEEP | truth=132997.0 pred=132997.0
+         Q: Compute the sum of short term investments and operating expenses for Ironclad Ma
+         R: Short term investments (2020) = 45,319; Operating expenses (2020) = 87,678.
+Sum = 45,319 + 87,678 = 132,997.
+Answer: 132997
+
+  [469/636] depth=1 KEEP | truth=170585.0 pred=170585.0
+         Q: May you give the longterm liabilities for Crimson Pharmaceuticals in 2022?
+         R: To find the long-term liabilities for Crimson Pharmaceuticals in 2022, subtract the current liabilities from the total liabilities.
+Calculation: Total Liabilities (292,999) - Current Liabilities (122,414) = 170,585.
+Answer: 170585
+
+  [470/636] depth=4 SKIP | truth=53256.0 pred=54256.0
+         Q: Which value corresponds to the longterm assets for Cobalt Semiconductor in 2024
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (12572) + Accounts Receivable (2888) + Inventories (1029) + Short-term Investments (3350) = 18839.
+Long-term assets = 73095 - 18839 = 54256.
+Answer: 54256
+
+  [471/636] depth=1 KEEP | truth=-42979.0 pred=-42979.0
+         Q: Compute the difference between capex and short term investments for NovaStar Tec
+         R: In 2023, Capex is 11607 and Short-term investments are 54586.
+Difference = 11607 - 54586 = -42979.
+Answer: -42979
+
+  [472/636] depth=2 KEEP | truth=658661.5014543339 pred=658672.5
+         Q: Provide the result of total equity scaled by ratio of revenue to operating expen
+         R: 2021 Total Equity = 33007; 2021 Revenue = 171514; 2021 Operating Expenses = 8595; Revenue/Operating Expenses Ratio = 171514 / 8595 ≈ 19.955; Scaled Total Equity = 33007 * 19.955 ≈ 658672.5.
+Answer: 658672.5
+
+  [473/636] depth=0 KEEP | truth=7582.0 pred=7582.0
+         Q: could you give the operating expenses for Cobalt Semiconductor in 2020 ?
+         R: Based on the data for Year 2020, the operating expenses for CBSM are explicitly listed as 7582.
+
+Answer: 7582
+
+  [474/636] depth=2 KEEP | truth=265557.51513104886 pred=265558.27
+         Q: which result follows from the sum of gross profit and result of current liabilit
+         R: 2025 Gross Profit = Revenue (687,937) - COGS (445,216) = 242,721.
+2025 Current Liabilities scaled by Income Tax = 209,765 * 0.10886713765904164 = 22,837.27.
+Sum = 242,721 + 22,837.27 = 265,558.27.
+Answer: 265558.27
+
+  [475/636] depth=5 SKIP | truth=-45385.37061730332 pred=-1750000000.0
+         Q: what do we obtain as the sum of difference between current assets and sum of tot
+         R: 2022 Current Assets = 8636 + 9324 + 2433 + 12753 = 33146; 2022 (Current Assets - (Total Liabilities + Accounts Receivable)) = 33146 - (65676 + 9324) = -41854; 2022 (Non Operating Expenses + Capex) = 10874 + 3204 = 14078; 2020 COGS = 47755, 2022 COGS = 63745, Growth = (63745 - 47755) / 47755 = 0.3348
+
+  [476/636] depth=2 KEEP | truth=60764.0 pred=60764.0
+         Q: may you give the average cash for ClearPath Logistics across years 2020 through 
+         R: 2020 Cash: 24389; 2021 Cash: 97139; Sum: 121528; Average: 121528 / 2 = 60764.
+Answer: 60764
+
+  [477/636] depth=1 KEEP | truth=1481.4911785746256 pred=1481.491178374606
+         Q: Determine the result of operating expenses scaled by income tax for Cobalt Semic
+         R: Operating Expenses (2021) = 6287; Income Tax Rate (2021) = 0.23564357858670687; Calculation: 6287 * 0.23564357858670687 = 1481.491178374606.
+Answer: 1481.491178374606
+
+  [478/636] depth=2 KEEP | truth=46177.0 pred=46177.0
+         Q: what's the value of the the maximum of cash for Pacific Crest Energy using value
+         R: 2023 Cash: 46177, 2024 Cash: 4671, 2025 Cash: 10729.
+Maximum value is 46177.
+Answer: 46177
+
+  [479/636] depth=2 KEEP | truth=63362.0 pred=63362.0
+         Q: Determine the the minimum of non operating expenses for SilverLine Retail Inc us
+         R: 2021 non-operating expenses: 131,277
+2022 non-operating expenses: 63,362
+2023 non-operating expenses: 177,724
+Minimum value among 131,277, 63,362, and 177,724 is 63,362.
+Answer: 63362
+
+  [480/636] depth=3 KEEP | truth=56607.0 pred=56605.0
+         Q: What's the value of the current assets for Meridian Systems Inc in 2021 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2021: 25815 + 12135 + 2543 + 16112 = 56605.
+Answer: 56605
+
+  [481/636] depth=0 KEEP | truth=130009.0 pred=130009.0
+         Q: Which value corresponds to the cost of goods sold for Ironclad Manufacturing in 
+         R: Based on the data for Year 2023, the cost of goods sold (COGS) for IRCL is explicitly listed as 130009.
+
+Answer: 130009
+
+  [482/636] depth=0 KEEP | truth=68378.0 pred=68378.0
+         Q: What's the value of the short term investments for ClearPath Logistics in 2024?
+         R: Based on the data for Year 2024, the short_term_investments value is explicitly listed as 68378.
+
+Answer: 68378
+
+  [483/636] depth=3 KEEP | truth=156129.0 pred=156129.0
+         Q: whats the value of the current assets for Crimson Pharmaceuticals in 2022 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 55614 + 64113 + 28424 + 7978 = 156129.
+Answer: 156129
+
+  [484/636] depth=1 KEEP | truth=9087.0 pred=9087.0
+         Q: you should calculate the the minimum of inventories for Ironclad Manufacturing u
+         R: 2020 inventories: 22596; 2021 inventories: 9087; Minimum = 9087.
+Answer: 9087
+
+  [485/636] depth=2 SKIP | truth=37433.0 pred=27433.0
+         Q: State the sum of sum of current liabilities and inventories and total equity for
+         R: Current liabilities (2023) = 15734
+Inventories (2023) = 912
+Total equity (2023) = 20787
+Sum = 15734 + 912 + 20787 = 27433
+Answer: 27433
+
+  [486/636] depth=1 KEEP | truth=627.8413070872529 pred=627.9614870672538
+         Q: You should calculate the result of inventories scaled by income tax for Pacific 
+         R: In 2022, Pacific Crest Energy's inventories are 3,373 and the income tax rate is 0.18613735757108002.
+Calculation: 3,373 * 0.18613735757108002 = 627.9614870672537.
+Answer: 627.9614870672537
+
+  [487/636] depth=2 SKIP | truth=-4134.595762475607 pred=-59877376.0
+         Q: which result follows from the result of longterm liabilities for Orion Financial
+         R: Long-term liabilities in 2020 = Total Assets (67863) - Total Liabilities (33826) - Current Liabilities (11321) = 22716.
+Cash growth from 2020 to 2021 = Cash 2021 (11712) - Cash 2020 (14348) = -2636.
+Result = 22716 * -2636 = -59877376.
+Answer: -59877376
+
+  [488/636] depth=5 SKIP | truth=-6876.3429988554 pred=-6780.18
+         Q: calculate the difference between capex for Quantum Bridge Holdings in 2024 and r
+         R: Capex 2024 = 2285.
+Current Assets 2024 = Cash (12189) + Accounts Receivable (6324) + Inventories (4960) + Short-term Investments (1477) = 24950.
+Operating Expenses 2021 = 13105, Operating Expenses 2025 = 17917.
+Growth = (17917 - 13105) / 13105 = 0.36337.
+Result = 24950 * 0.36337 = 9065.18.
+Differenc
+
+  [489/636] depth=4 KEEP | truth=922.0 pred=922.0
+         Q: Which value corresponds to the the minimum of short term investments for Cobalt 
+         R: Short term investments for CBSM from 2020 to 2024 are: 9038, 922, 4097, 4666, and 3350. The minimum value among these is 922.
+Answer: 922
+
+  [490/636] depth=7 KEEP | truth=1137411.3901351176 pred=1137420.0
+         Q: State the result of ratio of sum of sum of sum of sum of sum of total equity for
+         R: 2020 Equity: 92958, 2021: 94680, 2022: 123639, 2023: 129423, 2024: 62046, 2025: 56894.
+Sum = 92958 + 94680 + 123639 + 129423 + 62046 + 56894 = 559640.
+Numerator = 559640 / 6.0 = 93273.3333.
+2020 Equity / 2020 Accounts Receivable = 92958 / 7623 = 12.1944.
+Result = 93273.3333 * 12.1944 = 1137419.9999
+
+  [491/636] depth=1 KEEP | truth=36885.0 pred=36886.0
+         Q: which quantity is given by the longterm liabilities for Quantum Bridge Holdings 
+         R: The provided data for 2024 lists `total_liabilities` as 62367 and `current_liabilities` as 25481. Long-term liabilities are calculated as `total_liabilities` minus `current_liabilities`.
+Calculation: 62367 - 25481 = 36886.
+Answer: 36886
+
+  [492/636] depth=0 KEEP | truth=77821.0 pred=77822.0
+         Q: whats the value of the current liabilities for ClearPath Logistics in 2023 ?
+         R: Based on the data for Year 2023, the value for current_liabilities is explicitly listed as 77822.
+
+Answer: 77822
+
+  [493/636] depth=5 KEEP | truth=28263.0 pred=28263.0
+         Q: whats the value of the average non operating expenses for Helix BioSciences acro
+         R: Non-operating expenses for 2020-2024: 47700, 23812, 15773, 31176, 22854.
+Sum = 141315; Average = 141315 / 5 = 28263.
+Answer: 28263
+
+  [494/636] depth=4 KEEP | truth=41743.0 pred=41743.0
+         Q: Which quantity is given by the longterm assets for Quantum Bridge Holdings in 20
+         R: To find the long-term assets for Quantum Bridge Holdings in 2020, subtract current assets from total assets.
+Current Assets = Cash (14184) + Accounts Receivable (8455) + Inventories (3154) + Short-term Investments (2565) = 28358.
+Long-term Assets = Total Assets (70101) - Current Assets (28358) = 417
+
+  [495/636] depth=2 KEEP | truth=6043.0 pred=6043.0
+         Q: You should give the the maximum of inventories for Apex Dynamics Corp using valu
+         R: Inventories for 2021: 3372; 2022: 6043; 2023: 5868.
+Maximum value is 6043.
+Answer: 6043
+
+  [496/636] depth=6 SKIP | truth=23113.65766426125 pred=982665.0
+         Q: What does the following give: result of the minimum of revenue for Meridian Syst
+         R: Minimum Revenue (2020-2023) = 150714 (2020).
+Minimum Accounts Receivable (2021-2025) = 12135 (2021).
+Gross Profit 2021 = Revenue (171514) - COGS (92388) = 79126.
+Ratio = 150714 / 12135 ≈ 12.419.
+Result = 79126 * 12.419 ≈ 982665.
+Answer: 982665
+
+  [497/636] depth=0 KEEP | truth=7909.0 pred=7909.0
+         Q: which result follows from the current liabilities for Orion Financial Group in 2
+         R: Current liabilities for Orion Financial Group in 2021 are explicitly stated in the data.
+Value = 7909.
+Answer: 7909
+
+  [498/636] depth=0 KEEP | truth=17945.0 pred=17945.0
+         Q: Give the operating expenses for Apex Dynamics Corp in 2022 .
+         R: Based on the data for Year 2022, the operating_expenses value is explicitly listed as 17945.
+
+Answer: 17945
+
+  [499/636] depth=4 SKIP | truth=-226676.0 pred=226675.0
+         Q: could you give the difference between short term investments and current assets 
+         R: Short-term investments in 2023 are 31,236. Current assets are calculated as Cash (63,824) + Accounts Receivable (101,392) + Inventories (61,459) + Short-term investments (31,236) = 257,911. The difference is 257,911 - 31,236 = 226,675.
+Answer: 226675
+
+  [500/636] depth=5 KEEP | truth=11228.8 pred=11228.8
+         Q: What do we obtain as the average capex for Helix BioSciences across years 2020 t
+         R: Capex values: 15443 (2020), 8553 (2021), 10985 (2022), 12175 (2023), 8988 (2024).
+Sum = 15443 + 8553 + 10985 + 12175 + 8988 = 56144.
+Average = 56144 / 5 = 11228.8.
+Answer: 11228.8
+
+  [500/636]  kept=416  skipped=84  (83% pass rate so far)
+  [501/636] depth=0 KEEP | truth=92388.0 pred=92388.0
+         Q: Which value corresponds to the cost of goods sold for Meridian Systems Inc in 20
+         R: Based on the data for Year 2021, the cost of goods sold for MSYS is explicitly listed as 92388.
+
+Answer: 92388
+
+  [502/636] depth=5 SKIP | truth=14759.0 pred=12675.0
+         Q: May you give the sum of the maximum of dividends paid for Pinnacle Health Group 
+         R: Dividends paid: 2021=491, 2022=290, 2023=347, 2024=1739, 2025=323. Max(491, 290, 347, 1739, 323) = 1739. Total Equity 2024 = 10936. Sum = 1739 + 10936 = 12675.
+Answer: 12675
+
+  [503/636] depth=5 SKIP | truth=6865.0 pred=2468.6
+         Q: What is the average dividends paid for Atlas Global Industries across years 2021
+         R: Dividends paid for 2021: 871, 2022: 1628, 2023: 10644, 2024: 0, 2025: 0.
+Sum = 871 + 1628 + 10644 + 0 + 0 = 12343.
+Average = 12343 / 5 = 2468.6.
+Answer: 2468.6
+
+  [504/636] depth=0 KEEP | truth=70514.0 pred=70514.0
+         Q: May you calculate the short term investments for Titan Consumer Brands in 2025
+         R: Based on the data for Year 2025, the short_term_investments value is explicitly listed as 70514.
+
+Answer: 70514
+
+  [505/636] depth=0 KEEP | truth=20648.0 pred=20649.0
+         Q: Give the total equity for Quantum Bridge Holdings in 2025
+         R: Based on the data for Year 2025, the total equity for Quantum Bridge Holdings is explicitly listed as 20649.
+
+Answer: 20649
+
+  [506/636] depth=2 KEEP | truth=2311.5 pred=2312.0
+         Q: calculate the average operating expenses for Pinnacle Health Group across years 
+         R: Operating expenses for 2024: 1168; Operating expenses for 2025: 3456.
+Calculation: (1168 + 3456) / 2 = 2312.
+Answer: 2312
+
+  [507/636] depth=0 KEEP | truth=295198.0 pred=295198.0
+         Q: May you give the total liabilities for SilverLine Retail Inc in 2022 ?
+         R: Based on the data for Year 2022, the total liabilities for SilverLine Retail Inc are explicitly listed as 295198.
+
+Answer: 295198
+
+  [508/636] depth=1 KEEP | truth=45243.0 pred=44924.0
+         Q: which value corresponds to the sum of total liabilities and dividends paid for Q
+         R: Total Liabilities (2025) = 44720
+Dividends Paid (2025) = 204
+Sum = 44720 + 204 = 44924
+Answer: 44924
+
+  [509/636] depth=0 KEEP | truth=67087.0 pred=67087.0
+         Q: evaluate the current liabilities for Ironclad Manufacturing in 2023 .
+         R: Based on the data for Year 2023, the current liabilities for Ironclad Manufacturing are explicitly listed as 67087.
+
+Answer: 67087
+
+  [510/636] depth=1 KEEP | truth=292368.0 pred=292368.0
+         Q: May you calculate the gross profit for SilverLine Retail Inc in 2022 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2022: 698498 - 406130 = 292368.
+Answer: 292368
+
+  [511/636] depth=1 KEEP | truth=63455.0 pred=63455.0
+         Q: What is the value of the longterm liabilities for NovaStar Technologies in 2024
+         R: To calculate long-term liabilities, subtract total current liabilities from total liabilities.
+For 2024: Total Liabilities (106,446) - Current Liabilities (42,991) = 63,455.
+Answer: 63455
+
+  [512/636] depth=2 KEEP | truth=463236.0 pred=463236.0
+         Q: what's the value of the the minimum of revenue for Crimson Pharmaceuticals using
+         R: Revenue values for 2020, 2021, and 2022 are 463,236; 550,238; and 616,787 respectively. The minimum of these values is 463,236.
+Answer: 463236
+
+  [513/636] depth=1 KEEP | truth=1995.0 pred=1995.0
+         Q: what is the value of the difference between cash and operating expenses for Nova
+         R: Cash in 2020: 24222
+Operating Expenses in 2020: 22227
+Calculation: 24222 - 22227 = 1995
+Answer: 1995
+
+  [514/636] depth=0 SKIP | truth=3174.0 pred=836.0
+         Q: whats the value of the dividends paid for Apex Dynamics Corp in 2022?
+         R: Based on the data for Year 2022, the value for dividends_paid is explicitly listed as 836.
+
+Answer: 836
+
+  [515/636] depth=1 KEEP | truth=16654.639789032004 pred=16654.4
+         Q: evaluate the result of total assets scaled by income tax for Atlas Global Indust
+         R: 2022 Total Assets = 66,524; 2022 Income Tax Rate = 0.2503553573001023; Calculation: 66,524 * 0.2503553573001023 = 16,654.40; Answer: 16654.40
+
+  [516/636] depth=4 KEEP | truth=1708.5 pred=1708.5
+         Q: Provide the average short term investments for Pinnacle Health Group across year
+         R: Short-term investments for 2022, 2023, 2024, and 2025 are 801, 719, 1839, and 3475 respectively.
+Sum = 801 + 719 + 1839 + 3475 = 6834; Average = 6834 / 4 = 1708.5.
+Answer: 1708.5
+
+  [517/636] depth=3 KEEP | truth=158898.0 pred=158898.0
+         Q: Which value corresponds to the current assets for ClearPath Logistics in 2022
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 92533 + 48131 + 7697 + 10537 = 158898.
+Answer: 158898
+
+  [518/636] depth=6 SKIP | truth=538655.0 pred=448909.6
+         Q: provide the difference between ratio of sum of sum of sum of sum of revenue for 
+         R: 2021 Revenue: 514,684; 2022: 567,176; 2023: 567,556; 2024: 627,730; 2025: 687,937. Sum = 2,355,083. Ratio = 2,355,083 / 5.0 = 471,016.6. Dividends 2021-2025: 11,008, 22,107, 8,963, 17,869, 7,817. Max = 22,107. Difference = 471,016.6 - 22,107 = 448,909.6.
+Answer: 448909.6
+
+  [519/636] depth=0 SKIP | truth=9258.0 pred=3250.0
+         Q: Could you give the dividends paid for Apex Dynamics Corp in 2023
+         R: Based on the data for Year 2023, the value for dividends_paid is explicitly listed as 3250.
+
+Answer: 3250
+
+  [520/636] depth=1 SKIP | truth=12056.0 pred=-39178.0
+         Q: Which quantity is given by the longterm liabilities for Orion Financial Group in
+         R: Total liabilities in 2021 are 19,965 and total equity is 59,143. Long-term liabilities = Total liabilities - Total equity = 19,965 - 59,143 = -39,178.
+Answer: -39178
+
+  [521/636] depth=5 KEEP | truth=41971.2 pred=41971.4
+         Q: compute the average accounts receivable for ClearPath Logistics across years 202
+         R: Accounts Receivable values: 2020=33576, 2021=21960, 2022=48131, 2023=56571, 2024=49619.
+Sum = 33576 + 21960 + 48131 + 56571 + 49619 = 209857.
+Average = 209857 / 5 = 41971.4.
+Answer: 41971.4
+
+  [522/636] depth=3 KEEP | truth=233753.0 pred=233753.0
+         Q: what do we obtain as the current assets for SilverLine Retail Inc in 2022 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 90754 + 36422 + 59502 + 47075 = 233753.
+Answer: 233753
+
+  [523/636] depth=1 KEEP | truth=729678.0 pred=729677.0
+         Q: determine the the maximum of total assets for SilverLine Retail Inc using values
+         R: 2021 Total Assets: 729,677
+2022 Total Assets: 494,264
+Maximum(729677, 494264) = 729677
+Answer: 729677
+
+  [524/636] depth=1 KEEP | truth=1411511.0 pred=1411511.0
+         Q: which result follows from the sum of revenue and total assets for Titan Consumer
+         R: 2020 Revenue: 428,824
+2020 Total Assets: 982,687
+Sum: 428,824 + 982,687 = 1,411,511
+Answer: 1411511
+
+  [525/636] depth=1 KEEP | truth=38433.0 pred=38432.0
+         Q: Which value corresponds to the sum of current liabilities and inventories for Ap
+         R: Current liabilities in 2025: 34392
+Inventories in 2025: 4040
+Sum: 34392 + 4040 = 38432
+Answer: 38432
+
+  [526/636] depth=4 KEEP | truth=4705.0 pred=4705.0
+         Q: what do we obtain as the the minimum of short term investments for Atlas Global 
+         R: Short-term investments for 2021-2025 are: 10169, 4762, 14819, 4705, 8899. The minimum value is 4705.
+Answer: 4705
+
+  [527/636] depth=2 KEEP | truth=28101.0 pred=28101.0
+         Q: Compute the the maximum of operating expenses for Helix BioSciences using values
+         R: Operating expenses for 2022: 14,463; 2023: 27,838; 2024: 28,101.
+Maximum value is 28,101.
+Answer: 28101
+
+  [528/636] depth=0 SKIP | truth=1143.0 pred=165.0
+         Q: Provide the dividends paid for Orion Financial Group in 2020.
+         R: Based on the data for Year 2020, the value for dividends_paid is 165.
+
+Answer: 165
+
+  [529/636] depth=6 SKIP | truth=78874.16666666667 pred=71440.83333333333
+         Q: whats the value of the average operating expenses for ClearPath Logistics across
+         R: Operating expenses for 2020-2025 are: 65279, 40902, 43967, 33798, 153750, 135549.
+Sum = 428645; Average = 428645 / 6 = 71440.8333...
+Answer: 71440.83333333333
+
+  [530/636] depth=0 KEEP | truth=463236.0 pred=463236.0
+         Q: Evaluate the revenue for Crimson Pharmaceuticals in 2020.
+         R: 2020 revenue is explicitly listed as 463,236 in the provided data for Crimson Pharmaceuticals.
+Answer: 463236
+
+  [531/636] depth=1 KEEP | truth=32961.0 pred=32961.0
+         Q: Compute the gross profit for Apex Dynamics Corp in 2022.
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2022: 79021 - 46060 = 32961.
+Answer: 32961
+
+  [532/636] depth=3 KEEP | truth=184290.66666666663 pred=184291.33333333334
+         Q: Provide the average revenue for Pacific Crest Energy across years 2022 through 2
+         R: 2022 Revenue: 176,894; 2023 Revenue: 185,506; 2024 Revenue: 190,474.
+Sum = 176,894 + 185,506 + 190,474 = 552,874.
+Average = 552,874 / 3 = 184,291.333...
+Answer: 184291.33333333334
+
+  [533/636] depth=0 KEEP | truth=36417.0 pred=36417.0
+         Q: which quantity is given by the accounts receivable for Helix BioSciences in 2024
+         R: Based on the data for Year 2024, the accounts_receivable value is explicitly listed as 36417.
+
+Answer: 36417
+
+  [534/636] depth=0 KEEP | truth=35796.0 pred=35796.0
+         Q: Provide the inventories for ClearPath Logistics in 2025.
+         R: Inventories for ClearPath Logistics in 2025 are directly listed in the provided data under the Year 202025 section.
+The value is 35796.
+Answer: 35796
+
+  [535/636] depth=2 KEEP | truth=340508.0 pred=340508.0
+         Q: What do we obtain as the the minimum of revenue for Ironclad Manufacturing using
+         R: 2021 Revenue: 340508
+2022 Revenue: 368281
+2023 Revenue: 397455
+Minimum = 340508
+Answer: 340508
+
+  [536/636] depth=0 KEEP | truth=9667.0 pred=9666.0
+         Q: which result follows from the non operating expenses for Apex Dynamics Corp in 2
+         R: Non-operating expenses for Apex Dynamics Corp in 2022 are explicitly listed in the data.
+Value from 2022 row: 9666.
+Answer: 9666
+
+  [537/636] depth=0 KEEP | truth=66789.0 pred=66789.0
+         Q: Determine the total equity for Apex Dynamics Corp in 2022
+         R: Based on the data for Year 2022, the total equity is explicitly listed as 66789.
+
+Answer: 66789
+
+  [538/636] depth=5 SKIP | truth=63269.83408314814 pred=5.979
+         Q: what is the result of longterm assets for Apex Dynamics Corp in 2023 scaled by r
+         R: 2023 Long-term Assets = Total Assets (148,589) - Current Assets (11,694 + 5,868 + 6,054 = 23,616) = 124,973.
+2024 Cash = 15,788; 2025 Cash = 26,014; Sum = 41,802.
+Ratio = 41,802 / 2.0 = 20,901.
+Result = 124,973 / 20,901 ≈ 5.979.
+Answer: 5.979
+
+  [539/636] depth=1 KEEP | truth=8417.17161524646 pred=8417.99
+         Q: What is the result of short term investments scaled by income tax for ClearPath 
+         R: Short term investments in 2025: 77316
+Income tax rate in 2025: 0.10886713765904164
+Calculation: 77316 * 0.10886713765904164 = 8417.99
+Answer: 8417.99
+
+  [540/636] depth=4 KEEP | truth=706774.0 pred=710774.0
+         Q: Could you give the longterm assets for ClearPath Logistics in 2021 ?
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (97,139) + Accounts Receivable (21,960) + Inventories (9,802) + Short-term Investments (72,945) = 197,846.
+Long-term assets = 908,620 - 197,846 = 710,774.
+Answer: 710774
+
+  [541/636] depth=2 KEEP | truth=-37515.0 pred=-37515.0
+         Q: which value corresponds to the sum of gross profit and difference between capex 
+         R: Gross Profit (2021) = Revenue - Cost of Goods Sold = 83888 - 59873 = 24015.
+Difference (Capex - Total Assets 2021) = 1944 - 63474 = -61530.
+Sum = 24015 + (-61530) = -37515.
+Answer: -37515
+
+  [542/636] depth=2 KEEP | truth=36817.77972141829 pred=36828.5
+         Q: What would be the result of sum of cash and short term investments scaled by rat
+         R: 2024 Cash + Short-term Investments = 60999 + 50077 = 111076.
+Operating Expenses / Total Liabilities = 108917 / 328592 ≈ 0.33147.
+Result = 111076 * 0.33147 ≈ 36828.5.
+Answer: 36828.5
+
+  [543/636] depth=2 KEEP | truth=390166.0 pred=390165.0
+         Q: you should calculate the sum of longterm liabilities and current liabilities for
+         R: Based on the data for 2021, the current liabilities are 193,924. The total liabilities are 390,165. Long-term liabilities are calculated as Total Liabilities minus Current Liabilities: 390,165 - 193,924 = 196,241. The sum of long-term liabilities and current liabilities equals the total liabilities,
+
+  [544/636] depth=1 KEEP | truth=73202.0 pred=73202.0
+         Q: Which value corresponds to the the maximum of cost of goods sold for Orion Finan
+         R: 2020 COGS: 47755; 2021 COGS: 73202.
+Calculation: max(47755, 73202) = 73202.
+Answer: 73202
+
+  [545/636] depth=5 SKIP | truth=1776699.096931547 pred=1267839.86
+         Q: you should give the sum of sum of result of cost of goods sold scaled by income 
+         R: 2025 COGS scaled by tax: 318407 * 0.14671248921157862 = 46712.53; 2025 Gross Profit: 827261 - 318407 = 508854; Sum = 555566.53.
+2021 Revenue: 617154; 2022 Revenue: 698498; 2023 Revenue: 821168; Sum = 2136820; Ratio = 2136820 / 3.0 = 712273.33.
+Total Result: 555566.53 + 712273.33 = 1267839.86.
+Answer
+
+  [546/636] depth=0 KEEP | truth=15645.0 pred=15645.0
+         Q: May you give the non operating expenses for Meridian Systems Inc in 2023?
+         R: Based on the data for Year 2023, the non_operating_expenses for Meridian Systems Inc (ticker: MSYS) is explicitly listed as 15645.
+
+Answer: 15645
+
+  [547/636] depth=0 KEEP | truth=307723.0 pred=307723.0
+         Q: Which value corresponds to the total assets for Ironclad Manufacturing in 2020
+         R: 2020 data shows total_assets: 307723.
+Answer: 307723
+
+  [548/636] depth=4 SKIP | truth=90766.0 pred=70766.0
+         Q: what's the value of the longterm assets for Meridian Systems Inc in 2023?
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets (2023) = Cash (36062) + Accounts Receivable (20956) + Inventories (2744) + Short-term Investments (6816) = 86578.
+Long-term assets (2023) = 157344 - 86578 = 70766.
+Answer: 70766
+
+  [549/636] depth=0 KEEP | truth=9253.0 pred=9253.0
+         Q: what is the value of the cash for Ironclad Manufacturing in 2021?
+         R: Based on the data for Year 2021 under the ticker IRCL, the cash value is explicitly listed as 9253.
+
+Answer: 9253
+
+  [550/636] depth=3 KEEP | truth=56087.0 pred=56087.0
+         Q: may you give the the minimum of total liabilities for Meridian Systems Inc using
+         R: 2020: 56087, 2021: 88211, 2022: 94541, 2023: 75315. Minimum is 56087.
+Answer: 56087
+
+  [550/636]  kept=455  skipped=95  (83% pass rate so far)
+  [551/636] depth=5 KEEP | truth=89092.6 pred=89093.2
+         Q: evaluate the average revenue for Quantum Bridge Holdings across years 2021 throu
+         R: Revenue for 2021-2025: 83888, 84608, 86108, 97119, 93743.
+Sum = 445466; Average = 445466 / 5 = 89093.2.
+Answer: 89093.2
+
+  [552/636] depth=0 KEEP | truth=56008.0 pred=56007.0
+         Q: State the revenue for Cobalt Semiconductor in 2023 .
+         R: 2023 revenue data is directly listed in the provided dataset.
+Answer: 56007
+
+  [553/636] depth=0 KEEP | truth=445215.0 pred=445216.0
+         Q: Which value corresponds to the cost of goods sold for ClearPath Logistics in 202
+         R: Based on the data for Year 2025, the cost of goods sold (COGS) is explicitly listed as 445216.
+
+Answer: 445216
+
+  [554/636] depth=2 KEEP | truth=27314.0 pred=27315.0
+         Q: whats the value of the the minimum of current liabilities for Pacific Crest Ener
+         R: 2022 current liabilities: 60364
+2023 current liabilities: 27315
+2024 current liabilities: 40562
+Minimum value = 27315
+Answer: 27315
+
+  [555/636] depth=0 KEEP | truth=265190.0 pred=265190.0
+         Q: What do we obtain as the cost of goods sold for SilverLine Retail Inc in 2021?
+         R: Based on the data for Year 2021, the cost of goods sold for SilverLine Retail Inc is explicitly listed as 265190.
+
+Answer: 265190
+
+  [556/636] depth=7 SKIP | truth=72363.60700148816 pred=61164.49
+         Q: State the result of ratio of sum of sum of sum of sum of sum of operating expens
+         R: Operating expenses sum (2020-2025): 32151 + 147524 + 141095 + 60350 + 108917 + 156766 = 546703.
+Ratio of operating expenses sum to 6.0: 546703 / 6.0 = 91117.1667.
+Non-operating expenses (2023) / Total equity (2023): 177724 / 264758 = 0.671277.
+Final result: 91117.1667 * 0.671277 = 61164.49.
+Answer:
+
+  [557/636] depth=1 KEEP | truth=18028.620408788636 pred=18028.6088
+         Q: compute the result of total assets scaled by income tax for Atlas Global Industr
+         R: Total Assets in 2024 = 73012; Income Tax Rate in 2024 = 0.24692681215127155.
+Calculation: 73012 * 0.24692681215127155 = 18028.6088.
+Answer: 18028.6088
+
+  [558/636] depth=2 KEEP | truth=130554.5 pred=130554.5
+         Q: What do we obtain as the average cash for Crimson Pharmaceuticals across years 2
+         R: Cash in 2023: 158,784; Cash in 2024: 102,325.
+Calculation: (158,784 + 102,325) / 2 = 130,554.5.
+Answer: 130554.5
+
+  [559/636] depth=1 KEEP | truth=2509.0 pred=2509.0
+         Q: You should give the longterm liabilities for Pinnacle Health Group in 2021 .
+         R: Total liabilities in 2021 are 3855 and current liabilities are 1346. Long-term liabilities = Total liabilities - Current liabilities = 3855 - 1346 = 2509.
+Answer: 2509
+
+  [560/636] depth=0 KEEP | truth=120811.0 pred=120811.0
+         Q: provide the total assets for Atlas Global Industries in 2025
+         R: Based on the data for Year 2025, the total_assets value is explicitly listed as 120811.
+
+Answer: 120811
+
+  [561/636] depth=1 KEEP | truth=272998.0 pred=272997.0
+         Q: What does the following give: gross profit for Ironclad Manufacturing in 2025?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2025: 543407 - 270410 = 272997.
+Answer: 272997
+
+  [562/636] depth=1 KEEP | truth=23938.0 pred=23938.0
+         Q: what is the gross profit for Apex Dynamics Corp in 2024?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: 82805 - 58867 = 23938.
+Answer: 23938
+
+  [563/636] depth=1 KEEP | truth=4299.0 pred=4299.0
+         Q: determine the the maximum of capex for Cobalt Semiconductor using values from 20
+         R: Capex 2020 = 2987, Capex 2021 = 4299.
+Maximum = 4299.
+Answer: 4299
+
+  [564/636] depth=3 KEEP | truth=17468.0 pred=17468.0
+         Q: calculate the current assets for Cobalt Semiconductor in 2023
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2023: 7204 + 4686 + 912 + 4666 = 17468.
+Answer: 17468
+
+  [565/636] depth=4 KEEP | truth=42856.66666666666 pred=42856.6667
+         Q: which value corresponds to the sum of ratio of sum of sum of operating expenses 
+         R: 2020 Operating Expenses: 5281; 2021 Operating Expenses: 6461; 2022 Operating Expenses: 17945.
+Sum of Operating Expenses (2020-2022) = 5281 + 6461 + 17945 = 29687.
+Ratio = 29687 / 3.0 = 9895.6667.
+2022 Gross Profit = Revenue (79021) - Cost of Goods Sold (46060) = 32961.
+Sum = 9895.6667 + 32961 = 4285
+
+  [566/636] depth=3 KEEP | truth=72968.33333333333 pred=72968.33333333333
+         Q: whats the value of the average operating expenses for Ironclad Manufacturing acr
+         R: Operating expenses for 2023, 2024, and 2025 are 96193, 44603, and 78109 respectively.
+Sum = 96193 + 44603 + 78109 = 218905; Average = 218905 / 3 = 72968.333...
+Answer: 72968.33333333333
+
+  [567/636] depth=2 KEEP | truth=4762.0 pred=4762.0
+         Q: calculate the the minimum of short term investments for Atlas Global Industries 
+         R: 2021 short-term investments: 10169; 2022: 4762; 2023: 14819. Minimum value is 4762.
+Answer: 4762
+
+  [568/636] depth=1 KEEP | truth=202980.0 pred=202978.0
+         Q: what is the value of the the maximum of total assets for Meridian Systems Inc us
+         R: 2022 Total Assets: 202,978
+2023 Total Assets: 157,344
+Maximum(202978, 157344) = 202,978
+Answer: 202978
+
+  [569/636] depth=2 KEEP | truth=668864.0 pred=668865.0
+         Q: What does the following give: the minimum of total assets for ClearPath Logistic
+         R: 2023 Total Assets: 668865
+2024 Total Assets: 690729
+2025 Total Assets: 720190
+Minimum of [668865, 690729, 720190] = 668865
+Answer: 668865
+
+  [570/636] depth=5 KEEP | truth=54571.0 pred=54570.6
+         Q: May you give the average revenue for Cobalt Semiconductor across years 2021 thro
+         R: Revenue 2021: 52817, 2022: 55948, 2023: 56007, 2024: 52725, 2025: 55356.
+Sum = 52817 + 55948 + 56007 + 52725 + 55356 = 272853.
+Average = 272853 / 5 = 54570.6.
+Answer: 54570.6
+
+  [571/636] depth=1 KEEP | truth=53740.0 pred=53739.0
+         Q: Which quantity is given by the sum of short term investments and revenue for Cob
+         R: Short term investments in 2021: 922
+Revenue in 2021: 52817
+Calculation: 922 + 52817 = 53739
+Answer: 53739
+
+  [572/636] depth=6 KEEP | truth=147259.83333333334 pred=147258.67
+         Q: May you give the average total liabilities for NovaStar Technologies across year
+         R: Total liabilities for 2020-2025: 43130 + 67361 + 116964 + 387126 + 106446 + 162525 = 883552.
+Average = 883552 / 6 = 147258.666...
+Answer: 147258.67
+
+  [573/636] depth=0 KEEP | truth=11884.0 pred=11884.0
+         Q: What is the value of the non operating expenses for Atlas Global Industries in 2
+         R: Based on the data for Year 2023, the non_operating_expenses value is explicitly listed as 11884.
+
+Answer: 11884
+
+  [574/636] depth=3 KEEP | truth=29470.33333333333 pred=29470.333333333332
+         Q: calculate the average operating expenses for Helix BioSciences across years 2021
+         R: Operating expenses for 2021: 46110; 2022: 14463; 2023: 27838.
+Sum = 46110 + 14463 + 27838 = 88411.
+Average = 88411 / 3 = 29470.333...
+Answer: 29470.333333333332
+
+  [575/636] depth=2 KEEP | truth=55982.5 pred=55982.5
+         Q: Determine the average short term investments for Ironclad Manufacturing across y
+         R: Short-term investments for 2024: 14,126; Short-term investments for 2025: 97,839.
+Calculation: (14,126 + 97,839) / 2 = 55,982.5.
+Answer: 55982.5
+
+  [576/636] depth=0 KEEP | truth=1477.0 pred=1477.0
+         Q: What does the following give: short term investments for Quantum Bridge Holdings
+         R: Based on the data for Year 2024, the value for short_term_investments is explicitly listed as 1477.
+
+Answer: 1477
+
+  [577/636] depth=4 KEEP | truth=36694.0 pred=36694.0
+         Q: whats the value of the longterm assets for Quantum Bridge Holdings in 2021
+         R: To calculate long-term assets, subtract current assets (current liabilities + current assets components) from total assets.
+Current Assets = Cash (2853) + Accounts Receivable (10585) + Inventories (4340) + Short-term Investments (9002) = 26,780.
+Long-term Assets = Total Assets (63,474) - Current Ass
+
+  [578/636] depth=3 KEEP | truth=155195.0 pred=155193.0
+         Q: what's the value of the the maximum of total equity for Helix BioSciences using 
+         R: Total Equity values for 2022–2025: 109750, 62704, 142717, 155193.
+Maximum value is 155193.
+Answer: 155193
+
+  [579/636] depth=0 KEEP | truth=20956.0 pred=20956.0
+         Q: whats the value of the accounts receivable for Meridian Systems Inc in 2023 ?
+         R: Based on the data for Year 2023, the accounts_receivable value is explicitly listed as 20956.
+
+Answer: 20956
+
+  [580/636] depth=2 KEEP | truth=441430.0 pred=441430.0
+         Q: You should calculate the sum of gross profit and operating expenses for Titan Co
+         R: Gross Profit 2021 = Revenue (471,764) - Cost of Goods Sold (148,142) = 323,622.
+Operating Expenses 2021 = 117,808.
+Sum = 323,622 + 117,808 = 441,430.
+Answer: 441430
+
+  [581/636] depth=0 KEEP | truth=461323.0 pred=461322.0
+         Q: What's the value of the revenue for Ironclad Manufacturing in 2024 ?
+         R: 2024 revenue data is explicitly listed as 461322 in the provided dataset for Ironclad Manufacturing (IRCL).
+Answer: 461322
+
+  [582/636] depth=3 KEEP | truth=6572.0 pred=6572.0
+         Q: what do we obtain as the average non operating expenses for Cobalt Semiconductor
+         R: Non-operating expenses for 2023, 2024, and 2025 are 4726, 4681, and 10309 respectively.
+Sum = 4726 + 4681 + 10309 = 19716; Average = 19716 / 3 = 6572.
+Answer: 6572
+
+  [583/636] depth=1 SKIP | truth=157848.0 pred=151839.0
+         Q: you should calculate the sum of total assets and dividends paid for Apex Dynamic
+         R: Total Assets in 2023 = 148589; Dividends Paid in 2023 = 3250; Sum = 148589 + 3250 = 151839.
+Answer: 151839
+
+  [584/636] depth=4 SKIP | truth=170882.0 pred=109459.0
+         Q: whats the value of the total current assets for Helix BioSciences in 2025 ?
+         R: To calculate Total Current Assets for 2025, sum the current asset components: Cash (38,481) + Accounts Receivable (22,939) + Inventories (26,091) + Short-term Investments (21,948).
+Calculation: 38,481 + 22,939 + 26,091 + 21,948 = 109,459.
+Answer: 109459
+
+  [585/636] depth=1 KEEP | truth=657186.0 pred=657184.0
+         Q: What does the following give: sum of total liabilities and total liabilities for
+         R: 2024 total liabilities: 328592.
+2024 total liabilities (second instance): 328592.
+Sum: 328592 + 328592 = 657184.
+Answer: 657184
+
+  [586/636] depth=0 KEEP | truth=55614.0 pred=55614.0
+         Q: you should give the cash for Crimson Pharmaceuticals in 2022.
+         R: Based on the data for Year 2022, the cash value is explicitly listed as 55614.
+
+Answer: 55614
+
+  [587/636] depth=1 KEEP | truth=67863.0 pred=67863.0
+         Q: calculate the the minimum of total assets for Orion Financial Group using values
+         R: 2020 Total Assets: 67863
+2021 Total Assets: 79108
+Minimum(67863, 79108) = 67863
+Answer: 67863
+
+  [588/636] depth=5 KEEP | truth=4243.0 pred=4243.0
+         Q: what would be the the minimum of operating expenses for Cobalt Semiconductor usi
+         R: Operating expenses for CBSM from 2020 to 2025 are: 7582, 6287, 4243, 13623, 8231, 9183. The minimum value among these is 4243.
+Answer: 4243
+
+  [589/636] depth=2 KEEP | truth=50136.0 pred=50136.0
+         Q: What would be the the maximum of current liabilities for Meridian Systems Inc us
+         R: 2023 Current Liabilities: 31425
+2024 Current Liabilities: 50136
+2025 Current Liabilities: 45565
+Maximum value among 31425, 50136, and 45565 is 50136.
+Answer: 50136
+
+  [590/636] depth=2 KEEP | truth=55735.0 pred=55735.0
+         Q: state the operating income for Helix BioSciences in 2020.
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2020: 214045 - 144323 - 13987 = 55735.
+Answer: 55735
+
+  [591/636] depth=0 KEEP | truth=138307.0 pred=138306.0
+         Q: What is the value of the total equity for NovaStar Technologies in 2023
+         R: Based on the data for Year 2023, the total equity for NovaStar Technologies is explicitly listed as 138306.
+
+Answer: 138306
+
+  [592/636] depth=1 KEEP | truth=24015.0 pred=24015.0
+         Q: May you calculate the gross profit for Quantum Bridge Holdings in 2021 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2021: 83888 - 59873 = 24015.
+Answer: 24015
+
+  [593/636] depth=1 KEEP | truth=190812.0 pred=190812.0
+         Q: whats the value of the gross profit for Crimson Pharmaceuticals in 2024 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: 712606 - 521794 = 190812.
+Answer: 190812
+
+  [594/636] depth=1 KEEP | truth=153258.0 pred=153259.0
+         Q: You should give the the maximum of cash for ClearPath Logistics using values fro
+         R: Cash values for 2023 and 2024 are 153,259 and 104,931 respectively. The maximum of these two values is 153,259.
+Answer: 153259
+
+  [595/636] depth=1 KEEP | truth=92318.0 pred=92318.0
+         Q: may you give the sum of revenue and total equity for Apex Dynamics Corp in 2020?
+         R: Revenue (2020) = 67781; Total Equity (2020) = 24537; Sum = 67781 + 24537 = 92318.
+Answer: 92318
+
+  [596/636] depth=5 KEEP | truth=19202.0 pred=19203.0
+         Q: whats the value of the result of current assets scaled by ratio of revenue to cu
+         R: 2023 Current Assets = Cash (2062) + Accounts Receivable (1605) + Inventories (1096) + Short-term Investments (719) = 5482.
+Ratio = Revenue (19203) / Current Assets (5482) ≈ 3.5029.
+Result = Current Assets (5482) * Ratio (3.5029) = 19203.
+Answer: 19203
+
+  [597/636] depth=3 KEEP | truth=40505.66666666666 pred=40505.67
+         Q: provide the average current liabilities for Meridian Systems Inc across years 20
+         R: Current liabilities for 2021: 42936; 2022: 47156; 2023: 31425.
+Sum = 42936 + 47156 + 31425 = 121517.
+Average = 121517 / 3 = 40505.666...
+Answer: 40505.67
+
+  [598/636] depth=4 SKIP | truth=41342.0 pred=36846.0
+         Q: You should give the sum of sum of the maximum of accounts receivable for NovaSta
+         R: Accounts Receivable (2022-2024): 20455, 17765, 23856 → Max = 23856.
+Cash (2020-2021): 24222, 7348 → Min = 7348.
+Dividends Paid (2021-2024): 244, 1212, 877, 5642 → Max = 5642.
+Sum = 23856 + 7348 + 5642 = 36846.
+Answer: 36846
+
+  [599/636] depth=5 KEEP | truth=28940.0 pred=28940.0
+         Q: what's the value of the average capex for Titan Consumer Brands across years 202
+         R: Capex values: 2020=33525, 2021=31528, 2022=24547, 2023=34511, 2024=20589.
+Sum = 33525 + 31528 + 24547 + 34511 + 20589 = 144700.
+Average = 144700 / 5 = 28940.
+Answer: 28940
+
+  [600/636] depth=2 SKIP | truth=-129501.27690592143 pred=129501.27
+         Q: May you give the difference between result of short term investments scaled by i
+         R: 2021 Gross Profit = Revenue (514,684) - COGS (364,081) = 150,603.
+2021 Short Term Investments scaled by Income Tax = 72,945 * 0.2892826526023521 = 21,101.73.
+Difference = 150,603 - 21,101.73 = 129,501.27.
+Answer: 129501.27
+
+  [600/636]  kept=500  skipped=100  (83% pass rate so far)
+  [601/636] depth=4 SKIP | truth=54889.25 pred=49888.75
+         Q: may you calculate the average current liabilities for NovaStar Technologies acro
+         R: 2020: 20286, 2021: 30234, 2022: 37004, 2023: 132031. Sum = 199555. Average = 199555 / 4 = 49888.75.
+Answer: 49888.75
+
+  [602/636] depth=3 KEEP | truth=185180.0 pred=185180.0
+         Q: What is the value of the sum of operating income and gross profit for Pacific Cr
+         R: Operating Income = Operating Revenue - Operating Expenses = Revenue - COGS - Operating Expenses.
+Gross Profit = Revenue - COGS.
+2022 Revenue: 176894, COGS: 78889, Operating Expenses: 10830.
+Gross Profit = 176894 - 78889 = 98005.
+Operating Income = 176894 - 78889 - 10830 = 87175.
+Sum = 98005 + 87175
+
+  [603/636] depth=1 KEEP | truth=-133788.0 pred=-133787.0
+         Q: whats the value of the difference between cash and revenue for Meridian Systems 
+         R: In 2022, Cash is 30172 and Revenue is 163959.
+Calculation: 30172 - 163959 = -133787.
+Answer: -133787
+
+  [604/636] depth=5 KEEP | truth=269218.0 pred=269218.0
+         Q: which result follows from the the maximum of total assets for Orion Financial Gr
+         R: Total Assets values: 2020=67863, 2021=79108, 2022=89512, 2023=263222, 2024=269218, 2025=192213.
+Maximum is 269218 (Year 2024).
+Answer: 269218
+
+  [605/636] depth=3 SKIP | truth=-545659.2122243589 pred=195141.53
+         Q: You should give the difference between longterm liabilities and difference betwe
+         R: 2024 Long-term Liabilities = Total Liabilities (328,592) - Current Liabilities (94,355) = 234,237.
+2024 Non-operating Expenses = 193,978; Result scaled by tax = 193,978 * 0.2015475351619313 = 39,095.47.
+Difference = 234,237 - 39,095.47 = 195,141.53.
+Answer: 195141.53
+
+  [606/636] depth=0 KEEP | truth=22294.0 pred=22294.0
+         Q: May you calculate the cash for Quantum Bridge Holdings in 2023 ?
+         R: Based on the data for Year 2023, the cash balance is explicitly listed as 22294.
+
+Answer: 22294
+
+  [607/636] depth=3 KEEP | truth=33146.0 pred=33146.0
+         Q: Whats the value of the current assets for Orion Financial Group in 2022 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 8636 + 9324 + 2433 + 12753 = 33146.
+Answer: 33146
+
+  [608/636] depth=4 SKIP | truth=29602.0 pred=-33916.0
+         Q: determine the sum of difference between dividends paid and cash and current asse
+         R: 2021 Current Assets = Cash (7348) + Accounts Receivable (15250) + Inventories (6654) + Short-term Investments (4908) = 34160.
+Difference = Dividends Paid (244) - Current Assets (34160) = -33916.
+Answer: -33916
+
+  [609/636] depth=1 SKIP | truth=789.0 pred=2874.0
+         Q: Which result follows from the difference between non operating expenses and divi
+         R: 2024 non_operating_expenses = 4613
+2024 dividends_paid = 1739
+Difference = 4613 - 1739 = 2874
+Answer: 2874
+
+  [610/636] depth=0 KEEP | truth=27177.0 pred=27177.0
+         Q: Calculate the cash for Helix BioSciences in 2020 .
+         R: Based on the data provided for Year 2020, the cash value is explicitly listed.
+
+Answer: 27177
+
+  [611/636] depth=2 SKIP | truth=88741.33210081416 pred=85055.0
+         Q: what is the value of the sum of sum of dividends paid and revenue and result of 
+         R: 2024 Dividends Paid = 0, Revenue = 82805, Cash = 15788, Income Tax Rate = 0.14252530881082812.
+Calculation: (0 + 82805) + (15788 * 0.14252530881082812) = 82805 + 2249.999999999999 = 85054.99999999999.
+Answer: 85055
+
+  [612/636] depth=4 KEEP | truth=82361.5 pred=82360.5
+         Q: you should give the average revenue for Apex Dynamics Corp across years 2022 thr
+         R: Revenue for 2022: 79021, 2023: 88228, 2024: 82805, 2025: 79388.
+Sum = 79021 + 88228 + 82805 + 79388 = 329442.
+Average = 329442 / 4 = 82360.5.
+Answer: 82360.5
+
+  [613/636] depth=2 SKIP | truth=207732.93743318037 pred=2355349.54
+         Q: Provide the result of result of total assets scaled by income tax for SilverLine
+         R: 2022 Total Assets = 494,264; 2020 Dividends = 19,845; 2025 Dividends = 60,542.
+Growth in dividends = 60,542 - 19,845 = 40,697.
+Scaled value = (494,264 / 0.20984392781706634) * (40,697 / 40,697) = 2,355,349.54.
+Answer: 2355349.54
+
+  [614/636] depth=2 KEEP | truth=16500.0 pred=16500.0
+         Q: Which result follows from the the maximum of capex for Pacific Crest Energy usin
+         R: Capex values for 2023, 2024, and 2025 are 8194, 16500, and 10723 respectively. The maximum of these values is 16500.
+Answer: 16500
+
+  [615/636] depth=2 KEEP | truth=12964.0 pred=12964.0
+         Q: What do we obtain as the sum of gross profit and total equity for Pinnacle Healt
+         R: Gross Profit 2021 = Revenue (15115) - Cost of Goods Sold (8665) = 6450.
+Total Equity 2021 = 6514.
+Sum = 6450 + 6514 = 12964.
+Answer: 12964
+
+  [616/636] depth=1 KEEP | truth=230001.0 pred=230001.0
+         Q: What is the gross profit for Ironclad Manufacturing in 2021 ?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2021: 340508 - 110507 = 230001.
+Answer: 230001
+
+  [617/636] depth=2 KEEP | truth=-28330.21415706496 pred=-28332.9
+         Q: Calculate the result of difference between inventories and cost of goods sold sc
+         R: 2023 data: inventories = 5922, cost of goods sold = 81062, operating expenses = 30563.
+Ratio = 30563 / 81062 ≈ 0.37703.
+Difference = 5922 - 81062 = -75140.
+Result = -75140 * 0.37703 ≈ -28332.9.
+Answer: -28332.9
+
+  [618/636] depth=7 SKIP | truth=18453.0 pred=14709.0
+         Q: give the sum of ratio of sum of sum of sum of sum of sum of total equity for Cob
+         R: Total Equity Sum = 20346 (2020) + 19173 (2021) + 18575 (2022) + 20787 (2023) + 18804 (2024) + 13033 (2025) = 110718.
+Ratio = 110718 / 6.0 = 18453.0.
+Difference = 922 (2021 STI) - 4666 (2023 STI) = -3744.
+Final Result = 18453.0 + (-3744) = 14709.
+Answer: 14709
+
+  [619/636] depth=1 KEEP | truth=25288.0 pred=25288.0
+         Q: Which quantity is given by the difference between total liabilities and capex fo
+         R: Total liabilities in 2020 = 33826.
+Capex in 2020 = 8538.
+Calculation: 33826 - 8538 = 25288.
+Answer: 25288
+
+  [620/636] depth=2 KEEP | truth=43383.5 pred=43383.0
+         Q: Provide the average cash for NovaStar Technologies across years 2022 through 202
+         R: Cash in 2022: 8761; Cash in 2023: 78005.
+Average = (8761 + 78005) / 2 = 43383.
+Answer: 43383
+
+  [621/636] depth=0 KEEP | truth=13156.0 pred=13156.0
+         Q: could you give the non operating expenses for Meridian Systems Inc in 2024
+         R: Based on the data for Year 2024, the non_operating_expenses for Meridian Systems Inc (ticker: MSYS) is explicitly listed as 13156.
+
+Answer: 13156
+
+  [622/636] depth=0 KEEP | truth=19190.0 pred=19190.0
+         Q: Whats the value of the operating expenses for Pacific Crest Energy in 2025
+         R: Based on the data for Year 2025, the operating_expenses value is explicitly listed as 19190.
+
+Answer: 19190
+
+  [623/636] depth=2 KEEP | truth=36422.0 pred=36422.0
+         Q: Which value corresponds to the the minimum of accounts receivable for SilverLine
+         R: Accounts Receivable values for 2022, 2023, and 2024 are 36422, 101392, and 80829 respectively. The minimum of these values is 36422.
+Answer: 36422
+
+  [624/636] depth=0 KEEP | truth=9253.0 pred=9253.0
+         Q: could you give the cash for Ironclad Manufacturing in 2021?
+         R: Based on the data for Year 2021, the cash balance for IRCL is explicitly listed as 9253.
+
+Answer: 9253
+
+  [625/636] depth=5 KEEP | truth=132032.0 pred=132031.0
+         Q: which quantity is given by the the maximum of current liabilities for NovaStar T
+         R: Current liabilities for 2020: 20286; 2021: 30234; 2022: 37004; 2023: 132031; 2024: 42991; 2025: 66348.
+Maximum value is 132031 (from 2023).
+Answer: 132031
+
+  [626/636] depth=2 SKIP | truth=-6852.541831409141 pred=-346644976.0
+         Q: What is the value of the result of gross profit for Apex Dynamics Corp in 2025 s
+         R: Gross Profit 2025 = Revenue 2025 (79,388) - COGS 2025 (41,447) = 37,941.
+COGS Growth 2021-2025 = COGS 2025 (41,447) - COGS 2021 (50,583) = -9,136.
+Result = 37,941 * -9,136 = -346,644,976.
+Answer: -346644976
+
+  [627/636] depth=1 KEEP | truth=6461.0 pred=6461.0
+         Q: You should calculate the the minimum of operating expenses for Apex Dynamics Cor
+         R: Operating expenses for 2021: 6461; Operating expenses for 2022: 17945. Minimum value is 6461.
+Answer: 6461
+
+  [628/636] depth=6 SKIP | truth=544022.7105861546 pred=58660000000.0
+         Q: Whats the value of the sum of result of the minimum of capex for Ironclad Manufa
+         R: 2021-2025 Capex: [30284, 34132, 34132, 22891, 11427]; Min = 11427.
+2024 Ratio (Liabilities/AR): 325872 / 23748 = 13.7224.
+2024 Current Assets: 18106 + 23748 + 7540 + 14126 = 63520.
+2024 Gross Profit: 461322 - 153173 = 308149.
+Sum (Current Assets + Gross Profit): 63520 + 308149 = 371669.
+Final Calcul
+
+  [629/636] depth=0 KEEP | truth=1839.0 pred=1839.0
+         Q: may you calculate the short term investments for Pinnacle Health Group in 2024
+         R: Based on the data for Year 2024, the short_term_investments value is explicitly listed as 1839.
+
+Answer: 1839
+
+  [630/636] depth=7 SKIP | truth=2215.743374283852 pred=26.91
+         Q: You should calculate the sum of result of result of cash scaled by income tax sc
+         R: 2023: (Cash 2062 * Tax 0.15401647927748016) / (Current Liab 4458 / OpExp 3778) = 31.745 / 1.1797 ≈ 26.91; Min Dividends (2020-2023) = 0; Min OpExp (2020-2025) = 1168; Sum = 26.91 + 0 = 26.91.
+Answer: 26.91
+
+  [631/636] depth=0 KEEP | truth=442481.0 pred=442481.0
+         Q: Calculate the total assets for Crimson Pharmaceuticals in 2022.
+         R: Based on the data for Year 2022, the total_assets value is explicitly listed as 442481.
+
+Answer: 442481
+
+  [632/636] depth=0 KEEP | truth=315442.0 pred=315442.0
+         Q: Could you give the total equity for Crimson Pharmaceuticals in 2024?
+         R: Based on the data for Year 2024, the total equity for Crimson Pharmaceuticals is explicitly listed as 315442.
+
+Answer: 315442
+
+  [633/636] depth=0 KEEP | truth=291813.0 pred=291813.0
+         Q: what do we obtain as the total equity for Crimson Pharmaceuticals in 2023 ?
+         R: Based on the data for Year 2023, the total equity for Crimson Pharmaceuticals is explicitly listed as 291813.
+
+Answer: 291813
+
+  [634/636] depth=1 KEEP | truth=85736.0 pred=85736.0
+         Q: may you calculate the gross profit for NovaStar Technologies in 2022?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2022: Revenue = 149,263 and Cost of Goods Sold = 63,527.
+Calculation: 149,263 - 63,527 = 85,736.
+Answer: 85736
+
+  [635/636] depth=1 SKIP | truth=10182.029595796364 pred=410335.66
+         Q: state the result of total liabilities scaled by income tax for Pacific Crest Ene
+         R: 2023 Total Liabilities: 64638
+2023 Income Tax Rate: 0.15752633314968775
+Calculation: 64638 / 0.15752633314968775 = 410335.66
+Answer: 410335.66
+
+  [636/636] depth=0 KEEP | truth=132263.0 pred=132261.0
+         Q: you should give the total liabilities for Helix BioSciences in 2023.
+         R: Based on the data for Year 2023, the total liabilities for Helix BioSciences (HLXB) are explicitly listed as 132261.
+
+Answer: 132261
+
+  [636/636]  kept=525  skipped=111  (83% pass rate so far)
+[PHASE 1] CoT traces saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=4, alpha=4, dropout=0.1) ...
+trainable params: 786,432 || all params: 4,206,537,728 || trainable%: 0.0187
+
+[PHASE 4] Training ...
+{'loss': '2.877', 'grad_norm': '4.875', 'learning_rate': '0.0001991', 'entropy': '1.215', 'num_tokens': '2.896e+05', 'mean_token_accuracy': '0.4778', 'epoch': '0.3048'}
+{'loss': '1.174', 'grad_norm': '0.125', 'learning_rate': '0.0001893', 'entropy': '1.058', 'num_tokens': '5.781e+05', 'mean_token_accuracy': '0.6426', 'epoch': '0.6095'}
+{'loss': '1.074', 'grad_norm': '0.127', 'learning_rate': '0.0001695', 'entropy': '1.071', 'num_tokens': '8.67e+05', 'mean_token_accuracy': '0.6504', 'epoch': '0.9143'}
+{'loss': '1.035', 'grad_norm': '0.1436', 'learning_rate': '0.0001421', 'entropy': '1.07', 'num_tokens': '1.151e+06', 'mean_token_accuracy': '0.6545', 'epoch': '1.213'}
+{'loss': '0.9899', 'grad_norm': '0.1602', 'learning_rate': '0.00011', 'entropy': '1.041', 'num_tokens': '1.441e+06', 'mean_token_accuracy': '0.6632', 'epoch': '1.518'}
+{'loss': '0.9355', 'grad_norm': '0.1602', 'learning_rate': '7.682e-05', 'entropy': '0.9851', 'num_tokens': '1.73e+06', 'mean_token_accuracy': '0.6773', 'epoch': '1.823'}
+{'loss': '0.904', 'grad_norm': '0.1621', 'learning_rate': '4.619e-05', 'entropy': '0.9424', 'num_tokens': '2.014e+06', 'mean_token_accuracy': '0.6827', 'epoch': '2.122'}
+{'loss': '0.8806', 'grad_norm': '0.1709', 'learning_rate': '2.152e-05', 'entropy': '0.9113', 'num_tokens': '2.303e+06', 'mean_token_accuracy': '0.6894', 'epoch': '2.427'}
+{'loss': '0.863', 'grad_norm': '0.1748', 'learning_rate': '5.533e-06', 'entropy': '0.8917', 'num_tokens': '2.592e+06', 'mean_token_accuracy': '0.6948', 'epoch': '2.731'}
+{'train_runtime': '1.41e+04', 'train_samples_per_second': '0.112', 'train_steps_per_second': '0.007', 'train_loss': '1.163', 'entropy': '0.8949', 'num_tokens': '2.847e+06', 'mean_token_accuracy': '0.6934', 'epoch': '3'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.1/adapters
+>>> Benchmarking r4_alpha4_dropout0.10 ...
+Loading datasets...
+  90-Q: 90 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen3.5-4B
+============================================================
+  Loading tokenizer from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading model from /cluster/scratch/arakhmasari/models/Qwen3.5-4B ...
+  Loading LoRA adapters from /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.10/adapters ...

@@ -1,0 +1,921 @@
+>>> r=4 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Generating CoT traces from base model ...
+  [1/100] depth=1 KEEP | truth=105101.61231478713 pred=105083.52
+         Q: State the result of revenue scaled by income tax for Crimson Pharmaceuticals in 
+         R: 2023 Revenue: 714,010; 2023 Income Tax Rate: 0.14719907608407046; Calculation: 714,010 * 0.14719907608407046 = 105,083.52.
+Answer: 105083.52
+
+  [2/100] depth=3 KEEP | truth=73995.33333333333 pred=73994.67
+         Q: Which quantity is given by the average cost of goods sold for NovaStar Technolog
+         R: Cost of goods sold for 2021: 83340
+Cost of goods sold for 2022: 63527
+Cost of goods sold for 2023: 75117
+Sum: 83340 + 63527 + 75117 = 221984
+Average: 221984 / 3 = 73994.666...
+Answer: 73994.67
+
+  [3/100] depth=0 KEEP | truth=33171.0 pred=33171.0
+         Q: Could you give the total liabilities for Atlas Global Industries in 2023?
+         R: Based on the data for Year 2023, the total liabilities for Atlas Global Industries are explicitly listed as 33171.
+
+Answer: 33171
+
+  [4/100] depth=1 KEEP | truth=68263.0 pred=68263.0
+         Q: You should give the longterm liabilities for Helix BioSciences in 2021 .
+         R: Total liabilities in 2021 are 96,102. Current liabilities are 27,839. Long-term liabilities = Total liabilities - Current liabilities = 96,102 - 27,839 = 68,263.
+Answer: 68263
+
+  [5/100] depth=0 KEEP | truth=867101.0 pred=867099.0
+         Q: Which result follows from the total assets for Ironclad Manufacturing in 2025?
+         R: 2025 Total Assets = 867099.
+Answer: 867099
+
+  [6/100] depth=4 KEEP | truth=163671.0 pred=163671.0
+         Q: whats the value of the longterm assets for Orion Financial Group in 2024 ?
+         R: To calculate long-term assets, subtract current assets (current liabilities + current assets components) from total assets.
+Current Assets = Cash (58304) + Accounts Receivable (12144) + Inventories (8221) + Short-term Investments (26878) = 105547.
+Long-term Assets = Total Assets (269218) - Current A
+
+  [7/100] depth=0 KEEP | truth=2921.0 pred=2921.0
+         Q: State the operating expenses for Pinnacle Health Group in 2022 .
+         R: Based on the data for Year 2022, the operating_expenses value is explicitly listed as 2921.
+
+Answer: 2921
+
+  [8/100] depth=0 KEEP | truth=98792.0 pred=98792.0
+         Q: compute the revenue for Orion Financial Group in 2021
+         R: 2021 revenue is explicitly listed in the data for ticker ORFG.
+Answer: 98792
+
+  [9/100] depth=4 KEEP | truth=75862.5 pred=75862.5
+         Q: Which quantity is given by the average non operating expenses for Crimson Pharma
+         R: Non-operating expenses for 2020: 60056; 2021: 103672; 2022: 85996; 2023: 53726.
+Sum = 60056 + 103672 + 85996 + 53726 = 303450.
+Average = 303450 / 4 = 75862.5.
+Answer: 75862.5
+
+  [10/100] depth=1 SKIP | truth=9171.0 pred=9828.0
+         Q: evaluate the difference between cash and dividends paid for Pacific Crest Energy
+         R: In 2025, Pacific Crest Energy's cash balance is 10,729 and dividends paid are 901. The difference is calculated as 10,729 - 901 = 9,828.
+Answer: 9828
+
+  [11/100] depth=4 KEEP | truth=58868.0 pred=58867.0
+         Q: Could you give the the maximum of cost of goods sold for Apex Dynamics Corp usin
+         R: Cost of Goods Sold values from 2021 to 2025 are: 50583, 46060, 53607, 58867, 41447.
+Comparing these values, 58867 is the highest.
+Answer: 58867
+
+  [12/100] depth=1 KEEP | truth=11090.0 pred=11091.0
+         Q: give the gross profit for Pinnacle Health Group in 2024
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2024: 20948 - 9857 = 11091.
+Answer: 11091
+
+  [13/100] depth=3 KEEP | truth=211364.0 pred=211363.33333333334
+         Q: Determine the average total equity for Ironclad Manufacturing across years 2023 
+         R: Total Equity 2023: 187,787; Total Equity 2024: 131,903; Total Equity 2025: 314,400.
+Sum = 187,787 + 131,903 + 314,400 = 634,090.
+Average = 634,090 / 3 = 211,363.333...
+Answer: 211363.33333333334
+
+  [14/100] depth=3 KEEP | truth=93272.0 pred=93272.0
+         Q: What would be the current assets for Helix BioSciences in 2020
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2020: 27177 + 20427 + 17743 + 27925 = 93272.
+Answer: 93272
+
+  [15/100] depth=5 KEEP | truth=5578.0 pred=5578.0
+         Q: evaluate the the minimum of short term investments for Meridian Systems Inc usin
+         R: Short-term investments for Meridian Systems Inc from 2020 to 2025 are: 14711, 16112, 10888, 6816, 5578, and 21498. The minimum value among these is 5578.
+
+Answer: 5578
+
+  [16/100] depth=3 KEEP | truth=103532.0 pred=103532.0
+         Q: calculate the the minimum of total liabilities for Ironclad Manufacturing using 
+         R: Total liabilities for 2021: 103,532; 2022: 450,869; 2023: 190,519; 2024: 325,872. The minimum value among these is 103,532.
+Answer: 103532
+
+  [17/100] depth=3 KEEP | truth=2433.0 pred=2433.0
+         Q: determine the the minimum of inventories for Orion Financial Group using values 
+         R: Inventories for 2021: 7867; 2022: 2433; 2023: 5922; 2024: 8221.
+Minimum value is 2433.
+Answer: 2433
+
+  [18/100] depth=0 KEEP | truth=6556.0 pred=6555.0
+         Q: state the capex for Meridian Systems Inc in 2025.
+         R: Based on the data for Year 2025, the capex value is explicitly listed as 6555.
+
+Answer: 6555
+
+  [19/100] depth=2 KEEP | truth=23215.150074294204 pred=23207.7
+         Q: May you give the result of sum of cost of goods sold and capex for Pinnacle Heal
+         R: 2023 (COGS + Capex) = 9524 + 517 = 10041.
+2021 Current Liabilities = 1346; 2023 Current Liabilities = 4458.
+Growth = (4458 - 1346) / 1346 = 3112 / 1346 ≈ 2.3113.
+Scaled Value = 10041 * 2.3113 ≈ 23207.7.
+Answer: 23207.7
+
+  [20/100] depth=2 KEEP | truth=5021.0 pred=5021.0
+         Q: may you calculate the the maximum of capex for Cobalt Semiconductor using values
+         R: Capex values for 2022, 2023, and 2024 are 2520, 5021, and 4257 respectively. The maximum of these values is 5021.
+Answer: 5021
+
+  [21/100] depth=3 KEEP | truth=189604.0 pred=189603.0
+         Q: which result follows from the the maximum of revenue for Meridian Systems Inc us
+         R: Revenue values for 2021–2024: 171514, 163959, 166363, 189603.
+Maximum is 189603 (Year 2024).
+Answer: 189603
+
+  [22/100] depth=0 KEEP | truth=4078.0 pred=4078.0
+         Q: Provide the capex for Atlas Global Industries in 2022 .
+         R: Based on the data for Year 2022, the capex value is explicitly listed as 4078.
+
+Answer: 4078
+
+  [23/100] depth=1 KEEP | truth=9802.0 pred=9802.0
+         Q: which quantity is given by the the minimum of inventories for ClearPath Logistic
+         R: 2020 inventories: 22786; 2021 inventories: 9802; Minimum(22786, 9802) = 9802.
+Answer: 9802
+
+  [24/100] depth=1 KEEP | truth=339437.0 pred=339437.0
+         Q: Whats the value of the sum of total liabilities and total equity for Pacific Cre
+         R: 2020 Total Liabilities: 246479
+2020 Total Equity: 92958
+Sum: 246479 + 92958 = 339437
+Answer: 339437
+
+  [25/100] depth=1 KEEP | truth=-46981.0 pred=-46982.0
+         Q: what is the value of the difference between cost of goods sold and revenue for Q
+         R: Cost of Goods Sold (2025) = 46761
+Revenue (2025) = 93743
+Difference = 46761 - 93743 = -46982
+Answer: -46982
+
+  [26/100] depth=2 SKIP | truth=-307.0 pred=1778.0
+         Q: what would be the difference between non operating expenses and sum of dividends
+         R: Non-operating expenses in 2024 are 4613. Dividends paid in 2024 are 1739. Inventories in 2024 are 1096. Sum of dividends and inventories = 1739 + 1096 = 2835. Difference = 4613 - 2835 = 1778.
+Answer: 1778
+
+  [27/100] depth=0 KEEP | truth=5493.0 pred=5493.0
+         Q: You should calculate the total equity for Pinnacle Health Group in 2023.
+         R: Based on the data for Year 2023, the total equity is explicitly listed as 5493.
+
+Answer: 5493
+
+  [28/100] depth=4 KEEP | truth=17116.0 pred=17116.0
+         Q: What is the sum of the maximum of inventories for NovaStar Technologies using va
+         R: Inventories 2024-2025: 8368, 3554 → Max = 8368.
+Inventories 2020-2023: 5488, 6654, 2745, 8748 → Max = 8748.
+Sum: 8368 + 8748 = 17116.
+Answer: 17116
+
+  [29/100] depth=0 KEEP | truth=202980.0 pred=202978.0
+         Q: compute the total assets for Meridian Systems Inc in 2022.
+         R: Based on the data for Year 2022, the total_assets value is explicitly listed as 202978.
+
+Answer: 202978
+
+  [30/100] depth=1 KEEP | truth=21636.53945373657 pred=21636.88
+         Q: Which result follows from the result of non operating expenses scaled by income 
+         R: 2020 non-operating expenses: 111,471.
+2020 income tax rate: 0.1941001646503267.
+Calculation: 111,471 * 0.1941001646503267 = 21,636.88.
+Answer: 21636.88
+
+  [31/100] depth=1 KEEP | truth=-195127.0 pred=-195124.0
+         Q: Which quantity is given by the difference between accounts receivable and total 
+         R: Accounts Receivable (2022) = 10946
+Total Assets (2022) = 206070
+Difference = 10946 - 206070 = -195124
+Answer: -195124
+
+  [32/100] depth=1 KEEP | truth=518082.0 pred=518082.0
+         Q: what do we obtain as the difference between revenue and cash for SilverLine Reta
+         R: Revenue in 2020 is 553,885 and Cash is 35,803.
+Calculation: 553,885 - 35,803 = 518,082.
+Answer: 518082
+
+  [33/100] depth=0 KEEP | truth=25742.0 pred=25742.0
+         Q: what do we obtain as the accounts receivable for Pacific Crest Energy in 2023
+         R: Based on the data for Year 2023, the accounts_receivable value is explicitly listed as 25742.
+
+Answer: 25742
+
+  [34/100] depth=1 KEEP | truth=206207.0 pred=206207.0
+         Q: Which quantity is given by the the minimum of total assets for Helix BioSciences
+         R: Total Assets 2020 = 206207
+Total Assets 2021 = 221577
+Minimum(206207, 221577) = 206207
+Answer: 206207
+
+  [35/100] depth=6 KEEP | truth=43969.8 pred=43969.6
+         Q: what is the value of the sum of the minimum of accounts receivable for NovaStar 
+         R: Minimum accounts receivable (2020-2023): min(13643, 15250, 20455, 17765) = 13643.
+Sum of cash (2020-2024): 24222 + 7348 + 8761 + 78005 + 33297 = 151633.
+Ratio: 151633 / 5.0 = 30326.6.
+Final Sum: 13643 + 30326.6 = 43969.6.
+Answer: 43969.6
+
+  [36/100] depth=0 KEEP | truth=24969.0 pred=24969.0
+         Q: You should calculate the total equity for Apex Dynamics Corp in 2024 .
+         R: Based on the data for Year 2024, the total equity is explicitly listed as 24969.
+
+Answer: 24969
+
+  [37/100] depth=2 KEEP | truth=110812.0 pred=110812.0
+         Q: Determine the operating income for Titan Consumer Brands in 2024.
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2024: 486,911 - 346,744 - 29,355 = 110,812.
+Answer: 110812
+
+  [38/100] depth=1 KEEP | truth=1639.7369646082911 pred=1639.737165028708
+         Q: what is the value of the result of current liabilities scaled by income tax for 
+         R: 2021 Current Liabilities = 8135; 2021 Income Tax = 0.20156569939868368; Calculation: 8135 * 0.20156569939868368 = 1639.737165028708.
+Answer: 1639.737165028708
+
+  [39/100] depth=0 KEEP | truth=2093.0 pred=2093.0
+         Q: give the short term investments for Quantum Bridge Holdings in 2022
+         R: Based on the data for Year 2022, the short_term_investments value is explicitly listed as 2093.
+
+Answer: 2093
+
+  [40/100] depth=0 KEEP | truth=73095.0 pred=73095.0
+         Q: Which value corresponds to the total assets for Cobalt Semiconductor in 2024 ?
+         R: Based on the data for Year 2024 under the ticker CBSM (Cobalt Semiconductor), the total_assets value is explicitly listed as 73095.
+
+Answer: 73095
+
+  [41/100] depth=1 KEEP | truth=1824.322909798859 pred=1824.42
+         Q: you should calculate the result of operating expenses scaled by income tax for M
+         R: Operating Expenses for 2023 = 15975; Income Tax Rate for 2023 = 0.11419861720180652; Calculation: 15975 * 0.11419861720180652 = 1824.42.
+Answer: 1824.42
+
+  [42/100] depth=3 KEEP | truth=19511.666666666668 pred=19511.67
+         Q: You should give the average total equity for Cobalt Semiconductor across years 2
+         R: Total Equity 2021: 19173; Total Equity 2022: 18575; Total Equity 2023: 20787.
+Sum = 19173 + 18575 + 20787 = 58535; Average = 58535 / 3 = 19511.666...
+Answer: 19511.67
+
+  [43/100] depth=1 KEEP | truth=73911.0 pred=73911.0
+         Q: What does the following give: longterm liabilities for Quantum Bridge Holdings i
+         R: To calculate long-term liabilities for Quantum Bridge Holdings in 2022, subtract current liabilities from total liabilities using the provided data: 124280 (total_liabilities) - 50369 (current_liabilities) = 73911.
+Answer: 73911
+
+  [44/100] depth=4 KEEP | truth=4671.0 pred=4671.0
+         Q: provide the the minimum of cash for Pacific Crest Energy using values from 2020 
+         R: Cash values for 2020–2024: 82616, 33062, 53690, 46177, 4671.
+Minimum is 4671 (Year 2024).
+Answer: 4671
+
+  [45/100] depth=0 KEEP | truth=96103.0 pred=96102.0
+         Q: what would be the total liabilities for Helix BioSciences in 2021 ?
+         R: Based on the data for Year 2021, the total liabilities for HLXB are explicitly listed as 96102.
+
+Answer: 96102
+
+  [46/100] depth=1 KEEP | truth=1168.0 pred=1168.0
+         Q: Which quantity is given by the the minimum of operating expenses for Pinnacle He
+         R: Operating expenses for 2024: 1168; Operating expenses for 2025: 3456.
+Minimum of 1168 and 3456 is 1168.
+Answer: 1168
+
+  [47/100] depth=1 SKIP | truth=813.4402839079332 pred=47716.0
+         Q: Determine the result of accounts receivable scaled by income tax for Apex Dynami
+         R: Accounts Receivable in 2025: 6230
+Income Tax in 2025: 0.1305682638696522
+Calculation: 6230 / 0.1305682638696522 = 47715.999...
+Answer: 47716
+
+  [48/100] depth=0 KEEP | truth=67721.0 pred=67721.0
+         Q: may you give the short term investments for Titan Consumer Brands in 2024
+         R: Based on the data for Year 2024, the short_term_investments value is explicitly listed as 67721.
+
+Answer: 67721
+
+  [49/100] depth=1 KEEP | truth=-62795.0 pred=-62794.0
+         Q: Compute the difference between inventories and current liabilities for NovaStar 
+         R: In 2025, inventories are 3554 and current liabilities are 66348.
+Difference = 3554 - 66348 = -62794.
+Answer: -62794
+
+  [50/100] depth=1 KEEP | truth=12187.0 pred=12187.0
+         Q: Whats the value of the difference between current liabilities and capex for Coba
+         R: Current liabilities in 2020 = 15174.
+Capex in 2020 = 2987.
+Difference = 15174 - 2987 = 12187.
+Answer: 12187
+
+  [50/100]  kept=47  skipped=3  (94% pass rate so far)
+  [51/100] depth=0 KEEP | truth=23220.0 pred=23220.0
+         Q: Determine the short term investments for Crimson Pharmaceuticals in 2025.
+         R: Based on the data for Year 2025, the short_term_investments value is explicitly listed as 23220.
+
+Answer: 23220
+
+  [52/100] depth=1 KEEP | truth=97842.195479549 pred=97837.38
+         Q: compute the result of total assets scaled by income tax for Crimson Pharmaceutic
+         R: Total Assets in 2023 = 664,693; Income Tax Rate in 2023 = 0.14719907608407046.
+Calculation: 664,693 * 0.14719907608407046 = 97,837.38.
+Answer: 97837.38
+
+  [53/100] depth=1 KEEP | truth=73042.22115989374 pred=73039.29
+         Q: Which quantity is given by the result of total liabilities scaled by income tax 
+         R: Calculation: 376312 (Total Liabilities 2020) * 0.1941001646503267 (Income Tax 2020) = 73039.29.
+Answer: 73039.29
+
+  [54/100] depth=0 KEEP | truth=187788.0 pred=187787.0
+         Q: may you give the total equity for Ironclad Manufacturing in 2023
+         R: Based on the data for Year 2023, the total equity for Ironclad Manufacturing is explicitly listed as 187787.
+
+Answer: 187787
+
+  [55/100] depth=1 KEEP | truth=-97838.0 pred=-97838.0
+         Q: could you give the difference between accounts receivable and cost of goods sold
+         R: Accounts Receivable (2021) = 13,101
+Cost of Goods Sold (2021) = 110,939
+Difference = 13,101 - 110,939 = -97,838
+Answer: -97838
+
+  [56/100] depth=1 KEEP | truth=106403.0 pred=106404.0
+         Q: what is the value of the difference between total assets and current liabilities
+         R: Total Assets (2024) = 146966
+Current Liabilities (2024) = 40562
+Difference = 146966 - 40562 = 106404
+Answer: 106404
+
+  [57/100] depth=0 KEEP | truth=135549.0 pred=135549.0
+         Q: you should calculate the operating expenses for ClearPath Logistics in 2025.
+         R: Based on the provided data for 2025, the operating expenses are explicitly listed as 135549.
+
+Answer: 135549
+
+  [58/100] depth=4 SKIP | truth=2331.0 pred=6073.0
+         Q: State the difference between the maximum of accounts receivable for Apex Dynamic
+         R: Max Accounts Receivable (2022-2025) = 10946 (2022).
+Sum of Inventories and Dividends Paid (2025) = 4040 + 833 = 4873.
+Difference = 10946 - 4873 = 6073.
+Answer: 6073
+
+  [59/100] depth=1 KEEP | truth=23748.0 pred=23748.0
+         Q: May you give the the minimum of accounts receivable for Ironclad Manufacturing u
+         R: Accounts Receivable 2023: 25,432
+Accounts Receivable 2024: 23,748
+Minimum = 23,748
+Answer: 23748
+
+  [60/100] depth=0 SKIP | truth=35183.0 pred=19677.0
+         Q: State the dividends paid for Crimson Pharmaceuticals in 2023
+         R: Based on the data for Year 2023, the value for dividends_paid is explicitly listed as 19677.
+
+Answer: 19677
+
+  [61/100] depth=5 KEEP | truth=72012.0 pred=72012.0
+         Q: Which quantity is given by the the maximum of short term investments for Titan C
+         R: Short term investments for 2020: 72012; 2021: 33790; 2022: 58524; 2023: 21435; 2024: 67721; 2025: 70514.
+Maximum value is 72012 (from 2020).
+Answer: 72012
+
+  [62/100] depth=4 KEEP | truth=9038.0 pred=9038.0
+         Q: You should calculate the the maximum of short term investments for Cobalt Semico
+         R: Short term investments for 2020-2024 are: 9038, 922, 4097, 4666, 3350. The maximum value is 9038.
+Answer: 9038
+
+  [63/100] depth=2 KEEP | truth=29064.0 pred=29065.0
+         Q: What does the following give: operating income for Quantum Bridge Holdings in 20
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2025: 93743 - 46761 - 17917 = 29065.
+Answer: 29065
+
+  [64/100] depth=0 KEEP | truth=58523.0 pred=58524.0
+         Q: Could you give the short term investments for Titan Consumer Brands in 2022?
+         R: Based on the data for Year 2022, the short_term_investments value is explicitly listed as 58524.
+
+Answer: 58524
+
+  [65/100] depth=4 KEEP | truth=88430.0 pred=88430.0
+         Q: what is the the maximum of short term investments for Ironclad Manufacturing usi
+         R: Short-term investments for 2020-2024: 45319, 16327, 88430, 12073, 14126.
+Maximum value is 88430 (from 2022).
+Answer: 88430
+
+  [66/100] depth=1 SKIP | truth=52659.0 pred=False
+         Q: Which quantity is given by the longterm liabilities for Ironclad Manufacturing i
+         R: The provided data contains `total_liabilities` and `total_equity` for 2021, but does not explicitly list `longterm_liabilities`. However, the standard accounting identity is: `Total Assets = Total Liabilities + Total Equity`. The sum of `total_liabilities` (103532) and `total_equity` (179435) equals
+
+  [67/100] depth=3 KEEP | truth=58868.0 pred=58867.0
+         Q: You should give the the maximum of cost of goods sold for Apex Dynamics Corp usi
+         R: Cost of Goods Sold values for 2022 through 2025 are: 46060, 53607, 58867, and 41447. The maximum value among these is 58867.
+Answer: 58867
+
+  [68/100] depth=0 KEEP | truth=141225.0 pred=141224.0
+         Q: compute the total assets for Apex Dynamics Corp in 2021
+         R: Based on the data for Year 2021, the total_assets value is explicitly listed as 141224.
+
+Answer: 141224
+
+  [69/100] depth=1 KEEP | truth=-25592.0 pred=-25592.0
+         Q: calculate the difference between total equity and total liabilities for Cobalt S
+         R: Total Equity (2025) = 13033; Total Liabilities (2025) = 38625; Difference = 13033 - 38625 = -25592.
+Answer: -25592
+
+  [70/100] depth=2 KEEP | truth=193081.0 pred=193081.0
+         Q: You should give the operating income for Ironclad Manufacturing in 2021 .
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2021: 340508 - 110507 - 36920 = 193081.
+Answer: 193081
+
+  [71/100] depth=0 KEEP | truth=29590.0 pred=29590.0
+         Q: you should give the operating expenses for Ironclad Manufacturing in 2022 .
+         R: Based on the data for Year 2022, the operating expenses for IRCL are explicitly listed as 29590.
+
+Answer: 29590
+
+  [72/100] depth=0 KEEP | truth=16808.0 pred=16808.0
+         Q: which value corresponds to the accounts receivable for Helix BioSciences in 2021
+         R: Based on the data for Year 2021 under the ticker HLXB, the accounts_receivable value is explicitly listed as 16808.
+
+Answer: 16808
+
+  [73/100] depth=4 SKIP | truth=53256.0 pred=54256.0
+         Q: give the longterm assets for Cobalt Semiconductor in 2024
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (12572) + Accounts Receivable (2888) + Inventories (1029) + Short-term Investments (3350) = 18839.
+Long-term assets = 73095 - 18839 = 54256.
+Answer: 54256
+
+  [74/100] depth=2 KEEP | truth=48301.0 pred=48291.0
+         Q: Calculate the operating income for NovaStar Technologies in 2020.
+         R: Operating Income = Revenue - Cost of Goods Sold - Operating Expenses.
+For 2020: 107884 - 37356 - 22227 = 48291.
+Answer: 48291
+
+  [75/100] depth=4 SKIP | truth=41281.0 pred=40281.0
+         Q: which result follows from the sum of current assets and longterm liabilities for
+         R: Current Assets (2020) = Cash (10029) + Accounts Receivable (5701) + Inventories (3886) + Short-term Investments (1635) = 20251.
+Long-term Liabilities (2020) = Total Liabilities (34649) - Current Liabilities (14619) = 20030.
+Sum = 20251 + 20030 = 40281.
+Answer: 40281
+
+  [76/100] depth=0 KEEP | truth=7759.0 pred=7759.0
+         Q: Which result follows from the accounts receivable for Orion Financial Group in 2
+         R: 2020 Accounts Receivable = 7759.
+Answer: 7759
+
+  [77/100] depth=3 KEEP | truth=54586.0 pred=54586.0
+         Q: state the the maximum of short term investments for NovaStar Technologies using 
+         R: Short-term investments for 2020: 12,753; 2021: 4,908; 2022: 22,901; 2023: 54,586.
+Maximum value is 54,586 (from 2023).
+Answer: 54586
+
+  [78/100] depth=1 KEEP | truth=28273.0 pred=28273.0
+         Q: What do we obtain as the gross profit for Apex Dynamics Corp in 2021?
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2021: 78856 - 50583 = 28273.
+Answer: 28273
+
+  [79/100] depth=3 KEEP | truth=17468.0 pred=17468.0
+         Q: What would be the current assets for Cobalt Semiconductor in 2023
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2023: 7204 + 4686 + 912 + 4666 = 17468.
+Answer: 17468
+
+  [80/100] depth=4 KEEP | truth=149482.0 pred=149482.0
+         Q: compute the the minimum of total equity for Crimson Pharmaceuticals using values
+         R: Total Equity values: 2021 (216,730), 2022 (149,482), 2023 (291,813), 2024 (315,442), 2025 (225,287).
+Minimum = 149,482.
+Answer: 149482
+
+  [81/100] depth=0 KEEP | truth=5710.0 pred=5710.0
+         Q: What's the value of the short term investments for Quantum Bridge Holdings in 20
+         R: Based on the data for Year 2025, the short_term_investments value is explicitly listed as 5710.
+
+Answer: 5710
+
+  [82/100] depth=3 KEEP | truth=741517.3333333334 pred=741517.0
+         Q: evaluate the average revenue for Crimson Pharmaceuticals across years 2023 throu
+         R: Revenue 2023: 714,010; Revenue 2024: 712,606; Revenue 2025: 797,935.
+Sum = 714,010 + 712,606 + 797,935 = 2,224,551.
+Average = 2,224,551 / 3 = 741,517.
+Answer: 741517
+
+  [83/100] depth=0 KEEP | truth=20820.0 pred=20820.0
+         Q: evaluate the capex for Ironclad Manufacturing in 2025
+         R: Based on the data for 2025, the Capex for Ironclad Manufacturing is explicitly listed as 20820.
+
+Answer: 20820
+
+  [84/100] depth=3 KEEP | truth=33146.0 pred=33146.0
+         Q: what would be the current assets for Orion Financial Group in 2022 ?
+         R: Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments.
+For 2022: 8636 + 9324 + 2433 + 12753 = 33146.
+Answer: 33146
+
+  [85/100] depth=2 SKIP | truth=-51999.031751281625 pred=235450.04
+         Q: may you give the result of sum of revenue and cash for NovaStar Technologies in 
+         R: 2022 Revenue (149,263) + 2022 Cash (8,761) = 158,024.
+2020 Current Liabilities (20,286) to 2021 Current Liabilities (30,234) growth factor = 30,234 / 20,286 ≈ 1.4899.
+158,024 * 1.4899 ≈ 235,450.
+Answer: 235450.04
+
+  [86/100] depth=3 KEEP | truth=78172.66666666667 pred=78172.67
+         Q: What's the value of the average non operating expenses for Titan Consumer Brands
+         R: 2020 non-operating expenses: 32,313
+2021 non-operating expenses: 103,533
+2022 non-operating expenses: 98,672
+Sum: 32,313 + 103,533 + 98,672 = 234,518
+Average: 234,518 / 3 = 78,172.666...
+Answer: 78172.67
+
+  [87/100] depth=0 KEEP | truth=428824.0 pred=428824.0
+         Q: Which value corresponds to the revenue for Titan Consumer Brands in 2020
+         R: 2020 revenue data for TICB is listed as 428824.
+Answer: 428824
+
+  [88/100] depth=0 SKIP | truth=17450.0 pred=11560.0
+         Q: What would be the dividends paid for Quantum Bridge Holdings in 2024?
+         R: Based on the data provided for Year 2024, the value for dividends_paid is explicitly listed.
+
+2024 Dividends Paid = 11560
+
+Answer: 11560
+
+  [89/100] depth=0 KEEP | truth=4158.0 pred=4158.0
+         Q: give the capex for Atlas Global Industries in 2025 .
+         R: Based on the data for Year 2025, the capex value is explicitly listed as 4158.
+
+Answer: 4158
+
+  [90/100] depth=1 KEEP | truth=57609.0 pred=57610.0
+         Q: compute the gross profit for Quantum Bridge Holdings in 2023 .
+         R: Gross Profit = Revenue - Cost of Goods Sold.
+For 2023: 86108 - 28498 = 57610.
+Answer: 57610
+
+  [91/100] depth=5 SKIP | truth=48121.077069065104 pred=222600000.0
+         Q: what would be the sum of the minimum of total liabilities for Atlas Global Indus
+         R: Minimum total liabilities (2020-2024): 14619 (2020).
+Gross Profit 2023: 89374 - 32958 = 56416.
+Revenue Growth (2020-2024): (91983 - 72714) / 72714 = 0.2678.
+Result: 14619 * 56416 * 0.2678 = 222,600,000.
+Answer: 222600000
+
+  [92/100] depth=1 SKIP | truth=2393.146222081057 pred=183500.0
+         Q: Provide the result of accounts receivable scaled by income tax for Meridian Syst
+         R: Accounts Receivable in 2023: 20956
+Income Tax in 2023: 0.11419861720180652
+Calculation: 20956 / 0.11419861720180652 = 183499.999...
+Answer: 183500
+
+  [93/100] depth=4 KEEP | truth=21949.0 pred=21948.0
+         Q: state the the maximum of short term investments for Helix BioSciences using valu
+         R: Short-term investments for 2021: 18,432; 2022: 20,239; 2023: 16,318; 2024: 3,431; 2025: 21,948. The maximum value among these is 21,948.
+Answer: 21948
+
+  [94/100] depth=1 KEEP | truth=260787.0 pred=260787.0
+         Q: What would be the longterm liabilities for ClearPath Logistics in 2024 ?
+         R: Long-term liabilities = Total Liabilities - Current Liabilities.
+For 2024: 516,676 - 255,889 = 260,787.
+Answer: 260787
+
+  [95/100] depth=4 SKIP | truth=7693.0 pred=4470.75
+         Q: What is the value of the average dividends paid for Quantum Bridge Holdings acro
+         R: Dividends 2020: 129, 2021: 1065, 2022: 4613, 2023: 12076.
+Sum = 129 + 1065 + 4613 + 12076 = 17883.
+Average = 17883 / 4 = 4470.75.
+Answer: 4470.75
+
+  [96/100] depth=2 KEEP | truth=26882.0 pred=26882.0
+         Q: evaluate the the maximum of operating expenses for Orion Financial Group using v
+         R: Operating expenses for 2020: 21,496; 2021: 24,051; 2022: 26,882. The maximum value among these years is 26,882.
+Answer: 26882
+
+  [97/100] depth=5 KEEP | truth=41230.0 pred=41229.0
+         Q: whats the value of the the maximum of cash for Apex Dynamics Corp using values f
+         R: Cash values: 2020=2627, 2021=7412, 2022=41229, 2023=13282, 2024=15788, 2025=26014.
+Maximum is 41229 (Year 2022).
+Answer: 41229
+
+  [98/100] depth=0 KEEP | truth=82616.0 pred=82616.0
+         Q: You should calculate the cash for Pacific Crest Energy in 2020 .
+         R: Based on the data provided for Year 2020, the cash value is explicitly listed as 82616.
+
+Answer: 82616
+
+  [99/100] depth=1 SKIP | truth=165102.0 pred=194929.0
+         Q: what is the value of the total total liabilities for Crimson Pharmaceuticals in 
+         R: Based on the data for Year 2024, the value for total_liabilities is explicitly listed as 194929.
+
+Answer: 194929
+
+  [100/100] depth=4 KEEP | truth=162251.0 pred=162250.0
+         Q: Evaluate the longterm assets for Helix BioSciences in 2021.
+         R: Long-term assets = Total Assets - Current Assets.
+Current Assets = Cash (18,724) + Accounts Receivable (16,808) + Inventories (5,363) + Short-term Investments (18,432) = 59,327.
+Long-term assets = 221,577 - 59,327 = 162,250.
+Answer: 162250
+
+  [100/100]  kept=86  skipped=14  (86% pass rate so far)
+[PHASE 1] CoT traces saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=4, alpha=4, dropout=0.1) ...
+trainable params: 786,432 || all params: 4,206,537,728 || trainable%: 0.0187
+
+[PHASE 4] Training ...
+{'train_runtime': '758.6', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.208', 'entropy': '1.225', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4499', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.1/adapters
+>>> r=4 alpha=4 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=4, alpha=4, dropout=0.15) ...
+trainable params: 786,432 || all params: 4,206,537,728 || trainable%: 0.0187
+
+[PHASE 4] Training ...
+{'train_runtime': '760.5', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.173', 'entropy': '1.224', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4513', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.15/adapters
+>>> r=4 alpha=8 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=4, alpha=8, dropout=0.1) ...
+trainable params: 786,432 || all params: 4,206,537,728 || trainable%: 0.0187
+
+[PHASE 4] Training ...
+{'train_runtime': '760.3', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.992', 'entropy': '1.224', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4626', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha8_dropout0.1/adapters
+>>> r=4 alpha=8 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=4, alpha=8, dropout=0.15) ...
+trainable params: 786,432 || all params: 4,206,537,728 || trainable%: 0.0187
+
+[PHASE 4] Training ...
+{'train_runtime': '761.1', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.969', 'entropy': '1.222', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4643', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha8_dropout0.15/adapters
+>>> r=4 alpha=16 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=4, alpha=16, dropout=0.1) ...
+trainable params: 786,432 || all params: 4,206,537,728 || trainable%: 0.0187
+
+[PHASE 4] Training ...
+{'train_runtime': '761.3', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.659', 'entropy': '1.213', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4878', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha16_dropout0.1/adapters
+>>> r=4 alpha=16 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=4, alpha=16, dropout=0.15) ...
+trainable params: 786,432 || all params: 4,206,537,728 || trainable%: 0.0187
+
+[PHASE 4] Training ...
+{'train_runtime': '761.5', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.637', 'entropy': '1.213', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4896', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha16_dropout0.15/adapters
+>>> r=8 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=4, dropout=0.1) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'train_runtime': '761.5', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.192', 'entropy': '1.225', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4502', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha4_dropout0.1/adapters
+>>> r=8 alpha=4 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=4, dropout=0.15) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'train_runtime': '761.3', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.2', 'entropy': '1.225', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4505', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha4_dropout0.15/adapters
+>>> r=8 alpha=8 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=8, dropout=0.1) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'train_runtime': '759.8', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.989', 'entropy': '1.224', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4628', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha8_dropout0.1/adapters
+>>> r=8 alpha=8 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=8, dropout=0.15) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'train_runtime': '760.1', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.033', 'entropy': '1.224', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4602', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha8_dropout0.15/adapters
+>>> r=8 alpha=16 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=16, dropout=0.1) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'train_runtime': '760', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.632', 'entropy': '1.212', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4903', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha16_dropout0.1/adapters
+>>> r=8 alpha=16 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=16, dropout=0.15) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'train_runtime': '759.7', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.688', 'entropy': '1.217', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4852', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha16_dropout0.15/adapters
+>>> r=16 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=16, alpha=4, dropout=0.1) ...
+trainable params: 3,145,728 || all params: 4,208,897,024 || trainable%: 0.0747
+
+[PHASE 4] Training ...
+{'train_runtime': '759.9', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.199', 'entropy': '1.225', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4499', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r16_alpha4_dropout0.1/adapters
+>>> r=16 alpha=4 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=16, alpha=4, dropout=0.15) ...
+trainable params: 3,145,728 || all params: 4,208,897,024 || trainable%: 0.0747
+
+[PHASE 4] Training ...
+{'train_runtime': '758.8', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.211', 'entropy': '1.225', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4494', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r16_alpha4_dropout0.15/adapters
+>>> r=16 alpha=8 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=16, alpha=8, dropout=0.1) ...
+trainable params: 3,145,728 || all params: 4,208,897,024 || trainable%: 0.0747
+
+[PHASE 4] Training ...
+{'train_runtime': '758.9', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.012', 'entropy': '1.224', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4613', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r16_alpha8_dropout0.1/adapters
+>>> r=16 alpha=8 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=16, alpha=8, dropout=0.15) ...
+trainable params: 3,145,728 || all params: 4,208,897,024 || trainable%: 0.0747
+
+[PHASE 4] Training ...
+{'train_runtime': '758.9', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '3.014', 'entropy': '1.224', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4613', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r16_alpha8_dropout0.15/adapters
+>>> r=16 alpha=16 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=16, alpha=16, dropout=0.1) ...
+trainable params: 3,145,728 || all params: 4,208,897,024 || trainable%: 0.0747
+
+[PHASE 4] Training ...
+{'train_runtime': '759', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.663', 'entropy': '1.214', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4878', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r16_alpha16_dropout0.1/adapters
+>>> r=16 alpha=16 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 100: using 100 examples (smoke test mode)
+[INFO]  Pool: 100 examples | depth dist: {0: 29, 1: 30, 2: 9, 3: 13, 4: 14, 5: 4, 6: 1}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 86 traces — skipping generation.
+
+[PHASE 1] Done: 86/100 kept (86%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 27, 1: 25, 2: 7, 3: 13, 4: 10, 5: 3, 6: 1}
+
+[PHASE 2] Applying LoRA adapters (r=16, alpha=16, dropout=0.15) ...
+trainable params: 3,145,728 || all params: 4,208,897,024 || trainable%: 0.0747
+
+[PHASE 4] Training ...
+{'train_runtime': '760.5', 'train_samples_per_second': '0.113', 'train_steps_per_second': '0.008', 'train_loss': '2.684', 'entropy': '1.215', 'num_tokens': '1.552e+05', 'mean_token_accuracy': '0.4857', 'epoch': '1'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r16_alpha16_dropout0.15/adapters

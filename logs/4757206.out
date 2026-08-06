@@ -1,0 +1,51 @@
+>>> r=4 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  --limit 10: using 10 examples (smoke test mode)
+[INFO]  Pool: 10 examples | depth dist: {0: 4, 1: 3, 3: 1, 4: 2}
+
+[PHASE 1] Generating CoT traces from base model ...
+  [1/10] depth=1 SKIP | truth=105101.61231478713 pred=False
+         Q: State the result of revenue scaled by income tax for Crimson Pharmaceuticals in 
+         R: Answer: False
+
+  [2/10] depth=3 SKIP | truth=73995.33333333333 pred=False
+         Q: Which quantity is given by the average cost of goods sold for NovaStar Technolog
+         R: Answer: False
+
+  [3/10] depth=0 SKIP | truth=33171.0 pred=False
+         Q: Could you give the total liabilities for Atlas Global Industries in 2023?
+         R: Answer: False
+
+  [4/10] depth=1 SKIP | truth=68263.0 pred=False
+         Q: You should give the longterm liabilities for Helix BioSciences in 2021 .
+         R: Answer: False
+
+  [5/10] depth=0 SKIP | truth=867101.0 pred=False
+         Q: Which result follows from the total assets for Ironclad Manufacturing in 2025?
+         R: Answer: False
+
+  [6/10] depth=4 SKIP | truth=163671.0 pred=False
+         Q: whats the value of the longterm assets for Orion Financial Group in 2024 ?
+         R: Answer: False
+
+  [7/10] depth=0 SKIP | truth=2921.0 pred=False
+         Q: State the operating expenses for Pinnacle Health Group in 2022 .
+         R: Answer: False
+
+  [8/10] depth=0 SKIP | truth=98792.0 pred=False
+         Q: compute the revenue for Orion Financial Group in 2021
+         R: Answer: False
+
+  [9/10] depth=4 SKIP | truth=75862.5 pred=False
+         Q: Which quantity is given by the average non operating expenses for Crimson Pharma
+         R: Answer: False
+
+  [10/10] depth=1 SKIP | truth=9171.0 pred=False
+         Q: evaluate the difference between cash and dividends paid for Pacific Crest Energy
+         R: Answer: False
+
+  [10/10]  kept=0  skipped=10  (0% pass rate so far)
+[PHASE 1] CoT traces saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json
+
+[PHASE 1] Done: 0/10 kept (0%)
+[PHASE 1] Depth dist of kept CoT examples: {}

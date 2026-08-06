@@ -1,0 +1,164 @@
+>>> r=8 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 525 traces — skipping generation.
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=4, dropout=0.1) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'loss': '2.896', 'grad_norm': '3.656', 'learning_rate': '0.0001991', 'entropy': '1.216', 'num_tokens': '2.896e+05', 'mean_token_accuracy': '0.476', 'epoch': '0.3048'}
+{'loss': '1.18', 'grad_norm': '0.08984', 'learning_rate': '0.0001893', 'entropy': '1.059', 'num_tokens': '5.781e+05', 'mean_token_accuracy': '0.6419', 'epoch': '0.6095'}
+{'loss': '1.078', 'grad_norm': '0.1079', 'learning_rate': '0.0001695', 'entropy': '1.07', 'num_tokens': '8.67e+05', 'mean_token_accuracy': '0.6497', 'epoch': '0.9143'}
+{'loss': '1.047', 'grad_norm': '0.09717', 'learning_rate': '0.0001421', 'entropy': '1.074', 'num_tokens': '1.151e+06', 'mean_token_accuracy': '0.6529', 'epoch': '1.213'}
+{'loss': '1.012', 'grad_norm': '0.1079', 'learning_rate': '0.00011', 'entropy': '1.058', 'num_tokens': '1.441e+06', 'mean_token_accuracy': '0.6578', 'epoch': '1.518'}
+{'loss': '0.9655', 'grad_norm': '0.1089', 'learning_rate': '7.682e-05', 'entropy': '1.02', 'num_tokens': '1.73e+06', 'mean_token_accuracy': '0.67', 'epoch': '1.823'}
+{'loss': '0.9394', 'grad_norm': '0.1108', 'learning_rate': '4.619e-05', 'entropy': '0.9899', 'num_tokens': '2.014e+06', 'mean_token_accuracy': '0.6753', 'epoch': '2.122'}
+{'loss': '0.9206', 'grad_norm': '0.1128', 'learning_rate': '2.152e-05', 'entropy': '0.9672', 'num_tokens': '2.303e+06', 'mean_token_accuracy': '0.6782', 'epoch': '2.427'}
+{'loss': '0.9054', 'grad_norm': '0.1167', 'learning_rate': '5.533e-06', 'entropy': '0.9493', 'num_tokens': '2.592e+06', 'mean_token_accuracy': '0.683', 'epoch': '2.731'}
+{'train_runtime': '1.408e+04', 'train_samples_per_second': '0.112', 'train_steps_per_second': '0.007', 'train_loss': '1.188', 'entropy': '0.9525', 'num_tokens': '2.847e+06', 'mean_token_accuracy': '0.6811', 'epoch': '3'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha4_dropout0.1/adapters
+>>> r=8 alpha=4 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 525 traces — skipping generation.
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=4, dropout=0.15) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'loss': '2.898', 'grad_norm': '3.5', 'learning_rate': '0.0001991', 'entropy': '1.216', 'num_tokens': '2.896e+05', 'mean_token_accuracy': '0.476', 'epoch': '0.3048'}
+{'loss': '1.186', 'grad_norm': '0.09033', 'learning_rate': '0.0001893', 'entropy': '1.059', 'num_tokens': '5.781e+05', 'mean_token_accuracy': '0.6417', 'epoch': '0.6095'}
+{'loss': '1.08', 'grad_norm': '0.08984', 'learning_rate': '0.0001695', 'entropy': '1.07', 'num_tokens': '8.67e+05', 'mean_token_accuracy': '0.6501', 'epoch': '0.9143'}
+{'loss': '1.048', 'grad_norm': '0.09619', 'learning_rate': '0.0001421', 'entropy': '1.074', 'num_tokens': '1.151e+06', 'mean_token_accuracy': '0.6521', 'epoch': '1.213'}
+{'loss': '1.014', 'grad_norm': '0.1064', 'learning_rate': '0.00011', 'entropy': '1.059', 'num_tokens': '1.441e+06', 'mean_token_accuracy': '0.6574', 'epoch': '1.518'}
+{'loss': '0.9689', 'grad_norm': '0.1099', 'learning_rate': '7.682e-05', 'entropy': '1.021', 'num_tokens': '1.73e+06', 'mean_token_accuracy': '0.6692', 'epoch': '1.823'}
+{'loss': '0.9426', 'grad_norm': '0.1104', 'learning_rate': '4.619e-05', 'entropy': '0.9928', 'num_tokens': '2.014e+06', 'mean_token_accuracy': '0.6749', 'epoch': '2.122'}
+{'loss': '0.9242', 'grad_norm': '0.1113', 'learning_rate': '2.152e-05', 'entropy': '0.9707', 'num_tokens': '2.303e+06', 'mean_token_accuracy': '0.6782', 'epoch': '2.427'}
+{'loss': '0.909', 'grad_norm': '0.1162', 'learning_rate': '5.533e-06', 'entropy': '0.953', 'num_tokens': '2.592e+06', 'mean_token_accuracy': '0.6833', 'epoch': '2.731'}
+{'train_runtime': '1.413e+04', 'train_samples_per_second': '0.111', 'train_steps_per_second': '0.007', 'train_loss': '1.191', 'entropy': '0.9562', 'num_tokens': '2.847e+06', 'mean_token_accuracy': '0.6814', 'epoch': '3'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha4_dropout0.15/adapters
+>>> r=8 alpha=8 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 525 traces — skipping generation.
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=8, dropout=0.1) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'loss': '2.603', 'grad_norm': '2.5', 'learning_rate': '0.0001991', 'entropy': '1.192', 'num_tokens': '2.896e+05', 'mean_token_accuracy': '0.504', 'epoch': '0.3048'}
+{'loss': '1.091', 'grad_norm': '0.1299', 'learning_rate': '0.0001893', 'entropy': '1.059', 'num_tokens': '5.781e+05', 'mean_token_accuracy': '0.6503', 'epoch': '0.6095'}
+{'loss': '1.039', 'grad_norm': '0.1523', 'learning_rate': '0.0001695', 'entropy': '1.073', 'num_tokens': '8.67e+05', 'mean_token_accuracy': '0.6546', 'epoch': '0.9143'}
+{'loss': '0.9638', 'grad_norm': '0.1768', 'learning_rate': '0.0001421', 'entropy': '1.018', 'num_tokens': '1.151e+06', 'mean_token_accuracy': '0.6687', 'epoch': '1.213'}
+{'loss': '0.8852', 'grad_norm': '0.2021', 'learning_rate': '0.00011', 'entropy': '0.9156', 'num_tokens': '1.441e+06', 'mean_token_accuracy': '0.6867', 'epoch': '1.518'}
+{'loss': '0.8106', 'grad_norm': '0.1543', 'learning_rate': '7.682e-05', 'entropy': '0.8268', 'num_tokens': '1.73e+06', 'mean_token_accuracy': '0.7094', 'epoch': '1.823'}
+{'loss': '0.7856', 'grad_norm': '0.1089', 'learning_rate': '4.619e-05', 'entropy': '0.7965', 'num_tokens': '2.014e+06', 'mean_token_accuracy': '0.7148', 'epoch': '2.122'}
+{'loss': '0.7733', 'grad_norm': '0.1084', 'learning_rate': '2.152e-05', 'entropy': '0.7835', 'num_tokens': '2.303e+06', 'mean_token_accuracy': '0.716', 'epoch': '2.427'}
+{'loss': '0.7632', 'grad_norm': '0.1045', 'learning_rate': '5.533e-06', 'entropy': '0.7726', 'num_tokens': '2.592e+06', 'mean_token_accuracy': '0.7194', 'epoch': '2.731'}
+{'train_runtime': '1.416e+04', 'train_samples_per_second': '0.111', 'train_steps_per_second': '0.007', 'train_loss': '1.051', 'entropy': '0.7778', 'num_tokens': '2.847e+06', 'mean_token_accuracy': '0.7175', 'epoch': '3'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha8_dropout0.1/adapters
+>>> r=8 alpha=8 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 525 traces — skipping generation.
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=8, dropout=0.15) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'loss': '2.58', 'grad_norm': '1.977', 'learning_rate': '0.0001991', 'entropy': '1.187', 'num_tokens': '2.896e+05', 'mean_token_accuracy': '0.5059', 'epoch': '0.3048'}
+{'loss': '1.089', 'grad_norm': '0.1299', 'learning_rate': '0.0001893', 'entropy': '1.058', 'num_tokens': '5.781e+05', 'mean_token_accuracy': '0.6506', 'epoch': '0.6095'}
+{'loss': '1.038', 'grad_norm': '0.1533', 'learning_rate': '0.0001695', 'entropy': '1.071', 'num_tokens': '8.67e+05', 'mean_token_accuracy': '0.6548', 'epoch': '0.9143'}
+{'loss': '0.9619', 'grad_norm': '0.165', 'learning_rate': '0.0001421', 'entropy': '1.015', 'num_tokens': '1.151e+06', 'mean_token_accuracy': '0.6694', 'epoch': '1.213'}
+{'loss': '0.885', 'grad_norm': '0.1914', 'learning_rate': '0.00011', 'entropy': '0.9136', 'num_tokens': '1.441e+06', 'mean_token_accuracy': '0.6867', 'epoch': '1.518'}
+{'loss': '0.8114', 'grad_norm': '0.1494', 'learning_rate': '7.682e-05', 'entropy': '0.8276', 'num_tokens': '1.73e+06', 'mean_token_accuracy': '0.7092', 'epoch': '1.823'}
+{'loss': '0.7866', 'grad_norm': '0.1084', 'learning_rate': '4.619e-05', 'entropy': '0.7978', 'num_tokens': '2.014e+06', 'mean_token_accuracy': '0.714', 'epoch': '2.122'}
+{'loss': '0.7743', 'grad_norm': '0.1079', 'learning_rate': '2.152e-05', 'entropy': '0.7843', 'num_tokens': '2.303e+06', 'mean_token_accuracy': '0.7161', 'epoch': '2.427'}
+{'loss': '0.7639', 'grad_norm': '0.1055', 'learning_rate': '5.533e-06', 'entropy': '0.7731', 'num_tokens': '2.592e+06', 'mean_token_accuracy': '0.7191', 'epoch': '2.731'}
+{'train_runtime': '1.412e+04', 'train_samples_per_second': '0.112', 'train_steps_per_second': '0.007', 'train_loss': '1.049', 'entropy': '0.7784', 'num_tokens': '2.847e+06', 'mean_token_accuracy': '0.7167', 'epoch': '3'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha8_dropout0.15/adapters
+>>> r=8 alpha=16 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 525 traces — skipping generation.
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=16, dropout=0.1) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'loss': '2.327', 'grad_norm': '0.2158', 'learning_rate': '0.0001991', 'entropy': '1.164', 'num_tokens': '2.896e+05', 'mean_token_accuracy': '0.5304', 'epoch': '0.3048'}
+{'loss': '1.056', 'grad_norm': '0.2217', 'learning_rate': '0.0001893', 'entropy': '1.069', 'num_tokens': '5.781e+05', 'mean_token_accuracy': '0.6534', 'epoch': '0.6095'}
+{'loss': '0.9453', 'grad_norm': '0.2715', 'learning_rate': '0.0001695', 'entropy': '0.9991', 'num_tokens': '8.67e+05', 'mean_token_accuracy': '0.6741', 'epoch': '0.9143'}
+{'loss': '0.8185', 'grad_norm': '0.2246', 'learning_rate': '0.0001421', 'entropy': '0.8344', 'num_tokens': '1.151e+06', 'mean_token_accuracy': '0.705', 'epoch': '1.213'}
+{'loss': '0.7648', 'grad_norm': '0.165', 'learning_rate': '0.00011', 'entropy': '0.7692', 'num_tokens': '1.441e+06', 'mean_token_accuracy': '0.717', 'epoch': '1.518'}
+{'loss': '0.7352', 'grad_norm': '0.1465', 'learning_rate': '7.682e-05', 'entropy': '0.7429', 'num_tokens': '1.73e+06', 'mean_token_accuracy': '0.7253', 'epoch': '1.823'}
+{'loss': '0.73', 'grad_norm': '0.1377', 'learning_rate': '4.619e-05', 'entropy': '0.7369', 'num_tokens': '2.014e+06', 'mean_token_accuracy': '0.7259', 'epoch': '2.122'}
+{'loss': '0.7236', 'grad_norm': '0.1572', 'learning_rate': '2.152e-05', 'entropy': '0.7295', 'num_tokens': '2.303e+06', 'mean_token_accuracy': '0.7271', 'epoch': '2.427'}
+{'loss': '0.7151', 'grad_norm': '0.1475', 'learning_rate': '5.533e-06', 'entropy': '0.7209', 'num_tokens': '2.592e+06', 'mean_token_accuracy': '0.7299', 'epoch': '2.731'}
+{'train_runtime': '1.411e+04', 'train_samples_per_second': '0.112', 'train_steps_per_second': '0.007', 'train_loss': '0.9561', 'entropy': '0.7271', 'num_tokens': '2.847e+06', 'mean_token_accuracy': '0.7277', 'epoch': '3'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha16_dropout0.1/adapters
+>>> r=8 alpha=16 dropout=0.15
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 525 traces — skipping generation.
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=8, alpha=16, dropout=0.15) ...
+trainable params: 1,572,864 || all params: 4,207,324,160 || trainable%: 0.0374
+
+[PHASE 4] Training ...
+{'loss': '2.325', 'grad_norm': '0.209', 'learning_rate': '0.0001991', 'entropy': '1.162', 'num_tokens': '2.896e+05', 'mean_token_accuracy': '0.5306', 'epoch': '0.3048'}
+{'loss': '1.055', 'grad_norm': '0.2236', 'learning_rate': '0.0001893', 'entropy': '1.066', 'num_tokens': '5.781e+05', 'mean_token_accuracy': '0.6536', 'epoch': '0.6095'}
+{'loss': '0.9431', 'grad_norm': '0.2852', 'learning_rate': '0.0001695', 'entropy': '0.9939', 'num_tokens': '8.67e+05', 'mean_token_accuracy': '0.6744', 'epoch': '0.9143'}
+{'loss': '0.816', 'grad_norm': '0.2061', 'learning_rate': '0.0001421', 'entropy': '0.8311', 'num_tokens': '1.151e+06', 'mean_token_accuracy': '0.7057', 'epoch': '1.213'}
+{'loss': '0.7642', 'grad_norm': '0.1611', 'learning_rate': '0.00011', 'entropy': '0.7679', 'num_tokens': '1.441e+06', 'mean_token_accuracy': '0.7173', 'epoch': '1.518'}
+{'loss': '0.7351', 'grad_norm': '0.1494', 'learning_rate': '7.682e-05', 'entropy': '0.7429', 'num_tokens': '1.73e+06', 'mean_token_accuracy': '0.725', 'epoch': '1.823'}
+{'loss': '0.7297', 'grad_norm': '0.1357', 'learning_rate': '4.619e-05', 'entropy': '0.7367', 'num_tokens': '2.014e+06', 'mean_token_accuracy': '0.7257', 'epoch': '2.122'}
+{'loss': '0.7222', 'grad_norm': '0.165', 'learning_rate': '2.152e-05', 'entropy': '0.7285', 'num_tokens': '2.303e+06', 'mean_token_accuracy': '0.7271', 'epoch': '2.427'}
+{'loss': '0.7141', 'grad_norm': '0.1426', 'learning_rate': '5.533e-06', 'entropy': '0.7199', 'num_tokens': '2.592e+06', 'mean_token_accuracy': '0.7296', 'epoch': '2.731'}
+{'train_runtime': '1.412e+04', 'train_samples_per_second': '0.112', 'train_steps_per_second': '0.007', 'train_loss': '0.955', 'entropy': '0.7264', 'num_tokens': '2.847e+06', 'mean_token_accuracy': '0.7277', 'epoch': '3'}
+[INFO]  CoT adapters saved to /cluster/scratch/arakhmasari/lora-cot-checkpoints/r8_alpha16_dropout0.15/adapters
+>>> r=16 alpha=4 dropout=0.10
+[INFO]  CUDA GPU detected - using 4-bit quantisation.
+[INFO]  Pool: 636 examples | depth dist: {0: 150, 1: 184, 2: 102, 3: 77, 4: 47, 5: 48, 6: 22, 7: 6}
+
+[PHASE 1] Loading cached CoT traces from /cluster/scratch/arakhmasari/lora-cot-checkpoints/cot_traces_cache.json ...
+[PHASE 1] Loaded 525 traces — skipping generation.
+
+[PHASE 1] Done: 525/636 kept (83%)
+[PHASE 1] Depth dist of kept CoT examples: {0: 141, 1: 164, 2: 83, 3: 67, 4: 29, 5: 30, 6: 9, 7: 2}
+
+[PHASE 2] Applying LoRA adapters (r=16, alpha=4, dropout=0.1) ...
+trainable params: 3,145,728 || all params: 4,208,897,024 || trainable%: 0.0747
+
+[PHASE 4] Training ...

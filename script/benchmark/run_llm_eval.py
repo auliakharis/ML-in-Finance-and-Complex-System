@@ -61,17 +61,17 @@ from pathlib import Path
 # Paths
 # ---------------------------------------------------------------------------
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent.parent.parent
 MODELS_DIR = Path(f"/cluster/scratch/{os.environ.get('USER', 'user')}/models")
 
-DATASET_10Q = BASE_DIR / "dataset_output" / "random_questions_10q.json"
-SHEET_10Q   = BASE_DIR / "dataset_output" / "atoms_10q.json"
+DATASET_10Q = BASE_DIR / "output" / "dataset_output" / "random_questions_10q.json"
+SHEET_10Q   = BASE_DIR / "output" / "dataset_output" / "atoms_10q.json"
 
-DATASET_90Q = BASE_DIR / "dataset_output" / "random_questions_90.json"
-SHEET_90Q   = BASE_DIR / "dataset_output" / "synthetic_company_data_refactored.json"
+DATASET_90Q = BASE_DIR / "output" / "dataset_output" / "random_questions_90.json"
+SHEET_90Q   = BASE_DIR / "output" / "dataset_output" / "synthetic_company_data_refactored.json"
 
-DATASET_MT  = BASE_DIR / "dataset_output" / "multi_turn_and_augmented_questions.json"
-SHEET_MT    = BASE_DIR / "dataset_output" / "synthetic_company_data_refactored.json"  # same synthetic companies
+DATASET_MT  = BASE_DIR / "output" / "dataset_output" / "multi_turn_and_augmented_questions.json"
+SHEET_MT    = BASE_DIR / "output" / "dataset_output" / "synthetic_company_data_refactored.json"  # same synthetic companies
 
 DEFAULT_MODELS = ["Qwen3.5-4B", "Qwen3.5-9B", "gemma-4-E4B-it"]
 

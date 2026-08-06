@@ -1,0 +1,70 @@
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:01<07:31,  1.06s/it]Loading weights:   2%|▏         | 7/426 [00:01<00:52,  7.94it/s]Loading weights:   3%|▎         | 11/426 [00:01<00:35, 11.74it/s]Loading weights:   5%|▌         | 22/426 [00:01<00:14, 26.94it/s]Loading weights:   7%|▋         | 28/426 [00:01<00:12, 31.07it/s]Loading weights:   8%|▊         | 36/426 [00:01<00:12, 32.45it/s]Loading weights:  10%|▉         | 41/426 [00:01<00:12, 30.41it/s]Loading weights:  11%|█         | 45/426 [00:02<00:15, 24.66it/s]Loading weights:  12%|█▏        | 50/426 [00:02<00:14, 26.54it/s]Loading weights:  14%|█▍        | 61/426 [00:02<00:11, 32.87it/s]Loading weights:  15%|█▌        | 65/426 [00:02<00:11, 30.47it/s]Loading weights:  18%|█▊        | 76/426 [00:02<00:07, 44.23it/s]Loading weights:  21%|██        | 89/426 [00:03<00:05, 59.25it/s]Loading weights:  23%|██▎       | 97/426 [00:03<00:05, 59.55it/s]Loading weights:  24%|██▍       | 104/426 [00:03<00:05, 61.03it/s]Loading weights:  28%|██▊       | 118/426 [00:03<00:03, 77.01it/s]Loading weights:  30%|███       | 128/426 [00:03<00:03, 81.94it/s]Loading weights:  32%|███▏      | 137/426 [00:03<00:03, 77.09it/s]Loading weights:  34%|███▍      | 146/426 [00:03<00:03, 72.04it/s]Loading weights:  36%|███▌      | 154/426 [00:04<00:05, 51.64it/s]Loading weights:  39%|███▉      | 167/426 [00:04<00:04, 60.63it/s]Loading weights:  41%|████      | 174/426 [00:04<00:04, 54.18it/s]Loading weights:  44%|████▎     | 186/426 [00:04<00:03, 62.02it/s]Loading weights:  47%|████▋     | 199/426 [00:04<00:03, 74.41it/s]Loading weights:  49%|████▉     | 208/426 [00:04<00:03, 67.76it/s]Loading weights:  52%|█████▏    | 220/426 [00:04<00:02, 76.21it/s]Loading weights:  54%|█████▍    | 229/426 [00:05<00:02, 71.87it/s]Loading weights:  56%|█████▌    | 238/426 [00:05<00:02, 73.16it/s]Loading weights:  58%|█████▊    | 249/426 [00:05<00:02, 62.47it/s]Loading weights:  60%|██████    | 256/426 [00:05<00:02, 61.55it/s]Loading weights:  62%|██████▏   | 263/426 [00:05<00:02, 61.11it/s]Loading weights:  64%|██████▍   | 273/426 [00:05<00:02, 67.74it/s]Loading weights:  66%|██████▌   | 281/426 [00:05<00:02, 58.76it/s]Loading weights:  68%|██████▊   | 288/426 [00:06<00:02, 53.98it/s]Loading weights:  69%|██████▉   | 294/426 [00:06<00:02, 53.52it/s]Loading weights:  71%|███████   | 302/426 [00:06<00:02, 56.93it/s]Loading weights:  72%|███████▏  | 308/426 [00:06<00:02, 55.09it/s]Loading weights:  74%|███████▍  | 316/426 [00:06<00:01, 60.72it/s]Loading weights:  77%|███████▋  | 330/426 [00:06<00:01, 78.30it/s]Loading weights:  80%|████████  | 341/426 [00:06<00:01, 77.86it/s]Loading weights:  82%|████████▏ | 349/426 [00:06<00:00, 77.12it/s]Loading weights:  84%|████████▍ | 359/426 [00:07<00:00, 82.37it/s]Loading weights:  86%|████████▋ | 368/426 [00:07<00:00, 62.99it/s]Loading weights:  90%|████████▉ | 382/426 [00:07<00:00, 78.91it/s]Loading weights:  92%|█████████▏| 393/426 [00:07<00:00, 82.54it/s]Loading weights:  94%|█████████▍| 402/426 [00:07<00:00, 81.32it/s]Loading weights:  97%|█████████▋| 412/426 [00:07<00:00, 81.16it/s]Loading weights:  99%|█████████▉| 421/426 [00:07<00:00, 76.63it/s]Loading weights: 100%|██████████| 426/426 [00:07<00:00, 53.76it/s]
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/config.py", line 317, in _get_peft_type
+    config_file = hf_hub_download(
+        model_id,
+        CONFIG_NAME,
+        **hf_hub_download_kwargs,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.1'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 942, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 854, in main
+    tokenizer, model = load_model(model_name, adapter_path=args.finetune)
+                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 257, in load_model
+    model = PeftModel.from_pretrained(model, adapter_path)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/peft_model.py", line 459, in from_pretrained
+    config = PEFT_TYPE_TO_CONFIG_MAPPING[PeftConfig._get_peft_type(model_id, **hf_kwargs)].from_pretrained(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/config.py", line 323, in _get_peft_type
+    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
+ValueError: Can't find 'adapter_config.json' at '/cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha4_dropout0.1'
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/426 [00:00<?, ?it/s]Loading weights:   0%|          | 1/426 [00:00<02:39,  2.67it/s]Loading weights:   5%|▌         | 22/426 [00:00<00:06, 58.48it/s]Loading weights:   9%|▉         | 39/426 [00:00<00:04, 87.35it/s]Loading weights:  12%|█▏        | 53/426 [00:00<00:03, 97.12it/s]Loading weights:  16%|█▌        | 67/426 [00:00<00:03, 108.75it/s]Loading weights:  19%|█▉        | 81/426 [00:00<00:02, 116.13it/s]Loading weights:  23%|██▎       | 99/426 [00:01<00:02, 132.47it/s]Loading weights:  28%|██▊       | 119/426 [00:01<00:02, 149.37it/s]Loading weights:  33%|███▎      | 142/426 [00:01<00:01, 167.06it/s]Loading weights:  38%|███▊      | 160/426 [00:01<00:01, 156.91it/s]Loading weights:  43%|████▎     | 184/426 [00:01<00:01, 175.14it/s]Loading weights:  48%|████▊     | 203/426 [00:01<00:01, 168.24it/s]Loading weights:  52%|█████▏    | 223/426 [00:01<00:01, 176.52it/s]Loading weights:  57%|█████▋    | 242/426 [00:01<00:01, 170.80it/s]Loading weights:  61%|██████    | 260/426 [00:01<00:01, 164.06it/s]Loading weights:  65%|██████▌   | 279/426 [00:02<00:00, 171.00it/s]Loading weights:  71%|███████▏  | 304/426 [00:02<00:00, 190.45it/s]Loading weights:  76%|███████▌  | 324/426 [00:02<00:00, 184.28it/s]Loading weights:  81%|████████  | 343/426 [00:02<00:00, 184.04it/s]Loading weights:  85%|████████▍ | 362/426 [00:02<00:00, 175.59it/s]Loading weights:  90%|████████▉ | 382/426 [00:02<00:00, 181.07it/s]Loading weights:  94%|█████████▍| 401/426 [00:02<00:00, 172.43it/s]Loading weights:  98%|█████████▊| 419/426 [00:02<00:00, 163.48it/s]Loading weights: 100%|██████████| 426/426 [00:02<00:00, 148.68it/s]
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/config.py", line 317, in _get_peft_type
+    config_file = hf_hub_download(
+        model_id,
+        CONFIG_NAME,
+        **hf_hub_download_kwargs,
+    )
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha8_dropout0.15'. Use `repo_type` argument if needed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 942, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 854, in main
+    tokenizer, model = load_model(model_name, adapter_path=args.finetune)
+                       ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 257, in load_model
+    model = PeftModel.from_pretrained(model, adapter_path)
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/peft_model.py", line 459, in from_pretrained
+    config = PEFT_TYPE_TO_CONFIG_MAPPING[PeftConfig._get_peft_type(model_id, **hf_kwargs)].from_pretrained(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cluster/home/arakhmasari/LLM-as-a-Judge-in-Finance/venv/lib/python3.13/site-packages/peft/config.py", line 323, in _get_peft_type
+    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
+ValueError: Can't find 'adapter_config.json' at '/cluster/scratch/arakhmasari/lora-cot-checkpoints/r4_alpha8_dropout0.15'

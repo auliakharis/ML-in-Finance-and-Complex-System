@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 942, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 828, in main
+    questions_90q = load_json(DATASET_90Q)
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 84, in load_json
+    with open(path) as f:
+         ~~~~^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/dataset_output/random_questions_90.json'
+Traceback (most recent call last):
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 942, in <module>
+    main()
+    ~~~~^^
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 828, in main
+    questions_90q = load_json(DATASET_90Q)
+  File "/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/run_llm_eval.py", line 84, in load_json
+    with open(path) as f:
+         ~~~~^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/cluster/home/arakhmasari/ML-in-Finance-and-Complex-System/script/benchmark/dataset_output/random_questions_90.json'
