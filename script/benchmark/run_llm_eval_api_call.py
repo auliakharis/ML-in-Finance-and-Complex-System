@@ -51,33 +51,28 @@ from datetime import datetime
 from pathlib import Path
 from random import choice, choices
 from enum import Enum, auto
+from typing import Any
 
-from together import Together
+from together import AsyncTogether
 import openai
 from dotenv import load_dotenv
-from fireworks import Fireworks
+from fireworks import AsyncFireworks
+import asyncio
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "Multi-turn"))
 from multi_turn_parser import process_dataset as generate_multiturn
 
 load_dotenv()
 
+
 class ModelSource(Enum):
     Apertus = auto()
     Together = auto()
     Firework = auto()
 
-MODEL_SOURCE = ModelSource.Together
+MODEL_SOURCE = None
 
-if MODEL_SOURCE == ModelSource.Apertus:
-    _client = openai.Client(
-        api_key=os.environ.get("CSCS_SERVING_API"),
-        base_url="https://api.swissai.svc.cscs.ch/v1",
-    )
-elif MODEL_SOURCE == ModelSource.Together:
-    _client = Together()
-else:
-    _client = Fireworks()
+_client = None
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -263,10 +258,10 @@ def _sanitize_messages(messages: list) -> list:
     return sanitized
 
 
-def run_inference(model_name: str, prompt: str, max_new_tokens: int = 512) -> str:
+async def run_inference(model_name: str, prompt: str, max_new_tokens: int = 512) -> str:
     """Call the API with a single user prompt and return the response text."""
     if MODEL_SOURCE != ModelSource.Firework:
-        response = _client.chat.completions.create(
+        response = await _client.chat.completions.create(
             model=model_name,
             messages=[
                 {"role": "system", "content": "Do not show your thinking process. Output only the answer."},
@@ -276,7 +271,7 @@ def run_inference(model_name: str, prompt: str, max_new_tokens: int = 512) -> st
             extra_body={"chat_template_kwargs": {"enable_thinking": False}},
         )
     else:
-        response = _client.chat.completions.create(
+        response = await _client.chat.completions.create(
             model=model_name,
             messages=[
                 {"role": "system", "content": "Do not show your thinking process. Output only the answer."},
@@ -287,9 +282,9 @@ def run_inference(model_name: str, prompt: str, max_new_tokens: int = 512) -> st
     return response.choices[0].message.content.strip()
 
 
-def run_multiturn_inference(model_name: str, messages: list, max_new_tokens: int = 2048) -> str:
+async def run_multiturn_inference(model_name: str, messages: list, max_new_tokens: int = 2048) -> str:
     """Call the API with a full conversation history and return the response text."""
-    response = _client.chat.completions.create(
+    response = await _client.chat.completions.create(
         model=model_name,
         messages=_sanitize_messages(messages),
         max_tokens=max_new_tokens,
@@ -302,7 +297,7 @@ def run_multiturn_inference(model_name: str, messages: list, max_new_tokens: int
 # Evaluation loops
 # ---------------------------------------------------------------------------
 
-def evaluate_10q(
+async def evaluate_10q(
     questions: list,
     sheet_lookup: dict,
     model_name: str,
@@ -339,7 +334,7 @@ def evaluate_10q(
         sheet_text = sheet_to_text_10q(sheet_row)
         prompt = build_prompt(sheet_text, question_text)
 
-        response = run_inference(model_name, prompt, max_new_tokens)
+        response = await run_inference(model_name, prompt, max_new_tokens)
         predicted = extract_number(response)
         correct = is_correct(predicted, ground_truth, tol)
 
@@ -376,7 +371,7 @@ def get_sheets(entity: str, sheet_lookup: dict) -> list:
         sheets += sheet
     return sheets
 
-def evaluate_90q(
+async def evaluate_90q(
     questions: list,
     sheet_lookup: dict,
     model_name: str,
@@ -387,57 +382,70 @@ def evaluate_90q(
     """Evaluate on 90-question dataset. Returns per-question result dicts."""
     results = []
     subset = questions[:limit] if limit else questions
+    sem = asyncio.Semaphore(10)
 
-    for i, q in enumerate(subset, 1):
-        entity = q.get("entity") or q.get("leaf_1_entity", "")
-        question_text = q.get("question", "")
-        ground_truth = q.get("answer")
+    async def run_one(i, q):
+        async with sem:
+            return await ask_one_90q_question(i, max_new_tokens, model_name, q, sheet_lookup, subset, tol)
 
-        sheet_rows = get_sheets(entity, sheet_lookup)
-        if not sheet_rows:
-            print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{entity}')")
-            results.append({
-                "source": "90q",
-                "id": q.get("id") or q.get("question_id"),
-                "entity": entity,
-                "depth": q.get("depth"),
-                "question": question_text,
-                "ground_truth": ground_truth,
-                "llm_response": None,
-                "predicted": None,
-                "correct": False,
-                "skip": True,
-            })
-            continue
+    tasks = [
+        asyncio.create_task(run_one(i, q))
+        for i, q in enumerate(subset, 1)
+    ]
 
-        sheet_text = sheet_to_text_90q(sheet_rows)
-        prompt = build_prompt(sheet_text, question_text)
+    results = await asyncio.gather(*tasks)
+    return results
 
-        response = run_inference(model_name, prompt, max_new_tokens)
-        predicted = extract_number(response)
-        correct = is_correct(predicted, ground_truth, tol)
 
-        status = "CORRECT" if correct else "WRONG "
-        print(f"  [{i}/{len(subset)}] {status} | truth={float(ground_truth):.4f} pred={predicted} | {question_text[:60]}...")
+async def ask_one_90q_question(i: int, max_new_tokens: int, model_name: str, q, sheet_lookup: dict,
+                               subset: list[Any] | list, tol: float):
+    entity = q.get("entity") or q.get("leaf_1_entity", "")
+    question_text = q.get("question", "")
+    ground_truth = q.get("answer")
 
-        results.append({
+    sheet_rows = get_sheets(entity, sheet_lookup)
+    if not sheet_rows:
+        print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{entity}')")
+        return {
             "source": "90q",
             "id": q.get("id") or q.get("question_id"),
             "entity": entity,
             "depth": q.get("depth"),
             "question": question_text,
             "ground_truth": ground_truth,
-            "prompt": prompt,
-            "llm_response": response,
-            "predicted": predicted,
-            "correct": correct,
-            "skip": False,
-        })
+            "llm_response": None,
+            "predicted": None,
+            "correct": False,
+            "skip": True,
+        }
 
-    return results
+    sheet_text = sheet_to_text_90q(sheet_rows)
+    prompt = build_prompt(sheet_text, question_text)
+
+    response = await run_inference(model_name, prompt, max_new_tokens)
+    predicted = extract_number(response)
+    correct = is_correct(predicted, ground_truth, tol)
+
+    status = "CORRECT" if correct else "WRONG "
+    print(
+        f"  [{i}/{len(subset)}] {status} | truth={float(ground_truth):.4f} pred={predicted} | {question_text[:60]}...")
+
+    return {
+        "source": "90q",
+        "id": q.get("id") or q.get("question_id"),
+        "entity": entity,
+        "depth": q.get("depth"),
+        "question": question_text,
+        "ground_truth": ground_truth,
+        "prompt": prompt,
+        "llm_response": response,
+        "predicted": predicted,
+        "correct": correct,
+        "skip": False,
+    }
 
 
-def evaluate_multiturn(
+async def evaluate_multiturn(
     questions: list,
     sheet_lookup: dict,
     model_name: str,
@@ -517,7 +525,7 @@ def evaluate_multiturn(
                 history.append({"role": "user", "content": question_text})
                 # Snapshot the full context sent to the model (copy before adding response)
                 turn_prompt_snapshots.append(list(history))
-                response = run_multiturn_inference(model_name, history, max_new_tokens)
+                response = await run_multiturn_inference(model_name, history, max_new_tokens)
                 history.append({"role": "assistant", "content": strip_thinking_tags(response)})
                 turn_responses.append(response)
                 turn_questions.append(question_text)
@@ -714,6 +722,10 @@ def parse_args():
         help="Model folder names under MODELS_DIR (default: Qwen3.5-4B Qwen3.5-9B)",
     )
     parser.add_argument(
+        "--provider", type=str, default="Together",
+        help="Together, Fireworks, Apertus",
+    )
+    parser.add_argument(
         "--limit", type=int, default=None,
         help="Max questions per dataset per model (default: all)",
     )
@@ -745,6 +757,26 @@ def parse_args():
 
 def main():
     args = parse_args()
+
+    global MODEL_SOURCE
+    global _client
+
+    match args.provider:
+        case "Together":
+            MODEL_SOURCE = ModelSource.Together
+        case "Fireworks":
+            MODEL_SOURCE = ModelSource.Firework
+        case "Apertus":
+            MODEL_SOURCE = ModelSource.Apertus
+    if MODEL_SOURCE == ModelSource.Apertus:
+        _client = openai.AsyncClient(
+            api_key=os.environ.get("CSCS_SERVING_API"),
+            base_url="https://api.swissai.svc.cscs.ch/v1",
+        )
+    elif MODEL_SOURCE == ModelSource.Together:
+        _client = AsyncTogether()
+    else:
+        _client = AsyncFireworks()
 
     # Load datasets
     print("Loading datasets...")
@@ -819,20 +851,20 @@ def main():
 
         if "90q" in args.datasets:
             print(f"\n-- 90-Q evaluation ({args.limit or len(questions_90q)} questions) --")
-            results_90q = evaluate_90q(
+            results_90q = asyncio.run(evaluate_90q(
                 questions_90q, sheet_lookup_90q, model_name,
                 limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
-            )
+            ))
         else:
             results_90q = []
 
         if questions_mt:
             non_skipped = sum(1 for q in questions_mt if not q.get("skipped"))
             print(f"\n-- Multi-turn evaluation ({args.limit or non_skipped} questions) --")
-            results_mt = evaluate_multiturn(
+            results_mt = asyncio.run(evaluate_multiturn(
                 questions_mt, sheet_lookup_mt, model_name,
                 limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
-            )
+            ))
         else:
             results_mt = []
 
