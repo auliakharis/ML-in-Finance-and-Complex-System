@@ -1,0 +1,47 @@
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Master seed: 446971217
+Max bound leaf count: 10
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Master seed: 769921326
+Max bound leaf count: 10
+Scaled financial data for unit_scale_change (thousands, factor=1000).
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Obstacle: unit_scale_change
+Master seed: 280165568
+Max bound leaf count: 9
+Scaled financial data for unit_scale_change (thousands, factor=1000).
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Obstacle: unit_scale_change
+Master seed: 389677356
+Max bound leaf count: 13
+Scaled financial data for unit_scale_change (thousands, factor=1000).
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Obstacle: unit_scale_change
+Master seed: 587809447
+Max bound leaf count: 9
+Scaled financial data for unit_scale_change (thousands, factor=1000).
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Obstacle: unit_scale_change
+Master seed: 494063076
+Max bound leaf count: 13
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Obstacle: useless_info
+Master seed: 397873561
+Max bound leaf count: 10
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Obstacle: useless_info
+Master seed: 202306777
+Max bound leaf count: 12
+Saved 200 questions to /output/random_questions_90.csv
+Saved 200 questions to /output/original_questions.json
+Obstacle: useless_info
+Master seed: 708785227
+Max bound leaf count: 12

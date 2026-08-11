@@ -1,0 +1,48 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+accounts/fireworks/models/deepseek-v4-flash,mt,2,Atlas Global Industries,3,What's the value of the current assets for Atlas Global Industries in 2020,,21251.0,21251.0,"cash: 10029 + accounts_receivable: 5701 + inventories: 3886 + short_term_investments: 1635 = 21251
+Answer: 21251",True,0.000000,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,3,Cobalt Semiconductor,3,what would be the result of ratio of sum of total equity for Cobalt Semiconductor in 2023 and total equity for Cobalt Semiconductor in 2024 to 2.0 scaled by ratio of current liabilities to current liabilities for Cobalt Semiconductor in 2020?,,19795.5,19795.5,"(20787 + 18804) / 2.0 = 19795.5  
+15174 / 15174 = 1  
+19795.5 / 1 = 19795.5  
+Answer: 19795.5",True,0.000000,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,4,Quantum Bridge Holdings,3,compute the current assets for Quantum Bridge Holdings in 2025 .,,17082.0,17082.0,"cash: 4105 + accounts_receivable: 4087 + inventories: 3180 + short_term_investments: 5710 = 17082  
+Answer: 17082",True,0.000000,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,5,Crimson Pharmaceuticals,3,What do we obtain as the result of longterm liabilities scaled by ratio of cost of goods sold to sum of revenue and total equity for Crimson Pharmaceuticals in 2024?,,57038.35436866761,57043.0,"longterm_liabilities 2024: 194929 - 82551 = 112378
+cost_of_goods_sold 2024: 521794
+revenue 2024: 712606
+total_equity 2024: 315442
+ratio = 521794 / (712606 + 315442) = 521794 / 1028048 = 0.5076
+result = 112378 * 0.5076 = 57043.0
+Answer: 57043",True,0.000081,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,6,Quantum Bridge Holdings,3,compute the current assets for Quantum Bridge Holdings in 2024 .,,24950.0,24950.0,"Cash: 12189, Accounts Receivable: 6324, Inventories: 4960, Short-term Investments: 1477  
+12189 + 6324 + 4960 + 1477 = 24950  
+Answer: 24950",True,0.000000,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,7,Meridian Systems Inc,3,could you give the sum of result of sum of inventories and total liabilities scaled by ratio of total liabilities to accounts receivable and inventories for Meridian Systems Inc in 2022 ?,,506186.1803411422,402598.338,"total_liabilities = 94541
+accounts_receivable = 18526
+inventories = 3888
+ratio = 94541 / (18526 + 3888) = 94541 / 22414 = 4.218
+sum_inventories = 3888
+result = 3888 + 94541 * 4.218 = 3888 + 398,710.338 = 402,598.338
+Answer: 402598.338",False,0.204644,False,False
+accounts/fireworks/models/deepseek-v4-flash,mt,8,Ironclad Manufacturing,3,You should give the sum of difference between inventories and difference between total liabilities and revenue and sum of non operating expenses and total equity for Ironclad Manufacturing in 2025.,,402001.0,374619.0,"inventories_2025: 36674
+total_liabilities_2025: 552699
+revenue_2025: 543407
+non_operating_expenses_2025: 60219
+total_equity_2025: 314400
+
+Difference: 36674 - 36674 = 0
+Difference: 552699 - 552699 = 0
+Sum: 0 + 0 + 60219 + 314400 = 374619
+Answer: 374619",True,0.068114,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,9,ClearPath Logistics,3,Whats the value of the the minimum of total liabilities for ClearPath Logistics using values from 2020 through 2023?,,201280.0,201280.0,"Total liabilities by year: 2020: 286976, 2021: 547777, 2022: 201280, 2023: 250646. Minimum is 201280.
+
+Answer: 201280",True,0.000000,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,10,SilverLine Retail Inc,3,calculate the the maximum of capex for SilverLine Retail Inc using values from 2020 through 2023,,76984.0,76984.0,"capex 2020: 25847, 2021: 39132, 2022: 44751, 2023: 76984  
+Maximum is 76984.  
+Answer: 76984",True,0.000000,True,False
+accounts/fireworks/models/deepseek-v4-flash,mt,11,Pinnacle Health Group,3,state the the maximum of operating expenses for Pinnacle Health Group using values from 2022 through 2025,,3778.0,3778.0,"operating_expenses 2022: 2921  
+2023: 3778  
+2024: 1168  
+2025: 3456  
+Maximum = 3778  
+Answer: 3778",True,0.000000,True,False

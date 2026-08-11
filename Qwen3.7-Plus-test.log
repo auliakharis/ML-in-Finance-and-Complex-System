@@ -1,0 +1,107 @@
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 10 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen/Qwen3.7-Plus
+============================================================
+
+-- 90-Q evaluation (10 questions) --
+Traceback (most recent call last):
+  File "", line 846, in <module>
+    main()
+    ~~~~^^
+  File "", line 784, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 412, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 275, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+    ...<4 lines>...
+        max_tokens=max_new_tokens,
+    )
+  File ".venv/lib/python3.14/site-packages/fireworks/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File ".venv/lib/python3.14/site-packages/fireworks/resources/chat/completions.py", line 1560, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/chat/completions"
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<60 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+fireworks.NotFoundError: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-2149b359494a4c94b4bb8d81c982187b'}
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 10 questions, 15 companies
+
+============================================================
+  Evaluating model: Qwen/Qwen3.7-Plus
+============================================================
+
+-- 90-Q evaluation (10 questions) --
+Traceback (most recent call last):
+  File "", line 846, in <module>
+    main()
+    ~~~~^^
+  File "", line 784, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 412, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 265, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+    ...<5 lines>...
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+    )
+  File ".venv/lib/python3.14/site-packages/together/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File ".venv/lib/python3.14/site-packages/together/resources/chat/completions.py", line 523, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<39 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1292, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1079, in request
+    raise self._make_status_error_from_response(err.response) from None
+together.BadRequestError: Error code: 400 - {'id': 'ouuGMXJ-2kFHot-a260ef064c93bb0f', 'error': {'message': 'This model only supports streaming. Set "stream": true.', 'type': 'invalid_request_error', 'param': 'stream', 'code': 'streaming_required'}}
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 10 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/qwen3p7-plus
+============================================================
+
+-- 90-Q evaluation (10 questions) --
+  [1/10] CORRECT | truth=73713.0000 pred=73713.0 | what's the value of the sum of the maximum of capex for Atla...
+  [2/10] CORRECT | truth=-98269.3333 pred=-98269.333333 | what is the value of the difference between ratio of sum of ...
+  [3/10] WRONG  | truth=56563.4479 pred=6.0 | May you give the result of sum of operating expenses for Nov...
+  [4/10] WRONG  | truth=210273.8384 pred=2024.0 | What's the value of the sum of sum of gross profit and resul...
+  [5/10] WRONG  | truth=1556.1052 pred=2021.0 | What would be the result of gross profit for Cobalt Semicond...
+  [6/10] WRONG  | truth=128949.4454 pred=641265632.0 | What would be the result of longterm assets for Cobalt Semic...
+  [7/10] WRONG  | truth=488579.3333 pred=126.0 | Evaluate the sum of sum of sum of longterm assets and operat...

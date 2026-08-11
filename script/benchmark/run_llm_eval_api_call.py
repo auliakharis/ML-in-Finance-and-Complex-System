@@ -59,8 +59,7 @@ from dotenv import load_dotenv
 from fireworks import AsyncFireworks
 import asyncio
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "Multi-turn"))
-from multi_turn_parser import process_dataset as generate_multiturn
+from ..Multi_turn.multi_turn_parser import process_dataset as generate_multiturn
 
 load_dotenv()
 
@@ -308,54 +307,70 @@ async def evaluate_10q(
     """Evaluate on 10-Q questions. Returns per-question result dicts."""
     results = []
     subset = questions[:limit] if limit else questions
+    limit = 10
+    if MODEL_SOURCE == ModelSource.Apertus:
+        limit = 2
+    sem = asyncio.Semaphore(limit)
 
-    for i, q in enumerate(subset, 1):
-        company = q.get("company", "")
-        question_text = q.get("question", "")
-        ground_truth = q.get("answer")
+    async def run_one_10q(i, q):
+        async with sem:
+            return await run_one_10q_inference_question(i, max_new_tokens, model_name, q, sheet_lookup, subset, tol)
 
-        sheet_row = sheet_lookup.get(company)
-        if sheet_row is None:
-            print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{company}')")
-            results.append({
-                "source": "10q",
-                "id": q.get("id"),
-                "company": company,
-                "depth": q.get("depth"),
-                "question": question_text,
-                "ground_truth": ground_truth,
-                "llm_response": None,
-                "predicted": None,
-                "correct": False,
-                "skip": True,
-            })
-            continue
+    tasks = [
+        asyncio.create_task(run_one_10q(i, q))
+        for i, q in enumerate(subset, 1)
+    ]
 
-        sheet_text = sheet_to_text_10q(sheet_row)
-        prompt = build_prompt(sheet_text, question_text)
+    results = await asyncio.gather(*tasks)
+    return results
 
-        response = await run_inference(model_name, prompt, max_new_tokens)
-        predicted = extract_number(response)
-        correct = is_correct(predicted, ground_truth, tol)
 
-        status = "CORRECT" if correct else "WRONG "
-        print(f"  [{i}/{len(subset)}] {status} | truth={ground_truth} pred={predicted} | {question_text[:60]}...")
+async def run_one_10q_inference_question(i: int, max_new_tokens: int, model_name: str, q, sheet_lookup: dict, subset: list[Any] | list,
+                      tol: float) -> dict[str | Any, str | float | bool | None | Any]:
+    company = q.get("company", "")
+    question_text = q.get("question", "")
+    ground_truth = q.get("answer")
 
-        results.append({
+    sheet_row = sheet_lookup.get(company)
+    if sheet_row is None:
+        print(f"  [{i}/{len(subset)}] SKIP (no sheet for '{company}')")
+        return {
             "source": "10q",
             "id": q.get("id"),
             "company": company,
             "depth": q.get("depth"),
             "question": question_text,
             "ground_truth": ground_truth,
-            "prompt": prompt,
-            "llm_response": response,
-            "predicted": predicted,
-            "correct": correct,
-            "skip": False,
-        })
+            "llm_response": None,
+            "predicted": None,
+            "correct": False,
+            "skip": True,
+        }
 
-    return results
+    sheet_text = sheet_to_text_10q(sheet_row)
+    prompt = build_prompt(sheet_text, question_text)
+
+    response = await run_inference(model_name, prompt, max_new_tokens)
+    predicted = extract_number(response)
+    correct = is_correct(predicted, ground_truth, tol)
+
+    status = "CORRECT" if correct else "WRONG "
+    print(f"  [{i}/{len(subset)}] {status} | truth={ground_truth} pred={predicted} | {question_text[:60]}...")
+
+    return {
+        "source": "10q",
+        "id": q.get("id"),
+        "company": company,
+        "depth": q.get("depth"),
+        "question": question_text,
+        "ground_truth": ground_truth,
+        "prompt": prompt,
+        "llm_response": response,
+        "predicted": predicted,
+        "correct": correct,
+        "skip": False,
+    }
+
 
 def get_sheets(entity: str, sheet_lookup: dict) -> list:
     from random import choices

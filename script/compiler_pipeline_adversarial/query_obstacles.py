@@ -36,7 +36,7 @@ from adversarial import (
     inject_prompt_injections,
     load_concept_names,
     read_csv_rows,
-    write_corrupted_csv,
+    write_corrupted_json,
 )
 from make_random_questions_adversarial import (
     generate_question_rows,
@@ -125,7 +125,7 @@ def generate_adversarial(
 
     for mode, filename in _OUTPUT_FILES.items():
         out_path = adv_dir / filename
-        write_corrupted_csv(
+        write_corrupted_json(
             csv_path=csv_path,
             used_atom_keys=used_keys,
             concept_names=concept_names,

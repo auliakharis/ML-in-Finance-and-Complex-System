@@ -1,0 +1,1469 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-v1.5-70B,90q,2,Ironclad Manufacturing,1,you should calculate the longterm liabilities for Ironclad Manufacturing in 2021,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: you should calculate the longterm liabilities for Ironclad Manufacturing in 2021
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",5265876.0,5265876.0,"Long-term liabilities = total_liabilities - current_liabilities
+= 10353148 - 5087272
+Answer: 5265876",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,2,Crimson Pharmaceuticals,1,What does the following give: gross profit for Crimson Pharmaceuticals in 2024 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 46323615
+    cost_of_goods_sold: 20475877
+    operating_expenses: 5188948
+    non_operating_expenses: 6005616
+    income_tax: 0.26308121613119645
+    total_assets: 53363319
+    total_liabilities: 15216038
+    total_equity: 38147281
+    cash: 9195466
+    accounts_receivable: 3178314
+    inventories: 2704413
+    short_term_investments: 890771
+    current_liabilities: 6298418
+    capex: 3888747
+    dividends_paid: 1180099
+    shares_outstanding: 661058
+    stock_price: 32901.71
+    employees: 22266963
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 55023841
+    cost_of_goods_sold: 24901946
+    operating_expenses: 4807072
+    non_operating_expenses: 10367245
+    income_tax: 0.1734693853919364
+    total_assets: 43782679
+    total_liabilities: 22109651
+    total_equity: 21673028
+    cash: 2109210
+    accounts_receivable: 4536714
+    inventories: 1892023
+    short_term_investments: 6537356
+    current_liabilities: 6524870
+    capex: 1552103
+    dividends_paid: 1451750
+    shares_outstanding: 498601
+    stock_price: 24707.74
+    employees: 22572830
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 61678733
+    cost_of_goods_sold: 23128917
+    operating_expenses: 8559878
+    non_operating_expenses: 8599615
+    income_tax: 0.24536287914222057
+    total_assets: 44248127
+    total_liabilities: 29299935
+    total_equity: 14948192
+    cash: 5561410
+    accounts_receivable: 6411315
+    inventories: 2842362
+    short_term_investments: 797799
+    current_liabilities: 12241395
+    capex: 3765294
+    dividends_paid: 2622807
+    shares_outstanding: 1127348
+    stock_price: 14058.96
+    employees: 2041461
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71400992
+    cost_of_goods_sold: 43207596
+    operating_expenses: 9827244
+    non_operating_expenses: 5372639
+    income_tax: 0.14719907608407046
+    total_assets: 66469274
+    total_liabilities: 37288010
+    total_equity: 29181264
+    cash: 15878364
+    accounts_receivable: 3087274
+    inventories: 1726012
+    short_term_investments: 4851536
+    current_liabilities: 12780135
+    capex: 1867196
+    dividends_paid: 1967695
+    shares_outstanding: 215166
+    stock_price: 30305.57
+    employees: 16062079
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71260556
+    cost_of_goods_sold: 52179404
+    operating_expenses: 3932348
+    non_operating_expenses: 6214605
+    income_tax: 0.2035490548416784
+    total_assets: 51037067
+    total_liabilities: 19492879
+    total_equity: 31544188
+    cash: 10232533
+    accounts_receivable: 7867435
+    inventories: 2499088
+    short_term_investments: 4882349
+    current_liabilities: 8255140
+    capex: 2566397
+    dividends_paid: 2842358
+    shares_outstanding: 212235
+    stock_price: 7313.09
+    employees: 9046490
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 79793549
+    cost_of_goods_sold: 59746863
+    operating_expenses: 16924423
+    non_operating_expenses: 19430706
+    income_tax: 0.29731493192849723
+    total_assets: 72446875
+    total_liabilities: 49918176
+    total_equity: 22528699
+    cash: 10939433
+    accounts_receivable: 5508646
+    inventories: 3524728
+    short_term_investments: 2321976
+    current_liabilities: 21334577
+    capex: 2707178
+    dividends_paid: 0
+    shares_outstanding: 548623
+    stock_price: 19102.97
+    employees: 49264061
+=== END ===
+
+QUESTION: What does the following give: gross profit for Crimson Pharmaceuticals in 2024 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",19081152.0,19081152.0,"gross profit = revenue - cost_of_goods_sold = 71,260,556 - 52,179,404  
+Answer: 19,081,152",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,3,Ironclad Manufacturing,1,which quantity is given by the longterm liabilities for Ironclad Manufacturing in 2025,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which quantity is given by the longterm liabilities for Ironclad Manufacturing in 2025
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",33110659.0,55269953.0,Answer: 55269953,False,0.669250,False,False
+swiss-ai/Apertus-v1.5-70B,90q,3,NovaStar Technologies,1,may you give the longterm liabilities for NovaStar Technologies in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 10788366
+    cost_of_goods_sold: 3735549
+    operating_expenses: 2222654
+    non_operating_expenses: 2447092
+    income_tax: 0.18127547796642335
+    total_assets: 10325833
+    total_liabilities: 4312982
+    total_equity: 6012851
+    cash: 2422170
+    accounts_receivable: 1364303
+    inventories: 548777
+    short_term_investments: 1275323
+    current_liabilities: 2028629
+    capex: 851473
+    dividends_paid: 19344
+    shares_outstanding: 504956
+    stock_price: 74569.05
+    employees: 40210639
+  Year 2021:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 12535411
+    cost_of_goods_sold: 8334007
+    operating_expenses: 1295674
+    non_operating_expenses: 2600783
+    income_tax: 0.12161912528059143
+    total_assets: 9308933
+    total_liabilities: 6736127
+    total_equity: 2572806
+    cash: 734805
+    accounts_receivable: 1525041
+    inventories: 665382
+    short_term_investments: 490830
+    current_liabilities: 3023419
+    capex: 274440
+    dividends_paid: 24385
+    shares_outstanding: 297763
+    stock_price: 27268.56
+    employees: 43285471
+  Year 2022:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 14926277
+    cost_of_goods_sold: 6352717
+    operating_expenses: 2661301
+    non_operating_expenses: 1939456
+    income_tax: 0.296229937439652
+    total_assets: 15820803
+    total_liabilities: 11696442
+    total_equity: 4124361
+    cash: 876080
+    accounts_receivable: 2045498
+    inventories: 274525
+    short_term_investments: 2290137
+    current_liabilities: 3700363
+    capex: 817439
+    dividends_paid: 121235
+    shares_outstanding: 1095532
+    stock_price: 26123.67
+    employees: 30507338
+  Year 2023:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 15869595
+    cost_of_goods_sold: 7511681
+    operating_expenses: 2623523
+    non_operating_expenses: 1601948
+    income_tax: 0.24175705676683412
+    total_assets: 52543189
+    total_liabilities: 38712587
+    total_equity: 13830602
+    cash: 7800532
+    accounts_receivable: 1776490
+    inventories: 874762
+    short_term_investments: 5458606
+    current_liabilities: 13203136
+    capex: 1160687
+    dividends_paid: 87702
+    shares_outstanding: 501998
+    stock_price: 26142.38
+    employees: 42476756
+  Year 2024:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 17798246
+    cost_of_goods_sold: 7744818
+    operating_expenses: 1990857
+    non_operating_expenses: 2343648
+    income_tax: 0.18048007741154493
+    total_assets: 27181765
+    total_liabilities: 10644596
+    total_equity: 16537169
+    cash: 3329717
+    accounts_receivable: 2385612
+    inventories: 836838
+    short_term_investments: 3707396
+    current_liabilities: 4299126
+    capex: 1136151
+    dividends_paid: 564193
+    shares_outstanding: 10605
+    stock_price: 24022.73
+    employees: 21779463
+  Year 2025:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 19264745
+    cost_of_goods_sold: 11455155
+    operating_expenses: 2754813
+    non_operating_expenses: 2666856
+    income_tax: 0.14274028019782006
+    total_assets: 22198923
+    total_liabilities: 16252552
+    total_equity: 5946371
+    cash: 4553564
+    accounts_receivable: 1097496
+    inventories: 355378
+    short_term_investments: 1823936
+    current_liabilities: 6634864
+    capex: 1646632
+    dividends_paid: 274461
+    shares_outstanding: 1129196
+    stock_price: 54314.46
+    employees: 11619713
+=== END ===
+
+QUESTION: may you give the longterm liabilities for NovaStar Technologies in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",6345470.0,10644596.0,Answer: 10644596,False,0.677511,False,False
+swiss-ai/Apertus-v1.5-70B,90q,5,Ironclad Manufacturing,1,which result follows from the longterm liabilities for Ironclad Manufacturing in 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which result follows from the longterm liabilities for Ironclad Manufacturing in 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",33110659.0,33110659.0,"Extract total liabilities and total equity for year 2025:
+total_liabilities = 55269953
+total_equity = 31439999
+Longterm liabilities = total_liabilities - current_liabilities
+current_liabilities = 22159294
+Longterm liabilities = 55269953 - 22159294 = 33110659
+
+Answer: 33110659",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,7,SilverLine Retail Inc,1,Evaluate the longterm liabilities for SilverLine Retail Inc in 2025 .,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 55388486
+    cost_of_goods_sold: 23334059
+    operating_expenses: 3215099
+    non_operating_expenses: 11147141
+    income_tax: 0.1941001646503267
+    total_assets: 51199762
+    total_liabilities: 37631148
+    total_equity: 13568614
+    cash: 3580277
+    accounts_receivable: 5457592
+    inventories: 2392255
+    short_term_investments: 4036672
+    current_liabilities: 10266176
+    capex: 2584686
+    dividends_paid: 1984510
+    shares_outstanding: 1008499
+    stock_price: 68832.05
+    employees: 16825281
+  Year 2021:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 61715437
+    cost_of_goods_sold: 26519000
+    operating_expenses: 14752378
+    non_operating_expenses: 13127689
+    income_tax: 0.21001932179435656
+    total_assets: 72967708
+    total_liabilities: 39016548
+    total_equity: 33951160
+    cash: 7378512
+    accounts_receivable: 8456155
+    inventories: 1923761
+    short_term_investments: 5986524
+    current_liabilities: 19392387
+    capex: 3913221
+    dividends_paid: 1520456
+    shares_outstanding: 625739
+    stock_price: 16225.23
+    employees: 18408078
+  Year 2022:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 69849783
+    cost_of_goods_sold: 40613034
+    operating_expenses: 14109524
+    non_operating_expenses: 6336189
+    income_tax: 0.20984392781706634
+    total_assets: 49426423
+    total_liabilities: 29519800
+    total_equity: 19906623
+    cash: 9075433
+    accounts_receivable: 3642150
+    inventories: 5950178
+    short_term_investments: 4707473
+    current_liabilities: 9145953
+    capex: 4475074
+    dividends_paid: 440056
+    shares_outstanding: 832855
+    stock_price: 8816.92
+    employees: 49616728
+  Year 2023:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 82116828
+    cost_of_goods_sold: 41686735
+    operating_expenses: 6035031
+    non_operating_expenses: 17772433
+    income_tax: 0.19967510094143903
+    total_assets: 70795008
+    total_liabilities: 44319236
+    total_equity: 26475772
+    cash: 6382416
+    accounts_receivable: 10139161
+    inventories: 6145950
+    short_term_investments: 3123640
+    current_liabilities: 17187721
+    capex: 7698408
+    dividends_paid: 2041215
+    shares_outstanding: 767279
+    stock_price: 70527.11
+    employees: 43269333
+  Year 2024:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 81899158
+    cost_of_goods_sold: 53685126
+    operating_expenses: 10891645
+    non_operating_expenses: 19397789
+    income_tax: 0.2015475351619313
+    total_assets: 63751653
+    total_liabilities: 32859214
+    total_equity: 30892439
+    cash: 6099904
+    accounts_receivable: 8082937
+    inventories: 8045108
+    short_term_investments: 5007670
+    current_liabilities: 9435486
+    capex: 3899212
+    dividends_paid: 0
+    shares_outstanding: 832357
+    stock_price: 44159.26
+    employees: 23039559
+  Year 2025:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 82726148
+    cost_of_goods_sold: 31840762
+    operating_expenses: 15676579
+    non_operating_expenses: 13596831
+    income_tax: 0.14671248921157862
+    total_assets: 67221323
+    total_liabilities: 19810503
+    total_equity: 47410820
+    cash: 13029854
+    accounts_receivable: 9143125
+    inventories: 3995479
+    short_term_investments: 4305595
+    current_liabilities: 8239628
+    capex: 8145667
+    dividends_paid: 6054237
+    shares_outstanding: 748040
+    stock_price: 4406.04
+    employees: 25363412
+=== END ===
+
+QUESTION: Evaluate the longterm liabilities for SilverLine Retail Inc in 2025 .
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",11570875.0,11570875.0,"Total liabilities 2025: 19,810,503
+Current liabilities 2025: 8,239,628
+Long-term liabilities 2025: Total liabilities − Current liabilities
+Long-term liabilities 2025: 19,810,503 − 8,239,628 = 11,570,875
+
+Answer: 11570875",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,7,Ironclad Manufacturing,1,which result follows from the gross profit for Ironclad Manufacturing in 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which result follows from the gross profit for Ironclad Manufacturing in 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",14403379.0,14403379.0,"Gross profit = revenue - cost_of_goods_sold = 36828147 - 22424768 = 14403379
+
+Answer: 14403379",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,7,Atlas Global Industries,1,What is the value of the gross profit for Atlas Global Industries in 2020,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 7271353
+    cost_of_goods_sold: 5400952
+    operating_expenses: 1252525
+    non_operating_expenses: 1481159
+    income_tax: 0.19108323367601782
+    total_assets: 5333390
+    total_liabilities: 3464852
+    total_equity: 1868538
+    cash: 1002870
+    accounts_receivable: 570058
+    inventories: 388625
+    short_term_investments: 163522
+    current_liabilities: 1461840
+    capex: 645952
+    dividends_paid: 0
+    shares_outstanding: 1329343
+    stock_price: 62606.0
+    employees: 11332636
+  Year 2021:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8326795
+    cost_of_goods_sold: 5105660
+    operating_expenses: 1189982
+    non_operating_expenses: 1344621
+    income_tax: 0.28349400289108806
+    total_assets: 18685432
+    total_liabilities: 7429253
+    total_equity: 11256179
+    cash: 2470616
+    accounts_receivable: 775334
+    inventories: 473092
+    short_term_investments: 1016893
+    current_liabilities: 3260049
+    capex: 709447
+    dividends_paid: 87081
+    shares_outstanding: 1339110
+    stock_price: 34999.15
+    employees: 45389309
+  Year 2022:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8700300
+    cost_of_goods_sold: 3233215
+    operating_expenses: 1934068
+    non_operating_expenses: 1218163
+    income_tax: 0.2503553573001023
+    total_assets: 6652442
+    total_liabilities: 3405354
+    total_equity: 3247088
+    cash: 1337729
+    accounts_receivable: 769626
+    inventories: 165224
+    short_term_investments: 476196
+    current_liabilities: 1458807
+    capex: 407764
+    dividends_paid: 162768
+    shares_outstanding: 1340610
+    stock_price: 7825.35
+    employees: 7966118
+  Year 2023:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8937383
+    cost_of_goods_sold: 3295771
+    operating_expenses: 829305
+    non_operating_expenses: 1188436
+    income_tax: 0.1661762782076167
+    total_assets: 10403082
+    total_liabilities: 3317081
+    total_equity: 7086001
+    cash: 2218312
+    accounts_receivable: 705586
+    inventories: 395735
+    short_term_investments: 1481905
+    current_liabilities: 845468
+    capex: 590361
+    dividends_paid: 1064422
+    shares_outstanding: 720700
+    stock_price: 75505.22
+    employees: 15281326
+  Year 2024:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9198321
+    cost_of_goods_sold: 6450219
+    operating_expenses: 1997376
+    non_operating_expenses: 1450061
+    income_tax: 0.24692681215127155
+    total_assets: 7301171
+    total_liabilities: 5340646
+    total_equity: 1960525
+    cash: 1003257
+    accounts_receivable: 618988
+    inventories: 536229
+    short_term_investments: 470488
+    current_liabilities: 2228216
+    capex: 716867
+    dividends_paid: 0
+    shares_outstanding: 1262353
+    stock_price: 73684.02
+    employees: 49045738
+  Year 2025:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9838106
+    cost_of_goods_sold: 6966540
+    operating_expenses: 1656526
+    non_operating_expenses: 1796438
+    income_tax: 0.11678949243240005
+    total_assets: 12081149
+    total_liabilities: 8762607
+    total_equity: 3318542
+    cash: 845443
+    accounts_receivable: 649469
+    inventories: 435798
+    short_term_investments: 889872
+    current_liabilities: 2929998
+    capex: 415764
+    dividends_paid: 0
+    shares_outstanding: 1427294
+    stock_price: 34592.84
+    employees: 41828090
+=== END ===
+
+QUESTION: What is the value of the gross profit for Atlas Global Industries in 2020
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",1870401.0,1870401.0,"Gross profit = Revenue - Cost of goods sold
+= 7271353 - 5400952
+Answer: 1870401",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,11,NovaStar Technologies,1,may you calculate the longterm liabilities for NovaStar Technologies in 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 10788366
+    cost_of_goods_sold: 3735549
+    operating_expenses: 2222654
+    non_operating_expenses: 2447092
+    income_tax: 0.18127547796642335
+    total_assets: 10325833
+    total_liabilities: 4312982
+    total_equity: 6012851
+    cash: 2422170
+    accounts_receivable: 1364303
+    inventories: 548777
+    short_term_investments: 1275323
+    current_liabilities: 2028629
+    capex: 851473
+    dividends_paid: 19344
+    shares_outstanding: 504956
+    stock_price: 74569.05
+    employees: 40210639
+  Year 2021:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 12535411
+    cost_of_goods_sold: 8334007
+    operating_expenses: 1295674
+    non_operating_expenses: 2600783
+    income_tax: 0.12161912528059143
+    total_assets: 9308933
+    total_liabilities: 6736127
+    total_equity: 2572806
+    cash: 734805
+    accounts_receivable: 1525041
+    inventories: 665382
+    short_term_investments: 490830
+    current_liabilities: 3023419
+    capex: 274440
+    dividends_paid: 24385
+    shares_outstanding: 297763
+    stock_price: 27268.56
+    employees: 43285471
+  Year 2022:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 14926277
+    cost_of_goods_sold: 6352717
+    operating_expenses: 2661301
+    non_operating_expenses: 1939456
+    income_tax: 0.296229937439652
+    total_assets: 15820803
+    total_liabilities: 11696442
+    total_equity: 4124361
+    cash: 876080
+    accounts_receivable: 2045498
+    inventories: 274525
+    short_term_investments: 2290137
+    current_liabilities: 3700363
+    capex: 817439
+    dividends_paid: 121235
+    shares_outstanding: 1095532
+    stock_price: 26123.67
+    employees: 30507338
+  Year 2023:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 15869595
+    cost_of_goods_sold: 7511681
+    operating_expenses: 2623523
+    non_operating_expenses: 1601948
+    income_tax: 0.24175705676683412
+    total_assets: 52543189
+    total_liabilities: 38712587
+    total_equity: 13830602
+    cash: 7800532
+    accounts_receivable: 1776490
+    inventories: 874762
+    short_term_investments: 5458606
+    current_liabilities: 13203136
+    capex: 1160687
+    dividends_paid: 87702
+    shares_outstanding: 501998
+    stock_price: 26142.38
+    employees: 42476756
+  Year 2024:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 17798246
+    cost_of_goods_sold: 7744818
+    operating_expenses: 1990857
+    non_operating_expenses: 2343648
+    income_tax: 0.18048007741154493
+    total_assets: 27181765
+    total_liabilities: 10644596
+    total_equity: 16537169
+    cash: 3329717
+    accounts_receivable: 2385612
+    inventories: 836838
+    short_term_investments: 3707396
+    current_liabilities: 4299126
+    capex: 1136151
+    dividends_paid: 564193
+    shares_outstanding: 10605
+    stock_price: 24022.73
+    employees: 21779463
+  Year 2025:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 19264745
+    cost_of_goods_sold: 11455155
+    operating_expenses: 2754813
+    non_operating_expenses: 2666856
+    income_tax: 0.14274028019782006
+    total_assets: 22198923
+    total_liabilities: 16252552
+    total_equity: 5946371
+    cash: 4553564
+    accounts_receivable: 1097496
+    inventories: 355378
+    short_term_investments: 1823936
+    current_liabilities: 6634864
+    capex: 1646632
+    dividends_paid: 274461
+    shares_outstanding: 1129196
+    stock_price: 54314.46
+    employees: 11619713
+=== END ===
+
+QUESTION: may you calculate the longterm liabilities for NovaStar Technologies in 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",7996079.0,11696442.0,Answer: total_liabilities - current_liabilities = 11696442 - 3700363 = 7996079,False,0.462772,False,False

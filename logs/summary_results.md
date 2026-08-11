@@ -1,0 +1,92 @@
+- [x] Mixed depth: 90q on 250 questions Llamma 70B * 80.8%
+- [x] Mixed depth: 90q on 250 questions Qwen 3.7plus *  94.4%
+- [x] Mixed depth: 90q on 250 questions Deepseek v4 flash * 95.6%
+- [x] Mixed depth: 90q on 250 questions Apertus 70 B * 30.4%
+- [x] Mixed depth: 90q on 250 questions Gpt oss 120B * 93.6%
+- [x] Mixed depth: 90q on 250 questions Liquid Ai LFM 2.5 8 B * 42.4%
+- [x] Mixed depth: 90q on 250 questions Qwen 3.5 9B * 55.2% 
+- [x] Mixed depth: 90q on 250 questions Apertus 8B * 42.0%
+- [x] Mixed depth: 90q on 250 questions Gemma 31B 97.6%
+
+- [x] Mixed depth: 90q on 250 questions Multiturn Llamma 70B 86.8%
+- [x] Mixed depth: 90q on 250 questions Multiturn Deepseek v4 flash 88.0%
+- [x] Mixed depth: 90q on 250 questions Multiturn Gpt oss 120B 97.6%
+- [x] Mixed depth: 90q on 250 questions Multiturn Qwen 3.5 9B 86.8%
+- [x] Mixed depth: 90q on 250 questions Multiturn Gemma 31B 96.4%
+- [x] Mixed depth: 90q on 250 questions Multiturn Apertus 8b **Too Slow**
+- [x] Mixed depth: 90q on 250 questions Multiturn apertus 70b **Too Slow**
+- [x] Mixed depth: 90q on 250 questions Multiturn Qwen 3.7 plus 98.0% 
+
+- [x] Mixed depth: 10q on 250 questions  Llamma 70B 243/250
+- [x] Mixed depth: 10q on 250 questions Deepseek v4 flash  241/250
+- [x] Mixed depth: 10q on 250 questions Apertus 70 B 183/250
+- [x] Mixed depth: 10q on 250 questions Gpt oss 120B 245/250
+- [x] Mixed depth: 10q on 250 questions Qwen 3.5 9B 226/250
+- [x] Mixed depth: 10q on 250 questions Apertus 8B 200/250
+- [x] Mixed depth: 10q on 250 questions Gemma 31B 246/250
+- [x] Mixed depth: 10q on 250 questions Qwen 3.7 plus 98.0%
+
+- [x] Depth 1 90q 300 questions Apertus 70B 16/100
+- [x] Depth 1 90q 300 questions Deepseek v4 77/100
+- [x] Depth 2 90q 300 questions Apertus 70B 23/100
+- [x] Depth 2 90q 300 questions Deepseek v4 78/100
+- [x] Depth 3 90q 300 questions Apertus 70B 20/100
+- [x] Depth 3 90q 300 questions Deepseek v4 86/100
+- [x] Depth 4 90q 300 questions Apertus 70B 15/100
+- [x] Depth 4 90q 300 questions Deepseek v4 93/100
+- [x] Depth 5 90q 300 questions Apertus 70B 18/100
+- [x] Depth 5 90q 300 questions Deepseek v4 92/100
+- [x] Depth 6 90q 300 questions Apertus 70B 10/100
+- [x] Depth 6 90q 300 questions Deepseek v4 84/100
+- [x] Depth 7 90q 300 questions Apertus 70B 3/100 
+- [x] Depth 7 90q 300 questions Deepseek v4 53/100
+- [x] Depth 8 90q 300 questions Apertus 70B 4/100
+- [x] Depth 8 90q 300 questions Deepseek v4 26/100
+- [x] Depth 1 90q 300 questions Gemma 84.0%
+- [x] Depth 2 90q 300 questions Gemma 95.3%
+- [x] Depth 3 90q 300 questions Gemma 90.7%
+- [x] Depth 4 90q 300 questions Gemma 94.3%
+- [x] Depth 5 90q 300 questions Gemma 89.7%
+- [x] Depth 6 90q 300 questions Gemma 85.0%
+- [x] Depth 7 90q 300 questions Gemma 76/272 = 72%
+- [x] Depth 8 90q 300 questions Gemma 55%
+
+- [x] Depth 1 10q 300 questions Gemma 31B 100/100
+- [x] Depth 1 10q 300 questions Deepseek v4 98/100
+- [x] Depth 2 10q 300 questions Gemma 31B 98/100
+- [x] Depth 2 10q 300 questions Deepseek v4 95/100
+- [x] Depth 3 10q 300 questions Gemma 31B 70/100
+- [x] Depth 3 10q 300 questions Deepseek v4 60/100
+- [x] Depth 4 10q 300 questions Gemma 31B 72/100
+- [x] Depth 4 10q 300 questions Deepseek v4 70/100
+- [x] Apertus **Too Slow**
+
+- [x] Depth mixed adverserial 10Q Missing values Gemma 31B  78/100
+- [x] Depth mixed adverserial 10Q Missing values Deepseek v4 72/100
+- [x] Depth mixed adverserial 10Q Garbage Values Gemma 31B 82/100
+- [x] Depth mixed adverserial 10Q Garbage Values Deepseek v4 70/100
+- [x] Depth mixed adverserial 10Q Look alike Gemma 31B 82/100
+- [x] Depth mixed adverserial 10Q Look alike Deepseek v4 76/100
+- [x] Depth mixed adverserial 10Q cross sheet Gemma 31B 85/100
+- [x] Depth mixed adverserial 10Q cross sheet Deepseek v4 78/100
+- [x] Depth mixed adverserial 10Q Scaling Gemma 31B 3/100
+- [x] Depth mixed adverserial 10Q Scaling Deepseek v4 22/100
+- [x] Depth mixed adverserial 10Q useless info Gemma 31B 82/100
+- [x] Depth mixed adverserial 10Q useless info Deepseek v4 79/100
+- [x] Depth mixed adverserial 10Q combined Gemma 31B 26/100
+- [x] Depth mixed adverserial 10Q combined Deepseek v4 17/100
+
+- [x] Depth mixed adverserial 90Q Missing values Gemma 31B 59/100
+- [x] Depth mixed adverserial 90Q Missing values Deepseek v4 44/100
+- [x] Depth mixed adverserial 90Q Garbage Values Gemma 31B 54/100
+- [x] Depth mixed adverserial 90Q Garbage Values Deepseek v4 42/100
+- [x] Depth mixed adverserial 90Q Look alike Gemma 31B 72/100
+- [x] Depth mixed adverserial 90Q Look alike Deepseek v4 53/100
+- [x] Depth mixed adverserial 90Q cross sheet Gemma 31B 58/100
+- [x] Depth mixed adverserial 90Q cross sheet Deepseek v4 44/100
+- [x] Depth mixed adverserial 90Q Scaling Gemma 31B 57/100
+- [x] Depth mixed adverserial 90Q Scaling Deepseek v4 38/100
+- [x] Depth mixed adverserial 90Q useless info Gemma 31B 77/100
+- [x] Depth mixed adverserial 90Q useless info Deepseek v4 65/100
+- [x] Depth mixed adverserial 90Q combined Gemma 31B 48/100
+- [x] Depth mixed adverserial 90Q combined Deepseek v4 43/100

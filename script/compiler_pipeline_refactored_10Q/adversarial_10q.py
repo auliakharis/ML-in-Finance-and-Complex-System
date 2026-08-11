@@ -32,10 +32,8 @@ from typing import Any, Literal
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _REFACTORED = os.path.join(_HERE, "..", "compiler_pipeline_refactored")
-sys.path.insert(0, _HERE)
-sys.path.insert(0, _REFACTORED)
 
-from adversarial import (
+from script.compiler_pipeline_adversarial.adversarial import (
     USELESS_INFO_TEMPLATES_FILE,
     UNIT_SCALE_OPTIONS,
     NEGATION_PREFIXES,
@@ -268,7 +266,7 @@ class ObstacleContext10Q:
         return f"{self.question} {snippet}"
 
     def apply_useless_info(self) -> str:
-        templates_path = self.base_dir / ".." / "compiler_pipeline_refactored" / USELESS_INFO_TEMPLATES_FILE
+        templates_path = self.base_dir.parent / "compiler_pipeline_adversarial" / USELESS_INFO_TEMPLATES_FILE
         families = select_useless_info_families(
             load_useless_info_clauses(templates_path),
             self.useless_info_family,

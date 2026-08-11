@@ -1,0 +1,75 @@
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/deepseek-v4-flash
+============================================================
+
+-- 90-Q evaluation (10 questions) --
+Traceback (most recent call last):
+  File "", line 845, in <module>
+    main()
+    ~~~~^^
+  File "", line 783, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 411, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 273, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+    ...<5 lines>...
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+    )
+  File ".venv/lib/python3.14/site-packages/fireworks/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File ".venv/lib/python3.14/site-packages/fireworks/resources/chat/completions.py", line 1560, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/chat/completions"
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<60 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+fireworks.BadRequestError: Error code: 400 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': "Extra inputs are not permitted, field: 'chat_template_kwargs'"}}
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/deepseek-v4-flash
+============================================================
+
+-- 90-Q evaluation (10 questions) --
+  [1/10] CORRECT | truth=26780.0000 pred=26780.0 | determine the current assets for Quantum Bridge Holdings in ...
+  [2/10] CORRECT | truth=57969.0000 pred=57969.0 | which result follows from the current assets for Ironclad Ma...
+  [3/10] CORRECT | truth=36261.0000 pred=36261.0 | give the current assets for Orion Financial Group in 2021...
+  [4/10] CORRECT | truth=84986.0000 pred=84986.0 | what does the following give: operating income for Helix Bio...
+  [5/10] CORRECT | truth=255557.0000 pred=255557.0 | what does the following give: longterm assets for Crimson Ph...
+  [6/10] CORRECT | truth=46382.0000 pred=46382.0 | could you give the current assets for Meridian Systems Inc i...
+  [7/10] CORRECT | truth=320544.0000 pred=320544.0 | Calculate the gross profit for SilverLine Retail Inc in 2020...
+  [8/10] CORRECT | truth=133504.0000 pred=133504.0 | which quantity is given by the gross profit for Ironclad Man...
+  [9/10] CORRECT | truth=54671.0000 pred=54671.0 | What's the value of the gross profit for Atlas Global Indust...
+  [10/10] CORRECT | truth=22505.0000 pred=22505.0 | Give the longterm liabilities for Orion Financial Group in 2...
+
+============================================================
+  Model: accounts/fireworks/models/deepseek-v4-flash
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 10/10  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 10/10  accuracy = 100.0%
+============================================================
+
+Results saved to output_llm/depseek_20260803_224000.json
+CSV saved to output_llm/eval_results_20260803_224000.csv

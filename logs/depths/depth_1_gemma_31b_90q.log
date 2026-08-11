@@ -1,0 +1,70 @@
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=300 =====>
+Traceback (most recent call last):
+  File "", line 62, in <module>
+    from script.Multi_turn.multi_turn_parser import process_dataset as generate_multiturn
+ModuleNotFoundError: No module named 'script'
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=300 =====>
+Traceback (most recent call last):
+  File "", line 62, in <module>
+    from script.Multi_turn.multi_turn_parser import process_dataset as generate_multiturn
+ModuleNotFoundError: No module named 'script'
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=300 =====>
+.venv/bin/python: Error while finding module specification for 'script/benchmark/run_llm_eval_api_call.py' (ModuleNotFoundError: No module named 'script/benchmark/run_llm_eval_api_call'). Try using 'script/benchmark/run_llm_eval_api_call' instead of 'script/benchmark/run_llm_eval_api_call.py' as the module name.
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=300 =====>
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=300 =====>
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=2 =====>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 2 questions, 15 companies
+
+============================================================
+  Evaluating model: CSCS-Inference/google/gemma-4-31B-it
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+<------ will run inference ------>
+<------ will run inference ------>
+  [2/2] CORRECT | truth=-142977.0000 pred=-142977.0 | could you give the difference between total equity and total...
+  [1/2] CORRECT | truth=18576.0000 pred=18576.0 | determine the sum of non operating expenses and short term i...
+
+============================================================
+  Model: CSCS-Inference/google/gemma-4-31B-it
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 2/2  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 2/2  accuracy = 100.0%
+============================================================
+
+Results saved to output_llm/depths/depth_1_gemma_31b_90q_20260808_233243.json
+CSV saved to output_llm/eval_results_20260808_233243.csv
+<===== END depth_1_gemma_31b_90q =====>
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=2 =====>
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=2 =====>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 2 questions, 15 companies
+
+============================================================
+  Evaluating model: CSCS-Inference/google/gemma-4-31B-it
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+  [2/2] CORRECT | truth=0.0000 pred=0.0 | You should calculate the difference between inventories and ...
+  [1/2] CORRECT | truth=25669.0000 pred=25669.0 | may you give the sum of cash and current liabilities for Ori...
+
+============================================================
+  Model: CSCS-Inference/google/gemma-4-31B-it
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 2/2  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 2/2  accuracy = 100.0%
+============================================================
+
+Results saved to output_llm/depths/depth_1_gemma_31b_90q_20260808_233605.json
+CSV saved to output_llm/eval_results_20260808_233605.csv
+<===== END depth_1_gemma_31b_90q =====>
+<===== START depth_1_gemma_31b_90q | provider=Apertus | model=CSCS-Inference/google/gemma-4-31B-it | dataset=90q | limit=10 =====>

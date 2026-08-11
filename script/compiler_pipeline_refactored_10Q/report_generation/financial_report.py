@@ -86,14 +86,14 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
 
-from statements import (
+from .statements import (
     StatementOfOperations,
     StatementOfComprehensiveIncome,
     BalanceSheet,
     StatementOfShareholdersEquity,
     StatementOfCashFlows,
 )
-from notes import Notes
+from .notes import Notes
 
 
 @dataclass

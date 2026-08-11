@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 from typing import Optional
 
-from statements import (
+from .statements import (
     NetSales, Revenue, CostOfSales, OperatingExpenses, CostsAndExpenses,
     EarningsPerShare, SharesUsed, StatementOfOperations,
     OtherComprehensiveIncome, StatementOfComprehensiveIncome,
@@ -33,8 +33,8 @@ from statements import (
     OperatingActivities, InvestingActivities, FinancingActivities,
     StatementOfCashFlows,
 )
-from notes import Notes
-from financial_report import FinancialStatements, FinancialReport
+from .notes import Notes
+from .financial_report import FinancialStatements, FinancialReport
 
 
 # ---------------------------------------------------------------------------

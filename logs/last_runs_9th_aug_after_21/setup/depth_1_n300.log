@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/make_random_questions_adversarial.py", line 12, in <module>
+    from evaluator import Evaluator
+  File "/evaluator.py", line 5, in <module>
+    from .tree import Atom, DerivedExpr, Expr, Leaf, Literal, Node, Operation
+ImportError: attempted relative import with no known parent package
+Traceback (most recent call last):
+  File "/make_random_questions_adversarial.py", line 12, in <module>
+    from evaluator import Evaluator
+  File "/evaluator.py", line 5, in <module>
+    from .tree import Atom, DerivedExpr, Expr, Leaf, Literal, Node, Operation
+ImportError: attempted relative import with no known parent package
+Traceback (most recent call last):
+  File "/make_random_questions_adversarial.py", line 12, in <module>
+    from evaluator import Evaluator
+  File "/evaluator.py", line 5, in <module>
+    from .tree import Atom, DerivedExpr, Expr, Leaf, Literal, Node, Operation
+ImportError: attempted relative import with no known parent package
+Traceback (most recent call last):
+  File "/make_random_questions_adversarial.py", line 33, in <module>
+    from question_renderer import QuestionRenderer
+  File "/question_renderer.py", line 6, in <module>
+    from .semantic_analyzer import (
+    ...<8 lines>...
+    )
+ImportError: attempted relative import with no known parent package
+Saved 300 questions to /output/random_questions_90.csv
+Saved 300 questions to /output/original_questions.json
+Master seed: 843578528
+Max bound leaf count: 2

@@ -14,12 +14,9 @@ import sys
 import os
 from typing import Optional
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "report_generation"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "compiler_pipeline_refactored"))
-
-from generate import generate_report
-from financial_report import FinancialReport, FinancialStatements
-from tree import Atom, SemanticType
+from script.compiler_pipeline_refactored_10Q.report_generation.generate import generate_report
+from script.compiler_pipeline_refactored_10Q.report_generation.financial_report import FinancialReport, FinancialStatements
+from script.compiler_pipeline_adversarial.tree import Atom, SemanticType
 
 CONCEPT_METADATA_FILE = os.path.join(os.path.dirname(__file__), "config", "concept_metadata_10q.json")
 

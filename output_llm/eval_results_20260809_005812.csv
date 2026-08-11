@@ -1,0 +1,489 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,2,SilverLine Retail Inc,4,evaluate the longterm assets for SilverLine Retail Inc in 2024 .,,365161.0,445612.0,Answer: 445612,False,0.220317,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,3,Orion Financial Group,4,may you give the the minimum of cash for Orion Financial Group using values from 2020 through 2024,,8636.0,8636.0,"Cash values 2020-2024: 14348, 11712, 8636, 13631, 58304. Minimum is 8636.
+Answer: 8636",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,4,Crimson Pharmaceuticals,1,What does the following give: longterm liabilities for Crimson Pharmaceuticals in 2022?,,170585.0,170585.0,Answer: 170585,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,5,Cobalt Semiconductor,4,What would be the average total liabilities for Cobalt Semiconductor across years 2022 through 2025 ?,,44233.0,44233.0,"(39076 + 44940 + 54291 + 38625) / 4 = 176932 / 4 = 44233
+Answer: 44233",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,6,SilverLine Retail Inc,3,Calculate the the maximum of dividends paid for SilverLine Retail Inc using values from 2021 through 2024,,20412.0,20412.0,Answer: 20412,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,7,Ironclad Manufacturing,2,You should calculate the operating income for Ironclad Manufacturing in 2021.,,193081.0,193081.0,"Revenue - COGS - Operating expenses = 340508 - 110507 - 36920 = 193081
+Answer: 193081",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,8,Quantum Bridge Holdings,1,compute the the maximum of operating expenses for Quantum Bridge Holdings using values from 2022 through 2023,,15563.0,15563.0,Answer: 15563,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,9,Cobalt Semiconductor,4,what would be the average total equity for Cobalt Semiconductor across years 2022 through 2025,,17799.75,17799.75,Answer: 17799.75,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,10,Ironclad Manufacturing,5,which quantity is given by the result of longterm liabilities for Ironclad Manufacturing in 2024 scaled by ratio of gross profit for Ironclad Manufacturing in 2024 to the maximum of total equity for Ironclad Manufacturing using values from 2020 through 2023 ?,,147698.79310738062,147.68,Answer: 147.68,False,0.999000,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,11,Crimson Pharmaceuticals,5,what do we obtain as the difference between ratio of sum of sum of current liabilities for Crimson Pharmaceuticals in 2022 and current liabilities for Crimson Pharmaceuticals in 2023 and current liabilities for Crimson Pharmaceuticals in 2024 to 3.0 and ratio of sum of sum of sum of total equity for Crimson Pharmaceuticals in 2021 and total equity for Crimson Pharmaceuticals in 2022 and total equity for Crimson Pharmaceuticals in 2023 and total equity for Crimson Pharmaceuticals in 2024 to 4.0 ?,,-132444.75,-132444.75,"(122414 + 127801 + 82551) / 3.0 = 110922.0
+(216730 + 149482 + 291813 + 315442) / 4.0 = 243366.75
+110922.0 - 243366.75 = -132444.75
+Answer: -132444.75",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,12,SilverLine Retail Inc,2,calculate the average total liabilities for SilverLine Retail Inc across years 2020 through 2021,,383238.5,383238.5,"(376312 + 390165) / 2 = 383238.5
+Answer: 383238.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,13,Apex Dynamics Corp,1,What is the value of the gross profit for Apex Dynamics Corp in 2020,,39977.0,39977.0,"Gross profit = Revenue - COGS = 67781 - 27804 = 39977
+Answer: 39977",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,14,Atlas Global Industries,2,what is the value of the sum of dividends paid and result of operating expenses scaled by income tax for Atlas Global Industries in 2021 ?,,4244.578634403948,4244.34,Answer: 4244.34,True,0.000056,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,15,NovaStar Technologies,1,May you calculate the longterm liabilities for NovaStar Technologies in 2024,,63455.0,63455.0,"total_liabilities - current_liabilities = 106446 - 42991 = 63455
+Answer: 63455",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,16,Crimson Pharmaceuticals,1,You should give the the maximum of capex for Crimson Pharmaceuticals using values from 2023 through 2024,,25664.0,25664.0,Answer: 25664,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,17,ClearPath Logistics,3,Whats the value of the the minimum of inventories for ClearPath Logistics using values from 2021 through 2024?,,5472.0,5472.0,Answer: 5472,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,18,Apex Dynamics Corp,1,what is the sum of cost of goods sold and non operating expenses for Apex Dynamics Corp in 2023,,69223.0,69223.0,Answer: 69223,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,19,Atlas Global Industries,1,What is the value of the gross profit for Atlas Global Industries in 2022 ?,,54671.0,54671.0,"Revenue: 87003, COGS: 32332
+Gross profit = 87003 - 32332 = 54671
+Answer: 54671",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,20,Cobalt Semiconductor,4,what would be the the maximum of accounts receivable for Cobalt Semiconductor using values from 2020 through 2024 ?,,6914.0,6914.0,Answer: 6914,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,21,Pinnacle Health Group,1,State the the maximum of revenue for Pinnacle Health Group using values from 2020 through 2021,,15631.0,15631.0,Answer: 15631,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,22,Apex Dynamics Corp,1,What is the longterm liabilities for Apex Dynamics Corp in 2023 ?,,60388.0,60388.0,Answer: 60388,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,23,Ironclad Manufacturing,4,Which result follows from the the minimum of accounts receivable for Ironclad Manufacturing using values from 2020 through 2024?,,23302.0,23302.0,Answer: 23302,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,24,NovaStar Technologies,3,may you give the sum of total liabilities and operating income for NovaStar Technologies in 2024?,,187071.0,187071.0,"Total liabilities: 106446
+Operating income: 80625
+Sum = 106446 + 80625 = 187071
+Answer: 187071",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,25,ClearPath Logistics,5,whats the value of the result of longterm assets scaled by ratio of cash to difference between result of cost of goods sold scaled by income tax and difference between accounts receivable and accounts receivable for ClearPath Logistics in 2021 ?,,651859.1809730316,706774.0,Answer: 706774,True,0.084243,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,26,SilverLine Retail Inc,2,Calculate the the minimum of total assets for SilverLine Retail Inc using values from 2023 through 2025,,637517.0,494264.0,Answer: 494264,False,0.224705,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,27,NovaStar Technologies,3,May you calculate the the maximum of cost of goods sold for NovaStar Technologies using values from 2022 through 2025 ?,,114551.0,114551.0,114551,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,28,Helix BioSciences,1,Which value corresponds to the the maximum of total liabilities for Helix BioSciences using values from 2020 through 2021,,128949.0,128949.0,Answer: 128949,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,29,Crimson Pharmaceuticals,3,What does the following give: pretax income for Crimson Pharmaceuticals in 2022 ?,,213903.0,213903.0,Answer: 213903,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,30,Pinnacle Health Group,1,determine the the maximum of operating expenses for Pinnacle Health Group using values from 2022 through 2023,,3778.0,3778.0,Answer: 3778,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,31,Crimson Pharmaceuticals,3,what does the following give: current assets for Crimson Pharmaceuticals in 2023 ?,,255432.0,255572.0,Answer: 255572,True,0.000548,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,32,NovaStar Technologies,4,May you calculate the average total liabilities for NovaStar Technologies across years 2022 through 2025,,193265.25,193265.25,"116964 + 387126 + 106446 + 162525 = 773061
+773061 / 4 = 193265.25
+Answer: 193265.25",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,33,NovaStar Technologies,5,may you calculate the average cash for NovaStar Technologies across years 2021 through 2025 ?,,34589.4,34589.4,"cash_2021 = 7348
+cash_2022 = 8761
+cash_2023 = 78005
+cash_2024 = 33297
+cash_2025 = 45536
+sum = 172947
+average = 172947 / 5 = 34589.4
+Answer: 34589.4",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,34,Cobalt Semiconductor,5,you should calculate the average total assets for Cobalt Semiconductor across years 2020 through 2024,,65368.2,65368.2,"(78165 + 52203 + 57651 + 65727 + 73095) / 5 = 326841 / 5 = 65368.2
+Answer: 65368.2",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,35,Ironclad Manufacturing,2,you should give the average short term investments for Ironclad Manufacturing across years 2024 through 2025 .,,55982.5,55982.5,"(14126 + 97839) / 2 = 55982.5
+Answer: 55982.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,36,Titan Consumer Brands,5,you should calculate the difference between pretax income and longterm assets for Titan Consumer Brands in 2020,,-518187.0,-518187.0,"Pretax income: 220619
+Long-term assets: 738806
+Difference = 220619 - 738806 = -518187
+Answer: -518187",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,37,ClearPath Logistics,3,What's the value of the current assets for ClearPath Logistics in 2022,,158898.0,92533.0,Answer: 92533,False,0.417658,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,38,Apex Dynamics Corp,5,what is the average non operating expenses for Apex Dynamics Corp across years 2021 through 2025 ?,,13912.4,13912.4,"10608 + 9666 + 15616 + 16030 + 17642 = 69562
+69562 / 5 = 13912.4
+Answer: 13912.4",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,39,Crimson Pharmaceuticals,2,you should give the the maximum of cost of goods sold for Crimson Pharmaceuticals using values from 2022 through 2024,,521794.0,521794.0,Answer: 521794,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,40,SilverLine Retail Inc,4,Calculate the sum of the maximum of total equity for SilverLine Retail Inc using values from 2020 through 2021 and sum of result of operating expenses scaled by income tax for SilverLine Retail Inc in 2021 and the minimum of accounts receivable for SilverLine Retail Inc using values from 2021 through 2023.,,406916.89042839064,339512.0,Answer: 339512 + (147524 * 0.21001932179435656) + 36422 = 406916.0,False,0.165648,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,41,Meridian Systems Inc,5,Could you give the average current liabilities for Meridian Systems Inc across years 2021 through 2025 ?,,43443.6,43443.6,Answer: 43443.6,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,42,Pacific Crest Energy,1,provide the longterm liabilities for Pacific Crest Energy in 2020.,,146454.0,146454.0,Answer: 146454,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,43,SilverLine Retail Inc,4,calculate the the minimum of revenue for SilverLine Retail Inc using values from 2021 through 2025 .,,617154.0,617154.0,Answer: 617154,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,44,Meridian Systems Inc,4,Which quantity is given by the longterm assets for Meridian Systems Inc in 2023 ?,,90766.0,90766.0,Answer: 90766,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,45,Pacific Crest Energy,2,you should calculate the the minimum of capex for Pacific Crest Energy using values from 2022 through 2024 .,,8194.0,10581.0,10581,False,0.291311,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,46,Atlas Global Industries,3,what is the value of the average operating expenses for Atlas Global Industries across years 2021 through 2023 ?,,13178.0,13178.0,"(11900 + 19341 + 8293) / 3 = 13178
+Answer: 13178",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,47,Helix BioSciences,1,which value corresponds to the gross profit for Helix BioSciences in 2022,,93560.0,93560.0,"Revenue: 228915
+Cost of goods sold: 135355
+Gross profit = 228915 - 135355 = 93560
+Answer: 93560",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,48,Orion Financial Group,2,give the average total assets for Orion Financial Group across years 2023 through 2024,,266220.0,266220.0,"(263222 + 269218) / 2 = 266220
+Answer: 266220",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,49,Helix BioSciences,3,Which result follows from the current assets for Helix BioSciences in 2020?,,93272.0,27177.0,Answer: 27177,False,0.708626,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,50,Pinnacle Health Group,1,state the the maximum of revenue for Pinnacle Health Group using values from 2024 through 2025.,,23323.0,23323.0,Answer: 23323,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,51,Helix BioSciences,4,Which value corresponds to the sum of result of gross profit for Helix BioSciences in 2024 scaled by ratio of cash for Helix BioSciences in 2024 to the maximum of current liabilities for Helix BioSciences using values from 2022 through 2023 and total assets for Helix BioSciences in 2024 ?,,289450.5916515983,289464.0,"Gross profit 2024 = 294845 - 152972 = 141873
+Cash 2024 = 44810, max current liabilities 2022-2023 = 97887, ratio = 44810/97887 = 0.4578
+Total assets 2024 = 224505
+Sum = 141873 * 0.4578 + 224505 = 289,464 (approx)
+Answer: 289464",True,0.000046,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,52,Meridian Systems Inc,2,Could you give the the minimum of inventories for Meridian Systems Inc using values from 2020 through 2022,,2543.0,2543.0,2543,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,53,ClearPath Logistics,3,whats the value of the current assets for ClearPath Logistics in 2020?,,134161.0,134161.0,Answer: 134161,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,54,Cobalt Semiconductor,3,What would be the the minimum of total assets for Cobalt Semiconductor using values from 2020 through 2023?,,52203.0,52203.0,Answer: 52203,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,55,Pacific Crest Energy,4,state the longterm assets for Pacific Crest Energy in 2022.,,202526.0,202526.0,Answer: 202526,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,56,SilverLine Retail Inc,1,Calculate the longterm liabilities for SilverLine Retail Inc in 2023 .,,271315.0,271315.0,Answer: 271315,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,57,Orion Financial Group,3,give the the minimum of inventories for Orion Financial Group using values from 2021 through 2024.,,2433.0,2433.0,Answer: 2433,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,58,SilverLine Retail Inc,2,Calculate the the maximum of accounts receivable for SilverLine Retail Inc using values from 2021 through 2023,,101392.0,101392.0,Answer: 101392,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,59,Atlas Global Industries,4,What's the value of the the maximum of non operating expenses for Atlas Global Industries using values from 2021 through 2025 ?,,17964.0,17964.0,"13446, 12182, 11884, 14501, 17964
+
+Answer: 17964",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,60,Atlas Global Industries,2,What's the value of the sum of difference between inventories and dividends paid and result of cash scaled by income tax for Atlas Global Industries in 2024 ?,,7839.416706313707,7839.0,"inventories_2024 = 5362
+dividends_paid_2024 = 0
+cash_2024 = 10033
+income_tax_2024 = 0.24692681215127155
+difference = 5362 - 0 = 5362
+cash_scaled = 10033 * 0.24692681215127155 = 2477.0 (approx)
+sum = 5362 + 2477.0 = 7839.0
+Answer: 7839.0",True,0.000053,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,61,NovaStar Technologies,1,may you give the difference between total equity and non operating expenses for NovaStar Technologies in 2024?,,141935.0,141935.0,Answer: 141935,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,62,Quantum Bridge Holdings,1,determine the the minimum of short term investments for Quantum Bridge Holdings using values from 2023 through 2024,,1477.0,1477.0,Answer: 1477,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,63,Crimson Pharmaceuticals,2,what do we obtain as the the minimum of dividends paid for Crimson Pharmaceuticals using values from 2022 through 2024,,19677.0,19677.0,Answer: 19677,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,64,Titan Consumer Brands,3,You should calculate the pretax income for Titan Consumer Brands in 2023.,,-28759.0,-28759.0,"Revenue: 468895
+COGS: 341879
+Operating expenses: 87854
+Non-operating expenses: 67921
+Pretax income = 468895 - 341879 - 87854 - 67921 = -28759
+Answer: -28759",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,65,Titan Consumer Brands,2,you should calculate the average inventories for Titan Consumer Brands across years 2024 through 2025.,,41644.0,41644.0,"Average inventories = (45127 + 38161) / 2 = 41644
+Answer: 41644",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,66,Orion Financial Group,1,may you give the gross profit for Orion Financial Group in 2024 ?,,64647.0,64647.0,"Revenue: 142085
+Cost of goods sold: 77438
+Gross profit = 142085 - 77438 = 64647
+Answer: 64647",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,67,SilverLine Retail Inc,1,Calculate the longterm liabilities for SilverLine Retail Inc in 2023,,271315.0,271315.0,"total_liabilities: 443192
+current_liabilities: 171877
+longterm_liabilities = 443192 - 171877 = 271315
+Answer: 271315",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,68,Pacific Crest Energy,5,State the the minimum of current liabilities for Pacific Crest Energy using values from 2020 through 2025.,,27315.0,27315.0,"100025, 43731, 60364, 27315, 40562, 54399
+Minimum = 27315
+Answer: 27315",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,69,Apex Dynamics Corp,2,What is the average dividends paid for Apex Dynamics Corp across years 2024 through 2025?,,416.5,416.5,Answer: 416.5,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,70,Orion Financial Group,3,May you give the current assets for Orion Financial Group in 2023 ?,,68614.0,13631.0,Answer: 13631+11364+5922+37697=68614,False,0.801338,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,71,Titan Consumer Brands,5,Evaluate the the maximum of dividends paid for Titan Consumer Brands using values from 2020 through 2025.,,44284.0,44284.0,Answer: 44284,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,72,Helix BioSciences,1,you should give the longterm liabilities for Helix BioSciences in 2022.,,149498.0,149498.0,Answer: 149498,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,73,ClearPath Logistics,2,whats the value of the the maximum of revenue for ClearPath Logistics using values from 2022 through 2024?,,627730.0,627730.0,Answer: 627730,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,74,Meridian Systems Inc,3,Could you give the sum of ratio of sum of short term investments for Meridian Systems Inc in 2020 and short term investments for Meridian Systems Inc in 2021 to 2.0 and the maximum of inventories for Meridian Systems Inc using values from 2024 through 2025 ?,,34019.5,34019.5,"(14711 + 16112) / 2.0 + max(18608, 10774) = 30823 / 2.0 + 18608 = 15411.5 + 18608 = 34019.5
+Answer: 34019.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,75,Pinnacle Health Group,5,state the average inventories for Pinnacle Health Group across years 2021 through 2025 .,,1051.4,1051.4,Answer: 1051.4,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,76,Crimson Pharmaceuticals,1,what do we obtain as the the minimum of accounts receivable for Crimson Pharmaceuticals using values from 2023 through 2024,,30873.0,30873.0,Answer: 30873,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,77,Ironclad Manufacturing,2,Which quantity is given by the the minimum of accounts receivable for Ironclad Manufacturing using values from 2020 through 2022?,,23302.0,23302.0,Answer: 23302,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,78,Helix BioSciences,1,which value corresponds to the longterm liabilities for Helix BioSciences in 2020?,,82214.0,82214.0,Answer: 82214,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,79,Pinnacle Health Group,4,State the the minimum of total equity for Pinnacle Health Group using values from 2020 through 2024.,,4329.0,4329.0,Answer: 4329,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,80,Titan Consumer Brands,5,you should calculate the the maximum of dividends paid for Titan Consumer Brands using values from 2020 through 2025 .,,44284.0,44284.0,Answer: 44284,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,81,Crimson Pharmaceuticals,3,what does the following give: pretax income for Crimson Pharmaceuticals in 2022?,,213903.0,213903.0,Answer: 213903,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,82,SilverLine Retail Inc,1,Calculate the the minimum of current liabilities for SilverLine Retail Inc using values from 2021 through 2022,,91460.0,91460.0,"current_liabilities 2021: 193924
+current_liabilities 2022: 91460
+Minimum = 91460
+Answer: 91460",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,83,ClearPath Logistics,5,Whats the value of the sum of the maximum of cash for ClearPath Logistics using values from 2020 through 2024 and sum of total assets and total assets for ClearPath Logistics in 2023,,1490989.0,822124.0,Answer: 822124,False,0.448605,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,84,SilverLine Retail Inc,4,Calculate the longterm assets for SilverLine Retail Inc in 2021.,,492228.0,492228.0,Answer: 492228,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,85,Ironclad Manufacturing,5,Which result follows from the sum of revenue for Ironclad Manufacturing in 2022 and the minimum of dividends paid for Ironclad Manufacturing using values from 2021 through 2025 ?,,369423.0,369423.0,Answer: 369423,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,86,Titan Consumer Brands,2,You should calculate the the minimum of accounts receivable for Titan Consumer Brands using values from 2023 through 2025,,36229.0,36229.0,Answer: 36229,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,87,Pacific Crest Energy,1,Provide the longterm liabilities for Pacific Crest Energy in 2021.,,44688.0,44688.0,Answer: 44688,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,88,Orion Financial Group,1,may you give the the minimum of dividends paid for Orion Financial Group using values from 2024 through 2025?,,87.0,87.0,Answer: 87,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,89,Atlas Global Industries,3,What is the value of the the minimum of total assets for Atlas Global Industries using values from 2021 through 2024,,66524.0,66524.0,Answer: 66524,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,90,Orion Financial Group,3,give the current assets for Orion Financial Group in 2025 .,,66354.0,43847.0,Answer: 43847,False,0.339196,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,91,Apex Dynamics Corp,1,what is the sum of total assets and revenue for Apex Dynamics Corp in 2022?,,285091.0,285091.0,"total_assets_2022 = 206070
+revenue_2022 = 79021
+sum = 206070 + 79021 = 285091
+Answer: 285091",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,92,Titan Consumer Brands,3,Evaluate the the minimum of current liabilities for Titan Consumer Brands using values from 2021 through 2024 .,,112026.0,112026.0,Answer: 112026,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,93,Pacific Crest Energy,1,Provide the gross profit for Pacific Crest Energy in 2021,,79658.0,79658.0,"Revenue: 190597
+Cost of goods sold: 110939
+Gross profit = 190597 - 110939 = 79658
+Answer: 79658",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,94,Titan Consumer Brands,1,evaluate the difference between short term investments and short term investments for Titan Consumer Brands in 2025.,,0.0,0.0,Answer: 0,True,,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,95,SilverLine Retail Inc,4,Calculate the the maximum of dividends paid for SilverLine Retail Inc using values from 2021 through 2025.,,60542.0,60542.0,Answer: 60542,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,96,SilverLine Retail Inc,3,calculate the current assets for SilverLine Retail Inc in 2020,,154669.0,154669.0,Answer: 154669,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,97,Titan Consumer Brands,5,Evaluate the average non operating expenses for Titan Consumer Brands across years 2021 through 2025.,,82328.2,82328.2,"(103533 + 98672 + 67921 + 52356 + 89159) / 5 = 411641 / 5 = 82328.2
+Answer: 82328.2",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,98,NovaStar Technologies,2,may you calculate the sum of result of short term investments scaled by income tax and result of total assets scaled by income tax for NovaStar Technologies in 2025?,,34290.212031361916,18239.0,Answer: 18239 * 0.14274028019782006 + 221989 * 0.14274028019782006 = 34299.99,False,0.468099,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,99,Pinnacle Health Group,3,You should give the current assets for Pinnacle Health Group in 2023 .,,5482.0,2062.0,Answer: 2062,False,0.623860,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,100,Atlas Global Industries,5,what is the value of the the minimum of non operating expenses for Atlas Global Industries using values from 2020 through 2025 ?,,11884.0,11884.0,"non_operating_expenses values: 14812, 13446, 12182, 11884, 14501, 17964. Minimum is 11884.
+
+Answer: 11884",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,101,Meridian Systems Inc,4,Could you give the average total liabilities for Meridian Systems Inc across years 2020 through 2023 ?,,78538.5,78538.5,"(56087 + 88211 + 94541 + 75315) / 4 = 314154 / 4 = 78538.5
+Answer: 78538.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,102,Pinnacle Health Group,1,State the longterm liabilities for Pinnacle Health Group in 2022 .,,4121.0,4121.0,Answer: 4121,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,103,Pacific Crest Energy,4,provide the sum of operating income and difference between total assets and operating income for Pacific Crest Energy in 2022 .,,298285.0,298285.0,"Operating income = 87175  
+Total assets = 298285  
+Difference = 298285 - 87175 = 211110  
+Sum = 87175 + 211110 = 298285  
+Answer: 298285",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,104,ClearPath Logistics,1,What's the value of the longterm liabilities for ClearPath Logistics in 2024 ?,,260787.0,258787.0,Answer: 258787,True,0.007669,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,105,Quantum Bridge Holdings,3,determine the pretax income for Quantum Bridge Holdings in 2022 .,,24187.0,24187.0,"Revenue: 84608
+Cost of goods sold: 35311
+Operating expenses: 15563
+Non-operating expenses: 9547
+Pretax income = 84608 - 35311 - 15563 - 9547 = 24187
+Answer: 24187",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,106,Cobalt Semiconductor,4,you should give the average accounts receivable for Cobalt Semiconductor across years 2021 through 2024,,3827.5,3827.5,Answer: 3827.5,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,107,Orion Financial Group,4,give the the maximum of operating expenses for Orion Financial Group using values from 2021 through 2025.,,34892.0,34892.0,"24051, 26882, 30563, 34892, 12201  
+Answer: 34892",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,108,Apex Dynamics Corp,1,what is the sum of short term investments and revenue for Apex Dynamics Corp in 2021?,,87069.0,87069.0,Answer: 87069,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,109,Crimson Pharmaceuticals,4,What does the following give: average cash for Crimson Pharmaceuticals across years 2021 through 2024?,,84453.75,84453.75,"Cash 2021: 21092
+Cash 2022: 55614
+Cash 2023: 158784
+Cash 2024: 102325
+Average: (21092 + 55614 + 158784 + 102325) / 4 = 337815 / 4 = 84453.75
+Answer: 84453.75",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,110,Meridian Systems Inc,1,Could you give the the minimum of revenue for Meridian Systems Inc using values from 2020 through 2021,,150714.0,150714.0,Answer: 150714,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,111,Crimson Pharmaceuticals,1,what does the following give: sum of dividends paid and short term investments for Crimson Pharmaceuticals in 2021,,79890.0,79890.0,Answer: 79890,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,112,Cobalt Semiconductor,2,What do we obtain as the average cost of goods sold for Cobalt Semiconductor across years 2020 through 2021,,26652.5,26652.5,"Average = (25283 + 28022) / 2 = 53305 / 2 = 26652.5  
+
+Answer: 26652.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,113,Pacific Crest Energy,2,Provide the operating income for Pacific Crest Energy in 2024,,81769.0,81769.0,"Revenue - COGS - Operating expenses = 190474 - 87910 - 20795 = 81769
+Answer: 81769",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,114,NovaStar Technologies,4,May you give the the maximum of inventories for NovaStar Technologies using values from 2021 through 2025 ?,,8748.0,8748.0,Answer: 8748,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,115,Pinnacle Health Group,4,State the the minimum of non operating expenses for Pinnacle Health Group using values from 2020 through 2024 .,,1102.0,1102.0,Answer: 1102,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,116,Cobalt Semiconductor,3,What would be the current assets for Cobalt Semiconductor in 2024 ?,,19839.0,19839.0,"Cash + Accounts Receivable + Inventories + Short-term Investments = 12572 + 2888 + 1029 + 3350 = 19839
+Answer: 19839",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,117,Cobalt Semiconductor,5,What do we obtain as the the maximum of total equity for Cobalt Semiconductor using values from 2020 through 2025 ?,,20787.0,20787.0,Answer: 20787,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,118,Meridian Systems Inc,1,Could you give the the minimum of cost of goods sold for Meridian Systems Inc using values from 2020 through 2021,,52780.0,52780.0,Answer: 52780,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,119,Atlas Global Industries,1,What is the value of the gross profit for Atlas Global Industries in 2025 ?,,28716.0,28716.0,"Revenue: 98381
+COGS: 69665
+Gross profit = 98381 - 69665 = 28716
+Answer: 28716",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,120,SilverLine Retail Inc,3,calculate the the maximum of dividends paid for SilverLine Retail Inc using values from 2020 through 2023 .,,20412.0,20412.0,Answer: 20412,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,121,Meridian Systems Inc,1,Could you give the gross profit for Meridian Systems Inc in 2021 ?,,79126.0,79126.0,"Revenue: 171514
+COGS: 92388
+Gross profit = 171514 - 92388 = 79126
+Answer: 79126",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,122,SilverLine Retail Inc,5,evaluate the the minimum of cash for SilverLine Retail Inc using values from 2020 through 2025 .,,35803.0,35803.0,Answer: 35803,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,123,SilverLine Retail Inc,1,calculate the sum of total equity and cash for SilverLine Retail Inc in 2020.,,171489.0,171489.0,"total_equity 2020: 135686
+cash 2020: 35803
+sum: 135686 + 35803 = 171489
+Answer: 171489",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,124,ClearPath Logistics,2,Whats the value of the operating income for ClearPath Logistics in 2023 ?,,286577.0,286577.0,"Revenue 567556 - COGS 247181 - Operating expenses 33798 = 286577
+Answer: 286577",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,125,ClearPath Logistics,1,What would be the longterm liabilities for ClearPath Logistics in 2025?,,304449.0,304449.0,Answer: 304449,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,126,SilverLine Retail Inc,4,Calculate the average accounts receivable for SilverLine Retail Inc across years 2021 through 2024.,,75801.0,71550.75,Answer: 71550.75,True,0.056071,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,127,Cobalt Semiconductor,5,What would be the sum of ratio of sum of sum of sum of total liabilities for Cobalt Semiconductor in 2020 and total liabilities for Cobalt Semiconductor in 2021 and total liabilities for Cobalt Semiconductor in 2022 and total liabilities for Cobalt Semiconductor in 2023 to 4.0 and gross profit for Cobalt Semiconductor in 2023?,,72713.25,72713.25,"(57819 + 33030 + 39076 + 44940) / 4.0 + 28997 = 174865 / 4.0 + 28997 = 43716.25 + 28997 = 72713.25
+Answer: 72713.25",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,128,SilverLine Retail Inc,2,Calculate the the maximum of non operating expenses for SilverLine Retail Inc using values from 2022 through 2024 .,,193978.0,193978.0,Answer: 193978,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,129,Orion Financial Group,2,May you give the the minimum of total equity for Orion Financial Group using values from 2023 through 2025?,,108761.0,108761.0,Answer: 108761,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,130,Ironclad Manufacturing,5,which result follows from the the minimum of revenue for Ironclad Manufacturing using values from 2020 through 2025 ?,,340508.0,340508.0,Answer: 340508,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,131,Pacific Crest Energy,4,Provide the sum of sum of dividends paid for Pacific Crest Energy in 2022 and the maximum of cash for Pacific Crest Energy using values from 2022 through 2024 and accounts receivable for Pacific Crest Energy in 2022 .,,78550.0,78450.0,Answer: 78450,True,0.001273,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,132,SilverLine Retail Inc,1,evaluate the result of capex scaled by income tax for SilverLine Retail Inc in 2024,,7858.741491034025,193463.5,"capex / income_tax = 38992 / 0.2015475351619313 = 193,463.5
+Answer: 193463.5",False,23.617619,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,133,Crimson Pharmaceuticals,1,What does the following give: gross profit for Crimson Pharmaceuticals in 2023?,,281934.0,281934.0,"Revenue: 714010
+Cost of goods sold: 432076
+Gross profit = 714010 - 432076 = 281934
+Answer: 281934",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,134,NovaStar Technologies,4,May you give the average cash for NovaStar Technologies across years 2020 through 2023,,29584.0,29584.0,"(24222 + 7348 + 8761 + 78005) / 4 = 29584
+Answer: 29584",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,135,Meridian Systems Inc,3,Could you give the average short term investments for Meridian Systems Inc across years 2023 through 2025 ?,,11297.333333333334,11297.33,Answer: 11297.33,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,136,Ironclad Manufacturing,3,which quantity is given by the current assets for Ironclad Manufacturing in 2020 ?,,159416.0,49146.0,Answer: 49146,False,0.691712,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,137,Crimson Pharmaceuticals,1,what does the following give: result of non operating expenses scaled by income tax for Crimson Pharmaceuticals in 2021 ?,,17983.918122352832,17984.0,"Income tax = 0.1734693853919364  
+Non-operating expenses = 103672  
+Scaled = 103672 * 0.1734693853919364 = 17984.0  
+Answer: 17984.0",True,0.000005,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,138,Orion Financial Group,4,Give the the maximum of revenue for Orion Financial Group using values from 2020 through 2024 .,,142085.0,142085.0,142085,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,139,Ironclad Manufacturing,3,which result follows from the pretax income for Ironclad Manufacturing in 2021?,,111762.0,111762.0,"Pretax income = Revenue - COGS - Operating expenses - Non-operating expenses = 340508 - 110507 - 36920 - 81319 = 111762
+Answer: 111762",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,140,Pacific Crest Energy,2,provide the average cost of goods sold for Pacific Crest Energy across years 2024 through 2025,,87398.0,87398.0,"(87910 + 86886) / 2 = 87398
+Answer: 87398",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,141,ClearPath Logistics,4,What's the value of the the maximum of accounts receivable for ClearPath Logistics using values from 2020 through 2024 ?,,56571.0,56571.0,Answer: 56571,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,142,Atlas Global Industries,4,What's the value of the longterm assets for Atlas Global Industries in 2022 ?,,39037.0,39037.0,"Total assets - current assets = 66524 - 27487 = 39037
+Answer: 39037",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,143,Ironclad Manufacturing,1,which quantity is given by the the minimum of cost of goods sold for Ironclad Manufacturing using values from 2024 through 2025,,153173.0,153173.0,Answer: 153173,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,144,Pacific Crest Energy,4,State the longterm assets for Pacific Crest Energy in 2022,,202526.0,202526.0,Answer: 202526,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,145,Meridian Systems Inc,5,you should give the the maximum of cost of goods sold for Meridian Systems Inc using values from 2020 through 2025,,125778.0,125778.0,Answer: 125778,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,146,Ironclad Manufacturing,2,Which quantity is given by the sum of the minimum of dividends paid for Ironclad Manufacturing using values from 2020 through 2021 and sum of accounts receivable and revenue for Ironclad Manufacturing in 2020,,407415.0,407415.0,Answer: 407415,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,147,Pacific Crest Energy,4,Provide the longterm assets for Pacific Crest Energy in 2023 .,,87508.0,87508.0,Answer: 87508,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,148,NovaStar Technologies,5,May you calculate the average total equity for NovaStar Technologies across years 2021 through 2025 ?,,86022.6,86022.6,Answer: 86022.6,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,149,Orion Financial Group,2,May you give the operating income for Orion Financial Group in 2021?,,1539.0,1539.0,"Revenue: 98792
+COGS: 73202
+Operating expenses: 24051
+Operating income = 98792 - 73202 - 24051 = 1539
+Answer: 1539",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,150,Crimson Pharmaceuticals,1,What do we obtain as the the maximum of short term investments for Crimson Pharmaceuticals using values from 2021 through 2022,,65373.0,65373.0,65373,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,151,Crimson Pharmaceuticals,2,What do we obtain as the sum of difference between non operating expenses and non operating expenses and inventories for Crimson Pharmaceuticals in 2022 ?,,28424.0,0.0,Answer: 0,False,1.000000,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,152,Quantum Bridge Holdings,1,determine the the minimum of total equity for Quantum Bridge Holdings using values from 2022 through 2023,,42736.0,42736.0,Answer: 42736,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,153,Crimson Pharmaceuticals,4,What does the following give: longterm assets for Crimson Pharmaceuticals in 2025?,,501521.0,109394.0,Answer: 109394,False,0.781876,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,154,Helix BioSciences,4,which value corresponds to the the maximum of revenue for Helix BioSciences using values from 2021 through 2025?,,334916.0,334916.0,Answer: 334916,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,155,Pacific Crest Energy,2,provide the the maximum of total liabilities for Pacific Crest Energy using values from 2021 through 2023,,174646.0,246479.0,246479,False,0.411306,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,156,Orion Financial Group,3,May you give the pretax income for Orion Financial Group in 2021,,-19298.0,-19298.0,"Revenue: 98792
+Cost of goods sold: 73202
+Operating expenses: 24051
+Non-operating expenses: 20837
+Pretax income = 98792 - 73202 - 24051 - 20837 = -19298
+Answer: -19298",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,157,SilverLine Retail Inc,4,you should calculate the average cost of goods sold for SilverLine Retail Inc across years 2022 through 2025.,,419564.0,419564.0,Answer: 419564.0,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,158,NovaStar Technologies,1,May you calculate the sum of accounts receivable and cost of goods sold for NovaStar Technologies in 2023?,,92882.0,92882.0,"accounts_receivable: 17765
+cost_of_goods_sold: 75117
+17765 + 75117 = 92882
+Answer: 92882",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,159,Apex Dynamics Corp,3,what is the current assets for Apex Dynamics Corp in 2024 ?,,33056.0,33056.0,Answer: 33056,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,160,Quantum Bridge Holdings,4,you should give the the maximum of capex for Quantum Bridge Holdings using values from 2020 through 2024,,6279.0,6279.0,Answer: 6279,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,161,ClearPath Logistics,4,whats the value of the longterm assets for ClearPath Logistics in 2020 ?,,269311.0,269311.0,Answer: 269311,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,162,Cobalt Semiconductor,3,what would be the average inventories for Cobalt Semiconductor across years 2021 through 2023,,2759.0,2759.0,"(4147 + 3218 + 912) / 3 = 2759
+Answer: 2759",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,163,Meridian Systems Inc,3,you should give the the maximum of total assets for Meridian Systems Inc using values from 2021 through 2024.,,234572.0,234572.0,Answer: 234572,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,164,Cobalt Semiconductor,1,what do we obtain as the gross profit for Cobalt Semiconductor in 2025?,,24706.0,24706.0,"Revenue: 55356
+Cost of goods sold: 30650
+Gross profit = 55356 - 30650 = 24706
+Answer: 24706",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,165,Ironclad Manufacturing,2,which quantity is given by the average revenue for Ironclad Manufacturing across years 2023 through 2024,,429388.5,429388.5,Answer: 429388.5,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,166,Quantum Bridge Holdings,1,determine the sum of total liabilities and total liabilities for Quantum Bridge Holdings in 2020.,,97358.0,97358.0,Answer: 97358,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,167,Ironclad Manufacturing,2,Which quantity is given by the difference between longterm liabilities and inventories for Ironclad Manufacturing in 2022 ?,,228855.0,228855.0,Answer: 228855,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,168,NovaStar Technologies,3,May you calculate the the maximum of capex for NovaStar Technologies using values from 2020 through 2023,,11607.0,11607.0,Answer: 11607,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,169,Titan Consumer Brands,2,Evaluate the result of short term investments scaled by ratio of accounts receivable to cost of goods sold for Titan Consumer Brands in 2024 .,,8389.346477516554,67721.0,"Answer: 67721 / (42955 / 346744) = 67721 / 0.1239 = 546,578.69",False,7.072262,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,170,Cobalt Semiconductor,1,what would be the gross profit for Cobalt Semiconductor in 2021?,,24795.0,24795.0,"Revenue: 52817
+Cost of goods sold: 28022
+Gross profit = 52817 - 28022 = 24795
+Answer: 24795",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,171,Ironclad Manufacturing,2,Which quantity is given by the the minimum of total equity for Ironclad Manufacturing using values from 2023 through 2025,,131903.0,131903.0,Answer: 131903,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,172,Quantum Bridge Holdings,4,determine the longterm assets for Quantum Bridge Holdings in 2022.,,142602.0,142602.0,Answer: 142602,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,173,Pinnacle Health Group,1,State the difference between cost of goods sold and capex for Pinnacle Health Group in 2023,,9007.0,9007.0,"cost of goods sold: 9524
+capex: 517
+difference: 9524 - 517 = 9007
+Answer: 9007",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,174,ClearPath Logistics,3,Whats the value of the average accounts receivable for ClearPath Logistics across years 2020 through 2022,,34555.666666666664,34555.6667,"(33576 + 21960 + 48131) / 3 = 103667 / 3 = 34555.6667
+Answer: 34555.6667",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,175,ClearPath Logistics,1,Whats the value of the result of short term investments scaled by income tax for ClearPath Logistics in 2020 ?,,15662.67641254593,15662.67,"Income tax = 0.2932536306411895  
+Short-term investments = 53410  
+Result = 53410 * 0.2932536306411895 = 15662.67  
+
+Answer: 15662.67",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,176,Helix BioSciences,2,which value corresponds to the operating income for Helix BioSciences in 2022?,,79097.0,79097.0,Answer: 79097,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,177,Orion Financial Group,2,May you give the average total equity for Orion Financial Group across years 2023 through 2024?,,136971.5,136971.5,Answer: 136971.5,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,178,Pinnacle Health Group,2,you should give the average revenue for Pinnacle Health Group across years 2021 through 2022 .,,16145.5,16145.5,"(15115 + 17176) / 2 = 16145.5
+Answer: 16145.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,179,Quantum Bridge Holdings,1,Compute the longterm liabilities for Quantum Bridge Holdings in 2022,,73911.0,73911.0,"total_liabilities: 124280
+current_liabilities: 50369
+longterm_liabilities = 124280 - 50369 = 73911
+Answer: 73911",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,180,Pacific Crest Energy,1,provide the longterm liabilities for Pacific Crest Energy in 2021,,44688.0,44688.0,Answer: 44688,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,181,Atlas Global Industries,3,What's the value of the current assets for Atlas Global Industries in 2023 ?,,48015.0,48015.0,"Current assets = cash + accounts_receivable + inventories + short_term_investments = 22183 + 7056 + 3957 + 14819 = 48015  
+Answer: 48015",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,182,Crimson Pharmaceuticals,1,What do we obtain as the sum of dividends paid and current liabilities for Crimson Pharmaceuticals in 2022 ?,,148642.0,148642.0,Answer: 148642,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,183,Apex Dynamics Corp,1,what is the the minimum of capex for Apex Dynamics Corp using values from 2023 through 2024?,,2159.0,2159.0,Answer: 2159,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,184,Meridian Systems Inc,4,Could you give the sum of difference between difference between dividends paid and non operating expenses and sum of short term investments and cost of goods sold for Meridian Systems Inc in 2020 and the minimum of dividends paid for Meridian Systems Inc using values from 2020 through 2023,,-76976.0,-38069.0,Answer: -38069,False,0.505443,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,185,ClearPath Logistics,1,Whats the value of the result of inventories scaled by income tax for ClearPath Logistics in 2025 ?,,3897.008059643055,328800.0,"inventories = 35796
+income_tax = 0.10886713765904164
+35796 / 0.10886713765904164 = 328800.0
+Answer: 328800.0",False,83.372420,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,186,Pacific Crest Energy,3,Provide the current assets for Pacific Crest Energy in 2021.,,55811.0,33062.0,Answer: 33062 + 13101 + 5500 + 4148 = 55811,False,0.407608,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,187,Meridian Systems Inc,3,which quantity is given by the the maximum of inventories for Meridian Systems Inc using values from 2021 through 2024,,18608.0,18608.0,Answer: 18608,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,188,Atlas Global Industries,5,what's the value of the difference between total liabilities for Atlas Global Industries in 2025 and the minimum of total liabilities for Atlas Global Industries using values from 2021 through 2025?,,54455.0,54455.0,"87626 - 33171 = 54455  
+Answer: 54455",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,189,Atlas Global Industries,5,what's the value of the the maximum of dividends paid for Atlas Global Industries using values from 2020 through 2025?,,10644.0,10644.0,Answer: 10644,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,190,NovaStar Technologies,3,may you calculate the pretax income for NovaStar Technologies in 2023,,41325.0,41325.0,"Revenue: 158696
+Cost of goods sold: 75117
+Operating expenses: 26235
+Non-operating expenses: 16019
+Pretax income = 158696 - 75117 - 26235 - 16019 = 41325
+Answer: 41325",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,191,Quantum Bridge Holdings,4,Compute the the minimum of cash for Quantum Bridge Holdings using values from 2020 through 2024 .,,2853.0,2853.0,Answer: 2853,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,192,Helix BioSciences,5,Which value corresponds to the result of total equity scaled by ratio of gross profit to current assets for Helix BioSciences in 2025?,,159515.92874044162,159507.5,"Gross profit = 334916 - 222408 = 112508
+Current assets = 38481 + 22939 + 26091 + 21948 = 109459
+Ratio = 112508 / 109459 = 1.0278
+Total equity scaled = 155193 * 1.0278 = 159507.5
+Answer: 159507.5",True,0.000053,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,193,Helix BioSciences,3,what does the following give: average cash for Helix BioSciences across years 2020 through 2022?,,36067.0,36067.0,"(27177 + 18724 + 62300) / 3 = 36067
+Answer: 36067",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,194,Atlas Global Industries,2,what is the value of the operating income for Atlas Global Industries in 2023?,,48123.0,48123.0,"Revenue: 89374
+COGS: 32958
+Operating expenses: 8293
+Operating income = 89374 - 32958 - 8293 = 48123
+Answer: 48123",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,195,Pacific Crest Energy,3,State the the maximum of total equity for Pacific Crest Energy using values from 2021 through 2024,,129423.0,129423.0,Answer: 129423,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,196,Helix BioSciences,5,which value corresponds to the average dividends paid for Helix BioSciences across years 2021 through 2025?,,7895.4,7895.4,Answer: 7895.4,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,197,Quantum Bridge Holdings,3,Determine the the minimum of accounts receivable for Quantum Bridge Holdings using values from 2020 through 2023,,8455.0,8455.0,Answer: 8455,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,198,SilverLine Retail Inc,4,Evaluate the average operating expenses for SilverLine Retail Inc across years 2021 through 2024,,114471.5,114471.5,Answer: 114471.5,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,199,Meridian Systems Inc,1,Could you give the longterm liabilities for Meridian Systems Inc in 2020?,,37881.0,37881.0,Answer: 37881,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,200,Orion Financial Group,3,Give the current assets for Orion Financial Group in 2021.,,36261.0,11712.0,Answer: 11712 + 8445 + 7867 + 8237 = 36261,False,0.677008,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,201,Orion Financial Group,4,may you give the average operating expenses for Orion Financial Group across years 2022 through 2025?,,26134.5,26134.5,"(26882 + 30563 + 34892 + 12201) / 4 = 104538 / 4 = 26134.5
+Answer: 26134.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,202,Atlas Global Industries,1,what's the value of the gross profit for Atlas Global Industries in 2024,,27481.0,27481.0,"Revenue: 91983
+Cost of goods sold: 64502
+Gross profit = 91983 - 64502 = 27481
+Answer: 27481",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,203,Crimson Pharmaceuticals,4,what does the following give: the maximum of dividends paid for Crimson Pharmaceuticals using values from 2021 through 2025?,,28424.0,28424.0,Answer: 28424,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,204,Titan Consumer Brands,4,You should calculate the longterm assets for Titan Consumer Brands in 2024.,,918217.0,1078020.0,Answer: 1078020,False,0.174036,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,205,Titan Consumer Brands,4,evaluate the sum of the minimum of cash for Titan Consumer Brands using values from 2022 through 2025 and current liabilities for Titan Consumer Brands in 2020,,114621.0,65913.0,Answer: 65913,False,0.424948,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,206,ClearPath Logistics,4,whats the value of the average total assets for ClearPath Logistics across years 2022 through 2025 ?,,644843.0,644807.75,Answer: 644807.75,True,0.000055,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,207,Titan Consumer Brands,5,Evaluate the average dividends paid for Titan Consumer Brands across years 2020 through 2024 .,,16979.6,16979.6,"(44284 + 20810 + 17554 + 0 + 2250) / 5 = 16979.6
+Answer: 16979.6",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,208,Apex Dynamics Corp,4,what is the the minimum of cash for Apex Dynamics Corp using values from 2020 through 2024?,,2627.0,2627.0,2627,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,209,Cobalt Semiconductor,2,what do we obtain as the the maximum of total assets for Cobalt Semiconductor using values from 2021 through 2023?,,65727.0,65727.0,Answer: 65727,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,210,Atlas Global Industries,3,What's the value of the current assets for Atlas Global Industries in 2023,,48015.0,48015.0,Answer: 48015,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,211,Apex Dynamics Corp,4,what is the sum of current assets and total liabilities for Apex Dynamics Corp in 2021 ?,,124358.0,126358.0,Answer: 126358,True,0.016083,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,212,Ironclad Manufacturing,1,Which result follows from the sum of current liabilities and cash for Ironclad Manufacturing in 2023,,85193.0,85193.0,Answer: 85193,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,213,Titan Consumer Brands,3,evaluate the average operating expenses for Titan Consumer Brands across years 2022 through 2024,,60517.666666666664,60517.6667,"(64344 + 87854 + 29355) / 3 = 181553 / 3 = 60517.6667
+Answer: 60517.6667",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,214,Ironclad Manufacturing,1,Which quantity is given by the difference between total liabilities and cost of goods sold for Ironclad Manufacturing in 2023?,,60510.0,60510.0,Answer: 60510,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,215,Cobalt Semiconductor,2,what do we obtain as the the maximum of operating expenses for Cobalt Semiconductor using values from 2022 through 2024?,,13623.0,13623.0,"Operating expenses:
+2022: 4243
+2023: 13623
+2024: 8231
+Maximum = 13623
+
+Answer: 13623",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,216,ClearPath Logistics,1,what's the value of the gross profit for ClearPath Logistics in 2022,,195040.0,195040.0,"Revenue: 567176
+COGS: 372136
+Gross Profit = 567176 - 372136 = 195040
+Answer: 195040",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,217,Apex Dynamics Corp,1,What is the the minimum of current liabilities for Apex Dynamics Corp using values from 2020 through 2021,,18142.0,18142.0,Answer: 18142,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,218,Atlas Global Industries,2,what's the value of the average inventories for Atlas Global Industries across years 2022 through 2023?,,2804.5,2804.5,"(1652 + 3957) / 2 = 2804.5
+Answer: 2804.5",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,219,SilverLine Retail Inc,4,Calculate the sum of sum of ratio of sum of total equity for SilverLine Retail Inc in 2020 and total equity for SilverLine Retail Inc in 2021 to 2.0 and cost of goods sold for SilverLine Retail Inc in 2023 and longterm liabilities for SilverLine Retail Inc in 2023.,,925781.0,688381.85,"(135686 / 339512) / 2.0 + 416867 + 271315 = 0.19985 + 688182 = 688381.85
+Answer: 688381.85",False,0.256431,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,220,Atlas Global Industries,1,What is the value of the sum of accounts receivable and non operating expenses for Atlas Global Industries in 2025?,,24459.0,24459.0,"accounts_receivable: 6495
+non_operating_expenses: 17964
+6495 + 17964 = 24459
+Answer: 24459",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,221,Pinnacle Health Group,2,State the the minimum of cost of goods sold for Pinnacle Health Group using values from 2022 through 2024.,,9524.0,11725.0,11725,False,0.231100,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,222,SilverLine Retail Inc,3,calculate the difference between operating income and cost of goods sold for SilverLine Retail Inc in 2025,,33681.0,33681.0,"Operating income: 352088
+Cost of goods sold: 318407
+Difference = 352088 - 318407 = 33681
+Answer: 33681",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,223,ClearPath Logistics,5,What's the value of the the minimum of revenue for ClearPath Logistics using values from 2020 through 2025 ?,,514684.0,514684.0,514684,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,224,Meridian Systems Inc,1,Could you give the longterm liabilities for Meridian Systems Inc in 2022 ?,,47385.0,47385.0,Answer: 47385,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,225,Titan Consumer Brands,3,Evaluate the current assets for Titan Consumer Brands in 2020,,243881.0,241875.0,Answer: 241875,True,0.008225,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,226,Orion Financial Group,3,may you give the pretax income for Orion Financial Group in 2022?,,13847.0,13847.0,"Revenue: 115348
+COGS: 63745
+Operating expenses: 26882
+Non-operating expenses: 10874
+Pretax income = 115348 - 63745 - 26882 - 10874 = 13847
+Answer: 13847",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,227,Meridian Systems Inc,5,Could you give the the maximum of accounts receivable for Meridian Systems Inc using values from 2020 through 2025?,,27542.0,27542.0,27542,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,228,NovaStar Technologies,5,may you give the sum of capex and result of sum of revenue and operating expenses scaled by ratio of difference between difference between cost of goods sold and cash and revenue to total liabilities for NovaStar Technologies in 2024,,-237440.74380437026,-237439.0,"capex = 11361
+revenue = 177982
+operating_expenses = 19909
+cogs = 77448
+cash = 33297
+total_liabilities = 106446
+
+sum_capex = 11361
+sum_rev_opex = 177982 + 19909 = 197891
+diff_cogs_cash = 77448 - 33297 = 44151
+diff_diff_rev = 44151 - 177982 = -133831
+ratio = -133831 / 106446 = -1.2573
+result = 11361 + (197891 * -1.2573) = 11361 - 248,800 = -237,439
+
+Answer: -237439",True,0.000007,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,229,Atlas Global Industries,3,What is the value of the the minimum of total equity for Atlas Global Industries using values from 2022 through 2025,,19605.0,19605.0,Answer: 19605,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,230,Apex Dynamics Corp,1,what is the result of short term investments scaled by income tax for Apex Dynamics Corp in 2025 ?,,1591.2354317794513,93336.47,"short_term_investments = 12187
+income_tax = 0.1305682638696522
+12187 / 0.1305682638696522 = 93336.47
+Answer: 93336.47",False,57.656606,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,231,Quantum Bridge Holdings,2,Determine the the maximum of operating expenses for Quantum Bridge Holdings using values from 2021 through 2023,,15563.0,15563.0,Answer: 15563,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,232,Ironclad Manufacturing,4,which result follows from the the minimum of short term investments for Ironclad Manufacturing using values from 2020 through 2024?,,12073.0,12073.0,Answer: 12073,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,233,NovaStar Technologies,2,May you calculate the difference between gross profit and total assets for NovaStar Technologies in 2024?,,-171283.0,-171283.0,"Gross profit = 177982 - 77448 = 100534
+Total assets = 271817
+Difference = 100534 - 271817 = -171283
+Answer: -171283",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,234,Meridian Systems Inc,2,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2022 through 2024?,,26227.0,26227.0,26227,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,235,Quantum Bridge Holdings,5,compute the the minimum of accounts receivable for Quantum Bridge Holdings using values from 2020 through 2025 .,,4087.0,4087.0,Answer: 4087,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,236,Helix BioSciences,1,which value corresponds to the gross profit for Helix BioSciences in 2025?,,112508.0,112508.0,"Revenue 334916 - COGS 222408 = 112508
+Answer: 112508",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,237,ClearPath Logistics,4,whats the value of the the minimum of total liabilities for ClearPath Logistics using values from 2021 through 2025?,,201280.0,201280.0,Answer: 201280,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,238,Crimson Pharmaceuticals,1,What does the following give: gross profit for Crimson Pharmaceuticals in 2021,,301219.0,301219.0,"Revenue: 550238
+Cost of goods sold: 249019
+Gross profit = 550238 - 249019 = 301219
+Answer: 301219",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,239,Apex Dynamics Corp,5,You should calculate the the maximum of revenue for Apex Dynamics Corp using values from 2020 through 2025 .,,88228.0,88228.0,Answer: 88228,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,240,Pinnacle Health Group,1,State the the maximum of revenue for Pinnacle Health Group using values from 2023 through 2024,,20948.0,20948.0,Answer: 20948,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,241,Meridian Systems Inc,1,could you give the sum of cost of goods sold and total equity for Meridian Systems Inc in 2021,,125395.0,125395.0,"cost_of_goods_sold: 92388
+total_equity: 33007
+92388 + 33007 = 125395
+Answer: 125395",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,242,SilverLine Retail Inc,1,Compute the gross profit for SilverLine Retail Inc in 2025 .,,508854.0,508854.0,Answer: 508854,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,243,Quantum Bridge Holdings,4,you should give the difference between the minimum of total equity for Quantum Bridge Holdings using values from 2020 through 2023 and the maximum of cost of goods sold for Quantum Bridge Holdings using values from 2020 through 2023,,-38451.0,38451.0,Answer: 38451,False,2.000000,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,244,Crimson Pharmaceuticals,5,What do we obtain as the difference between the minimum of current liabilities for Crimson Pharmaceuticals using values from 2020 through 2024 and current assets for Crimson Pharmaceuticals in 2024?,,-191830.0,-191830.0,Answer: -191830,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,245,NovaStar Technologies,1,may you calculate the result of current liabilities scaled by income tax for NovaStar Technologies in 2022,,10961.692605016882,124916.67,"current_liabilities = 37004
+income_tax = 0.296229937439652
+37004 / 0.296229937439652 = 124,916.67
+Answer: 124916.67",False,10.395746,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,246,Pacific Crest Energy,5,state the the minimum of cash for Pacific Crest Energy using values from 2020 through 2025.,,4671.0,4671.0,Answer: 4671,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,247,ClearPath Logistics,3,You should calculate the sum of difference between longterm liabilities and capex for ClearPath Logistics in 2025 and the minimum of total liabilities for ClearPath Logistics using values from 2023 through 2025 .,,537864.0,103129.0,Answer: 103129,False,0.808262,False,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,248,Cobalt Semiconductor,3,What do we obtain as the sum of result of result of revenue scaled by income tax scaled by ratio of inventories to capex for Cobalt Semiconductor in 2020 and the minimum of revenue for Cobalt Semiconductor using values from 2023 through 2025 ?,,55702.64627412103,55702.68,"Revenue 2020 = 53876
+Income tax 2020 = 0.1623274739408433
+Inventories 2020 = 1017
+Capex 2020 = 2987
+Ratio = 1017 / 2987 = 0.340475...
+Scaled revenue = 53876 * 0.1623274739408433 = 8745.34...
+Product = 8745.34 * 0.340475 = 2977.68...
+Min revenue 2023-2025 = 52725
+Sum = 2977.68 + 52725 = 55702.68...
+Answer: 55702.68",True,0.000001,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,249,NovaStar Technologies,1,May you calculate the the minimum of current liabilities for NovaStar Technologies using values from 2023 through 2024,,42991.0,42991.0,Answer: 42991,True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,250,Meridian Systems Inc,2,Could you give the operating income for Meridian Systems Inc in 2020 ?,,77293.0,77293.0,"Revenue: 150714
+COGS: 52780
+Operating expenses: 20641
+Operating income = 150714 - 52780 - 20641 = 77293
+Answer: 77293",True,0.000000,True,False
+deepseek-ai/DeepSeek-V4-Flash-0731,mt,251,Quantum Bridge Holdings,5,Compute the sum of the maximum of revenue for Quantum Bridge Holdings using values from 2021 through 2025 and capex for Quantum Bridge Holdings in 2024 .,,99404.0,99404.0,Answer: 99404,True,0.000000,True,False

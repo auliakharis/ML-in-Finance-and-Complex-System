@@ -1,0 +1,11 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-v1.5-70B,mt,3,Orion Financial Group,3,give the result of difference between difference between current liabilities and operating expenses and difference between revenue and cash for Orion Financial Group in 2020 scaled by growth in short term investments for Orion Financial Group from 2020 to 2022,,32736.414647533915,-48206639286.44,"((1132093 - 2149547) - (8798877 - 1434837)) * 498191
+= (-967454) * 498191 = -48206639286.44",False,1472570.302579,False,False
+swiss-ai/Apertus-v1.5-70B,mt,4,Atlas Global Industries,3,what's the value of the average dividends paid for Atlas Global Industries across years 2022 through 2024,,4090.6666666666665,409063.3333,"(162,768 + 1,064,422 + 0) / 3 = 1,227,190 / 3 = 409,063.3333
+
+Answer: 409063.3333",False,98.999185,False,False
+swiss-ai/Apertus-v1.5-70B,mt,6,Apex Dynamics Corp,3,What is the average accounts receivable for Apex Dynamics Corp across years 2022 through 2024?,,9045.0,884417.33,"((1094620 + 1169367 + 449524) / 3) = 884417.3333...
+
+Answer: 884417.33",False,96.779694,False,False
+swiss-ai/Apertus-v1.5-70B,mt,7,Apex Dynamics Corp,3,what is the value of the the minimum of short term investments for Apex Dynamics Corp using values from 2022 through 2025 ?,,6054.0,2705872.0,2705872,False,445.956062,False,False
+swiss-ai/Apertus-v1.5-70B,mt,9,NovaStar Technologies,5,May you calculate the the maximum of total equity for NovaStar Technologies using values from 2020 through 2025 ?,,165373.0,26142.73,26142.73,False,0.841917,False,False

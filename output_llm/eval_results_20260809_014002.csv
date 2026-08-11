@@ -1,0 +1,1327 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+google/gemma-4-31B-it,mt,2,Crimson Pharmaceuticals,3,what does the following give: pretax income for Crimson Pharmaceuticals in 2023 ?,,129936.0,129936.0,"Operating Income: 183662
+Non-Operating Expenses: 53726
+Calculation: 183662 - 53726
+
+Answer: 129936",True,0.000000,True,False
+google/gemma-4-31B-it,mt,3,Meridian Systems Inc,4,could you give the average non operating expenses for Meridian Systems Inc across years 2020 through 2023?,,18360.5,18360.5,"Sum (2020-2023): 73442
+Count: 4
+73442 / 4 = 18360.5
+
+Answer: 18360.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,4,Cobalt Semiconductor,1,What would be the longterm liabilities for Cobalt Semiconductor in 2023 ?,,29206.0,29206.0,"Total Liabilities (2023): 44,940
+Current Liabilities (2023): 15,734
+44,940 - 15,734 = 29,206
+
+Answer: 29206",True,0.000000,True,False
+google/gemma-4-31B-it,mt,5,Cobalt Semiconductor,4,What do we obtain as the average cash for Cobalt Semiconductor across years 2021 through 2024?,,7776.5,7776.5,"Cash sum 2021-2024: 31106
+Number of years: 4
+31106 / 4 = 7776.5
+
+Answer: 7776.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,6,Atlas Global Industries,1,What's the value of the result of dividends paid scaled by income tax for Atlas Global Industries in 2021 ?,,246.9232765181377,3072.36,"Dividends paid 2021: 871
+Income tax 2021: 0.28349400289108806
+Calculation: 871 / 0.28349400289108806 = 3072.36
+
+Answer: 3072.36",False,11.442569,False,False
+google/gemma-4-31B-it,mt,7,Apex Dynamics Corp,1,what is the longterm liabilities for Apex Dynamics Corp in 2024?,,41303.0,41303.0,"Total Liabilities (2024): 67131
+Current Liabilities (2024): 25828
+67131 - 25828 = 41303
+
+Answer: 41303",True,0.000000,True,False
+google/gemma-4-31B-it,mt,8,Atlas Global Industries,3,what's the value of the average short term investments for Atlas Global Industries across years 2021 through 2023,,9916.666666666666,9916.666666666666,"(10169 + 4762 + 14819) / 3 = 9916.666666666666
+
+Answer: 9916.666666666666",True,0.000000,True,False
+google/gemma-4-31B-it,mt,9,Apex Dynamics Corp,1,What is the the maximum of cash for Apex Dynamics Corp using values from 2024 through 2025,,26014.0,26014.0,"2024 Cash: 15788
+2025 Cash: 26014
+
+Answer: 26014",True,0.000000,True,False
+google/gemma-4-31B-it,mt,10,Orion Financial Group,4,Give the difference between sum of capex and difference between capex and inventories and current assets for Orion Financial Group in 2020.,,-24727.0,-29879.0,"Sum of capex: 8538
+Difference (capex - inventories): 8538 - 5962 = 2576
+Current assets: 35841
+8538 - (2576 + 35841) = -29879
+
+Answer: -29879",False,0.208355,False,False
+google/gemma-4-31B-it,mt,11,ClearPath Logistics,4,You should give the longterm assets for ClearPath Logistics in 2025 .,,476613.0,476613.0,"Total Assets (2025): 720190
+Current Assets (2025): 243577
+720190 - 243577 = 476613
+
+Answer: 476613",True,0.000000,True,False
+google/gemma-4-31B-it,mt,12,Pinnacle Health Group,4,State the longterm assets for Pinnacle Health Group in 2024.,,28196.0,28196.0,"Total Assets: 37775
+Current Assets: 3962 + 2682 + 1096 + 1839 = 9579
+Long-term Assets: 37775 - 9579 = 28196
+
+Answer: 28196",True,0.000000,True,False
+google/gemma-4-31B-it,mt,13,Meridian Systems Inc,1,Could you give the difference between inventories and cost of goods sold for Meridian Systems Inc in 2022 ?,,-80367.0,-80367.0,"Inventories (2022): 3888
+Cost of Goods Sold (2022): 84255
+3888 - 84255 = -80367
+
+Answer: -80367",True,0.000000,True,False
+google/gemma-4-31B-it,mt,14,ClearPath Logistics,4,What's the value of the the minimum of total equity for ClearPath Logistics using values from 2021 through 2025 ?,,174053.0,174053.0,"2021: 360843
+2022: 298308
+2023: 418219
+2024: 174053
+2025: 205976
+
+Answer: 174053",True,0.000000,True,False
+google/gemma-4-31B-it,mt,15,Pacific Crest Energy,4,You should calculate the longterm assets for Pacific Crest Energy in 2025.,,145388.0,145388.0,"Total Assets: 178551
+Current Assets (10729 + 10838 + 8825 + 2771): 33163
+178551 - 33163 = 145388
+
+Answer: 145388",True,0.000000,True,False
+google/gemma-4-31B-it,mt,16,Apex Dynamics Corp,2,what is the value of the the minimum of current liabilities for Apex Dynamics Corp using values from 2023 through 2025,,25828.0,25828.0,"2023: 29887
+2024: 25828
+2025: 34392
+
+Answer: 25828",True,0.000000,True,False
+google/gemma-4-31B-it,mt,17,Pinnacle Health Group,5,State the average current liabilities for Pinnacle Health Group across years 2020 through 2024,,3795.0,3795.0,"2020: 2848
+2021: 1346
+2022: 3545
+2023: 4458
+2024: 6778
+18975 / 5 = 3795
+
+Answer: 3795",True,0.000000,True,False
+google/gemma-4-31B-it,mt,18,ClearPath Logistics,2,Whats the value of the sum of result of cost of goods sold scaled by income tax and sum of non operating expenses and cost of goods sold for ClearPath Logistics in 2023,,387179.45511452097,387189.52,"(247181 * 0.2587798217278876) + 76033 + 247181
+63975.52 + 76033 + 247181 = 387189.52
+
+Answer: 387189.52",True,0.000026,True,False
+google/gemma-4-31B-it,mt,19,Pinnacle Health Group,4,determine the longterm assets for Pinnacle Health Group in 2021,,6492.0,6492.0,"Total Assets (10369) - Current Assets (3877) = 6492
+
+Answer: 6492",True,0.000000,True,False
+google/gemma-4-31B-it,mt,20,Titan Consumer Brands,1,Evaluate the the maximum of total liabilities for Titan Consumer Brands using values from 2023 through 2024,,717731.0,717731.0,"2023: 692670
+2024: 717731
+
+Answer: 717731",True,0.000000,True,False
+google/gemma-4-31B-it,mt,21,Orion Financial Group,4,Give the sum of difference between total liabilities and gross profit and current assets for Orion Financial Group in 2023 .,,176362.0,176362.0,"Total Liabilities: 154461
+Gross Profit: 127775 - 81062 = 46713
+Current Assets: 13631 + 11364 + 5922 + 37697 = 68614
+(154461 - 46713) + 68614 = 176362
+
+Answer: 176362",True,0.000000,True,False
+google/gemma-4-31B-it,mt,22,Quantum Bridge Holdings,1,Compute the the minimum of current liabilities for Quantum Bridge Holdings using values from 2020 through 2021,,8135.0,8135.0,"2020: 14819
+2021: 8135
+
+Answer: 8135",True,0.000000,True,False
+google/gemma-4-31B-it,mt,23,Pacific Crest Energy,5,provide the average capex for Pacific Crest Energy across years 2020 through 2024 .,,10812.6,10812.6,"Sum (2020-2024): 4243 + 14545 + 10581 + 8194 + 16500 = 54063
+54063 / 5 = 10812.6
+
+Answer: 10812.6",True,0.000000,True,False
+google/gemma-4-31B-it,mt,24,Atlas Global Industries,5,what is the value of the the maximum of accounts receivable for Atlas Global Industries using values from 2020 through 2025?,,7753.0,7753.0,"2020: 5701
+2021: 7753
+2022: 7696
+2023: 7056
+2024: 6190
+2025: 6495
+
+Answer: 7753",True,0.000000,True,False
+google/gemma-4-31B-it,mt,25,Helix BioSciences,3,which value corresponds to the the minimum of accounts receivable for Helix BioSciences using values from 2020 through 2023,,16808.0,16808.0,"2020: 20427
+2021: 16808
+2022: 29904
+2023: 28326
+
+Answer: 16808",True,0.000000,True,False
+google/gemma-4-31B-it,mt,26,Meridian Systems Inc,3,Could you give the the maximum of accounts receivable for Meridian Systems Inc using values from 2020 through 2023?,,20956.0,20956.0,"2020: 8721
+2021: 12135
+2022: 18526
+2023: 20956
+
+Answer: 20956",True,0.000000,True,False
+google/gemma-4-31B-it,mt,27,SilverLine Retail Inc,1,Calculate the gross profit for SilverLine Retail Inc in 2021.,,351964.0,351964.0,"Revenue: 617,154
+Cost of Goods Sold: 265,190
+617,154 - 265,190 = 351,964
+
+Answer: 351964",True,0.000000,True,False
+google/gemma-4-31B-it,mt,28,Pinnacle Health Group,3,State the the maximum of inventories for Pinnacle Health Group using values from 2020 through 2023.,,1096.0,1096.0,"2020: 266
+2021: 936
+2022: 1006
+2023: 1096
+
+Answer: 1096",True,0.000000,True,False
+google/gemma-4-31B-it,mt,29,NovaStar Technologies,4,May you calculate the the maximum of accounts receivable for NovaStar Technologies using values from 2021 through 2025 ?,,23856.0,23856.0,"2021: 15250
+2022: 20455
+2023: 17765
+2024: 23856
+2025: 10975
+
+Answer: 23856",True,0.000000,True,False
+google/gemma-4-31B-it,mt,30,SilverLine Retail Inc,2,Calculate the difference between longterm liabilities and inventories for SilverLine Retail Inc in 2025 .,,75754.0,75754.0,"Longterm Liabilities (2025): 198,105 - 82,396 = 115,709
+Inventories (2025): 39,955
+115,709 - 39,955 = 75,754
+
+Answer: 75754",True,0.000000,True,False
+google/gemma-4-31B-it,mt,31,Quantum Bridge Holdings,1,Compute the sum of inventories and current liabilities for Quantum Bridge Holdings in 2024 .,,30441.0,30441.0,"Inventories (2024): 4,960
+Current Liabilities (2024): 25,481
+4,960 + 25,481 = 30,441
+
+Answer: 30441",True,0.000000,True,False
+google/gemma-4-31B-it,mt,32,Helix BioSciences,1,Which value corresponds to the sum of current liabilities and inventories for Helix BioSciences in 2020,,64478.0,64478.0,"Current Liabilities 2020: 46735
+Inventories 2020: 17743
+46735 + 17743 = 64478
+
+Answer: 64478",True,0.000000,True,False
+google/gemma-4-31B-it,mt,33,Atlas Global Industries,3,what's the value of the pretax income for Atlas Global Industries in 2023 ?,,36239.0,36239.0,"Operating Income 2023: 48123
+Non-operating Expenses 2023: 11884
+48123 - 11884 = 36239
+
+Answer: 36239",True,0.000000,True,False
+google/gemma-4-31B-it,mt,34,Titan Consumer Brands,5,Evaluate the average total assets for Titan Consumer Brands across years 2020 through 2024 .,,965851.4,965851.4,"Sum of total assets (2020-2024): 4829257
+Count of years: 5
+4829257 / 5 = 965851.4
+
+Answer: 965851.4",True,0.000000,True,False
+google/gemma-4-31B-it,mt,35,Pinnacle Health Group,3,State the result of sum of difference between dividends paid and accounts receivable and current liabilities scaled by ratio of difference between current liabilities and cash to accounts receivable for Pinnacle Health Group in 2022 .,,3457.366314199396,-6303.730438066466,"(290 - 1324 - 3545) * ((3545 - 1722) / 1324)
+-4579 * (1823 / 1324)
+-4579 * 1.37688897
+
+Answer: -6303.730438066466",False,2.823275,False,False
+google/gemma-4-31B-it,mt,36,Orion Financial Group,1,Give the longterm liabilities for Orion Financial Group in 2024 .,,62496.0,62496.0,"Total Liabilities (2024): 104,036
+Current Liabilities (2024): 41,540
+Long-term Liabilities = 104,036 - 41,540 = 62,496
+
+Answer: 62496",True,0.000000,True,False
+google/gemma-4-31B-it,mt,37,SilverLine Retail Inc,1,Evaluate the longterm liabilities for SilverLine Retail Inc in 2025.,,115709.0,115709.0,"Total Liabilities (2025): 198,105
+Current Liabilities (2025): 82,396
+Long-term Liabilities = 198,105 - 82,396 = 115,709
+
+Answer: 115709",True,0.000000,True,False
+google/gemma-4-31B-it,mt,38,Cobalt Semiconductor,3,What would be the sum of accounts receivable and difference between result of total liabilities scaled by income tax and difference between cost of goods sold and operating expenses for Cobalt Semiconductor in 2020,,-1401.387784214381,-1401.39,"Accounts receivable: 6914
+Total liabilities * income tax: 57819 * 0.1623274739408433 = 9385.61
+Cost of goods sold - operating expenses: 25283 - 7582 = 17701
+6914 + (9385.61 - 17701) = -1401.39
+
+Answer: -1401.39",True,0.000002,True,False
+google/gemma-4-31B-it,mt,39,Meridian Systems Inc,3,Could you give the average non operating expenses for Meridian Systems Inc across years 2020 through 2022 ?,,19265.666666666668,19265.666666666668,"21212 + 19695 + 16890 = 57797
+57797 / 3 = 19265.666666666668
+
+Answer: 19265.666666666668",True,0.000000,True,False
+google/gemma-4-31B-it,mt,40,ClearPath Logistics,1,whats the value of the result of total equity scaled by income tax for ClearPath Logistics in 2020?,,34162.87495517601,34162.85,"Total Equity (2020): 116496
+Income Tax (2020): 0.2932536306411895
+116496 * 0.2932536306411895 = 34162.85
+
+Answer: 34162.85",True,0.000001,True,False
+google/gemma-4-31B-it,mt,41,Pinnacle Health Group,2,You should give the sum of difference between cost of goods sold and cash and revenue for Pinnacle Health Group in 2025.,,33086.0,33086.0,"(13776 - 4013) + 23323 = 33086
+
+Answer: 33086",True,0.000000,True,False
+google/gemma-4-31B-it,mt,42,Quantum Bridge Holdings,3,compute the current assets for Quantum Bridge Holdings in 2024 .,,24950.0,24950.0,"Cash: 12189
+Accounts Receivable: 6324
+Inventories: 4960
+Short Term Investments: 1477
+12189 + 6324 + 4960 + 1477 = 24950
+
+Answer: 24950",True,0.000000,True,False
+google/gemma-4-31B-it,mt,43,Ironclad Manufacturing,3,which result follows from the current assets for Ironclad Manufacturing in 2022?,,280237.0,280237.0,"Cash: 139886
+Accounts Receivable: 30058
+Inventories: 21863
+Short Term Investments: 88430
+Current Assets = 139886 + 30058 + 21863 + 88430 = 280237
+
+Answer: 280237",True,0.000000,True,False
+google/gemma-4-31B-it,mt,44,Apex Dynamics Corp,5,what is the the minimum of revenue for Apex Dynamics Corp using values from 2020 through 2025 ?,,67781.0,67781.0,"2020: 67781
+2021: 78856
+2022: 79021
+2023: 88228
+2024: 82805
+2025: 79388
+
+Answer: 67781",True,0.000000,True,False
+google/gemma-4-31B-it,mt,45,Orion Financial Group,1,give the the maximum of total liabilities for Orion Financial Group using values from 2021 through 2022,,65676.0,65676.0,"2021 Total Liabilities: 19965
+2022 Total Liabilities: 65676
+
+Answer: 65676",True,0.000000,True,False
+google/gemma-4-31B-it,mt,46,Orion Financial Group,5,may you give the the maximum of total liabilities for Orion Financial Group using values from 2020 through 2025 ?,,154461.0,154461.0,"2020: 33826
+2021: 19965
+2022: 65676
+2023: 154461
+2024: 104036
+2025: 79040
+
+Answer: 154461",True,0.000000,True,False
+google/gemma-4-31B-it,mt,47,Atlas Global Industries,4,what's the value of the sum of difference between difference between difference between short term investments and cash and short term investments and gross profit for Atlas Global Industries in 2023 and ratio of sum of cash for Atlas Global Industries in 2020 and cash for Atlas Global Industries in 2021 to 2.0 ?,,-61231.5,51600.5,"Short term investments (2023): 14819
+Cash (2023): 22183
+Gross Profit (2023): 89374 - 32958 = 56416
+
+Calculation 1: (14819 - 22183) - (14819 - 56416) = -7364 - (-41597) = 34233
+Calculation 2: (10029 + 24706) / 2.0 = 17367.5
+Total: 34233 + 17367.5 = 51600.5
+
+Answer: 51600.5",False,1.842712,False,False
+google/gemma-4-31B-it,mt,48,SilverLine Retail Inc,3,calculate the average cash for SilverLine Retail Inc across years 2023 through 2025.,,85040.33333333333,85040.33333333333,"(63824 + 60999 + 130298) / 3 = 85040.333...
+
+Answer: 85040.33333333333",True,0.000000,True,False
+google/gemma-4-31B-it,mt,49,Titan Consumer Brands,1,You should calculate the the minimum of total equity for Titan Consumer Brands using values from 2020 through 2021.,,340707.0,340707.0,"2020 Total Equity: 667765
+2021 Total Equity: 340707
+
+Answer: 340707",True,0.000000,True,False
+google/gemma-4-31B-it,mt,50,Cobalt Semiconductor,4,what do we obtain as the longterm assets for Cobalt Semiconductor in 2024,,53256.0,53256.0,"Total Assets: 73095
+Current Assets: 12572 + 2888 + 1029 + 3350 = 19839
+Calculation: 73095 - 19839 = 53256
+
+Answer: 53256",True,0.000000,True,False
+google/gemma-4-31B-it,mt,51,Cobalt Semiconductor,3,You should give the current assets for Cobalt Semiconductor in 2023 .,,17468.0,17468.0,"Cash: 7204
+Accounts Receivable: 4686
+Inventories: 912
+Short Term Investments: 4666
+7204 + 4686 + 912 + 4666 = 17468
+
+Answer: 17468",True,0.000000,True,False
+google/gemma-4-31B-it,mt,52,Meridian Systems Inc,2,could you give the average accounts receivable for Meridian Systems Inc across years 2023 through 2024,,20653.5,20653.5,"(20956 + 20351) / 2 = 20653.5
+
+Answer: 20653.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,53,Crimson Pharmaceuticals,1,what do we obtain as the gross profit for Crimson Pharmaceuticals in 2023?,,281934.0,281934.0,"Revenue 2023: 714010
+Cost of Goods Sold 2023: 432076
+Gross Profit = 714010 - 432076
+
+Answer: 281934",True,0.000000,True,False
+google/gemma-4-31B-it,mt,54,ClearPath Logistics,1,Whats the value of the longterm liabilities for ClearPath Logistics in 2022,,138082.0,138082.0,"Total Liabilities (2022): 201,280
+Current Liabilities (2022): 63,198
+201,280 - 63,198 = 138,082
+
+Answer: 138082",True,0.000000,True,False
+google/gemma-4-31B-it,mt,55,SilverLine Retail Inc,3,Calculate the sum of the maximum of cash for SilverLine Retail Inc using values from 2023 through 2025 and sum of short term investments and short term investments for SilverLine Retail Inc in 2022,,224448.0,224448.0,"Max cash (2023-2025): 130298
+Short term investments (2022): 47075
+Sum: 130298 + 47075 + 47075 = 224448
+
+Answer: 224448",True,0.000000,True,False
+google/gemma-4-31B-it,mt,56,NovaStar Technologies,2,May you calculate the average cash for NovaStar Technologies across years 2024 through 2025,,39416.5,39416.5,"(33297 + 45536) / 2 = 39416.5
+
+Answer: 39416.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,57,Pacific Crest Energy,4,provide the the minimum of total equity for Pacific Crest Energy using values from 2020 through 2024 .,,62046.0,62046.0,"2020: 92958
+2021: 94680
+2022: 123639
+2023: 129423
+2024: 62046
+
+Answer: 62046",True,0.000000,True,False
+google/gemma-4-31B-it,mt,58,Quantum Bridge Holdings,2,compute the the minimum of capex for Quantum Bridge Holdings using values from 2021 through 2023,,1944.0,1944.0,"2021: 1944
+2022: 2369
+2023: 2436
+
+Answer: 1944",True,0.000000,True,False
+google/gemma-4-31B-it,mt,59,SilverLine Retail Inc,3,calculate the the maximum of operating expenses for SilverLine Retail Inc using values from 2022 through 2025 .,,156766.0,156766.0,"2022: 141095
+2023: 60350
+2024: 108917
+2025: 156766
+
+Answer: 156766",True,0.000000,True,False
+google/gemma-4-31B-it,mt,60,Meridian Systems Inc,4,Could you give the the minimum of short term investments for Meridian Systems Inc using values from 2020 through 2024?,,5578.0,5578.0,"2020: 14711
+2021: 16112
+2022: 10888
+2023: 6816
+2024: 5578
+
+Answer: 5578",True,0.000000,True,False
+google/gemma-4-31B-it,mt,61,Meridian Systems Inc,1,Which quantity is given by the the minimum of inventories for Meridian Systems Inc using values from 2020 through 2021?,,2543.0,2543.0,"2020 Inventories: 7318
+2021 Inventories: 2543
+
+Answer: 2543",True,0.000000,True,False
+google/gemma-4-31B-it,mt,62,Orion Financial Group,3,may you give the current assets for Orion Financial Group in 2020,,35841.0,35841.0,"Cash: 14348
+Accounts Receivable: 7759
+Inventories: 5962
+Short Term Investments: 7772
+14348 + 7759 + 5962 + 7772 = 35841
+
+Answer: 35841",True,0.000000,True,False
+google/gemma-4-31B-it,mt,63,Atlas Global Industries,1,what is the value of the longterm liabilities for Atlas Global Industries in 2021,,41692.0,41692.0,"Total Liabilities (2021): 74292
+Current Liabilities (2021): 32600
+74292 - 32600 = 41692
+
+Answer: 41692",True,0.000000,True,False
+google/gemma-4-31B-it,mt,64,Titan Consumer Brands,2,You should calculate the operating income for Titan Consumer Brands in 2025.,,129984.0,129984.0,"Gross Profit: 232210
+Operating Expenses: 102226
+232210 - 102226 = 129984
+
+Answer: 129984",True,0.000000,True,False
+google/gemma-4-31B-it,mt,65,NovaStar Technologies,2,May you calculate the operating income for NovaStar Technologies in 2024,,80625.0,80625.0,"Gross Profit 2024: 177,982 - 77,448 = 100,534
+Operating Income: 100,534 - 19,909 = 80,625
+
+Answer: 80625",True,0.000000,True,False
+google/gemma-4-31B-it,mt,66,Cobalt Semiconductor,3,What would be the pretax income for Cobalt Semiconductor in 2021,,14696.0,14696.0,"Operating Income: 18508
+Non-operating Expenses: 3812
+18508 - 3812 = 14696
+
+Answer: 14696",True,0.000000,True,False
+google/gemma-4-31B-it,mt,67,NovaStar Technologies,1,may you calculate the the minimum of operating expenses for NovaStar Technologies using values from 2021 through 2022,,12957.0,12957.0,"2021 operating_expenses: 12957
+2022 operating_expenses: 26613
+
+Answer: 12957",True,0.000000,True,False
+google/gemma-4-31B-it,mt,68,Helix BioSciences,4,which result follows from the average total assets for Helix BioSciences across years 2020 through 2023?,,244971.0,244971.0,"(206207 + 221577 + 357135 + 194965) / 4 = 244971
+
+Answer: 244971",True,0.000000,True,False
+google/gemma-4-31B-it,mt,69,Quantum Bridge Holdings,1,Compute the difference between short term investments and operating expenses for Quantum Bridge Holdings in 2021.,,-4103.0,-4103.0,"Short term investments (2021): 9002
+Operating expenses (2021): 13105
+Calculation: 9002 - 13105 = -4103
+
+Answer: -4103",True,0.000000,True,False
+google/gemma-4-31B-it,mt,70,Apex Dynamics Corp,4,what is the the maximum of total liabilities for Apex Dynamics Corp using values from 2021 through 2025 ?,,139281.0,139281.0,"2021: 99211
+2022: 139281
+2023: 90275
+2024: 67131
+2025: 109931
+
+Answer: 139281",True,0.000000,True,False
+google/gemma-4-31B-it,mt,71,Pinnacle Health Group,2,State the the maximum of total liabilities for Pinnacle Health Group using values from 2021 through 2023,,9629.0,9629.0,"2021 total_liabilities: 3855
+2022 total_liabilities: 7666
+2023 total_liabilities: 9629
+
+Answer: 9629",True,0.000000,True,False
+google/gemma-4-31B-it,mt,72,Apex Dynamics Corp,4,what is the the minimum of short term investments for Apex Dynamics Corp using values from 2021 through 2025 ?,,6054.0,6054.0,"2021: 8213
+2022: 27059
+2023: 6054
+2024: 10527
+2025: 12187
+
+Answer: 6054",True,0.000000,True,False
+google/gemma-4-31B-it,mt,73,Orion Financial Group,1,May you give the the minimum of non operating expenses for Orion Financial Group using values from 2023 through 2024,,17100.0,17100.0,"2023: 17100
+2024: 17297
+
+Answer: 17100",True,0.000000,True,False
+google/gemma-4-31B-it,mt,74,Titan Consumer Brands,4,you should calculate the the minimum of total equity for Titan Consumer Brands using values from 2020 through 2024 .,,118715.0,118715.0,"2020: 667765
+2021: 340707
+2022: 118715
+2023: 472468
+2024: 429776
+
+Answer: 118715",True,0.000000,True,False
+google/gemma-4-31B-it,mt,75,Atlas Global Industries,3,what is the value of the the maximum of current liabilities for Atlas Global Industries using values from 2022 through 2025 ?,,29300.0,29300.0,"2022: 14588
+2023: 8455
+2024: 22282
+2025: 29300
+
+Answer: 29300",True,0.000000,True,False
+google/gemma-4-31B-it,mt,76,SilverLine Retail Inc,3,Calculate the pretax income for SilverLine Retail Inc in 2023 .,,166227.0,166227.0,"Operating Income 2023: 343951
+Non-Operating Expenses 2023: 177724
+343951 - 177724 = 166227
+
+Answer: 166227",True,0.000000,True,False
+google/gemma-4-31B-it,mt,77,Atlas Global Industries,2,what's the value of the sum of gross profit and total equity for Atlas Global Industries in 2024 ?,,47086.0,47086.0,"Gross Profit: 91983 - 64502 = 27481
+Total Equity: 19605
+27481 + 19605 = 47086
+
+Answer: 47086",True,0.000000,True,False
+google/gemma-4-31B-it,mt,78,Orion Financial Group,1,May you give the the maximum of cash for Orion Financial Group using values from 2023 through 2024,,58304.0,58304.0,"2023 cash: 13631
+2024 cash: 58304
+
+Answer: 58304",True,0.000000,True,False
+google/gemma-4-31B-it,mt,79,Atlas Global Industries,1,What's the value of the the maximum of current liabilities for Atlas Global Industries using values from 2023 through 2024,,22282.0,22282.0,"2023 Current Liabilities: 8455
+2024 Current Liabilities: 22282
+
+Answer: 22282",True,0.000000,True,False
+google/gemma-4-31B-it,mt,80,Ironclad Manufacturing,2,Which result follows from the operating income for Ironclad Manufacturing in 2021 ?,,193081.0,193081.0,"Revenue: 340508
+Cost of Goods Sold: 110507
+Operating Expenses: 36920
+340508 - 110507 - 36920 = 193081
+
+Answer: 193081",True,0.000000,True,False
+google/gemma-4-31B-it,mt,81,Apex Dynamics Corp,3,what is the pretax income for Apex Dynamics Corp in 2023,,13334.0,13334.0,"Operating Income: 28950
+Non-operating Expenses: 15616
+28950 - 15616 = 13334
+
+Answer: 13334",True,0.000000,True,False
+google/gemma-4-31B-it,mt,82,Titan Consumer Brands,5,evaluate the average capex for Titan Consumer Brands across years 2020 through 2024 .,,28940.0,28940.0,"(33525 + 31528 + 24547 + 34511 + 20589) / 5 = 28940
+
+Answer: 28940",True,0.000000,True,False
+google/gemma-4-31B-it,mt,83,Meridian Systems Inc,5,You should calculate the average cash for Meridian Systems Inc across years 2021 through 2025,,28556.2,28556.2,"Sum of cash (2021-2025): 142781
+Number of years: 5
+142781 / 5 = 28556.2
+
+Answer: 28556.2",True,0.000000,True,False
+google/gemma-4-31B-it,mt,84,Titan Consumer Brands,3,evaluate the the minimum of total assets for Titan Consumer Brands using values from 2020 through 2023.,,435661.0,435661.0,"2020: 982687
+2021: 1098264
+2022: 435661
+2023: 1165138
+
+Answer: 435661",True,0.000000,True,False
+google/gemma-4-31B-it,mt,85,Apex Dynamics Corp,3,What is the current assets for Apex Dynamics Corp in 2020,,14066.0,14066.0,"Cash (2627) + Accounts Receivable (3346) + Inventories (1397) + Short Term Investments (6696) = 14066
+
+Answer: 14066",True,0.000000,True,False
+google/gemma-4-31B-it,mt,86,ClearPath Logistics,5,what would be the the minimum of non operating expenses for ClearPath Logistics using values from 2020 through 2025 ?,,39883.0,39883.0,"Non-operating expenses:
+2020: 80320
+2021: 70766
+2022: 60901
+2023: 76033
+2024: 39883
+2025: 80147
+
+Answer: 39883",True,0.000000,True,False
+google/gemma-4-31B-it,mt,87,Meridian Systems Inc,3,which quantity is given by the current assets for Meridian Systems Inc in 2021 ?,,56605.0,56605.0,"Cash: 25815
+Accounts Receivable: 12135
+Inventories: 2543
+Short Term Investments: 16112
+25815 + 12135 + 2543 + 16112 = 56605
+
+Answer: 56605",True,0.000000,True,False
+google/gemma-4-31B-it,mt,88,Apex Dynamics Corp,1,What is the longterm liabilities for Apex Dynamics Corp in 2022,,91225.0,91225.0,"Total Liabilities 2022: 139281
+Current Liabilities 2022: 48056
+139281 - 48056 = 91225
+
+Answer: 91225",True,0.000000,True,False
+google/gemma-4-31B-it,mt,89,NovaStar Technologies,2,may you calculate the sum of sum of revenue and cash for NovaStar Technologies in 2020 and the minimum of cost of goods sold for NovaStar Technologies using values from 2021 through 2022 ?,,195633.0,195633.0,"2020 Revenue: 107884
+2020 Cash: 24222
+Min COGS (2021-2022): 63527
+107884 + 24222 + 63527 = 195633
+
+Answer: 195633",True,0.000000,True,False
+google/gemma-4-31B-it,mt,90,Cobalt Semiconductor,4,what do we obtain as the the maximum of operating expenses for Cobalt Semiconductor using values from 2021 through 2025 ?,,13623.0,13623.0,"2021: 6287
+2022: 4243
+2023: 13623
+2024: 8231
+2025: 9183
+
+Answer: 13623",True,0.000000,True,False
+google/gemma-4-31B-it,mt,91,ClearPath Logistics,3,what's the value of the current assets for ClearPath Logistics in 2022 ?,,158898.0,158898.0,"Cash: 92533
+Accounts Receivable: 48131
+Inventories: 7697
+Short Term Investments: 10537
+92533 + 48131 + 7697 + 10537 = 158898
+
+Answer: 158898",True,0.000000,True,False
+google/gemma-4-31B-it,mt,92,Cobalt Semiconductor,1,what would be the sum of dividends paid and total liabilities for Cobalt Semiconductor in 2023 ?,,45178.0,45178.0,"Dividends paid (2023): 238
+Total liabilities (2023): 44940
+238 + 44940 = 45178
+
+Answer: 45178",True,0.000000,True,False
+google/gemma-4-31B-it,mt,93,Ironclad Manufacturing,3,Which result follows from the average non operating expenses for Ironclad Manufacturing across years 2020 through 2022,,76040.66666666667,76040.66666666667,"(68643 + 81319 + 78160) / 3 = 76040.666...
+
+Answer: 76040.66666666667",True,0.000000,True,False
+google/gemma-4-31B-it,mt,94,Atlas Global Industries,2,What's the value of the average current liabilities for Atlas Global Industries across years 2020 through 2021,,23609.5,23609.5,"(14619 + 32600) / 2 = 23609.5
+
+Answer: 23609.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,95,SilverLine Retail Inc,4,calculate the sum of result of ratio of sum of revenue for SilverLine Retail Inc in 2021 and revenue for SilverLine Retail Inc in 2022 to 2.0 scaled by ratio of cost of goods sold to non operating expenses for SilverLine Retail Inc in 2022 and the maximum of dividends paid for SilverLine Retail Inc using values from 2021 through 2024,,4236864.659006976,4236847.15,"Revenue Sum (2021, 2022): 617154 + 698498 = 1315652
+Ratio 1: 1315652 / 2.0 = 657826
+Ratio 2 (2022 COGS/Non-Op): 406130 / 63362 = 6.40968
+Calculation: (657826 * 6.40968) + 20412 = 4216435.15 + 20412 = 4236847.15
+
+Answer: 4236847.15",True,0.000004,True,False
+google/gemma-4-31B-it,mt,96,Apex Dynamics Corp,3,what is the value of the pretax income for Apex Dynamics Corp in 2024,,-5625.0,-5625.0,"Operating Income: 10405
+Non-operating Expenses: 16030
+10405 - 16030 = -5625
+
+Answer: -5625",True,0.000000,True,False
+google/gemma-4-31B-it,mt,97,NovaStar Technologies,3,May you calculate the sum of short term investments for NovaStar Technologies in 2024 and the maximum of operating expenses for NovaStar Technologies using values from 2022 through 2024?,,63687.0,63687.0,"Short term investments 2024: 37074
+Max operating expenses (2022-2024): 26613
+37074 + 26613 = 63687
+
+Answer: 63687",True,0.000000,True,False
+google/gemma-4-31B-it,mt,98,Helix BioSciences,4,Which value corresponds to the the maximum of dividends paid for Helix BioSciences using values from 2020 through 2024?,,24652.0,24652.0,"2020: 1897
+2021: 6908
+2022: 2738
+2023: 1270
+2024: 24652
+
+Answer: 24652",True,0.000000,True,False
+google/gemma-4-31B-it,mt,99,ClearPath Logistics,2,Whats the value of the the minimum of short term investments for ClearPath Logistics using values from 2022 through 2024,,10537.0,10537.0,"2022: 10537
+2023: 54949
+2024: 68378
+
+Answer: 10537",True,0.000000,True,False
+google/gemma-4-31B-it,mt,100,Apex Dynamics Corp,5,what is the average accounts receivable for Apex Dynamics Corp across years 2020 through 2024 ?,,7326.2,7326.2,"Sum (2020-2024): 36631
+Count: 5
+36631 / 5 = 7326.2
+
+Answer: 7326.2",True,0.000000,True,False
+google/gemma-4-31B-it,mt,101,Pinnacle Health Group,3,state the current assets for Pinnacle Health Group in 2023,,5482.0,5482.0,"Cash: 2062
+Accounts Receivable: 1605
+Inventories: 1096
+Short Term Investments: 719
+Total: 2062 + 1605 + 1096 + 719 = 5482
+
+Answer: 5482",True,0.000000,True,False
+google/gemma-4-31B-it,mt,102,Ironclad Manufacturing,4,which quantity is given by the the maximum of non operating expenses for Ironclad Manufacturing using values from 2021 through 2025 ?,,81319.0,81319.0,"2021: 81319
+2022: 78160
+2023: 27761
+2024: 47475
+2025: 60219
+
+Answer: 81319",True,0.000000,True,False
+google/gemma-4-31B-it,mt,103,Crimson Pharmaceuticals,4,What does the following give: longterm assets for Crimson Pharmaceuticals in 2020,,373943.0,373943.0,"Total Assets: 533633
+Current Assets: 159690
+533633 - 159690 = 373943
+
+Answer: 373943",True,0.000000,True,False
+google/gemma-4-31B-it,mt,104,Pacific Crest Energy,3,state the the maximum of dividends paid for Pacific Crest Energy using values from 2022 through 2025.,,14599.0,14599.0,"2022: 14599
+2023: 774
+2024: 12175
+2025: 901
+
+Answer: 14599",True,0.000000,True,False
+google/gemma-4-31B-it,mt,105,Ironclad Manufacturing,3,Which result follows from the average cost of goods sold for Ironclad Manufacturing across years 2023 through 2025?,,184530.66666666666,184530.66666666666,"(130009 + 153173 + 270410) / 3 = 184530.666...
+
+Answer: 184530.66666666666",True,0.000000,True,False
+google/gemma-4-31B-it,mt,106,Apex Dynamics Corp,2,what is the the minimum of short term investments for Apex Dynamics Corp using values from 2023 through 2025?,,6054.0,6054.0,"2023: 6054
+2024: 10527
+2025: 12187
+
+Answer: 6054",True,0.000000,True,False
+google/gemma-4-31B-it,mt,107,Atlas Global Industries,1,What is the value of the gross profit for Atlas Global Industries in 2020,,18704.0,18704.0,"Revenue 2020: 72714
+Cost of Goods Sold 2020: 54010
+Calculation: 72714 - 54010 = 18704
+
+Answer: 18704",True,0.000000,True,False
+google/gemma-4-31B-it,mt,108,Atlas Global Industries,1,What is the value of the the minimum of total liabilities for Atlas Global Industries using values from 2020 through 2021?,,34649.0,34649.0,"2020: 34649
+2021: 74292
+
+Answer: 34649",True,0.000000,True,False
+google/gemma-4-31B-it,mt,109,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,,26227.0,26227.0,"2020: 20641
+2021: 8595
+2022: 26227
+2023: 15975
+2024: 16701
+2025: 19676
+
+Answer: 26227",True,0.000000,True,False
+google/gemma-4-31B-it,mt,110,Ironclad Manufacturing,3,Which quantity is given by the current assets for Ironclad Manufacturing in 2021,,57969.0,57969.0,"Cash: 9253
+Accounts Receivable: 23302
+Inventories: 9087
+Short term investments: 16327
+Calculation: 9253 + 23302 + 9087 + 16327 = 57969
+
+Answer: 57969",True,0.000000,True,False
+google/gemma-4-31B-it,mt,111,Crimson Pharmaceuticals,5,What does the following give: the maximum of current liabilities for Crimson Pharmaceuticals using values from 2020 through 2025 ?,,213345.0,213345.0,"2020: 62984
+2021: 65249
+2022: 122414
+2023: 127801
+2024: 82551
+2025: 213345
+
+Answer: 213345",True,0.000000,True,False
+google/gemma-4-31B-it,mt,112,SilverLine Retail Inc,3,calculate the the minimum of current liabilities for SilverLine Retail Inc using values from 2020 through 2023,,91460.0,91460.0,"2020: 102662
+2021: 193924
+2022: 91460
+2023: 171877
+
+Answer: 91460",True,0.000000,True,False
+google/gemma-4-31B-it,mt,113,Orion Financial Group,1,give the gross profit for Orion Financial Group in 2022.,,51603.0,51603.0,"Revenue: 115348
+Cost of Goods Sold: 63745
+115348 - 63745 = 51603
+
+Answer: 51603",True,0.000000,True,False
+google/gemma-4-31B-it,mt,114,Orion Financial Group,2,Give the average accounts receivable for Orion Financial Group across years 2023 through 2024,,11754.0,11754.0,"(11364 + 12144) / 2 = 11754
+
+Answer: 11754",True,0.000000,True,False
+google/gemma-4-31B-it,mt,115,Apex Dynamics Corp,1,What is the sum of capex and inventories for Apex Dynamics Corp in 2023,,8027.0,8027.0,"2023 capex: 2159
+2023 inventories: 5868
+2159 + 5868 = 8027
+
+Answer: 8027",True,0.000000,True,False
+google/gemma-4-31B-it,mt,116,Quantum Bridge Holdings,4,Compute the longterm assets for Quantum Bridge Holdings in 2025 .,,48287.0,48287.0,"Total Assets (2025): 65369
+Current Assets (2025): 17082
+65369 - 17082 = 48287
+
+Answer: 48287",True,0.000000,True,False
+google/gemma-4-31B-it,mt,117,SilverLine Retail Inc,3,calculate the average current liabilities for SilverLine Retail Inc across years 2020 through 2022.,,129348.66666666667,129348.66666666667,"2020: 102662
+2021: 193924
+2022: 91460
+(102662 + 193924 + 91460) / 3 = 129348.666...
+
+Answer: 129348.66666666667",True,0.000000,True,False
+google/gemma-4-31B-it,mt,118,Crimson Pharmaceuticals,5,what do we obtain as the difference between longterm assets and longterm liabilities for Crimson Pharmaceuticals in 2025,,215685.0,215685.0,"Longterm Assets: 501521
+Longterm Liabilities: 285836
+501521 - 285836 = 215685
+
+Answer: 215685",True,0.000000,True,False
+google/gemma-4-31B-it,mt,119,Orion Financial Group,1,Give the the maximum of short term investments for Orion Financial Group using values from 2021 through 2022,,12753.0,12753.0,"2021: 8237
+2022: 12753
+
+Answer: 12753",True,0.000000,True,False
+google/gemma-4-31B-it,mt,120,Apex Dynamics Corp,2,You should give the average inventories for Apex Dynamics Corp across years 2023 through 2024 .,,4057.0,4057.0,"(5868 + 2246) / 2 = 4057
+
+Answer: 4057",True,0.000000,True,False
+google/gemma-4-31B-it,mt,121,SilverLine Retail Inc,1,Calculate the the minimum of accounts receivable for SilverLine Retail Inc using values from 2020 through 2021,,54576.0,54576.0,"2020: 54576
+2021: 84561
+
+Answer: 54576",True,0.000000,True,False
+google/gemma-4-31B-it,mt,122,Titan Consumer Brands,1,You should calculate the gross profit for Titan Consumer Brands in 2023.,,127016.0,127016.0,"Revenue: 468895
+Cost of Goods Sold: 341879
+Calculation: 468895 - 341879 = 127016
+
+Answer: 127016",True,0.000000,True,False
+google/gemma-4-31B-it,mt,123,Orion Financial Group,1,may you give the the minimum of accounts receivable for Orion Financial Group using values from 2022 through 2023,,9324.0,9324.0,"2022: 9324
+2023: 11364
+
+Answer: 9324",True,0.000000,True,False
+google/gemma-4-31B-it,mt,124,Apex Dynamics Corp,1,what is the longterm liabilities for Apex Dynamics Corp in 2023 ?,,60388.0,60388.0,"Total Liabilities (2023): 90275
+Current Liabilities (2023): 29887
+Long-term Liabilities: 90275 - 29887 = 60388
+
+Answer: 60388",True,0.000000,True,False
+google/gemma-4-31B-it,mt,125,Helix BioSciences,2,Which value corresponds to the sum of total assets for Helix BioSciences in 2020 and the maximum of cash for Helix BioSciences using values from 2023 through 2024?,,251017.0,251017.0,"Total assets 2020: 206207
+Max cash (2023-2024): 44810
+206207 + 44810 = 251017
+
+Answer: 251017",True,0.000000,True,False
+google/gemma-4-31B-it,mt,126,SilverLine Retail Inc,3,Calculate the the maximum of total liabilities for SilverLine Retail Inc using values from 2022 through 2025.,,443192.0,443192.0,"2022: 295198
+2023: 443192
+2024: 328592
+2025: 198105
+
+Answer: 443192",True,0.000000,True,False
+google/gemma-4-31B-it,mt,127,ClearPath Logistics,1,what would be the longterm liabilities for ClearPath Logistics in 2023 ?,,172824.0,172824.0,"Total Liabilities 2023: 250,646
+Current Liabilities 2023: 77,822
+250,646 - 77,822 = 172,824
+
+Answer: 172824",True,0.000000,True,False
+google/gemma-4-31B-it,mt,128,Ironclad Manufacturing,3,Which result follows from the current assets for Ironclad Manufacturing in 2025,,298268.0,298268.0,"Cash: 109521
+Accounts Receivable: 54234
+Inventories: 36674
+Short Term Investments: 97839
+109521 + 54234 + 36674 + 97839 = 298268
+
+Answer: 298268",True,0.000000,True,False
+google/gemma-4-31B-it,mt,129,Crimson Pharmaceuticals,2,What do we obtain as the sum of sum of short term investments and capex and accounts receivable for Crimson Pharmaceuticals in 2020 ?,,79578.0,79578.0,"8908 + 38887 + 31783 = 79578
+
+Answer: 79578",True,0.000000,True,False
+google/gemma-4-31B-it,mt,130,Cobalt Semiconductor,2,What would be the difference between sum of operating expenses and total equity and dividends paid for Cobalt Semiconductor in 2023 ?,,34172.0,-7402.0,"Operating expenses (2023): 13623
+Total equity (2023): 20787
+Dividends paid (2023): 238
+
+Calculation: 13623 - (20787 + 238) = -7402
+
+Answer: -7402",False,1.216610,False,False
+google/gemma-4-31B-it,mt,131,Cobalt Semiconductor,2,what would be the the maximum of total liabilities for Cobalt Semiconductor using values from 2020 through 2022?,,57819.0,57819.0,"2020: 57819
+2021: 33030
+2022: 39076
+
+Answer: 57819",True,0.000000,True,False
+google/gemma-4-31B-it,mt,132,Titan Consumer Brands,1,evaluate the sum of cash and total equity for Titan Consumer Brands in 2020,,794159.0,794159.0,"Cash: 126394
+Total Equity: 667765
+126394 + 667765 = 794159
+
+Answer: 794159",True,0.000000,True,False
+google/gemma-4-31B-it,mt,133,ClearPath Logistics,4,What would be the longterm assets for ClearPath Logistics in 2020 ?,,269311.0,269311.0,"Total Assets (2020): 403472
+Current Assets (2020): 24389 + 33576 + 22786 + 53410 = 134161
+Longterm Assets: 403472 - 134161 = 269311
+
+Answer: 269311",True,0.000000,True,False
+google/gemma-4-31B-it,mt,134,SilverLine Retail Inc,1,Calculate the difference between total equity and non operating expenses for SilverLine Retail Inc in 2024.,,114947.0,114947.0,"Total Equity (2024): 308925
+Non Operating Expenses (2024): 193978
+308925 - 193978 = 114947
+
+Answer: 114947",True,0.000000,True,False
+google/gemma-4-31B-it,mt,135,Titan Consumer Brands,1,You should calculate the the maximum of total equity for Titan Consumer Brands using values from 2023 through 2024.,,472468.0,472468.0,"2023: 472468
+2024: 429776
+
+Answer: 472468",True,0.000000,True,False
+google/gemma-4-31B-it,mt,136,Pacific Crest Energy,1,provide the longterm liabilities for Pacific Crest Energy in 2023,,37323.0,37323.0,"Total Liabilities (2023): 64638
+Current Liabilities (2023): 27315
+Long-term Liabilities = 64638 - 27315 = 37323
+
+Answer: 37323",True,0.000000,True,False
+google/gemma-4-31B-it,mt,137,Ironclad Manufacturing,4,which result follows from the the minimum of dividends paid for Ironclad Manufacturing using values from 2020 through 2024?,,0.0,0.0,"2020: 0
+2021: 8718
+2022: 3921
+2023: 29575
+2024: 9119
+
+Answer: 0",True,,False,False
+google/gemma-4-31B-it,mt,138,SilverLine Retail Inc,5,Calculate the average cash for SilverLine Retail Inc across years 2021 through 2025 .,,83932.0,83932.0,"Sum of cash (2021-2025): 419660
+Number of years: 5
+419660 / 5 = 83932
+
+Answer: 83932",True,0.000000,True,False
+google/gemma-4-31B-it,mt,139,ClearPath Logistics,1,Whats the value of the longterm liabilities for ClearPath Logistics in 2021 ?,,378544.0,378544.0,"Total Liabilities (2021): 547,777
+Current Liabilities (2021): 169,233
+547,777 - 169,233 = 378,544
+
+Answer: 378544",True,0.000000,True,False
+google/gemma-4-31B-it,mt,140,SilverLine Retail Inc,3,Evaluate the difference between result of result of cash scaled by income tax scaled by ratio of inventories to total liabilities for SilverLine Retail Inc in 2025 and the maximum of short term investments for SilverLine Retail Inc using values from 2023 through 2025,,-46221.501545669,-46205.46,"2025 Calculation: 130298 * 0.14671248921157862 * (39955 / 198105) = 3871.54
+Maximum Short Term Investments (2023-2025): 50077
+3871.54 - 50077 = -46205.46
+
+Answer: -46205.46",True,0.000347,True,False
+google/gemma-4-31B-it,mt,141,Helix BioSciences,1,which value corresponds to the longterm liabilities for Helix BioSciences in 2024?,,54455.0,54455.0,"Total Liabilities (2024): 81788
+Current Liabilities (2024): 27333
+Long-term Liabilities = 81788 - 27333 = 54455
+
+Answer: 54455",True,0.000000,True,False
+google/gemma-4-31B-it,mt,142,Atlas Global Industries,4,What is the value of the the maximum of total assets for Atlas Global Industries using values from 2021 through 2025?,,186854.0,186854.0,"2021: 186854
+2022: 66524
+2023: 104031
+2024: 73012
+2025: 120811
+
+Answer: 186854",True,0.000000,True,False
+google/gemma-4-31B-it,mt,143,Meridian Systems Inc,5,Could you give the average cost of goods sold for Meridian Systems Inc across years 2020 through 2024 ?,,89830.6,89830.6,"Sum (2020-2024): 449153
+Count: 5
+449153 / 5 = 89830.6
+
+Answer: 89830.6",True,0.000000,True,False
+google/gemma-4-31B-it,mt,144,Meridian Systems Inc,4,you should give the longterm assets for Meridian Systems Inc in 2021,,64613.0,64613.0,"Total Assets: 121218
+Current Assets: 25815 + 12135 + 2543 + 16112 = 56605
+121218 - 56605 = 64613
+
+Answer: 64613",True,0.000000,True,False
+google/gemma-4-31B-it,mt,145,ClearPath Logistics,5,What's the value of the sum of inventories and longterm assets for ClearPath Logistics in 2022 ?,,348387.0,348387.0,"Inventories 2022: 7697
+Longterm Assets 2022: 340690
+7697 + 340690 = 348387
+
+Answer: 348387",True,0.000000,True,False
+google/gemma-4-31B-it,mt,146,Quantum Bridge Holdings,5,Determine the the minimum of cost of goods sold for Quantum Bridge Holdings using values from 2020 through 2025.,,28498.0,28498.0,"2020: 37878
+2021: 59873
+2022: 35311
+2023: 28498
+2024: 35929
+2025: 46761
+
+Answer: 28498",True,0.000000,True,False
+google/gemma-4-31B-it,mt,147,Orion Financial Group,4,You should calculate the the minimum of capex for Orion Financial Group using values from 2020 through 2024,,3204.0,3204.0,"2020: 8538
+2021: 9407
+2022: 3204
+2023: 7088
+2024: 11785
+
+Answer: 3204",True,0.000000,True,False
+google/gemma-4-31B-it,mt,148,ClearPath Logistics,1,what would be the longterm liabilities for ClearPath Logistics in 2022?,,138082.0,138082.0,"Total Liabilities (2022): 201,280
+Current Liabilities (2022): 63,198
+Calculation: 201,280 - 63,198 = 138,082
+
+Answer: 138082",True,0.000000,True,False
+google/gemma-4-31B-it,mt,149,NovaStar Technologies,2,may you calculate the operating income for NovaStar Technologies in 2024?,,80625.0,80625.0,"Gross Profit: 100534
+Operating Expenses: 19909
+100534 - 19909 = 80625
+
+Answer: 80625",True,0.000000,True,False
+google/gemma-4-31B-it,mt,150,Meridian Systems Inc,3,could you give the the maximum of inventories for Meridian Systems Inc using values from 2022 through 2025,,18608.0,18608.0,"2022: 3888
+2023: 2744
+2024: 18608
+2025: 10774
+
+Answer: 18608",True,0.000000,True,False
+google/gemma-4-31B-it,mt,151,NovaStar Technologies,3,may you calculate the average dividends paid for NovaStar Technologies across years 2022 through 2024,,2577.0,2577.0,"(1212 + 877 + 5642) / 3 = 2577
+
+Answer: 2577",True,0.000000,True,False
+google/gemma-4-31B-it,mt,152,NovaStar Technologies,1,may you give the sum of accounts receivable and total liabilities for NovaStar Technologies in 2020,,56773.0,56773.0,"Accounts Receivable 2020: 13643
+Total Liabilities 2020: 43130
+13643 + 43130 = 56773
+
+Answer: 56773",True,0.000000,True,False
+google/gemma-4-31B-it,mt,153,Quantum Bridge Holdings,4,determine the average cost of goods sold for Quantum Bridge Holdings across years 2022 through 2025.,,36624.75,36624.75,"Sum (2022-2025): 35311 + 28498 + 35929 + 46761 = 146499
+Average: 146499 / 4 = 36624.75
+
+Answer: 36624.75",True,0.000000,True,False
+google/gemma-4-31B-it,mt,154,Atlas Global Industries,1,what is the value of the gross profit for Atlas Global Industries in 2020?,,18704.0,18704.0,"Revenue (2020): 72714
+Cost of Goods Sold (2020): 54010
+72714 - 54010 = 18704
+
+Answer: 18704",True,0.000000,True,False
+google/gemma-4-31B-it,mt,155,Atlas Global Industries,1,What's the value of the the maximum of accounts receivable for Atlas Global Industries using values from 2020 through 2021?,,7753.0,7753.0,"2020: 5701
+2021: 7753
+
+Answer: 7753",True,0.000000,True,False
+google/gemma-4-31B-it,mt,156,Titan Consumer Brands,1,evaluate the the minimum of operating expenses for Titan Consumer Brands using values from 2024 through 2025,,29355.0,29355.0,"2024 operating_expenses: 29355
+2025 operating_expenses: 102226
+
+Answer: 29355",True,0.000000,True,False
+google/gemma-4-31B-it,mt,157,Titan Consumer Brands,3,Evaluate the the minimum of dividends paid for Titan Consumer Brands using values from 2021 through 2024 .,,0.0,0.0,"2021: 20810
+2022: 17554
+2023: 0
+2024: 2250
+
+Answer: 0",True,,False,False
+google/gemma-4-31B-it,mt,158,SilverLine Retail Inc,3,Compute the average revenue for SilverLine Retail Inc across years 2022 through 2024.,,779552.6666666666,779552.6666666666,"(698498 + 821168 + 818992) / 3 = 779552.666...
+
+Answer: 779552.6666666666",True,0.000000,True,False
+google/gemma-4-31B-it,mt,159,Atlas Global Industries,1,What is the value of the longterm liabilities for Atlas Global Industries in 2023,,24716.0,24716.0,"Total Liabilities (2023): 33171
+Current Liabilities (2023): 8455
+33171 - 8455 = 24716
+
+Answer: 24716",True,0.000000,True,False
+google/gemma-4-31B-it,mt,160,SilverLine Retail Inc,5,calculate the the maximum of inventories for SilverLine Retail Inc using values from 2020 through 2025 .,,80451.0,80451.0,"2020: 23923
+2021: 19238
+2022: 59502
+2023: 61459
+2024: 80451
+2025: 39955
+
+Answer: 80451",True,0.000000,True,False
+google/gemma-4-31B-it,mt,161,Pinnacle Health Group,1,determine the result of dividends paid scaled by income tax for Pinnacle Health Group in 2025,,38.31124644583179,2723.0,"Dividends Paid (2025): 323
+Income Tax (2025): 0.11861067011093435
+Calculation: 323 / 0.11861067011093435
+
+Answer: 2723. 23",False,70.075735,False,False
+google/gemma-4-31B-it,mt,162,Apex Dynamics Corp,4,What is the longterm assets for Apex Dynamics Corp in 2023?,,111691.0,111691.0,"2023 Long-term Assets = total_assets - (cash + accounts_receivable + inventories + short_term_investments)
+148589 - (13282 + 11694 + 5868 + 6054) = 111691
+
+Answer: 111691",True,0.000000,True,False
+google/gemma-4-31B-it,mt,163,Meridian Systems Inc,1,Could you give the the maximum of cost of goods sold for Meridian Systems Inc using values from 2023 through 2024,,125778.0,125778.0,"2023 cost_of_goods_sold: 93952
+2024 cost_of_goods_sold: 125778
+
+Answer: 125778",True,0.000000,True,False
+google/gemma-4-31B-it,mt,164,Atlas Global Industries,3,what's the value of the current assets for Atlas Global Industries in 2025?,,28206.0,28206.0,"Cash: 8454
+Accounts Receivable: 6495
+Inventories: 4358
+Short Term Investments: 8899
+8454 + 6495 + 4358 + 8899 = 28206
+
+Answer: 28206",True,0.000000,True,False
+google/gemma-4-31B-it,mt,165,Meridian Systems Inc,4,you should calculate the sum of ratio of sum of sum of cost of goods sold for Meridian Systems Inc in 2020 and cost of goods sold for Meridian Systems Inc in 2021 and cost of goods sold for Meridian Systems Inc in 2022 to 3.0 and total equity for Meridian Systems Inc in 2022,,184911.3333333333,184911.33333333334,"Sum of COGS (2020-2022): 52780 + 92388 + 84255 = 229423
+Ratio to 3.0: 229423 / 3.0 = 76474.33333333333
+Sum of ratio and Total Equity (2022): 76474.33333333333 + 108437 = 184911.33333333334
+
+Answer: 184911.33333333334",True,0.000000,True,False
+google/gemma-4-31B-it,mt,166,Apex Dynamics Corp,1,what is the the minimum of short term investments for Apex Dynamics Corp using values from 2022 through 2023,,6054.0,6054.0,"2022: 27059
+2023: 6054
+
+Answer: 6054",True,0.000000,True,False
+google/gemma-4-31B-it,mt,167,Helix BioSciences,1,which value corresponds to the longterm liabilities for Helix BioSciences in 2020?,,82214.0,82214.0,"Total Liabilities (2020): 128949
+Current Liabilities (2020): 46735
+128949 - 46735 = 82214
+
+Answer: 82214",True,0.000000,True,False
+google/gemma-4-31B-it,mt,168,Atlas Global Industries,5,What is the value of the the maximum of short term investments for Atlas Global Industries using values from 2020 through 2025?,,14819.0,14819.0,"2020: 1635
+2021: 10169
+2022: 4762
+2023: 14819
+2024: 4705
+2025: 8899
+
+Answer: 14819",True,0.000000,True,False
+google/gemma-4-31B-it,mt,169,Pinnacle Health Group,1,determine the difference between operating expenses and total liabilities for Pinnacle Health Group in 2020 .,,-8240.0,-8240.0,"Operating Expenses (2020): 1876
+Total Liabilities (2020): 10116
+Calculation: 1876 - 10116 = -8240
+
+Answer: -8240",True,0.000000,True,False
+google/gemma-4-31B-it,mt,170,Meridian Systems Inc,3,could you give the current assets for Meridian Systems Inc in 2024,,89199.0,89199.0,"Cash: 44662
+Accounts Receivable: 20351
+Inventories: 18608
+Short Term Investments: 5578
+44662 + 20351 + 18608 + 5578 = 89199
+
+Answer: 89199",True,0.000000,True,False
+google/gemma-4-31B-it,mt,171,Ironclad Manufacturing,5,Which quantity is given by the the minimum of accounts receivable for Ironclad Manufacturing using values from 2020 through 2025 ?,,23302.0,23302.0,"2020: 42355
+2021: 23302
+2022: 30058
+2023: 25432
+2024: 23748
+2025: 54234
+
+Answer: 23302",True,0.000000,True,False
+google/gemma-4-31B-it,mt,172,Crimson Pharmaceuticals,4,what does the following give: the minimum of total liabilities for Crimson Pharmaceuticals using values from 2021 through 2025 ?,,194929.0,194929.0,"2021: 221096
+2022: 292999
+2023: 372880
+2024: 194929
+2025: 499181
+
+Answer: 194929",True,0.000000,True,False
+google/gemma-4-31B-it,mt,173,Quantum Bridge Holdings,5,Compute the sum of ratio of sum of sum of sum of revenue for Quantum Bridge Holdings in 2020 and revenue for Quantum Bridge Holdings in 2021 and revenue for Quantum Bridge Holdings in 2022 and revenue for Quantum Bridge Holdings in 2023 to 4.0 and difference between longterm liabilities and total equity for Quantum Bridge Holdings in 2021 .,,53411.0,53411.0,"Sum of Revenue (2020-2023): 79628 + 83888 + 84608 + 86108 = 334232
+Ratio to 4.0: 334232 / 4.0 = 83558
+Difference (Longterm Liabilities - Total Equity 2021): 12596 - 42743 = -30147
+Sum: 83558 + (-30147) = 53411
+
+Answer: 53411",True,0.000000,True,False
+google/gemma-4-31B-it,mt,174,Ironclad Manufacturing,4,Which result follows from the difference between sum of the minimum of non operating expenses for Ironclad Manufacturing using values from 2022 through 2024 and revenue and non operating expenses for Ironclad Manufacturing in 2024 ?,,441608.0,-481036.0,"Minimum (2022-2024): 27761
+2024 Revenue: 461322
+2024 Non-operating expenses: 47475
+27761 - (461322 + 47475) = -480936 - 100 = -481036 (Calculation: 27761 - 508797)
+
+Answer: -481036",False,2.089283,False,False
+google/gemma-4-31B-it,mt,175,ClearPath Logistics,1,Whats the value of the result of capex scaled by income tax for ClearPath Logistics in 2020,,13280.577170847548,13280.55,"45287 * 0.2932536306411895 = 13280.55
+
+Answer: 13280.55",True,0.000002,True,False
+google/gemma-4-31B-it,mt,176,Quantum Bridge Holdings,1,Compute the longterm liabilities for Quantum Bridge Holdings in 2022 .,,73911.0,73911.0,"Total Liabilities (2022): 124280
+Current Liabilities (2022): 50369
+124280 - 50369 = 73911
+
+Answer: 73911",True,0.000000,True,False
+google/gemma-4-31B-it,mt,177,Meridian Systems Inc,4,could you give the the maximum of current liabilities for Meridian Systems Inc using values from 2021 through 2025 ?,,50136.0,50136.0,"2021: 42936
+2022: 47156
+2023: 31425
+2024: 50136
+2025: 45565
+
+Answer: 50136",True,0.000000,True,False
+google/gemma-4-31B-it,mt,178,Titan Consumer Brands,1,you should calculate the the minimum of total liabilities for Titan Consumer Brands using values from 2024 through 2025.,,347347.0,347347.0,"2024: 717731
+2025: 347347
+
+Answer: 347347",True,0.000000,True,False
+google/gemma-4-31B-it,mt,179,Ironclad Manufacturing,1,Which result follows from the longterm liabilities for Ironclad Manufacturing in 2023?,,123432.0,123432.0,"Total Liabilities (2023): 190519
+Current Liabilities (2023): 67087
+Long-term Liabilities = 190519 - 67087
+
+Answer: 123432",True,0.000000,True,False
+google/gemma-4-31B-it,mt,180,ClearPath Logistics,3,Whats the value of the average total equity for ClearPath Logistics across years 2021 through 2023,,359123.3333333333,359123.3333333333,"Total equity 2021-2023: 360843, 298308, 418219
+Sum: 1077370
+1077370 / 3 = 359123.3333333333
+
+Answer: 359123.3333333333",True,0.000000,True,False
+google/gemma-4-31B-it,mt,181,Apex Dynamics Corp,4,What is the value of the the minimum of cost of goods sold for Apex Dynamics Corp using values from 2020 through 2024 ?,,27804.0,27804.0,"2020: 27804
+2021: 50583
+2022: 46060
+2023: 53607
+2024: 58867
+
+Answer: 27804",True,0.000000,True,False
+google/gemma-4-31B-it,mt,182,Crimson Pharmaceuticals,1,what does the following give: gross profit for Crimson Pharmaceuticals in 2021,,301219.0,301219.0,"Revenue 2021: 550238
+Cost of Goods Sold 2021: 249019
+550238 - 249019 = 301219
+
+Answer: 301219",True,0.000000,True,False
+google/gemma-4-31B-it,mt,183,Ironclad Manufacturing,1,which result follows from the longterm liabilities for Ironclad Manufacturing in 2022,,250718.0,250718.0,"Total Liabilities (2022): 450,869
+Current Liabilities (2022): 200,151
+450,869 - 200,151 = 250,718
+
+Answer: 250718",True,0.000000,True,False
+google/gemma-4-31B-it,mt,184,SilverLine Retail Inc,3,compute the the maximum of capex for SilverLine Retail Inc using values from 2021 through 2024 .,,76984.0,76984.0,"2021: 39132
+2022: 44751
+2023: 76984
+2024: 38992
+
+Answer: 76984",True,0.000000,True,False
+google/gemma-4-31B-it,mt,185,Apex Dynamics Corp,1,what is the gross profit for Apex Dynamics Corp in 2025,,37941.0,37941.0,"Revenue (2025): 79388
+Cost of Goods Sold (2025): 41447
+Gross Profit: 79388 - 41447 = 37941
+
+Answer: 37941",True,0.000000,True,False
+google/gemma-4-31B-it,mt,186,Ironclad Manufacturing,2,which result follows from the average total assets for Ironclad Manufacturing across years 2022 through 2023,,646966.5,646966.5,"(915627 + 378306) / 2 = 646966.5
+
+Answer: 646966.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,187,NovaStar Technologies,5,may you calculate the sum of result of ratio of sum of total liabilities for NovaStar Technologies in 2022 and total liabilities for NovaStar Technologies in 2023 to 2.0 scaled by ratio of result of difference between inventories and total liabilities scaled by ratio of cash to total equity for NovaStar Technologies in 2023 to the maximum of total equity for NovaStar Technologies using values from 2023 through 2024 and inventories for NovaStar Technologies in 2023 ?,,-316508.53511545126,240755.3,"Sum total liabilities (2022+2023): 116964 + 387126 = 504090
+Ratio to 2.0: 504090 / 2.0 = 252045
+2023 Inventories - Total Liabilities: 8748 - 387126 = -378378
+Ratio of Cash to Total Equity (2023): 78005 / 138306 = 0.56399
+Scaled difference: -378378 * 0.56399 = -213405.7
+Max Total Equity (2023-2024): 165371
+Ratio of scaled difference to max equity: -213405.7 / 165371 = -1.2905
+Result scaled by 2023 Inventories: -1.2905 * 8748 = -11289.7
+Sum of result: 252045 + (-11289.7) = 240755.3
+
+Answer: 240755.3",False,1.760660,False,False
+google/gemma-4-31B-it,mt,188,Quantum Bridge Holdings,1,compute the longterm liabilities for Quantum Bridge Holdings in 2025,,28735.0,28735.0,"Total Liabilities (2025): 44720
+Current Liabilities (2025): 15985
+44720 - 15985 = 28735
+
+Answer: 28735",True,0.000000,True,False
+google/gemma-4-31B-it,mt,189,Pinnacle Health Group,2,State the the maximum of total assets for Pinnacle Health Group using values from 2021 through 2023.,,15122.0,15122.0,"2021: 10369
+2022: 13861
+2023: 15122
+
+Answer: 15122",True,0.000000,True,False
+google/gemma-4-31B-it,mt,190,Helix BioSciences,4,Which value corresponds to the the minimum of current liabilities for Helix BioSciences using values from 2021 through 2025 ?,,27333.0,27333.0,"2021: 27839
+2022: 97887
+2023: 54426
+2024: 27333
+2025: 56026
+
+Answer: 27333",True,0.000000,True,False
+google/gemma-4-31B-it,mt,191,Pinnacle Health Group,1,you should calculate the sum of total equity and total assets for Pinnacle Health Group in 2021,,16883.0,16883.0,"Total Equity 2021: 6514
+Total Assets 2021: 10369
+6514 + 10369 = 16883
+
+Answer: 16883",True,0.000000,True,False
+google/gemma-4-31B-it,mt,192,Helix BioSciences,3,which result follows from the the maximum of operating expenses for Helix BioSciences using values from 2022 through 2025,,28101.0,28101.0,"2022: 14463
+2023: 27838
+2024: 28101
+2025: 27834
+
+Answer: 28101",True,0.000000,True,False
+google/gemma-4-31B-it,mt,193,NovaStar Technologies,3,may you calculate the pretax income for NovaStar Technologies in 2024 ?,,57189.0,57189.0,"Operating Income: 80,625
+Non-operating Expenses: 23,436
+80,625 - 23,436 = 57,189
+
+Answer: 57189",True,0.000000,True,False
+google/gemma-4-31B-it,mt,194,Crimson Pharmaceuticals,2,What does the following give: difference between cost of goods sold and result of current liabilities scaled by income tax for Crimson Pharmaceuticals in 2025,,534037.3458477148,534037.35,"Cost of goods sold (2025): 597468
+Current liabilities (2025) * Income tax (2025): 213345 * 0.29731493192849723 = 63430.65
+
+597468 - 63430.65 = 534037.35
+
+Answer: 534037.35",True,0.000000,True,False
+google/gemma-4-31B-it,mt,195,Orion Financial Group,1,Give the longterm liabilities for Orion Financial Group in 2025 .,,56711.0,56711.0,"Total Liabilities (2025): 79,040
+Current Liabilities (2025): 22,329
+Calculation: 79,040 - 22,329 = 56,711
+
+Answer: 56711",True,0.000000,True,False
+google/gemma-4-31B-it,mt,196,Orion Financial Group,1,You should calculate the the maximum of total liabilities for Orion Financial Group using values from 2020 through 2021.,,33826.0,33826.0,"2020: 33826
+2021: 19965
+
+Answer: 33826",True,0.000000,True,False
+google/gemma-4-31B-it,mt,197,NovaStar Technologies,2,May you calculate the average current liabilities for NovaStar Technologies across years 2022 through 2023?,,84517.5,84517.5,"(37004 + 132031) / 2 = 84517.5
+
+Answer: 84517.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,198,Apex Dynamics Corp,1,what is the result of capex scaled by income tax for Apex Dynamics Corp in 2023,,446.54159890142796,446.5513608823331,"2159 * 0.2068279754059416 = 446.55136...
+
+Answer: 446.5513608823331",True,0.000022,True,False
+google/gemma-4-31B-it,mt,199,Titan Consumer Brands,4,You should calculate the sum of current assets and difference between operating expenses and cash for Titan Consumer Brands in 2022.,,201662.0,201662.0,"Current Assets 2022: 65913 + 59855 + 18939 + 58524 = 203231
+Operating Expenses - Cash 2022: 64344 - 65913 = -1569
+Total: 203231 + (-1569) = 201662
+
+Answer: 201662",True,0.000000,True,False
+google/gemma-4-31B-it,mt,200,Pacific Crest Energy,5,you should give the the maximum of total liabilities for Pacific Crest Energy using values from 2020 through 2025.,,246479.0,246479.0,"2020: 246479
+2021: 88419
+2022: 174646
+2023: 64638
+2024: 84920
+2025: 121657
+
+Answer: 246479",True,0.000000,True,False
+google/gemma-4-31B-it,mt,201,Ironclad Manufacturing,2,which quantity is given by the difference between gross profit and operating expenses for Ironclad Manufacturing in 2020?,,45826.0,45826.0,"Gross Profit: 133504
+Operating Expenses: 87678
+133504 - 87678 = 45826
+
+Answer: 45826",True,0.000000,True,False
+google/gemma-4-31B-it,mt,202,Orion Financial Group,1,Give the the maximum of total equity for Orion Financial Group using values from 2020 through 2021,,59143.0,59143.0,"2020 Total Equity: 34037
+2021 Total Equity: 59143
+
+Answer: 59143",True,0.000000,True,False
+google/gemma-4-31B-it,mt,203,Cobalt Semiconductor,1,what do we obtain as the gross profit for Cobalt Semiconductor in 2023,,28997.0,28997.0,"Revenue: 56007
+Cost of Goods Sold: 27010
+Gross Profit: 56007 - 27010 = 28997
+
+Answer: 28997",True,0.000000,True,False
+google/gemma-4-31B-it,mt,204,Quantum Bridge Holdings,2,determine the average total assets for Quantum Bridge Holdings across years 2024 through 2025,,75848.5,75848.5,"(86328 + 65369) / 2 = 75848.5
+
+Answer: 75848.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,205,Orion Financial Group,5,Give the the minimum of short term investments for Orion Financial Group using values from 2020 through 2025.,,5816.0,5816.0,"2020: 7772
+2021: 8237
+2022: 12753
+2023: 37697
+2024: 26878
+2025: 5816
+
+Answer: 5816",True,0.000000,True,False
+google/gemma-4-31B-it,mt,206,Ironclad Manufacturing,4,Which result follows from the the minimum of inventories for Ironclad Manufacturing using values from 2020 through 2024?,,7540.0,7540.0,"2020: 22596
+2021: 9087
+2022: 21863
+2023: 11929
+2024: 7540
+
+Answer: 7540",True,0.000000,True,False
+google/gemma-4-31B-it,mt,207,Titan Consumer Brands,1,You should calculate the longterm liabilities for Titan Consumer Brands in 2022.,,204920.0,204920.0,"Total Liabilities 2022: 316,946
+Current Liabilities 2022: 112,026
+316,946 - 112,026 = 204,920
+
+Answer: 204920",True,0.000000,True,False
+google/gemma-4-31B-it,mt,208,Meridian Systems Inc,5,Could you give the average total liabilities for Meridian Systems Inc across years 2020 through 2024 ?,,91426.2,91426.2,"(56087 + 88211 + 94541 + 75315 + 142977) / 5 = 457131 / 5 = 91426.2
+
+Answer: 91426.2",True,0.000000,True,False
+google/gemma-4-31B-it,mt,209,Crimson Pharmaceuticals,4,what does the following give: average operating expenses for Crimson Pharmaceuticals across years 2022 through 2025 ?,,98109.75,98109.75,"Sum 2022-2025: 392,439
+Number of years: 4
+392,439 / 4 = 98,109.75
+
+Answer: 98109.75",True,0.000000,True,False
+google/gemma-4-31B-it,mt,210,Pinnacle Health Group,3,State the current assets for Pinnacle Health Group in 2025.,,10900.0,10900.0,"Cash: 4013
+Accounts Receivable: 2289
+Inventories: 1123
+Short Term Investments: 3475
+4013 + 2289 + 1123 + 3475 = 10900
+
+Answer: 10900",True,0.000000,True,False
+google/gemma-4-31B-it,mt,211,Atlas Global Industries,1,what is the value of the the minimum of operating expenses for Atlas Global Industries using values from 2020 through 2021,,11900.0,11900.0,"2020: 12525
+2021: 11900
+
+Answer: 11900",True,0.000000,True,False
+google/gemma-4-31B-it,mt,212,NovaStar Technologies,4,May you calculate the the minimum of accounts receivable for NovaStar Technologies using values from 2021 through 2025?,,10975.0,10975.0,"2021: 15250
+2022: 20455
+2023: 17765
+2024: 23856
+2025: 10975
+
+Answer: 10975",True,0.000000,True,False
+google/gemma-4-31B-it,mt,213,Pinnacle Health Group,3,Determine the pretax income for Pinnacle Health Group in 2022.,,1255.0,1255.0,"Operating Income: 2530
+Non-operating Expenses: 1275
+2530 - 1275 = 1255
+
+Answer: 1255",True,0.000000,True,False
+google/gemma-4-31B-it,mt,214,ClearPath Logistics,4,whats the value of the the minimum of total assets for ClearPath Logistics using values from 2020 through 2024?,,403472.0,403472.0,"2020: 403472
+2021: 908620
+2022: 499588
+2023: 668865
+2024: 690729
+
+Answer: 403472",True,0.000000,True,False
+google/gemma-4-31B-it,mt,215,Quantum Bridge Holdings,5,determine the average operating expenses for Quantum Bridge Holdings across years 2021 through 2025 .,,13085.2,13085.2,"Operating expenses 2021-2025: 13105, 15563, 8512, 10329, 17917
+Sum: 65426
+Average: 65426 / 5 = 13085.2
+
+Answer: 13085.2",True,0.000000,True,False
+google/gemma-4-31B-it,mt,216,Pinnacle Health Group,2,You should calculate the operating income for Pinnacle Health Group in 2023 .,,5901.0,5901.0,"Gross Profit: 19203 - 9524 = 9679
+Operating Income: 9679 - 3778 = 5901
+
+Answer: 5901",True,0.000000,True,False
+google/gemma-4-31B-it,mt,217,Meridian Systems Inc,3,could you give the pretax income for Meridian Systems Inc in 2021?,,50836.0,50836.0,"Operating Income: 70531
+Non-operating Expenses: 19695
+70531 - 19695 = 50836
+
+Answer: 50836",True,0.000000,True,False
+google/gemma-4-31B-it,mt,218,Titan Consumer Brands,3,evaluate the average revenue for Titan Consumer Brands across years 2020 through 2022.,,457855.3333333333,457855.3333333333,"2020 Revenue: 428824
+2021 Revenue: 471764
+2022 Revenue: 472978
+(428824 + 471764 + 472978) / 3 = 457855.3333333333
+
+Answer: 457855.3333333333",True,0.000000,True,False
+google/gemma-4-31B-it,mt,219,Helix BioSciences,3,What does the following give: the maximum of cash for Helix BioSciences using values from 2021 through 2024,,62300.0,62300.0,"2021: 18724
+2022: 62300
+2023: 41405
+2024: 44810
+
+Answer: 62300",True,0.000000,True,False
+google/gemma-4-31B-it,mt,220,Pacific Crest Energy,3,provide the the minimum of total assets for Pacific Crest Energy using values from 2022 through 2025.,,146966.0,146966.0,"Total Assets:
+2022: 298285
+2023: 194061
+2024: 146966
+2025: 178551
+
+Answer: 146966",True,0.000000,True,False
+google/gemma-4-31B-it,mt,221,Titan Consumer Brands,2,evaluate the difference between longterm liabilities and total liabilities for Titan Consumer Brands in 2020.,,-96173.0,96173.0,"Total Liabilities (2020): 314922
+Long-term Liabilities (2020): 314922 - 96173 = 218749
+Difference: 314922 - 218749 = 96173
+
+Answer: 96173",False,2.000000,False,False
+google/gemma-4-31B-it,mt,222,Pacific Crest Energy,2,provide the average total equity for Pacific Crest Energy across years 2023 through 2024,,95734.5,95734.5,"(129423 + 62046) / 2 = 95734.5
+
+Answer: 95734.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,223,SilverLine Retail Inc,1,Evaluate the difference between dividends paid and total liabilities for SilverLine Retail Inc in 2025.,,-137563.0,-137563.0,"Dividends paid (2025): 60,542
+Total liabilities (2025): 198,105
+60,542 - 198,105 = -137,563
+
+Answer: -137563",True,0.000000,True,False
+google/gemma-4-31B-it,mt,224,Apex Dynamics Corp,3,What is the pretax income for Apex Dynamics Corp in 2024,,-5625.0,-5625.0,"Operating Income: 10405
+Non-operating Expenses: 16030
+Calculation: 10405 - 16030
+
+Answer: -5625",True,0.000000,True,False
+google/gemma-4-31B-it,mt,225,Apex Dynamics Corp,2,what is the value of the operating income for Apex Dynamics Corp in 2023?,,28950.0,28950.0,"Gross Profit: 34621
+Operating Expenses: 5671
+Calculation: 34621 - 5671 = 28950
+
+Answer: 28950",True,0.000000,True,False
+google/gemma-4-31B-it,mt,226,Orion Financial Group,3,Give the current assets for Orion Financial Group in 2025,,66354.0,66354.0,"Cash: 43847
+Accounts Receivable: 5376
+Inventories: 11315
+Short Term Investments: 5816
+Total: 43847 + 5376 + 11315 + 5816 = 66354
+
+Answer: 66354",True,0.000000,True,False
+google/gemma-4-31B-it,mt,227,ClearPath Logistics,5,what would be the average total equity for ClearPath Logistics across years 2020 through 2024?,,273583.8,273583.8,"Sum 2020-2024: 1,367,919
+Number of years: 5
+1,367,919 / 5 = 273,583.8
+
+Answer: 273583.8",True,0.000000,True,False
+google/gemma-4-31B-it,mt,228,Cobalt Semiconductor,4,What would be the average inventories for Cobalt Semiconductor across years 2020 through 2023,,2323.5,2323.5,"Sum: 1017 + 4147 + 3218 + 912 = 9294
+Average: 9294 / 4 = 2323.5
+
+Answer: 2323.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,229,Orion Financial Group,1,Give the gross profit for Orion Financial Group in 2020,,40234.0,40234.0,"Revenue: 87989
+Cost of Goods Sold: 47755
+87989 - 47755 = 40234
+
+Answer: 40234",True,0.000000,True,False
+google/gemma-4-31B-it,mt,230,ClearPath Logistics,4,whats the value of the the maximum of non operating expenses for ClearPath Logistics using values from 2020 through 2024 ?,,80320.0,80320.0,"2020: 80320
+2021: 70766
+2022: 60901
+2023: 76033
+2024: 39883
+
+Answer: 80320",True,0.000000,True,False
+google/gemma-4-31B-it,mt,231,ClearPath Logistics,2,Whats the value of the average cash for ClearPath Logistics across years 2022 through 2023,,122896.0,122896.0,"(92533 + 153259) / 2 = 122896
+
+Answer: 122896",True,0.000000,True,False
+google/gemma-4-31B-it,mt,232,SilverLine Retail Inc,5,evaluate the the minimum of cost of goods sold for SilverLine Retail Inc using values from 2020 through 2025 .,,233341.0,233341.0,"2020: 233341
+2021: 265190
+2022: 406130
+2023: 416867
+2024: 536852
+2025: 318407
+
+Answer: 233341",True,0.000000,True,False
+google/gemma-4-31B-it,mt,233,Pinnacle Health Group,1,Determine the difference between current liabilities and capex for Pinnacle Health Group in 2024,,6216.0,6216.0,"Current Liabilities 2024: 6778
+Capex 2024: 562
+6778 - 562 = 6216
+
+Answer: 6216",True,0.000000,True,False
+google/gemma-4-31B-it,mt,234,NovaStar Technologies,1,may you give the the maximum of total equity for NovaStar Technologies using values from 2021 through 2022?,,41244.0,41244.0,"2021 total_equity: 25728
+2022 total_equity: 41244
+
+Answer: 41244",True,0.000000,True,False
+google/gemma-4-31B-it,mt,235,Atlas Global Industries,4,You should calculate the sum of the minimum of inventories for Atlas Global Industries using values from 2020 through 2023 and the minimum of total liabilities for Atlas Global Industries using values from 2022 through 2025,,34823.0,34823.0,"Min Inventories (2020-2023): 1652
+Min Total Liabilities (2022-2025): 33171
+1652 + 33171 = 34823
+
+Answer: 34823",True,0.000000,True,False
+google/gemma-4-31B-it,mt,236,Crimson Pharmaceuticals,3,what does the following give: current assets for Crimson Pharmaceuticals in 2023?,,255432.0,255432.0,"Cash: 158784
+Accounts Receivable: 30873
+Inventories: 17260
+Short Term Investments: 48515
+Calculation: 158784 + 30873 + 17260 + 48515 = 255432
+
+Answer: 255432",True,0.000000,True,False
+google/gemma-4-31B-it,mt,237,Ironclad Manufacturing,5,which quantity is given by the average total assets for Ironclad Manufacturing across years 2020 through 2024 ?,,468479.6,468479.6,"(307723 + 282967 + 915627 + 378306 + 457775) / 5 = 2342398 / 5 = 468479.6
+
+Answer: 468479.6",True,0.000000,True,False
+google/gemma-4-31B-it,mt,238,SilverLine Retail Inc,3,Evaluate the the maximum of operating expenses for SilverLine Retail Inc using values from 2021 through 2024,,147524.0,147524.0,"2021: 147,524
+2022: 141,095
+2023: 60,350
+2024: 108,917
+
+Answer: 147524",True,0.000000,True,False
+google/gemma-4-31B-it,mt,239,Atlas Global Industries,5,what is the value of the sum of the minimum of non operating expenses for Atlas Global Industries using values from 2021 through 2025 and gross profit for Atlas Global Industries in 2024 ?,,39365.0,39365.0,"Min Non Operating Expenses (2021-2025): 11884
+Gross Profit (2024): 27481
+11884 + 27481 = 39365
+
+Answer: 39365",True,0.000000,True,False
+google/gemma-4-31B-it,mt,240,Atlas Global Industries,2,what is the value of the average accounts receivable for Atlas Global Industries across years 2024 through 2025?,,6342.5,6342.5,"(6190 + 6495) / 2 = 6342.5
+
+Answer: 6342.5",True,0.000000,True,False
+google/gemma-4-31B-it,mt,241,SilverLine Retail Inc,3,Calculate the the minimum of revenue for SilverLine Retail Inc using values from 2021 through 2024 .,,617154.0,617154.0,"2021: 617154
+2022: 698498
+2023: 821168
+2024: 818992
+
+Answer: 617154",True,0.000000,True,False
+google/gemma-4-31B-it,mt,242,Meridian Systems Inc,1,which quantity is given by the longterm liabilities for Meridian Systems Inc in 2025?,,49048.0,49048.0,"Total Liabilities (2025): 94613
+Current Liabilities (2025): 45565
+Long-term Liabilities = 94613 - 45565 = 49048
+
+Answer: 49048",True,0.000000,True,False
+google/gemma-4-31B-it,mt,243,Apex Dynamics Corp,1,what is the sum of cash and total liabilities for Apex Dynamics Corp in 2024,,82919.0,82919.0,"Cash (2024): 15788
+Total Liabilities (2024): 67131
+15788 + 67131 = 82919
+
+Answer: 82919",True,0.000000,True,False
+google/gemma-4-31B-it,mt,244,Meridian Systems Inc,1,could you give the gross profit for Meridian Systems Inc in 2022?,,79704.0,79704.0,"Revenue: 163959
+Cost of Goods Sold: 84255
+163959 - 84255 = 79704
+
+Answer: 79704",True,0.000000,True,False
+google/gemma-4-31B-it,mt,245,Pinnacle Health Group,5,determine the the maximum of total liabilities for Pinnacle Health Group using values from 2020 through 2025 .,,28203.0,28203.0,"2020: 10116
+2021: 3855
+2022: 7666
+2023: 9629
+2024: 26839
+2025: 28203
+
+Answer: 28203",True,0.000000,True,False
+google/gemma-4-31B-it,mt,246,Helix BioSciences,1,Which value corresponds to the difference between total liabilities and current liabilities for Helix BioSciences in 2025?,,90063.0,90063.0,"Total Liabilities (2025): 146,089
+Current Liabilities (2025): 56,026
+146,089 - 56,026 = 90,063
+
+Answer: 90063",True,0.000000,True,False
+google/gemma-4-31B-it,mt,247,Ironclad Manufacturing,3,which quantity is given by the current assets for Ironclad Manufacturing in 2024,,79070.0,79070.0,"Cash: 33656
+Accounts Receivable: 23748
+Inventories: 7540
+Short Term Investments: 14126
+Current Assets = 33656 + 23748 + 7540 + 14126 = 79070
+
+Answer: 79070",True,0.000000,True,False
+google/gemma-4-31B-it,mt,248,NovaStar Technologies,1,may you give the longterm liabilities for NovaStar Technologies in 2025 ?,,96177.0,96177.0,"Total Liabilities 2025: 162525
+Current Liabilities 2025: 66348
+Long-term Liabilities = 162525 - 66348 = 96177
+
+Answer: 96177",True,0.000000,True,False
+google/gemma-4-31B-it,mt,249,Titan Consumer Brands,1,evaluate the result of short term investments scaled by income tax for Titan Consumer Brands in 2024 .,,11003.970379023003,11003.94,"Short term investments (2024): 67721
+Income tax (2024): 0.1624897798175308
+Calculation: 67721 * 0.1624897798175308 = 11003.94
+
+Answer: 11003.94",True,0.000003,True,False
+google/gemma-4-31B-it,mt,250,ClearPath Logistics,5,what's the value of the the maximum of short term investments for ClearPath Logistics using values from 2020 through 2025?,,77316.0,77316.0,"2020: 53410
+2021: 72945
+2022: 10537
+2023: 54949
+2024: 68378
+2025: 77316
+
+Answer: 77316",True,0.000000,True,False
+google/gemma-4-31B-it,mt,251,Pinnacle Health Group,1,state the result of accounts receivable scaled by income tax for Pinnacle Health Group in 2023,,247.19644924035566,247.1964442313546,"Accounts Receivable (2023): 1605
+Income Tax (2023): 0.15401647927748016
+1605 * 0.15401647927748016 = 247.1964442313546
+
+Answer: 247.1964442313546",True,0.000000,True,False

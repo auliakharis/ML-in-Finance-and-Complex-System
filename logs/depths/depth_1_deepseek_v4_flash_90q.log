@@ -1,0 +1,114 @@
+<===== START depth_1_deepseek_v4_flash_90q | provider=Apertus | model=RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731 | dataset=90q | limit=2 =====>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 2 questions, 15 companies
+
+============================================================
+  Evaluating model: RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+<------ will run inference ------>
+<------ will run inference ------>
+  [2/2] WRONG  | truth=-142977.0000 pred=142977.0 | could you give the difference between total equity and total...
+  [1/2] CORRECT | truth=18576.0000 pred=18576.0 | determine the sum of non operating expenses and short term i...
+
+============================================================
+  Model: RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 1/2  accuracy = 50.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 1/2  accuracy = 50.0%
+============================================================
+
+Results saved to output_llm/depths/depth_1_deepseek_v4_flash_90q_20260808_233245.json
+CSV saved to output_llm/eval_results_20260808_233245.csv
+<===== END depth_1_deepseek_v4_flash_90q =====>
+<===== START depth_1_deepseek_v4_flash_90q | provider=Apertus | model=RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731 | dataset=90q | limit=2 =====>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 2 questions, 15 companies
+
+============================================================
+  Evaluating model: RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+  [2/2] CORRECT | truth=0.0000 pred=0.0 | You should calculate the difference between inventories and ...
+  [1/2] WRONG  | truth=25669.0000 pred=14348.0 | may you give the sum of cash and current liabilities for Ori...
+
+============================================================
+  Model: RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 1/2  accuracy = 50.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 1/2  accuracy = 50.0%
+============================================================
+
+Results saved to output_llm/depths/depth_1_deepseek_v4_flash_90q_20260808_233607.json
+CSV saved to output_llm/eval_results_20260808_233607.csv
+<===== END depth_1_deepseek_v4_flash_90q =====>
+<===== START depth_1_deepseek_v4_flash_90q | provider=Apertus | model=RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731 | dataset=90q | limit=300 =====>
+<===== START depth_1_deepseek_v4_flash_90q | provider=Apertus | model=RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731 | dataset=90q | limit=300 =====>
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "", line 915, in <module>
+    main()
+    ~~~~^^
+  File "", line 853, in main
+    results_90q = asyncio.run(evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    ))
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "", line 395, in evaluate_90q
+    results = await asyncio.gather(*tasks)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "", line 388, in run_one
+    return await ask_one_90q_question(i, max_new_tokens, model_name, q, sheet_lookup, subset, tol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "", line 424, in ask_one_90q_question
+    response = await run_inference(model_name, prompt, max_new_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "", line 263, in run_inference
+    response = await _client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/openai/resources/chat/completions/completions.py", line 2739, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/openai/_base_client.py", line 1931, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/openai/_base_client.py", line 1716, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit exceeded for api_key: -. Limit type: max_parallel_requests. Current limit: 1, Remaining: 0. Limit resets at: 2026-08-08 23:56:04 UTC', 'type': 'throttling_error', 'param': None, 'code': '429'}}
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 300 questions, 15 companies
+
+============================================================
+  Evaluating model: RCP-AIaaS/deepseek-ai/DeepSeek-V4-Flash-0731
+============================================================
+
+-- 90-Q evaluation (300 questions) --
+<===== END depth_1_deepseek_v4_flash_90q =====>

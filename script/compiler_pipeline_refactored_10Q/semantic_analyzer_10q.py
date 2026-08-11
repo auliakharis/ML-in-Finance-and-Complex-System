@@ -4,14 +4,12 @@ from __future__ import annotations
 import sys
 import os
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "compiler_pipeline_refactored"))
-
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
 
-from tree import (
+from script.compiler_pipeline_adversarial.tree import (
     Atom,
     DerivedExpr,
     Expr,

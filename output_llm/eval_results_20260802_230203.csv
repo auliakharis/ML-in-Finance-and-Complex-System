@@ -1,0 +1,1152 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-v1.5-70B,90q,1,Cobalt Semiconductor,1,We plan to later discount the result by 19%. What do we obtain as the longterm liabilities for Cobalt Semiconductor in 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5387560
+    cost_of_goods_sold: 2528314
+    operating_expenses: 758187
+    non_operating_expenses: 438988
+    income_tax: 0.1623274739408433
+    total_assets: 7816447
+    total_liabilities: 5781868
+    total_equity: 2034579
+    cash: 1259771
+    accounts_receivable: 691408
+    inventories: 101702
+    short_term_investments: 903746
+    current_liabilities: 1517397
+    capex: 298735
+    dividends_paid: 45433
+    shares_outstanding: 641782
+    stock_price: 49155.47
+    employees: 21002095
+  Year 2021:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5281745
+    cost_of_goods_sold: 2802261
+    operating_expenses: 628710
+    non_operating_expenses: 381226
+    income_tax: 0.23564357858670687
+    total_assets: 5220348
+    total_liabilities: 3303021
+    total_equity: 1917327
+    cash: 510823
+    accounts_receivable: 327742
+    inventories: 414673
+    short_term_investments: 92241
+    current_liabilities: 994559
+    capex: 429870
+    dividends_paid: 424737
+    shares_outstanding: 1148600
+    stock_price: 24221.6
+    employees: 6439225
+  Year 2022:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5594782
+    cost_of_goods_sold: 2762674
+    operating_expenses: 424292
+    non_operating_expenses: 875676
+    income_tax: 0.14602214321533194
+    total_assets: 5765033
+    total_liabilities: 3907580
+    total_equity: 1857453
+    cash: 622144
+    accounts_receivable: 445944
+    inventories: 321756
+    short_term_investments: 409725
+    current_liabilities: 1426027
+    capex: 252016
+    dividends_paid: 40751
+    shares_outstanding: 649634
+    stock_price: 33247.2
+    employees: 32187013
+  Year 2023:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5600737
+    cost_of_goods_sold: 2701037
+    operating_expenses: 1362323
+    non_operating_expenses: 472560
+    income_tax: 0.2895228618653495
+    total_assets: 6572738
+    total_liabilities: 4494038
+    total_equity: 2078700
+    cash: 720422
+    accounts_receivable: 468620
+    inventories: 91193
+    short_term_investments: 466630
+    current_liabilities: 1573419
+    capex: 502061
+    dividends_paid: 23799
+    shares_outstanding: 1121249
+    stock_price: 18893.41
+    employees: 39066334
+  Year 2024:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5272456
+    cost_of_goods_sold: 3084129
+    operating_expenses: 823141
+    non_operating_expenses: 468093
+    income_tax: 0.2552456458648671
+    total_assets: 7309458
+    total_liabilities: 5429068
+    total_equity: 1880390
+    cash: 1257208
+    accounts_receivable: 288767
+    inventories: 102901
+    short_term_investments: 335033
+    current_liabilities: 1592751
+    capex: 425657
+    dividends_paid: 40854
+    shares_outstanding: 122276
+    stock_price: 76176.43
+    employees: 31583464
+  Year 2025:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5535588
+    cost_of_goods_sold: 3064950
+    operating_expenses: 918319
+    non_operating_expenses: 1030874
+    income_tax: 0.27640963131858676
+    total_assets: 5165770
+    total_liabilities: 3862479
+    total_equity: 1303291
+    cash: 522289
+    accounts_receivable: 758914
+    inventories: 187262
+    short_term_investments: 369698
+    current_liabilities: 1418419
+    capex: 463364
+    dividends_paid: 95292
+    shares_outstanding: 891215
+    stock_price: 29127.46
+    employees: 4172437
+=== END ===
+
+QUESTION: We plan to later discount the result by 19%. What do we obtain as the longterm liabilities for Cobalt Semiconductor in 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",2444060.0,1978068.8,"Long-term liabilities in 2025: total liabilities - current liabilities = 3862479 - 1418419 = 2444060  
+After 19% discount: 2444060 * (1 - 0.19) = 2444060 * 0.81  
+Answer: 1978068.8",False,0.190663,False,False
+swiss-ai/Apertus-v1.5-70B,90q,3,Titan Consumer Brands,1,The result may later be adjusted downward by 37%. You should give the longterm liabilities for Titan Consumer Brands in 2021,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 42882397
+    cost_of_goods_sold: 13169248
+    operating_expenses: 4420039
+    non_operating_expenses: 3231262
+    income_tax: 0.18419211138201583
+    total_assets: 98268662
+    total_liabilities: 31492218
+    total_equity: 66776444
+    cash: 12639369
+    accounts_receivable: 3267806
+    inventories: 1279743
+    short_term_investments: 7201202
+    current_liabilities: 9617328
+    capex: 3352522
+    dividends_paid: 4428334
+    shares_outstanding: 1364040
+    stock_price: 53223.89
+    employees: 15430701
+  Year 2021:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47176442
+    cost_of_goods_sold: 14814242
+    operating_expenses: 11780776
+    non_operating_expenses: 10353328
+    income_tax: 0.18525472385599834
+    total_assets: 109826519
+    total_liabilities: 75755764
+    total_equity: 34070755
+    cash: 14012075
+    accounts_receivable: 6129478
+    inventories: 916624
+    short_term_investments: 3379003
+    current_liabilities: 21328876
+    capex: 3152763
+    dividends_paid: 2081048
+    shares_outstanding: 1071108
+    stock_price: 31401.0
+    employees: 30070897
+  Year 2022:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47297750
+    cost_of_goods_sold: 24949468
+    operating_expenses: 6434380
+    non_operating_expenses: 9867220
+    income_tax: 0.12288281448601593
+    total_assets: 43566074
+    total_liabilities: 31694584
+    total_equity: 11871490
+    cash: 6591275
+    accounts_receivable: 5985494
+    inventories: 1893891
+    short_term_investments: 5852350
+    current_liabilities: 11202558
+    capex: 2454678
+    dividends_paid: 1755336
+    shares_outstanding: 1097123
+    stock_price: 26035.05
+    employees: 15969917
+  Year 2023:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 46889530
+    cost_of_goods_sold: 34187936
+    operating_expenses: 8785420
+    non_operating_expenses: 6792116
+    income_tax: 0.11824495767320974
+    total_assets: 116513897
+    total_liabilities: 69267040
+    total_equity: 47246857
+    cash: 22581509
+    accounts_receivable: 3622905
+    inventories: 1262048
+    short_term_investments: 2143545
+    current_liabilities: 33882399
+    capex: 3451119
+    dividends_paid: 0
+    shares_outstanding: 622105
+    stock_price: 70078.18
+    employees: 47085929
+  Year 2024:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 48691135
+    cost_of_goods_sold: 34674401
+    operating_expenses: 2935550
+    non_operating_expenses: 5235557
+    income_tax: 0.1624897798175308
+    total_assets: 114750794
+    total_liabilities: 71773192
+    total_equity: 42977602
+    cash: 7348714
+    accounts_receivable: 4295480
+    inventories: 4512725
+    short_term_investments: 6772128
+    current_liabilities: 27924535
+    capex: 2058927
+    dividends_paid: 224981
+    shares_outstanding: 346977
+    stock_price: 35185.32
+    employees: 28267802
+  Year 2025:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 55258649
+    cost_of_goods_sold: 32037623
+    operating_expenses: 10222593
+    non_operating_expenses: 8915870
+    income_tax: 0.22179898311061305
+    total_assets: 50724047
+    total_liabilities: 34734736
+    total_equity: 15989311
+    cash: 1844818
+    accounts_receivable: 3720401
+    inventories: 3816105
+    short_term_investments: 7051416
+    current_liabilities: 11731860
+    capex: 1738444
+    dividends_paid: 230534
+    shares_outstanding: 989444
+    stock_price: 6962.46
+    employees: 37177968
+=== END ===
+
+QUESTION: The result may later be adjusted downward by 37%. You should give the longterm liabilities for Titan Consumer Brands in 2021
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",54426888.0,60334002.0,Answer: 60334002,False,0.108533,False,False
+swiss-ai/Apertus-v1.5-70B,90q,9,Crimson Pharmaceuticals,1,what does the following give: gross profit for Crimson Pharmaceuticals in 2023 A future supplier discount could improve gross profit by $29975 million.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 46323615
+    cost_of_goods_sold: 20475877
+    operating_expenses: 5188948
+    non_operating_expenses: 6005616
+    income_tax: 0.26308121613119645
+    total_assets: 53363319
+    total_liabilities: 15216038
+    total_equity: 38147281
+    cash: 9195466
+    accounts_receivable: 3178314
+    inventories: 2704413
+    short_term_investments: 890771
+    current_liabilities: 6298418
+    capex: 3888747
+    dividends_paid: 1180099
+    shares_outstanding: 661058
+    stock_price: 32901.71
+    employees: 22266963
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 55023841
+    cost_of_goods_sold: 24901946
+    operating_expenses: 4807072
+    non_operating_expenses: 10367245
+    income_tax: 0.1734693853919364
+    total_assets: 43782679
+    total_liabilities: 22109651
+    total_equity: 21673028
+    cash: 2109210
+    accounts_receivable: 4536714
+    inventories: 1892023
+    short_term_investments: 6537356
+    current_liabilities: 6524870
+    capex: 1552103
+    dividends_paid: 1451750
+    shares_outstanding: 498601
+    stock_price: 24707.74
+    employees: 22572830
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 61678733
+    cost_of_goods_sold: 23128917
+    operating_expenses: 8559878
+    non_operating_expenses: 8599615
+    income_tax: 0.24536287914222057
+    total_assets: 44248127
+    total_liabilities: 29299935
+    total_equity: 14948192
+    cash: 5561410
+    accounts_receivable: 6411315
+    inventories: 2842362
+    short_term_investments: 797799
+    current_liabilities: 12241395
+    capex: 3765294
+    dividends_paid: 2622807
+    shares_outstanding: 1127348
+    stock_price: 14058.96
+    employees: 2041461
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71400992
+    cost_of_goods_sold: 43207596
+    operating_expenses: 9827244
+    non_operating_expenses: 5372639
+    income_tax: 0.14719907608407046
+    total_assets: 66469274
+    total_liabilities: 37288010
+    total_equity: 29181264
+    cash: 15878364
+    accounts_receivable: 3087274
+    inventories: 1726012
+    short_term_investments: 4851536
+    current_liabilities: 12780135
+    capex: 1867196
+    dividends_paid: 1967695
+    shares_outstanding: 215166
+    stock_price: 30305.57
+    employees: 16062079
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71260556
+    cost_of_goods_sold: 52179404
+    operating_expenses: 3932348
+    non_operating_expenses: 6214605
+    income_tax: 0.2035490548416784
+    total_assets: 51037067
+    total_liabilities: 19492879
+    total_equity: 31544188
+    cash: 10232533
+    accounts_receivable: 7867435
+    inventories: 2499088
+    short_term_investments: 4882349
+    current_liabilities: 8255140
+    capex: 2566397
+    dividends_paid: 2842358
+    shares_outstanding: 212235
+    stock_price: 7313.09
+    employees: 9046490
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 79793549
+    cost_of_goods_sold: 59746863
+    operating_expenses: 16924423
+    non_operating_expenses: 19430706
+    income_tax: 0.29731493192849723
+    total_assets: 72446875
+    total_liabilities: 49918176
+    total_equity: 22528699
+    cash: 10939433
+    accounts_receivable: 5508646
+    inventories: 3524728
+    short_term_investments: 2321976
+    current_liabilities: 21334577
+    capex: 2707178
+    dividends_paid: 0
+    shares_outstanding: 548623
+    stock_price: 19102.97
+    employees: 49264061
+=== END ===
+
+QUESTION: what does the following give: gross profit for Crimson Pharmaceuticals in 2023 A future supplier discount could improve gross profit by $29975 million.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",28193396.0,False,"Gross profit = Revenue - Cost of Goods Sold  
+Gross profit in 2023 = 71400992 - 43207596 = 28193396  
+
+Future supplier discount = 29975 million = 29975000  
+29975000 < 28193396 → Not possible  
+
+Answer: False",False,1.000000,False,False
+swiss-ai/Apertus-v1.5-70B,90q,9,Meridian Systems Inc,1,could you give the gross profit for Meridian Systems Inc in 2024? A later stress test may cut the final value in half.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 15071357
+    cost_of_goods_sold: 5277966
+    operating_expenses: 2064068
+    non_operating_expenses: 2121214
+    income_tax: 0.290763185504216
+    total_assets: 11155510
+    total_liabilities: 5608680
+    total_equity: 5546830
+    cash: 1563210
+    accounts_receivable: 872107
+    inventories: 731746
+    short_term_investments: 1471106
+    current_liabilities: 1820640
+    capex: 1035668
+    dividends_paid: 1016563
+    shares_outstanding: 237731
+    stock_price: 61357.1
+    employees: 27199262
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 17151436
+    cost_of_goods_sold: 9238778
+    operating_expenses: 859534
+    non_operating_expenses: 1969520
+    income_tax: 0.10389534847716647
+    total_assets: 12121856
+    total_liabilities: 8821191
+    total_equity: 3300665
+    cash: 2581548
+    accounts_receivable: 1213488
+    inventories: 254346
+    short_term_investments: 1611253
+    current_liabilities: 4293603
+    capex: 1009863
+    dividends_paid: 156076
+    shares_outstanding: 113127
+    stock_price: 61207.27
+    employees: 38408804
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 16395909
+    cost_of_goods_sold: 8425482
+    operating_expenses: 2622701
+    non_operating_expenses: 1688964
+    income_tax: 0.2744866082170515
+    total_assets: 20297857
+    total_liabilities: 9454146
+    total_equity: 10843711
+    cash: 3017178
+    accounts_receivable: 1852625
+    inventories: 388833
+    short_term_investments: 1088783
+    current_liabilities: 4715608
+    capex: 902562
+    dividends_paid: 690036
+    shares_outstanding: 781188
+    stock_price: 10998.83
+    employees: 11622518
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 16636338
+    cost_of_goods_sold: 9395188
+    operating_expenses: 1597470
+    non_operating_expenses: 1564539
+    income_tax: 0.11419861720180652
+    total_assets: 15734387
+    total_liabilities: 7531459
+    total_equity: 8202928
+    cash: 3606202
+    accounts_receivable: 2095572
+    inventories: 274447
+    short_term_investments: 681624
+    current_liabilities: 3142459
+    capex: 508822
+    dividends_paid: 309642
+    shares_outstanding: 1403916
+    stock_price: 46326.88
+    employees: 23897216
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 18960325
+    cost_of_goods_sold: 12577780
+    operating_expenses: 1670063
+    non_operating_expenses: 1315584
+    income_tax: 0.1862102364812755
+    total_assets: 23457203
+    total_liabilities: 14297692
+    total_equity: 9159511
+    cash: 4466174
+    accounts_receivable: 2035134
+    inventories: 1860775
+    short_term_investments: 557777
+    current_liabilities: 5013562
+    capex: 1686214
+    dividends_paid: 375182
+    shares_outstanding: 380498
+    stock_price: 16431.4
+    employees: 22706371
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 19683223
+    cost_of_goods_sold: 8372167
+    operating_expenses: 1967560
+    non_operating_expenses: 4618730
+    income_tax: 0.18862614901069139
+    total_assets: 14759256
+    total_liabilities: 9461374
+    total_equity: 5297882
+    cash: 607040
+    accounts_receivable: 2754239
+    inventories: 1077360
+    short_term_investments: 2149825
+    current_liabilities: 4556520
+    capex: 655548
+    dividends_paid: 1301408
+    shares_outstanding: 733605
+    stock_price: 18279.16
+    employees: 20351494
+=== END ===
+
+QUESTION: could you give the gross profit for Meridian Systems Inc in 2024? A later stress test may cut the final value in half.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",6382545.0,6382545.0,"gross profit = revenue - cost_of_goods_sold
+gross profit = 18960325 - 12577780
+Answer: 6382545",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,9,Meridian Systems Inc,1,Debt investors are concerned about maturities over the next 16 months. Could you give the longterm liabilities for Meridian Systems Inc in 2025,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 15071357
+    cost_of_goods_sold: 5277966
+    operating_expenses: 2064068
+    non_operating_expenses: 2121214
+    income_tax: 0.290763185504216
+    total_assets: 11155510
+    total_liabilities: 5608680
+    total_equity: 5546830
+    cash: 1563210
+    accounts_receivable: 872107
+    inventories: 731746
+    short_term_investments: 1471106
+    current_liabilities: 1820640
+    capex: 1035668
+    dividends_paid: 1016563
+    shares_outstanding: 237731
+    stock_price: 61357.1
+    employees: 27199262
+  Year 2021:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 17151436
+    cost_of_goods_sold: 9238778
+    operating_expenses: 859534
+    non_operating_expenses: 1969520
+    income_tax: 0.10389534847716647
+    total_assets: 12121856
+    total_liabilities: 8821191
+    total_equity: 3300665
+    cash: 2581548
+    accounts_receivable: 1213488
+    inventories: 254346
+    short_term_investments: 1611253
+    current_liabilities: 4293603
+    capex: 1009863
+    dividends_paid: 156076
+    shares_outstanding: 113127
+    stock_price: 61207.27
+    employees: 38408804
+  Year 2022:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 16395909
+    cost_of_goods_sold: 8425482
+    operating_expenses: 2622701
+    non_operating_expenses: 1688964
+    income_tax: 0.2744866082170515
+    total_assets: 20297857
+    total_liabilities: 9454146
+    total_equity: 10843711
+    cash: 3017178
+    accounts_receivable: 1852625
+    inventories: 388833
+    short_term_investments: 1088783
+    current_liabilities: 4715608
+    capex: 902562
+    dividends_paid: 690036
+    shares_outstanding: 781188
+    stock_price: 10998.83
+    employees: 11622518
+  Year 2023:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 16636338
+    cost_of_goods_sold: 9395188
+    operating_expenses: 1597470
+    non_operating_expenses: 1564539
+    income_tax: 0.11419861720180652
+    total_assets: 15734387
+    total_liabilities: 7531459
+    total_equity: 8202928
+    cash: 3606202
+    accounts_receivable: 2095572
+    inventories: 274447
+    short_term_investments: 681624
+    current_liabilities: 3142459
+    capex: 508822
+    dividends_paid: 309642
+    shares_outstanding: 1403916
+    stock_price: 46326.88
+    employees: 23897216
+  Year 2024:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 18960325
+    cost_of_goods_sold: 12577780
+    operating_expenses: 1670063
+    non_operating_expenses: 1315584
+    income_tax: 0.1862102364812755
+    total_assets: 23457203
+    total_liabilities: 14297692
+    total_equity: 9159511
+    cash: 4466174
+    accounts_receivable: 2035134
+    inventories: 1860775
+    short_term_investments: 557777
+    current_liabilities: 5013562
+    capex: 1686214
+    dividends_paid: 375182
+    shares_outstanding: 380498
+    stock_price: 16431.4
+    employees: 22706371
+  Year 2025:
+    ticker: MSYS
+    sector: Technology
+    country: USA
+    exchange: NASDAQ
+    credit_rating: AAA
+    revenue: 19683223
+    cost_of_goods_sold: 8372167
+    operating_expenses: 1967560
+    non_operating_expenses: 4618730
+    income_tax: 0.18862614901069139
+    total_assets: 14759256
+    total_liabilities: 9461374
+    total_equity: 5297882
+    cash: 607040
+    accounts_receivable: 2754239
+    inventories: 1077360
+    short_term_investments: 2149825
+    current_liabilities: 4556520
+    capex: 655548
+    dividends_paid: 1301408
+    shares_outstanding: 733605
+    stock_price: 18279.16
+    employees: 20351494
+=== END ===
+
+QUESTION: Debt investors are concerned about maturities over the next 16 months. Could you give the longterm liabilities for Meridian Systems Inc in 2025
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",4904854.0,False,"The question asks for longterm liabilities for Meridian Systems Inc in 2025. The provided data does not include a line item for long‑term (non‑current) liabilities. Without that specific data, the value cannot be determined.
+
+Answer: False",False,1.000000,False,False
+swiss-ai/Apertus-v1.5-70B,90q,10,ClearPath Logistics,1,What's the value of the gross profit for ClearPath Logistics in 2021? A later calculation may subtract 37% from the final result.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 51655340
+    cost_of_goods_sold: 22046359
+    operating_expenses: 6527917
+    non_operating_expenses: 8031990
+    income_tax: 0.2932536306411895
+    total_assets: 40347240
+    total_liabilities: 28697635
+    total_equity: 11649605
+    cash: 2438897
+    accounts_receivable: 3357614
+    inventories: 2278563
+    short_term_investments: 5341021
+    current_liabilities: 11152911
+    capex: 4528695
+    dividends_paid: 436453
+    shares_outstanding: 1278237
+    stock_price: 23877.45
+    employees: 38274283
+  Year 2021:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 51468428
+    cost_of_goods_sold: 36408138
+    operating_expenses: 4090182
+    non_operating_expenses: 7076626
+    income_tax: 0.2892826526023521
+    total_assets: 90862083
+    total_liabilities: 54777715
+    total_equity: 36084368
+    cash: 9713949
+    accounts_receivable: 2196004
+    inventories: 980231
+    short_term_investments: 7294499
+    current_liabilities: 16923275
+    capex: 2573062
+    dividends_paid: 1100806
+    shares_outstanding: 51999
+    stock_price: 74569.83
+    employees: 42039226
+  Year 2022:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 56717641
+    cost_of_goods_sold: 37213652
+    operating_expenses: 4396747
+    non_operating_expenses: 6090107
+    income_tax: 0.2659523166305645
+    total_assets: 49958884
+    total_liabilities: 20128059
+    total_equity: 29830825
+    cash: 9253283
+    accounts_receivable: 4813067
+    inventories: 769677
+    short_term_investments: 1053713
+    current_liabilities: 6319828
+    capex: 3624503
+    dividends_paid: 2210651
+    shares_outstanding: 1093580
+    stock_price: 42930.06
+    employees: 6003750
+  Year 2023:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 56755554
+    cost_of_goods_sold: 24718067
+    operating_expenses: 3379787
+    non_operating_expenses: 7603264
+    income_tax: 0.2587798217278876
+    total_assets: 66886415
+    total_liabilities: 25064535
+    total_equity: 41821880
+    cash: 15325839
+    accounts_receivable: 5657048
+    inventories: 547174
+    short_term_investments: 5494893
+    current_liabilities: 7782150
+    capex: 3084046
+    dividends_paid: 896263
+    shares_outstanding: 926066
+    stock_price: 20384.29
+    employees: 21120096
+  Year 2024:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 62773003
+    cost_of_goods_sold: 21250311
+    operating_expenses: 15375048
+    non_operating_expenses: 3988337
+    income_tax: 0.2052118890644341
+    total_assets: 69072921
+    total_liabilities: 51667602
+    total_equity: 17405319
+    cash: 10493104
+    accounts_receivable: 4961915
+    inventories: 1723773
+    short_term_investments: 6837799
+    current_liabilities: 25588889
+    capex: 1337026
+    dividends_paid: 1786911
+    shares_outstanding: 1184895
+    stock_price: 28567.0
+    employees: 36780581
+  Year 2025:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 68793684
+    cost_of_goods_sold: 44521595
+    operating_expenses: 13554928
+    non_operating_expenses: 8014720
+    income_tax: 0.10886713765904164
+    total_assets: 72018945
+    total_liabilities: 51421353
+    total_equity: 20597592
+    cash: 4934710
+    accounts_receivable: 8111756
+    inventories: 3579580
+    short_term_investments: 7731557
+    current_liabilities: 20976516
+    capex: 1723147
+    dividends_paid: 781711
+    shares_outstanding: 1166524
+    stock_price: 37427.85
+    employees: 15025407
+=== END ===
+
+QUESTION: What's the value of the gross profit for ClearPath Logistics in 2021? A later calculation may subtract 37% from the final result.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",15060290.0,15060290.0,"Gross profit = revenue - cost_of_goods_sold
+= 51468428 - 36408138
+= 15060290
+
+Answer: 15060290",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,12,SilverLine Retail Inc,1,Evaluate the longterm liabilities for SilverLine Retail Inc in 2022. A proposed discount factor may reduce the final number by 11%.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 55388486
+    cost_of_goods_sold: 23334059
+    operating_expenses: 3215099
+    non_operating_expenses: 11147141
+    income_tax: 0.1941001646503267
+    total_assets: 51199762
+    total_liabilities: 37631148
+    total_equity: 13568614
+    cash: 3580277
+    accounts_receivable: 5457592
+    inventories: 2392255
+    short_term_investments: 4036672
+    current_liabilities: 10266176
+    capex: 2584686
+    dividends_paid: 1984510
+    shares_outstanding: 1008499
+    stock_price: 68832.05
+    employees: 16825281
+  Year 2021:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 61715437
+    cost_of_goods_sold: 26519000
+    operating_expenses: 14752378
+    non_operating_expenses: 13127689
+    income_tax: 0.21001932179435656
+    total_assets: 72967708
+    total_liabilities: 39016548
+    total_equity: 33951160
+    cash: 7378512
+    accounts_receivable: 8456155
+    inventories: 1923761
+    short_term_investments: 5986524
+    current_liabilities: 19392387
+    capex: 3913221
+    dividends_paid: 1520456
+    shares_outstanding: 625739
+    stock_price: 16225.23
+    employees: 18408078
+  Year 2022:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 69849783
+    cost_of_goods_sold: 40613034
+    operating_expenses: 14109524
+    non_operating_expenses: 6336189
+    income_tax: 0.20984392781706634
+    total_assets: 49426423
+    total_liabilities: 29519800
+    total_equity: 19906623
+    cash: 9075433
+    accounts_receivable: 3642150
+    inventories: 5950178
+    short_term_investments: 4707473
+    current_liabilities: 9145953
+    capex: 4475074
+    dividends_paid: 440056
+    shares_outstanding: 832855
+    stock_price: 8816.92
+    employees: 49616728
+  Year 2023:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 82116828
+    cost_of_goods_sold: 41686735
+    operating_expenses: 6035031
+    non_operating_expenses: 17772433
+    income_tax: 0.19967510094143903
+    total_assets: 70795008
+    total_liabilities: 44319236
+    total_equity: 26475772
+    cash: 6382416
+    accounts_receivable: 10139161
+    inventories: 6145950
+    short_term_investments: 3123640
+    current_liabilities: 17187721
+    capex: 7698408
+    dividends_paid: 2041215
+    shares_outstanding: 767279
+    stock_price: 70527.11
+    employees: 43269333
+  Year 2024:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 81899158
+    cost_of_goods_sold: 53685126
+    operating_expenses: 10891645
+    non_operating_expenses: 19397789
+    income_tax: 0.2015475351619313
+    total_assets: 63751653
+    total_liabilities: 32859214
+    total_equity: 30892439
+    cash: 6099904
+    accounts_receivable: 8082937
+    inventories: 8045108
+    short_term_investments: 5007670
+    current_liabilities: 9435486
+    capex: 3899212
+    dividends_paid: 0
+    shares_outstanding: 832357
+    stock_price: 44159.26
+    employees: 23039559
+  Year 2025:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 82726148
+    cost_of_goods_sold: 31840762
+    operating_expenses: 15676579
+    non_operating_expenses: 13596831
+    income_tax: 0.14671248921157862
+    total_assets: 67221323
+    total_liabilities: 19810503
+    total_equity: 47410820
+    cash: 13029854
+    accounts_receivable: 9143125
+    inventories: 3995479
+    short_term_investments: 4305595
+    current_liabilities: 8239628
+    capex: 8145667
+    dividends_paid: 6054237
+    shares_outstanding: 748040
+    stock_price: 4406.04
+    employees: 25363412
+=== END ===
+
+QUESTION: Evaluate the longterm liabilities for SilverLine Retail Inc in 2022. A proposed discount factor may reduce the final number by 11%.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",20373847.0,18123290.63,"Longterm liabilities = total_liabilities - current_liabilities
+= 29,519,800 - 9,145,953
+= 20,373,847
+Apply 11% reduction
+= 20,373,847 * (1 - 0.11)
+= 20,373,847 * 0.89
+= 18,123,290.63
+
+Answer: 18123290.63",False,0.110463,False,False

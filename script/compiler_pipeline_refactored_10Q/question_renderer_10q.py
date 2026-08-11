@@ -3,8 +3,6 @@ from __future__ import annotations
 import sys
 import os
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "compiler_pipeline_refactored"))
-
 from random import random
 
 from semantic_analyzer_10q import (
@@ -17,7 +15,7 @@ from semantic_analyzer_10q import (
     shared_entity_period_context,
     strip_entity_period_suffix,
 )
-from tree import DerivedExpr, Leaf, Literal, Operation
+from script.compiler_pipeline_adversarial.tree import DerivedExpr, Leaf, Literal, Operation
 
 QUESTION_TEMPLATES = {
     "question": [

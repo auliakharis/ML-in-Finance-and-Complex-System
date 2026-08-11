@@ -1,0 +1,79 @@
+<===== new run accounts/fireworks/models/minimax-m3 =======>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 250 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/minimax-m3
+============================================================
+
+-- 90-Q evaluation (10 questions) --
+Traceback (most recent call last):
+  File "", line 846, in <module>
+    main()
+    ~~~~^^
+  File "", line 784, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 412, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 265, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+    ...<5 lines>...
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+    )
+  File ".venv/lib/python3.14/site-packages/together/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File ".venv/lib/python3.14/site-packages/together/resources/chat/completions.py", line 523, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<39 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1292, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1079, in request
+    raise self._make_status_error_from_response(err.response) from None
+together.NotFoundError: Error code: 404 - {'id': 'ouuE3EX-2kFHot-a260e3fec9269cec', 'error': {'message': 'Unable to access model accounts/fireworks/models/minimax-m3. Please visit https://api.together.ai/models to view the list of supported models.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_available'}}
+<===== new run accounts/fireworks/models/minimax-m3 =======>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 250 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/minimax-m3
+============================================================
+
+-- 90-Q evaluation (10 questions) --
+  [1/10] CORRECT | truth=4121.0000 pred=4121.0 | state the longterm liabilities for Pinnacle Health Group in ...
+  [2/10] CORRECT | truth=397455.0000 pred=397455.0 | which result follows from the the maximum of revenue for Iro...
+  [3/10] CORRECT | truth=97934.0000 pred=97934.0 | Could you give the gross profit for Meridian Systems Inc in ...
+  [4/10] WRONG  | truth=3457059.1800 pred=183187.0 | Could you give the result of sum of the maximum of cost of g...
+  [5/10] CORRECT | truth=56416.0000 pred=56416.0 | What's the value of the gross profit for Atlas Global Indust...
+  [6/10] CORRECT | truth=408.0000 pred=408.0 | what do we obtain as the the minimum of dividends paid for C...
+  [7/10] CORRECT | truth=30746.0000 pred=30746.0 | what would be the average cost of goods sold for Cobalt Semi...
+  [8/10] CORRECT | truth=7573.0000 pred=7573.0 | What is the value of the the maximum of capex for Apex Dynam...
+  [9/10] CORRECT | truth=107172.0000 pred=107172.0 | Whats the value of the operating income for ClearPath Logist...
+  [10/10] CORRECT | truth=42626.0000 pred=42626.0 | you should calculate the the maximum of operating expenses f...
+
+============================================================
+  Model: accounts/fireworks/models/minimax-m3
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 9/10  accuracy = 90.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 9/10  accuracy = 90.0%
+============================================================
+
+Results saved to output_llm/minimax-m3-test_20260805_001049.json
+CSV saved to output_llm/eval_results_20260805_001049.csv

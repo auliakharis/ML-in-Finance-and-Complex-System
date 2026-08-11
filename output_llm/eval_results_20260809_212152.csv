@@ -1,0 +1,1010 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+accounts/fireworks/models/qwen3p7-plus,mt,2,Pinnacle Health Group,1,Determine the longterm liabilities for Pinnacle Health Group in 2023 .,,5171.0,5171.0,"Long-term Liabilities = Total Liabilities - Current Liabilities
+Long-term Liabilities = 9629 - 4458 = 5171
+Answer: 5171",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,3,Ironclad Manufacturing,5,which result follows from the average capex for Ironclad Manufacturing across years 2020 through 2024?,,23315.0,23315.0,"Sum of capex 2020-2024: 116575
+Number of years: 5
+Average: 116575 / 5 = 23315
+Answer: 23315",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,4,SilverLine Retail Inc,3,Calculate the result of longterm liabilities scaled by ratio of short term investments to sum of short term investments and inventories for SilverLine Retail Inc in 2024 .,,89864.90445728118,89864.85,"Long-term Liabilities (2024) = Total Liabilities - Current Liabilities = 328592 - 94355 = 234237
+Short-term Investments (2024) = 50077
+Inventories (2024) = 80451
+Ratio = Short-term Investments / (Short-term Investments + Inventories) = 50077 / (50077 + 80451) = 50077 / 130528 ≈ 0.383649
+Result = 234237 * 0.383649 ≈ 89864.85
+Answer: 89864.85",True,0.000001,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,5,NovaStar Technologies,2,May you calculate the the maximum of short term investments for NovaStar Technologies using values from 2020 through 2022,,22901.0,22901.0,"2020: 12753
+2021: 4908
+2022: 22901
+Max(12753, 4908, 22901) = 22901
+Answer: 22901",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,6,Meridian Systems Inc,4,which quantity is given by the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2024 ?,,26227.0,26227.0,"Operating expenses (2020-2024): 20641, 8595, 26227, 15975, 16701.
+Maximum value is 26227.
+Answer: 26227",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,7,Atlas Global Industries,5,What's the value of the sum of difference between operating expenses and gross profit and longterm assets for Atlas Global Industries in 2020,,25904.0,25904.0,"Gross Profit = 72714 - 54010 = 18704
+Difference = Operating Expenses - Gross Profit = 12525 - 18704 = -6179
+Long-term Assets = 53334 - (10029 + 5701 + 3886 + 1635) = 32083
+Sum = -6179 + 32083 = 25904
+Answer: 25904",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,8,Orion Financial Group,1,May you give the the minimum of accounts receivable for Orion Financial Group using values from 2024 through 2025,,5376.0,5376.0,"2024 accounts_receivable: 12144
+2025 accounts_receivable: 5376
+min(12144, 5376) = 5376
+Answer: 5376",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,9,Pinnacle Health Group,3,Determine the average capex for Pinnacle Health Group across years 2022 through 2024.,,522.6666666666666,522.67,"Sum of capex (2022-2024): 489 + 517 + 562 = 1568
+Average: 1568 / 3 = 522.666...
+Answer: 522.67",True,0.000006,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,10,Titan Consumer Brands,1,evaluate the gross profit for Titan Consumer Brands in 2021,,323622.0,323622.0,"Revenue (2021): 471764
+Cost of Goods Sold (2021): 148142
+Gross Profit = 471764 - 148142 = 323622
+Answer: 323622",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,11,Quantum Bridge Holdings,2,Determine the the maximum of inventories for Quantum Bridge Holdings using values from 2021 through 2023.,,5002.0,5002.0,"Inventories 2021: 4340
+Inventories 2022: 5002
+Inventories 2023: 2530
+Max(4340, 5002, 2530) = 5002
+Answer: 5002",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,12,Quantum Bridge Holdings,3,Compute the the maximum of cost of goods sold for Quantum Bridge Holdings using values from 2022 through 2025 .,,46761.0,46761.0,"Cost of Goods Sold (2022-2025): 35311, 28498, 35929, 46761
+Max(35311, 28498, 35929, 46761) = 46761
+Answer: 46761",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,13,Pinnacle Health Group,4,state the longterm assets for Pinnacle Health Group in 2023,,9640.0,9640.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets = 2062 + 1605 + 1096 + 719 = 5482
+Long-term Assets = 15122 - 5482 = 9640
+
+Answer: 9640",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,14,Helix BioSciences,4,Which value corresponds to the the maximum of cost of goods sold for Helix BioSciences using values from 2020 through 2024 ?,,179616.0,179616.0,"2020: 144323
+2021: 69533
+2022: 135355
+2023: 179616
+2024: 152972
+Max(144323, 69533, 135355, 179616, 152972) = 179616
+Answer: 179616",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,15,Apex Dynamics Corp,2,what is the the minimum of dividends paid for Apex Dynamics Corp using values from 2020 through 2022,,164.0,164.0,"Dividends paid: 2020 (6442), 2021 (164), 2022 (836).
+Minimum is 164.
+Answer: 164",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,16,Apex Dynamics Corp,3,What is the result of current liabilities scaled by ratio of longterm liabilities to gross profit for Apex Dynamics Corp in 2020,,12860.09445431123,12806.57,"longterm_liabilities = 46480 - 18142 = 28338
+gross_profit = 67781 - 27804 = 39977
+result = 18142 * (28338 / 39977) = 12806.57
+Answer: 12806.57",True,0.004162,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,17,Quantum Bridge Holdings,4,Compute the the maximum of total liabilities for Quantum Bridge Holdings using values from 2020 through 2024.,,124280.0,124280.0,"Total Liabilities:
+2020: 48679
+2021: 20731
+2022: 124280
+2023: 47727
+2024: 62367
+
+Max(48679, 20731, 124280, 47727, 62367) = 124280
+
+Answer: 124280",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,18,Pinnacle Health Group,1,State the sum of total assets and non operating expenses for Pinnacle Health Group in 2025.,,46078.0,46078.0,"Total Assets (2025): 41213
+Non-operating Expenses (2025): 4865
+Sum: 41213 + 4865 = 46078
+Answer: 46078",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,19,ClearPath Logistics,1,whats the value of the gross profit for ClearPath Logistics in 2024 ?,,415227.0,415227.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 627730 - 212503 = 415227
+Answer: 415227",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,20,SilverLine Retail Inc,1,Evaluate the result of capex scaled by income tax for SilverLine Retail Inc in 2023,,15371.787970875743,15371.79,"capex (2023): 76984
+income_tax (2023): 0.19967510094143903
+Calculation: 76984 * 0.19967510094143903 = 15371.78797087574
+Answer: 15371.79",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,21,Pinnacle Health Group,1,State the the maximum of capex for Pinnacle Health Group using values from 2022 through 2023.,,517.0,517.0,"Capex 2022: 489
+Capex 2023: 517
+Max(489, 517) = 517
+Answer: 517",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,22,Crimson Pharmaceuticals,1,What does the following give: longterm liabilities for Crimson Pharmaceuticals in 2024?,,112378.0,112378.0,"Long-term liabilities = Total liabilities - Current liabilities
+Long-term liabilities = 194929 - 82551 = 112378
+Answer: 112378",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,23,SilverLine Retail Inc,1,Calculate the the maximum of operating expenses for SilverLine Retail Inc using values from 2022 through 2023,,141095.0,141095.0,"Operating expenses 2022: 141095
+Operating expenses 2023: 60350
+Max(141095, 60350) = 141095
+Answer: 141095",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,24,Orion Financial Group,3,Give the current assets for Orion Financial Group in 2023.,,68614.0,68614.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets (2023) = 13631 + 11364 + 5922 + 37697 = 68614
+Answer: 68614",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,25,ClearPath Logistics,3,you should give the current assets for ClearPath Logistics in 2025.,,243577.0,243577.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets (2025) = 49347 + 81118 + 35796 + 77316 = 243577
+Answer: 243577",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,26,Crimson Pharmaceuticals,1,What does the following give: the maximum of inventories for Crimson Pharmaceuticals using values from 2021 through 2022,,28424.0,28424.0,"Inventories 2021: 18920
+Inventories 2022: 28424
+Max(18920, 28424) = 28424
+Answer: 28424",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,27,Quantum Bridge Holdings,5,compute the average total liabilities for Quantum Bridge Holdings across years 2020 through 2024 .,,60756.8,60756.8,"(48679 + 20731 + 124280 + 47727 + 62367) / 5 = 303784 / 5 = 60756.8
+Answer: 60756.8",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,28,Cobalt Semiconductor,5,what do we obtain as the average total assets for Cobalt Semiconductor across years 2021 through 2025 ?,,60066.8,60066.8,"Sum of Total Assets (2021-2025): 52203 + 57651 + 65727 + 73095 + 51658 = 300334
+Average: 300334 / 5 = 60066.8
+Answer: 60066.8",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,29,Pacific Crest Energy,4,Provide the average revenue for Pacific Crest Energy across years 2021 through 2024 .,,185867.75,185867.75,"Sum of Revenue (2021-2024): 190597 + 176894 + 185506 + 190474 = 743471
+Average: 743471 / 4 = 185867.75
+Answer: 185867.75",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,30,Meridian Systems Inc,3,which quantity is given by the current assets for Meridian Systems Inc in 2020,,46382.0,46382.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 15632 + 8721 + 7318 + 14711 = 46382
+
+Answer: 46382",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,31,Pinnacle Health Group,1,determine the result of operating expenses scaled by income tax for Pinnacle Health Group in 2020 .,,480.71864021400773,480.7186402139077,"Operating Expenses (2020): 1876
+Income Tax Rate (2020): 0.25624660992217896
+
+Calculation: 1876 * 0.25624660992217896 = 480.7186402139077
+
+Answer: 480.7186402139077",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,32,Orion Financial Group,5,give the the minimum of revenue for Orion Financial Group using values from 2020 through 2025 .,,87989.0,87989.0,"Revenues: 2020 (87989), 2021 (98792), 2022 (115348), 2023 (127775), 2024 (142085), 2025 (133448).
+Minimum is 87989.
+Answer: 87989",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,33,Titan Consumer Brands,1,evaluate the longterm liabilities for Titan Consumer Brands in 2022.,,204920.0,204920.0,"Total Liabilities (2022): 316946
+Current Liabilities (2022): 112026
+Long-term Liabilities = Total Liabilities - Current Liabilities = 316946 - 112026 = 204920
+Answer: 204920",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,34,Pinnacle Health Group,2,state the the maximum of accounts receivable for Pinnacle Health Group using values from 2020 through 2022 .,,1324.0,1324.0,"2020: 937
+2021: 1076
+2022: 1324
+Max(937, 1076, 1324) = 1324
+Answer: 1324",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,35,Titan Consumer Brands,1,evaluate the difference between cost of goods sold and capex for Titan Consumer Brands in 2025,,302992.0,302992.0,"Cost of Goods Sold (2025): 320376
+Capex (2025): 17384
+Difference: 320376 - 17384 = 302992
+
+Answer: 302992",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,36,Ironclad Manufacturing,4,Which quantity is given by the sum of longterm liabilities and current assets for Ironclad Manufacturing in 2023,,190972.0,190972.0,"Long-term Liabilities = Total Liabilities - Current Liabilities = 190519 - 67087 = 123432
+Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments = 18106 + 25432 + 11929 + 12073 = 67540
+Sum = 123432 + 67540 = 190972
+
+Answer: 190972",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,37,Titan Consumer Brands,1,You should calculate the the maximum of cash for Titan Consumer Brands using values from 2024 through 2025,,73487.0,73487.0,"2024 Cash: 73487
+2025 Cash: 18448
+Max(73487, 18448) = 73487
+Answer: 73487",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,38,Atlas Global Industries,4,you should give the sum of inventories for Atlas Global Industries in 2021 and the maximum of total liabilities for Atlas Global Industries using values from 2022 through 2025,,92357.0,92357.0,"Inventories 2021: 4731
+Max Total Liabilities (2022-2025): Max(34053, 33171, 53407, 87626) = 87626
+Sum: 4731 + 87626 = 92357
+
+Answer: 92357",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,39,Crimson Pharmaceuticals,2,what does the following give: operating income for Crimson Pharmaceuticals in 2024 ?,,151488.0,151488.0,"Operating Income = Revenue - Cost of Goods Sold - Operating Expenses
+Operating Income = 712606 - 521794 - 39324 = 151488
+Answer: 151488",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,40,Apex Dynamics Corp,1,what is the the minimum of dividends paid for Apex Dynamics Corp using values from 2024 through 2025?,,0.0,0.0,"2024 dividends_paid: 0
+2025 dividends_paid: 833
+Minimum(0, 833) = 0
+Answer: 0",True,,False,False
+accounts/fireworks/models/qwen3p7-plus,mt,41,Helix BioSciences,1,which value corresponds to the gross profit for Helix BioSciences in 2022 ?,,93560.0,93560.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 228915 - 135355 = 93560
+Answer: 93560",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,42,Orion Financial Group,3,give the sum of result of short term investments scaled by ratio of total assets to dividends paid for Orion Financial Group in 2020 and ratio of sum of capex for Orion Financial Group in 2021 and capex for Orion Financial Group in 2022 to 2.0 .,,3202858.445454546,3202858.59,"part1 = short_term_investments_2020 * (total_assets_2020 / dividends_paid_2020)
+part1 = 7772 * (67863 / 165) = 7772 * 411.2909 = 3196553.09
+
+part2 = (capex_2021 + capex_2022) / 2.0
+part2 = (9407 + 3204) / 2.0 = 12611 / 2.0 = 6305.5
+
+sum = part1 + part2 = 3196553.09 + 6305.5 = 3202858.59
+Answer: 3202858.59",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,43,Helix BioSciences,2,What does the following give: operating income for Helix BioSciences in 2025 ?,,84674.0,84674.0,"Operating Income = Revenue - Cost of Goods Sold - Operating Expenses
+Operating Income = 334916 - 222408 - 27834 = 84674
+Answer: 84674",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,44,Orion Financial Group,2,give the operating income for Orion Financial Group in 2021,,1539.0,1539.0,"Operating Income = Revenue - Cost of Goods Sold - Operating Expenses
+Operating Income = 98792 - 73202 - 24051 = 1539
+Answer: 1539",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,45,Helix BioSciences,3,Which value corresponds to the pretax income for Helix BioSciences in 2024?,,90918.0,90918.0,"Pretax Income = Operating Income - Non-operating Expenses
+Pretax Income = (294845 - 152972 - 28101) - 22854 = 113772 - 22854 = 90918
+Answer: 90918",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,46,Crimson Pharmaceuticals,1,What does the following give: the minimum of total equity for Crimson Pharmaceuticals using values from 2022 through 2023,,149482.0,149482.0,"2022 total_equity: 149482
+2023 total_equity: 291813
+min(149482, 291813) = 149482
+Answer: 149482",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,47,Pacific Crest Energy,4,Give the average operating expenses for Pacific Crest Energy across years 2020 through 2023.,,27010.75,27010.75,"Sum of Operating Expenses (2020-2023): 11229 + 43358 + 10830 + 42626 = 108043
+Average: 108043 / 4 = 27010.75
+
+Answer: 27010.75",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,48,ClearPath Logistics,4,what would be the the maximum of capex for ClearPath Logistics using values from 2020 through 2024 ?,,45287.0,45287.0,"Capex values from 2020 to 2024: 45287, 25731, 36245, 30840, 13370.
+Maximum value is 45287.
+Answer: 45287",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,49,Pacific Crest Energy,3,State the current assets for Pacific Crest Energy in 2024 .,,60922.0,60922.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 4671 + 24096 + 10653 + 21502 = 60922
+
+Answer: 60922",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,50,Cobalt Semiconductor,2,What would be the average capex for Cobalt Semiconductor across years 2020 through 2021?,,3643.0,3643.0,"(2987 + 4299) / 2 = 3643
+Answer: 3643",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,51,SilverLine Retail Inc,4,Calculate the the minimum of non operating expenses for SilverLine Retail Inc using values from 2021 through 2025.,,63362.0,63362.0,"Non-operating expenses (2021-2025): 131277, 63362, 177724, 193978, 135968.
+Minimum value is 63362.
+Answer: 63362",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,52,Pacific Crest Energy,1,Provide the the minimum of operating expenses for Pacific Crest Energy using values from 2021 through 2022,,10830.0,10830.0,"2021 Operating Expenses: 43358
+2022 Operating Expenses: 10830
+Minimum(43358, 10830) = 10830
+
+Answer: 10830",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,53,Helix BioSciences,4,Which value corresponds to the the maximum of capex for Helix BioSciences using values from 2021 through 2025 ?,,28364.0,28364.0,"Capex values from 2021 to 2025: 8553, 10985, 12175, 8988, 28364.
+Maximum value is 28364.
+Answer: 28364",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,54,Titan Consumer Brands,4,you should calculate the the maximum of operating expenses for Titan Consumer Brands using values from 2021 through 2025.,,117808.0,117808.0,"Operating expenses from 2021 to 2025 are: 117808, 64344, 87854, 29355, and 102226.
+The maximum value among these is 117808.
+Answer: 117808",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,55,Ironclad Manufacturing,5,Which quantity is given by the the minimum of total liabilities for Ironclad Manufacturing using values from 2020 through 2025?,,103532.0,103532.0,"Total Liabilities by Year:
+2020: 157361
+2021: 103532
+2022: 450869
+2023: 190519
+2024: 325872
+2025: 552699
+
+Minimum = 103532
+
+Answer: 103532",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,56,SilverLine Retail Inc,4,Calculate the longterm assets for SilverLine Retail Inc in 2021.,,492228.0,492228.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets (2021) = 73785 + 84561 + 19238 + 59865 = 237449
+Long-term Assets (2021) = 729677 - 237449 = 492228
+
+Answer: 492228",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,57,Ironclad Manufacturing,3,Which result follows from the average inventories for Ironclad Manufacturing across years 2022 through 2024,,13777.333333333334,13777.33,"(21863 + 11929 + 7540) / 3 = 13777.33
+Answer: 13777.33",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,58,Meridian Systems Inc,2,Could you give the sum of accounts receivable and difference between current liabilities and operating expenses for Meridian Systems Inc in 2022?,,39455.0,39455.0,"Accounts Receivable (2022): 18526
+Current Liabilities (2022): 47156
+Operating Expenses (2022): 26227
+Difference (CL - OE): 47156 - 26227 = 20929
+Sum: 18526 + 20929 = 39455
+Answer: 39455",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,59,Meridian Systems Inc,1,Which quantity is given by the gross profit for Meridian Systems Inc in 2022 ?,,79704.0,79704.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 163959 - 84255 = 79704
+Answer: 79704",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,60,Pacific Crest Energy,2,Provide the result of total assets scaled by ratio of dividends paid to cost of goods sold for Pacific Crest Energy in 2025.,,1851.5577998756994,1846.68,"total_assets = 178551
+dividends_paid = 901
+cost_of_goods_sold = 86886
+result = 178551 * (901 / 86886) = 1846.68
+Answer: 1846.68",True,0.002634,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,61,Cobalt Semiconductor,4,You should give the the maximum of cost of goods sold for Cobalt Semiconductor using values from 2020 through 2024,,30842.0,30842.0,"Cost of Goods Sold values: 2020 (25283), 2021 (28022), 2022 (27627), 2023 (27010), 2024 (30842).
+Max(25283, 28022, 27627, 27010, 30842) = 30842
+Answer: 30842",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,62,SilverLine Retail Inc,3,calculate the current assets for SilverLine Retail Inc in 2025.,,304740.0,304740.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 130298 + 91431 + 39955 + 43056 = 304740
+Answer: 304740",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,63,Ironclad Manufacturing,5,which result follows from the the minimum of inventories for Ironclad Manufacturing using values from 2020 through 2025 ?,,7540.0,7540.0,"Inventories: 2020 (22596), 2021 (9087), 2022 (21863), 2023 (11929), 2024 (7540), 2025 (36674).
+Minimum value is 7540.
+Answer: 7540",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,64,Meridian Systems Inc,4,could you give the longterm assets for Meridian Systems Inc in 2021,,64613.0,64613.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets (2021) = 25815 + 12135 + 2543 + 16112 = 56605
+Long-term Assets (2021) = 121218 - 56605 = 64613
+Answer: 64613",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,65,Cobalt Semiconductor,4,what would be the average total assets for Cobalt Semiconductor across years 2021 through 2024,,62169.0,62169.0,"(52203 + 57651 + 65727 + 73095) / 4 = 62169
+Answer: 62169",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,66,Quantum Bridge Holdings,1,compute the result of non operating expenses scaled by income tax for Quantum Bridge Holdings in 2024 .,,1508.249986977257,1508.249986977257,"non_operating_expenses_2024 = 8947
+income_tax_2024 = 0.16857605755865174
+result = 8947 * 0.16857605755865174 = 1508.249986977257
+
+Answer: 1508.249986977257",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,67,Cobalt Semiconductor,1,What do we obtain as the longterm liabilities for Cobalt Semiconductor in 2024 ?,,38363.0,38363.0,"Long-term liabilities = Total liabilities - Current liabilities
+Long-term liabilities = 54291 - 15928 = 38363
+Answer: 38363",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,68,Apex Dynamics Corp,1,what is the result of non operating expenses scaled by income tax for Apex Dynamics Corp in 2023 ?,,3229.8256639391843,3229.825663939184,"non_operating_expenses (2023): 15616
+income_tax (2023): 0.2068279754059416
+Calculation: 15616 * 0.2068279754059416 = 3229.825663939184
+Answer: 3229.825663939184",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,69,Quantum Bridge Holdings,3,Compute the pretax income for Quantum Bridge Holdings in 2021,,5761.0,5761.0,"Pretax Income = Revenue - Cost of Goods Sold - Operating Expenses - Non-operating Expenses
+Pretax Income = 83888 - 59873 - 13105 - 5149 = 5761
+Answer: 5761",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,70,Ironclad Manufacturing,4,which result follows from the the minimum of dividends paid for Ironclad Manufacturing using values from 2021 through 2025 ?,,1142.0,1142.0,"Dividends paid (2021-2025): 8718, 3921, 29575, 9119, 1142
+Minimum: 1142
+Answer: 1142",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,71,ClearPath Logistics,3,whats the value of the pretax income for ClearPath Logistics in 2023 ?,,210544.0,210544.0,"Operating Income (2023): 286577
+Non-operating Expenses (2023): 76033
+Pretax Income = 286577 - 76033 = 210544
+Answer: 210544",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,72,Helix BioSciences,5,which value corresponds to the average non operating expenses for Helix BioSciences across years 2020 through 2024 ?,,28263.0,28263.0,"Sum 2020-2024: 141315
+Count: 5
+Average: 141315 / 5 = 28263
+Answer: 28263",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,73,Ironclad Manufacturing,1,which result follows from the sum of accounts receivable and total equity for Ironclad Manufacturing in 2021,,202737.0,202737.0,"23302 + 179435 = 202737
+Answer: 202737",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,74,Crimson Pharmaceuticals,5,what do we obtain as the the maximum of dividends paid for Crimson Pharmaceuticals using values from 2020 through 2025 ?,,28424.0,28424.0,"Dividends paid: 2020 (11801), 2021 (14517), 2022 (26228), 2023 (19677), 2024 (28424), 2025 (0).
+Maximum value is 28424.
+Answer: 28424",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,75,SilverLine Retail Inc,1,evaluate the the minimum of total equity for SilverLine Retail Inc using values from 2024 through 2025.,,308925.0,308925.0,"2024 Total Equity: 308925
+2025 Total Equity: 474108
+Minimum(308925, 474108) = 308925
+Answer: 308925",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,76,NovaStar Technologies,1,may you give the gross profit for NovaStar Technologies in 2021?,,42014.0,42014.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 125354 - 83340 = 42014
+Answer: 42014",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,77,NovaStar Technologies,5,May you give the the minimum of inventories for NovaStar Technologies using values from 2020 through 2025 ?,,2745.0,2745.0,"Inventories values: 5488 (2020), 6654 (2021), 2745 (2022), 8748 (2023), 8368 (2024), 3554 (2025).
+Minimum value is 2745.
+Answer: 2745",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,78,Titan Consumer Brands,1,evaluate the sum of revenue and short term investments for Titan Consumer Brands in 2024.,,554632.0,554632.0,"Revenue (2024): 486911
+Short-term investments (2024): 67721
+Sum: 486911 + 67721 = 554632
+
+Answer: 554632",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,79,Quantum Bridge Holdings,3,Compute the current assets for Quantum Bridge Holdings in 2025.,,17082.0,17082.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 4105 + 4087 + 3180 + 5710 = 17082
+Answer: 17082",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,80,ClearPath Logistics,1,whats the value of the the maximum of cost of goods sold for ClearPath Logistics using values from 2022 through 2023?,,372136.0,372136.0,"2022 COGS: 372136
+2023 COGS: 247181
+Max(372136, 247181) = 372136
+Answer: 372136",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,81,SilverLine Retail Inc,2,Calculate the the minimum of non operating expenses for SilverLine Retail Inc using values from 2023 through 2025,,135968.0,135968.0,"2023: 177724
+2024: 193978
+2025: 135968
+Minimum(177724, 193978, 135968) = 135968
+
+Answer: 135968",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,82,Titan Consumer Brands,3,You should calculate the current assets for Titan Consumer Brands in 2020.,,243881.0,243881.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 126394 + 32678 + 12797 + 72012 = 243881
+Answer: 243881",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,83,Pinnacle Health Group,3,determine the the minimum of cash for Pinnacle Health Group using values from 2022 through 2025.,,1722.0,1722.0,"Cash values from 2022 to 2025: 1722, 2062, 3962, 4013.
+Minimum is 1722.
+Answer: 1722",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,84,NovaStar Technologies,1,may you calculate the gross profit for NovaStar Technologies in 2023 ?,,83579.0,83579.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 158696 - 75117 = 83579
+Answer: 83579",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,85,Pinnacle Health Group,3,state the average accounts receivable for Pinnacle Health Group across years 2021 through 2023,,1335.0,1335.0,"(1076 + 1324 + 1605) / 3 = 1335
+Answer: 1335",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,86,Helix BioSciences,3,which value corresponds to the the minimum of inventories for Helix BioSciences using values from 2022 through 2025?,,18073.0,18073.0,"Inventories 2022: 18073
+Inventories 2023: 19597
+Inventories 2024: 20633
+Inventories 2025: 26091
+Minimum(18073, 19597, 20633, 26091) = 18073
+Answer: 18073",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,87,Orion Financial Group,1,Give the longterm liabilities for Orion Financial Group in 2024,,62496.0,62496.0,"Total Liabilities (2024): 104036
+Current Liabilities (2024): 41540
+Long-term Liabilities = Total Liabilities - Current Liabilities = 104036 - 41540 = 62496
+Answer: 62496",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,88,NovaStar Technologies,5,you should give the average cash for NovaStar Technologies across years 2020 through 2024,,30326.6,30326.6,"(24222 + 7348 + 8761 + 78005 + 33297) / 5 = 30326.6
+Answer: 30326.6",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,89,Meridian Systems Inc,2,Could you give the operating income for Meridian Systems Inc in 2022 ?,,53477.0,53477.0,"Operating Income = Revenue - Cost of Goods Sold - Operating Expenses
+Operating Income = 163959 - 84255 - 26227 = 53477
+Answer: 53477",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,90,Orion Financial Group,3,may you give the current assets for Orion Financial Group in 2022,,33146.0,33146.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets (2022) = 8636 + 9324 + 2433 + 12753 = 33146
+
+Answer: 33146",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,91,Atlas Global Industries,1,What's the value of the longterm liabilities for Atlas Global Industries in 2021?,,41692.0,41692.0,"Total Liabilities (2021): 74292
+Current Liabilities (2021): 32600
+Long-term Liabilities = Total Liabilities - Current Liabilities = 74292 - 32600 = 41692
+Answer: 41692",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,92,Apex Dynamics Corp,3,what is the average non operating expenses for Apex Dynamics Corp across years 2020 through 2022?,,8350.666666666666,8350.67,"(4778 + 10608 + 9666) / 3 = 8350.67
+Answer: 8350.67",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,93,Atlas Global Industries,3,you should give the the maximum of operating expenses for Atlas Global Industries using values from 2022 through 2025 .,,19974.0,19974.0,"Operating expenses 2022-2025: 19341, 8293, 19974, 16565.
+Max(19341, 8293, 19974, 16565) = 19974
+Answer: 19974",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,94,Crimson Pharmaceuticals,4,What does the following give: average accounts receivable for Crimson Pharmaceuticals across years 2022 through 2025,,57186.5,57186.5,"(64113 + 30873 + 78674 + 55086) / 4 = 57186.5
+Answer: 57186.5",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,95,Pacific Crest Energy,2,Give the the minimum of revenue for Pacific Crest Energy using values from 2023 through 2025,,185506.0,185506.0,"Revenue 2023: 185506
+Revenue 2024: 190474
+Revenue 2025: 218005
+Minimum(185506, 190474, 218005) = 185506
+Answer: 185506",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,96,Apex Dynamics Corp,4,what is the value of the the minimum of total liabilities for Apex Dynamics Corp using values from 2021 through 2025?,,67131.0,67131.0,"Total liabilities from 2021 to 2025 are: 99211, 139281, 90275, 67131, 109931.
+Minimum value is 67131.
+Answer: 67131",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,97,NovaStar Technologies,2,May you calculate the difference between sum of total equity and capex and result of short term investments scaled by income tax for NovaStar Technologies in 2025?,,73326.56002947196,73326.56,"total_equity (2025): 59464, capex (2025): 16466, short_term_investments (2025): 18239, income_tax (2025): 0.14274028019782006
+Sum of total equity and capex: 59464 + 16466 = 75930
+Short term investments scaled by income tax: 18239 * 0.14274028019782006 ≈ 2603.44
+Difference: 75930 - 2603.44 = 73326.56
+Answer: 73326.56",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,98,Orion Financial Group,2,may you give the average capex for Orion Financial Group across years 2022 through 2023,,5146.0,5146.0,"2022 Capex: 3204
+2023 Capex: 7088
+Average: (3204 + 7088) / 2 = 5146
+Answer: 5146",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,99,Atlas Global Industries,1,what's the value of the longterm liabilities for Atlas Global Industries in 2024 ?,,31125.0,31125.0,"Total Liabilities (2024): 53407
+Current Liabilities (2024): 22282
+Long-term Liabilities = Total Liabilities - Current Liabilities = 53407 - 22282 = 31125
+Answer: 31125",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,100,Ironclad Manufacturing,3,which result follows from the current assets for Ironclad Manufacturing in 2022?,,280237.0,280237.0,Answer: 280237,True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,101,Helix BioSciences,3,Which result follows from the pretax income for Helix BioSciences in 2021,,61174.0,61174.0,"Pretax Income = Operating Income - Non-operating Expenses
+Pretax Income = 84986 - 23812 = 61174
+Answer: 61174",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,102,Quantum Bridge Holdings,2,Compute the sum of sum of cash and short term investments and operating expenses for Quantum Bridge Holdings in 2022 .,,41830.0,41830.0,"Cash (2022): 24174
+Short-term investments (2022): 2093
+Operating expenses (2022): 15563
+Sum: 24174 + 2093 + 15563 = 41830
+
+Answer: 41830",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,103,Quantum Bridge Holdings,1,compute the the maximum of cost of goods sold for Quantum Bridge Holdings using values from 2022 through 2023,,35311.0,35311.0,"2022 COGS: 35311
+2023 COGS: 28498
+Max(35311, 28498) = 35311
+Answer: 35311",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,104,Quantum Bridge Holdings,4,Compute the sum of ratio of sum of sum of accounts receivable for Quantum Bridge Holdings in 2023 and accounts receivable for Quantum Bridge Holdings in 2024 and accounts receivable for Quantum Bridge Holdings in 2025 to 3.0 and the minimum of operating expenses for Quantum Bridge Holdings using values from 2022 through 2023,,15447.0,15447.0,"(10394 + 6324 + 4087) / 3.0 + min(15563, 8512) = 6935 + 8512 = 15447
+Answer: 15447",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,105,Pinnacle Health Group,1,Determine the sum of capex and total liabilities for Pinnacle Health Group in 2025.,,29287.0,29287.0,"capex (2025) = 1084
+total_liabilities (2025) = 28203
+Sum = 1084 + 28203 = 29287
+Answer: 29287",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,106,Ironclad Manufacturing,5,Which result follows from the average non operating expenses for Ironclad Manufacturing across years 2021 through 2025?,,58986.8,58986.8,"(81319 + 78160 + 27761 + 47475 + 60219) / 5 = 58986.8
+Answer: 58986.8",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,107,Helix BioSciences,2,which value corresponds to the sum of gross profit and cost of goods sold for Helix BioSciences in 2023?,,248741.0,248741.0,"Gross Profit = Revenue - Cost of Goods Sold
+Sum = (Revenue - Cost of Goods Sold) + Cost of Goods Sold = Revenue
+Revenue in 2023 = 248741
+Answer: 248741",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,108,Quantum Bridge Holdings,1,compute the result of cost of goods sold scaled by income tax for Quantum Bridge Holdings in 2022,,5406.922810398926,5406.922810398926,"35311 * 0.15312290250627075 = 5406.922810398926
+Answer: 5406.922810398926",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,109,Quantum Bridge Holdings,4,compute the the maximum of accounts receivable for Quantum Bridge Holdings using values from 2021 through 2025 .,,11245.0,11245.0,"2021: 10585
+2022: 11245
+2023: 10394
+2024: 6324
+2025: 4087
+Max(10585, 11245, 10394, 6324, 4087) = 11245
+Answer: 11245",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,110,Pinnacle Health Group,4,state the longterm assets for Pinnacle Health Group in 2024 .,,28196.0,28196.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets (2024) = 3962 + 2682 + 1096 + 1839 = 9579
+Long-term Assets (2024) = 37775 - 9579 = 28196
+
+Answer: 28196",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,111,Apex Dynamics Corp,2,What is the value of the result of result of revenue scaled by income tax scaled by ratio of short term investments to total equity for Apex Dynamics Corp in 2025 ?,,2456.06016366814,2456.065368888889,"Revenue 2025: 79388
+Income Tax Rate 2025: 0.1305682638696522
+Short Term Investments 2025: 12187
+Total Equity 2025: 51434
+
+Step 1: Revenue * Income Tax Rate = 79388 * 0.1305682638696522 = 10365.55333208395
+Step 2: Ratio of Short Term Investments to Total Equity = 12187 / 51434 = 0.23694443364311545
+Step 3: Result of Step 1 * Result of Step 2 = 10365.55333208395 * 0.23694443364311545 = 2456.065368888889
+
+Answer: 2456.065368888889",True,0.000002,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,112,Cobalt Semiconductor,1,what do we obtain as the longterm liabilities for Cobalt Semiconductor in 2020,,42645.0,42645.0,"Long-term liabilities = Total liabilities - Current liabilities
+Long-term liabilities = 57819 - 15174 = 42645
+Answer: 42645",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,113,NovaStar Technologies,1,May you calculate the difference between total assets and current liabilities for NovaStar Technologies in 2022?,,121204.0,121204.0,"Total Assets (2022): 158208
+Current Liabilities (2022): 37004
+Difference: 158208 - 37004 = 121204
+
+Answer: 121204",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,114,Ironclad Manufacturing,3,Which result follows from the sum of cost of goods sold for Ironclad Manufacturing in 2021 and the minimum of current liabilities for Ironclad Manufacturing using values from 2021 through 2023,,161380.0,161380.0,"Cost of Goods Sold (2021): 110507
+Minimum Current Liabilities (2021-2023): 50873
+
+Sum: 110507 + 50873 = 161380
+
+Answer: 161380",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,115,NovaStar Technologies,4,may you calculate the the maximum of current liabilities for NovaStar Technologies using values from 2020 through 2024 ?,,132031.0,132031.0,"Current liabilities (2020-2024): 20286, 30234, 37004, 132031, 42991
+Max(20286, 30234, 37004, 132031, 42991) = 132031
+Answer: 132031",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,116,ClearPath Logistics,5,whats the value of the sum of cost of goods sold and longterm assets for ClearPath Logistics in 2021,,1070855.0,1070855.0,"Cost of Goods Sold (2021): 364081
+Long-term Assets (2021): 706774
+Sum: 364081 + 706774 = 1070855
+Answer: 1070855",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,117,Pacific Crest Energy,2,provide the the minimum of operating expenses for Pacific Crest Energy using values from 2023 through 2025,,19190.0,19190.0,"2023: 42626
+2024: 20795
+2025: 19190
+Minimum(42626, 20795, 19190) = 19190
+Answer: 19190",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,118,Meridian Systems Inc,5,could you give the the minimum of cost of goods sold for Meridian Systems Inc using values from 2020 through 2025?,,52780.0,52780.0,"Cost of Goods Sold values: 52780 (2020), 92388 (2021), 84255 (2022), 93952 (2023), 125778 (2024), 83722 (2025).
+Minimum value is 52780.
+Answer: 52780",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,119,ClearPath Logistics,1,whats the value of the longterm liabilities for ClearPath Logistics in 2022?,,138082.0,138082.0,"Long-term Liabilities = Total Liabilities - Current Liabilities
+Long-term Liabilities = 201280 - 63198 = 138082
+Answer: 138082",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,120,Ironclad Manufacturing,5,Which quantity is given by the the maximum of total liabilities for Ironclad Manufacturing using values from 2020 through 2025 ?,,552699.0,552699.0,"Max(157361, 103532, 450869, 190519, 325872, 552699) = 552699
+Answer: 552699",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,121,Orion Financial Group,1,give the result of non operating expenses scaled by income tax for Orion Financial Group in 2020 .,,3884.5449032705997,3884.5449032705997,"13741 * 0.2826973948963394 = 3884.5449032705997
+Answer: 3884.5449032705997",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,122,SilverLine Retail Inc,1,Calculate the gross profit for SilverLine Retail Inc in 2025,,508854.0,508854.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 827261 - 318407 = 508854
+Answer: 508854",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,123,Ironclad Manufacturing,1,Which result follows from the sum of total liabilities and capex for Ironclad Manufacturing in 2021,,133816.0,133816.0,"103532 + 30284 = 133816
+Answer: 133816",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,124,Pinnacle Health Group,1,state the gross profit for Pinnacle Health Group in 2024 .,,11091.0,11091.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 20948 - 9857 = 11091
+Answer: 11091",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,125,Ironclad Manufacturing,2,which result follows from the the maximum of total equity for Ironclad Manufacturing using values from 2021 through 2023,,464758.0,464758.0,"Year 2021 total_equity: 179435
+Year 2022 total_equity: 464758
+Year 2023 total_equity: 187787
+Max(179435, 464758, 187787) = 464758
+
+Answer: 464758",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,126,Pinnacle Health Group,2,determine the difference between result of cash scaled by income tax and result of inventories scaled by income tax for Pinnacle Health Group in 2021.,,-149.34489293201483,-149.3448929320148,"Cash (2021): 370
+Inventories (2021): 936
+Income Tax (2021): 0.263860234862217
+
+Result = (370 * 0.263860234862217) - (936 * 0.263860234862217)
+Result = 97.62828689902029 - 246.9731798310351
+Result = -149.3448929320148
+
+Answer: -149.3448929320148",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,127,Pinnacle Health Group,3,State the sum of ratio of sum of total liabilities for Pinnacle Health Group in 2021 and total liabilities for Pinnacle Health Group in 2022 to 2.0 and longterm liabilities for Pinnacle Health Group in 2023.,,10931.5,10931.5,"Sum of Total Liabilities (2021 + 2022): 3855 + 7666 = 11521
+Ratio to 2.0: 11521 / 2.0 = 5760.5
+Long-term Liabilities 2023: 9629 - 4458 = 5171
+Sum: 5760.5 + 5171 = 10931.5
+
+Answer: 10931.5",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,128,Cobalt Semiconductor,2,What would be the result of total assets scaled by ratio of dividends paid to short term investments for Cobalt Semiconductor in 2025?,,13316.222342439814,13358.63,"Total Assets (2025): 51658
+Dividends Paid (2025): 953
+Short Term Investments (2025): 3697
+Ratio: 953 / 3697
+Result: 51658 * (953 / 3697) ≈ 13358.63
+
+Answer: 13358.63",True,0.003185,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,129,NovaStar Technologies,5,may you calculate the average cost of goods sold for NovaStar Technologies across years 2021 through 2025 ?,,82796.6,82796.6,"(83340 + 63527 + 75117 + 77448 + 114551) / 5 = 82796.6
+Answer: 82796.6",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,130,Meridian Systems Inc,4,could you give the sum of difference between result of the minimum of revenue for Meridian Systems Inc using values from 2023 through 2024 scaled by ratio of cost of goods sold to cash and gross profit and operating expenses for Meridian Systems Inc in 2024 ?,,421390.74215216516,1104287.35,"Min Revenue (2023-2024): 166363
+COGS 2024: 125778
+Cash 2024: 44662
+Gross Profit 2024: 63825
+Operating Expenses 2024: 16701
+
+Ratio 1 (COGS/Cash): 125778 / 44662 ≈ 2.8162196
+Ratio 2 (Gross Profit/OpEx): 63825 / 16701 ≈ 3.8216274
+
+Sum of Ratios: 2.8162196 + 3.8216274 = 6.637847
+
+Scaled Value: 166363 * 6.637847 ≈ 1104287.35
+
+Answer: 1104287.35",False,1.620578,False,False
+accounts/fireworks/models/qwen3p7-plus,mt,131,SilverLine Retail Inc,4,Calculate the the maximum of accounts receivable for SilverLine Retail Inc using values from 2020 through 2024 .,,101392.0,101392.0,"2020: 54576
+2021: 84561
+2022: 36422
+2023: 101392
+2024: 80829
+Max(54576, 84561, 36422, 101392, 80829) = 101392
+Answer: 101392",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,132,NovaStar Technologies,3,may you calculate the the maximum of total equity for NovaStar Technologies using values from 2021 through 2024?,,165371.0,165371.0,"Total Equity values:
+2021: 25728
+2022: 41244
+2023: 138306
+2024: 165371
+
+Max(25728, 41244, 138306, 165371) = 165371
+
+Answer: 165371",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,133,Meridian Systems Inc,3,could you give the pretax income for Meridian Systems Inc in 2024 ?,,33968.0,33968.0,"Pretax Income = Operating Income - Non-operating Expenses
+Pretax Income = (189603 - 125778 - 16701) - 13156 = 33968
+Answer: 33968",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,134,Quantum Bridge Holdings,4,determine the longterm assets for Quantum Bridge Holdings in 2020,,41743.0,41743.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets = 14184 + 8455 + 3154 + 2565 = 28358
+Long-term Assets = 70101 - 28358 = 41743
+Answer: 41743",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,135,Crimson Pharmaceuticals,1,What do we obtain as the the minimum of total assets for Crimson Pharmaceuticals using values from 2023 through 2024,,510371.0,510371.0,"Total Assets 2023: 664693
+Total Assets 2024: 510371
+Minimum(664693, 510371) = 510371
+
+Answer: 510371",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,136,Pinnacle Health Group,3,state the current assets for Pinnacle Health Group in 2025 .,,10900.0,10900.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 4013 + 2289 + 1123 + 3475 = 10900
+
+Answer: 10900",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,137,ClearPath Logistics,1,what's the value of the the maximum of current liabilities for ClearPath Logistics using values from 2020 through 2021,,169233.0,169233.0,"2020 Current Liabilities: 111529
+2021 Current Liabilities: 169233
+Max(111529, 169233) = 169233
+Answer: 169233",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,138,Apex Dynamics Corp,4,What is the difference between sum of result of non operating expenses scaled by ratio of inventories to revenue for Apex Dynamics Corp in 2021 and the minimum of total assets for Apex Dynamics Corp using values from 2020 through 2021 and inventories for Apex Dynamics Corp in 2021 ?,,68098.61387846201,-2918.39,"Step 1: Calculate non_operating_expenses * (inventories / revenue) for 2021.
+10608 * (3372 / 78856) = 10608 * 0.0427615 = 453.614
+
+Step 2: Determine the minimum of total assets from 2020 to 2021.
+min(71017, 141224) = 71017
+
+Step 3: Calculate the difference between the result from Step 1 and the result from Step 2, then subtract inventories for 2021? No, the prompt says ""difference between [Step 1 result] and [minimum of total assets ... and inventories]"". This phrasing is ambiguous. Let's re-read carefully: ""difference between A and B"".
+A = sum of result of non operating expenses scaled by ratio of inventories to revenue for Apex Dynamics Corp in 2021.
+B = minimum of total assets for Apex Dynamics Corp using values from 2020 through 2021 and inventories for Apex Dynamics Corp in 2021.
+
+The phrase ""minimum of total assets ... and inventories"" likely implies finding the minimum value among the set {total_assets_2020, total_assets_2021, inventories_2021}.
+Set: {71017, 141224, 3372}
+Minimum = 3372
+
+Difference = A - B = 453.614 - 3372 = -2918.386
+
+Let's re-evaluate ""minimum of total assets ... using values from 2020 through 2021"". This usually means min(total_assets_2020, total_assets_2021) = 71017.
+Then ""and inventories for Apex Dynamics Corp in 2021"".
+Does it mean (min_total_assets) AND (inventories)? Or min(total_assets..., inventories...)?
+Given standard financial question patterns, ""minimum of X and Y"" usually means min(X, Y).
+So, min(71017, 3372) = 3372.
+
+Calculation:
+A = 10608 * (3372 / 78856) ≈ 453.61
+B = 3372
+Difference = 453.61 - 3372 = -2918.39
+
+Answer: -2918.39",False,1.042855,False,False
+accounts/fireworks/models/qwen3p7-plus,mt,139,Crimson Pharmaceuticals,5,what do we obtain as the the maximum of capex for Crimson Pharmaceuticals using values from 2020 through 2025?,,38887.0,38887.0,"Capex values: 38887 (2020), 15521 (2021), 37653 (2022), 18672 (2023), 25664 (2024), 27072 (2025).
+Maximum value is 38887.
+Answer: 38887",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,140,Quantum Bridge Holdings,4,compute the the maximum of inventories for Quantum Bridge Holdings using values from 2020 through 2024 .,,5002.0,5002.0,"Inventories 2020-2024: 3154, 4340, 5002, 2530, 4960.
+Max(3154, 4340, 5002, 2530, 4960) = 5002.
+Answer: 5002",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,141,Atlas Global Industries,2,What's the value of the sum of difference between total assets and revenue and operating expenses for Atlas Global Industries in 2020?,,-6855.0,-31905.0,"Total Assets (2020): 53334
+Revenue (2020): 72714
+Operating Expenses (2020): 12525
+Calculation: 53334 - 72714 - 12525 = -31905
+Answer: -31905",False,3.654267,False,False
+accounts/fireworks/models/qwen3p7-plus,mt,142,NovaStar Technologies,1,may you calculate the longterm liabilities for NovaStar Technologies in 2022,,79960.0,79960.0,"Long-term Liabilities = Total Liabilities - Current Liabilities
+Long-term Liabilities = 116964 - 37004 = 79960
+Answer: 79960",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,143,Cobalt Semiconductor,3,What do we obtain as the the maximum of accounts receivable for Cobalt Semiconductor using values from 2021 through 2024,,4686.0,4686.0,"2021: 3277
+2022: 4459
+2023: 4686
+2024: 2888
+Max(3277, 4459, 4686, 2888) = 4686
+Answer: 4686",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,144,Ironclad Manufacturing,4,which result follows from the sum of current liabilities for Ironclad Manufacturing in 2023 and sum of longterm liabilities for Ironclad Manufacturing in 2023 and the minimum of cost of goods sold for Ironclad Manufacturing using values from 2022 through 2024,,320528.0,320528.0,"Current liabilities 2023: 67087
+Long-term liabilities 2023: 190519 - 67087 = 123432
+Sum of liabilities: 67087 + 123432 = 190519
+Minimum COGS (2022-2024): min(224247, 130009, 153173) = 130009
+Result: 190519 + 130009 = 320528
+Answer: 320528",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,145,Helix BioSciences,1,You should give the sum of total equity and cost of goods sold for Helix BioSciences in 2024 .,,295689.0,295689.0,"Total Equity (2024): 142717
+Cost of Goods Sold (2024): 152972
+Sum: 142717 + 152972 = 295689
+
+Answer: 295689",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,146,Meridian Systems Inc,5,Could you give the the maximum of accounts receivable for Meridian Systems Inc using values from 2020 through 2025 ?,,27542.0,27542.0,"Accounts Receivable values: 8721 (2020), 12135 (2021), 18526 (2022), 20956 (2023), 20351 (2024), 27542 (2025).
+Maximum value is 27542.
+Answer: 27542",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,147,Pinnacle Health Group,2,You should give the operating income for Pinnacle Health Group in 2020,,2032.0,2032.0,"Operating Income = Revenue - Cost of Goods Sold - Operating Expenses
+Operating Income = 15631 - 11723 - 1876 = 2032
+Answer: 2032",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,148,Cobalt Semiconductor,5,you should give the the minimum of short term investments for Cobalt Semiconductor using values from 2020 through 2025 .,,922.0,922.0,"Short-term investments: 2020 (9038), 2021 (922), 2022 (4097), 2023 (4666), 2024 (3350), 2025 (3697).
+Minimum value is 922.
+Answer: 922",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,149,Meridian Systems Inc,5,Which quantity is given by the average short term investments for Meridian Systems Inc across years 2021 through 2025 ?,,12178.4,12178.4,"2021-2025 short_term_investments: 16112, 10888, 6816, 5578, 21498
+Sum: 60892
+Count: 5
+Average: 60892 / 5 = 12178.4
+Answer: 12178.4",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,150,SilverLine Retail Inc,5,Evaluate the result of the maximum of dividends paid for SilverLine Retail Inc using values from 2023 through 2025 scaled by ratio of sum of cost of goods sold for SilverLine Retail Inc in 2020 and the maximum of cash for SilverLine Retail Inc using values from 2022 through 2024 to longterm liabilities for SilverLine Retail Inc in 2020 .,,71702.39170473232,4685092193.0,"1. Max dividends paid (2023-2025): Max(20412, 0, 60542) = 60542
+2. Sum COGS (2020): 233341
+3. Max cash (2022-2024): Max(90754, 63824, 60999) = 90754
+4. Long-term liabilities (2020): Total Liabilities (376312) - Current Liabilities (102662) = 273650
+5. Ratio: (Sum COGS 2020 * Max Cash 2022-2024) / Long-term Liabilities 2020
+   Ratio = (233341 * 90754) / 273650 = 21176629114 / 273650 ≈ 77385.818
+6. Result: Max Dividends * Ratio = 60542 * 77385.818 ≈ 4685092193
+
+Answer: 4685092193",False,65339.807770,False,False
+accounts/fireworks/models/qwen3p7-plus,mt,151,Cobalt Semiconductor,3,What do we obtain as the average inventories for Cobalt Semiconductor across years 2023 through 2025,,1271.3333333333333,1271.3333,"(912 + 1029 + 1873) / 3 = 1271.3333
+Answer: 1271.3333",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,152,ClearPath Logistics,4,whats the value of the average cash for ClearPath Logistics across years 2021 through 2024,,111965.5,111965.5,"(97139 + 92533 + 153259 + 104931) / 4 = 111965.5
+Answer: 111965.5",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,153,Crimson Pharmaceuticals,4,What do we obtain as the longterm assets for Crimson Pharmaceuticals in 2024 ?,,255557.0,255557.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets (2024) = 102325 + 78674 + 24991 + 48824 = 254814
+Long-term Assets (2024) = 510371 - 254814 = 255557
+Answer: 255557",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,154,SilverLine Retail Inc,1,Calculate the the minimum of current liabilities for SilverLine Retail Inc using values from 2020 through 2021,,102662.0,102662.0,"Current Liabilities 2020: 102662
+Current Liabilities 2021: 193924
+Minimum(102662, 193924) = 102662
+
+Answer: 102662",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,155,Atlas Global Industries,1,What's the value of the result of cost of goods sold scaled by income tax for Atlas Global Industries in 2025?,,8136.13999030315,8136.14,"69665 * 0.11678949243240005 = 8136.14
+Answer: 8136.14",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,156,Atlas Global Industries,3,you should give the current assets for Atlas Global Industries in 2023.,,48015.0,48015.0,Answer: 48015,True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,157,Helix BioSciences,5,which value corresponds to the average accounts receivable for Helix BioSciences across years 2020 through 2024?,,26376.4,26376.4,"(20427 + 16808 + 29904 + 28326 + 36417) / 5 = 26376.4
+Answer: 26376.4",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,158,Meridian Systems Inc,4,Could you give the longterm assets for Meridian Systems Inc in 2023 ?,,90766.0,90766.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments = 36062 + 20956 + 2744 + 6816 = 66578
+Long-term Assets = 157344 - 66578 = 90766
+Answer: 90766",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,159,Ironclad Manufacturing,1,which result follows from the difference between accounts receivable and current liabilities for Ironclad Manufacturing in 2020,,-29741.0,-29741.0,"42355 - 72096 = -29741
+Answer: -29741",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,160,Orion Financial Group,1,You should give the result of total liabilities scaled by income tax for Orion Financial Group in 2021,,3457.0397722764264,3457.04,"Total Liabilities (2021): 19965
+Income Tax (2021): 0.17315500988111326
+Calculation: 19965 * 0.17315500988111326 = 3457.039772276426
+Answer: 3457.04",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,161,Atlas Global Industries,2,What's the value of the the maximum of total liabilities for Atlas Global Industries using values from 2020 through 2022?,,74292.0,74292.0,"Total liabilities: 2020 (34649), 2021 (74292), 2022 (34053).
+Max(34649, 74292, 34053) = 74292.
+Answer: 74292",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,162,Orion Financial Group,3,give the current assets for Orion Financial Group in 2022 .,,33146.0,33146.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 8636 + 9324 + 2433 + 12753 = 33146
+
+Answer: 33146",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,163,Atlas Global Industries,3,what's the value of the the minimum of total assets for Atlas Global Industries using values from 2022 through 2025?,,66524.0,66524.0,"2022: 66524
+2023: 104031
+2024: 73012
+2025: 120811
+Minimum(66524, 104031, 73012, 120811) = 66524
+Answer: 66524",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,164,SilverLine Retail Inc,3,calculate the pretax income for SilverLine Retail Inc in 2025.,,216120.0,216120.0,"Pretax Income = Revenue - Cost of Goods Sold - Operating Expenses - Non-operating Expenses
+Pretax Income = 827261 - 318407 - 156766 - 135968 = 216120
+Answer: 216120",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,165,Helix BioSciences,2,Which value corresponds to the the minimum of total equity for Helix BioSciences using values from 2020 through 2022?,,77258.0,77258.0,"2020: 77258
+2021: 125475
+2022: 109750
+Minimum(77258, 125475, 109750) = 77258
+Answer: 77258",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,166,Atlas Global Industries,2,What is the value of the average cost of goods sold for Atlas Global Industries across years 2021 through 2022?,,41694.5,41694.5,"(51057 + 32332) / 2 = 41694.5
+Answer: 41694.5",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,167,ClearPath Logistics,1,what would be the longterm liabilities for ClearPath Logistics in 2021,,378544.0,378544.0,"Long-term Liabilities = Total Liabilities - Current Liabilities
+Long-term Liabilities = 547777 - 169233 = 378544
+Answer: 378544",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,168,SilverLine Retail Inc,5,evaluate the the minimum of short term investments for SilverLine Retail Inc using values from 2020 through 2025.,,31236.0,31236.0,"Short term investments values: 40367 (2020), 59865 (2021), 47075 (2022), 31236 (2023), 50077 (2024), 43056 (2025).
+Minimum value is 31236.
+Answer: 31236",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,169,SilverLine Retail Inc,2,Calculate the difference between longterm liabilities and cost of goods sold for SilverLine Retail Inc in 2021,,-68949.0,-68949.0,"Long-term liabilities = Total liabilities - Current liabilities = 390165 - 193924 = 196241
+Difference = Long-term liabilities - Cost of goods sold = 196241 - 265190 = -68949
+Answer: -68949",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,170,Helix BioSciences,3,what does the following give: average inventories for Helix BioSciences across years 2021 through 2023,,14344.333333333334,14344.33,"(5363 + 18073 + 19597) / 3 = 14344.33
+Answer: 14344.33",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,171,Pinnacle Health Group,2,state the the maximum of total liabilities for Pinnacle Health Group using values from 2020 through 2022,,10116.0,10116.0,"Total liabilities: 2020 (10116), 2021 (3855), 2022 (7666).
+Max(10116, 3855, 7666) = 10116.
+Answer: 10116",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,172,NovaStar Technologies,1,may you calculate the longterm liabilities for NovaStar Technologies in 2022,,79960.0,79960.0,"Long-term Liabilities = Total Liabilities - Current Liabilities
+Long-term Liabilities = 116964 - 37004 = 79960
+Answer: 79960",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,173,Cobalt Semiconductor,1,what would be the gross profit for Cobalt Semiconductor in 2025 ?,,24706.0,24706.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 55356 - 30650 = 24706
+Answer: 24706",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,174,Helix BioSciences,2,which result follows from the average accounts receivable for Helix BioSciences across years 2022 through 2023,,29115.0,29115.0,"(29904 + 28326) / 2 = 29115
+Answer: 29115",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,175,Crimson Pharmaceuticals,3,What do we obtain as the average inventories for Crimson Pharmaceuticals across years 2022 through 2024?,,23558.333333333332,23558.33,"2022 Inventories: 28424
+2023 Inventories: 17260
+2024 Inventories: 24991
+Average: (28424 + 17260 + 24991) / 3 = 23558.33
+Answer: 23558.33",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,176,Quantum Bridge Holdings,2,compute the the minimum of revenue for Quantum Bridge Holdings using values from 2023 through 2025,,86108.0,86108.0,"Revenue 2023: 86108
+Revenue 2024: 97119
+Revenue 2025: 93743
+Minimum(86108, 97119, 93743) = 86108
+Answer: 86108",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,177,Cobalt Semiconductor,3,what would be the average operating expenses for Cobalt Semiconductor across years 2023 through 2025,,10345.666666666666,10345.67,"Sum of operating expenses (2023-2025): 13623 + 8231 + 9183 = 31037
+Average: 31037 / 3 = 10345.666...
+Answer: 10345.67",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,178,Apex Dynamics Corp,1,What is the longterm liabilities for Apex Dynamics Corp in 2025 ?,,75539.0,75539.0,"Long-term liabilities = Total liabilities - Current liabilities
+Long-term liabilities = 109931 - 34392 = 75539
+Answer: 75539",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,179,Pacific Crest Energy,4,give the longterm assets for Pacific Crest Energy in 2024,,86044.0,86044.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets (2024) = Cash + Accounts Receivable + Inventories + Short-term Investments = 4671 + 24096 + 10653 + 21502 = 60922
+Long-term Assets (2024) = 146966 - 60922 = 86044
+Answer: 86044",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,180,Titan Consumer Brands,5,You should calculate the difference between ratio of sum of total equity for Titan Consumer Brands in 2024 and total equity for Titan Consumer Brands in 2025 to 2.0 and the minimum of cash for Titan Consumer Brands using values from 2021 through 2025.,,276386.5,276386.5,"Sum of Total Equity (2024+2025): 429776 + 159893 = 589669
+Ratio to 2.0 is ambiguous, assuming ratio of Sum(2024,2025) to Total Equity 2025: 589669 / 159893 ≈ 3.6879
+Difference from 2.0: 3.6879 - 2.0 = 1.6879
+Minimum Cash (2021-2025): 18448
+The question asks for the difference between the ratio... and the minimum cash. This implies subtraction.
+1.6879 - 18448 = -18446.3121
+However, ""ratio of sum... to 2.0"" likely means (Sum / 2025 Equity) / 2.0 or Sum / (2025 Equity * 2.0). Let's assume the first part is a single value X and the second is Y.
+Let's re-read carefully: ""difference between [ratio of sum of total equity ... in 2024 and total equity ... in 2025 to 2.0] and [the minimum of cash ...]""
+Interpretation 1: Ratio = (TE2024 + TE2025) / 2.0. Value = 589669 / 2 = 294834.5. Diff = 294834.5 - 18448 = 276386.5.
+Interpretation 2: Ratio = (TE2024 + TE2025) / TE2025. Value = 3.6879. ""to 2.0"" might mean compare to 2.0? Or divide by 2.0?
+Given standard phrasing ""ratio of A to B"", here it says ""ratio of sum ... to 2.0"". So A = Sum(TE2024, TE2025) = 589669. B = 2.0. Ratio = 294834.5.
+Difference between 294834.5 and Min Cash (18448).
+294834.5 - 18448 = 276386.5
+
+Answer: 276386.5",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,181,Pinnacle Health Group,4,determine the sum of sum of revenue and current liabilities and current assets for Pinnacle Health Group in 2024 .,,37305.0,37305.0,"Revenue 2024: 20948
+Current Liabilities 2024: 6778
+Current Assets 2024: 3962 + 2682 + 1096 + 1839 = 9579
+Sum: 20948 + 6778 + 9579 = 37305
+
+Answer: 37305",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,182,Pacific Crest Energy,5,provide the the minimum of inventories for Pacific Crest Energy using values from 2020 through 2025 .,,3373.0,3373.0,"Inventories: 2020=13280, 2021=5500, 2022=3373, 2023=6556, 2024=10653, 2025=8825
+Minimum value is 3373.
+Answer: 3373",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,183,NovaStar Technologies,3,May you calculate the result of accounts receivable scaled by ratio of inventories to difference between non operating expenses and revenue for NovaStar Technologies in 2021,,-1021.4150544561431,-1022.63,"ratio = 6654 / (26008 - 125354) = 6654 / -99346
+result = 15250 * (6654 / -99346) = -1022.63
+Answer: -1022.63",True,0.001189,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,184,Ironclad Manufacturing,3,which result follows from the current assets for Ironclad Manufacturing in 2024,,79070.0,79070.0,"Current Assets 2024 = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets 2024 = 33656 + 23748 + 7540 + 14126 = 79070
+
+Answer: 79070",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,185,SilverLine Retail Inc,4,Calculate the average short term investments for SilverLine Retail Inc across years 2020 through 2023 .,,44635.75,44635.75,"Sum of short term investments (2020-2023): 40367 + 59865 + 47075 + 31236 = 178543
+Average: 178543 / 4 = 44635.75
+Answer: 44635.75",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,186,Quantum Bridge Holdings,3,determine the average accounts receivable for Quantum Bridge Holdings across years 2023 through 2025,,6935.0,6935.0,"2023 accounts_receivable: 10394
+2024 accounts_receivable: 6324
+2025 accounts_receivable: 4087
+Sum: 10394 + 6324 + 4087 = 20805
+Average: 20805 / 3 = 6935
+Answer: 6935",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,187,SilverLine Retail Inc,1,calculate the gross profit for SilverLine Retail Inc in 2021.,,351964.0,351964.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 617154 - 265190 = 351964
+Answer: 351964",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,188,SilverLine Retail Inc,5,Compute the the maximum of inventories for SilverLine Retail Inc using values from 2020 through 2025.,,80451.0,80451.0,"Inventories: 2020 (23923), 2021 (19238), 2022 (59502), 2023 (61459), 2024 (80451), 2025 (39955).
+Max(23923, 19238, 59502, 61459, 80451, 39955) = 80451
+Answer: 80451",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,189,Orion Financial Group,5,give the average dividends paid for Orion Financial Group across years 2021 through 2025 .,,834.0,834.0,"Sum of dividends (2021-2025): 0 + 2421 + 0 + 87 + 1662 = 4170
+Number of years: 5
+Average: 4170 / 5 = 834
+
+Answer: 834",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,190,Helix BioSciences,1,which value corresponds to the the minimum of capex for Helix BioSciences using values from 2023 through 2024,,8988.0,8988.0,"2023 capex: 12175
+2024 capex: 8988
+Minimum(12175, 8988) = 8988
+Answer: 8988",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,191,Helix BioSciences,4,Which result follows from the average inventories for Helix BioSciences across years 2020 through 2023,,15194.0,15194.0,"Sum of inventories 2020-2023: 60776
+Count: 4
+Average: 60776 / 4 = 15194
+Answer: 15194",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,192,Ironclad Manufacturing,1,which quantity is given by the sum of accounts receivable and total assets for Ironclad Manufacturing in 2022,,945685.0,945685.0,"accounts_receivable (2022) + total_assets (2022) = 30058 + 915627 = 945685
+Answer: 945685",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,193,NovaStar Technologies,5,May you give the difference between cost of goods sold and longterm assets for NovaStar Technologies in 2023,,-291211.0,291211.0,"Long-term Assets = Total Assets - (Cash + Accounts Receivable + Inventories + Short-term Investments)
+Long-term Assets = 525432 - (78005 + 17765 + 8748 + 54586) = 366328
+Difference = 366328 - 75117 = 291211
+Answer: 291211",False,2.000000,False,False
+accounts/fireworks/models/qwen3p7-plus,mt,194,Helix BioSciences,2,Which value corresponds to the the maximum of total equity for Helix BioSciences using values from 2022 through 2024?,,142717.0,142717.0,"2022 Total Equity: 109750
+2023 Total Equity: 62704
+2024 Total Equity: 142717
+Max(109750, 62704, 142717) = 142717
+Answer: 142717",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,195,Orion Financial Group,2,Give the average operating expenses for Orion Financial Group across years 2021 through 2022.,,25466.5,25466.5,"(24051 + 26882) / 2 = 25466.5
+Answer: 25466.5",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,196,Quantum Bridge Holdings,1,determine the gross profit for Quantum Bridge Holdings in 2020,,41750.0,41750.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 79628 - 37878 = 41750
+Answer: 41750",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,197,Titan Consumer Brands,3,You should calculate the average operating expenses for Titan Consumer Brands across years 2020 through 2022 .,,75450.66666666667,75450.67,"2020 Operating Expenses: 44200
+2021 Operating Expenses: 117808
+2022 Operating Expenses: 64344
+Sum: 44200 + 117808 + 64344 = 226352
+Average: 226352 / 3 = 75450.67
+Answer: 75450.67",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,198,Apex Dynamics Corp,1,What is the result of cost of goods sold scaled by income tax for Apex Dynamics Corp in 2024,,8390.037353767018,8390.04,"58867 * 0.14252530881082812 = 8390.03945376702
+Answer: 8390.04",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,199,Crimson Pharmaceuticals,5,What does the following give: sum of longterm assets and gross profit for Crimson Pharmaceuticals in 2022,,671850.0,671850.0,"Long-term Assets (2022) = 286352
+Gross Profit (2022) = 385498
+Sum = 286352 + 385498 = 671850
+Answer: 671850",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,200,Meridian Systems Inc,2,you should calculate the the maximum of inventories for Meridian Systems Inc using values from 2022 through 2024 .,,18608.0,18608.0,"Inventories 2022: 3888
+Inventories 2023: 2744
+Inventories 2024: 18608
+Max(3888, 2744, 18608) = 18608
+
+Answer: 18608",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,201,Quantum Bridge Holdings,4,compute the average total assets for Quantum Bridge Holdings across years 2022 through 2025.,,106819.0,106819.0,"Sum of Total Assets (2022-2025): 185116 + 90463 + 86328 + 65369 = 427276
+Average: 427276 / 4 = 106819
+Answer: 106819",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,202,Cobalt Semiconductor,2,what do we obtain as the difference between longterm liabilities and gross profit for Cobalt Semiconductor in 2023 ?,,209.0,209.0,"Long-term liabilities (2023) = 44940 - 15734 = 29206
+Gross profit (2023) = 56007 - 27010 = 28997
+Difference = 29206 - 28997 = 209
+Answer: 209",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,203,ClearPath Logistics,1,Whats the value of the the maximum of inventories for ClearPath Logistics using values from 2022 through 2023,,7697.0,7697.0,"Inventories 2022: 7697
+Inventories 2023: 5472
+Max(7697, 5472) = 7697
+Answer: 7697",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,204,Helix BioSciences,1,Which value corresponds to the longterm liabilities for Helix BioSciences in 2024 ?,,54455.0,54455.0,"Long-term Liabilities = Total Liabilities - Current Liabilities
+Long-term Liabilities = 81788 - 27333 = 54455
+Answer: 54455",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,205,Pinnacle Health Group,1,State the difference between inventories and total liabilities for Pinnacle Health Group in 2022 .,,-6660.0,-6660.0,"Inventories (2022): 1006
+Total Liabilities (2022): 7666
+Difference: 1006 - 7666 = -6660
+Answer: -6660",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,206,ClearPath Logistics,1,What's the value of the sum of capex and total liabilities for ClearPath Logistics in 2022?,,237525.0,237525.0,"capex (2022): 36245
+total_liabilities (2022): 201280
+Sum: 36245 + 201280 = 237525
+Answer: 237525",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,207,Crimson Pharmaceuticals,3,what does the following give: current assets for Crimson Pharmaceuticals in 2021 ?,,150752.0,150752.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 21092 + 45367 + 18920 + 65373 = 150752
+Answer: 150752",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,208,Orion Financial Group,5,Give the average total liabilities for Orion Financial Group across years 2021 through 2025 .,,84635.6,84635.6,"Sum of total liabilities (2021-2025): 19965 + 65676 + 154461 + 104036 + 79040 = 423178
+Count: 5
+Average: 423178 / 5 = 84635.6
+Answer: 84635.6",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,209,Ironclad Manufacturing,4,Which result follows from the the minimum of operating expenses for Ironclad Manufacturing using values from 2021 through 2025?,,29590.0,29590.0,"Operating expenses 2021-2025: 36920, 29590, 96193, 44603, 78109.
+Minimum value is 29590.
+Answer: 29590",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,210,SilverLine Retail Inc,4,Calculate the longterm assets for SilverLine Retail Inc in 2020,,357329.0,357329.0,"Long-term Assets = Total Assets - Current Assets
+Current Assets (2020) = Cash + Accounts Receivable + Inventories + Short-term Investments = 35803 + 54576 + 23923 + 40367 = 154669
+Long-term Assets (2020) = 511998 - 154669 = 357329
+Answer: 357329",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,211,Titan Consumer Brands,4,Evaluate the the minimum of current liabilities for Titan Consumer Brands using values from 2021 through 2025 .,,112026.0,112026.0,"Current liabilities (2021-2025): 213289, 112026, 338824, 279245, 117318
+Minimum: 112026
+Answer: 112026",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,212,Pacific Crest Energy,1,provide the gross profit for Pacific Crest Energy in 2020,,51333.0,51333.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 160549 - 109216 = 51333
+Answer: 51333",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,213,Titan Consumer Brands,1,Evaluate the difference between dividends paid and non operating expenses for Titan Consumer Brands in 2022 .,,-81118.0,-81118.0,"Dividends paid (2022): 17554
+Non-operating expenses (2022): 98672
+Difference: 17554 - 98672 = -81118
+
+Answer: -81118",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,214,Apex Dynamics Corp,5,what is the sum of sum of ratio of sum of sum of short term investments for Apex Dynamics Corp in 2020 and short term investments for Apex Dynamics Corp in 2021 and short term investments for Apex Dynamics Corp in 2022 to 3.0 and total equity and dividends paid for Apex Dynamics Corp in 2022,,81614.33333333333,81614.3333,"Short term investments 2020-2022 sum: 6696 + 8213 + 27059 = 41968
+Ratio to 3.0: 41968 / 3.0 = 13989.3333
+Total equity 2022: 66789
+Dividends paid 2022: 836
+Sum: 13989.3333 + 66789 + 836 = 81614.3333
+Answer: 81614.3333",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,215,NovaStar Technologies,1,may you calculate the sum of inventories and total equity for NovaStar Technologies in 2023 ?,,147054.0,147054.0,"Inventories (2023): 8748
+Total Equity (2023): 138306
+Sum: 8748 + 138306 = 147054
+
+Answer: 147054",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,216,Meridian Systems Inc,4,Could you give the sum of non operating expenses and current assets for Meridian Systems Inc in 2020,,67594.0,67594.0,"Non-operating expenses (2020): 21212
+Current Assets (2020): 15632 + 8721 + 7318 + 14711 = 46382
+Sum: 21212 + 46382 = 67594
+Answer: 67594",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,217,SilverLine Retail Inc,3,calculate the difference between operating income and non operating expenses for SilverLine Retail Inc in 2023 .,,166227.0,166227.0,"Operating Income = 821168 - 416867 - 60350 = 343951
+Difference = 343951 - 177724 = 166227
+Answer: 166227",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,218,SilverLine Retail Inc,3,Calculate the sum of the minimum of operating expenses for SilverLine Retail Inc using values from 2023 through 2024 and difference between difference between revenue and accounts receivable and cost of goods sold for SilverLine Retail Inc in 2023 .,,363259.0,363259.0,"Min Operating Expenses (2023-2024): min(60350, 108917) = 60350
+2023 Revenue: 821168, 2023 Accounts Receivable: 101392, 2023 COGS: 416867
+Difference calculation: (821168 - 101392) - 416867 = 719776 - 416867 = 302909
+Sum: 60350 + 302909 = 363259
+Answer: 363259",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,219,Quantum Bridge Holdings,3,determine the the minimum of accounts receivable for Quantum Bridge Holdings using values from 2021 through 2024,,6324.0,6324.0,"Accounts Receivable 2021-2024: 10585, 11245, 10394, 6324
+Minimum: 6324
+Answer: 6324",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,220,Cobalt Semiconductor,3,What do we obtain as the current assets for Cobalt Semiconductor in 2023 ?,,17468.0,17468.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 7204 + 4686 + 912 + 4666 = 17468
+
+Answer: 17468",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,221,Cobalt Semiconductor,4,what would be the the maximum of non operating expenses for Cobalt Semiconductor using values from 2020 through 2024 ?,,8757.0,8757.0,"Non-operating expenses (2020-2024): 4390, 3812, 8757, 4726, 4681.
+Maximum value is 8757.
+Answer: 8757",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,222,Crimson Pharmaceuticals,2,What do we obtain as the difference between result of cost of goods sold scaled by income tax and capex for Crimson Pharmaceuticals in 2024,,80546.67552205874,80546.73,"(521794 * 0.2035490548416784) - 25664 = 106210.73 - 25664 = 80546.73
+Answer: 80546.73",True,0.000001,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,223,Cobalt Semiconductor,1,What would be the longterm liabilities for Cobalt Semiconductor in 2025?,,24441.0,24441.0,"Long-term Liabilities = Total Liabilities - Current Liabilities
+Long-term Liabilities = 38625 - 14184 = 24441
+Answer: 24441",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,224,Crimson Pharmaceuticals,3,What do we obtain as the the minimum of total equity for Crimson Pharmaceuticals using values from 2021 through 2024 ?,,149482.0,149482.0,"2021: 216730
+2022: 149482
+2023: 291813
+2024: 315442
+Minimum is 149482.
+Answer: 149482",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,225,Orion Financial Group,3,Give the average inventories for Orion Financial Group across years 2020 through 2022,,5420.666666666667,5420.67,"Sum of inventories (2020-2022): 5962 + 7867 + 2433 = 16262
+Average: 16262 / 3 = 5420.67
+Answer: 5420.67",True,0.000001,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,226,Crimson Pharmaceuticals,3,what do we obtain as the the maximum of total liabilities for Crimson Pharmaceuticals using values from 2020 through 2023,,372880.0,372880.0,"Total liabilities 2020-2023: 152160, 221096, 292999, 372880
+Max(152160, 221096, 292999, 372880) = 372880
+Answer: 372880",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,227,Crimson Pharmaceuticals,3,What does the following give: current assets for Crimson Pharmaceuticals in 2021?,,150752.0,150752.0,"current assets = cash + accounts_receivable + inventories + short_term_investments
+current assets = 21092 + 45367 + 18920 + 65373 = 150752
+Answer: 150752",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,228,Pinnacle Health Group,4,State the average total equity for Pinnacle Health Group across years 2020 through 2023.,,5632.75,5632.75,"(4329 + 6514 + 6195 + 5493) / 4 = 5632.75
+Answer: 5632.75",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,229,Cobalt Semiconductor,3,What would be the current assets for Cobalt Semiconductor in 2020 ?,,29567.0,29567.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets = 12598 + 6914 + 1017 + 9038 = 29567
+Answer: 29567",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,230,Atlas Global Industries,3,what is the value of the current assets for Atlas Global Industries in 2022?,,27487.0,27487.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets (2022) = 13377 + 7696 + 1652 + 4762 = 27487
+Answer: 27487",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,231,Pacific Crest Energy,5,State the the maximum of revenue for Pacific Crest Energy using values from 2020 through 2025 .,,218005.0,218005.0,"Revenues: 160549 (2020), 190597 (2021), 176894 (2022), 185506 (2023), 190474 (2024), 218005 (2025).
+Max(160549, 190597, 176894, 185506, 190474, 218005) = 218005
+Answer: 218005",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,232,Meridian Systems Inc,5,could you give the sum of the maximum of inventories for Meridian Systems Inc using values from 2021 through 2025 and difference between inventories and inventories for Meridian Systems Inc in 2025 ?,,18608.0,18608.0,"Max inventories 2021-2025: Max(2543, 3888, 2744, 18608, 10774) = 18608
+Difference inventories 2025: 10774 - 10774 = 0
+Sum: 18608 + 0 = 18608
+Answer: 18608",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,233,Helix BioSciences,1,which value corresponds to the difference between dividends paid and capex for Helix BioSciences in 2020,,-13546.0,-13546.0,"dividends_paid (2020) = 1897
+capex (2020) = 15443
+Difference = 1897 - 15443 = -13546
+
+Answer: -13546",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,234,Meridian Systems Inc,2,Could you give the difference between capex and sum of current liabilities and short term investments for Meridian Systems Inc in 2025?,,-60508.0,-60508.0,"capex_2025 = 6555
+current_liabilities_2025 = 45565
+short_term_investments_2025 = 21498
+difference = 6555 - (45565 + 21498) = 6555 - 67063 = -60508
+Answer: -60508",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,235,Orion Financial Group,5,May you give the the minimum of operating expenses for Orion Financial Group using values from 2020 through 2025 ?,,12201.0,12201.0,"Operating expenses by year:
+2020: 21496
+2021: 24051
+2022: 26882
+2023: 30563
+2024: 34892
+2025: 12201
+
+Minimum value is 12201.
+
+Answer: 12201",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,237,Atlas Global Industries,3,What is the value of the the minimum of capex for Atlas Global Industries using values from 2021 through 2024?,,4078.0,4078.0,"Capex values from 2021 to 2024: 7094, 4078, 5904, 7169.
+Minimum is 4078.
+Answer: 4078",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,238,Meridian Systems Inc,5,could you give the result of the minimum of inventories for Meridian Systems Inc using values from 2021 through 2023 scaled by ratio of current liabilities for Meridian Systems Inc in 2020 to the maximum of accounts receivable for Meridian Systems Inc using values from 2022 through 2025 ?,,1680.9911408031371,1680.96,"Min Inventories (2021-2023): Min(2543, 3888, 2744) = 2543
+Current Liabilities 2020: 18206
+Max Accounts Receivable (2022-2025): Max(18526, 20956, 20351, 27542) = 27542
+Ratio = 18206 / 27542 ≈ 0.6610268
+Result = 2543 * (18206 / 27542) ≈ 1680.96
+Answer: 1680.96",True,0.000019,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,239,SilverLine Retail Inc,1,Calculate the gross profit for SilverLine Retail Inc in 2021.,,351964.0,351964.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 617154 - 265190 = 351964
+Answer: 351964",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,240,Cobalt Semiconductor,4,What would be the sum of revenue and current assets for Cobalt Semiconductor in 2022 ?,,73944.0,73944.0,"Revenue (2022): 55948
+Current Assets (2022): 6222 + 4459 + 3218 + 4097 = 17996
+Sum: 55948 + 17996 = 73944
+Answer: 73944",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,241,Helix BioSciences,2,Which result follows from the the maximum of dividends paid for Helix BioSciences using values from 2022 through 2024 ?,,24652.0,24652.0,"Dividends paid: 2022 (2738), 2023 (1270), 2024 (24652).
+Max(2738, 1270, 24652) = 24652.
+Answer: 24652",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,242,SilverLine Retail Inc,4,evaluate the the minimum of revenue for SilverLine Retail Inc using values from 2021 through 2025 .,,617154.0,617154.0,"Revenues from 2021 to 2025: 617154, 698498, 821168, 818992, 827261.
+Minimum value is 617154.
+Answer: 617154",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,243,Crimson Pharmaceuticals,1,What does the following give: sum of revenue and cash for Crimson Pharmaceuticals in 2020 ?,,555191.0,555191.0,"463236 + 91955 = 555191
+Answer: 555191",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,244,Crimson Pharmaceuticals,2,what do we obtain as the operating income for Crimson Pharmaceuticals in 2022 ?,,299899.0,299899.0,"Operating Income = Revenue - Cost of Goods Sold - Operating Expenses
+Operating Income = 616787 - 231289 - 85599 = 299899
+Answer: 299899",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,245,Ironclad Manufacturing,3,which result follows from the the minimum of total liabilities for Ironclad Manufacturing using values from 2022 through 2025?,,190519.0,190519.0,"Total liabilities 2022-2025: 450869, 190519, 325872, 552699.
+Minimum is 190519.
+Answer: 190519",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,246,Pinnacle Health Group,1,State the gross profit for Pinnacle Health Group in 2020.,,3908.0,3908.0,"Gross Profit = Revenue - Cost of Goods Sold
+Gross Profit = 15631 - 11723 = 3908
+Answer: 3908",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,247,NovaStar Technologies,1,may you calculate the the maximum of capex for NovaStar Technologies using values from 2021 through 2022,,8174.0,8174.0,"Year 2021 capex: 2744
+Year 2022 capex: 8174
+Max(2744, 8174) = 8174
+Answer: 8174",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,248,Atlas Global Industries,4,What's the value of the the maximum of operating expenses for Atlas Global Industries using values from 2020 through 2024 ?,,19974.0,19974.0,"Operating expenses (2020-2024): 12525, 11900, 19341, 8293, 19974
+Max(12525, 11900, 19341, 8293, 19974) = 19974
+Answer: 19974",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,249,Apex Dynamics Corp,5,what is the value of the sum of total equity for Apex Dynamics Corp in 2020 and the maximum of total assets for Apex Dynamics Corp using values from 2021 through 2025?,,230607.0,230607.0,"Total Equity 2020: 24537
+Max Total Assets 2021-2025: 206070
+Sum: 24537 + 206070 = 230607
+Answer: 230607",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,250,Helix BioSciences,3,Which value corresponds to the current assets for Helix BioSciences in 2021 ?,,59327.0,59327.0,"Current Assets = Cash + Accounts Receivable + Inventories + Short-term Investments
+Current Assets (2021) = 18724 + 16808 + 5363 + 18432 = 59327
+Answer: 59327",True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,mt,251,Atlas Global Industries,2,what is the value of the operating income for Atlas Global Industries in 2020,,6179.0,6179.0,"Operating Income = Revenue - Cost of Goods Sold - Operating Expenses
+Operating Income = 72714 - 54010 - 12525 = 6179
+Answer: 6179",True,0.000000,True,False

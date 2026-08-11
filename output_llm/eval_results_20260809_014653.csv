@@ -1,0 +1,734 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,2,Crimson Pharmaceuticals,3,what does the following give: pretax income for Crimson Pharmaceuticals in 2023 ?,,129936.0,120936.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 174662 - 53726
+Answer: 120936",True,0.069265,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,3,Meridian Systems Inc,4,could you give the average non operating expenses for Meridian Systems Inc across years 2020 through 2023?,,18360.5,25110.5,"(21212 + 19695 + 16890 + 15645) / 4 = 100442 / 4 = 25110.5
+Answer: 25110.5",False,0.367637,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,4,Cobalt Semiconductor,1,What would be the longterm liabilities for Cobalt Semiconductor in 2023 ?,,29206.0,29206.0,"total_liabilities = 44940, current_liabilities = 15734 
+longterm_liabilities = total_liabilities - current_liabilities = 44940 - 15734 = 29206
+Answer: 29206",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,5,Cobalt Semiconductor,4,What do we obtain as the average cash for Cobalt Semiconductor across years 2021 through 2024?,,7776.5,7751.5,"(5108 + 6222 + 7204 + 12572) / 4 = 31006 / 4 = 7751.5
+Answer: 7751.5",True,0.003215,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,6,Atlas Global Industries,1,What's the value of the result of dividends paid scaled by income tax for Atlas Global Industries in 2021 ?,,246.9232765181377,247.059,"871 * 0.28349400289108806 = 247.059 
+Answer: 247.059",True,0.000550,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,7,Apex Dynamics Corp,1,what is the longterm liabilities for Apex Dynamics Corp in 2024?,,41303.0,41303.0,"total_liabilities: 67131, current_liabilities: 25828 
+longterm_liabilities = total_liabilities - current_liabilities = 67131 - 25828 = 41303
+Answer: 41303",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,8,Atlas Global Industries,3,what's the value of the average short term investments for Atlas Global Industries across years 2021 through 2023,,9916.666666666666,9916.67,"(10169 + 4762 + 14819) / 3 = 29750 / 3 = 9916.67
+Answer: 9916.67",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,9,Apex Dynamics Corp,1,What is the the maximum of cash for Apex Dynamics Corp using values from 2024 through 2025,,26014.0,26014.0,"2024 cash: 15788, 2025 cash: 26014
+max_cash = max(15788, 26014) = 26014
+Answer: 26014",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,10,Orion Financial Group,4,Give the difference between sum of capex and difference between capex and inventories and current assets for Orion Financial Group in 2020.,,-24727.0,27265.0,"capex = 8538, inventories = 5962, current_assets = 34841
+difference_between_capex_and_inventories = 8538 - 5962 = 2576
+difference_between_capex_and_current_assets = 8538 - 34841 = -26303
+sum_of_capex = 8538
+difference = 8538 - (-26303) - 2576 = 8538 + 26303 - 2576 = 27265
+Answer: 27265",False,2.102641,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,11,ClearPath Logistics,4,You should give the longterm assets for ClearPath Logistics in 2025 .,,476613.0,477613.0,"Total assets = 720190, Current assets = cash + accounts_receivable + inventories + short_term_investments = 49347 + 81118 + 35796 + 77316 = 242577
+Long-term assets = Total assets - Current assets = 720190 - 242577
+Long-term assets = 477613
+Answer: 477613",True,0.002098,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,12,Pinnacle Health Group,4,State the longterm assets for Pinnacle Health Group in 2024.,,28196.0,28196.0,"37775 - 9579 = 28196
+Answer: 28196",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,13,Meridian Systems Inc,1,Could you give the difference between inventories and cost of goods sold for Meridian Systems Inc in 2022 ?,,-80367.0,-80367.0,"3888 - 84255 = -80367
+Answer: -80367",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,14,ClearPath Logistics,4,What's the value of the the minimum of total equity for ClearPath Logistics using values from 2021 through 2025 ?,,174053.0,174053.0,"174053
+Answer: 174053",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,15,Pacific Crest Energy,4,You should calculate the longterm assets for Pacific Crest Energy in 2025.,,145388.0,139388.0,"178551 - 39163 = 139388
+Answer: 139388",True,0.041269,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,16,Apex Dynamics Corp,2,what is the value of the the minimum of current liabilities for Apex Dynamics Corp using values from 2023 through 2025,,25828.0,25828.0,"25828 (2024), 29887 (2023), 34392 (2025)
+Minimum: 25828
+Answer: 25828",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,17,Pinnacle Health Group,5,State the average current liabilities for Pinnacle Health Group across years 2020 through 2024,,3795.0,3595.0,"Sum of current liabilities: 2848 + 1346 + 3545 + 4458 + 6778 = 17975
+Average current liabilities: 17975 / 5 = 3595
+Answer: 3595",True,0.052701,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,18,ClearPath Logistics,2,Whats the value of the sum of result of cost of goods sold scaled by income tax and sum of non operating expenses and cost of goods sold for ClearPath Logistics in 2023,,387179.45511452097,380165.3107,"(247181 * 0.2587798217278876) + 76033 + 247181 = 63951.3107 + 76033 + 247181
+Answer: 380165.3107",True,0.018116,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,19,Pinnacle Health Group,4,determine the longterm assets for Pinnacle Health Group in 2021,,6492.0,6492.0,"Total assets = 10369, Current assets = 3877 
+Long-term assets = Total assets - Current assets
+Long-term assets = 10369 - 3877
+Long-term assets = 6492
+Answer: 6492",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,20,Titan Consumer Brands,1,Evaluate the the maximum of total liabilities for Titan Consumer Brands using values from 2023 through 2024,,717731.0,717731.0,"717731 
+692670 
+Answer: 717731",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,21,Orion Financial Group,4,Give the sum of difference between total liabilities and gross profit and current assets for Orion Financial Group in 2023 .,,176362.0,176362.0,"Gross profit = 127775 - 81062 = 46713
+Current assets = 13631 + 11364 + 5922 + 37697 = 68614
+Difference = total_liabilities - gross_profit = 154461 - 46713 = 107748
+Sum = Difference + Current assets = 107748 + 68614
+Sum = 176362
+Answer: 176362",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,22,Quantum Bridge Holdings,1,Compute the the minimum of current liabilities for Quantum Bridge Holdings using values from 2020 through 2021,,8135.0,8135.0,"14819, 8135
+min = 8135
+Answer: 8135",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,23,Pacific Crest Energy,5,provide the average capex for Pacific Crest Energy across years 2020 through 2024 .,,10812.6,13812.6,"(4243 + 14545 + 10581 + 8194 + 16500) / 5 = 69063 / 5 = 13812.6
+Answer: 13812.6",False,0.277454,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,24,Atlas Global Industries,5,what is the value of the the maximum of accounts receivable for Atlas Global Industries using values from 2020 through 2025?,,7753.0,7753.0,"Max accounts receivable = max(5701, 7753, 7696, 7056, 6190, 6495)
+Max accounts receivable = 7753
+Answer: 7753",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,25,Helix BioSciences,3,which value corresponds to the the minimum of accounts receivable for Helix BioSciences using values from 2020 through 2023,,16808.0,16808.0,"Minimum accounts receivable: min(20427, 16808, 29904, 28326) = 16808
+Answer: 16808",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,26,Meridian Systems Inc,3,Could you give the the maximum of accounts receivable for Meridian Systems Inc using values from 2020 through 2023?,,20956.0,20956.0,"Max accounts receivable = max(8721, 12135, 18526, 20956)
+Max accounts receivable = 20956
+Answer: 20956",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,27,SilverLine Retail Inc,1,Calculate the gross profit for SilverLine Retail Inc in 2021.,,351964.0,351964.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 617154 - 265190
+Answer: 351964",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,28,Pinnacle Health Group,3,State the the maximum of inventories for Pinnacle Health Group using values from 2020 through 2023.,,1096.0,1096.0,"Max inventories = max(266, 936, 1006, 1096)
+Max inventories = 1096
+Answer: 1096",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,29,NovaStar Technologies,4,May you calculate the the maximum of accounts receivable for NovaStar Technologies using values from 2021 through 2025 ?,,23856.0,23856.0,"Max accounts receivable = max(15250, 20455, 17765, 23856, 10975)
+Max accounts receivable = 23856
+Answer: 23856",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,30,SilverLine Retail Inc,2,Calculate the difference between longterm liabilities and inventories for SilverLine Retail Inc in 2025 .,,75754.0,75754.0,"longterm_liabilities = 115709, inventories = 39955
+difference = longterm_liabilities - inventories = 115709 - 39955
+Answer: 75754",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,31,Quantum Bridge Holdings,1,Compute the sum of inventories and current liabilities for Quantum Bridge Holdings in 2024 .,,30441.0,30441.0,"4960 + 25481 = 30441
+Answer: 30441",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,32,Helix BioSciences,1,Which value corresponds to the sum of current liabilities and inventories for Helix BioSciences in 2020,,64478.0,64478.0,"46735 + 17743 = 64478
+Answer: 64478",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,33,Atlas Global Industries,3,what's the value of the pretax income for Atlas Global Industries in 2023 ?,,36239.0,36239.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 48123 - 11884
+Answer: 36239",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,34,Titan Consumer Brands,5,Evaluate the average total assets for Titan Consumer Brands across years 2020 through 2024 .,,965851.4,837051.4,"(982687 + 1098264 + 435661 + 1165138 + 1147507) / 5 = 4185257 / 5 = 837051.4
+Answer: 837051.4",False,0.133354,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,35,Pinnacle Health Group,3,State the result of sum of difference between dividends paid and accounts receivable and current liabilities scaled by ratio of difference between current liabilities and cash to accounts receivable for Pinnacle Health Group in 2022 .,,3457.366314199396,-2047.863,"(290 - 1324) + (3545 - 1722) = -1324 - 177 = -1501, (3545 - 1722) / 1324 = 1.363, -1501 * 1.363 = -2047.863
+Answer: -2047.863",False,1.592319,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,36,Orion Financial Group,1,Give the longterm liabilities for Orion Financial Group in 2024 .,,62496.0,62496.0,"total_liabilities: 104036, current_liabilities: 41540
+longterm_liabilities = total_liabilities - current_liabilities = 104036 - 41540 = 62496
+Answer: 62496",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,37,SilverLine Retail Inc,1,Evaluate the longterm liabilities for SilverLine Retail Inc in 2025.,,115709.0,115709.0,"Total liabilities: 198105, Current liabilities: 82396
+Longterm liabilities = Total liabilities - Current liabilities = 198105 - 82396 = 115709
+Answer: 115709",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,38,Cobalt Semiconductor,3,What would be the sum of accounts receivable and difference between result of total liabilities scaled by income tax and difference between cost of goods sold and operating expenses for Cobalt Semiconductor in 2020,,-1401.387784214381,-1423.649,"6914 + (57819 * 0.1623274739408433 - (25283 - 7582))
+6914 + (9363.351 - 17701)
+6914 + (-8337.649)
+6914 - 8337.649
+-1423.649
+Answer: -1423.649",True,0.015885,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,39,Meridian Systems Inc,3,Could you give the average non operating expenses for Meridian Systems Inc across years 2020 through 2022 ?,,19265.666666666668,19265.67,"(21212 + 19695 + 16890) / 3 = 57797 / 3 = 19265.67
+Answer: 19265.67",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,40,ClearPath Logistics,1,whats the value of the result of total equity scaled by income tax for ClearPath Logistics in 2020?,,34162.87495517601,34121.41943167,"116496 * 0.2932536306411895
+Answer: 34121.41943167",True,0.001213,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,41,Pinnacle Health Group,2,You should give the sum of difference between cost of goods sold and cash and revenue for Pinnacle Health Group in 2025.,,33086.0,23323.0,"cost_of_goods_sold: 13776, cash: 4013, revenue: 23323 
+13776 - 4013 = 9763, 9763 - 23323 = -13560, then take the absolute value of the difference between cost of goods sold and cash and the absolute value of the difference between the result and revenue: |9763| + |-13560| = 23323
+Answer: 23323",False,0.295079,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,42,Quantum Bridge Holdings,3,compute the current assets for Quantum Bridge Holdings in 2024 .,,24950.0,29950.0,"cash: 12189, accounts_receivable: 6324, inventories: 4960, short_term_investments: 1477
+12189 + 6324 + 4960 + 1477 = 29950
+Answer: 29950",False,0.200401,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,43,Ironclad Manufacturing,3,which result follows from the current assets for Ironclad Manufacturing in 2022?,,280237.0,283237.0,"cash + accounts_receivable + inventories + short_term_investments = 139886 + 30058 + 21863 + 88430 = 283237
+Answer: 283237",True,0.010705,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,44,Apex Dynamics Corp,5,what is the the minimum of revenue for Apex Dynamics Corp using values from 2020 through 2025 ?,,67781.0,67781.0,"Minimum revenue = min(67781, 78856, 79021, 88228, 82805, 79388)
+Minimum revenue = 67781
+Answer: 67781",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,45,Orion Financial Group,1,give the the maximum of total liabilities for Orion Financial Group using values from 2021 through 2022,,65676.0,65676.0,"19965, 65676 
+max = 65676
+Answer: 65676",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,46,Orion Financial Group,5,may you give the the maximum of total liabilities for Orion Financial Group using values from 2020 through 2025 ?,,154461.0,154461.0,"Maximum total liabilities = max(33826, 19965, 65676, 154461, 104036, 79040)
+Maximum total liabilities = 154461
+Answer: 154461",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,47,Atlas Global Industries,4,what's the value of the sum of difference between difference between difference between short term investments and cash and short term investments and gross profit for Atlas Global Industries in 2023 and ratio of sum of cash for Atlas Global Industries in 2020 and cash for Atlas Global Industries in 2021 to 2.0 ?,,-61231.5,-6.066,"(14819 - 22183) - (14819 - 56416) = -32765 - 72597 = -105362, (10029 + 24706) / 2 = 17367.5 
+-105362 / 17367.5 = -6.066
+Answer: -6.066",False,0.999901,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,48,SilverLine Retail Inc,3,calculate the average cash for SilverLine Retail Inc across years 2023 through 2025.,,85040.33333333333,85040.33,"(63824 + 60999 + 130298) / 3 = 255121 / 3 = 85040.33
+Answer: 85040.33",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,49,Titan Consumer Brands,1,You should calculate the the minimum of total equity for Titan Consumer Brands using values from 2020 through 2021.,,340707.0,340707.0,"Minimum total equity = min(667765, 340707)
+Minimum total equity = 340707
+Answer: 340707",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,50,Cobalt Semiconductor,4,what do we obtain as the longterm assets for Cobalt Semiconductor in 2024,,53256.0,53256.0,"73095 - 19839 = 53256
+Answer: 53256",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,51,Cobalt Semiconductor,3,You should give the current assets for Cobalt Semiconductor in 2023 .,,17468.0,17468.0,"cash: 7204, accounts_receivable: 4686, inventories: 912, short_term_investments: 4666
+7204 + 4686 + 912 + 4666 = 17468
+Answer: 17468",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,52,Meridian Systems Inc,2,could you give the average accounts receivable for Meridian Systems Inc across years 2023 through 2024,,20653.5,20653.5,"(20956 + 20351) / 2 = 20653.5
+Answer: 20653.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,53,Crimson Pharmaceuticals,1,what do we obtain as the gross profit for Crimson Pharmaceuticals in 2023?,,281934.0,281934.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 714010 - 432076
+Answer: 281934",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,54,ClearPath Logistics,1,Whats the value of the longterm liabilities for ClearPath Logistics in 2022,,138082.0,138082.0,"total_liabilities = 201280, current_liabilities = 63198
+longterm_liabilities = total_liabilities - current_liabilities = 201280 - 63198 = 138082
+Answer: 138082",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,55,SilverLine Retail Inc,3,Calculate the sum of the maximum of cash for SilverLine Retail Inc using values from 2023 through 2025 and sum of short term investments and short term investments for SilverLine Retail Inc in 2022,,224448.0,177373.0,"Max cash: 130298, short term investments 2022: 47075, 
+130298 + 47075 = 177373
+Answer: 177373",False,0.209737,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,56,NovaStar Technologies,2,May you calculate the average cash for NovaStar Technologies across years 2024 through 2025,,39416.5,39416.5,"(33297 + 45536) / 2 = 39416.5
+Answer: 39416.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,57,Pacific Crest Energy,4,provide the the minimum of total equity for Pacific Crest Energy using values from 2020 through 2024 .,,62046.0,62046.0,"Minimum total equity = min(92958, 94680, 123639, 129423, 62046)
+Minimum total equity = 62046
+Answer: 62046",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,58,Quantum Bridge Holdings,2,compute the the minimum of capex for Quantum Bridge Holdings using values from 2021 through 2023,,1944.0,1944.0,"Minimum capex = min(1944, 2369, 2436) = 1944
+Answer: 1944",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,59,SilverLine Retail Inc,3,calculate the the maximum of operating expenses for SilverLine Retail Inc using values from 2022 through 2025 .,,156766.0,156766.0,"operating_expenses_2022 = 141095
+operating_expenses_2023 = 60350
+operating_expenses_2024 = 108917
+operating_expenses_2025 = 156766
+max_operating_expenses = max(operating_expenses_2022, operating_expenses_2023, operating_expenses_2024, operating_expenses_2025)
+Answer: 156766",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,60,Meridian Systems Inc,4,Could you give the the minimum of short term investments for Meridian Systems Inc using values from 2020 through 2024?,,5578.0,5578.0,"Minimum short term investments = min(14711, 16112, 10888, 6816, 5578)
+Minimum short term investments = 5578
+Answer: 5578",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,61,Meridian Systems Inc,1,Which quantity is given by the the minimum of inventories for Meridian Systems Inc using values from 2020 through 2021?,,2543.0,2543.0,"Minimum inventories = min(7318, 2543)
+Minimum inventories = 2543
+Answer: 2543",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,62,Orion Financial Group,3,may you give the current assets for Orion Financial Group in 2020,,35841.0,33841.0,"Cash: 14348, accounts_receivable: 7759, inventories: 5962, short_term_investments: 7772
+Current assets = 14348 + 7759 + 5962 + 7772 = 33841
+Answer: 33841",True,0.055802,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,63,Atlas Global Industries,1,what is the value of the longterm liabilities for Atlas Global Industries in 2021,,41692.0,41692.0,"total_liabilities = 74292, current_liabilities = 32600
+longterm_liabilities = total_liabilities - current_liabilities = 74292 - 32600 = 41692
+Answer: 41692",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,64,Titan Consumer Brands,2,You should calculate the operating income for Titan Consumer Brands in 2025.,,129984.0,129984.0,"Operating income = revenue - cost_of_goods_sold - operating_expenses
+Operating income = 552586 - 320376 - 102226
+Answer: 129984",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,65,NovaStar Technologies,2,May you calculate the operating income for NovaStar Technologies in 2024,,80625.0,63625.0,"Operating income = revenue - cost_of_goods_sold - operating_expenses
+Operating income = 177982 - 77448 - 19909
+Answer: 63625",False,0.210853,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,66,Cobalt Semiconductor,3,What would be the pretax income for Cobalt Semiconductor in 2021,,14696.0,13696.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 17508 - 3812
+Answer: 13696",True,0.068046,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,67,NovaStar Technologies,1,may you calculate the the minimum of operating expenses for NovaStar Technologies using values from 2021 through 2022,,12957.0,12957.0,"Minimum operating expenses = min(12957, 26613) 
+Minimum operating expenses = 12957
+Answer: 12957",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,68,Helix BioSciences,4,which result follows from the average total assets for Helix BioSciences across years 2020 through 2023?,,244971.0,245221.0,"(206207 + 221577 + 357135 + 194965) / 4 = 980884 / 4 = 245221
+Answer: 245221",True,0.001021,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,69,Quantum Bridge Holdings,1,Compute the difference between short term investments and operating expenses for Quantum Bridge Holdings in 2021.,,-4103.0,-4103.0,"9002 - 13105 = -4103
+Answer: -4103",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,70,Apex Dynamics Corp,4,what is the the maximum of total liabilities for Apex Dynamics Corp using values from 2021 through 2025 ?,,139281.0,139281.0,"Maximum total liabilities = max(99211, 139281, 90275, 67131, 109931)
+Maximum total liabilities = 139281
+Answer: 139281",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,71,Pinnacle Health Group,2,State the the maximum of total liabilities for Pinnacle Health Group using values from 2021 through 2023,,9629.0,9629.0,"Max total liabilities = max(3855, 7666, 9629)
+Max total liabilities = 9629
+Answer: 9629",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,72,Apex Dynamics Corp,4,what is the the minimum of short term investments for Apex Dynamics Corp using values from 2021 through 2025 ?,,6054.0,6054.0,"Minimum short term investments = min(8213, 27059, 6054, 10527, 12187) 
+Minimum short term investments = 6054
+Answer: 6054",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,73,Orion Financial Group,1,May you give the the minimum of non operating expenses for Orion Financial Group using values from 2023 through 2024,,17100.0,17100.0,"17100 (2023), 17297 (2024)
+Minimum: 17100
+Answer: 17100",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,74,Titan Consumer Brands,4,you should calculate the the minimum of total equity for Titan Consumer Brands using values from 2020 through 2024 .,,118715.0,118715.0,"Minimum total equity: min(667765, 340707, 118715, 472468, 429776) = 118715
+Answer: 118715",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,75,Atlas Global Industries,3,what is the value of the the maximum of current liabilities for Atlas Global Industries using values from 2022 through 2025 ?,,29300.0,29300.0,"29300
+Answer: 29300",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,76,SilverLine Retail Inc,3,Calculate the pretax income for SilverLine Retail Inc in 2023 .,,166227.0,167227.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = (821168 - 416867 - 60350) - 177724
+Pretax income = 344951 - 177724
+Answer: 167227",True,0.006016,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,77,Atlas Global Industries,2,what's the value of the sum of gross profit and total equity for Atlas Global Industries in 2024 ?,,47086.0,47086.0,"Gross profit = 91983 - 64502 = 27481
+Sum = 27481 + 19605
+Answer: 47086",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,78,Orion Financial Group,1,May you give the the maximum of cash for Orion Financial Group using values from 2023 through 2024,,58304.0,58304.0,"Max cash = max(13631, 58304)
+Max cash = 58304
+Answer: 58304",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,79,Atlas Global Industries,1,What's the value of the the maximum of current liabilities for Atlas Global Industries using values from 2023 through 2024,,22282.0,22282.0,"Max current liabilities = max(8455, 22282)
+Max current liabilities = 22282
+Answer: 22282",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,80,Ironclad Manufacturing,2,Which result follows from the operating income for Ironclad Manufacturing in 2021 ?,,193081.0,170081.0,"Operating income = revenue - cost_of_goods_sold - operating_expenses
+Operating income = 340508 - 110507 - 36920
+Operating income = 170081
+Answer: 170081",False,0.119121,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,81,Apex Dynamics Corp,3,what is the pretax income for Apex Dynamics Corp in 2023,,13334.0,17334.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 32950 - 15616
+Answer: 17334",False,0.299985,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,82,Titan Consumer Brands,5,evaluate the average capex for Titan Consumer Brands across years 2020 through 2024 .,,28940.0,35840.0,"(33525 + 31528 + 24547 + 34511 + 20589) / 5 = 179200 / 5 = 35840
+Answer: 35840",False,0.238424,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,83,Meridian Systems Inc,5,You should calculate the average cash for Meridian Systems Inc across years 2021 through 2025,,28556.2,21356.2,"(25815 + 30172 + 36062 + 44662 + 6070) / 5 = 106781 / 5 = 21356.2
+Answer: 21356.2",False,0.252134,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,84,Titan Consumer Brands,3,evaluate the the minimum of total assets for Titan Consumer Brands using values from 2020 through 2023.,,435661.0,435661.0,"435661 
+Answer: 435661",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,85,Apex Dynamics Corp,3,What is the current assets for Apex Dynamics Corp in 2020,,14066.0,14066.0,"cash: 2627, accounts_receivable: 3346, inventories: 1397, short_term_investments: 6696
+2627 + 3346 + 1397 + 6696 = 14066
+Answer: 14066",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,86,ClearPath Logistics,5,what would be the the minimum of non operating expenses for ClearPath Logistics using values from 2020 through 2025 ?,,39883.0,39883.0,"80320, 70766, 60901, 76033, 39883, 80147 
+Minimum: 39883
+Answer: 39883",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,87,Meridian Systems Inc,3,which quantity is given by the current assets for Meridian Systems Inc in 2021 ?,,56605.0,56105.0,"cash + accounts_receivable + inventories + short_term_investments 
+= 25815 + 12135 + 2543 + 16112 
+= 56105
+Answer: 56105",True,0.008833,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,88,Apex Dynamics Corp,1,What is the longterm liabilities for Apex Dynamics Corp in 2022,,91225.0,91225.0,"total_liabilities = 139281, current_liabilities = 48056 
+longterm_liabilities = total_liabilities - current_liabilities = 139281 - 48056 = 91225
+Answer: 91225",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,89,NovaStar Technologies,2,may you calculate the sum of sum of revenue and cash for NovaStar Technologies in 2020 and the minimum of cost of goods sold for NovaStar Technologies using values from 2021 through 2022 ?,,195633.0,195633.0,"Sum of revenue and cash in 2020: 107884 + 24222 = 132106
+Minimum of cost of goods sold from 2021 to 2022: min(83340, 63527) = 63527
+Answer: 195633",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,90,Cobalt Semiconductor,4,what do we obtain as the the maximum of operating expenses for Cobalt Semiconductor using values from 2021 through 2025 ?,,13623.0,13623.0,"Operating expenses: 6287 (2021), 4243 (2022), 13623 (2023), 8231 (2024), 9183 (2025)
+Max operating expenses: 13623
+Answer: 13623",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,91,ClearPath Logistics,3,what's the value of the current assets for ClearPath Logistics in 2022 ?,,158898.0,248898.0,"cash: 92533, accounts_receivable: 48131, inventories: 7697, short_term_investments: 10537
+92533 + 48131 + 7697 + 10537 = 248898
+Answer: 248898",False,0.566401,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,92,Cobalt Semiconductor,1,what would be the sum of dividends paid and total liabilities for Cobalt Semiconductor in 2023 ?,,45178.0,45178.0,"238 + 44940 = 45178
+Answer: 45178",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,93,Ironclad Manufacturing,3,Which result follows from the average non operating expenses for Ironclad Manufacturing across years 2020 through 2022,,76040.66666666667,227040.0,"(68643 + 81319 + 78160) / 3 = 227040
+Answer: 227040",False,1.985771,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,94,Atlas Global Industries,2,What's the value of the average current liabilities for Atlas Global Industries across years 2020 through 2021,,23609.5,23609.5,"(14619 + 32600) / 2 = 23609.5
+Answer: 23609.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,95,SilverLine Retail Inc,4,calculate the sum of result of ratio of sum of revenue for SilverLine Retail Inc in 2021 and revenue for SilverLine Retail Inc in 2022 to 2.0 scaled by ratio of cost of goods sold to non operating expenses for SilverLine Retail Inc in 2022 and the maximum of dividends paid for SilverLine Retail Inc using values from 2021 through 2024,,4236864.659006976,4237143.46,"(617154 + 698498) / 2.0 = 657826 
+406130 / 63362 = 6.41
+657826 * 6.41 = 4215731.46
+max(15204, 4401, 20412, 0) = 20412
+4215731.46 + 20412 = 4237143.46
+Answer: 4237143.46",True,0.000066,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,96,Apex Dynamics Corp,3,what is the value of the pretax income for Apex Dynamics Corp in 2024,,-5625.0,-5625.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 10405 - 16030
+Pretax income = -10625 is incorrect since operating income is calculated as revenue - cost_of_goods_sold - operating_expenses, and then non operating expenses are subtracted from that, however the initial calculation of operating income was correct, the correct calculation should be: 
+Pretax income = (revenue - cost_of_goods_sold - operating_expenses) - non_operating_expenses
+Pretax income = (82805 - 58867 - 13533) - 16030
+Pretax income = 10405 - 16030
+Answer: -5625",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,97,NovaStar Technologies,3,May you calculate the sum of short term investments for NovaStar Technologies in 2024 and the maximum of operating expenses for NovaStar Technologies using values from 2022 through 2024?,,63687.0,63687.0,"Short term investments in 2024: 37074
+Maximum operating expenses: max(26613, 26235, 19909) = 26613
+Sum: 37074 + 26613 = 63687
+Answer: 63687",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,98,Helix BioSciences,4,Which value corresponds to the the maximum of dividends paid for Helix BioSciences using values from 2020 through 2024?,,24652.0,24652.0,"Max dividends paid = max(1897, 6908, 2738, 1270, 24652)
+Max dividends paid = 24652
+Answer: 24652",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,99,ClearPath Logistics,2,Whats the value of the the minimum of short term investments for ClearPath Logistics using values from 2022 through 2024,,10537.0,10537.0,"10537 (2022), 54949 (2023), 68378 (2024)
+Minimum: 10537
+Answer: 10537",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,100,Apex Dynamics Corp,5,what is the average accounts receivable for Apex Dynamics Corp across years 2020 through 2024 ?,,7326.2,11526.2,"(3346 + 6150 + 10946 + 11694 + 4495) / 5 = 57631 / 5 = 11526.2
+Answer: 11526.2",False,0.573285,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,101,Pinnacle Health Group,3,state the current assets for Pinnacle Health Group in 2023,,5482.0,5482.0,"cash: 2062, accounts_receivable: 1605, inventories: 1096, short_term_investments: 719
+Current assets = 2062 + 1605 + 1096 + 719 = 5482
+Answer: 5482",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,102,Ironclad Manufacturing,4,which quantity is given by the the maximum of non operating expenses for Ironclad Manufacturing using values from 2021 through 2025 ?,,81319.0,81319.0,"Maximum non-operating expenses = max(81319, 78160, 27761, 47475, 60219)
+Maximum non-operating expenses = 81319
+Answer: 81319",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,103,Crimson Pharmaceuticals,4,What does the following give: longterm assets for Crimson Pharmaceuticals in 2020,,373943.0,374943.0,"Total assets = total current assets + longterm assets 
+158690 + longterm assets = 533633
+longterm assets = 533633 - 158690
+longterm assets = 374943
+Answer: 374943",True,0.002674,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,104,Pacific Crest Energy,3,state the the maximum of dividends paid for Pacific Crest Energy using values from 2022 through 2025.,,14599.0,14599.0,"Max dividends paid = max(14599, 774, 12175, 901)
+Max dividends paid = 14599
+Answer: 14599",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,105,Ironclad Manufacturing,3,Which result follows from the average cost of goods sold for Ironclad Manufacturing across years 2023 through 2025?,,184530.66666666666,184531.0,"(130009 + 153173 + 270410) / 3 = 184530.6667 
+Answer: 184531",True,0.000002,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,106,Apex Dynamics Corp,2,what is the the minimum of short term investments for Apex Dynamics Corp using values from 2023 through 2025?,,6054.0,6054.0,"6054 (2023), 10527 (2024), 12187 (2025)
+Minimum: 6054
+Answer: 6054",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,107,Atlas Global Industries,1,What is the value of the gross profit for Atlas Global Industries in 2020,,18704.0,18704.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 72714 - 54010
+Answer: 18704",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,108,Atlas Global Industries,1,What is the value of the the minimum of total liabilities for Atlas Global Industries using values from 2020 through 2021?,,34649.0,34649.0,"Min total liabilities = min(34649, 74292)
+Min total liabilities = 34649
+Answer: 34649",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,109,Meridian Systems Inc,5,could you give the the maximum of operating expenses for Meridian Systems Inc using values from 2020 through 2025?,,26227.0,26227.0,"Maximum operating expenses = max(20641, 8595, 26227, 15975, 16701, 19676)
+Maximum operating expenses = 26227
+Answer: 26227",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,110,Ironclad Manufacturing,3,Which quantity is given by the current assets for Ironclad Manufacturing in 2021,,57969.0,57969.0,"Cash: 9253, accounts_receivable: 23302, inventories: 9087, short_term_investments: 16327
+Current assets = 9253 + 23302 + 9087 + 16327
+Current assets = 57969
+Answer: 57969",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,111,Crimson Pharmaceuticals,5,What does the following give: the maximum of current liabilities for Crimson Pharmaceuticals using values from 2020 through 2025 ?,,213345.0,213345.0,"Maximum current liabilities = max(62984, 65249, 122414, 127801, 82551, 213345)
+Maximum current liabilities = 213345
+Answer: 213345",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,112,SilverLine Retail Inc,3,calculate the the minimum of current liabilities for SilverLine Retail Inc using values from 2020 through 2023,,91460.0,91460.0,"Minimum current liabilities = min(102662, 193924, 91460, 171877) 
+Minimum current liabilities = 91460
+Answer: 91460",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,113,Orion Financial Group,1,give the gross profit for Orion Financial Group in 2022.,,51603.0,51603.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 115348 - 63745
+Answer: 51603",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,114,Orion Financial Group,2,Give the average accounts receivable for Orion Financial Group across years 2023 through 2024,,11754.0,11754.0,"(11364 + 12144) / 2 = 11754
+Answer: 11754",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,115,Apex Dynamics Corp,1,What is the sum of capex and inventories for Apex Dynamics Corp in 2023,,8027.0,8027.0,"capex = 2159, inventories = 5868
+sum = capex + inventories = 2159 + 5868 = 8027
+Answer: 8027",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,116,Quantum Bridge Holdings,4,Compute the longterm assets for Quantum Bridge Holdings in 2025 .,,48287.0,48287.0,"65369 - 17082 = 48287
+Answer: 48287",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,117,SilverLine Retail Inc,3,calculate the average current liabilities for SilverLine Retail Inc across years 2020 through 2022.,,129348.66666666667,129015.33,"(102662 + 193924 + 91460) / 3 = 387046 / 3 = 129015.33
+Answer: 129015.33",True,0.002577,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,118,Crimson Pharmaceuticals,5,what do we obtain as the difference between longterm assets and longterm liabilities for Crimson Pharmaceuticals in 2025,,215685.0,239685.0,"longterm assets - longterm liabilities = 525521 - 285836
+Answer: 239685",False,0.111273,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,119,Orion Financial Group,1,Give the the maximum of short term investments for Orion Financial Group using values from 2021 through 2022,,12753.0,12753.0,"Max short term investments = max(8237, 12753)
+Max short term investments = 12753
+Answer: 12753",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,120,Apex Dynamics Corp,2,You should give the average inventories for Apex Dynamics Corp across years 2023 through 2024 .,,4057.0,4057.0,"(5868 + 2246) / 2 = 4057
+Answer: 4057",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,121,SilverLine Retail Inc,1,Calculate the the minimum of accounts receivable for SilverLine Retail Inc using values from 2020 through 2021,,54576.0,54576.0,"54576, 84561
+min = 54576
+Answer: 54576",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,122,Titan Consumer Brands,1,You should calculate the gross profit for Titan Consumer Brands in 2023.,,127016.0,127016.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 468895 - 341879
+Answer: 127016",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,123,Orion Financial Group,1,may you give the the minimum of accounts receivable for Orion Financial Group using values from 2022 through 2023,,9324.0,9324.0,"9324 (2022), 11364 (2023), minimum is 9324
+Answer: 9324",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,124,Apex Dynamics Corp,1,what is the longterm liabilities for Apex Dynamics Corp in 2023 ?,,60388.0,60388.0,"total_liabilities = 90275, current_liabilities = 29887 
+longterm_liabilities = total_liabilities - current_liabilities = 90275 - 29887 = 60388
+Answer: 60388",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,125,Helix BioSciences,2,Which value corresponds to the sum of total assets for Helix BioSciences in 2020 and the maximum of cash for Helix BioSciences using values from 2023 through 2024?,,251017.0,251017.0,"Sum of total assets in 2020 = 206207
+Max cash from 2023 to 2024 = max(41405, 44810) = 44810
+Sum = 206207 + 44810
+Sum = 251017
+Answer: 251017",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,126,SilverLine Retail Inc,3,Calculate the the maximum of total liabilities for SilverLine Retail Inc using values from 2022 through 2025.,,443192.0,443192.0,"443192 (2023), 328592 (2024), 198105 (2025), 295198 (2022)
+Maximum of total liabilities: 443192
+Answer: 443192",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,127,ClearPath Logistics,1,what would be the longterm liabilities for ClearPath Logistics in 2023 ?,,172824.0,172824.0,"total_liabilities = 250646, current_liabilities = 77822 
+longterm_liabilities = total_liabilities - current_liabilities = 250646 - 77822 = 172824
+Answer: 172824",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,128,Ironclad Manufacturing,3,Which result follows from the current assets for Ironclad Manufacturing in 2025,,298268.0,318268.0,"cash + accounts_receivable + inventories + short_term_investments = 109521 + 54234 + 36674 + 97839
+Answer: 318268",True,0.067054,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,129,Crimson Pharmaceuticals,2,What do we obtain as the sum of sum of short term investments and capex and accounts receivable for Crimson Pharmaceuticals in 2020 ?,,79578.0,79578.0,"Sum = 8908 + 38887 + 31783 = 79578
+Answer: 79578",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,130,Cobalt Semiconductor,2,What would be the difference between sum of operating expenses and total equity and dividends paid for Cobalt Semiconductor in 2023 ?,,34172.0,-7402.0,"Sum of operating expenses: 13623
+Total equity: 20787, Dividends paid: 238, Total: 21025
+Difference: 13623 - 21025 = -7402
+Answer: -7402",False,1.216610,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,131,Cobalt Semiconductor,2,what would be the the maximum of total liabilities for Cobalt Semiconductor using values from 2020 through 2022?,,57819.0,57819.0,"Max total liabilities = max(57819, 33030, 39076)
+Max total liabilities = 57819
+Answer: 57819",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,132,Titan Consumer Brands,1,evaluate the sum of cash and total equity for Titan Consumer Brands in 2020,,794159.0,793159.0,"126394 + 667765 = 793159
+Answer: 793159",True,0.001259,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,133,ClearPath Logistics,4,What would be the longterm assets for ClearPath Logistics in 2020 ?,,269311.0,269311.0,"total_assets - (cash + accounts_receivable + inventories + short_term_investments) 
+= 403472 - (24389 + 33576 + 22786 + 53410) 
+= 403472 - 134161 
+= 269311
+Answer: 269311",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,134,SilverLine Retail Inc,1,Calculate the difference between total equity and non operating expenses for SilverLine Retail Inc in 2024.,,114947.0,114947.0,"Total equity in 2024: 308925
+Non operating expenses in 2024: 193978
+Difference: 308925 - 193978 = 114947
+Answer: 114947",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,135,Titan Consumer Brands,1,You should calculate the the maximum of total equity for Titan Consumer Brands using values from 2023 through 2024.,,472468.0,472468.0,"Total equity 2023: 472468, Total equity 2024: 429776
+Max total equity: 472468
+Answer: 472468",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,136,Pacific Crest Energy,1,provide the longterm liabilities for Pacific Crest Energy in 2023,,37323.0,37323.0,"total_liabilities: 64638
+current_liabilities: 27315
+longterm_liabilities = total_liabilities - current_liabilities = 64638 - 27315 = 37323
+Answer: 37323",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,137,Ironclad Manufacturing,4,which result follows from the the minimum of dividends paid for Ironclad Manufacturing using values from 2020 through 2024?,,0.0,0.0,"Minimum dividends paid = min(0, 8718, 3921, 29575, 9119)
+Minimum dividends paid = 0
+Answer: 0",True,,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,138,SilverLine Retail Inc,5,Calculate the average cash for SilverLine Retail Inc across years 2021 through 2025 .,,83932.0,80332.0,"(73785 + 90754 + 63824 + 60999 + 130298) / 5 = 401660 / 5 = 80332
+Answer: 80332",True,0.042892,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,139,ClearPath Logistics,1,Whats the value of the longterm liabilities for ClearPath Logistics in 2021 ?,,378544.0,378544.0,"total_liabilities = 547777, current_liabilities = 169233
+longterm_liabilities = total_liabilities - current_liabilities = 547777 - 169233 = 378544
+Answer: 378544",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,140,SilverLine Retail Inc,3,Evaluate the difference between result of result of cash scaled by income tax scaled by ratio of inventories to total liabilities for SilverLine Retail Inc in 2025 and the maximum of short term investments for SilverLine Retail Inc using values from 2023 through 2025,,-46221.501545669,868070.2387,"(130298 * 0.14671248921157862) / (39955 / 198105) = 130298 * 0.14671248921157862 * (198105 / 39955) 
+= 130298 * 0.14671248921157862 * 4.955430535211267
+= 918147.2387 
+Max of short term investments: 50077
+918147.2387 - 50077 = 868070.2387
+Answer: 868070.2387",False,19.780659,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,141,Helix BioSciences,1,which value corresponds to the longterm liabilities for Helix BioSciences in 2024?,,54455.0,54455.0,"total_liabilities = 81788, current_liabilities = 27333
+longterm_liabilities = total_liabilities - current_liabilities = 81788 - 27333 = 54455
+Answer: 54455",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,142,Atlas Global Industries,4,What is the value of the the maximum of total assets for Atlas Global Industries using values from 2021 through 2025?,,186854.0,186854.0,"Max total assets = max(186854, 66524, 104031, 73012, 120811)
+Max total assets = 186854
+Answer: 186854",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,143,Meridian Systems Inc,5,Could you give the average cost of goods sold for Meridian Systems Inc across years 2020 through 2024 ?,,89830.6,89830.6,"(52780 + 92388 + 84255 + 93952 + 125778) / 5 = 449153 / 5 = 89830.6
+Answer: 89830.6",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,144,Meridian Systems Inc,4,you should give the longterm assets for Meridian Systems Inc in 2021,,64613.0,64613.0,"Total assets: 121218, Current assets: 56605
+Long-term assets = 121218 - 56605 = 64613
+Answer: 64613",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,145,ClearPath Logistics,5,What's the value of the sum of inventories and longterm assets for ClearPath Logistics in 2022 ?,,348387.0,257387.0,"7697 + 249690 = 257387
+Answer: 257387",False,0.261204,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,146,Quantum Bridge Holdings,5,Determine the the minimum of cost of goods sold for Quantum Bridge Holdings using values from 2020 through 2025.,,28498.0,28498.0,"Minimum cost of goods sold = min(37878, 59873, 35311, 28498, 35929, 46761)
+Minimum cost of goods sold = 28498
+Answer: 28498",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,147,Orion Financial Group,4,You should calculate the the minimum of capex for Orion Financial Group using values from 2020 through 2024,,3204.0,3204.0,"Minimum capex = min(8538, 9407, 3204, 7088, 11785)
+Minimum capex = 3204
+Answer: 3204",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,148,ClearPath Logistics,1,what would be the longterm liabilities for ClearPath Logistics in 2022?,,138082.0,138082.0,"total_liabilities = 201280, current_liabilities = 63198
+longterm_liabilities = total_liabilities - current_liabilities = 201280 - 63198 = 138082
+Answer: 138082",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,149,NovaStar Technologies,2,may you calculate the operating income for NovaStar Technologies in 2024?,,80625.0,63625.0,"Operating income = revenue - cost_of_goods_sold - operating_expenses
+Operating income = 177982 - 77448 - 19909
+Answer: 63625",False,0.210853,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,150,Meridian Systems Inc,3,could you give the the maximum of inventories for Meridian Systems Inc using values from 2022 through 2025,,18608.0,18608.0,"Maximum inventories = max(3888, 2744, 18608, 10774)
+Maximum inventories = 18608
+Answer: 18608",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,151,NovaStar Technologies,3,may you calculate the average dividends paid for NovaStar Technologies across years 2022 through 2024,,2577.0,2577.0,"Sum of dividends: 1212 + 877 + 5642 = 7731
+Number of years: 3
+Average dividends: 7731 / 3 = 2577
+Answer: 2577",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,152,NovaStar Technologies,1,may you give the sum of accounts receivable and total liabilities for NovaStar Technologies in 2020,,56773.0,56773.0,"13643 + 43130 = 56773
+Answer: 56773",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,153,Quantum Bridge Holdings,4,determine the average cost of goods sold for Quantum Bridge Holdings across years 2022 through 2025.,,36624.75,36624.75,"(35311 + 28498 + 35929 + 46761) / 4 = 146499 / 4 = 36624.75
+Answer: 36624.75",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,154,Atlas Global Industries,1,what is the value of the gross profit for Atlas Global Industries in 2020?,,18704.0,18704.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 72714 - 54010
+Answer: 18704",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,155,Atlas Global Industries,1,What's the value of the the maximum of accounts receivable for Atlas Global Industries using values from 2020 through 2021?,,7753.0,7753.0,"Max accounts receivable = max(5701, 7753)
+Max accounts receivable = 7753
+Answer: 7753",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,156,Titan Consumer Brands,1,evaluate the the minimum of operating expenses for Titan Consumer Brands using values from 2024 through 2025,,29355.0,29355.0,"2024 operating expenses: 29355
+2025 operating expenses: 102226
+Minimum operating expenses: 29355
+Answer: 29355",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,157,Titan Consumer Brands,3,Evaluate the the minimum of dividends paid for Titan Consumer Brands using values from 2021 through 2024 .,,0.0,0.0,"Minimum dividends paid = min(20810, 17554, 0, 2250)
+Minimum dividends paid = 0
+Answer: 0",True,,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,158,SilverLine Retail Inc,3,Compute the average revenue for SilverLine Retail Inc across years 2022 through 2024.,,779552.6666666666,779552.67,"(698498 + 821168 + 818992) / 3 = 2338658 / 3 = 779552.67
+Answer: 779552.67",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,159,Atlas Global Industries,1,What is the value of the longterm liabilities for Atlas Global Industries in 2023,,24716.0,24716.0,"total_liabilities = 33171, current_liabilities = 8455
+longterm_liabilities = total_liabilities - current_liabilities = 33171 - 8455 = 24716
+Answer: 24716",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,160,SilverLine Retail Inc,5,calculate the the maximum of inventories for SilverLine Retail Inc using values from 2020 through 2025 .,,80451.0,80451.0,"Maximum inventories = max(23923, 19238, 59502, 61459, 80451, 39955)
+Maximum inventories = 80451
+Answer: 80451",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,161,Pinnacle Health Group,1,determine the result of dividends paid scaled by income tax for Pinnacle Health Group in 2025,,38.31124644583179,38.26510911319593,"Dividends paid in 2025: 323, Income tax in 2025: 0.11861067011093435 
+323 * 0.11861067011093435 = 38.26510911319593
+Answer: 38.26510911319593",True,0.001204,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,162,Apex Dynamics Corp,4,What is the longterm assets for Apex Dynamics Corp in 2023?,,111691.0,106691.0,"148589 - 41898 = 106691
+Answer: 106691",True,0.044766,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,163,Meridian Systems Inc,1,Could you give the the maximum of cost of goods sold for Meridian Systems Inc using values from 2023 through 2024,,125778.0,125778.0,"Max cost of goods sold = max(93952, 125778)
+Max cost of goods sold = 125778
+Answer: 125778",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,164,Atlas Global Industries,3,what's the value of the current assets for Atlas Global Industries in 2025?,,28206.0,28206.0,"Cash: 8454, accounts_receivable: 6495, inventories: 4358, short_term_investments: 8899
+8454 + 6495 + 4358 + 8899 = 28206
+Answer: 28206",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,165,Meridian Systems Inc,4,you should calculate the sum of ratio of sum of sum of cost of goods sold for Meridian Systems Inc in 2020 and cost of goods sold for Meridian Systems Inc in 2021 and cost of goods sold for Meridian Systems Inc in 2022 to 3.0 and total equity for Meridian Systems Inc in 2022,,184911.3333333333,0.3375,"(52780 + 92388 + 84255) / 3.0 = 109808 / 3.0 = 36602.67, 36602.67 / 108437 = 0.3375
+Answer: 0.3375",False,0.999998,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,166,Apex Dynamics Corp,1,what is the the minimum of short term investments for Apex Dynamics Corp using values from 2022 through 2023,,6054.0,6054.0,"Min short_term_investments = min(27059, 6054)
+Min short_term_investments = 6054
+Answer: 6054",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,167,Helix BioSciences,1,which value corresponds to the longterm liabilities for Helix BioSciences in 2020?,,82214.0,82214.0,"total_liabilities = 128949, current_liabilities = 46735
+longterm_liabilities = total_liabilities - current_liabilities = 128949 - 46735 = 82214
+Answer: 82214",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,168,Atlas Global Industries,5,What is the value of the the maximum of short term investments for Atlas Global Industries using values from 2020 through 2025?,,14819.0,14819.0,"Max short term investments = max(1635, 10169, 4762, 14819, 4705, 8899)
+Answer: 14819",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,169,Pinnacle Health Group,1,determine the difference between operating expenses and total liabilities for Pinnacle Health Group in 2020 .,,-8240.0,8240.0,"Operating expenses: 1876, Total liabilities: 10116 
+Difference: 10116 - 1876 = 8240
+Answer: 8240",False,2.000000,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,170,Meridian Systems Inc,3,could you give the current assets for Meridian Systems Inc in 2024,,89199.0,89199.0,"Current assets = cash + accounts_receivable + inventories + short_term_investments
+Current assets = 44662 + 20351 + 18608 + 5578
+Current assets = 89199
+Answer: 89199",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,171,Ironclad Manufacturing,5,Which quantity is given by the the minimum of accounts receivable for Ironclad Manufacturing using values from 2020 through 2025 ?,,23302.0,23302.0,"Minimum accounts receivable: min(42355, 23302, 30058, 25432, 23748, 54234) = 23302
+Answer: 23302",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,172,Crimson Pharmaceuticals,4,what does the following give: the minimum of total liabilities for Crimson Pharmaceuticals using values from 2021 through 2025 ?,,194929.0,194929.0,"Minimum total liabilities = min(221096, 292999, 372880, 194929, 499181)
+Minimum total liabilities = 194929
+Answer: 194929",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,173,Quantum Bridge Holdings,5,Compute the sum of ratio of sum of sum of sum of revenue for Quantum Bridge Holdings in 2020 and revenue for Quantum Bridge Holdings in 2021 and revenue for Quantum Bridge Holdings in 2022 and revenue for Quantum Bridge Holdings in 2023 to 4.0 and difference between longterm liabilities and total equity for Quantum Bridge Holdings in 2021 .,,53411.0,53411.0,"(79628 + 83888 + 84608 + 86108) / 4.0 = 83558.0 
+Longterm liabilities = 20731 - 8135 = 12596
+Total equity = 42743
+Difference = 12596 - 42743 = -30147
+Sum of ratio and difference = 83558.0 + (-30147) = 53411
+Answer: 53411",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,174,Ironclad Manufacturing,4,Which result follows from the difference between sum of the minimum of non operating expenses for Ironclad Manufacturing using values from 2022 through 2024 and revenue and non operating expenses for Ironclad Manufacturing in 2024 ?,,441608.0,487036.0,"Min non-operating expenses = 27761, Revenue 2024 = 461322, Non-operating expenses 2024 = 47475
+Difference = 461322 + 47475 - 27761
+Difference = 487036
+Answer: 487036",False,0.102870,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,175,ClearPath Logistics,1,Whats the value of the result of capex scaled by income tax for ClearPath Logistics in 2020,,13280.577170847548,13281.19,"45287 * 0.2932536306411895 = 13281.19
+Answer: 13281.19",True,0.000046,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,176,Quantum Bridge Holdings,1,Compute the longterm liabilities for Quantum Bridge Holdings in 2022 .,,73911.0,73911.0,"total_liabilities = 124280, current_liabilities = 50369
+longterm_liabilities = total_liabilities - current_liabilities = 124280 - 50369 = 73911
+Answer: 73911",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,177,Meridian Systems Inc,4,could you give the the maximum of current liabilities for Meridian Systems Inc using values from 2021 through 2025 ?,,50136.0,50136.0,"50136
+Answer: 50136",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,178,Titan Consumer Brands,1,you should calculate the the minimum of total liabilities for Titan Consumer Brands using values from 2024 through 2025.,,347347.0,347347.0,"717731 (2024), 347347 (2025)
+Minimum: 347347
+Answer: 347347",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,179,Ironclad Manufacturing,1,Which result follows from the longterm liabilities for Ironclad Manufacturing in 2023?,,123432.0,123432.0,"Total liabilities: 190519, Current liabilities: 67087 
+Longterm liabilities: 190519 - 67087 = 123432
+Answer: 123432",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,180,ClearPath Logistics,3,Whats the value of the average total equity for ClearPath Logistics across years 2021 through 2023,,359123.3333333333,358789.0,"(360843 + 298308 + 418219) / 3 = 1077370 / 3 = 358789
+Answer: 358789",True,0.000931,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,181,Apex Dynamics Corp,4,What is the value of the the minimum of cost of goods sold for Apex Dynamics Corp using values from 2020 through 2024 ?,,27804.0,27804.0,"Minimum cost of goods sold = min(27804, 50583, 46060, 53607, 58867)
+Minimum cost of goods sold = 27804
+Answer: 27804",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,182,Crimson Pharmaceuticals,1,what does the following give: gross profit for Crimson Pharmaceuticals in 2021,,301219.0,301219.0,"550238 - 249019 = 301219
+Answer: 301219",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,183,Ironclad Manufacturing,1,which result follows from the longterm liabilities for Ironclad Manufacturing in 2022,,250718.0,250718.0,"total_liabilities: 450869, current_liabilities: 200151 
+longterm_liabilities = total_liabilities - current_liabilities = 450869 - 200151 = 250718
+Answer: 250718",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,184,SilverLine Retail Inc,3,compute the the maximum of capex for SilverLine Retail Inc using values from 2021 through 2024 .,,76984.0,76984.0,"Max capex = max(39132, 44751, 76984, 38992)
+Max capex = 76984
+Answer: 76984",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,185,Apex Dynamics Corp,1,what is the gross profit for Apex Dynamics Corp in 2025,,37941.0,37941.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 79388 - 41447
+Answer: 37941",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,186,Ironclad Manufacturing,2,which result follows from the average total assets for Ironclad Manufacturing across years 2022 through 2023,,646966.5,646966.5,"Average total assets: (915627 + 378306) / 2 = 1293933 / 2 = 646966.5
+Answer: 646966.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,187,NovaStar Technologies,5,may you calculate the sum of result of ratio of sum of total liabilities for NovaStar Technologies in 2022 and total liabilities for NovaStar Technologies in 2023 to 2.0 scaled by ratio of result of difference between inventories and total liabilities scaled by ratio of cash to total equity for NovaStar Technologies in 2023 to the maximum of total equity for NovaStar Technologies using values from 2023 through 2024 and inventories for NovaStar Technologies in 2023 ?,,-316508.53511545126,324851.0,"(116964 + 387126) / 2.0 = 252045
+(8748 - 387126) = -378378, 78005 / 138306 = 0.564, -378378 * 0.564 = -213111
+max(138306, 165371) = 165371
+213111 / 165371 = 1.289
+252045 * 1.289 = 324851
+Answer: 324851",False,2.026358,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,188,Quantum Bridge Holdings,1,compute the longterm liabilities for Quantum Bridge Holdings in 2025,,28735.0,28735.0,"total_liabilities = 44720, current_liabilities = 15985
+longterm_liabilities = total_liabilities - current_liabilities = 44720 - 15985 = 28735
+Answer: 28735",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,189,Pinnacle Health Group,2,State the the maximum of total assets for Pinnacle Health Group using values from 2021 through 2023.,,15122.0,15122.0,"Max total assets = max(10369, 13861, 15122) 
+Max total assets = 15122
+Answer: 15122",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,190,Helix BioSciences,4,Which value corresponds to the the minimum of current liabilities for Helix BioSciences using values from 2021 through 2025 ?,,27333.0,27333.0,"Minimum current liabilities = min(27839, 97887, 54426, 27333, 56026)
+Minimum current liabilities = 27333
+Answer: 27333",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,191,Pinnacle Health Group,1,you should calculate the sum of total equity and total assets for Pinnacle Health Group in 2021,,16883.0,16883.0,"6514 + 10369 = 16883
+Answer: 16883",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,192,Helix BioSciences,3,which result follows from the the maximum of operating expenses for Helix BioSciences using values from 2022 through 2025,,28101.0,28101.0,"Max operating expenses = max(14463, 27838, 28101, 27834) 
+Max operating expenses = 28101
+Answer: 28101",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,193,NovaStar Technologies,3,may you calculate the pretax income for NovaStar Technologies in 2024 ?,,57189.0,40189.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 63625 - 23436
+Answer: 40189",False,0.297260,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,194,Crimson Pharmaceuticals,2,What does the following give: difference between cost of goods sold and result of current liabilities scaled by income tax for Crimson Pharmaceuticals in 2025,,534037.3458477148,534116.681,"(597468 - 213345*0.29731493192849723) 
+= 597468 - 63351.319 
+= 534116.681
+Answer: 534116.681",True,0.000149,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,195,Orion Financial Group,1,Give the longterm liabilities for Orion Financial Group in 2025 .,,56711.0,56711.0,"Total liabilities: 79040
+Current liabilities: 22329
+Longterm liabilities: 79040 - 22329 = 56711
+Answer: 56711",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,196,Orion Financial Group,1,You should calculate the the maximum of total liabilities for Orion Financial Group using values from 2020 through 2021.,,33826.0,33826.0,"Max total liabilities = max(33826, 19965)
+Max total liabilities = 33826
+Answer: 33826",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,197,NovaStar Technologies,2,May you calculate the average current liabilities for NovaStar Technologies across years 2022 through 2023?,,84517.5,84517.5,"(37004 + 132031) / 2 = 84517.5
+Answer: 84517.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,198,Apex Dynamics Corp,1,what is the result of capex scaled by income tax for Apex Dynamics Corp in 2023,,446.54159890142796,446.3197371421154,"capex = 2159, income_tax = 0.2068279754059416
+result = capex * income_tax = 2159 * 0.2068279754059416
+Answer: 446.3197371421154",True,0.000497,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,199,Titan Consumer Brands,4,You should calculate the sum of current assets and difference between operating expenses and cash for Titan Consumer Brands in 2022.,,201662.0,-1569.0,"cash + accounts_receivable + inventories + short_term_investments = 65913 + 59855 + 18939 + 58524 = 203231
+operating_expenses - cash = 64344 - 65913 = -1569
+Answer: -1569",False,1.007780,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,200,Pacific Crest Energy,5,you should give the the maximum of total liabilities for Pacific Crest Energy using values from 2020 through 2025.,,246479.0,246479.0,"Maximum total liabilities = max(246479, 88419, 174646, 64638, 84920, 121657)
+Answer: 246479",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,201,Ironclad Manufacturing,2,which quantity is given by the difference between gross profit and operating expenses for Ironclad Manufacturing in 2020?,,45826.0,45826.0,"Gross profit = 365060 - 231556 = 133504
+Operating income = Gross profit - operating_expenses
+Operating income = 133504 - 87678
+Answer: 45826",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,202,Orion Financial Group,1,Give the the maximum of total equity for Orion Financial Group using values from 2020 through 2021,,59143.0,59143.0,"Total equity 2020: 34037
+Total equity 2021: 59143
+Max total equity: 59143
+Answer: 59143",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,203,Cobalt Semiconductor,1,what do we obtain as the gross profit for Cobalt Semiconductor in 2023,,28997.0,28997.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 56007 - 27010
+Answer: 28997",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,204,Quantum Bridge Holdings,2,determine the average total assets for Quantum Bridge Holdings across years 2024 through 2025,,75848.5,75848.5,"(86328 + 65369) / 2 = 75848.5
+Answer: 75848.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,205,Orion Financial Group,5,Give the the minimum of short term investments for Orion Financial Group using values from 2020 through 2025.,,5816.0,5816.0,"Minimum short term investments = min(7772, 8237, 12753, 37697, 26878, 5816)
+Minimum short term investments = 5816
+Answer: 5816",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,206,Ironclad Manufacturing,4,Which result follows from the the minimum of inventories for Ironclad Manufacturing using values from 2020 through 2024?,,7540.0,7540.0,"Minimum inventories = min(22596, 9087, 21863, 11929, 7540)
+Minimum inventories = 7540
+Answer: 7540",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,207,Titan Consumer Brands,1,You should calculate the longterm liabilities for Titan Consumer Brands in 2022.,,204920.0,204920.0,"Total liabilities: 316946, Current liabilities: 112026
+Longterm liabilities = Total liabilities - Current liabilities = 316946 - 112026 = 204920
+Answer: 204920",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,208,Meridian Systems Inc,5,Could you give the average total liabilities for Meridian Systems Inc across years 2020 through 2024 ?,,91426.2,92226.2,"(56087 + 88211 + 94541 + 75315 + 142977) / 5 = 461131 / 5 = 92226.2
+Answer: 92226.2",True,0.008750,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,209,Crimson Pharmaceuticals,4,what does the following give: average operating expenses for Crimson Pharmaceuticals across years 2022 through 2025 ?,,98109.75,96109.75,"(85599 + 98272 + 39324 + 169244) / 4 = 384439 / 4 = 96109.75
+Answer: 96109.75",True,0.020385,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,210,Pinnacle Health Group,3,State the current assets for Pinnacle Health Group in 2025.,,10900.0,10900.0,"Current assets = cash + accounts_receivable + inventories + short_term_investments
+Current assets = 4013 + 2289 + 1123 + 3475
+Current assets = 10900
+Answer: 10900",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,211,Atlas Global Industries,1,what is the value of the the minimum of operating expenses for Atlas Global Industries using values from 2020 through 2021,,11900.0,11900.0,"Minimum operating expenses = min(12525, 11900)
+Minimum operating expenses = 11900
+Answer: 11900",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,212,NovaStar Technologies,4,May you calculate the the minimum of accounts receivable for NovaStar Technologies using values from 2021 through 2025?,,10975.0,10975.0,"Minimum accounts receivable: min(15250, 20455, 17765, 23856, 10975) = 10975
+Answer: 10975",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,213,Pinnacle Health Group,3,Determine the pretax income for Pinnacle Health Group in 2022.,,1255.0,1255.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 2530 - 1275
+Answer: 1255",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,214,ClearPath Logistics,4,whats the value of the the minimum of total assets for ClearPath Logistics using values from 2020 through 2024?,,403472.0,403472.0,"499588, 403472, 908620, 668865, 690729 
+Minimum: 403472
+Answer: 403472",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,215,Quantum Bridge Holdings,5,determine the average operating expenses for Quantum Bridge Holdings across years 2021 through 2025 .,,13085.2,11005.2,"13105 + 15563 + 8512 + 10329 + 17917 = 55026
+55026 / 5 = 11005.2
+Answer: 11005.2",False,0.158958,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,216,Pinnacle Health Group,2,You should calculate the operating income for Pinnacle Health Group in 2023 .,,5901.0,1901.0,"Operating income = revenue - cost_of_goods_sold - operating_expenses
+Operating income = 19203 - 9524 - 3778
+Answer: 1901",False,0.677851,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,217,Meridian Systems Inc,3,could you give the pretax income for Meridian Systems Inc in 2021?,,50836.0,57836.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 77531 - 19695
+Answer: 57836",False,0.137698,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,218,Titan Consumer Brands,3,evaluate the average revenue for Titan Consumer Brands across years 2020 through 2022.,,457855.3333333333,457552.67,"(428824 + 471764 + 472978) / 3 = 1373566 / 3 = 457552.6667
+Answer: 457552.67",True,0.000661,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,219,Helix BioSciences,3,What does the following give: the maximum of cash for Helix BioSciences using values from 2021 through 2024,,62300.0,62300.0,"Max cash = max(18724, 62300, 41405, 44810)
+Max cash = 62300
+Answer: 62300",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,220,Pacific Crest Energy,3,provide the the minimum of total assets for Pacific Crest Energy using values from 2022 through 2025.,,146966.0,146966.0,"Minimum total assets = min(298285, 194061, 146966, 178551)
+Minimum total assets = 146966
+Answer: 146966",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,221,Titan Consumer Brands,2,evaluate the difference between longterm liabilities and total liabilities for Titan Consumer Brands in 2020.,,-96173.0,96173.0,"total_liabilities = 314922, current_liabilities = 96173
+longterm_liabilities = total_liabilities - current_liabilities = 218749
+difference = total_liabilities - longterm_liabilities = 314922 - 218749 = 96173
+Answer: 96173",False,2.000000,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,222,Pacific Crest Energy,2,provide the average total equity for Pacific Crest Energy across years 2023 through 2024,,95734.5,95784.5,"(129423 + 62046) / 2 = 95784.5
+Answer: 95784.5",True,0.000522,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,223,SilverLine Retail Inc,1,Evaluate the difference between dividends paid and total liabilities for SilverLine Retail Inc in 2025.,,-137563.0,137563.0,"Dividends paid: 60542, Total liabilities: 198105 
+Difference: 198105 - 60542 = 137563
+Answer: 137563",False,2.000000,False,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,224,Apex Dynamics Corp,3,What is the pretax income for Apex Dynamics Corp in 2024,,-5625.0,-5625.0,"Pretax income = operating income - non_operating_expenses
+Pretax income = 10405 - 16030
+Answer: -5625",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,225,Apex Dynamics Corp,2,what is the value of the operating income for Apex Dynamics Corp in 2023?,,28950.0,28950.0,"Operating income = revenue - cost_of_goods_sold - operating_expenses
+Operating income = 88228 - 53607 - 5671
+Answer: 28950",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,226,Orion Financial Group,3,Give the current assets for Orion Financial Group in 2025,,66354.0,70954.0,"Cash: 43847, Accounts Receivable: 5376, Inventories: 11315, Short-term Investments: 5816
+Current Assets: 43847 + 5376 + 11315 + 5816 = 70954
+Answer: 70954",True,0.069325,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,227,ClearPath Logistics,5,what would be the average total equity for ClearPath Logistics across years 2020 through 2024?,,273583.8,253583.8,"(116496 + 360843 + 298308 + 418219 + 174053) / 5 = 1267919 / 5 = 253583.8
+Answer: 253583.8",True,0.073104,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,228,Cobalt Semiconductor,4,What would be the average inventories for Cobalt Semiconductor across years 2020 through 2023,,2323.5,2323.5,"(1017 + 4147 + 3218 + 912) / 4 = 9294 / 4 = 2323.5
+Answer: 2323.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,229,Orion Financial Group,1,Give the gross profit for Orion Financial Group in 2020,,40234.0,40234.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 87989 - 47755
+Answer: 40234",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,230,ClearPath Logistics,4,whats the value of the the maximum of non operating expenses for ClearPath Logistics using values from 2020 through 2024 ?,,80320.0,80320.0,"80320, 70766, 60901, 76033, 39883 
+Maximum of non operating expenses: 80320
+Answer: 80320",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,231,ClearPath Logistics,2,Whats the value of the average cash for ClearPath Logistics across years 2022 through 2023,,122896.0,122896.0,"2022 cash: 92533
+2023 cash: 153259
+Average: (92533 + 153259) / 2 = 245792 / 2 = 122896
+Answer: 122896",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,232,SilverLine Retail Inc,5,evaluate the the minimum of cost of goods sold for SilverLine Retail Inc using values from 2020 through 2025 .,,233341.0,233341.0,"233341, 265190, 406130, 416867, 536852, 318407
+Minimum: 233341
+Answer: 233341",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,233,Pinnacle Health Group,1,Determine the difference between current liabilities and capex for Pinnacle Health Group in 2024,,6216.0,6216.0,"Current liabilities: 6778, Capex: 562
+Difference: 6778 - 562 = 6216
+Answer: 6216",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,234,NovaStar Technologies,1,may you give the the maximum of total equity for NovaStar Technologies using values from 2021 through 2022?,,41244.0,41244.0,"Total equity 2021: 25728, 2022: 41244
+Max total equity: 41244
+Answer: 41244",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,235,Atlas Global Industries,4,You should calculate the sum of the minimum of inventories for Atlas Global Industries using values from 2020 through 2023 and the minimum of total liabilities for Atlas Global Industries using values from 2022 through 2025,,34823.0,34823.0,"Minimum inventories = min(3886, 4731, 1652, 3957) = 1652
+Minimum total liabilities = min(34053, 33171, 53407, 87626) = 33171
+Sum = 1652 + 33171 = 34823
+Answer: 34823",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,236,Crimson Pharmaceuticals,3,what does the following give: current assets for Crimson Pharmaceuticals in 2023?,,255432.0,237432.0,"cash + accounts_receivable + inventories + short_term_investments = 158784 + 30873 + 17260 + 48515
+Answer: 237432",True,0.070469,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,237,Ironclad Manufacturing,5,which quantity is given by the average total assets for Ironclad Manufacturing across years 2020 through 2024 ?,,468479.6,468279.6,"(307723 + 282967 + 915627 + 378306 + 457775) / 5 = 2341398 / 5 = 468279.6
+Answer: 468279.6",True,0.000427,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,238,SilverLine Retail Inc,3,Evaluate the the maximum of operating expenses for SilverLine Retail Inc using values from 2021 through 2024,,147524.0,147524.0,"Max operating expenses = max(147524, 141095, 60350, 108917)
+Max operating expenses = 147524
+Answer: 147524",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,239,Atlas Global Industries,5,what is the value of the sum of the minimum of non operating expenses for Atlas Global Industries using values from 2021 through 2025 and gross profit for Atlas Global Industries in 2024 ?,,39365.0,39365.0,"Sum = min(13446, 12182, 11884, 14501, 17964) + (91983 - 64502)
+Sum = 11884 + 27481
+Sum = 39365
+Answer: 39365",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,240,Atlas Global Industries,2,what is the value of the average accounts receivable for Atlas Global Industries across years 2024 through 2025?,,6342.5,6342.5,"(6190 + 6495) / 2 = 6342.5
+Answer: 6342.5",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,241,SilverLine Retail Inc,3,Calculate the the minimum of revenue for SilverLine Retail Inc using values from 2021 through 2024 .,,617154.0,617154.0,"Min revenue = min(617154, 698498, 821168, 818992)
+Min revenue = 617154
+Answer: 617154",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,242,Meridian Systems Inc,1,which quantity is given by the longterm liabilities for Meridian Systems Inc in 2025?,,49048.0,49048.0,"total_liabilities = 94613, current_liabilities = 45565
+longterm_liabilities = total_liabilities - current_liabilities = 94613 - 45565 = 49048
+Answer: 49048",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,243,Apex Dynamics Corp,1,what is the sum of cash and total liabilities for Apex Dynamics Corp in 2024,,82919.0,82919.0,"15788 + 67131 = 82919
+Answer: 82919",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,244,Meridian Systems Inc,1,could you give the gross profit for Meridian Systems Inc in 2022?,,79704.0,79704.0,"Gross profit = revenue - cost_of_goods_sold
+Gross profit = 163959 - 84255
+Answer: 79704",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,245,Pinnacle Health Group,5,determine the the maximum of total liabilities for Pinnacle Health Group using values from 2020 through 2025 .,,28203.0,28203.0,"Maximum total liabilities = max(10116, 3855, 7666, 9629, 26839, 28203)
+Maximum total liabilities = 28203
+Answer: 28203",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,246,Helix BioSciences,1,Which value corresponds to the difference between total liabilities and current liabilities for Helix BioSciences in 2025?,,90063.0,90063.0,"146089 - 56026 = 90063
+Answer: 90063",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,247,Ironclad Manufacturing,3,which quantity is given by the current assets for Ironclad Manufacturing in 2024,,79070.0,79070.0,"cash + accounts_receivable + inventories + short_term_investments 
+= 33656 + 23748 + 7540 + 14126 
+= 79070
+Answer: 79070",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,248,NovaStar Technologies,1,may you give the longterm liabilities for NovaStar Technologies in 2025 ?,,96177.0,96177.0,"total_liabilities = 162525, current_liabilities = 66348
+longterm_liabilities = total_liabilities - current_liabilities = 162525 - 66348 = 96177
+Answer: 96177",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,249,Titan Consumer Brands,1,evaluate the result of short term investments scaled by income tax for Titan Consumer Brands in 2024 .,,11003.970379023003,11001.32,"short_term_investments = 67721, income_tax = 0.1624897798175308
+result = short_term_investments * income_tax = 67721 * 0.1624897798175308
+result = 11001.31996451
+Answer: 11001.32",True,0.000241,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,250,ClearPath Logistics,5,what's the value of the the maximum of short term investments for ClearPath Logistics using values from 2020 through 2025?,,77316.0,77316.0,"Maximum short term investments = max(53410, 72945, 10537, 54949, 68378, 77316)
+Answer: 77316",True,0.000000,True,False
+meta-llama/Llama-3.3-70B-Instruct-Turbo,mt,251,Pinnacle Health Group,1,state the result of accounts receivable scaled by income tax for Pinnacle Health Group in 2023,,247.19644924035566,247.27,"1605 * 0.15401647927748016 = 247.27
+Answer: 247.27",True,0.000298,True,False

@@ -1,0 +1,518 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+LiquidAI/LFM2.5-8B-A1B,90q,2,Quantum Bridge Holdings,3,determine the current assets for Quantum Bridge Holdings in 2021.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 79628
+    cost_of_goods_sold: 37878
+    operating_expenses: 18737
+    non_operating_expenses: 16485
+    income_tax: 0.15704984578938405
+    total_assets: 70101
+    total_liabilities: 48679
+    total_equity: 21422
+    cash: 14184
+    accounts_receivable: 8455
+    inventories: 3154
+    short_term_investments: 2565
+    current_liabilities: 14819
+    capex: 6279
+    dividends_paid: 129
+    shares_outstanding: 1008
+    stock_price: 261.18
+    employees: 29820
+  Year 2021:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 83888
+    cost_of_goods_sold: 59873
+    operating_expenses: 13105
+    non_operating_expenses: 5149
+    income_tax: 0.20156569939868368
+    total_assets: 63474
+    total_liabilities: 20731
+    total_equity: 42743
+    cash: 2853
+    accounts_receivable: 10585
+    inventories: 4340
+    short_term_investments: 9002
+    current_liabilities: 8135
+    capex: 1944
+    dividends_paid: 1065
+    shares_outstanding: 1322
+    stock_price: 531.04
+    employees: 284787
+  Year 2022:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 84608
+    cost_of_goods_sold: 35311
+    operating_expenses: 15563
+    non_operating_expenses: 9547
+    income_tax: 0.15312290250627075
+    total_assets: 185116
+    total_liabilities: 124280
+    total_equity: 60836
+    cash: 24174
+    accounts_receivable: 11245
+    inventories: 5002
+    short_term_investments: 2093
+    current_liabilities: 50369
+    capex: 2369
+    dividends_paid: 4613
+    shares_outstanding: 8111
+    stock_price: 412.12
+    employees: 70566
+  Year 2023:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 86108
+    cost_of_goods_sold: 28498
+    operating_expenses: 8512
+    non_operating_expenses: 9213
+    income_tax: 0.18763691460154197
+    total_assets: 90463
+    total_liabilities: 47727
+    total_equity: 42736
+    cash: 22294
+    accounts_receivable: 10394
+    inventories: 2530
+    short_term_investments: 9363
+    current_liabilities: 18549
+    capex: 2436
+    dividends_paid: 12076
+    shares_outstanding: 13184
+    stock_price: 222.61
+    employees: 445408
+  Year 2024:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 97119
+    cost_of_goods_sold: 35929
+    operating_expenses: 10329
+    non_operating_expenses: 8947
+    income_tax: 0.16857605755865174
+    total_assets: 86328
+    total_liabilities: 62367
+    total_equity: 23961
+    cash: 12189
+    accounts_receivable: 6324
+    inventories: 4960
+    short_term_investments: 1477
+    current_liabilities: 25481
+    capex: 2285
+    dividends_paid: 11560
+    shares_outstanding: 5070
+    stock_price: 117.69
+    employees: 490000
+  Year 2025:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 93743
+    cost_of_goods_sold: 46761
+    operating_expenses: 17917
+    non_operating_expenses: 15203
+    income_tax: 0.12237477611786701
+    total_assets: 65369
+    total_liabilities: 44720
+    total_equity: 20649
+    cash: 4105
+    accounts_receivable: 4087
+    inventories: 3180
+    short_term_investments: 5710
+    current_liabilities: 15985
+    capex: 4610
+    dividends_paid: 204
+    shares_outstanding: 14003
+    stock_price: 778.17
+    employees: 24748
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 214045
+    cost_of_goods_sold: 144323
+    operating_expenses: 13987
+    non_operating_expenses: 47700
+    income_tax: 0.27105867429121805
+    total_assets: 206207
+    total_liabilities: 128949
+    total_equity: 77258
+    cash: 27177
+    accounts_receivable: 20427
+    inventories: 17743
+    short_term_investments: 27925
+    current_liabilities: 46735
+    capex: 15443
+    dividends_paid: 1897
+    shares_outstanding: 4891
+    stock_price: 388.37
+    employees: 79676
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 200629
+    cost_of_goods_sold: 69533
+    operating_expenses: 46110
+    non_operating_expenses: 23812
+    income_tax: 0.24286310983349252
+    total_assets: 221577
+    total_liabilities: 96102
+    total_equity: 125475
+    cash: 18724
+    accounts_receivable: 16808
+    inventories: 5363
+    short_term_investments: 18432
+    current_liabilities: 27839
+    capex: 8553
+    dividends_paid: 6908
+    shares_outstanding: 6191
+    stock_price: 280.62
+    employees: 300954
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 228915
+    cost_of_goods_sold: 135355
+    operating_expenses: 14463
+    non_operating_expenses: 15773
+    income_tax: 0.2356758689680162
+    total_assets: 357135
+    total_liabilities: 247385
+    total_equity: 109750
+    cash: 62300
+    accounts_receivable: 29904
+    inventories: 18073
+    short_term_investments: 20239
+    current_liabilities: 97887
+    capex: 10985
+    dividends_paid: 2738
+    shares_outstanding: 14519
+    stock_price: 563.31
+    employees: 199019
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 248741
+    cost_of_goods_sold: 179616
+    operating_expenses: 27838
+    non_operating_expenses: 31176
+    income_tax: 0.2583323915727087
+    total_assets: 194965
+    total_liabilities: 132261
+    total_equity: 62704
+    cash: 41405
+    accounts_receivable: 28326
+    inventories: 19597
+    short_term_investments: 16318
+    current_liabilities: 54426
+    capex: 12175
+    dividends_paid: 1270
+    shares_outstanding: 5503
+    stock_price: 156.51
+    employees: 111025
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 294845
+    cost_of_goods_sold: 152972
+    operating_expenses: 28101
+    non_operating_expenses: 22854
+    income_tax: 0.11543301686017526
+    total_assets: 224505
+    total_liabilities: 81788
+    total_equity: 142717
+    cash: 44810
+    accounts_receivable: 36417
+    inventories: 20633
+    short_term_investments: 3431
+    current_liabilities: 27333
+    capex: 8988
+    dividends_paid: 24652
+    shares_outstanding: 5713
+    stock_price: 142.36
+    employees: 416516
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 334916
+    cost_of_goods_sold: 222408
+    operating_expenses: 27834
+    non_operating_expenses: 46063
+    income_tax: 0.1821717222993067
+    total_assets: 301282
+    total_liabilities: 146089
+    total_equity: 155193
+    cash: 38481
+    accounts_receivable: 22939
+    inventories: 26091
+    short_term_investments: 21948
+    current_liabilities: 56026
+    capex: 28364
+    dividends_paid: 3909
+    shares_outstanding: 7088
+    stock_price: 670.56
+    employees: 187081
+  Year 2020:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 553885
+    cost_of_goods_sold: 233341
+    operating_expenses: 32151
+    non_operating_expenses: 111471
+    income_tax: 0.1941001646503267
+    total_assets: 511998
+    total_liabilities: 376312
+    total_equity: 135686
+    cash: 35803
+    accounts_receivable: 54576
+    inventories: 23923
+    short_term_investments: 40367
+    current_liabilities: 102662
+    capex: 25847
+    dividends_paid: 19845
+    shares_outstanding: 10085
+    stock_price: 688.32
+    employees: 168253
+  Year 2021:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 617154
+    cost_of_goods_sold: 265190
+    operating_expenses: 147524
+    non_operating_expenses: 131277
+    income_tax: 0.21001932179435656
+    total_assets: 729677
+    total_liabilities: 390165
+    total_equity: 339512
+    cash: 73785
+    accounts_receivable: 84561
+    inventories: 19238
+    short_term_investments: 59865
+    current_liabilities: 193924
+    capex: 39132
+    dividends_paid: 15204
+    shares_outstanding: 6257
+    stock_price: 162.25
+    employees: 184081
+  Year 2022:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 698498
+    cost_of_goods_sold: 406130
+    operating_expenses: 141095
+    non_operating_expenses: 63362
+    income_tax: 0.20984392781706634
+    total_assets: 494264
+    total_liabilities: 295198
+    total_equity: 199066
+    cash: 90754
+    accounts_receivable: 36422
+    inventories: 59502
+    short_term_investments: 47075
+    current_liabilities: 91460
+    capex: 44751
+    dividends_paid: 4401
+    shares_outstanding: 8329
+    stock_price: 88.17
+    employees: 496167
+  Year 2023:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 821168
+    cost_of_goods_sold: 416867
+    operating_expenses: 60350
+    non_operating_expenses: 177724
+    income_tax: 0.19967510094143903
+    total_assets: 707950
+    total_liabilities: 443192
+    total_equity: 264758
+    cash: 63824
+    accounts_receivable: 101392
+    inventories: 61459
+    short_term_investments: 31236
+    current_liabilities: 171877
+    capex: 76984
+    dividends_paid: 20412
+    shares_outstanding: 7673
+    stock_price: 705.27
+    employees: 432693
+  Year 2024:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 818992
+    cost_of_goods_sold: 536852
+    operating_expenses: 108917
+    non_operating_expenses: 193978
+    income_tax: 0.2015475351619313
+    total_assets: 637517
+    total_liabilities: 328592
+    total_equity: 308925
+    cash: 60999
+    accounts_receivable: 80829
+    inventories: 80451
+    short_term_investments: 50077
+    current_liabilities: 94355
+    capex: 38992
+    dividends_paid: 0
+    shares_outstanding: 8324
+    stock_price: 441.59
+    employees: 230396
+  Year 2025:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 827261
+    cost_of_goods_sold: 318407
+    operating_expenses: 156766
+    non_operating_expenses: 135968
+    income_tax: 0.14671248921157862
+    total_assets: 672213
+    total_liabilities: 198105
+    total_equity: 474108
+    cash: 130298
+    accounts_receivable: 91431
+    inventories: 39955
+    short_term_investments: 43056
+    current_liabilities: 82396
+    capex: 81457
+    dividends_paid: 60542
+    shares_outstanding: 7480
+    stock_price: 44.06
+    employees: 253634
+=== END ===
+
+QUESTION: determine the current assets for Quantum Bridge Holdings in 2021.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26780.0,26780.0,"<think>
+We need to find ""current assets"" for Quantum Bridge Holdings (ticker QBHD) in 2021. The dataset includes multiple entries: there are two sections: first block appears to have QBHD for 2020, then duplicate block with same ticker but different years? Actually the data has:
+
+First part:
+
+=== DATA ===
+Year 2020:
+...
+Year 2021:
+...
+Year 2022:
+...
+Year 2023:
+...
+Year 2024:
+...
+Then later there is another set of data starting again with Year 2020: HLXB etc. Wait that seems like duplication? Let's parse carefully.
+
+The provided data includes:
+
+First block:
+
+=== DATA ===
+  Year 2020:
+    ticker: QBHD
+    ...
+  Year 2021:
+    ticker: QBHD
+    ...
+  Year 2022:
+    ticker: QBHD
+    ...
+  Year 2023:
+    ticker: QBHD
+    ...
+  Year 2024:
+    ticker: QBHD
+    ...
+
+Then after that there is another block:
+
+=== END ===
+
+But also there is a second set of data labeled ""Year 2020:"" with ticker HLXB, etc. That seems unrelated; maybe it's a mistake. However we must consider that the question asks: ""determine the current assets for Quantum Bridge Holdings in 2021."" So we should look at the QBHD entry under Year 2021. In that entry, we have fields: total_assets, current_liabilities, cash, accounts_receivable, inventories, short_term_investments. Current assets typically include cash, accounts receivable, inventories, and possibly short-term investments? Usually current assets = cash + receivables + inventories + other current assets. But they might define current assets as sum of cash, accounts_receivable, inventories, short_term_investments. Or perhaps just cash + accounts_receivable + inventories. We need to infer from typical definitions. Since they ask ""current assets"", likely they want sum of cash, accounts_receivable, inventories, and short_term_investments. Let's compute.
+
+From Year 2021 QBHD data:
+
+cash: 2853
+accounts_receivable: 10585
+inventories: 4340
+short_term_investments: 9002
+
+Sum = 2853 + 10585 + 4340 + 9002 = ?
+
+Compute: 2853+10585=13438; +4340=17778; +9002=26780.
+
+Thus current assets = 26780.
+
+Alternatively, sometimes short-term investments are considered separate from current assets? They are usually classified as current assets. So yes.
+
+Thus answer: Answer: 26780
+
+Check if any rounding needed? It's integer. Provide exactly that.
+
+Thus final output: Answer: 26780
+
+Make sure no extra text.
+</think>
+Answer: 26780",True,0.000000,True,False

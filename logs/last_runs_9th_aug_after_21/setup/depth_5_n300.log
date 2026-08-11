@@ -1,0 +1,5 @@
+./run_benchmark_matrix.sh: line 119: python: command not found
+Saved 300 questions to /output/random_questions_90.csv
+Saved 300 questions to /output/original_questions.json
+Master seed: 972127922
+Max bound leaf count: 15

@@ -1,0 +1,1015 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-v1.5-8B-thinking,90q,2,Atlas Global Industries,7,Someone may later tax the result by 29%. what is the value of the result of sum of the maximum of total assets for Atlas Global Industries using values from 2021 through 2023 and short term investments for Atlas Global Industries in 2023 scaled by ratio of ratio of sum of sum of sum of sum of accounts receivable for Atlas Global Industries in 2020 and accounts receivable for Atlas Global Industries in 2021 and accounts receivable for Atlas Global Industries in 2022 and accounts receivable for Atlas Global Industries in 2023 and accounts receivable for Atlas Global Industries in 2024 to 5.0 to result of ratio of sum of sum of capex for Atlas Global Industries in 2023 and capex for Atlas Global Industries in 2024 and capex for Atlas Global Industries in 2025 to 3.0 scaled by ratio of total liabilities to operating income for Atlas Global Industries in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 7271353
+    cost_of_goods_sold: 5400952
+    operating_expenses: 1252525
+    non_operating_expenses: 1481159
+    income_tax: 0.19108323367601782
+    total_assets: 5333390
+    total_liabilities: 3464852
+    total_equity: 1868538
+    cash: 1002870
+    accounts_receivable: 570058
+    inventories: 388625
+    short_term_investments: 163522
+    current_liabilities: 1461840
+    capex: 645952
+    dividends_paid: 0
+    shares_outstanding: 1329343
+    stock_price: 62606.0
+    employees: 11332636
+  Year 2021:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8326795
+    cost_of_goods_sold: 5105660
+    operating_expenses: 1189982
+    non_operating_expenses: 1344621
+    income_tax: 0.28349400289108806
+    total_assets: 18685432
+    total_liabilities: 7429253
+    total_equity: 11256179
+    cash: 2470616
+    accounts_receivable: 775334
+    inventories: 473092
+    short_term_investments: 1016893
+    current_liabilities: 3260049
+    capex: 709447
+    dividends_paid: 87081
+    shares_outstanding: 1339110
+    stock_price: 34999.15
+    employees: 45389309
+  Year 2022:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8700300
+    cost_of_goods_sold: 3233215
+    operating_expenses: 1934068
+    non_operating_expenses: 1218163
+    income_tax: 0.2503553573001023
+    total_assets: 6652442
+    total_liabilities: 3405354
+    total_equity: 3247088
+    cash: 1337729
+    accounts_receivable: 769626
+    inventories: 165224
+    short_term_investments: 476196
+    current_liabilities: 1458807
+    capex: 407764
+    dividends_paid: 162768
+    shares_outstanding: 1340610
+    stock_price: 7825.35
+    employees: 7966118
+  Year 2023:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8937383
+    cost_of_goods_sold: 3295771
+    operating_expenses: 829305
+    non_operating_expenses: 1188436
+    income_tax: 0.1661762782076167
+    total_assets: 10403082
+    total_liabilities: 3317081
+    total_equity: 7086001
+    cash: 2218312
+    accounts_receivable: 705586
+    inventories: 395735
+    short_term_investments: 1481905
+    current_liabilities: 845468
+    capex: 590361
+    dividends_paid: 1064422
+    shares_outstanding: 720700
+    stock_price: 75505.22
+    employees: 15281326
+  Year 2024:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9198321
+    cost_of_goods_sold: 6450219
+    operating_expenses: 1997376
+    non_operating_expenses: 1450061
+    income_tax: 0.24692681215127155
+    total_assets: 7301171
+    total_liabilities: 5340646
+    total_equity: 1960525
+    cash: 1003257
+    accounts_receivable: 618988
+    inventories: 536229
+    short_term_investments: 470488
+    current_liabilities: 2228216
+    capex: 716867
+    dividends_paid: 0
+    shares_outstanding: 1262353
+    stock_price: 73684.02
+    employees: 49045738
+  Year 2025:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9838106
+    cost_of_goods_sold: 6966540
+    operating_expenses: 1656526
+    non_operating_expenses: 1796438
+    income_tax: 0.11678949243240005
+    total_assets: 12081149
+    total_liabilities: 8762607
+    total_equity: 3318542
+    cash: 845443
+    accounts_receivable: 649469
+    inventories: 435798
+    short_term_investments: 889872
+    current_liabilities: 2929998
+    capex: 415764
+    dividends_paid: 0
+    shares_outstanding: 1427294
+    stock_price: 34592.84
+    employees: 41828090
+=== END ===
+
+QUESTION: Someone may later tax the result by 29%. what is the value of the result of sum of the maximum of total assets for Atlas Global Industries using values from 2021 through 2023 and short term investments for Atlas Global Industries in 2023 scaled by ratio of ratio of sum of sum of sum of sum of accounts receivable for Atlas Global Industries in 2020 and accounts receivable for Atlas Global Industries in 2021 and accounts receivable for Atlas Global Industries in 2022 and accounts receivable for Atlas Global Industries in 2023 and accounts receivable for Atlas Global Industries in 2024 to 5.0 to result of ratio of sum of sum of capex for Atlas Global Industries in 2023 and capex for Atlas Global Industries in 2024 and capex for Atlas Global Industries in 2025 to 3.0 scaled by ratio of total liabilities to operating income for Atlas Global Industries in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",35044569.03982558,92157201.0,"Max total assets 2021-2023: max(18685432, 6652442, 10403082) = 18685432
+
+Short-term investments 2023: 1481905
+
+Sum accounts receivable 2020-2024: 570058 + 775334 + 769626 + 705586 + 618988 = 3439592
+
+Ratio accounts receivable sum to 5.0: 3439592 / 5 = 687918.4
+
+Sum capex 2023-2025: 590361 + 415764 + 0 = 1006125
+
+Ratio capex sum to 3.0: 1006125 / 3 = 335375
+
+Ratio liabilities to operating income 2023: total liabilities 2023 / operating income 2023
+
+Operating income 2023 = revenue 2023 - cost_of_goods_sold 2023 - operating_expenses 2023 = 8937383 - 3295771 - 829305 = 4812807
+
+Ratio liabilities to operating income 2023: 3317081 / 4812807 ≈ 0.68945
+
+Result = max total assets * short-term investments scaled by accounts-receivable ratio * capex sum scaled by liabilities/op income ratio = 18685432 * 1481905 / 687918.4 * 335375 / 0.68945 ≈ 92157201
+
+Answer: 92157201",False,1.629714,False,False
+swiss-ai/Apertus-v1.5-8B-thinking,90q,28,ClearPath Logistics,8,Portfolio fair values may swing by 12% next quarter. whats the value of the result of the minimum of short term investments for ClearPath Logistics using values from 2020 through 2022 scaled by ratio of result of longterm assets for ClearPath Logistics in 2023 scaled by ratio of the maximum of dividends paid for ClearPath Logistics using values from 2021 through 2023 to sum of short term investments for ClearPath Logistics in 2023 and ratio of sum of sum of non operating expenses for ClearPath Logistics in 2021 and non operating expenses for ClearPath Logistics in 2022 and non operating expenses for ClearPath Logistics in 2023 to 3.0 to sum of cost of goods sold for ClearPath Logistics in 2023 and the minimum of dividends paid for ClearPath Logistics using values from 2020 through 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 51655340
+    cost_of_goods_sold: 22046359
+    operating_expenses: 6527917
+    non_operating_expenses: 8031990
+    income_tax: 0.2932536306411895
+    total_assets: 40347240
+    total_liabilities: 28697635
+    total_equity: 11649605
+    cash: 2438897
+    accounts_receivable: 3357614
+    inventories: 2278563
+    short_term_investments: 5341021
+    current_liabilities: 11152911
+    capex: 4528695
+    dividends_paid: 436453
+    shares_outstanding: 1278237
+    stock_price: 23877.45
+    employees: 38274283
+  Year 2021:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 51468428
+    cost_of_goods_sold: 36408138
+    operating_expenses: 4090182
+    non_operating_expenses: 7076626
+    income_tax: 0.2892826526023521
+    total_assets: 90862083
+    total_liabilities: 54777715
+    total_equity: 36084368
+    cash: 9713949
+    accounts_receivable: 2196004
+    inventories: 980231
+    short_term_investments: 7294499
+    current_liabilities: 16923275
+    capex: 2573062
+    dividends_paid: 1100806
+    shares_outstanding: 51999
+    stock_price: 74569.83
+    employees: 42039226
+  Year 2022:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 56717641
+    cost_of_goods_sold: 37213652
+    operating_expenses: 4396747
+    non_operating_expenses: 6090107
+    income_tax: 0.2659523166305645
+    total_assets: 49958884
+    total_liabilities: 20128059
+    total_equity: 29830825
+    cash: 9253283
+    accounts_receivable: 4813067
+    inventories: 769677
+    short_term_investments: 1053713
+    current_liabilities: 6319828
+    capex: 3624503
+    dividends_paid: 2210651
+    shares_outstanding: 1093580
+    stock_price: 42930.06
+    employees: 6003750
+  Year 2023:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 56755554
+    cost_of_goods_sold: 24718067
+    operating_expenses: 3379787
+    non_operating_expenses: 7603264
+    income_tax: 0.2587798217278876
+    total_assets: 66886415
+    total_liabilities: 25064535
+    total_equity: 41821880
+    cash: 15325839
+    accounts_receivable: 5657048
+    inventories: 547174
+    short_term_investments: 5494893
+    current_liabilities: 7782150
+    capex: 3084046
+    dividends_paid: 896263
+    shares_outstanding: 926066
+    stock_price: 20384.29
+    employees: 21120096
+  Year 2024:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 62773003
+    cost_of_goods_sold: 21250311
+    operating_expenses: 15375048
+    non_operating_expenses: 3988337
+    income_tax: 0.2052118890644341
+    total_assets: 69072921
+    total_liabilities: 51667602
+    total_equity: 17405319
+    cash: 10493104
+    accounts_receivable: 4961915
+    inventories: 1723773
+    short_term_investments: 6837799
+    current_liabilities: 25588889
+    capex: 1337026
+    dividends_paid: 1786911
+    shares_outstanding: 1184895
+    stock_price: 28567.0
+    employees: 36780581
+  Year 2025:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 68793684
+    cost_of_goods_sold: 44521595
+    operating_expenses: 13554928
+    non_operating_expenses: 8014720
+    income_tax: 0.10886713765904164
+    total_assets: 72018945
+    total_liabilities: 51421353
+    total_equity: 20597592
+    cash: 4934710
+    accounts_receivable: 8111756
+    inventories: 3579580
+    short_term_investments: 7731557
+    current_liabilities: 20976516
+    capex: 1723147
+    dividends_paid: 781711
+    shares_outstanding: 1166524
+    stock_price: 37427.85
+    employees: 15025407
+=== END ===
+
+QUESTION: Portfolio fair values may swing by 12% next quarter. whats the value of the result of the minimum of short term investments for ClearPath Logistics using values from 2020 through 2022 scaled by ratio of result of longterm assets for ClearPath Logistics in 2023 scaled by ratio of the maximum of dividends paid for ClearPath Logistics using values from 2021 through 2023 to sum of short term investments for ClearPath Logistics in 2023 and ratio of sum of sum of non operating expenses for ClearPath Logistics in 2021 and non operating expenses for ClearPath Logistics in 2022 and non operating expenses for ClearPath Logistics in 2023 to 3.0 to sum of cost of goods sold for ClearPath Logistics in 2023 and the minimum of dividends paid for ClearPath Logistics using values from 2020 through 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",297248.8376285177,2873713.0,"Short term investments 2020-2022 min: 5341021  
+Long term assets 2023 ratio: 36084368 / 66886415 ≈ 0.5402  
+Dividends 2021-2023 max: 2210651  
+Dividends paid min 2020-2025: 436453  
+Sum nonoperating expenses 2021-2023: 7076626 + 6090107 + 7603264 = 20770007; 20770007 / 3.0 ≈ 6923335.67  
+CGS 2023: 24718067  
+Calculations: 0.5402 * 5341021 ≈ 2873713 ; 6923335.67 + 24718067 ≈ 31641402.67  
+Answer: 2873713",False,8.667701,False,False
+swiss-ai/Apertus-v1.5-8B-thinking,90q,36,Crimson Pharmaceuticals,7,The result may later be adjusted downward by 42%. what does the following give: sum of current assets for Crimson Pharmaceuticals in 2020 and ratio of sum of sum of sum of sum of sum of operating expenses for Crimson Pharmaceuticals in 2020 and operating expenses for Crimson Pharmaceuticals in 2021 and operating expenses for Crimson Pharmaceuticals in 2022 and operating expenses for Crimson Pharmaceuticals in 2023 and operating expenses for Crimson Pharmaceuticals in 2024 and operating expenses for Crimson Pharmaceuticals in 2025 to 6.0,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 46323615
+    cost_of_goods_sold: 20475877
+    operating_expenses: 5188948
+    non_operating_expenses: 6005616
+    income_tax: 0.26308121613119645
+    total_assets: 53363319
+    total_liabilities: 15216038
+    total_equity: 38147281
+    cash: 9195466
+    accounts_receivable: 3178314
+    inventories: 2704413
+    short_term_investments: 890771
+    current_liabilities: 6298418
+    capex: 3888747
+    dividends_paid: 1180099
+    shares_outstanding: 661058
+    stock_price: 32901.71
+    employees: 22266963
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 55023841
+    cost_of_goods_sold: 24901946
+    operating_expenses: 4807072
+    non_operating_expenses: 10367245
+    income_tax: 0.1734693853919364
+    total_assets: 43782679
+    total_liabilities: 22109651
+    total_equity: 21673028
+    cash: 2109210
+    accounts_receivable: 4536714
+    inventories: 1892023
+    short_term_investments: 6537356
+    current_liabilities: 6524870
+    capex: 1552103
+    dividends_paid: 1451750
+    shares_outstanding: 498601
+    stock_price: 24707.74
+    employees: 22572830
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 61678733
+    cost_of_goods_sold: 23128917
+    operating_expenses: 8559878
+    non_operating_expenses: 8599615
+    income_tax: 0.24536287914222057
+    total_assets: 44248127
+    total_liabilities: 29299935
+    total_equity: 14948192
+    cash: 5561410
+    accounts_receivable: 6411315
+    inventories: 2842362
+    short_term_investments: 797799
+    current_liabilities: 12241395
+    capex: 3765294
+    dividends_paid: 2622807
+    shares_outstanding: 1127348
+    stock_price: 14058.96
+    employees: 2041461
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71400992
+    cost_of_goods_sold: 43207596
+    operating_expenses: 9827244
+    non_operating_expenses: 5372639
+    income_tax: 0.14719907608407046
+    total_assets: 66469274
+    total_liabilities: 37288010
+    total_equity: 29181264
+    cash: 15878364
+    accounts_receivable: 3087274
+    inventories: 1726012
+    short_term_investments: 4851536
+    current_liabilities: 12780135
+    capex: 1867196
+    dividends_paid: 1967695
+    shares_outstanding: 215166
+    stock_price: 30305.57
+    employees: 16062079
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71260556
+    cost_of_goods_sold: 52179404
+    operating_expenses: 3932348
+    non_operating_expenses: 6214605
+    income_tax: 0.2035490548416784
+    total_assets: 51037067
+    total_liabilities: 19492879
+    total_equity: 31544188
+    cash: 10232533
+    accounts_receivable: 7867435
+    inventories: 2499088
+    short_term_investments: 4882349
+    current_liabilities: 8255140
+    capex: 2566397
+    dividends_paid: 2842358
+    shares_outstanding: 212235
+    stock_price: 7313.09
+    employees: 9046490
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 79793549
+    cost_of_goods_sold: 59746863
+    operating_expenses: 16924423
+    non_operating_expenses: 19430706
+    income_tax: 0.29731493192849723
+    total_assets: 72446875
+    total_liabilities: 49918176
+    total_equity: 22528699
+    cash: 10939433
+    accounts_receivable: 5508646
+    inventories: 3524728
+    short_term_investments: 2321976
+    current_liabilities: 21334577
+    capex: 2707178
+    dividends_paid: 0
+    shares_outstanding: 548623
+    stock_price: 19102.97
+    employees: 49264061
+=== END ===
+
+QUESTION: The result may later be adjusted downward by 42%. what does the following give: sum of current assets for Crimson Pharmaceuticals in 2020 and ratio of sum of sum of sum of sum of sum of operating expenses for Crimson Pharmaceuticals in 2020 and operating expenses for Crimson Pharmaceuticals in 2021 and operating expenses for Crimson Pharmaceuticals in 2022 and operating expenses for Crimson Pharmaceuticals in 2023 and operating expenses for Crimson Pharmaceuticals in 2024 and operating expenses for Crimson Pharmaceuticals in 2025 to 6.0
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",24175616.166666668,8206652.17,"Current assets 2020: cash + accounts_receivable + inventories + short_term_investments = 9195466 + 3178314 + 2704413 + 890771 = 15978964  
+Operating expenses sum: 5188948 + 4807072 + 8559878 + 9827244 + 3932348 + 16924423 = 49239913  
+Ratio = 49239913 / 6.0 = 8206652.16666667  
+Answer: 8206652.17",False,0.660540,False,False
+swiss-ai/Apertus-v1.5-8B-thinking,90q,46,Atlas Global Industries,8,What is the value of the sum of gross profit for Atlas Global Industries in 2021 and result of accounts receivable for Atlas Global Industries in 2021 scaled by ratio of the maximum of inventories for Atlas Global Industries using values from 2020 through 2025 to the maximum of total liabilities for Atlas Global Industries using values from 2021 through 2022 Collections may slow by 7% over the next 15 months.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 7271353
+    cost_of_goods_sold: 5400952
+    operating_expenses: 1252525
+    non_operating_expenses: 1481159
+    income_tax: 0.19108323367601782
+    total_assets: 5333390
+    total_liabilities: 3464852
+    total_equity: 1868538
+    cash: 1002870
+    accounts_receivable: 570058
+    inventories: 388625
+    short_term_investments: 163522
+    current_liabilities: 1461840
+    capex: 645952
+    dividends_paid: 0
+    shares_outstanding: 1329343
+    stock_price: 62606.0
+    employees: 11332636
+  Year 2021:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8326795
+    cost_of_goods_sold: 5105660
+    operating_expenses: 1189982
+    non_operating_expenses: 1344621
+    income_tax: 0.28349400289108806
+    total_assets: 18685432
+    total_liabilities: 7429253
+    total_equity: 11256179
+    cash: 2470616
+    accounts_receivable: 775334
+    inventories: 473092
+    short_term_investments: 1016893
+    current_liabilities: 3260049
+    capex: 709447
+    dividends_paid: 87081
+    shares_outstanding: 1339110
+    stock_price: 34999.15
+    employees: 45389309
+  Year 2022:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8700300
+    cost_of_goods_sold: 3233215
+    operating_expenses: 1934068
+    non_operating_expenses: 1218163
+    income_tax: 0.2503553573001023
+    total_assets: 6652442
+    total_liabilities: 3405354
+    total_equity: 3247088
+    cash: 1337729
+    accounts_receivable: 769626
+    inventories: 165224
+    short_term_investments: 476196
+    current_liabilities: 1458807
+    capex: 407764
+    dividends_paid: 162768
+    shares_outstanding: 1340610
+    stock_price: 7825.35
+    employees: 7966118
+  Year 2023:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8937383
+    cost_of_goods_sold: 3295771
+    operating_expenses: 829305
+    non_operating_expenses: 1188436
+    income_tax: 0.1661762782076167
+    total_assets: 10403082
+    total_liabilities: 3317081
+    total_equity: 7086001
+    cash: 2218312
+    accounts_receivable: 705586
+    inventories: 395735
+    short_term_investments: 1481905
+    current_liabilities: 845468
+    capex: 590361
+    dividends_paid: 1064422
+    shares_outstanding: 720700
+    stock_price: 75505.22
+    employees: 15281326
+  Year 2024:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9198321
+    cost_of_goods_sold: 6450219
+    operating_expenses: 1997376
+    non_operating_expenses: 1450061
+    income_tax: 0.24692681215127155
+    total_assets: 7301171
+    total_liabilities: 5340646
+    total_equity: 1960525
+    cash: 1003257
+    accounts_receivable: 618988
+    inventories: 536229
+    short_term_investments: 470488
+    current_liabilities: 2228216
+    capex: 716867
+    dividends_paid: 0
+    shares_outstanding: 1262353
+    stock_price: 73684.02
+    employees: 49045738
+  Year 2025:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9838106
+    cost_of_goods_sold: 6966540
+    operating_expenses: 1656526
+    non_operating_expenses: 1796438
+    income_tax: 0.11678949243240005
+    total_assets: 12081149
+    total_liabilities: 8762607
+    total_equity: 3318542
+    cash: 845443
+    accounts_receivable: 649469
+    inventories: 435798
+    short_term_investments: 889872
+    current_liabilities: 2929998
+    capex: 415764
+    dividends_paid: 0
+    shares_outstanding: 1427294
+    stock_price: 34592.84
+    employees: 41828090
+=== END ===
+
+QUESTION: What is the value of the sum of gross profit for Atlas Global Industries in 2021 and result of accounts receivable for Atlas Global Industries in 2021 scaled by ratio of the maximum of inventories for Atlas Global Industries using values from 2020 through 2025 to the maximum of total liabilities for Atlas Global Industries using values from 2021 through 2022 Collections may slow by 7% over the next 15 months.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",3277097.0967930425,3270239.0,"Gross profit 2021 = revenue 2021 - cost_of_goods_sold 2021 = 8326795 - 5105660 = 3221135  
+Ratio = max(inventories 2020-2025) / max(total_liabilities 2021-2022) = 473092 / 7429253 ≈ 0.0638  
+Scaled accounts receivable 2021 = accounts_receivable 2021 * ratio = 775334 * 0.0638 ≈ 49104.0  
+Sum = 3221135 + 49104.0 = 3270239.0  
+
+Answer: 3270239.0",True,0.002093,True,False
+swiss-ai/Apertus-v1.5-8B-thinking,90q,75,Pinnacle Health Group,7,State the result of sum of operating income for Pinnacle Health Group in 2022 and the minimum of capex for Pinnacle Health Group using values from 2021 through 2023 scaled by ratio of ratio of sum of sum of sum of sum of revenue for Pinnacle Health Group in 2021 and revenue for Pinnacle Health Group in 2022 and revenue for Pinnacle Health Group in 2023 and revenue for Pinnacle Health Group in 2024 and revenue for Pinnacle Health Group in 2025 to 5.0 to dividends paid for Pinnacle Health Group in 2022. The sector's operating margin changed by 8 percentage points that year.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1563150
+    cost_of_goods_sold: 1172298
+    operating_expenses: 187566
+    non_operating_expenses: 281412
+    income_tax: 0.25624660992217896
+    total_assets: 1444545
+    total_liabilities: 1011584
+    total_equity: 432961
+    cash: 345123
+    accounts_receivable: 93689
+    inventories: 26552
+    short_term_investments: 45263
+    current_liabilities: 284817
+    capex: 101789
+    dividends_paid: 0
+    shares_outstanding: 334767
+    stock_price: 56408.0
+    employees: 38461456
+  Year 2021:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1511536
+    cost_of_goods_sold: 866505
+    operating_expenses: 301680
+    non_operating_expenses: 110201
+    income_tax: 0.263860234862217
+    total_assets: 1036957
+    total_liabilities: 385548
+    total_equity: 651409
+    cash: 36967
+    accounts_receivable: 107615
+    inventories: 93630
+    short_term_investments: 149471
+    current_liabilities: 134619
+    capex: 39420
+    dividends_paid: 49087
+    shares_outstanding: 1039015
+    stock_price: 50738.53
+    employees: 5544115
+  Year 2022:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1717550
+    cost_of_goods_sold: 1172455
+    operating_expenses: 292125
+    non_operating_expenses: 127461
+    income_tax: 0.29676887030293425
+    total_assets: 1386057
+    total_liabilities: 766576
+    total_equity: 619481
+    cash: 172208
+    accounts_receivable: 132349
+    inventories: 100567
+    short_term_investments: 80076
+    current_liabilities: 354460
+    capex: 48852
+    dividends_paid: 29032
+    shares_outstanding: 1441573
+    stock_price: 51393.43
+    employees: 41521012
+  Year 2023:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1920301
+    cost_of_goods_sold: 952410
+    operating_expenses: 377837
+    non_operating_expenses: 466815
+    income_tax: 0.15401647927748016
+    total_assets: 1512240
+    total_liabilities: 962947
+    total_equity: 549293
+    cash: 206223
+    accounts_receivable: 160455
+    inventories: 109559
+    short_term_investments: 71945
+    current_liabilities: 445775
+    capex: 51720
+    dividends_paid: 34644
+    shares_outstanding: 1323630
+    stock_price: 20643.28
+    employees: 23503069
+  Year 2024:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 2094843
+    cost_of_goods_sold: 985718
+    operating_expenses: 116767
+    non_operating_expenses: 461265
+    income_tax: 0.13636797143153837
+    total_assets: 3777597
+    total_liabilities: 2683956
+    total_equity: 1093641
+    cash: 396174
+    accounts_receivable: 268207
+    inventories: 109566
+    short_term_investments: 183884
+    current_liabilities: 677800
+    capex: 56245
+    dividends_paid: 173939
+    shares_outstanding: 1082911
+    stock_price: 39853.36
+    employees: 38029150
+  Year 2025:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 2332336
+    cost_of_goods_sold: 1377609
+    operating_expenses: 345569
+    non_operating_expenses: 486494
+    income_tax: 0.11861067011093435
+    total_assets: 4121349
+    total_liabilities: 2820346
+    total_equity: 1301003
+    cash: 401276
+    accounts_receivable: 228932
+    inventories: 112308
+    short_term_investments: 347550
+    current_liabilities: 1005103
+    capex: 108368
+    dividends_paid: 32259
+    shares_outstanding: 1057254
+    stock_price: 22766.94
+    employees: 12944482
+=== END ===
+
+QUESTION: State the result of sum of operating income for Pinnacle Health Group in 2022 and the minimum of capex for Pinnacle Health Group using values from 2021 through 2023 scaled by ratio of ratio of sum of sum of sum of sum of revenue for Pinnacle Health Group in 2021 and revenue for Pinnacle Health Group in 2022 and revenue for Pinnacle Health Group in 2023 and revenue for Pinnacle Health Group in 2024 and revenue for Pinnacle Health Group in 2025 to 5.0 to dividends paid for Pinnacle Health Group in 2022. The sector's operating margin changed by 8 percentage points that year.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",19289695.04505373,145519.0,"Operating income 2022: revenue 2022 − cost_of_goods_sold 2022 − operating_expenses 2022 − non_operating_expenses 2022 = 1717550 − 1172455 − 292125 − 127461 = 145519  
+Capex min 2021–2023: min(39420, 48852, 51720) = 39420  
+Sum revenues 2021–2025: 1511536 + 1717550 + 1920301 + 2094843 + 2332336 = 9576566  
+Ratio: 9576566 / 5.0 = 1915313.2  
+Dividends paid 2022: 29032  
+Answer: 145519 * 1915313.2 / 29032 = 908108.977  
+Answer: 908108.977",False,0.992456,False,False
+swiss-ai/Apertus-v1.5-8B-thinking,90q,104,Orion Financial Group,7,A later calculation may subtract 16% from the final result. may you give the sum of longterm liabilities for Orion Financial Group in 2023 and sum of result of dividends paid for Orion Financial Group in 2023 scaled by ratio of short term investments for Orion Financial Group in 2023 to the minimum of capex for Orion Financial Group using values from 2020 through 2023 and the minimum of operating expenses for Orion Financial Group using values from 2020 through 2021,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 8798877
+    cost_of_goods_sold: 4775445
+    operating_expenses: 2149547
+    non_operating_expenses: 1374125
+    income_tax: 0.2826973948963394
+    total_assets: 6786287
+    total_liabilities: 3382625
+    total_equity: 3403662
+    cash: 1434837
+    accounts_receivable: 775927
+    inventories: 596183
+    short_term_investments: 777154
+    current_liabilities: 1132093
+    capex: 853768
+    dividends_paid: 16514
+    shares_outstanding: 219728
+    stock_price: 77370.27
+    employees: 43076960
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 9879209
+    cost_of_goods_sold: 7320237
+    operating_expenses: 2405132
+    non_operating_expenses: 2083698
+    income_tax: 0.17315500988111326
+    total_assets: 7910845
+    total_liabilities: 1996550
+    total_equity: 5914295
+    cash: 1171168
+    accounts_receivable: 844461
+    inventories: 786689
+    short_term_investments: 823738
+    current_liabilities: 790913
+    capex: 940731
+    dividends_paid: 0
+    shares_outstanding: 171436
+    stock_price: 19855.02
+    employees: 1738720
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 11534824
+    cost_of_goods_sold: 6374528
+    operating_expenses: 2688204
+    non_operating_expenses: 1087428
+    income_tax: 0.1126434082320391
+    total_assets: 8951255
+    total_liabilities: 6567652
+    total_equity: 2383603
+    cash: 863634
+    accounts_receivable: 932355
+    inventories: 243322
+    short_term_investments: 1275345
+    current_liabilities: 2141653
+    capex: 320384
+    dividends_paid: 242113
+    shares_outstanding: 1332016
+    stock_price: 12149.63
+    employees: 22955366
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 12777542
+    cost_of_goods_sold: 8106239
+    operating_expenses: 3056322
+    non_operating_expenses: 1709959
+    income_tax: 0.24845380295306316
+    total_assets: 26322247
+    total_liabilities: 15446131
+    total_equity: 10876116
+    cash: 1363091
+    accounts_receivable: 1136367
+    inventories: 592202
+    short_term_investments: 3769688
+    current_liabilities: 3987868
+    capex: 708779
+    dividends_paid: 0
+    shares_outstanding: 1426327
+    stock_price: 68652.84
+    employees: 5418054
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 14208504
+    cost_of_goods_sold: 7743772
+    operating_expenses: 3489161
+    non_operating_expenses: 1729669
+    income_tax: 0.1796279285488746
+    total_assets: 26921759
+    total_liabilities: 10403632
+    total_equity: 16518127
+    cash: 5830373
+    accounts_receivable: 1214426
+    inventories: 822078
+    short_term_investments: 2687831
+    current_liabilities: 4154030
+    capex: 1178504
+    dividends_paid: 8732
+    shares_outstanding: 372918
+    stock_price: 11385.02
+    employees: 28446610
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 13344781
+    cost_of_goods_sold: 8598320
+    operating_expenses: 1220133
+    non_operating_expenses: 1243604
+    income_tax: 0.27393908535390893
+    total_assets: 19221272
+    total_liabilities: 7903965
+    total_equity: 11317307
+    cash: 4384696
+    accounts_receivable: 537575
+    inventories: 1131477
+    short_term_investments: 581565
+    current_liabilities: 2232855
+    capex: 453186
+    dividends_paid: 166173
+    shares_outstanding: 994976
+    stock_price: 3523.74
+    employees: 1235586
+=== END ===
+
+QUESTION: A later calculation may subtract 16% from the final result. may you give the sum of longterm liabilities for Orion Financial Group in 2023 and sum of result of dividends paid for Orion Financial Group in 2023 scaled by ratio of short term investments for Orion Financial Group in 2023 to the minimum of capex for Orion Financial Group using values from 2020 through 2023 and the minimum of operating expenses for Orion Financial Group using values from 2020 through 2021
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",13607810.0,15446131.0,"Long-term liabilities in 2023: 15446131  
+Dividends paid in 2023: 0  
+Short-term investments in 2023: 3769688  
+Minimum capex (2020-2023): 320384  
+Minimum operating expenses (2020-2021): 2149547  
+Scaled dividends result: 0 * (3769688 / 320384) = 0  
+Sum: 15446131 + 0 = 15446131  
+Answer: 15446131",False,0.135093,False,False

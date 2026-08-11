@@ -82,11 +82,11 @@ NEGATION_SUFFIXES: tuple[str, ...] = (
 Mode = Literal["missing", "garbage", "lookalike", "cross", "combined"]
 
 _OUTPUT_FILES: dict[Mode, str] = {
-    "missing":  "missing_values.csv",
-    "garbage":  "garbage.csv",
-    "lookalike": "lookalike.csv",
-    "cross":    "cross_contaminated.csv",
-    "combined": "combined_adversarial.csv",
+    "missing": "missing_values.json",
+    "garbage": "garbage.json",
+    "lookalike": "lookalike.json",
+    "cross": "cross_contaminated.json",
+    "combined": "combined_adversarial.json",
 }
 
 PROMPT_INJECTION_RATE: float = 0.15
@@ -577,8 +577,8 @@ def corrupt_cell(
 # Main writer
 # ---------------------------------------------------------------------------
 
-def write_corrupted_csv(
-    csv_path: Path,
+def write_corrupted_json(
+    json_path: Path,
     used_atom_keys: set[str],
     concept_names: list[str],
     output_path: Path,
@@ -586,31 +586,71 @@ def write_corrupted_csv(
     corruption_rate: float,
     seed: int | None,
 ) -> None:
+    """Write an adversarially corrupted JSON array of company records."""
+
+    if not 0.0 <= corruption_rate <= 1.0:
+        raise ValueError(
+            f"corruption_rate must be between 0 and 1, got {corruption_rate}"
+        )
+
     rng = random.Random(seed)
-    fieldnames, csv_rows = read_csv_rows(csv_path)
-    concept_pool = build_concept_pool(csv_rows, concept_names)
+    json_rows = load_financial_spreadsheet(json_path)
+    concept_pool = build_concept_pool(json_rows, concept_names)
 
-    corrupted_rows = []
-    stats: dict[str, int] = {"protected": 0, "missing": 0, "garbage": 0, "lookalike": 0, "cross": 0, "untouched": 0}
+    corrupted_rows: list[dict[str, str]] = []
 
-    for idx, row in enumerate(csv_rows):
+    stats: dict[str, int] = {
+        "protected": 0,
+        "missing": 0,
+        "garbage": 0,
+        "lookalike": 0,
+        "cross": 0,
+        "untouched": 0,
+    }
+
+    for idx, row in enumerate(json_rows):
         new_row = dict(row)
+
         for concept in concept_names:
-            if f"{idx}_{concept}" in used_atom_keys:
+            # Ignore concepts that do not exist in this record.
+            if concept not in row:
+                continue
+
+            atom_key = f"{idx}_{concept}"
+
+            if atom_key in used_atom_keys:
                 stats["protected"] += 1
-            elif rng.random() < corruption_rate:
-                new_val, kind = corrupt_cell(mode, idx, concept, row[concept], rng, concept_pool)
-                new_row[concept] = new_val
-                stats[kind] += 1
-            else:
+                continue
+
+            if rng.random() >= corruption_rate:
                 stats["untouched"] += 1
+                continue
+
+            original_value = str(row.get(concept, ""))
+
+            new_value, corruption_kind = corrupt_cell(
+                mode=mode,
+                row_idx=idx,
+                concept=concept,
+                original_value=original_value,
+                rng=rng,
+                concept_pool=concept_pool,
+            )
+
+            new_row[concept] = new_value
+            stats[corruption_kind] += 1
+
         corrupted_rows.append(new_row)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(corrupted_rows)
+
+    with open(output_path, "w", encoding="utf-8") as file:
+        json.dump(
+            corrupted_rows,
+            file,
+            indent=4,
+            ensure_ascii=False,
+        )
 
     print(f"\n[{mode}] -> {output_path.name}")
     print(f"  Protected:          {stats['protected']}")
@@ -672,8 +712,8 @@ def main() -> None:
         help="Questions CSV produced by make_random_questions.py",
     )
     parser.add_argument(
-        "--csv",
-        default="output/synthetic_company_data.csv",
+        "--json",
+        default="output/financial_spreadsheet.json",
         help="Original synthetic company data CSV to corrupt",
     )
     parser.add_argument(
@@ -706,8 +746,8 @@ def main() -> None:
     output_dir = resolve(args.output_dir)
 
     for mode, filename in _OUTPUT_FILES.items():
-        write_corrupted_csv(
-            csv_path=resolve(args.csv),
+        write_corrupted_json(
+            json_path=resolve(args.json),
             used_atom_keys=used_keys,
             concept_names=concept_names,
             output_path=output_dir / filename,

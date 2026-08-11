@@ -1,0 +1,266 @@
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+
+-- 90-Q evaluation (5 questions) --
+  [1/5] WRONG  | truth=26780.0000 pred=59327.0 | determine the current assets for Quantum Bridge Holdings in ...
+  [2/5] CORRECT | truth=57969.0000 pred=57969.0 | which result follows from the current assets for Ironclad Ma...
+  [3/5] CORRECT | truth=36261.0000 pred=36261.0 | give the current assets for Orion Financial Group in 2021...
+  [4/5] CORRECT | truth=84986.0000 pred=84986.0 | what does the following give: operating income for Helix Bio...
+  [5/5] WRONG  | truth=255557.0000 pred=357882.0 | what does the following give: longterm assets for Crimson Ph...
+
+============================================================
+  Model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 3/5  accuracy = 60.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 3/5  accuracy = 60.0%
+============================================================
+
+Results saved to output_llm/liquid_ai_20260803_221905.json
+CSV saved to output_llm/eval_results_20260803_221905.csv
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=26780.0000 pred=26780.0 | determine the current assets for Quantum Bridge Holdings in ...
+
+============================================================
+  Model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 1/1  accuracy = 100.0%
+============================================================
+
+Results saved to output_llm/liquid_ai_20260803_222019.json
+CSV saved to output_llm/eval_results_20260803_222019.csv
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] CORRECT | truth=26780.0000 pred=26780.0 | determine the current assets for Quantum Bridge Holdings in ...
+
+============================================================
+  Model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 1/1  accuracy = 100.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 1/1  accuracy = 100.0%
+============================================================
+
+Results saved to output_llm/liquid_ai_20260803_222057.json
+CSV saved to output_llm/eval_results_20260803_222057.csv
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+
+-- 90-Q evaluation (1 questions) --
+  [1/1] WRONG  | truth=26780.0000 pred=0.0 | determine the current assets for Quantum Bridge Holdings in ...
+
+============================================================
+  Model: LiquidAI/LFM2.5-8B-A1B
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 0/1  accuracy = 0.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 0/1  accuracy = 0.0%
+============================================================
+
+Results saved to output_llm/liquid_ai_20260803_222102.json
+CSV saved to output_llm/eval_results_20260803_222102.csv
+Traceback (most recent call last):
+  File "", line 77, in <module>
+    client = Fireworks()
+  File ".venv/lib/python3.14/site-packages/fireworks/_client.py", line 143, in __init__
+    raise FireworksError(
+        "The api_key client option must be set either by passing api_key to the client or by setting the FIREWORKS_API_KEY environment variable"
+    )
+fireworks.FireworksError: The api_key client option must be set either by passing api_key to the client or by setting the FIREWORKS_API_KEY environment variable
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: qwen3p7-plus
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+Traceback (most recent call last):
+  File "", line 835, in <module>
+    main()
+    ~~~~^^
+  File "", line 773, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 401, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 263, in run_inference
+    response = _client.chat.completions.create(
+               ^^^^^^^
+NameError: name '_client' is not defined. Did you mean: 'client'?
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: qwen3p7-plus
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+Traceback (most recent call last):
+  File "", line 835, in <module>
+    main()
+    ~~~~^^
+  File "", line 773, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 401, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 263, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+    ...<5 lines>...
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+    )
+  File ".venv/lib/python3.14/site-packages/fireworks/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File ".venv/lib/python3.14/site-packages/fireworks/resources/chat/completions.py", line 1560, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/chat/completions"
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<60 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+fireworks.BadRequestError: Error code: 400 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': "Extra inputs are not permitted, field: 'chat_template_kwargs'"}}
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/deepseek-v4-flash
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+Traceback (most recent call last):
+  File "", line 835, in <module>
+    main()
+    ~~~~^^
+  File "", line 773, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 401, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 263, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+    ...<5 lines>...
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+    )
+  File ".venv/lib/python3.14/site-packages/fireworks/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File ".venv/lib/python3.14/site-packages/fireworks/resources/chat/completions.py", line 1560, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/chat/completions"
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<60 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+fireworks.BadRequestError: Error code: 400 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': "Extra inputs are not permitted, field: 'chat_template_kwargs'"}}
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/deepseek-v4-flash
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+Traceback (most recent call last):
+  File "", line 836, in <module>
+    main()
+    ~~~~^^
+  File "", line 774, in main
+    results_90q = evaluate_90q(
+        questions_90q, sheet_lookup_90q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    )
+  File "", line 402, in evaluate_90q
+    response = run_inference(model_name, prompt, max_new_tokens)
+  File "", line 263, in run_inference
+    response = _client.chat.completions.create(
+        model=model_name,
+    ...<6 lines>...
+        thinking=False,
+    )
+  File ".venv/lib/python3.14/site-packages/fireworks/_utils/_utils.py", line 294, in wrapper
+    return func(*args, **kwargs)
+  File ".venv/lib/python3.14/site-packages/fireworks/resources/chat/completions.py", line 1560, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/v1/chat/completions"
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<60 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1284, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/fireworks/_base_client.py", line 1071, in request
+    raise self._make_status_error_from_response(err.response) from None
+fireworks.BadRequestError: Error code: 400 - {'error': {'object': 'error', 'type': 'invalid_request_error', 'code': 'invalid_request_error', 'message': "3 request validation errors: Input should be a valid dictionary or object to extract fields from, field: 'thinking.function-after[validate_budget_tokens(), ThinkingConfigEnabled]', value: False; Input should be a valid dictionary or object to extract fields from, field: 'thinking.ThinkingConfigDisabled', value: False; Input should be a valid dictionary or object to extract fields from, field: 'thinking.ThinkingConfigAdaptive', value: False"}}
+90Q are: /output/financial_spreadsheet.json
+Loading datasets...
+  90-Q: 252 questions, 15 companies
+
+============================================================
+  Evaluating model: accounts/fireworks/models/deepseek-v4-flash
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+  [1/2] CORRECT | truth=26780.0000 pred=26780.0 | determine the current assets for Quantum Bridge Holdings in ...

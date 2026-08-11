@@ -1,0 +1,108 @@
+<===== START qwen_3_7_plus_mixed_depth_1_5_multiturn_90q | provider=Together | model=Qwen/Qwen3.7-Plus | dataset=multiturn-90q | limit=250 =====>
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "", line 915, in <module>
+    main()
+    ~~~~^^
+  File "", line 863, in main
+    results_mt = asyncio.run(evaluate_multiturn(
+        questions_mt, sheet_lookup_mt, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    ))
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "", line 527, in evaluate_multiturn
+    response = await run_multiturn_inference(model_name, history, max_new_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "", line 286, in run_multiturn_inference
+    response = await _client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/together/resources/chat/completions.py", line 1061, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<41 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1864, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1663, in request
+    raise self._make_status_error_from_response(err.response) from None
+together.BadRequestError: Error code: 400 - {'id': 'ovSH5QY-2kFHot-a282672edce1c115', 'error': {'message': 'This model only supports streaming. Set "stream": true.', 'type': 'invalid_request_error', 'param': 'stream', 'code': 'streaming_required'}}
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  Generating multi-turn chains from 250 90q questions...
+  Generated 250 MT questions (250 multi-turn) → output_llm/mt_from_90q_20260809_014653.json
+
+============================================================
+  Evaluating model: Qwen/Qwen3.7-Plus
+============================================================
+
+-- Multi-turn evaluation (250 questions) --
+<===== END qwen_3_7_plus_mixed_depth_1_5_multiturn_90q =====>
+<===== START qwen_3_7_plus_mixed_depth_1_5_multiturn_90q | provider=Together | model=Qwen/Qwen3.7-Plus | dataset=multiturn-90q | limit=250 =====>
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "", line 915, in <module>
+    main()
+    ~~~~^^
+  File "", line 863, in main
+    results_mt = asyncio.run(evaluate_multiturn(
+        questions_mt, sheet_lookup_mt, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+    ))
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "", line 527, in evaluate_multiturn
+    response = await run_multiturn_inference(model_name, history, max_new_tokens)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "", line 286, in run_multiturn_inference
+    response = await _client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/together/resources/chat/completions.py", line 1061, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<41 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1864, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/together/_base_client.py", line 1663, in request
+    raise self._make_status_error_from_response(err.response) from None
+together.BadRequestError: Error code: 400 - {'id': 'ovW5Yg6-2kFHot-a28681629e3fbbf4', 'error': {'message': 'This model only supports streaming. Set "stream": true.', 'type': 'invalid_request_error', 'param': 'stream', 'code': 'streaming_required'}}
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  Generating multi-turn chains from 250 90q questions...
+  Generated 250 MT questions (247 multi-turn) → output_llm/mt_from_90q_20260809_134350.json
+
+============================================================
+  Evaluating model: Qwen/Qwen3.7-Plus
+============================================================
+
+-- Multi-turn evaluation (250 questions) --
+<===== END qwen_3_7_plus_mixed_depth_1_5_multiturn_90q =====>

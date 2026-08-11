@@ -1,0 +1,557 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+accounts/fireworks/models/qwen3p7-plus,10q,2,BLD,5,"What is the total assets for BLD in July 31, 2025","ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Entity: BLD
+
+  === Income Statement ===
+    Three Months Ended July 31, 2024:
+      [Revenue]
+        total revenues (M_USD): 10764.0
+      [Cost of Sales]
+        cost of sales (M_USD): 8858.0
+      [Gross Profit]
+        gross profit (M_USD): 1906.0
+      [Operating Expenses]
+        research and development (M_USD): 49.0
+        selling general and administrative (M_USD): 804.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 9711.0
+      [Operating Income]
+        operating income (M_USD): 1053.0
+      [Other Income / Expense]
+        other income expense net (M_USD): -71.0
+      [Income Tax]
+        provision for income taxes (M_USD): 230.0
+      [Net Income]
+        net income (M_USD): 752.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 1.47
+        earnings per share diluted (USD_per_share): 1.45
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 490472.0
+        shares used diluted (M_shares): 507706.0
+    Six Months Ended July 31, 2024:
+      [Revenue]
+        total revenues (M_USD): 21528.0
+      [Cost of Sales]
+        cost of sales (M_USD): 17716.0
+      [Gross Profit]
+        gross profit (M_USD): 3812.0
+      [Operating Expenses]
+        research and development (M_USD): 98.0
+        selling general and administrative (M_USD): 1608.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 19422.0
+      [Operating Income]
+        operating income (M_USD): 2106.0
+      [Other Income / Expense]
+        other income expense net (M_USD): -142.0
+      [Income Tax]
+        provision for income taxes (M_USD): 460.0
+      [Net Income]
+        net income (M_USD): 1504.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 2.94
+        earnings per share diluted (USD_per_share): 2.9
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 507908.0
+        shares used diluted (M_shares): 505122.0
+    Three Months Ended July 31, 2025:
+      [Revenue]
+        total revenues (M_USD): 9700.0
+      [Cost of Sales]
+        cost of sales (M_USD): 7983.0
+      [Gross Profit]
+        gross profit (M_USD): 1717.0
+      [Operating Expenses]
+        research and development (M_USD): 44.0
+        selling general and administrative (M_USD): 725.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 8752.0
+      [Operating Income]
+        operating income (M_USD): 948.0
+      [Other Income / Expense]
+        other income expense net (M_USD): -64.0
+      [Income Tax]
+        provision for income taxes (M_USD): 207.0
+      [Net Income]
+        net income (M_USD): 677.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 1.32
+        earnings per share diluted (USD_per_share): 1.3
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 511000.0
+        shares used diluted (M_shares): 519000.0
+    Six Months Ended July 31, 2025:
+      [Revenue]
+        total revenues (M_USD): 19400.0
+      [Cost of Sales]
+        cost of sales (M_USD): 15966.0
+      [Gross Profit]
+        gross profit (M_USD): 3434.0
+      [Operating Expenses]
+        research and development (M_USD): 88.0
+        selling general and administrative (M_USD): 1450.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 17504.0
+      [Operating Income]
+        operating income (M_USD): 1896.0
+      [Other Income / Expense]
+        other income expense net (M_USD): -128.0
+      [Income Tax]
+        provision for income taxes (M_USD): 414.0
+      [Net Income]
+        net income (M_USD): 1354.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 2.65
+        earnings per share diluted (USD_per_share): 2.61
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 530008.0
+        shares used diluted (M_shares): 504631.0
+
+  === Balance Sheet ===
+    December 31, 2024:
+      [Current Assets]
+        cash and cash equivalents (M_USD): 917.0
+        short term investments (M_USD): 1246.0
+        accounts receivable net (M_USD): 1687.0
+        inventories (M_USD): 437.0
+        prepaid expenses and other (M_USD): 201.0
+        total current assets (M_USD): 4488.0
+      [Non-Current Assets]
+        long term marketable securities (M_USD): 1614.0
+        property plant and equipment net (M_USD): 1133.0
+        goodwill (M_USD): 338.0
+        other non current assets (M_USD): 288.0
+        total non current assets (M_USD): 3373.0
+      [Total Assets]
+        total assets (M_USD): 7861.0
+      [Current Liabilities]
+        accounts payable (M_USD): 4763.0
+        deferred revenue current (M_USD): 573.0
+        accrued expenses and other (M_USD): 712.0
+        current portion of long term debt (M_USD): 542.0
+        total current liabilities (M_USD): 6590.0
+      [Non-Current Liabilities]
+        long term debt (M_USD): 1036.0
+        other non current liabilities (M_USD): 338.0
+        total non current liabilities (M_USD): 1374.0
+      [Total Liabilities]
+        total liabilities (M_USD): 7964.0
+      [Shareholders Equity]
+        common stock and additional paid in capital (M_USD): -72.0
+        retained earnings (M_USD): -31.0
+        accumulated other comprehensive income loss (M_USD): 0.0
+        total shareholders equity (M_USD): -103.0
+    July 31, 2025:
+      [Current Assets]
+        cash and cash equivalents (M_USD): 915.0
+        short term investments (M_USD): 1243.0
+        accounts receivable net (M_USD): 1683.0
+        inventories (M_USD): 436.0
+        prepaid expenses and other (M_USD): 201.0
+        total current assets (M_USD): 4478.0
+      [Non-Current Assets]
+        long term marketable securities (M_USD): 1611.0
+        property plant and equipment net (M_USD): 1131.0
+        goodwill (M_USD): 337.0
+        other non current assets (M_USD): 287.0
+        total non current assets (M_USD): 3366.0
+      [Total Assets]
+        total assets (M_USD): 7844.0
+      [Current Liabilities]
+        accounts payable (M_USD): 4753.0
+        deferred revenue current (M_USD): 572.0
+        accrued expenses and other (M_USD): 711.0
+        current portion of long term debt (M_USD): 541.0
+        total current liabilities (M_USD): 6577.0
+      [Non-Current Liabilities]
+        long term debt (M_USD): 1034.0
+        other non current liabilities (M_USD): 337.0
+        total non current liabilities (M_USD): 1371.0
+      [Total Liabilities]
+        total liabilities (M_USD): 7948.0
+      [Shareholders Equity]
+        common stock and additional paid in capital (M_USD): -63.0
+        retained earnings (M_USD): -48.0
+        accumulated other comprehensive income loss (M_USD): 7.0
+        total shareholders equity (M_USD): -104.0
+
+  === Cash Flow Statement ===
+    Six Months Ended July 31, 2024:
+      [Operating Activities]
+        depreciation and amortization (M_USD): 548.0
+        stock based compensation (M_USD): 260.0
+        change in accounts receivable (M_USD): -315.0
+        change in inventories (M_USD): -29.0
+        change in accounts payable (M_USD): 144.0
+        change in other working capital (M_USD): 138.0
+        net cash from operating (M_USD): 2250.0
+      [Investing Activities]
+        capital expenditures (M_USD): -652.0
+        purchases of marketable securities (M_USD): -458.0
+        proceeds from maturities of securities (M_USD): 180.0
+        net cash from investing (M_USD): -930.0
+      [Financing Activities]
+        repayments of debt (M_USD): -251.0
+        share repurchases (M_USD): -338.0
+        proceeds from stock option exercises (M_USD): 39.0
+        dividends paid (M_USD): -256.0
+        net cash from financing (M_USD): -806.0
+      [Net Change in Cash]
+        effect of exchange rate on cash (M_USD): -1.0
+        opening cash and equivalents (M_USD): 938.0
+        net change in cash (M_USD): 513.0
+    Six Months Ended July 31, 2025:
+      [Operating Activities]
+        depreciation and amortization (M_USD): 494.0
+        stock based compensation (M_USD): 234.0
+        change in accounts receivable (M_USD): -284.0
+        change in inventories (M_USD): -26.0
+        change in accounts payable (M_USD): 130.0
+        change in other working capital (M_USD): 145.0
+        net cash from operating (M_USD): 2047.0
+      [Investing Activities]
+        capital expenditures (M_USD): -588.0
+        purchases of marketable securities (M_USD): -413.0
+        proceeds from maturities of securities (M_USD): 162.0
+        net cash from investing (M_USD): -839.0
+      [Financing Activities]
+        repayments of debt (M_USD): -226.0
+        share repurchases (M_USD): -305.0
+        proceeds from stock option exercises (M_USD): 28.0
+        dividends paid (M_USD): -231.0
+        net cash from financing (M_USD): -734.0
+      [Net Change in Cash]
+        effect of exchange rate on cash (M_USD): -4.0
+        opening cash and equivalents (M_USD): 845.0
+        net change in cash (M_USD): 470.0
+
+  === Comprehensive Income Statement ===
+    Three Months Ended July 31, 2024:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): 7.0
+        unrealized gains losses on securities (M_USD): 4.0
+      [Total OCI]
+        total other comprehensive income (M_USD): 11.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 763.0
+    Six Months Ended July 31, 2024:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): 13.0
+        unrealized gains losses on securities (M_USD): 10.0
+      [Total OCI]
+        total other comprehensive income (M_USD): 23.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 1527.0
+    Three Months Ended July 31, 2025:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): -20.0
+        unrealized gains losses on securities (M_USD): -13.0
+      [Total OCI]
+        total other comprehensive income (M_USD): -33.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 644.0
+    Six Months Ended July 31, 2025:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): 13.0
+        unrealized gains losses on securities (M_USD): 9.0
+      [Total OCI]
+        total other comprehensive income (M_USD): 22.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 1376.0
+=== END ===
+
+QUESTION: What is the total assets for BLD in July 31, 2025
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",7844.0,7844.0,Answer: 7844.0,True,0.000000,True,False
+accounts/fireworks/models/qwen3p7-plus,10q,3,MTX,1,"Could you give the maximum of shares used basic for MTX from Nine Months Ended October 31, 2024 to Nine Months Ended October 31, 2025?","ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Entity: MTX
+
+  === Income Statement ===
+    Three Months Ended October 31, 2024:
+      [Revenue]
+        total revenues (M_USD): 24805.0
+      [Cost of Sales]
+        cost of sales (M_USD): 17966.0
+      [Gross Profit]
+        gross profit (M_USD): 6839.0
+      [Operating Expenses]
+        research and development (M_USD): 626.0
+        selling general and administrative (M_USD): 2388.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 20980.0
+      [Operating Income]
+        operating income (M_USD): 3825.0
+      [Other Income / Expense]
+        other income expense net (M_USD): 108.0
+      [Income Tax]
+        provision for income taxes (M_USD): 940.0
+      [Net Income]
+        net income (M_USD): 2993.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 0.88
+        earnings per share diluted (USD_per_share): 0.87
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 3528345.0
+        shares used diluted (M_shares): 3478322.0
+    Nine Months Ended October 31, 2024:
+      [Revenue]
+        total revenues (M_USD): 74415.0
+      [Cost of Sales]
+        cost of sales (M_USD): 53898.0
+      [Gross Profit]
+        gross profit (M_USD): 20517.0
+      [Operating Expenses]
+        research and development (M_USD): 1878.0
+        selling general and administrative (M_USD): 7164.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 62940.0
+      [Operating Income]
+        operating income (M_USD): 11475.0
+      [Other Income / Expense]
+        other income expense net (M_USD): 324.0
+      [Income Tax]
+        provision for income taxes (M_USD): 2820.0
+      [Net Income]
+        net income (M_USD): 8979.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 2.64
+        earnings per share diluted (USD_per_share): 2.6
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 3560619.0
+        shares used diluted (M_shares): 3421744.0
+    Three Months Ended October 31, 2025:
+      [Revenue]
+        total revenues (M_USD): 24484.0
+      [Cost of Sales]
+        cost of sales (M_USD): 17734.0
+      [Gross Profit]
+        gross profit (M_USD): 6750.0
+      [Operating Expenses]
+        research and development (M_USD): 618.0
+        selling general and administrative (M_USD): 2357.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 20709.0
+      [Operating Income]
+        operating income (M_USD): 3775.0
+      [Other Income / Expense]
+        other income expense net (M_USD): 107.0
+      [Income Tax]
+        provision for income taxes (M_USD): 928.0
+      [Net Income]
+        net income (M_USD): 2954.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 0.87
+        earnings per share diluted (USD_per_share): 0.85
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 3407000.0
+        shares used diluted (M_shares): 3456000.0
+    Nine Months Ended October 31, 2025:
+      [Revenue]
+        total revenues (M_USD): 73452.0
+      [Cost of Sales]
+        cost of sales (M_USD): 53202.0
+      [Gross Profit]
+        gross profit (M_USD): 20250.0
+      [Operating Expenses]
+        research and development (M_USD): 1854.0
+        selling general and administrative (M_USD): 7071.0
+      [Total Costs and Expenses]
+        total costs and expenses (M_USD): 62127.0
+      [Operating Income]
+        operating income (M_USD): 11325.0
+      [Other Income / Expense]
+        other income expense net (M_USD): 321.0
+      [Income Tax]
+        provision for income taxes (M_USD): 2784.0
+      [Net Income]
+        net income (M_USD): 8862.0
+      [Earnings Per Share]
+        earnings per share basic (USD_per_share): 2.6
+        earnings per share diluted (USD_per_share): 2.56
+      [Shares Used in Computing EPS]
+        shares used basic (M_shares): 3468717.0
+        shares used diluted (M_shares): 3515007.0
+
+  === Balance Sheet ===
+    December 31, 2024:
+      [Current Assets]
+        cash and cash equivalents (M_USD): 1466.0
+        short term investments (M_USD): 1645.0
+        accounts receivable net (M_USD): 3537.0
+        inventories (M_USD): 3467.0
+        prepaid expenses and other (M_USD): 891.0
+        total current assets (M_USD): 11006.0
+      [Non-Current Assets]
+        long term marketable securities (M_USD): 2291.0
+        property plant and equipment net (M_USD): 6379.0
+        goodwill (M_USD): 3431.0
+        other non current assets (M_USD): 1614.0
+        total non current assets (M_USD): 13715.0
+      [Total Assets]
+        total assets (M_USD): 24721.0
+      [Current Liabilities]
+        accounts payable (M_USD): 4813.0
+        deferred revenue current (M_USD): 604.0
+        accrued expenses and other (M_USD): 1748.0
+        current portion of long term debt (M_USD): 937.0
+        total current liabilities (M_USD): 8102.0
+      [Non-Current Liabilities]
+        long term debt (M_USD): 6481.0
+        other non current liabilities (M_USD): 875.0
+        total non current liabilities (M_USD): 7356.0
+      [Total Liabilities]
+        total liabilities (M_USD): 15458.0
+      [Shareholders Equity]
+        common stock and additional paid in capital (M_USD): 6484.0
+        retained earnings (M_USD): 2779.0
+        accumulated other comprehensive income loss (M_USD): 0.0
+        total shareholders equity (M_USD): 9263.0
+    October 31, 2025:
+      [Current Assets]
+        cash and cash equivalents (M_USD): 1700.0
+        short term investments (M_USD): 1908.0
+        accounts receivable net (M_USD): 4102.0
+        inventories (M_USD): 4021.0
+        prepaid expenses and other (M_USD): 1033.0
+        total current assets (M_USD): 12764.0
+      [Non-Current Assets]
+        long term marketable securities (M_USD): 2657.0
+        property plant and equipment net (M_USD): 7398.0
+        goodwill (M_USD): 3979.0
+        other non current assets (M_USD): 1872.0
+        total non current assets (M_USD): 15906.0
+      [Total Assets]
+        total assets (M_USD): 28670.0
+      [Current Liabilities]
+        accounts payable (M_USD): 5582.0
+        deferred revenue current (M_USD): 701.0
+        accrued expenses and other (M_USD): 2027.0
+        current portion of long term debt (M_USD): 1087.0
+        total current liabilities (M_USD): 9397.0
+      [Non-Current Liabilities]
+        long term debt (M_USD): 7516.0
+        other non current liabilities (M_USD): 1015.0
+        total non current liabilities (M_USD): 8531.0
+      [Total Liabilities]
+        total liabilities (M_USD): 17928.0
+      [Shareholders Equity]
+        common stock and additional paid in capital (M_USD): 4967.0
+        retained earnings (M_USD): 5800.0
+        accumulated other comprehensive income loss (M_USD): -25.0
+        total shareholders equity (M_USD): 10742.0
+
+  === Cash Flow Statement ===
+    Nine Months Ended October 31, 2024:
+      [Operating Activities]
+        depreciation and amortization (M_USD): 3831.0
+        stock based compensation (M_USD): 409.0
+        change in accounts receivable (M_USD): -1743.0
+        change in inventories (M_USD): -147.0
+        change in accounts payable (M_USD): -607.0
+        change in other working capital (M_USD): 458.0
+        net cash from operating (M_USD): 11180.0
+      [Investing Activities]
+        capital expenditures (M_USD): -4755.0
+        purchases of marketable securities (M_USD): -796.0
+        proceeds from maturities of securities (M_USD): 277.0
+        net cash from investing (M_USD): -5274.0
+      [Financing Activities]
+        repayments of debt (M_USD): -854.0
+        share repurchases (M_USD): -1168.0
+        proceeds from stock option exercises (M_USD): 63.0
+        dividends paid (M_USD): -613.0
+        net cash from financing (M_USD): -2572.0
+      [Net Change in Cash]
+        effect of exchange rate on cash (M_USD): 19.0
+        opening cash and equivalents (M_USD): 1356.0
+        net change in cash (M_USD): 3353.0
+    Nine Months Ended October 31, 2025:
+      [Operating Activities]
+        depreciation and amortization (M_USD): 3781.0
+        stock based compensation (M_USD): 404.0
+        change in accounts receivable (M_USD): -1720.0
+        change in inventories (M_USD): -145.0
+        change in accounts payable (M_USD): -599.0
+        change in other working capital (M_USD): -263.0
+        net cash from operating (M_USD): 10320.0
+      [Investing Activities]
+        capital expenditures (M_USD): -4694.0
+        purchases of marketable securities (M_USD): -786.0
+        proceeds from maturities of securities (M_USD): 273.0
+        net cash from investing (M_USD): -5207.0
+      [Financing Activities]
+        repayments of debt (M_USD): -843.0
+        share repurchases (M_USD): -1153.0
+        proceeds from stock option exercises (M_USD): 106.0
+        dividends paid (M_USD): -605.0
+        net cash from financing (M_USD): -2495.0
+      [Net Change in Cash]
+        effect of exchange rate on cash (M_USD): 40.0
+        opening cash and equivalents (M_USD): 1338.0
+        net change in cash (M_USD): 2658.0
+
+  === Comprehensive Income Statement ===
+    Three Months Ended October 31, 2024:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): -43.0
+        unrealized gains losses on securities (M_USD): -29.0
+      [Total OCI]
+        total other comprehensive income (M_USD): -72.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 2921.0
+    Nine Months Ended October 31, 2024:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): -116.0
+        unrealized gains losses on securities (M_USD): -73.0
+      [Total OCI]
+        total other comprehensive income (M_USD): -189.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 8790.0
+    Three Months Ended October 31, 2025:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): 78.0
+        unrealized gains losses on securities (M_USD): 52.0
+      [Total OCI]
+        total other comprehensive income (M_USD): 130.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 3084.0
+    Nine Months Ended October 31, 2025:
+      [Other Comprehensive Income]
+        foreign currency translation (M_USD): -130.0
+        unrealized gains losses on securities (M_USD): -86.0
+      [Total OCI]
+        total other comprehensive income (M_USD): -216.0
+      [Total Comprehensive Income]
+        comprehensive income (M_USD): 8646.0
+=== END ===
+
+QUESTION: Could you give the maximum of shares used basic for MTX from Nine Months Ended October 31, 2024 to Nine Months Ended October 31, 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",3560619.0,3560619.0,"Shares used basic (Nine Months Ended Oct 31, 2024): 3560619.0
+Shares used basic (Nine Months Ended Oct 31, 2025): 3468717.0
+Max(3560619.0, 3468717.0) = 3560619.0
+
+Answer: 3560619.0",True,0.000000,True,False

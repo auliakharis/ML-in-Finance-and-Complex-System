@@ -1,0 +1,53 @@
+<===== START depth_2_apertus_70b_90q | provider=Apertus | model=CSCS-Inference/swiss-ai/Apertus-v1.5-70B-thinking | dataset=90q | limit=2 =====>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 2 questions, 15 companies
+
+============================================================
+  Evaluating model: CSCS-Inference/swiss-ai/Apertus-v1.5-70B-thinking
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+<------ will run inference ------>
+<------ will run inference ------>
+  [2/2] CORRECT | truth=218.5000 pred=218.5 | May you calculate the average dividends paid for NovaStar Te...
+  [1/2] WRONG  | truth=19717.0000 pred=12201.0 | You should give the sum of difference between short term inv...
+
+============================================================
+  Model: CSCS-Inference/swiss-ai/Apertus-v1.5-70B-thinking
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 1/2  accuracy = 50.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 1/2  accuracy = 50.0%
+============================================================
+
+Results saved to output_llm/depths/depth_2_apertus_70b_90q_20260808_233249.json
+CSV saved to output_llm/eval_results_20260808_233249.csv
+<===== START depth_2_apertus_70b_90q | provider=Apertus | model=CSCS-Inference/swiss-ai/Apertus-v1.5-70B-thinking | dataset=90q | limit=2 =====>
+90Q are Sheet: /output/financial_spreadsheet.json
+90Q are Questions: /output/original_questions.json
+Loading datasets...
+  90-Q: 2 questions, 15 companies
+
+============================================================
+  Evaluating model: CSCS-Inference/swiss-ai/Apertus-v1.5-70B-thinking
+============================================================
+
+-- 90-Q evaluation (2 questions) --
+  [2/2] WRONG  | truth=72845.5000 pred=99211.0 | What is the average total liabilities for Apex Dynamics Corp...
+  [1/2] WRONG  | truth=834000.0000 pred=322222.0 | what would be the sum of difference between revenue and acco...
+
+============================================================
+  Model: CSCS-Inference/swiss-ai/Apertus-v1.5-70B-thinking
+============================================================
+  10-Q      : 0/0  accuracy = 0.0%  (skipped 0)
+  90-Q      : 0/2  accuracy = 0.0%  (skipped 0)
+  Multi-turn: 0/0  accuracy = 0.0%  (skipped 0)
+  Overall   : 0/2  accuracy = 0.0%
+============================================================
+
+Results saved to output_llm/depths/depth_2_apertus_70b_90q_20260808_233611.json
+CSV saved to output_llm/eval_results_20260808_233611.csv
+<===== END depth_2_apertus_70b_90q =====>

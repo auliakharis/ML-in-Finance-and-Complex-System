@@ -1,0 +1,21 @@
+usage: make_random_questions_adversarial.py [-h] [--csv CSV]
+                                            [--concept-metadata CONCEPT_METADATA]
+                                            [--n N] [--depth-min DEPTH_MIN]
+                                            [--depth-max DEPTH_MAX]
+                                            [--derived-prob-min DERIVED_PROB_MIN]
+                                            [--derived-prob-max DERIVED_PROB_MAX]
+                                            [--seed SEED] [--output OUTPUT]
+                                            [--obstacle {big_numbers,useless_info,unit_scale_change,negation,conditional,prompt_injection,balanced_tree}]
+                                            [--financial-spreadsheet FINANCIAL_SPREADSHEET]
+                                            [--skip-data-prep]
+                                            [--useless-info-family FAMILY]
+                                            [--big-numbers-factor BIG_NUMBERS_FACTOR]
+make_random_questions_adversarial.py: error: argument --depth-min: invalid int value: '{8}'
+Saved 100 questions to /output/random_questions_90.csv
+Saved 100 questions to /output/original_questions.json
+Master seed: 433340476
+Max bound leaf count: 26
+Saved 100 questions to /output/random_questions_90.csv
+Saved 100 questions to /output/original_questions.json
+Master seed: 872175947
+Max bound leaf count: 33

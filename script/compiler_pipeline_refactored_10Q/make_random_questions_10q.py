@@ -29,7 +29,8 @@ _REFACTORED = os.path.join(_HERE, "..", "compiler_pipeline_refactored")
 sys.path.insert(0, _HERE)
 sys.path.insert(0, _REFACTORED)
 
-from tree import (
+
+from script.compiler_pipeline_adversarial.tree import (
     Atom,
     BindEnv,
     DerivedConcept,
@@ -38,10 +39,12 @@ from tree import (
     SemanticType,
     Store,
 )
-from evaluator import Evaluator
-from data_prep_10q import generate_atoms
-from semantic_analyzer_10q import SemanticAnalyzer
-from question_renderer_10q import QuestionRenderer
+from script.compiler_pipeline_adversarial.evaluator import Evaluator
+
+from script.compiler_pipeline_refactored_10Q.data_prep_10q import generate_atoms
+from script.compiler_pipeline_refactored_10Q.semantic_analyzer_10q import SemanticAnalyzer
+from script.compiler_pipeline_refactored_10Q.question_renderer_10q import QuestionRenderer
+
 
 T = TypeVar("T")
 

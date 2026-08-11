@@ -1,9 +1,9 @@
 """v2: financial expression tree sampling, binding, semantics, evaluation, and questions."""
 
-from evaluator import Evaluator
-from question_renderer import QuestionRenderer
-from semantic_analyzer import AnalysisResult, Meaning, SemanticAnalyzer
-from tree import (
+from .evaluator import Evaluator
+from .question_renderer import QuestionRenderer
+from .semantic_analyzer import AnalysisResult, Meaning, SemanticAnalyzer
+from .tree import (
     Atom,
     AtomIndex,
     BindEnv,

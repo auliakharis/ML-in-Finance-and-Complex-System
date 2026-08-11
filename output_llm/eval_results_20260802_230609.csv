@@ -1,0 +1,6383 @@
+model,dataset,id,entity,depth,question,prompt,ground_truth,predicted_answer,reasoning,correct,relative_error,within_tol,skipped
+swiss-ai/Apertus-v1.5-70B,90q,2,Ironclad Manufacturing,1,Which result follows from the gross profit for Ironclad Manufacturing in 2024 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: Which result follows from the gross profit for Ironclad Manufacturing in 2024 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",30814912.0,30814912.0,"Gross profit = revenue − cost_of_goods_sold
+= 46132241 − 15317329
+= 30814912
+
+Answer: 30814912",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,4,Cobalt Semiconductor,1,You should calculate the longterm liabilities for Cobalt Semiconductor in 2023 .,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5387560
+    cost_of_goods_sold: 2528314
+    operating_expenses: 758187
+    non_operating_expenses: 438988
+    income_tax: 0.1623274739408433
+    total_assets: 7816447
+    total_liabilities: 5781868
+    total_equity: 2034579
+    cash: 1259771
+    accounts_receivable: 691408
+    inventories: 101702
+    short_term_investments: 903746
+    current_liabilities: 1517397
+    capex: 298735
+    dividends_paid: 45433
+    shares_outstanding: 641782
+    stock_price: 49155.47
+    employees: 21002095
+  Year 2021:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5281745
+    cost_of_goods_sold: 2802261
+    operating_expenses: 628710
+    non_operating_expenses: 381226
+    income_tax: 0.23564357858670687
+    total_assets: 5220348
+    total_liabilities: 3303021
+    total_equity: 1917327
+    cash: 510823
+    accounts_receivable: 327742
+    inventories: 414673
+    short_term_investments: 92241
+    current_liabilities: 994559
+    capex: 429870
+    dividends_paid: 424737
+    shares_outstanding: 1148600
+    stock_price: 24221.6
+    employees: 6439225
+  Year 2022:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5594782
+    cost_of_goods_sold: 2762674
+    operating_expenses: 424292
+    non_operating_expenses: 875676
+    income_tax: 0.14602214321533194
+    total_assets: 5765033
+    total_liabilities: 3907580
+    total_equity: 1857453
+    cash: 622144
+    accounts_receivable: 445944
+    inventories: 321756
+    short_term_investments: 409725
+    current_liabilities: 1426027
+    capex: 252016
+    dividends_paid: 40751
+    shares_outstanding: 649634
+    stock_price: 33247.2
+    employees: 32187013
+  Year 2023:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5600737
+    cost_of_goods_sold: 2701037
+    operating_expenses: 1362323
+    non_operating_expenses: 472560
+    income_tax: 0.2895228618653495
+    total_assets: 6572738
+    total_liabilities: 4494038
+    total_equity: 2078700
+    cash: 720422
+    accounts_receivable: 468620
+    inventories: 91193
+    short_term_investments: 466630
+    current_liabilities: 1573419
+    capex: 502061
+    dividends_paid: 23799
+    shares_outstanding: 1121249
+    stock_price: 18893.41
+    employees: 39066334
+  Year 2024:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5272456
+    cost_of_goods_sold: 3084129
+    operating_expenses: 823141
+    non_operating_expenses: 468093
+    income_tax: 0.2552456458648671
+    total_assets: 7309458
+    total_liabilities: 5429068
+    total_equity: 1880390
+    cash: 1257208
+    accounts_receivable: 288767
+    inventories: 102901
+    short_term_investments: 335033
+    current_liabilities: 1592751
+    capex: 425657
+    dividends_paid: 40854
+    shares_outstanding: 122276
+    stock_price: 76176.43
+    employees: 31583464
+  Year 2025:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5535588
+    cost_of_goods_sold: 3064950
+    operating_expenses: 918319
+    non_operating_expenses: 1030874
+    income_tax: 0.27640963131858676
+    total_assets: 5165770
+    total_liabilities: 3862479
+    total_equity: 1303291
+    cash: 522289
+    accounts_receivable: 758914
+    inventories: 187262
+    short_term_investments: 369698
+    current_liabilities: 1418419
+    capex: 463364
+    dividends_paid: 95292
+    shares_outstanding: 891215
+    stock_price: 29127.46
+    employees: 4172437
+=== END ===
+
+QUESTION: You should calculate the longterm liabilities for Cobalt Semiconductor in 2023 .
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",2920619.0,2920619.0,"longterm_liabilities = total_liabilities - current_liabilities
+longterm_liabilities = 4494038 - 1573419
+Answer: 2920619",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,4,Orion Financial Group,1,you should give the gross profit for Orion Financial Group in 2025 .,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 8798877
+    cost_of_goods_sold: 4775445
+    operating_expenses: 2149547
+    non_operating_expenses: 1374125
+    income_tax: 0.2826973948963394
+    total_assets: 6786287
+    total_liabilities: 3382625
+    total_equity: 3403662
+    cash: 1434837
+    accounts_receivable: 775927
+    inventories: 596183
+    short_term_investments: 777154
+    current_liabilities: 1132093
+    capex: 853768
+    dividends_paid: 16514
+    shares_outstanding: 219728
+    stock_price: 77370.27
+    employees: 43076960
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 9879209
+    cost_of_goods_sold: 7320237
+    operating_expenses: 2405132
+    non_operating_expenses: 2083698
+    income_tax: 0.17315500988111326
+    total_assets: 7910845
+    total_liabilities: 1996550
+    total_equity: 5914295
+    cash: 1171168
+    accounts_receivable: 844461
+    inventories: 786689
+    short_term_investments: 823738
+    current_liabilities: 790913
+    capex: 940731
+    dividends_paid: 0
+    shares_outstanding: 171436
+    stock_price: 19855.02
+    employees: 1738720
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 11534824
+    cost_of_goods_sold: 6374528
+    operating_expenses: 2688204
+    non_operating_expenses: 1087428
+    income_tax: 0.1126434082320391
+    total_assets: 8951255
+    total_liabilities: 6567652
+    total_equity: 2383603
+    cash: 863634
+    accounts_receivable: 932355
+    inventories: 243322
+    short_term_investments: 1275345
+    current_liabilities: 2141653
+    capex: 320384
+    dividends_paid: 242113
+    shares_outstanding: 1332016
+    stock_price: 12149.63
+    employees: 22955366
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 12777542
+    cost_of_goods_sold: 8106239
+    operating_expenses: 3056322
+    non_operating_expenses: 1709959
+    income_tax: 0.24845380295306316
+    total_assets: 26322247
+    total_liabilities: 15446131
+    total_equity: 10876116
+    cash: 1363091
+    accounts_receivable: 1136367
+    inventories: 592202
+    short_term_investments: 3769688
+    current_liabilities: 3987868
+    capex: 708779
+    dividends_paid: 0
+    shares_outstanding: 1426327
+    stock_price: 68652.84
+    employees: 5418054
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 14208504
+    cost_of_goods_sold: 7743772
+    operating_expenses: 3489161
+    non_operating_expenses: 1729669
+    income_tax: 0.1796279285488746
+    total_assets: 26921759
+    total_liabilities: 10403632
+    total_equity: 16518127
+    cash: 5830373
+    accounts_receivable: 1214426
+    inventories: 822078
+    short_term_investments: 2687831
+    current_liabilities: 4154030
+    capex: 1178504
+    dividends_paid: 8732
+    shares_outstanding: 372918
+    stock_price: 11385.02
+    employees: 28446610
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 13344781
+    cost_of_goods_sold: 8598320
+    operating_expenses: 1220133
+    non_operating_expenses: 1243604
+    income_tax: 0.27393908535390893
+    total_assets: 19221272
+    total_liabilities: 7903965
+    total_equity: 11317307
+    cash: 4384696
+    accounts_receivable: 537575
+    inventories: 1131477
+    short_term_investments: 581565
+    current_liabilities: 2232855
+    capex: 453186
+    dividends_paid: 166173
+    shares_outstanding: 994976
+    stock_price: 3523.74
+    employees: 1235586
+=== END ===
+
+QUESTION: you should give the gross profit for Orion Financial Group in 2025 .
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",4746461.0,4746461.0,"Gross profit = revenue - cost_of_goods_sold
+= 13344781 - 8598320
+Answer: 4746461",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,4,NovaStar Technologies,1,you should give the longterm liabilities for NovaStar Technologies in 2022,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 10788366
+    cost_of_goods_sold: 3735549
+    operating_expenses: 2222654
+    non_operating_expenses: 2447092
+    income_tax: 0.18127547796642335
+    total_assets: 10325833
+    total_liabilities: 4312982
+    total_equity: 6012851
+    cash: 2422170
+    accounts_receivable: 1364303
+    inventories: 548777
+    short_term_investments: 1275323
+    current_liabilities: 2028629
+    capex: 851473
+    dividends_paid: 19344
+    shares_outstanding: 504956
+    stock_price: 74569.05
+    employees: 40210639
+  Year 2021:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 12535411
+    cost_of_goods_sold: 8334007
+    operating_expenses: 1295674
+    non_operating_expenses: 2600783
+    income_tax: 0.12161912528059143
+    total_assets: 9308933
+    total_liabilities: 6736127
+    total_equity: 2572806
+    cash: 734805
+    accounts_receivable: 1525041
+    inventories: 665382
+    short_term_investments: 490830
+    current_liabilities: 3023419
+    capex: 274440
+    dividends_paid: 24385
+    shares_outstanding: 297763
+    stock_price: 27268.56
+    employees: 43285471
+  Year 2022:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 14926277
+    cost_of_goods_sold: 6352717
+    operating_expenses: 2661301
+    non_operating_expenses: 1939456
+    income_tax: 0.296229937439652
+    total_assets: 15820803
+    total_liabilities: 11696442
+    total_equity: 4124361
+    cash: 876080
+    accounts_receivable: 2045498
+    inventories: 274525
+    short_term_investments: 2290137
+    current_liabilities: 3700363
+    capex: 817439
+    dividends_paid: 121235
+    shares_outstanding: 1095532
+    stock_price: 26123.67
+    employees: 30507338
+  Year 2023:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 15869595
+    cost_of_goods_sold: 7511681
+    operating_expenses: 2623523
+    non_operating_expenses: 1601948
+    income_tax: 0.24175705676683412
+    total_assets: 52543189
+    total_liabilities: 38712587
+    total_equity: 13830602
+    cash: 7800532
+    accounts_receivable: 1776490
+    inventories: 874762
+    short_term_investments: 5458606
+    current_liabilities: 13203136
+    capex: 1160687
+    dividends_paid: 87702
+    shares_outstanding: 501998
+    stock_price: 26142.38
+    employees: 42476756
+  Year 2024:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 17798246
+    cost_of_goods_sold: 7744818
+    operating_expenses: 1990857
+    non_operating_expenses: 2343648
+    income_tax: 0.18048007741154493
+    total_assets: 27181765
+    total_liabilities: 10644596
+    total_equity: 16537169
+    cash: 3329717
+    accounts_receivable: 2385612
+    inventories: 836838
+    short_term_investments: 3707396
+    current_liabilities: 4299126
+    capex: 1136151
+    dividends_paid: 564193
+    shares_outstanding: 10605
+    stock_price: 24022.73
+    employees: 21779463
+  Year 2025:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 19264745
+    cost_of_goods_sold: 11455155
+    operating_expenses: 2754813
+    non_operating_expenses: 2666856
+    income_tax: 0.14274028019782006
+    total_assets: 22198923
+    total_liabilities: 16252552
+    total_equity: 5946371
+    cash: 4553564
+    accounts_receivable: 1097496
+    inventories: 355378
+    short_term_investments: 1823936
+    current_liabilities: 6634864
+    capex: 1646632
+    dividends_paid: 274461
+    shares_outstanding: 1129196
+    stock_price: 54314.46
+    employees: 11619713
+=== END ===
+
+QUESTION: you should give the longterm liabilities for NovaStar Technologies in 2022
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",7996079.0,0.0,Answer: 0,False,1.000000,False,False
+swiss-ai/Apertus-v1.5-70B,90q,4,Orion Financial Group,1,give the longterm liabilities for Orion Financial Group in 2023 .,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 8798877
+    cost_of_goods_sold: 4775445
+    operating_expenses: 2149547
+    non_operating_expenses: 1374125
+    income_tax: 0.2826973948963394
+    total_assets: 6786287
+    total_liabilities: 3382625
+    total_equity: 3403662
+    cash: 1434837
+    accounts_receivable: 775927
+    inventories: 596183
+    short_term_investments: 777154
+    current_liabilities: 1132093
+    capex: 853768
+    dividends_paid: 16514
+    shares_outstanding: 219728
+    stock_price: 77370.27
+    employees: 43076960
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 9879209
+    cost_of_goods_sold: 7320237
+    operating_expenses: 2405132
+    non_operating_expenses: 2083698
+    income_tax: 0.17315500988111326
+    total_assets: 7910845
+    total_liabilities: 1996550
+    total_equity: 5914295
+    cash: 1171168
+    accounts_receivable: 844461
+    inventories: 786689
+    short_term_investments: 823738
+    current_liabilities: 790913
+    capex: 940731
+    dividends_paid: 0
+    shares_outstanding: 171436
+    stock_price: 19855.02
+    employees: 1738720
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 11534824
+    cost_of_goods_sold: 6374528
+    operating_expenses: 2688204
+    non_operating_expenses: 1087428
+    income_tax: 0.1126434082320391
+    total_assets: 8951255
+    total_liabilities: 6567652
+    total_equity: 2383603
+    cash: 863634
+    accounts_receivable: 932355
+    inventories: 243322
+    short_term_investments: 1275345
+    current_liabilities: 2141653
+    capex: 320384
+    dividends_paid: 242113
+    shares_outstanding: 1332016
+    stock_price: 12149.63
+    employees: 22955366
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 12777542
+    cost_of_goods_sold: 8106239
+    operating_expenses: 3056322
+    non_operating_expenses: 1709959
+    income_tax: 0.24845380295306316
+    total_assets: 26322247
+    total_liabilities: 15446131
+    total_equity: 10876116
+    cash: 1363091
+    accounts_receivable: 1136367
+    inventories: 592202
+    short_term_investments: 3769688
+    current_liabilities: 3987868
+    capex: 708779
+    dividends_paid: 0
+    shares_outstanding: 1426327
+    stock_price: 68652.84
+    employees: 5418054
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 14208504
+    cost_of_goods_sold: 7743772
+    operating_expenses: 3489161
+    non_operating_expenses: 1729669
+    income_tax: 0.1796279285488746
+    total_assets: 26921759
+    total_liabilities: 10403632
+    total_equity: 16518127
+    cash: 5830373
+    accounts_receivable: 1214426
+    inventories: 822078
+    short_term_investments: 2687831
+    current_liabilities: 4154030
+    capex: 1178504
+    dividends_paid: 8732
+    shares_outstanding: 372918
+    stock_price: 11385.02
+    employees: 28446610
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 13344781
+    cost_of_goods_sold: 8598320
+    operating_expenses: 1220133
+    non_operating_expenses: 1243604
+    income_tax: 0.27393908535390893
+    total_assets: 19221272
+    total_liabilities: 7903965
+    total_equity: 11317307
+    cash: 4384696
+    accounts_receivable: 537575
+    inventories: 1131477
+    short_term_investments: 581565
+    current_liabilities: 2232855
+    capex: 453186
+    dividends_paid: 166173
+    shares_outstanding: 994976
+    stock_price: 3523.74
+    employees: 1235586
+=== END ===
+
+QUESTION: give the longterm liabilities for Orion Financial Group in 2023 .
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",11458263.0,15446131.0,Answer: 15446131,False,0.348034,False,False
+swiss-ai/Apertus-v1.5-70B,90q,6,Titan Consumer Brands,1,Evaluate the longterm liabilities for Titan Consumer Brands in 2025.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 42882397
+    cost_of_goods_sold: 13169248
+    operating_expenses: 4420039
+    non_operating_expenses: 3231262
+    income_tax: 0.18419211138201583
+    total_assets: 98268662
+    total_liabilities: 31492218
+    total_equity: 66776444
+    cash: 12639369
+    accounts_receivable: 3267806
+    inventories: 1279743
+    short_term_investments: 7201202
+    current_liabilities: 9617328
+    capex: 3352522
+    dividends_paid: 4428334
+    shares_outstanding: 1364040
+    stock_price: 53223.89
+    employees: 15430701
+  Year 2021:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47176442
+    cost_of_goods_sold: 14814242
+    operating_expenses: 11780776
+    non_operating_expenses: 10353328
+    income_tax: 0.18525472385599834
+    total_assets: 109826519
+    total_liabilities: 75755764
+    total_equity: 34070755
+    cash: 14012075
+    accounts_receivable: 6129478
+    inventories: 916624
+    short_term_investments: 3379003
+    current_liabilities: 21328876
+    capex: 3152763
+    dividends_paid: 2081048
+    shares_outstanding: 1071108
+    stock_price: 31401.0
+    employees: 30070897
+  Year 2022:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47297750
+    cost_of_goods_sold: 24949468
+    operating_expenses: 6434380
+    non_operating_expenses: 9867220
+    income_tax: 0.12288281448601593
+    total_assets: 43566074
+    total_liabilities: 31694584
+    total_equity: 11871490
+    cash: 6591275
+    accounts_receivable: 5985494
+    inventories: 1893891
+    short_term_investments: 5852350
+    current_liabilities: 11202558
+    capex: 2454678
+    dividends_paid: 1755336
+    shares_outstanding: 1097123
+    stock_price: 26035.05
+    employees: 15969917
+  Year 2023:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 46889530
+    cost_of_goods_sold: 34187936
+    operating_expenses: 8785420
+    non_operating_expenses: 6792116
+    income_tax: 0.11824495767320974
+    total_assets: 116513897
+    total_liabilities: 69267040
+    total_equity: 47246857
+    cash: 22581509
+    accounts_receivable: 3622905
+    inventories: 1262048
+    short_term_investments: 2143545
+    current_liabilities: 33882399
+    capex: 3451119
+    dividends_paid: 0
+    shares_outstanding: 622105
+    stock_price: 70078.18
+    employees: 47085929
+  Year 2024:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 48691135
+    cost_of_goods_sold: 34674401
+    operating_expenses: 2935550
+    non_operating_expenses: 5235557
+    income_tax: 0.1624897798175308
+    total_assets: 114750794
+    total_liabilities: 71773192
+    total_equity: 42977602
+    cash: 7348714
+    accounts_receivable: 4295480
+    inventories: 4512725
+    short_term_investments: 6772128
+    current_liabilities: 27924535
+    capex: 2058927
+    dividends_paid: 224981
+    shares_outstanding: 346977
+    stock_price: 35185.32
+    employees: 28267802
+  Year 2025:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 55258649
+    cost_of_goods_sold: 32037623
+    operating_expenses: 10222593
+    non_operating_expenses: 8915870
+    income_tax: 0.22179898311061305
+    total_assets: 50724047
+    total_liabilities: 34734736
+    total_equity: 15989311
+    cash: 1844818
+    accounts_receivable: 3720401
+    inventories: 3816105
+    short_term_investments: 7051416
+    current_liabilities: 11731860
+    capex: 1738444
+    dividends_paid: 230534
+    shares_outstanding: 989444
+    stock_price: 6962.46
+    employees: 37177968
+=== END ===
+
+QUESTION: Evaluate the longterm liabilities for Titan Consumer Brands in 2025.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",23002876.0,,Answer: Not available,False,,False,False
+swiss-ai/Apertus-v1.5-70B,90q,7,Atlas Global Industries,1,What is the value of the longterm liabilities for Atlas Global Industries in 2022?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 7271353
+    cost_of_goods_sold: 5400952
+    operating_expenses: 1252525
+    non_operating_expenses: 1481159
+    income_tax: 0.19108323367601782
+    total_assets: 5333390
+    total_liabilities: 3464852
+    total_equity: 1868538
+    cash: 1002870
+    accounts_receivable: 570058
+    inventories: 388625
+    short_term_investments: 163522
+    current_liabilities: 1461840
+    capex: 645952
+    dividends_paid: 0
+    shares_outstanding: 1329343
+    stock_price: 62606.0
+    employees: 11332636
+  Year 2021:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8326795
+    cost_of_goods_sold: 5105660
+    operating_expenses: 1189982
+    non_operating_expenses: 1344621
+    income_tax: 0.28349400289108806
+    total_assets: 18685432
+    total_liabilities: 7429253
+    total_equity: 11256179
+    cash: 2470616
+    accounts_receivable: 775334
+    inventories: 473092
+    short_term_investments: 1016893
+    current_liabilities: 3260049
+    capex: 709447
+    dividends_paid: 87081
+    shares_outstanding: 1339110
+    stock_price: 34999.15
+    employees: 45389309
+  Year 2022:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8700300
+    cost_of_goods_sold: 3233215
+    operating_expenses: 1934068
+    non_operating_expenses: 1218163
+    income_tax: 0.2503553573001023
+    total_assets: 6652442
+    total_liabilities: 3405354
+    total_equity: 3247088
+    cash: 1337729
+    accounts_receivable: 769626
+    inventories: 165224
+    short_term_investments: 476196
+    current_liabilities: 1458807
+    capex: 407764
+    dividends_paid: 162768
+    shares_outstanding: 1340610
+    stock_price: 7825.35
+    employees: 7966118
+  Year 2023:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8937383
+    cost_of_goods_sold: 3295771
+    operating_expenses: 829305
+    non_operating_expenses: 1188436
+    income_tax: 0.1661762782076167
+    total_assets: 10403082
+    total_liabilities: 3317081
+    total_equity: 7086001
+    cash: 2218312
+    accounts_receivable: 705586
+    inventories: 395735
+    short_term_investments: 1481905
+    current_liabilities: 845468
+    capex: 590361
+    dividends_paid: 1064422
+    shares_outstanding: 720700
+    stock_price: 75505.22
+    employees: 15281326
+  Year 2024:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9198321
+    cost_of_goods_sold: 6450219
+    operating_expenses: 1997376
+    non_operating_expenses: 1450061
+    income_tax: 0.24692681215127155
+    total_assets: 7301171
+    total_liabilities: 5340646
+    total_equity: 1960525
+    cash: 1003257
+    accounts_receivable: 618988
+    inventories: 536229
+    short_term_investments: 470488
+    current_liabilities: 2228216
+    capex: 716867
+    dividends_paid: 0
+    shares_outstanding: 1262353
+    stock_price: 73684.02
+    employees: 49045738
+  Year 2025:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9838106
+    cost_of_goods_sold: 6966540
+    operating_expenses: 1656526
+    non_operating_expenses: 1796438
+    income_tax: 0.11678949243240005
+    total_assets: 12081149
+    total_liabilities: 8762607
+    total_equity: 3318542
+    cash: 845443
+    accounts_receivable: 649469
+    inventories: 435798
+    short_term_investments: 889872
+    current_liabilities: 2929998
+    capex: 415764
+    dividends_paid: 0
+    shares_outstanding: 1427294
+    stock_price: 34592.84
+    employees: 41828090
+=== END ===
+
+QUESTION: What is the value of the longterm liabilities for Atlas Global Industries in 2022?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",1946547.0,0.0,Answer: 0,False,1.000000,False,False
+swiss-ai/Apertus-v1.5-70B,90q,9,Cobalt Semiconductor,1,what would be the longterm liabilities for Cobalt Semiconductor in 2025,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5387560
+    cost_of_goods_sold: 2528314
+    operating_expenses: 758187
+    non_operating_expenses: 438988
+    income_tax: 0.1623274739408433
+    total_assets: 7816447
+    total_liabilities: 5781868
+    total_equity: 2034579
+    cash: 1259771
+    accounts_receivable: 691408
+    inventories: 101702
+    short_term_investments: 903746
+    current_liabilities: 1517397
+    capex: 298735
+    dividends_paid: 45433
+    shares_outstanding: 641782
+    stock_price: 49155.47
+    employees: 21002095
+  Year 2021:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5281745
+    cost_of_goods_sold: 2802261
+    operating_expenses: 628710
+    non_operating_expenses: 381226
+    income_tax: 0.23564357858670687
+    total_assets: 5220348
+    total_liabilities: 3303021
+    total_equity: 1917327
+    cash: 510823
+    accounts_receivable: 327742
+    inventories: 414673
+    short_term_investments: 92241
+    current_liabilities: 994559
+    capex: 429870
+    dividends_paid: 424737
+    shares_outstanding: 1148600
+    stock_price: 24221.6
+    employees: 6439225
+  Year 2022:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5594782
+    cost_of_goods_sold: 2762674
+    operating_expenses: 424292
+    non_operating_expenses: 875676
+    income_tax: 0.14602214321533194
+    total_assets: 5765033
+    total_liabilities: 3907580
+    total_equity: 1857453
+    cash: 622144
+    accounts_receivable: 445944
+    inventories: 321756
+    short_term_investments: 409725
+    current_liabilities: 1426027
+    capex: 252016
+    dividends_paid: 40751
+    shares_outstanding: 649634
+    stock_price: 33247.2
+    employees: 32187013
+  Year 2023:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5600737
+    cost_of_goods_sold: 2701037
+    operating_expenses: 1362323
+    non_operating_expenses: 472560
+    income_tax: 0.2895228618653495
+    total_assets: 6572738
+    total_liabilities: 4494038
+    total_equity: 2078700
+    cash: 720422
+    accounts_receivable: 468620
+    inventories: 91193
+    short_term_investments: 466630
+    current_liabilities: 1573419
+    capex: 502061
+    dividends_paid: 23799
+    shares_outstanding: 1121249
+    stock_price: 18893.41
+    employees: 39066334
+  Year 2024:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5272456
+    cost_of_goods_sold: 3084129
+    operating_expenses: 823141
+    non_operating_expenses: 468093
+    income_tax: 0.2552456458648671
+    total_assets: 7309458
+    total_liabilities: 5429068
+    total_equity: 1880390
+    cash: 1257208
+    accounts_receivable: 288767
+    inventories: 102901
+    short_term_investments: 335033
+    current_liabilities: 1592751
+    capex: 425657
+    dividends_paid: 40854
+    shares_outstanding: 122276
+    stock_price: 76176.43
+    employees: 31583464
+  Year 2025:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5535588
+    cost_of_goods_sold: 3064950
+    operating_expenses: 918319
+    non_operating_expenses: 1030874
+    income_tax: 0.27640963131858676
+    total_assets: 5165770
+    total_liabilities: 3862479
+    total_equity: 1303291
+    cash: 522289
+    accounts_receivable: 758914
+    inventories: 187262
+    short_term_investments: 369698
+    current_liabilities: 1418419
+    capex: 463364
+    dividends_paid: 95292
+    shares_outstanding: 891215
+    stock_price: 29127.46
+    employees: 4172437
+=== END ===
+
+QUESTION: what would be the longterm liabilities for Cobalt Semiconductor in 2025
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",2444060.0,2444060.0,"Total liabilities for 2025 = 3,862,479
+Current liabilities for 2025 = 1,418,419
+Long-term liabilities = Total liabilities - Current liabilities
+3,862,479 - 1,418,419 = 2,444,060
+
+Answer: 2444060",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,10,Ironclad Manufacturing,1,Which quantity is given by the gross profit for Ironclad Manufacturing in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: Which quantity is given by the gross profit for Ironclad Manufacturing in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26744626.0,26744626.0,"Gross profit = Revenue - Cost of goods sold
+Gross profit = 39745535 - 13000909
+Gross profit = 26744626
+
+Answer: 26744626",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,10,Orion Financial Group,1,May you give the longterm liabilities for Orion Financial Group in 2022 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 8798877
+    cost_of_goods_sold: 4775445
+    operating_expenses: 2149547
+    non_operating_expenses: 1374125
+    income_tax: 0.2826973948963394
+    total_assets: 6786287
+    total_liabilities: 3382625
+    total_equity: 3403662
+    cash: 1434837
+    accounts_receivable: 775927
+    inventories: 596183
+    short_term_investments: 777154
+    current_liabilities: 1132093
+    capex: 853768
+    dividends_paid: 16514
+    shares_outstanding: 219728
+    stock_price: 77370.27
+    employees: 43076960
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 9879209
+    cost_of_goods_sold: 7320237
+    operating_expenses: 2405132
+    non_operating_expenses: 2083698
+    income_tax: 0.17315500988111326
+    total_assets: 7910845
+    total_liabilities: 1996550
+    total_equity: 5914295
+    cash: 1171168
+    accounts_receivable: 844461
+    inventories: 786689
+    short_term_investments: 823738
+    current_liabilities: 790913
+    capex: 940731
+    dividends_paid: 0
+    shares_outstanding: 171436
+    stock_price: 19855.02
+    employees: 1738720
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 11534824
+    cost_of_goods_sold: 6374528
+    operating_expenses: 2688204
+    non_operating_expenses: 1087428
+    income_tax: 0.1126434082320391
+    total_assets: 8951255
+    total_liabilities: 6567652
+    total_equity: 2383603
+    cash: 863634
+    accounts_receivable: 932355
+    inventories: 243322
+    short_term_investments: 1275345
+    current_liabilities: 2141653
+    capex: 320384
+    dividends_paid: 242113
+    shares_outstanding: 1332016
+    stock_price: 12149.63
+    employees: 22955366
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 12777542
+    cost_of_goods_sold: 8106239
+    operating_expenses: 3056322
+    non_operating_expenses: 1709959
+    income_tax: 0.24845380295306316
+    total_assets: 26322247
+    total_liabilities: 15446131
+    total_equity: 10876116
+    cash: 1363091
+    accounts_receivable: 1136367
+    inventories: 592202
+    short_term_investments: 3769688
+    current_liabilities: 3987868
+    capex: 708779
+    dividends_paid: 0
+    shares_outstanding: 1426327
+    stock_price: 68652.84
+    employees: 5418054
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 14208504
+    cost_of_goods_sold: 7743772
+    operating_expenses: 3489161
+    non_operating_expenses: 1729669
+    income_tax: 0.1796279285488746
+    total_assets: 26921759
+    total_liabilities: 10403632
+    total_equity: 16518127
+    cash: 5830373
+    accounts_receivable: 1214426
+    inventories: 822078
+    short_term_investments: 2687831
+    current_liabilities: 4154030
+    capex: 1178504
+    dividends_paid: 8732
+    shares_outstanding: 372918
+    stock_price: 11385.02
+    employees: 28446610
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 13344781
+    cost_of_goods_sold: 8598320
+    operating_expenses: 1220133
+    non_operating_expenses: 1243604
+    income_tax: 0.27393908535390893
+    total_assets: 19221272
+    total_liabilities: 7903965
+    total_equity: 11317307
+    cash: 4384696
+    accounts_receivable: 537575
+    inventories: 1131477
+    short_term_investments: 581565
+    current_liabilities: 2232855
+    capex: 453186
+    dividends_paid: 166173
+    shares_outstanding: 994976
+    stock_price: 3523.74
+    employees: 1235586
+=== END ===
+
+QUESTION: May you give the longterm liabilities for Orion Financial Group in 2022 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",4425999.0,6567652.0,Answer: 6567652,False,0.483880,False,False
+swiss-ai/Apertus-v1.5-70B,90q,10,Ironclad Manufacturing,1,which quantity is given by the gross profit for Ironclad Manufacturing in 2023 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which quantity is given by the gross profit for Ironclad Manufacturing in 2023 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",26744626.0,26744626.0,"Gross Profit = Revenue - Cost of Goods Sold  
+= 39745535 - 13000909  
+= 26744626
+
+Answer: 26744626",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,11,Pacific Crest Energy,1,You should calculate the gross profit for Pacific Crest Energy in 2023 .,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 16054912
+    cost_of_goods_sold: 10921639
+    operating_expenses: 1122918
+    non_operating_expenses: 3726158
+    income_tax: 0.10306951958305213
+    total_assets: 33943700
+    total_liabilities: 24647925
+    total_equity: 9295775
+    cash: 8261574
+    accounts_receivable: 762333
+    inventories: 1328053
+    short_term_investments: 1598857
+    current_liabilities: 10002494
+    capex: 424255
+    dividends_paid: 40528
+    shares_outstanding: 499563
+    stock_price: 54437.06
+    employees: 26914304
+  Year 2021:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 19059735
+    cost_of_goods_sold: 11093902
+    operating_expenses: 4335856
+    non_operating_expenses: 2813017
+    income_tax: 0.208203202539532
+    total_assets: 18309919
+    total_liabilities: 8841947
+    total_equity: 9467972
+    cash: 3306184
+    accounts_receivable: 1310126
+    inventories: 549960
+    short_term_investments: 414777
+    current_liabilities: 4373089
+    capex: 1454473
+    dividends_paid: 196743
+    shares_outstanding: 159756
+    stock_price: 14559.64
+    employees: 15323571
+  Year 2022:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 17689440
+    cost_of_goods_sold: 7888935
+    operating_expenses: 1083016
+    non_operating_expenses: 2152675
+    income_tax: 0.18613735757108002
+    total_assets: 29828565
+    total_liabilities: 17464597
+    total_equity: 12363968
+    cash: 5369025
+    accounts_receivable: 1026088
+    inventories: 337323
+    short_term_investments: 2843523
+    current_liabilities: 6036395
+    capex: 1058065
+    dividends_paid: 1459956
+    shares_outstanding: 878904
+    stock_price: 19726.79
+    employees: 32076279
+  Year 2023:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 18550557
+    cost_of_goods_sold: 11131787
+    operating_expenses: 4262579
+    non_operating_expenses: 2653669
+    income_tax: 0.15752633314968775
+    total_assets: 19406018
+    total_liabilities: 6463730
+    total_equity: 12942288
+    cash: 4617698
+    accounts_receivable: 2574171
+    inventories: 655552
+    short_term_investments: 2807742
+    current_liabilities: 2731433
+    capex: 819373
+    dividends_paid: 77363
+    shares_outstanding: 1499067
+    stock_price: 68486.83
+    employees: 5779337
+  Year 2024:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 19047378
+    cost_of_goods_sold: 8790967
+    operating_expenses: 2079488
+    non_operating_expenses: 3616255
+    income_tax: 0.10438791957191301
+    total_assets: 14696540
+    total_liabilities: 8492001
+    total_equity: 6204539
+    cash: 467079
+    accounts_receivable: 2409622
+    inventories: 1065294
+    short_term_investments: 2150168
+    current_liabilities: 4056240
+    capex: 1650019
+    dividends_paid: 1217489
+    shares_outstanding: 1355373
+    stock_price: 62395.67
+    employees: 11890860
+  Year 2025:
+    ticker: PCEN
+    sector: Energy
+    country: Canada
+    exchange: TSX
+    credit_rating: A
+    revenue: 21800504
+    cost_of_goods_sold: 8688635
+    operating_expenses: 1919020
+    non_operating_expenses: 2182783
+    income_tax: 0.25111546474833546
+    total_assets: 17855143
+    total_liabilities: 12165727
+    total_equity: 5689416
+    cash: 1072941
+    accounts_receivable: 1083842
+    inventories: 882501
+    short_term_investments: 277097
+    current_liabilities: 5439937
+    capex: 1072343
+    dividends_paid: 90051
+    shares_outstanding: 205804
+    stock_price: 72905.78
+    employees: 16672597
+=== END ===
+
+QUESTION: You should calculate the gross profit for Pacific Crest Energy in 2023 .
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",7418770.0,7418770.0,"revenue: 18550557
+cost_of_goods_sold: 11131787
+18550557 - 11131787 = 7418770
+
+Answer: 7418770",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,11,Titan Consumer Brands,1,evaluate the longterm liabilities for Titan Consumer Brands in 2025 .,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 42882397
+    cost_of_goods_sold: 13169248
+    operating_expenses: 4420039
+    non_operating_expenses: 3231262
+    income_tax: 0.18419211138201583
+    total_assets: 98268662
+    total_liabilities: 31492218
+    total_equity: 66776444
+    cash: 12639369
+    accounts_receivable: 3267806
+    inventories: 1279743
+    short_term_investments: 7201202
+    current_liabilities: 9617328
+    capex: 3352522
+    dividends_paid: 4428334
+    shares_outstanding: 1364040
+    stock_price: 53223.89
+    employees: 15430701
+  Year 2021:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47176442
+    cost_of_goods_sold: 14814242
+    operating_expenses: 11780776
+    non_operating_expenses: 10353328
+    income_tax: 0.18525472385599834
+    total_assets: 109826519
+    total_liabilities: 75755764
+    total_equity: 34070755
+    cash: 14012075
+    accounts_receivable: 6129478
+    inventories: 916624
+    short_term_investments: 3379003
+    current_liabilities: 21328876
+    capex: 3152763
+    dividends_paid: 2081048
+    shares_outstanding: 1071108
+    stock_price: 31401.0
+    employees: 30070897
+  Year 2022:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47297750
+    cost_of_goods_sold: 24949468
+    operating_expenses: 6434380
+    non_operating_expenses: 9867220
+    income_tax: 0.12288281448601593
+    total_assets: 43566074
+    total_liabilities: 31694584
+    total_equity: 11871490
+    cash: 6591275
+    accounts_receivable: 5985494
+    inventories: 1893891
+    short_term_investments: 5852350
+    current_liabilities: 11202558
+    capex: 2454678
+    dividends_paid: 1755336
+    shares_outstanding: 1097123
+    stock_price: 26035.05
+    employees: 15969917
+  Year 2023:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 46889530
+    cost_of_goods_sold: 34187936
+    operating_expenses: 8785420
+    non_operating_expenses: 6792116
+    income_tax: 0.11824495767320974
+    total_assets: 116513897
+    total_liabilities: 69267040
+    total_equity: 47246857
+    cash: 22581509
+    accounts_receivable: 3622905
+    inventories: 1262048
+    short_term_investments: 2143545
+    current_liabilities: 33882399
+    capex: 3451119
+    dividends_paid: 0
+    shares_outstanding: 622105
+    stock_price: 70078.18
+    employees: 47085929
+  Year 2024:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 48691135
+    cost_of_goods_sold: 34674401
+    operating_expenses: 2935550
+    non_operating_expenses: 5235557
+    income_tax: 0.1624897798175308
+    total_assets: 114750794
+    total_liabilities: 71773192
+    total_equity: 42977602
+    cash: 7348714
+    accounts_receivable: 4295480
+    inventories: 4512725
+    short_term_investments: 6772128
+    current_liabilities: 27924535
+    capex: 2058927
+    dividends_paid: 224981
+    shares_outstanding: 346977
+    stock_price: 35185.32
+    employees: 28267802
+  Year 2025:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 55258649
+    cost_of_goods_sold: 32037623
+    operating_expenses: 10222593
+    non_operating_expenses: 8915870
+    income_tax: 0.22179898311061305
+    total_assets: 50724047
+    total_liabilities: 34734736
+    total_equity: 15989311
+    cash: 1844818
+    accounts_receivable: 3720401
+    inventories: 3816105
+    short_term_investments: 7051416
+    current_liabilities: 11731860
+    capex: 1738444
+    dividends_paid: 230534
+    shares_outstanding: 989444
+    stock_price: 6962.46
+    employees: 37177968
+=== END ===
+
+QUESTION: evaluate the longterm liabilities for Titan Consumer Brands in 2025 .
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",23002876.0,,Answer: Not available,False,,False,False
+swiss-ai/Apertus-v1.5-70B,90q,12,Ironclad Manufacturing,1,which result follows from the gross profit for Ironclad Manufacturing in 2022 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which result follows from the gross profit for Ironclad Manufacturing in 2022 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",14403379.0,14403379.0,"Gross profit = revenue - cost_of_goods_sold
+= 36828147 - 22424768
+= 14403379
+
+Answer: 14403379",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,14,Titan Consumer Brands,1,evaluate the longterm liabilities for Titan Consumer Brands in 2021,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 42882397
+    cost_of_goods_sold: 13169248
+    operating_expenses: 4420039
+    non_operating_expenses: 3231262
+    income_tax: 0.18419211138201583
+    total_assets: 98268662
+    total_liabilities: 31492218
+    total_equity: 66776444
+    cash: 12639369
+    accounts_receivable: 3267806
+    inventories: 1279743
+    short_term_investments: 7201202
+    current_liabilities: 9617328
+    capex: 3352522
+    dividends_paid: 4428334
+    shares_outstanding: 1364040
+    stock_price: 53223.89
+    employees: 15430701
+  Year 2021:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47176442
+    cost_of_goods_sold: 14814242
+    operating_expenses: 11780776
+    non_operating_expenses: 10353328
+    income_tax: 0.18525472385599834
+    total_assets: 109826519
+    total_liabilities: 75755764
+    total_equity: 34070755
+    cash: 14012075
+    accounts_receivable: 6129478
+    inventories: 916624
+    short_term_investments: 3379003
+    current_liabilities: 21328876
+    capex: 3152763
+    dividends_paid: 2081048
+    shares_outstanding: 1071108
+    stock_price: 31401.0
+    employees: 30070897
+  Year 2022:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47297750
+    cost_of_goods_sold: 24949468
+    operating_expenses: 6434380
+    non_operating_expenses: 9867220
+    income_tax: 0.12288281448601593
+    total_assets: 43566074
+    total_liabilities: 31694584
+    total_equity: 11871490
+    cash: 6591275
+    accounts_receivable: 5985494
+    inventories: 1893891
+    short_term_investments: 5852350
+    current_liabilities: 11202558
+    capex: 2454678
+    dividends_paid: 1755336
+    shares_outstanding: 1097123
+    stock_price: 26035.05
+    employees: 15969917
+  Year 2023:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 46889530
+    cost_of_goods_sold: 34187936
+    operating_expenses: 8785420
+    non_operating_expenses: 6792116
+    income_tax: 0.11824495767320974
+    total_assets: 116513897
+    total_liabilities: 69267040
+    total_equity: 47246857
+    cash: 22581509
+    accounts_receivable: 3622905
+    inventories: 1262048
+    short_term_investments: 2143545
+    current_liabilities: 33882399
+    capex: 3451119
+    dividends_paid: 0
+    shares_outstanding: 622105
+    stock_price: 70078.18
+    employees: 47085929
+  Year 2024:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 48691135
+    cost_of_goods_sold: 34674401
+    operating_expenses: 2935550
+    non_operating_expenses: 5235557
+    income_tax: 0.1624897798175308
+    total_assets: 114750794
+    total_liabilities: 71773192
+    total_equity: 42977602
+    cash: 7348714
+    accounts_receivable: 4295480
+    inventories: 4512725
+    short_term_investments: 6772128
+    current_liabilities: 27924535
+    capex: 2058927
+    dividends_paid: 224981
+    shares_outstanding: 346977
+    stock_price: 35185.32
+    employees: 28267802
+  Year 2025:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 55258649
+    cost_of_goods_sold: 32037623
+    operating_expenses: 10222593
+    non_operating_expenses: 8915870
+    income_tax: 0.22179898311061305
+    total_assets: 50724047
+    total_liabilities: 34734736
+    total_equity: 15989311
+    cash: 1844818
+    accounts_receivable: 3720401
+    inventories: 3816105
+    short_term_investments: 7051416
+    current_liabilities: 11731860
+    capex: 1738444
+    dividends_paid: 230534
+    shares_outstanding: 989444
+    stock_price: 6962.46
+    employees: 37177968
+=== END ===
+
+QUESTION: evaluate the longterm liabilities for Titan Consumer Brands in 2021
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",54426888.0,75755764.0,Answer: 75755764,False,0.391881,False,False
+swiss-ai/Apertus-v1.5-70B,90q,14,Orion Financial Group,1,may you give the longterm liabilities for Orion Financial Group in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 8798877
+    cost_of_goods_sold: 4775445
+    operating_expenses: 2149547
+    non_operating_expenses: 1374125
+    income_tax: 0.2826973948963394
+    total_assets: 6786287
+    total_liabilities: 3382625
+    total_equity: 3403662
+    cash: 1434837
+    accounts_receivable: 775927
+    inventories: 596183
+    short_term_investments: 777154
+    current_liabilities: 1132093
+    capex: 853768
+    dividends_paid: 16514
+    shares_outstanding: 219728
+    stock_price: 77370.27
+    employees: 43076960
+  Year 2021:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 9879209
+    cost_of_goods_sold: 7320237
+    operating_expenses: 2405132
+    non_operating_expenses: 2083698
+    income_tax: 0.17315500988111326
+    total_assets: 7910845
+    total_liabilities: 1996550
+    total_equity: 5914295
+    cash: 1171168
+    accounts_receivable: 844461
+    inventories: 786689
+    short_term_investments: 823738
+    current_liabilities: 790913
+    capex: 940731
+    dividends_paid: 0
+    shares_outstanding: 171436
+    stock_price: 19855.02
+    employees: 1738720
+  Year 2022:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 11534824
+    cost_of_goods_sold: 6374528
+    operating_expenses: 2688204
+    non_operating_expenses: 1087428
+    income_tax: 0.1126434082320391
+    total_assets: 8951255
+    total_liabilities: 6567652
+    total_equity: 2383603
+    cash: 863634
+    accounts_receivable: 932355
+    inventories: 243322
+    short_term_investments: 1275345
+    current_liabilities: 2141653
+    capex: 320384
+    dividends_paid: 242113
+    shares_outstanding: 1332016
+    stock_price: 12149.63
+    employees: 22955366
+  Year 2023:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 12777542
+    cost_of_goods_sold: 8106239
+    operating_expenses: 3056322
+    non_operating_expenses: 1709959
+    income_tax: 0.24845380295306316
+    total_assets: 26322247
+    total_liabilities: 15446131
+    total_equity: 10876116
+    cash: 1363091
+    accounts_receivable: 1136367
+    inventories: 592202
+    short_term_investments: 3769688
+    current_liabilities: 3987868
+    capex: 708779
+    dividends_paid: 0
+    shares_outstanding: 1426327
+    stock_price: 68652.84
+    employees: 5418054
+  Year 2024:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 14208504
+    cost_of_goods_sold: 7743772
+    operating_expenses: 3489161
+    non_operating_expenses: 1729669
+    income_tax: 0.1796279285488746
+    total_assets: 26921759
+    total_liabilities: 10403632
+    total_equity: 16518127
+    cash: 5830373
+    accounts_receivable: 1214426
+    inventories: 822078
+    short_term_investments: 2687831
+    current_liabilities: 4154030
+    capex: 1178504
+    dividends_paid: 8732
+    shares_outstanding: 372918
+    stock_price: 11385.02
+    employees: 28446610
+  Year 2025:
+    ticker: ORFG
+    sector: Financials
+    country: UK
+    exchange: LSE
+    credit_rating: BBB
+    revenue: 13344781
+    cost_of_goods_sold: 8598320
+    operating_expenses: 1220133
+    non_operating_expenses: 1243604
+    income_tax: 0.27393908535390893
+    total_assets: 19221272
+    total_liabilities: 7903965
+    total_equity: 11317307
+    cash: 4384696
+    accounts_receivable: 537575
+    inventories: 1131477
+    short_term_investments: 581565
+    current_liabilities: 2232855
+    capex: 453186
+    dividends_paid: 166173
+    shares_outstanding: 994976
+    stock_price: 3523.74
+    employees: 1235586
+=== END ===
+
+QUESTION: may you give the longterm liabilities for Orion Financial Group in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",6249602.0,10403632.0,Answer: 10403632,False,0.664687,False,False
+swiss-ai/Apertus-v1.5-70B,90q,19,Ironclad Manufacturing,1,Which result follows from the longterm liabilities for Ironclad Manufacturing in 2024 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: Which result follows from the longterm liabilities for Ironclad Manufacturing in 2024 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",22276390.0,32587266.0,Answer: 32587266,False,0.462861,False,False
+swiss-ai/Apertus-v1.5-70B,90q,20,Titan Consumer Brands,1,Evaluate the longterm liabilities for Titan Consumer Brands in 2022,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 42882397
+    cost_of_goods_sold: 13169248
+    operating_expenses: 4420039
+    non_operating_expenses: 3231262
+    income_tax: 0.18419211138201583
+    total_assets: 98268662
+    total_liabilities: 31492218
+    total_equity: 66776444
+    cash: 12639369
+    accounts_receivable: 3267806
+    inventories: 1279743
+    short_term_investments: 7201202
+    current_liabilities: 9617328
+    capex: 3352522
+    dividends_paid: 4428334
+    shares_outstanding: 1364040
+    stock_price: 53223.89
+    employees: 15430701
+  Year 2021:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47176442
+    cost_of_goods_sold: 14814242
+    operating_expenses: 11780776
+    non_operating_expenses: 10353328
+    income_tax: 0.18525472385599834
+    total_assets: 109826519
+    total_liabilities: 75755764
+    total_equity: 34070755
+    cash: 14012075
+    accounts_receivable: 6129478
+    inventories: 916624
+    short_term_investments: 3379003
+    current_liabilities: 21328876
+    capex: 3152763
+    dividends_paid: 2081048
+    shares_outstanding: 1071108
+    stock_price: 31401.0
+    employees: 30070897
+  Year 2022:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47297750
+    cost_of_goods_sold: 24949468
+    operating_expenses: 6434380
+    non_operating_expenses: 9867220
+    income_tax: 0.12288281448601593
+    total_assets: 43566074
+    total_liabilities: 31694584
+    total_equity: 11871490
+    cash: 6591275
+    accounts_receivable: 5985494
+    inventories: 1893891
+    short_term_investments: 5852350
+    current_liabilities: 11202558
+    capex: 2454678
+    dividends_paid: 1755336
+    shares_outstanding: 1097123
+    stock_price: 26035.05
+    employees: 15969917
+  Year 2023:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 46889530
+    cost_of_goods_sold: 34187936
+    operating_expenses: 8785420
+    non_operating_expenses: 6792116
+    income_tax: 0.11824495767320974
+    total_assets: 116513897
+    total_liabilities: 69267040
+    total_equity: 47246857
+    cash: 22581509
+    accounts_receivable: 3622905
+    inventories: 1262048
+    short_term_investments: 2143545
+    current_liabilities: 33882399
+    capex: 3451119
+    dividends_paid: 0
+    shares_outstanding: 622105
+    stock_price: 70078.18
+    employees: 47085929
+  Year 2024:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 48691135
+    cost_of_goods_sold: 34674401
+    operating_expenses: 2935550
+    non_operating_expenses: 5235557
+    income_tax: 0.1624897798175308
+    total_assets: 114750794
+    total_liabilities: 71773192
+    total_equity: 42977602
+    cash: 7348714
+    accounts_receivable: 4295480
+    inventories: 4512725
+    short_term_investments: 6772128
+    current_liabilities: 27924535
+    capex: 2058927
+    dividends_paid: 224981
+    shares_outstanding: 346977
+    stock_price: 35185.32
+    employees: 28267802
+  Year 2025:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 55258649
+    cost_of_goods_sold: 32037623
+    operating_expenses: 10222593
+    non_operating_expenses: 8915870
+    income_tax: 0.22179898311061305
+    total_assets: 50724047
+    total_liabilities: 34734736
+    total_equity: 15989311
+    cash: 1844818
+    accounts_receivable: 3720401
+    inventories: 3816105
+    short_term_investments: 7051416
+    current_liabilities: 11731860
+    capex: 1738444
+    dividends_paid: 230534
+    shares_outstanding: 989444
+    stock_price: 6962.46
+    employees: 37177968
+=== END ===
+
+QUESTION: Evaluate the longterm liabilities for Titan Consumer Brands in 2022
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",20492026.0,20492026.0,"Total liabilities in 2022: 31694584  
+Current liabilities in 2022: 11202558  
+Long-term liabilities = Total liabilities - Current liabilities  
+= 31694584 - 11202558  
+= 20492026
+
+Answer: 20492026",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,21,ClearPath Logistics,1,whats the value of the longterm liabilities for ClearPath Logistics in 2020,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 51655340
+    cost_of_goods_sold: 22046359
+    operating_expenses: 6527917
+    non_operating_expenses: 8031990
+    income_tax: 0.2932536306411895
+    total_assets: 40347240
+    total_liabilities: 28697635
+    total_equity: 11649605
+    cash: 2438897
+    accounts_receivable: 3357614
+    inventories: 2278563
+    short_term_investments: 5341021
+    current_liabilities: 11152911
+    capex: 4528695
+    dividends_paid: 436453
+    shares_outstanding: 1278237
+    stock_price: 23877.45
+    employees: 38274283
+  Year 2021:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 51468428
+    cost_of_goods_sold: 36408138
+    operating_expenses: 4090182
+    non_operating_expenses: 7076626
+    income_tax: 0.2892826526023521
+    total_assets: 90862083
+    total_liabilities: 54777715
+    total_equity: 36084368
+    cash: 9713949
+    accounts_receivable: 2196004
+    inventories: 980231
+    short_term_investments: 7294499
+    current_liabilities: 16923275
+    capex: 2573062
+    dividends_paid: 1100806
+    shares_outstanding: 51999
+    stock_price: 74569.83
+    employees: 42039226
+  Year 2022:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 56717641
+    cost_of_goods_sold: 37213652
+    operating_expenses: 4396747
+    non_operating_expenses: 6090107
+    income_tax: 0.2659523166305645
+    total_assets: 49958884
+    total_liabilities: 20128059
+    total_equity: 29830825
+    cash: 9253283
+    accounts_receivable: 4813067
+    inventories: 769677
+    short_term_investments: 1053713
+    current_liabilities: 6319828
+    capex: 3624503
+    dividends_paid: 2210651
+    shares_outstanding: 1093580
+    stock_price: 42930.06
+    employees: 6003750
+  Year 2023:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 56755554
+    cost_of_goods_sold: 24718067
+    operating_expenses: 3379787
+    non_operating_expenses: 7603264
+    income_tax: 0.2587798217278876
+    total_assets: 66886415
+    total_liabilities: 25064535
+    total_equity: 41821880
+    cash: 15325839
+    accounts_receivable: 5657048
+    inventories: 547174
+    short_term_investments: 5494893
+    current_liabilities: 7782150
+    capex: 3084046
+    dividends_paid: 896263
+    shares_outstanding: 926066
+    stock_price: 20384.29
+    employees: 21120096
+  Year 2024:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 62773003
+    cost_of_goods_sold: 21250311
+    operating_expenses: 15375048
+    non_operating_expenses: 3988337
+    income_tax: 0.2052118890644341
+    total_assets: 69072921
+    total_liabilities: 51667602
+    total_equity: 17405319
+    cash: 10493104
+    accounts_receivable: 4961915
+    inventories: 1723773
+    short_term_investments: 6837799
+    current_liabilities: 25588889
+    capex: 1337026
+    dividends_paid: 1786911
+    shares_outstanding: 1184895
+    stock_price: 28567.0
+    employees: 36780581
+  Year 2025:
+    ticker: CPTH
+    sector: Industrials
+    country: USA
+    exchange: NYSE
+    credit_rating: A
+    revenue: 68793684
+    cost_of_goods_sold: 44521595
+    operating_expenses: 13554928
+    non_operating_expenses: 8014720
+    income_tax: 0.10886713765904164
+    total_assets: 72018945
+    total_liabilities: 51421353
+    total_equity: 20597592
+    cash: 4934710
+    accounts_receivable: 8111756
+    inventories: 3579580
+    short_term_investments: 7731557
+    current_liabilities: 20976516
+    capex: 1723147
+    dividends_paid: 781711
+    shares_outstanding: 1166524
+    stock_price: 37427.85
+    employees: 15025407
+=== END ===
+
+QUESTION: whats the value of the longterm liabilities for ClearPath Logistics in 2020
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",17544724.0,17544724.0,"Total liabilities 28697635 minus current liabilities 11152911 equals longterm liabilities.
+
+28697635 − 11152911 = 17544724.
+
+Answer: 17544724",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,21,Ironclad Manufacturing,1,Which quantity is given by the gross profit for Ironclad Manufacturing in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: Which quantity is given by the gross profit for Ironclad Manufacturing in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",30814912.0,30814912.0,"gross profit = revenue - cost_of_goods_sold
+= 46,132,241 - 15,317,329
+Answer: 30,814,912",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,25,Cobalt Semiconductor,1,you should give the gross profit for Cobalt Semiconductor in 2021,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5387560
+    cost_of_goods_sold: 2528314
+    operating_expenses: 758187
+    non_operating_expenses: 438988
+    income_tax: 0.1623274739408433
+    total_assets: 7816447
+    total_liabilities: 5781868
+    total_equity: 2034579
+    cash: 1259771
+    accounts_receivable: 691408
+    inventories: 101702
+    short_term_investments: 903746
+    current_liabilities: 1517397
+    capex: 298735
+    dividends_paid: 45433
+    shares_outstanding: 641782
+    stock_price: 49155.47
+    employees: 21002095
+  Year 2021:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5281745
+    cost_of_goods_sold: 2802261
+    operating_expenses: 628710
+    non_operating_expenses: 381226
+    income_tax: 0.23564357858670687
+    total_assets: 5220348
+    total_liabilities: 3303021
+    total_equity: 1917327
+    cash: 510823
+    accounts_receivable: 327742
+    inventories: 414673
+    short_term_investments: 92241
+    current_liabilities: 994559
+    capex: 429870
+    dividends_paid: 424737
+    shares_outstanding: 1148600
+    stock_price: 24221.6
+    employees: 6439225
+  Year 2022:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5594782
+    cost_of_goods_sold: 2762674
+    operating_expenses: 424292
+    non_operating_expenses: 875676
+    income_tax: 0.14602214321533194
+    total_assets: 5765033
+    total_liabilities: 3907580
+    total_equity: 1857453
+    cash: 622144
+    accounts_receivable: 445944
+    inventories: 321756
+    short_term_investments: 409725
+    current_liabilities: 1426027
+    capex: 252016
+    dividends_paid: 40751
+    shares_outstanding: 649634
+    stock_price: 33247.2
+    employees: 32187013
+  Year 2023:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5600737
+    cost_of_goods_sold: 2701037
+    operating_expenses: 1362323
+    non_operating_expenses: 472560
+    income_tax: 0.2895228618653495
+    total_assets: 6572738
+    total_liabilities: 4494038
+    total_equity: 2078700
+    cash: 720422
+    accounts_receivable: 468620
+    inventories: 91193
+    short_term_investments: 466630
+    current_liabilities: 1573419
+    capex: 502061
+    dividends_paid: 23799
+    shares_outstanding: 1121249
+    stock_price: 18893.41
+    employees: 39066334
+  Year 2024:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5272456
+    cost_of_goods_sold: 3084129
+    operating_expenses: 823141
+    non_operating_expenses: 468093
+    income_tax: 0.2552456458648671
+    total_assets: 7309458
+    total_liabilities: 5429068
+    total_equity: 1880390
+    cash: 1257208
+    accounts_receivable: 288767
+    inventories: 102901
+    short_term_investments: 335033
+    current_liabilities: 1592751
+    capex: 425657
+    dividends_paid: 40854
+    shares_outstanding: 122276
+    stock_price: 76176.43
+    employees: 31583464
+  Year 2025:
+    ticker: CBSM
+    sector: Technology
+    country: Taiwan
+    exchange: TWSE
+    credit_rating: CCC
+    revenue: 5535588
+    cost_of_goods_sold: 3064950
+    operating_expenses: 918319
+    non_operating_expenses: 1030874
+    income_tax: 0.27640963131858676
+    total_assets: 5165770
+    total_liabilities: 3862479
+    total_equity: 1303291
+    cash: 522289
+    accounts_receivable: 758914
+    inventories: 187262
+    short_term_investments: 369698
+    current_liabilities: 1418419
+    capex: 463364
+    dividends_paid: 95292
+    shares_outstanding: 891215
+    stock_price: 29127.46
+    employees: 4172437
+=== END ===
+
+QUESTION: you should give the gross profit for Cobalt Semiconductor in 2021
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",2479484.0,2479484.0,"Gross profit = Revenue - Cost of Goods Sold
+   = 5,281,745 - 2,802,261
+   = 2,479,484
+
+Answer: 2479484",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,26,Crimson Pharmaceuticals,1,what does the following give: gross profit for Crimson Pharmaceuticals in 2023,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 46323615
+    cost_of_goods_sold: 20475877
+    operating_expenses: 5188948
+    non_operating_expenses: 6005616
+    income_tax: 0.26308121613119645
+    total_assets: 53363319
+    total_liabilities: 15216038
+    total_equity: 38147281
+    cash: 9195466
+    accounts_receivable: 3178314
+    inventories: 2704413
+    short_term_investments: 890771
+    current_liabilities: 6298418
+    capex: 3888747
+    dividends_paid: 1180099
+    shares_outstanding: 661058
+    stock_price: 32901.71
+    employees: 22266963
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 55023841
+    cost_of_goods_sold: 24901946
+    operating_expenses: 4807072
+    non_operating_expenses: 10367245
+    income_tax: 0.1734693853919364
+    total_assets: 43782679
+    total_liabilities: 22109651
+    total_equity: 21673028
+    cash: 2109210
+    accounts_receivable: 4536714
+    inventories: 1892023
+    short_term_investments: 6537356
+    current_liabilities: 6524870
+    capex: 1552103
+    dividends_paid: 1451750
+    shares_outstanding: 498601
+    stock_price: 24707.74
+    employees: 22572830
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 61678733
+    cost_of_goods_sold: 23128917
+    operating_expenses: 8559878
+    non_operating_expenses: 8599615
+    income_tax: 0.24536287914222057
+    total_assets: 44248127
+    total_liabilities: 29299935
+    total_equity: 14948192
+    cash: 5561410
+    accounts_receivable: 6411315
+    inventories: 2842362
+    short_term_investments: 797799
+    current_liabilities: 12241395
+    capex: 3765294
+    dividends_paid: 2622807
+    shares_outstanding: 1127348
+    stock_price: 14058.96
+    employees: 2041461
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71400992
+    cost_of_goods_sold: 43207596
+    operating_expenses: 9827244
+    non_operating_expenses: 5372639
+    income_tax: 0.14719907608407046
+    total_assets: 66469274
+    total_liabilities: 37288010
+    total_equity: 29181264
+    cash: 15878364
+    accounts_receivable: 3087274
+    inventories: 1726012
+    short_term_investments: 4851536
+    current_liabilities: 12780135
+    capex: 1867196
+    dividends_paid: 1967695
+    shares_outstanding: 215166
+    stock_price: 30305.57
+    employees: 16062079
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71260556
+    cost_of_goods_sold: 52179404
+    operating_expenses: 3932348
+    non_operating_expenses: 6214605
+    income_tax: 0.2035490548416784
+    total_assets: 51037067
+    total_liabilities: 19492879
+    total_equity: 31544188
+    cash: 10232533
+    accounts_receivable: 7867435
+    inventories: 2499088
+    short_term_investments: 4882349
+    current_liabilities: 8255140
+    capex: 2566397
+    dividends_paid: 2842358
+    shares_outstanding: 212235
+    stock_price: 7313.09
+    employees: 9046490
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 79793549
+    cost_of_goods_sold: 59746863
+    operating_expenses: 16924423
+    non_operating_expenses: 19430706
+    income_tax: 0.29731493192849723
+    total_assets: 72446875
+    total_liabilities: 49918176
+    total_equity: 22528699
+    cash: 10939433
+    accounts_receivable: 5508646
+    inventories: 3524728
+    short_term_investments: 2321976
+    current_liabilities: 21334577
+    capex: 2707178
+    dividends_paid: 0
+    shares_outstanding: 548623
+    stock_price: 19102.97
+    employees: 49264061
+=== END ===
+
+QUESTION: what does the following give: gross profit for Crimson Pharmaceuticals in 2023
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",28193396.0,28193396.0,"revenue for 2023: 71400992
+cost_of_goods_sold for 2023: 43207596
+gross profit = revenue - cost_of_goods_sold
+= 71400992 - 43207596 = 28193396
+
+Answer: 28193396",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,27,Titan Consumer Brands,1,You should calculate the longterm liabilities for Titan Consumer Brands in 2023.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 42882397
+    cost_of_goods_sold: 13169248
+    operating_expenses: 4420039
+    non_operating_expenses: 3231262
+    income_tax: 0.18419211138201583
+    total_assets: 98268662
+    total_liabilities: 31492218
+    total_equity: 66776444
+    cash: 12639369
+    accounts_receivable: 3267806
+    inventories: 1279743
+    short_term_investments: 7201202
+    current_liabilities: 9617328
+    capex: 3352522
+    dividends_paid: 4428334
+    shares_outstanding: 1364040
+    stock_price: 53223.89
+    employees: 15430701
+  Year 2021:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47176442
+    cost_of_goods_sold: 14814242
+    operating_expenses: 11780776
+    non_operating_expenses: 10353328
+    income_tax: 0.18525472385599834
+    total_assets: 109826519
+    total_liabilities: 75755764
+    total_equity: 34070755
+    cash: 14012075
+    accounts_receivable: 6129478
+    inventories: 916624
+    short_term_investments: 3379003
+    current_liabilities: 21328876
+    capex: 3152763
+    dividends_paid: 2081048
+    shares_outstanding: 1071108
+    stock_price: 31401.0
+    employees: 30070897
+  Year 2022:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 47297750
+    cost_of_goods_sold: 24949468
+    operating_expenses: 6434380
+    non_operating_expenses: 9867220
+    income_tax: 0.12288281448601593
+    total_assets: 43566074
+    total_liabilities: 31694584
+    total_equity: 11871490
+    cash: 6591275
+    accounts_receivable: 5985494
+    inventories: 1893891
+    short_term_investments: 5852350
+    current_liabilities: 11202558
+    capex: 2454678
+    dividends_paid: 1755336
+    shares_outstanding: 1097123
+    stock_price: 26035.05
+    employees: 15969917
+  Year 2023:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 46889530
+    cost_of_goods_sold: 34187936
+    operating_expenses: 8785420
+    non_operating_expenses: 6792116
+    income_tax: 0.11824495767320974
+    total_assets: 116513897
+    total_liabilities: 69267040
+    total_equity: 47246857
+    cash: 22581509
+    accounts_receivable: 3622905
+    inventories: 1262048
+    short_term_investments: 2143545
+    current_liabilities: 33882399
+    capex: 3451119
+    dividends_paid: 0
+    shares_outstanding: 622105
+    stock_price: 70078.18
+    employees: 47085929
+  Year 2024:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 48691135
+    cost_of_goods_sold: 34674401
+    operating_expenses: 2935550
+    non_operating_expenses: 5235557
+    income_tax: 0.1624897798175308
+    total_assets: 114750794
+    total_liabilities: 71773192
+    total_equity: 42977602
+    cash: 7348714
+    accounts_receivable: 4295480
+    inventories: 4512725
+    short_term_investments: 6772128
+    current_liabilities: 27924535
+    capex: 2058927
+    dividends_paid: 224981
+    shares_outstanding: 346977
+    stock_price: 35185.32
+    employees: 28267802
+  Year 2025:
+    ticker: TICB
+    sector: Consumer
+    country: France
+    exchange: Euronext
+    credit_rating: AAA
+    revenue: 55258649
+    cost_of_goods_sold: 32037623
+    operating_expenses: 10222593
+    non_operating_expenses: 8915870
+    income_tax: 0.22179898311061305
+    total_assets: 50724047
+    total_liabilities: 34734736
+    total_equity: 15989311
+    cash: 1844818
+    accounts_receivable: 3720401
+    inventories: 3816105
+    short_term_investments: 7051416
+    current_liabilities: 11731860
+    capex: 1738444
+    dividends_paid: 230534
+    shares_outstanding: 989444
+    stock_price: 6962.46
+    employees: 37177968
+=== END ===
+
+QUESTION: You should calculate the longterm liabilities for Titan Consumer Brands in 2023.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",35384641.0,35384641.0,"total liabilities − current liabilities = long-term liabilities  
+69267040 − 33882399 = 35384641
+
+Answer: 35384641",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,30,Ironclad Manufacturing,1,which result follows from the gross profit for Ironclad Manufacturing in 2021 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which result follows from the gross profit for Ironclad Manufacturing in 2021 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",23000042.0,22999942.0,"Gross profit = Revenue - Cost of goods sold
+= 34050765 - 11050723
+= 22999942
+
+Answer: 22999942",True,0.000004,True,False
+swiss-ai/Apertus-v1.5-70B,90q,30,Crimson Pharmaceuticals,1,what does the following give: longterm liabilities for Crimson Pharmaceuticals in 2020 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 46323615
+    cost_of_goods_sold: 20475877
+    operating_expenses: 5188948
+    non_operating_expenses: 6005616
+    income_tax: 0.26308121613119645
+    total_assets: 53363319
+    total_liabilities: 15216038
+    total_equity: 38147281
+    cash: 9195466
+    accounts_receivable: 3178314
+    inventories: 2704413
+    short_term_investments: 890771
+    current_liabilities: 6298418
+    capex: 3888747
+    dividends_paid: 1180099
+    shares_outstanding: 661058
+    stock_price: 32901.71
+    employees: 22266963
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 55023841
+    cost_of_goods_sold: 24901946
+    operating_expenses: 4807072
+    non_operating_expenses: 10367245
+    income_tax: 0.1734693853919364
+    total_assets: 43782679
+    total_liabilities: 22109651
+    total_equity: 21673028
+    cash: 2109210
+    accounts_receivable: 4536714
+    inventories: 1892023
+    short_term_investments: 6537356
+    current_liabilities: 6524870
+    capex: 1552103
+    dividends_paid: 1451750
+    shares_outstanding: 498601
+    stock_price: 24707.74
+    employees: 22572830
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 61678733
+    cost_of_goods_sold: 23128917
+    operating_expenses: 8559878
+    non_operating_expenses: 8599615
+    income_tax: 0.24536287914222057
+    total_assets: 44248127
+    total_liabilities: 29299935
+    total_equity: 14948192
+    cash: 5561410
+    accounts_receivable: 6411315
+    inventories: 2842362
+    short_term_investments: 797799
+    current_liabilities: 12241395
+    capex: 3765294
+    dividends_paid: 2622807
+    shares_outstanding: 1127348
+    stock_price: 14058.96
+    employees: 2041461
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71400992
+    cost_of_goods_sold: 43207596
+    operating_expenses: 9827244
+    non_operating_expenses: 5372639
+    income_tax: 0.14719907608407046
+    total_assets: 66469274
+    total_liabilities: 37288010
+    total_equity: 29181264
+    cash: 15878364
+    accounts_receivable: 3087274
+    inventories: 1726012
+    short_term_investments: 4851536
+    current_liabilities: 12780135
+    capex: 1867196
+    dividends_paid: 1967695
+    shares_outstanding: 215166
+    stock_price: 30305.57
+    employees: 16062079
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71260556
+    cost_of_goods_sold: 52179404
+    operating_expenses: 3932348
+    non_operating_expenses: 6214605
+    income_tax: 0.2035490548416784
+    total_assets: 51037067
+    total_liabilities: 19492879
+    total_equity: 31544188
+    cash: 10232533
+    accounts_receivable: 7867435
+    inventories: 2499088
+    short_term_investments: 4882349
+    current_liabilities: 8255140
+    capex: 2566397
+    dividends_paid: 2842358
+    shares_outstanding: 212235
+    stock_price: 7313.09
+    employees: 9046490
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 79793549
+    cost_of_goods_sold: 59746863
+    operating_expenses: 16924423
+    non_operating_expenses: 19430706
+    income_tax: 0.29731493192849723
+    total_assets: 72446875
+    total_liabilities: 49918176
+    total_equity: 22528699
+    cash: 10939433
+    accounts_receivable: 5508646
+    inventories: 3524728
+    short_term_investments: 2321976
+    current_liabilities: 21334577
+    capex: 2707178
+    dividends_paid: 0
+    shares_outstanding: 548623
+    stock_price: 19102.97
+    employees: 49264061
+=== END ===
+
+QUESTION: what does the following give: longterm liabilities for Crimson Pharmaceuticals in 2020 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",8917620.0,8917620.0,"Total liabilities - current liabilities = longterm liabilities  
+(15216038 - 6298418) = 8917620
+
+Answer: 8917620",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,30,Apex Dynamics Corp,1,what is the longterm liabilities for Apex Dynamics Corp in 2020 ?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 6778082
+    cost_of_goods_sold: 2780378
+    operating_expenses: 528064
+    non_operating_expenses: 477848
+    income_tax: 0.24813354893353515
+    total_assets: 7101634
+    total_liabilities: 4647997
+    total_equity: 2453637
+    cash: 262705
+    accounts_receivable: 334631
+    inventories: 139703
+    short_term_investments: 669561
+    current_liabilities: 1814166
+    capex: 515853
+    dividends_paid: 644254
+    shares_outstanding: 635085
+    stock_price: 36762.91
+    employees: 14270440
+  Year 2021:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 7885649
+    cost_of_goods_sold: 5058355
+    operating_expenses: 646086
+    non_operating_expenses: 1060800
+    income_tax: 0.15557426833432836
+    total_assets: 14122458
+    total_liabilities: 9921139
+    total_equity: 4201319
+    cash: 741235
+    accounts_receivable: 615023
+    inventories: 337227
+    short_term_investments: 821275
+    current_liabilities: 3136372
+    capex: 447542
+    dividends_paid: 16443
+    shares_outstanding: 195991
+    stock_price: 73900.19
+    employees: 4400610
+  Year 2022:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 7902129
+    cost_of_goods_sold: 4606055
+    operating_expenses: 1794497
+    non_operating_expenses: 966644
+    income_tax: 0.13845771805133197
+    total_assets: 20607108
+    total_liabilities: 13928222
+    total_equity: 6678886
+    cash: 4122968
+    accounts_receivable: 1094620
+    inventories: 604274
+    short_term_investments: 2705872
+    current_liabilities: 4805676
+    capex: 685342
+    dividends_paid: 83585
+    shares_outstanding: 252355
+    stock_price: 29388.75
+    employees: 33673671
+  Year 2023:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 8822804
+    cost_of_goods_sold: 5360704
+    operating_expenses: 567134
+    non_operating_expenses: 1561598
+    income_tax: 0.2068279754059416
+    total_assets: 14858881
+    total_liabilities: 9027530
+    total_equity: 5831351
+    cash: 1328213
+    accounts_receivable: 1169367
+    inventories: 586788
+    short_term_investments: 605442
+    current_liabilities: 2988751
+    capex: 215938
+    dividends_paid: 325024
+    shares_outstanding: 1234486
+    stock_price: 64696.1
+    employees: 20357657
+  Year 2024:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 8280491
+    cost_of_goods_sold: 5886694
+    operating_expenses: 1353330
+    non_operating_expenses: 1602961
+    income_tax: 0.14252530881082812
+    total_assets: 9209986
+    total_liabilities: 6713138
+    total_equity: 2496848
+    cash: 1578844
+    accounts_receivable: 449524
+    inventories: 224589
+    short_term_investments: 1052687
+    current_liabilities: 2582842
+    capex: 449421
+    dividends_paid: 0
+    shares_outstanding: 879464
+    stock_price: 29916.72
+    employees: 49867626
+  Year 2025:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 7938779
+    cost_of_goods_sold: 4144695
+    operating_expenses: 1596936
+    non_operating_expenses: 1764160
+    income_tax: 0.1305682638696522
+    total_assets: 16136438
+    total_liabilities: 10993021
+    total_equity: 5143417
+    cash: 2601355
+    accounts_receivable: 623009
+    inventories: 403965
+    short_term_investments: 1218736
+    current_liabilities: 3439205
+    capex: 757316
+    dividends_paid: 83306
+    shares_outstanding: 1023622
+    stock_price: 10492.31
+    employees: 44297028
+=== END ===
+
+QUESTION: what is the longterm liabilities for Apex Dynamics Corp in 2020 ?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",2833831.0,2833831.0,"long_term_liabilities = total_liabilities - current_liabilities
+For 2020: 4647997 - 1814166 = 2833831
+
+Answer: 2833831",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,31,Atlas Global Industries,1,What is the value of the longterm liabilities for Atlas Global Industries in 2025?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 7271353
+    cost_of_goods_sold: 5400952
+    operating_expenses: 1252525
+    non_operating_expenses: 1481159
+    income_tax: 0.19108323367601782
+    total_assets: 5333390
+    total_liabilities: 3464852
+    total_equity: 1868538
+    cash: 1002870
+    accounts_receivable: 570058
+    inventories: 388625
+    short_term_investments: 163522
+    current_liabilities: 1461840
+    capex: 645952
+    dividends_paid: 0
+    shares_outstanding: 1329343
+    stock_price: 62606.0
+    employees: 11332636
+  Year 2021:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8326795
+    cost_of_goods_sold: 5105660
+    operating_expenses: 1189982
+    non_operating_expenses: 1344621
+    income_tax: 0.28349400289108806
+    total_assets: 18685432
+    total_liabilities: 7429253
+    total_equity: 11256179
+    cash: 2470616
+    accounts_receivable: 775334
+    inventories: 473092
+    short_term_investments: 1016893
+    current_liabilities: 3260049
+    capex: 709447
+    dividends_paid: 87081
+    shares_outstanding: 1339110
+    stock_price: 34999.15
+    employees: 45389309
+  Year 2022:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8700300
+    cost_of_goods_sold: 3233215
+    operating_expenses: 1934068
+    non_operating_expenses: 1218163
+    income_tax: 0.2503553573001023
+    total_assets: 6652442
+    total_liabilities: 3405354
+    total_equity: 3247088
+    cash: 1337729
+    accounts_receivable: 769626
+    inventories: 165224
+    short_term_investments: 476196
+    current_liabilities: 1458807
+    capex: 407764
+    dividends_paid: 162768
+    shares_outstanding: 1340610
+    stock_price: 7825.35
+    employees: 7966118
+  Year 2023:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 8937383
+    cost_of_goods_sold: 3295771
+    operating_expenses: 829305
+    non_operating_expenses: 1188436
+    income_tax: 0.1661762782076167
+    total_assets: 10403082
+    total_liabilities: 3317081
+    total_equity: 7086001
+    cash: 2218312
+    accounts_receivable: 705586
+    inventories: 395735
+    short_term_investments: 1481905
+    current_liabilities: 845468
+    capex: 590361
+    dividends_paid: 1064422
+    shares_outstanding: 720700
+    stock_price: 75505.22
+    employees: 15281326
+  Year 2024:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9198321
+    cost_of_goods_sold: 6450219
+    operating_expenses: 1997376
+    non_operating_expenses: 1450061
+    income_tax: 0.24692681215127155
+    total_assets: 7301171
+    total_liabilities: 5340646
+    total_equity: 1960525
+    cash: 1003257
+    accounts_receivable: 618988
+    inventories: 536229
+    short_term_investments: 470488
+    current_liabilities: 2228216
+    capex: 716867
+    dividends_paid: 0
+    shares_outstanding: 1262353
+    stock_price: 73684.02
+    employees: 49045738
+  Year 2025:
+    ticker: ATGL
+    sector: Industrials
+    country: UK
+    exchange: LSE
+    credit_rating: B
+    revenue: 9838106
+    cost_of_goods_sold: 6966540
+    operating_expenses: 1656526
+    non_operating_expenses: 1796438
+    income_tax: 0.11678949243240005
+    total_assets: 12081149
+    total_liabilities: 8762607
+    total_equity: 3318542
+    cash: 845443
+    accounts_receivable: 649469
+    inventories: 435798
+    short_term_investments: 889872
+    current_liabilities: 2929998
+    capex: 415764
+    dividends_paid: 0
+    shares_outstanding: 1427294
+    stock_price: 34592.84
+    employees: 41828090
+=== END ===
+
+QUESTION: What is the value of the longterm liabilities for Atlas Global Industries in 2025?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",5832609.0,5832609.0,"Total liabilities for 2025 = 8,762,607  
+Current liabilities for 2025 = 2,929,998  
+Long-term liabilities = Total liabilities - Current liabilities  
+Long-term liabilities = 8,762,607 - 2,929,998 = 5,832,609  
+
+Answer: 5832609",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,33,Apex Dynamics Corp,1,What is the gross profit for Apex Dynamics Corp in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 6778082
+    cost_of_goods_sold: 2780378
+    operating_expenses: 528064
+    non_operating_expenses: 477848
+    income_tax: 0.24813354893353515
+    total_assets: 7101634
+    total_liabilities: 4647997
+    total_equity: 2453637
+    cash: 262705
+    accounts_receivable: 334631
+    inventories: 139703
+    short_term_investments: 669561
+    current_liabilities: 1814166
+    capex: 515853
+    dividends_paid: 644254
+    shares_outstanding: 635085
+    stock_price: 36762.91
+    employees: 14270440
+  Year 2021:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 7885649
+    cost_of_goods_sold: 5058355
+    operating_expenses: 646086
+    non_operating_expenses: 1060800
+    income_tax: 0.15557426833432836
+    total_assets: 14122458
+    total_liabilities: 9921139
+    total_equity: 4201319
+    cash: 741235
+    accounts_receivable: 615023
+    inventories: 337227
+    short_term_investments: 821275
+    current_liabilities: 3136372
+    capex: 447542
+    dividends_paid: 16443
+    shares_outstanding: 195991
+    stock_price: 73900.19
+    employees: 4400610
+  Year 2022:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 7902129
+    cost_of_goods_sold: 4606055
+    operating_expenses: 1794497
+    non_operating_expenses: 966644
+    income_tax: 0.13845771805133197
+    total_assets: 20607108
+    total_liabilities: 13928222
+    total_equity: 6678886
+    cash: 4122968
+    accounts_receivable: 1094620
+    inventories: 604274
+    short_term_investments: 2705872
+    current_liabilities: 4805676
+    capex: 685342
+    dividends_paid: 83585
+    shares_outstanding: 252355
+    stock_price: 29388.75
+    employees: 33673671
+  Year 2023:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 8822804
+    cost_of_goods_sold: 5360704
+    operating_expenses: 567134
+    non_operating_expenses: 1561598
+    income_tax: 0.2068279754059416
+    total_assets: 14858881
+    total_liabilities: 9027530
+    total_equity: 5831351
+    cash: 1328213
+    accounts_receivable: 1169367
+    inventories: 586788
+    short_term_investments: 605442
+    current_liabilities: 2988751
+    capex: 215938
+    dividends_paid: 325024
+    shares_outstanding: 1234486
+    stock_price: 64696.1
+    employees: 20357657
+  Year 2024:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 8280491
+    cost_of_goods_sold: 5886694
+    operating_expenses: 1353330
+    non_operating_expenses: 1602961
+    income_tax: 0.14252530881082812
+    total_assets: 9209986
+    total_liabilities: 6713138
+    total_equity: 2496848
+    cash: 1578844
+    accounts_receivable: 449524
+    inventories: 224589
+    short_term_investments: 1052687
+    current_liabilities: 2582842
+    capex: 449421
+    dividends_paid: 0
+    shares_outstanding: 879464
+    stock_price: 29916.72
+    employees: 49867626
+  Year 2025:
+    ticker: APEX
+    sector: Technology
+    country: USA
+    exchange: NYSE
+    credit_rating: AA
+    revenue: 7938779
+    cost_of_goods_sold: 4144695
+    operating_expenses: 1596936
+    non_operating_expenses: 1764160
+    income_tax: 0.1305682638696522
+    total_assets: 16136438
+    total_liabilities: 10993021
+    total_equity: 5143417
+    cash: 2601355
+    accounts_receivable: 623009
+    inventories: 403965
+    short_term_investments: 1218736
+    current_liabilities: 3439205
+    capex: 757316
+    dividends_paid: 83306
+    shares_outstanding: 1023622
+    stock_price: 10492.31
+    employees: 44297028
+=== END ===
+
+QUESTION: What is the gross profit for Apex Dynamics Corp in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",3462100.0,3462100.0,"Gross profit = Revenue - Cost of goods sold.
+Gross profit for 2023 = 8822804 - 5360704
+Answer: 3462100",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,39,Ironclad Manufacturing,1,Which quantity is given by the longterm liabilities for Ironclad Manufacturing in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: Which quantity is given by the longterm liabilities for Ironclad Manufacturing in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",22276390.0,32587266.0,Answer: 32587266,False,0.462861,False,False
+swiss-ai/Apertus-v1.5-70B,90q,42,SilverLine Retail Inc,1,evaluate the gross profit for SilverLine Retail Inc in 2024,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 55388486
+    cost_of_goods_sold: 23334059
+    operating_expenses: 3215099
+    non_operating_expenses: 11147141
+    income_tax: 0.1941001646503267
+    total_assets: 51199762
+    total_liabilities: 37631148
+    total_equity: 13568614
+    cash: 3580277
+    accounts_receivable: 5457592
+    inventories: 2392255
+    short_term_investments: 4036672
+    current_liabilities: 10266176
+    capex: 2584686
+    dividends_paid: 1984510
+    shares_outstanding: 1008499
+    stock_price: 68832.05
+    employees: 16825281
+  Year 2021:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 61715437
+    cost_of_goods_sold: 26519000
+    operating_expenses: 14752378
+    non_operating_expenses: 13127689
+    income_tax: 0.21001932179435656
+    total_assets: 72967708
+    total_liabilities: 39016548
+    total_equity: 33951160
+    cash: 7378512
+    accounts_receivable: 8456155
+    inventories: 1923761
+    short_term_investments: 5986524
+    current_liabilities: 19392387
+    capex: 3913221
+    dividends_paid: 1520456
+    shares_outstanding: 625739
+    stock_price: 16225.23
+    employees: 18408078
+  Year 2022:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 69849783
+    cost_of_goods_sold: 40613034
+    operating_expenses: 14109524
+    non_operating_expenses: 6336189
+    income_tax: 0.20984392781706634
+    total_assets: 49426423
+    total_liabilities: 29519800
+    total_equity: 19906623
+    cash: 9075433
+    accounts_receivable: 3642150
+    inventories: 5950178
+    short_term_investments: 4707473
+    current_liabilities: 9145953
+    capex: 4475074
+    dividends_paid: 440056
+    shares_outstanding: 832855
+    stock_price: 8816.92
+    employees: 49616728
+  Year 2023:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 82116828
+    cost_of_goods_sold: 41686735
+    operating_expenses: 6035031
+    non_operating_expenses: 17772433
+    income_tax: 0.19967510094143903
+    total_assets: 70795008
+    total_liabilities: 44319236
+    total_equity: 26475772
+    cash: 6382416
+    accounts_receivable: 10139161
+    inventories: 6145950
+    short_term_investments: 3123640
+    current_liabilities: 17187721
+    capex: 7698408
+    dividends_paid: 2041215
+    shares_outstanding: 767279
+    stock_price: 70527.11
+    employees: 43269333
+  Year 2024:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 81899158
+    cost_of_goods_sold: 53685126
+    operating_expenses: 10891645
+    non_operating_expenses: 19397789
+    income_tax: 0.2015475351619313
+    total_assets: 63751653
+    total_liabilities: 32859214
+    total_equity: 30892439
+    cash: 6099904
+    accounts_receivable: 8082937
+    inventories: 8045108
+    short_term_investments: 5007670
+    current_liabilities: 9435486
+    capex: 3899212
+    dividends_paid: 0
+    shares_outstanding: 832357
+    stock_price: 44159.26
+    employees: 23039559
+  Year 2025:
+    ticker: SLRI
+    sector: Consumer
+    country: USA
+    exchange: NASDAQ
+    credit_rating: CCC
+    revenue: 82726148
+    cost_of_goods_sold: 31840762
+    operating_expenses: 15676579
+    non_operating_expenses: 13596831
+    income_tax: 0.14671248921157862
+    total_assets: 67221323
+    total_liabilities: 19810503
+    total_equity: 47410820
+    cash: 13029854
+    accounts_receivable: 9143125
+    inventories: 3995479
+    short_term_investments: 4305595
+    current_liabilities: 8239628
+    capex: 8145667
+    dividends_paid: 6054237
+    shares_outstanding: 748040
+    stock_price: 4406.04
+    employees: 25363412
+=== END ===
+
+QUESTION: evaluate the gross profit for SilverLine Retail Inc in 2024
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",28214032.0,28214032.0,"Gross profit = Revenue - Cost of goods sold
+Gross profit = 81899158 - 53685126
+Answer: 28214032",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,43,Quantum Bridge Holdings,1,compute the longterm liabilities for Quantum Bridge Holdings in 2020.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 7962795
+    cost_of_goods_sold: 3787820
+    operating_expenses: 1873674
+    non_operating_expenses: 1648505
+    income_tax: 0.15704984578938405
+    total_assets: 7010059
+    total_liabilities: 4867859
+    total_equity: 2142200
+    cash: 1418412
+    accounts_receivable: 845546
+    inventories: 315401
+    short_term_investments: 256468
+    current_liabilities: 1481899
+    capex: 627938
+    dividends_paid: 12873
+    shares_outstanding: 100827
+    stock_price: 26117.98
+    employees: 2982046
+  Year 2021:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 8388810
+    cost_of_goods_sold: 5987297
+    operating_expenses: 1310544
+    non_operating_expenses: 514871
+    income_tax: 0.20156569939868368
+    total_assets: 6347412
+    total_liabilities: 2073082
+    total_equity: 4274330
+    cash: 285325
+    accounts_receivable: 1058516
+    inventories: 434024
+    short_term_investments: 900212
+    current_liabilities: 813516
+    capex: 194447
+    dividends_paid: 106516
+    shares_outstanding: 132155
+    stock_price: 53103.79
+    employees: 28478733
+  Year 2022:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 8460816
+    cost_of_goods_sold: 3531076
+    operating_expenses: 1556326
+    non_operating_expenses: 954691
+    income_tax: 0.15312290250627075
+    total_assets: 18511636
+    total_liabilities: 12427990
+    total_equity: 6083646
+    cash: 2417424
+    accounts_receivable: 1124458
+    inventories: 500161
+    short_term_investments: 209259
+    current_liabilities: 5036938
+    capex: 236890
+    dividends_paid: 461286
+    shares_outstanding: 811075
+    stock_price: 41211.95
+    employees: 7056600
+  Year 2023:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 8610763
+    cost_of_goods_sold: 2849784
+    operating_expenses: 851233
+    non_operating_expenses: 921330
+    income_tax: 0.18763691460154197
+    total_assets: 9046235
+    total_liabilities: 4772685
+    total_equity: 4273550
+    cash: 2229424
+    accounts_receivable: 1039405
+    inventories: 252953
+    short_term_investments: 936293
+    current_liabilities: 1854907
+    capex: 243572
+    dividends_paid: 1207571
+    shares_outstanding: 1318409
+    stock_price: 22260.57
+    employees: 44540779
+  Year 2024:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 9711878
+    cost_of_goods_sold: 3592924
+    operating_expenses: 1032870
+    non_operating_expenses: 894716
+    income_tax: 0.16857605755865174
+    total_assets: 8632807
+    total_liabilities: 6236712
+    total_equity: 2396095
+    cash: 1218866
+    accounts_receivable: 632361
+    inventories: 496042
+    short_term_investments: 147723
+    current_liabilities: 2548140
+    capex: 228491
+    dividends_paid: 1156046
+    shares_outstanding: 506999
+    stock_price: 11769.34
+    employees: 48999999
+  Year 2025:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 9374322
+    cost_of_goods_sold: 4676155
+    operating_expenses: 1791747
+    non_operating_expenses: 1520340
+    income_tax: 0.12237477611786701
+    total_assets: 6536905
+    total_liabilities: 4472023
+    total_equity: 2064882
+    cash: 410465
+    accounts_receivable: 408747
+    inventories: 317970
+    short_term_investments: 571022
+    current_liabilities: 1598510
+    capex: 460955
+    dividends_paid: 20353
+    shares_outstanding: 1400301
+    stock_price: 77817.41
+    employees: 2474796
+=== END ===
+
+QUESTION: compute the longterm liabilities for Quantum Bridge Holdings in 2020.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",3385960.0,3385960.0,"Long term liabilities = total liabilities − current liabilities
+= 4867859 − 1481899  
+= 3385960
+
+Answer: 3385960",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,43,Crimson Pharmaceuticals,1,What does the following give: longterm liabilities for Crimson Pharmaceuticals in 2024?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 46323615
+    cost_of_goods_sold: 20475877
+    operating_expenses: 5188948
+    non_operating_expenses: 6005616
+    income_tax: 0.26308121613119645
+    total_assets: 53363319
+    total_liabilities: 15216038
+    total_equity: 38147281
+    cash: 9195466
+    accounts_receivable: 3178314
+    inventories: 2704413
+    short_term_investments: 890771
+    current_liabilities: 6298418
+    capex: 3888747
+    dividends_paid: 1180099
+    shares_outstanding: 661058
+    stock_price: 32901.71
+    employees: 22266963
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 55023841
+    cost_of_goods_sold: 24901946
+    operating_expenses: 4807072
+    non_operating_expenses: 10367245
+    income_tax: 0.1734693853919364
+    total_assets: 43782679
+    total_liabilities: 22109651
+    total_equity: 21673028
+    cash: 2109210
+    accounts_receivable: 4536714
+    inventories: 1892023
+    short_term_investments: 6537356
+    current_liabilities: 6524870
+    capex: 1552103
+    dividends_paid: 1451750
+    shares_outstanding: 498601
+    stock_price: 24707.74
+    employees: 22572830
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 61678733
+    cost_of_goods_sold: 23128917
+    operating_expenses: 8559878
+    non_operating_expenses: 8599615
+    income_tax: 0.24536287914222057
+    total_assets: 44248127
+    total_liabilities: 29299935
+    total_equity: 14948192
+    cash: 5561410
+    accounts_receivable: 6411315
+    inventories: 2842362
+    short_term_investments: 797799
+    current_liabilities: 12241395
+    capex: 3765294
+    dividends_paid: 2622807
+    shares_outstanding: 1127348
+    stock_price: 14058.96
+    employees: 2041461
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71400992
+    cost_of_goods_sold: 43207596
+    operating_expenses: 9827244
+    non_operating_expenses: 5372639
+    income_tax: 0.14719907608407046
+    total_assets: 66469274
+    total_liabilities: 37288010
+    total_equity: 29181264
+    cash: 15878364
+    accounts_receivable: 3087274
+    inventories: 1726012
+    short_term_investments: 4851536
+    current_liabilities: 12780135
+    capex: 1867196
+    dividends_paid: 1967695
+    shares_outstanding: 215166
+    stock_price: 30305.57
+    employees: 16062079
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71260556
+    cost_of_goods_sold: 52179404
+    operating_expenses: 3932348
+    non_operating_expenses: 6214605
+    income_tax: 0.2035490548416784
+    total_assets: 51037067
+    total_liabilities: 19492879
+    total_equity: 31544188
+    cash: 10232533
+    accounts_receivable: 7867435
+    inventories: 2499088
+    short_term_investments: 4882349
+    current_liabilities: 8255140
+    capex: 2566397
+    dividends_paid: 2842358
+    shares_outstanding: 212235
+    stock_price: 7313.09
+    employees: 9046490
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 79793549
+    cost_of_goods_sold: 59746863
+    operating_expenses: 16924423
+    non_operating_expenses: 19430706
+    income_tax: 0.29731493192849723
+    total_assets: 72446875
+    total_liabilities: 49918176
+    total_equity: 22528699
+    cash: 10939433
+    accounts_receivable: 5508646
+    inventories: 3524728
+    short_term_investments: 2321976
+    current_liabilities: 21334577
+    capex: 2707178
+    dividends_paid: 0
+    shares_outstanding: 548623
+    stock_price: 19102.97
+    employees: 49264061
+=== END ===
+
+QUESTION: What does the following give: longterm liabilities for Crimson Pharmaceuticals in 2024?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",11237739.0,24507875.0,"total_liabilities - current_liabilities for year 2024
+37288010 - 12780135
+24507875
+
+Answer: 24507875",False,1.180855,False,False
+swiss-ai/Apertus-v1.5-70B,90q,43,Helix BioSciences,1,Which value corresponds to the gross profit for Helix BioSciences in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 21404454
+    cost_of_goods_sold: 14432242
+    operating_expenses: 1398700
+    non_operating_expenses: 4769983
+    income_tax: 0.27105867429121805
+    total_assets: 20620661
+    total_liabilities: 12894914
+    total_equity: 7725747
+    cash: 2717732
+    accounts_receivable: 2042662
+    inventories: 1774247
+    short_term_investments: 2792507
+    current_liabilities: 4673548
+    capex: 1544267
+    dividends_paid: 189732
+    shares_outstanding: 489075
+    stock_price: 38836.88
+    employees: 7967623
+  Year 2021:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 20062922
+    cost_of_goods_sold: 6953324
+    operating_expenses: 4610968
+    non_operating_expenses: 2381219
+    income_tax: 0.24286310983349252
+    total_assets: 22157741
+    total_liabilities: 9610243
+    total_equity: 12547498
+    cash: 1872409
+    accounts_receivable: 1680788
+    inventories: 536274
+    short_term_investments: 1843186
+    current_liabilities: 2783958
+    capex: 855312
+    dividends_paid: 690778
+    shares_outstanding: 619066
+    stock_price: 28061.82
+    employees: 30095350
+  Year 2022:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 22891464
+    cost_of_goods_sold: 13535434
+    operating_expenses: 1446337
+    non_operating_expenses: 1577249
+    income_tax: 0.2356758689680162
+    total_assets: 35713429
+    total_liabilities: 24738462
+    total_equity: 10974967
+    cash: 6229997
+    accounts_receivable: 2990410
+    inventories: 1807337
+    short_term_investments: 2023904
+    current_liabilities: 9788635
+    capex: 1098462
+    dividends_paid: 273808
+    shares_outstanding: 1451868
+    stock_price: 56330.68
+    employees: 19901920
+  Year 2023:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 24874129
+    cost_of_goods_sold: 17961633
+    operating_expenses: 2783822
+    non_operating_expenses: 3117620
+    income_tax: 0.2583323915727087
+    total_assets: 19496555
+    total_liabilities: 13226184
+    total_equity: 6270371
+    cash: 4140502
+    accounts_receivable: 2832603
+    inventories: 1959684
+    short_term_investments: 1631765
+    current_liabilities: 5442657
+    capex: 1217495
+    dividends_paid: 126999
+    shares_outstanding: 550271
+    stock_price: 15650.64
+    employees: 11102537
+  Year 2024:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 29484477
+    cost_of_goods_sold: 15297193
+    operating_expenses: 2810124
+    non_operating_expenses: 2285432
+    income_tax: 0.11543301686017526
+    total_assets: 22450439
+    total_liabilities: 8178795
+    total_equity: 14271644
+    cash: 4480938
+    accounts_receivable: 3641686
+    inventories: 2063265
+    short_term_investments: 343147
+    current_liabilities: 2733280
+    capex: 898803
+    dividends_paid: 2465132
+    shares_outstanding: 571313
+    stock_price: 14236.41
+    employees: 41651580
+  Year 2025:
+    ticker: HLXB
+    sector: Healthcare
+    country: USA
+    exchange: NASDAQ
+    credit_rating: BBB
+    revenue: 33491636
+    cost_of_goods_sold: 22240780
+    operating_expenses: 2783417
+    non_operating_expenses: 4606261
+    income_tax: 0.1821717222993067
+    total_assets: 30128253
+    total_liabilities: 14608878
+    total_equity: 15519375
+    cash: 3848092
+    accounts_receivable: 2293936
+    inventories: 2609060
+    short_term_investments: 2194841
+    current_liabilities: 5602545
+    capex: 2836404
+    dividends_paid: 390893
+    shares_outstanding: 708833
+    stock_price: 67056.4
+    employees: 18708127
+=== END ===
+
+QUESTION: Which value corresponds to the gross profit for Helix BioSciences in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",6912496.0,6912496.0,"Revenue (24874129) - Cost of goods sold (17961633) = 6912496  
+Answer: 6912496",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,43,Pinnacle Health Group,1,determine the longterm liabilities for Pinnacle Health Group in 2024,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1563150
+    cost_of_goods_sold: 1172298
+    operating_expenses: 187566
+    non_operating_expenses: 281412
+    income_tax: 0.25624660992217896
+    total_assets: 1444545
+    total_liabilities: 1011584
+    total_equity: 432961
+    cash: 345123
+    accounts_receivable: 93689
+    inventories: 26552
+    short_term_investments: 45263
+    current_liabilities: 284817
+    capex: 101789
+    dividends_paid: 0
+    shares_outstanding: 334767
+    stock_price: 56408.0
+    employees: 38461456
+  Year 2021:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1511536
+    cost_of_goods_sold: 866505
+    operating_expenses: 301680
+    non_operating_expenses: 110201
+    income_tax: 0.263860234862217
+    total_assets: 1036957
+    total_liabilities: 385548
+    total_equity: 651409
+    cash: 36967
+    accounts_receivable: 107615
+    inventories: 93630
+    short_term_investments: 149471
+    current_liabilities: 134619
+    capex: 39420
+    dividends_paid: 49087
+    shares_outstanding: 1039015
+    stock_price: 50738.53
+    employees: 5544115
+  Year 2022:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1717550
+    cost_of_goods_sold: 1172455
+    operating_expenses: 292125
+    non_operating_expenses: 127461
+    income_tax: 0.29676887030293425
+    total_assets: 1386057
+    total_liabilities: 766576
+    total_equity: 619481
+    cash: 172208
+    accounts_receivable: 132349
+    inventories: 100567
+    short_term_investments: 80076
+    current_liabilities: 354460
+    capex: 48852
+    dividends_paid: 29032
+    shares_outstanding: 1441573
+    stock_price: 51393.43
+    employees: 41521012
+  Year 2023:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 1920301
+    cost_of_goods_sold: 952410
+    operating_expenses: 377837
+    non_operating_expenses: 466815
+    income_tax: 0.15401647927748016
+    total_assets: 1512240
+    total_liabilities: 962947
+    total_equity: 549293
+    cash: 206223
+    accounts_receivable: 160455
+    inventories: 109559
+    short_term_investments: 71945
+    current_liabilities: 445775
+    capex: 51720
+    dividends_paid: 34644
+    shares_outstanding: 1323630
+    stock_price: 20643.28
+    employees: 23503069
+  Year 2024:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 2094843
+    cost_of_goods_sold: 985718
+    operating_expenses: 116767
+    non_operating_expenses: 461265
+    income_tax: 0.13636797143153837
+    total_assets: 3777597
+    total_liabilities: 2683956
+    total_equity: 1093641
+    cash: 396174
+    accounts_receivable: 268207
+    inventories: 109566
+    short_term_investments: 183884
+    current_liabilities: 677800
+    capex: 56245
+    dividends_paid: 173939
+    shares_outstanding: 1082911
+    stock_price: 39853.36
+    employees: 38029150
+  Year 2025:
+    ticker: PNHG
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: BBB
+    revenue: 2332336
+    cost_of_goods_sold: 1377609
+    operating_expenses: 345569
+    non_operating_expenses: 486494
+    income_tax: 0.11861067011093435
+    total_assets: 4121349
+    total_liabilities: 2820346
+    total_equity: 1301003
+    cash: 401276
+    accounts_receivable: 228932
+    inventories: 112308
+    short_term_investments: 347550
+    current_liabilities: 1005103
+    capex: 108368
+    dividends_paid: 32259
+    shares_outstanding: 1057254
+    stock_price: 22766.94
+    employees: 12944482
+=== END ===
+
+QUESTION: determine the longterm liabilities for Pinnacle Health Group in 2024
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",2006156.0,2006156.0,"Longterm liabilities = total_liabilities - current_liabilities
+= 2683956 - 677800
+= 2006156
+
+Answer: 2006156",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,46,Ironclad Manufacturing,1,which result follows from the longterm liabilities for Ironclad Manufacturing in 2023?,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which result follows from the longterm liabilities for Ironclad Manufacturing in 2023?
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",12343150.0,12343150.0,"Long-term liabilities = total liabilities - current liabilities  
+2023: total liabilities = 19,051,876; current liabilities = 6,708,726 → long-term liabilities = 19,051,876 - 6,708,726 = 12,343,150  
+
+Answer: 12343150",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,46,Crimson Pharmaceuticals,1,you should give the gross profit for Crimson Pharmaceuticals in 2023 .,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 46323615
+    cost_of_goods_sold: 20475877
+    operating_expenses: 5188948
+    non_operating_expenses: 6005616
+    income_tax: 0.26308121613119645
+    total_assets: 53363319
+    total_liabilities: 15216038
+    total_equity: 38147281
+    cash: 9195466
+    accounts_receivable: 3178314
+    inventories: 2704413
+    short_term_investments: 890771
+    current_liabilities: 6298418
+    capex: 3888747
+    dividends_paid: 1180099
+    shares_outstanding: 661058
+    stock_price: 32901.71
+    employees: 22266963
+  Year 2021:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 55023841
+    cost_of_goods_sold: 24901946
+    operating_expenses: 4807072
+    non_operating_expenses: 10367245
+    income_tax: 0.1734693853919364
+    total_assets: 43782679
+    total_liabilities: 22109651
+    total_equity: 21673028
+    cash: 2109210
+    accounts_receivable: 4536714
+    inventories: 1892023
+    short_term_investments: 6537356
+    current_liabilities: 6524870
+    capex: 1552103
+    dividends_paid: 1451750
+    shares_outstanding: 498601
+    stock_price: 24707.74
+    employees: 22572830
+  Year 2022:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 61678733
+    cost_of_goods_sold: 23128917
+    operating_expenses: 8559878
+    non_operating_expenses: 8599615
+    income_tax: 0.24536287914222057
+    total_assets: 44248127
+    total_liabilities: 29299935
+    total_equity: 14948192
+    cash: 5561410
+    accounts_receivable: 6411315
+    inventories: 2842362
+    short_term_investments: 797799
+    current_liabilities: 12241395
+    capex: 3765294
+    dividends_paid: 2622807
+    shares_outstanding: 1127348
+    stock_price: 14058.96
+    employees: 2041461
+  Year 2023:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71400992
+    cost_of_goods_sold: 43207596
+    operating_expenses: 9827244
+    non_operating_expenses: 5372639
+    income_tax: 0.14719907608407046
+    total_assets: 66469274
+    total_liabilities: 37288010
+    total_equity: 29181264
+    cash: 15878364
+    accounts_receivable: 3087274
+    inventories: 1726012
+    short_term_investments: 4851536
+    current_liabilities: 12780135
+    capex: 1867196
+    dividends_paid: 1967695
+    shares_outstanding: 215166
+    stock_price: 30305.57
+    employees: 16062079
+  Year 2024:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 71260556
+    cost_of_goods_sold: 52179404
+    operating_expenses: 3932348
+    non_operating_expenses: 6214605
+    income_tax: 0.2035490548416784
+    total_assets: 51037067
+    total_liabilities: 19492879
+    total_equity: 31544188
+    cash: 10232533
+    accounts_receivable: 7867435
+    inventories: 2499088
+    short_term_investments: 4882349
+    current_liabilities: 8255140
+    capex: 2566397
+    dividends_paid: 2842358
+    shares_outstanding: 212235
+    stock_price: 7313.09
+    employees: 9046490
+  Year 2025:
+    ticker: CRPH
+    sector: Healthcare
+    country: Switzerland
+    exchange: SIX
+    credit_rating: CCC
+    revenue: 79793549
+    cost_of_goods_sold: 59746863
+    operating_expenses: 16924423
+    non_operating_expenses: 19430706
+    income_tax: 0.29731493192849723
+    total_assets: 72446875
+    total_liabilities: 49918176
+    total_equity: 22528699
+    cash: 10939433
+    accounts_receivable: 5508646
+    inventories: 3524728
+    short_term_investments: 2321976
+    current_liabilities: 21334577
+    capex: 2707178
+    dividends_paid: 0
+    shares_outstanding: 548623
+    stock_price: 19102.97
+    employees: 49264061
+=== END ===
+
+QUESTION: you should give the gross profit for Crimson Pharmaceuticals in 2023 .
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",28193396.0,28193396.0,"Gross profit = revenue - cost_of_goods_sold
+= 71400992 - 43207596
+= 28193396
+
+Answer: 28193396",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,47,Quantum Bridge Holdings,1,determine the gross profit for Quantum Bridge Holdings in 2023.,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 7962795
+    cost_of_goods_sold: 3787820
+    operating_expenses: 1873674
+    non_operating_expenses: 1648505
+    income_tax: 0.15704984578938405
+    total_assets: 7010059
+    total_liabilities: 4867859
+    total_equity: 2142200
+    cash: 1418412
+    accounts_receivable: 845546
+    inventories: 315401
+    short_term_investments: 256468
+    current_liabilities: 1481899
+    capex: 627938
+    dividends_paid: 12873
+    shares_outstanding: 100827
+    stock_price: 26117.98
+    employees: 2982046
+  Year 2021:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 8388810
+    cost_of_goods_sold: 5987297
+    operating_expenses: 1310544
+    non_operating_expenses: 514871
+    income_tax: 0.20156569939868368
+    total_assets: 6347412
+    total_liabilities: 2073082
+    total_equity: 4274330
+    cash: 285325
+    accounts_receivable: 1058516
+    inventories: 434024
+    short_term_investments: 900212
+    current_liabilities: 813516
+    capex: 194447
+    dividends_paid: 106516
+    shares_outstanding: 132155
+    stock_price: 53103.79
+    employees: 28478733
+  Year 2022:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 8460816
+    cost_of_goods_sold: 3531076
+    operating_expenses: 1556326
+    non_operating_expenses: 954691
+    income_tax: 0.15312290250627075
+    total_assets: 18511636
+    total_liabilities: 12427990
+    total_equity: 6083646
+    cash: 2417424
+    accounts_receivable: 1124458
+    inventories: 500161
+    short_term_investments: 209259
+    current_liabilities: 5036938
+    capex: 236890
+    dividends_paid: 461286
+    shares_outstanding: 811075
+    stock_price: 41211.95
+    employees: 7056600
+  Year 2023:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 8610763
+    cost_of_goods_sold: 2849784
+    operating_expenses: 851233
+    non_operating_expenses: 921330
+    income_tax: 0.18763691460154197
+    total_assets: 9046235
+    total_liabilities: 4772685
+    total_equity: 4273550
+    cash: 2229424
+    accounts_receivable: 1039405
+    inventories: 252953
+    short_term_investments: 936293
+    current_liabilities: 1854907
+    capex: 243572
+    dividends_paid: 1207571
+    shares_outstanding: 1318409
+    stock_price: 22260.57
+    employees: 44540779
+  Year 2024:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 9711878
+    cost_of_goods_sold: 3592924
+    operating_expenses: 1032870
+    non_operating_expenses: 894716
+    income_tax: 0.16857605755865174
+    total_assets: 8632807
+    total_liabilities: 6236712
+    total_equity: 2396095
+    cash: 1218866
+    accounts_receivable: 632361
+    inventories: 496042
+    short_term_investments: 147723
+    current_liabilities: 2548140
+    capex: 228491
+    dividends_paid: 1156046
+    shares_outstanding: 506999
+    stock_price: 11769.34
+    employees: 48999999
+  Year 2025:
+    ticker: QBHD
+    sector: Healthcare
+    country: USA
+    exchange: NYSE
+    credit_rating: CCC
+    revenue: 9374322
+    cost_of_goods_sold: 4676155
+    operating_expenses: 1791747
+    non_operating_expenses: 1520340
+    income_tax: 0.12237477611786701
+    total_assets: 6536905
+    total_liabilities: 4472023
+    total_equity: 2064882
+    cash: 410465
+    accounts_receivable: 408747
+    inventories: 317970
+    short_term_investments: 571022
+    current_liabilities: 1598510
+    capex: 460955
+    dividends_paid: 20353
+    shares_outstanding: 1400301
+    stock_price: 77817.41
+    employees: 2474796
+=== END ===
+
+QUESTION: determine the gross profit for Quantum Bridge Holdings in 2023.
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",5760979.0,5760979.0,"Revenue in 2023: 8610763
+Cost of goods sold in 2023: 2849784
+Gross profit = Revenue - Cost of goods sold = 8610763 - 2849784 = 5760979
+
+Answer: 5760979",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,47,NovaStar Technologies,1,may you calculate the gross profit for NovaStar Technologies in 2021,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 10788366
+    cost_of_goods_sold: 3735549
+    operating_expenses: 2222654
+    non_operating_expenses: 2447092
+    income_tax: 0.18127547796642335
+    total_assets: 10325833
+    total_liabilities: 4312982
+    total_equity: 6012851
+    cash: 2422170
+    accounts_receivable: 1364303
+    inventories: 548777
+    short_term_investments: 1275323
+    current_liabilities: 2028629
+    capex: 851473
+    dividends_paid: 19344
+    shares_outstanding: 504956
+    stock_price: 74569.05
+    employees: 40210639
+  Year 2021:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 12535411
+    cost_of_goods_sold: 8334007
+    operating_expenses: 1295674
+    non_operating_expenses: 2600783
+    income_tax: 0.12161912528059143
+    total_assets: 9308933
+    total_liabilities: 6736127
+    total_equity: 2572806
+    cash: 734805
+    accounts_receivable: 1525041
+    inventories: 665382
+    short_term_investments: 490830
+    current_liabilities: 3023419
+    capex: 274440
+    dividends_paid: 24385
+    shares_outstanding: 297763
+    stock_price: 27268.56
+    employees: 43285471
+  Year 2022:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 14926277
+    cost_of_goods_sold: 6352717
+    operating_expenses: 2661301
+    non_operating_expenses: 1939456
+    income_tax: 0.296229937439652
+    total_assets: 15820803
+    total_liabilities: 11696442
+    total_equity: 4124361
+    cash: 876080
+    accounts_receivable: 2045498
+    inventories: 274525
+    short_term_investments: 2290137
+    current_liabilities: 3700363
+    capex: 817439
+    dividends_paid: 121235
+    shares_outstanding: 1095532
+    stock_price: 26123.67
+    employees: 30507338
+  Year 2023:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 15869595
+    cost_of_goods_sold: 7511681
+    operating_expenses: 2623523
+    non_operating_expenses: 1601948
+    income_tax: 0.24175705676683412
+    total_assets: 52543189
+    total_liabilities: 38712587
+    total_equity: 13830602
+    cash: 7800532
+    accounts_receivable: 1776490
+    inventories: 874762
+    short_term_investments: 5458606
+    current_liabilities: 13203136
+    capex: 1160687
+    dividends_paid: 87702
+    shares_outstanding: 501998
+    stock_price: 26142.38
+    employees: 42476756
+  Year 2024:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 17798246
+    cost_of_goods_sold: 7744818
+    operating_expenses: 1990857
+    non_operating_expenses: 2343648
+    income_tax: 0.18048007741154493
+    total_assets: 27181765
+    total_liabilities: 10644596
+    total_equity: 16537169
+    cash: 3329717
+    accounts_receivable: 2385612
+    inventories: 836838
+    short_term_investments: 3707396
+    current_liabilities: 4299126
+    capex: 1136151
+    dividends_paid: 564193
+    shares_outstanding: 10605
+    stock_price: 24022.73
+    employees: 21779463
+  Year 2025:
+    ticker: NVST
+    sector: Technology
+    country: Germany
+    exchange: XETRA
+    credit_rating: BB
+    revenue: 19264745
+    cost_of_goods_sold: 11455155
+    operating_expenses: 2754813
+    non_operating_expenses: 2666856
+    income_tax: 0.14274028019782006
+    total_assets: 22198923
+    total_liabilities: 16252552
+    total_equity: 5946371
+    cash: 4553564
+    accounts_receivable: 1097496
+    inventories: 355378
+    short_term_investments: 1823936
+    current_liabilities: 6634864
+    capex: 1646632
+    dividends_paid: 274461
+    shares_outstanding: 1129196
+    stock_price: 54314.46
+    employees: 11619713
+=== END ===
+
+QUESTION: may you calculate the gross profit for NovaStar Technologies in 2021
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",4201404.0,4201404.0,"Gross profit = revenue - cost_of_goods_sold  
+= 12535411 - 8334007  
+Answer: 4201404",True,0.000000,True,False
+swiss-ai/Apertus-v1.5-70B,90q,51,Ironclad Manufacturing,1,which result follows from the longterm liabilities for Ironclad Manufacturing in 2023,"ROLE: Financial analyst. Answer using ONLY the data below. No commentary.
+
+=== DATA ===
+  Year 2020:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36505998
+    cost_of_goods_sold: 23155626
+    operating_expenses: 8767847
+    non_operating_expenses: 6864322
+    income_tax: 0.13830819460210894
+    total_assets: 30772326
+    total_liabilities: 15736123
+    total_equity: 15036203
+    cash: 4914621
+    accounts_receivable: 4235455
+    inventories: 2259591
+    short_term_investments: 4531886
+    current_liabilities: 7209616
+    capex: 1784066
+    dividends_paid: 0
+    shares_outstanding: 460379
+    stock_price: 57079.45
+    employees: 6765857
+  Year 2021:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 34050765
+    cost_of_goods_sold: 11050723
+    operating_expenses: 3692033
+    non_operating_expenses: 8131933
+    income_tax: 0.2275739310211855
+    total_assets: 28296628
+    total_liabilities: 10353148
+    total_equity: 17943480
+    cash: 925254
+    accounts_receivable: 2330228
+    inventories: 908732
+    short_term_investments: 1632682
+    current_liabilities: 5087272
+    capex: 3028401
+    dividends_paid: 871827
+    shares_outstanding: 179990
+    stock_price: 6629.46
+    employees: 24841455
+  Year 2022:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 36828147
+    cost_of_goods_sold: 22424768
+    operating_expenses: 2958972
+    non_operating_expenses: 7815979
+    income_tax: 0.28982512847160624
+    total_assets: 91562860
+    total_liabilities: 45086978
+    total_equity: 46475882
+    cash: 13988614
+    accounts_receivable: 3005818
+    inventories: 2186336
+    short_term_investments: 8843010
+    current_liabilities: 20015164
+    capex: 3413246
+    dividends_paid: 392066
+    shares_outstanding: 453056
+    stock_price: 47699.22
+    employees: 21727077
+  Year 2023:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 39745535
+    cost_of_goods_sold: 13000909
+    operating_expenses: 9619284
+    non_operating_expenses: 2776095
+    income_tax: 0.25254742087094173
+    total_assets: 37830623
+    total_liabilities: 19051876
+    total_equity: 18778747
+    cash: 1810621
+    accounts_receivable: 2543178
+    inventories: 1192950
+    short_term_investments: 1207348
+    current_liabilities: 6708726
+    capex: 2289065
+    dividends_paid: 2957508
+    shares_outstanding: 58633
+    stock_price: 24116.23
+    employees: 14494559
+  Year 2024:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 46132241
+    cost_of_goods_sold: 15317329
+    operating_expenses: 4460285
+    non_operating_expenses: 4747512
+    income_tax: 0.25824954900899233
+    total_assets: 45777579
+    total_liabilities: 32587266
+    total_equity: 13190313
+    cash: 3365578
+    accounts_receivable: 2374778
+    inventories: 753999
+    short_term_investments: 1412628
+    current_liabilities: 10310876
+    capex: 1142744
+    dividends_paid: 911853
+    shares_outstanding: 1191017
+    stock_price: 48210.96
+    employees: 41299895
+  Year 2025:
+    ticker: IRCL
+    sector: Industrials
+    country: Japan
+    exchange: TSE
+    credit_rating: CCC
+    revenue: 54340731
+    cost_of_goods_sold: 27040983
+    operating_expenses: 7810915
+    non_operating_expenses: 6021944
+    income_tax: 0.18050170383256112
+    total_assets: 86709952
+    total_liabilities: 55269953
+    total_equity: 31439999
+    cash: 10952070
+    accounts_receivable: 5423404
+    inventories: 3667433
+    short_term_investments: 9783896
+    current_liabilities: 22159294
+    capex: 2082008
+    dividends_paid: 114179
+    shares_outstanding: 1014705
+    stock_price: 69050.57
+    employees: 29562585
+=== END ===
+
+QUESTION: which result follows from the longterm liabilities for Ironclad Manufacturing in 2023
+
+RULES:
+- Extract only the numbers you need.
+- Show calculations in 1–3 lines max if needed.
+- Last line MUST be: Answer: <value>
+- <value> is either a number, True, or False. Nothing else.
+- Do NOT explain, summarize, or add anything after the Answer line.
+
+- Do NOT show your thinking process.
+
+SOLVE NOW:",12343150.0,12343150.0,"longterm liabilities = total_liabilities - current_liabilities  
+2023: total_liabilities = 19051876, current_liabilities = 6708726  
+longterm liabilities = 19051876 - 6708726 = 12343150  
+
+Answer: 12343150",True,0.000000,True,False
+,,,,,,,,,,,,,

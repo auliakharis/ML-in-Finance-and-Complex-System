@@ -151,7 +151,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "II96",
+    "value_display": "I19b",
     "_corruption": "lookalike"
   },
   {
@@ -847,7 +847,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "b9g",
+    "value_display": "6gg",
     "_corruption": "lookalike"
   },
   {
@@ -1117,7 +1117,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-IZ0",
+    "value_display": "-I2O",
     "_corruption": "lookalike"
   },
   {
@@ -2060,7 +2060,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "b69g",
+    "value_display": "66gg",
     "_corruption": "lookalike"
   },
   {
@@ -2075,7 +2075,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "b2g4",
+    "value_display": "bZ94",
     "_corruption": "lookalike"
   },
   {
@@ -2581,7 +2581,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "54BI",
+    "value_display": "S48I",
     "_corruption": "lookalike"
   },
   {
@@ -2648,7 +2648,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "8bI",
+    "value_display": "B6I",
     "_corruption": "lookalike"
   },
   {
@@ -2743,7 +2743,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1Z93I",
+    "value_display": "I2g31",
     "_corruption": "lookalike"
   },
   {
@@ -2786,7 +2786,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "BS6",
+    "value_display": "B5b",
     "_corruption": "lookalike"
   },
   {
@@ -3446,7 +3446,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-1bO",
+    "value_display": "-I6O",
     "_corruption": "lookalike"
   },
   {
@@ -3718,7 +3718,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "314B7Z2",
+    "value_display": "3I4872Z",
     "_corruption": "lookalike"
   },
   {
@@ -4059,7 +4059,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "I54S",
+    "value_display": "1S4S",
     "_corruption": "lookalike"
   },
   {
@@ -4089,7 +4089,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I49b4",
+    "value_display": "I4g64",
     "_corruption": "lookalike"
   },
   {
@@ -4214,7 +4214,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "139ZB",
+    "value_display": "I392B",
     "_corruption": "lookalike"
   },
   {
@@ -4242,7 +4242,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "27BS6",
+    "value_display": "Z7B56",
     "_corruption": "lookalike"
   },
   {
@@ -4296,7 +4296,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "ZI362",
+    "value_display": "Z136Z",
     "_corruption": "lookalike"
   },
   {
@@ -4365,7 +4365,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "IO2",
+    "value_display": "1OZ",
     "_corruption": "lookalike"
   },
   {
@@ -4434,7 +4434,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "IS03",
+    "value_display": "1SO3",
     "_corruption": "lookalike"
   },
   {
@@ -4488,7 +4488,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "I230I",
+    "value_display": "1Z3O1",
     "_corruption": "lookalike"
   },
   {
@@ -4557,7 +4557,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "28Zb",
+    "value_display": "Z82b",
     "_corruption": "lookalike"
   },
   {
@@ -5024,7 +5024,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "IZ08",
+    "value_display": "1Z0B",
     "_corruption": "lookalike"
   },
   {
@@ -5039,7 +5039,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "25SB",
+    "value_display": "2SS8",
     "_corruption": "lookalike"
   },
   {
@@ -5095,7 +5095,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "gO2",
+    "value_display": "9OZ",
     "_corruption": "lookalike"
   },
   {
@@ -5586,7 +5586,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-I07g",
+    "value_display": "-IO79",
     "_corruption": "lookalike"
   },
   {
@@ -5601,7 +5601,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-S9Z",
+    "value_display": "-Sg2",
     "_corruption": "lookalike"
   },
   {
@@ -5616,7 +5616,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-b8I",
+    "value_display": "-bB1",
     "_corruption": "lookalike"
   },
   {
@@ -5672,7 +5672,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-1IB7",
+    "value_display": "-I1B7",
     "_corruption": "lookalike"
   },
   {
@@ -5713,7 +5713,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "I38B",
+    "value_display": "I3B8",
     "_corruption": "lookalike"
   },
   {
@@ -5728,7 +5728,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "1Z7B",
+    "value_display": "IZ78",
     "_corruption": "lookalike"
   },
   {
@@ -5868,7 +5868,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-1bI",
+    "value_display": "-I6I",
     "_corruption": "lookalike"
   },
   {
@@ -5883,7 +5883,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-Z1B",
+    "value_display": "-ZI8",
     "_corruption": "lookalike"
   },
   {
@@ -5898,7 +5898,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-2SI",
+    "value_display": "-ZS1",
     "_corruption": "lookalike"
   },
   {
@@ -6060,7 +6060,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1137S3Z",
+    "value_display": "I137S32",
     "_corruption": "lookalike"
   },
   {
@@ -6114,7 +6114,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "1I4352O",
+    "value_display": "I1435Z0",
     "_corruption": "lookalike"
   },
   {
@@ -6347,7 +6347,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "21gO",
+    "value_display": "ZI90",
     "_corruption": "lookalike"
   },
   {
@@ -6505,7 +6505,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4I4b0",
+    "value_display": "4I46O",
     "_corruption": "lookalike"
   },
   {
@@ -6533,7 +6533,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "5Zb",
+    "value_display": "SZ6",
     "_corruption": "lookalike"
   },
   {
@@ -6645,7 +6645,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "S14I6",
+    "value_display": "S141b",
     "_corruption": "lookalike"
   },
   {
@@ -6738,7 +6738,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "314BZ",
+    "value_display": "3I4B2",
     "_corruption": "lookalike"
   },
   {
@@ -7201,7 +7201,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "4bS72",
+    "value_display": "4b57Z",
     "_corruption": "lookalike"
   },
   {
@@ -7450,7 +7450,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "35g3b",
+    "value_display": "3S93b",
     "_corruption": "lookalike"
   },
   {
@@ -7547,7 +7547,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "6S5g1",
+    "value_display": "bS591",
     "_corruption": "lookalike"
   },
   {
@@ -7614,7 +7614,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z480B",
+    "value_display": "24B0B",
     "_corruption": "lookalike"
   },
   {
@@ -7670,7 +7670,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-I33I1",
+    "value_display": "-I331I",
     "_corruption": "lookalike"
   },
   {
@@ -7739,7 +7739,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-13SS3",
+    "value_display": "-I3S53",
     "_corruption": "lookalike"
   },
   {
@@ -7849,7 +7849,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z07B7",
+    "value_display": "ZO787",
     "_corruption": "lookalike"
   },
   {
@@ -7877,7 +7877,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "15BB1",
+    "value_display": "15B8I",
     "_corruption": "lookalike"
   },
   {
@@ -7948,7 +7948,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-Z67I",
+    "value_display": "-2b7I",
     "_corruption": "lookalike"
   },
   {
@@ -8019,7 +8019,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I16O",
+    "value_display": "II60",
     "_corruption": "lookalike"
   },
   {
@@ -8060,7 +8060,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-1gg3",
+    "value_display": "-Ig93",
     "_corruption": "lookalike"
   },
   {
@@ -8088,7 +8088,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "I46b",
+    "value_display": "I4b6",
     "_corruption": "lookalike"
   },
   {
@@ -8237,7 +8237,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "22OO000",
+    "value_display": "ZZ00000",
     "_corruption": "lookalike"
   },
   {
@@ -8252,7 +8252,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "Z2b1372",
+    "value_display": "22b137Z",
     "_corruption": "lookalike"
   },
   {
@@ -8519,7 +8519,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "23bI2",
+    "value_display": "Z361Z",
     "_corruption": "lookalike"
   },
   {
@@ -8534,7 +8534,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z41O8",
+    "value_display": "Z410B",
     "_corruption": "lookalike"
   },
   {
@@ -8694,7 +8694,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1S5Z8",
+    "value_display": "I5S28",
     "_corruption": "lookalike"
   },
   {
@@ -8748,7 +8748,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "1O5O",
+    "value_display": "1OS0",
     "_corruption": "lookalike"
   },
   {
@@ -8763,7 +8763,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "ZO42",
+    "value_display": "2O4Z",
     "_corruption": "lookalike"
   },
   {
@@ -8908,7 +8908,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "9IZ3",
+    "value_display": "gI23",
     "_corruption": "lookalike"
   },
   {
@@ -8962,7 +8962,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "I9B",
+    "value_display": "1gB",
     "_corruption": "lookalike"
   },
   {
@@ -9050,7 +9050,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z39b",
+    "value_display": "Z3g6",
     "_corruption": "lookalike"
   },
   {
@@ -9446,7 +9446,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "II24",
+    "value_display": "I1Z4",
     "_corruption": "lookalike"
   },
   {
@@ -9692,7 +9692,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "8Zb",
+    "value_display": "BZ6",
     "_corruption": "lookalike"
   },
   {
@@ -9806,7 +9806,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "53bg",
+    "value_display": "S3b9",
     "_corruption": "lookalike"
   },
   {
@@ -10015,7 +10015,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-II72",
+    "value_display": "-I17Z",
     "_corruption": "lookalike"
   },
   {
@@ -10274,7 +10274,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "2OO",
+    "value_display": "ZO0",
     "_corruption": "lookalike"
   },
   {
@@ -10425,7 +10425,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "3151OO0",
+    "value_display": "315IO00",
     "_corruption": "lookalike"
   },
   {
@@ -10680,7 +10680,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z39S",
+    "value_display": "23gS",
     "_corruption": "lookalike"
   },
   {
@@ -10695,7 +10695,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "B22O",
+    "value_display": "8ZZ0",
     "_corruption": "lookalike"
   },
   {
@@ -10725,7 +10725,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "IO954",
+    "value_display": "10gS4",
     "_corruption": "lookalike"
   },
   {
@@ -11283,7 +11283,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-S2O",
+    "value_display": "-SZ0",
     "_corruption": "lookalike"
   },
   {
@@ -11350,7 +11350,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "I23O",
+    "value_display": "1Z3O",
     "_corruption": "lookalike"
   },
   {
@@ -11378,7 +11378,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z4O1",
+    "value_display": "24OI",
     "_corruption": "lookalike"
   },
   {
@@ -11579,7 +11579,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "I71S",
+    "value_display": "I7I5",
     "_corruption": "lookalike"
   },
   {
@@ -11698,7 +11698,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "71SZ",
+    "value_display": "7I5Z",
     "_corruption": "lookalike"
   },
   {
@@ -11845,7 +11845,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "4I5B",
+    "value_display": "4IS8",
     "_corruption": "lookalike"
   },
   {
@@ -11968,7 +11968,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "b7b8",
+    "value_display": "b76B",
     "_corruption": "lookalike"
   },
   {
@@ -11996,7 +11996,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "bB32",
+    "value_display": "6B3Z",
     "_corruption": "lookalike"
   },
   {
@@ -12262,7 +12262,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-IZ32",
+    "value_display": "-I23Z",
     "_corruption": "lookalike"
   },
   {
@@ -12333,7 +12333,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-1SS7",
+    "value_display": "-IS57",
     "_corruption": "lookalike"
   },
   {
@@ -12387,7 +12387,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "SO09",
+    "value_display": "5OO9",
     "_corruption": "lookalike"
   },
   {
@@ -12544,7 +12544,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-I5Z",
+    "value_display": "-IS2",
     "_corruption": "lookalike"
   },
   {
@@ -12706,7 +12706,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "4486gZ6",
+    "value_display": "44869Zb",
     "_corruption": "lookalike"
   },
   {
@@ -12734,7 +12734,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "45Z43O3",
+    "value_display": "4SZ4303",
     "_corruption": "lookalike"
   },
   {
@@ -13112,7 +13112,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Ib198",
+    "value_display": "16I9B",
     "_corruption": "lookalike"
   },
   {
@@ -13127,7 +13127,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "IB948",
+    "value_display": "I894B",
     "_corruption": "lookalike"
   },
   {
@@ -13181,7 +13181,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "15B5B",
+    "value_display": "I5B58",
     "_corruption": "lookalike"
   },
   {
@@ -13196,7 +13196,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "1Sb16",
+    "value_display": "156Ib",
     "_corruption": "lookalike"
   },
   {
@@ -13211,7 +13211,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4I8b",
+    "value_display": "41Bb",
     "_corruption": "lookalike"
   },
   {
@@ -13291,7 +13291,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "18g2O",
+    "value_display": "IB920",
     "_corruption": "lookalike"
   },
   {
@@ -13760,7 +13760,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "67gI",
+    "value_display": "b79I",
     "_corruption": "lookalike"
   },
   {
@@ -13831,7 +13831,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "12Sg",
+    "value_display": "1Z5g",
     "_corruption": "lookalike"
   },
   {
@@ -13989,7 +13989,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "46Og",
+    "value_display": "4b0g",
     "_corruption": "lookalike"
   },
   {
@@ -14030,7 +14030,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I113B",
+    "value_display": "I1I38",
     "_corruption": "lookalike"
   },
   {
@@ -14123,7 +14123,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-ZB2",
+    "value_display": "-2BZ",
     "_corruption": "lookalike"
   },
   {
@@ -14263,7 +14263,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-1bI",
+    "value_display": "-I6I",
     "_corruption": "lookalike"
   },
   {
@@ -14343,7 +14343,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "I71I",
+    "value_display": "17II",
     "_corruption": "lookalike"
   },
   {
@@ -14468,7 +14468,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-ZO2",
+    "value_display": "-Z0Z",
     "_corruption": "lookalike"
   },
   {
@@ -14671,7 +14671,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "7b6O00",
+    "value_display": "7b600O",
     "_corruption": "lookalike"
   },
   {
@@ -14686,7 +14686,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "79g3Z6",
+    "value_display": "7g932b",
     "_corruption": "lookalike"
   },
   {
@@ -14878,7 +14878,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "1b9b3",
+    "value_display": "16gb3",
     "_corruption": "lookalike"
   },
   {
@@ -14932,7 +14932,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "14OZ",
+    "value_display": "I40Z",
     "_corruption": "lookalike"
   },
   {
@@ -15025,7 +15025,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-2ZB",
+    "value_display": "-Z2B",
     "_corruption": "lookalike"
   },
   {
@@ -15213,7 +15213,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "Z54I",
+    "value_display": "ZS41",
     "_corruption": "lookalike"
   },
   {
@@ -15468,7 +15468,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z1b40",
+    "value_display": "2Ib40",
     "_corruption": "lookalike"
   },
   {
@@ -15537,7 +15537,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "I3I1",
+    "value_display": "13II",
     "_corruption": "lookalike"
   },
   {
@@ -15649,7 +15649,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "IO10",
+    "value_display": "1O1O",
     "_corruption": "lookalike"
   },
   {
@@ -15731,7 +15731,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "B1g",
+    "value_display": "BI9",
     "_corruption": "lookalike"
   },
   {
@@ -15759,7 +15759,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "32IO",
+    "value_display": "3ZI0",
     "_corruption": "lookalike"
   },
   {
@@ -15839,7 +15839,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "g2b",
+    "value_display": "gZ6",
     "_corruption": "lookalike"
   },
   {
@@ -15906,7 +15906,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-I16O",
+    "value_display": "-1I6O",
     "_corruption": "lookalike"
   },
   {
@@ -16014,7 +16014,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S6O",
+    "value_display": "5bO",
     "_corruption": "lookalike"
   },
   {
@@ -16159,7 +16159,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "1ZI",
+    "value_display": "IZ1",
     "_corruption": "lookalike"
   },
   {
@@ -16325,7 +16325,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "3B0S000",
+    "value_display": "3BO5000",
     "_corruption": "lookalike"
   },
   {
@@ -16545,7 +16545,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "209gI",
+    "value_display": "2O99I",
     "_corruption": "lookalike"
   },
   {
@@ -16612,7 +16612,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "13B3b",
+    "value_display": "I3B36",
     "_corruption": "lookalike"
   },
   {
@@ -16724,7 +16724,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "13Zb",
+    "value_display": "I3Z6",
     "_corruption": "lookalike"
   },
   {
@@ -16888,7 +16888,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2gg4",
+    "value_display": "Z9g4",
     "_corruption": "lookalike"
   },
   {
@@ -17026,7 +17026,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "B5g",
+    "value_display": "BS9",
     "_corruption": "lookalike"
   },
   {
@@ -17307,7 +17307,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "Z8S2",
+    "value_display": "2B5Z",
     "_corruption": "lookalike"
   },
   {
@@ -17322,7 +17322,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "Z65b",
+    "value_display": "Z6S6",
     "_corruption": "lookalike"
   },
   {
@@ -17486,7 +17486,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "6g2b",
+    "value_display": "69Zb",
     "_corruption": "lookalike"
   },
   {
@@ -17635,7 +17635,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "I79I",
+    "value_display": "I7g1",
     "_corruption": "lookalike"
   },
   {
@@ -17808,7 +17808,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z90S",
+    "value_display": "Z9O5",
     "_corruption": "lookalike"
   },
   {
@@ -17970,7 +17970,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-Z5Z",
+    "value_display": "-ZS2",
     "_corruption": "lookalike"
   },
   {
@@ -18244,7 +18244,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "I2b",
+    "value_display": "1Zb",
     "_corruption": "lookalike"
   },
   {
@@ -18313,7 +18313,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "SO0",
+    "value_display": "5OO",
     "_corruption": "lookalike"
   },
   {
@@ -18341,7 +18341,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "741OO0",
+    "value_display": "74I00O",
     "_corruption": "lookalike"
   },
   {
@@ -18356,7 +18356,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "7b8I46",
+    "value_display": "76BI46",
     "_corruption": "lookalike"
   },
   {
@@ -18800,7 +18800,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "Z12g",
+    "value_display": "21Zg",
     "_corruption": "lookalike"
   },
   {
@@ -18856,7 +18856,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "6IZ9",
+    "value_display": "61Zg",
     "_corruption": "lookalike"
   },
   {
@@ -19005,7 +19005,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I92g",
+    "value_display": "19Zg",
     "_corruption": "lookalike"
   },
   {
@@ -19359,7 +19359,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2OB",
+    "value_display": "Z0B",
     "_corruption": "lookalike"
   },
   {
@@ -20090,7 +20090,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "1OB",
+    "value_display": "I0B",
     "_corruption": "lookalike"
   },
   {
@@ -20701,7 +20701,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "bI4693",
+    "value_display": "b146g3",
     "_corruption": "lookalike"
   },
   {
@@ -20716,7 +20716,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "b07Z06",
+    "value_display": "6O72O6",
     "_corruption": "lookalike"
   },
   {
@@ -20744,7 +20744,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "b2O784",
+    "value_display": "62O7B4",
     "_corruption": "lookalike"
   },
   {
@@ -20999,7 +20999,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "b0g",
+    "value_display": "6Og",
     "_corruption": "lookalike"
   },
   {
@@ -21068,7 +21068,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Ib5",
+    "value_display": "I6S",
     "_corruption": "lookalike"
   },
   {
@@ -21111,7 +21111,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "27ZI",
+    "value_display": "Z72I",
     "_corruption": "lookalike"
   },
   {
@@ -21206,7 +21206,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2b4S7",
+    "value_display": "Zb457",
     "_corruption": "lookalike"
   },
   {
@@ -21247,7 +21247,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "Z090b",
+    "value_display": "ZO906",
     "_corruption": "lookalike"
   },
   {
@@ -21262,7 +21262,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "23gS9",
+    "value_display": "23g5g",
     "_corruption": "lookalike"
   },
   {
@@ -21589,7 +21589,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "44g2g",
+    "value_display": "449Zg",
     "_corruption": "lookalike"
   },
   {
@@ -21630,7 +21630,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "3Sb5",
+    "value_display": "3S6S",
     "_corruption": "lookalike"
   },
   {
@@ -21699,7 +21699,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "3I5Z",
+    "value_display": "31SZ",
     "_corruption": "lookalike"
   },
   {
@@ -21805,7 +21805,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "2I3O",
+    "value_display": "Z13O",
     "_corruption": "lookalike"
   },
   {
@@ -21967,7 +21967,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "I424b",
+    "value_display": "14Z4b",
     "_corruption": "lookalike"
   },
   {
@@ -21995,7 +21995,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S445S",
+    "value_display": "544SS",
     "_corruption": "lookalike"
   },
   {
@@ -22079,7 +22079,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4Zg6",
+    "value_display": "4Z9b",
     "_corruption": "lookalike"
   },
   {
@@ -22107,7 +22107,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-Zg23",
+    "value_display": "-Z9Z3",
     "_corruption": "lookalike"
   },
   {
@@ -22135,7 +22135,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "21bI",
+    "value_display": "2Ib1",
     "_corruption": "lookalike"
   },
   {
@@ -22180,7 +22180,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "Zb75",
+    "value_display": "2b7S",
     "_corruption": "lookalike"
   },
   {
@@ -22275,7 +22275,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Z20S",
+    "value_display": "-22OS",
     "_corruption": "lookalike"
   },
   {
@@ -22303,7 +22303,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-IO13",
+    "value_display": "-I0I3",
     "_corruption": "lookalike"
   },
   {
@@ -22398,7 +22398,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-Z96b",
+    "value_display": "-Zg66",
     "_corruption": "lookalike"
   },
   {
@@ -22853,7 +22853,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "1OB83",
+    "value_display": "I0B83",
     "_corruption": "lookalike"
   },
   {
@@ -22894,7 +22894,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "33Z6I",
+    "value_display": "33Zb1",
     "_corruption": "lookalike"
   },
   {
@@ -23067,7 +23067,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "I1Z1",
+    "value_display": "II21",
     "_corruption": "lookalike"
   },
   {
@@ -23082,7 +23082,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "II42",
+    "value_display": "I14Z",
     "_corruption": "lookalike"
   },
   {
@@ -23315,7 +23315,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "IZ12",
+    "value_display": "I21Z",
     "_corruption": "lookalike"
   },
   {
@@ -23345,7 +23345,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I3g5",
+    "value_display": "I39S",
     "_corruption": "lookalike"
   },
   {
@@ -23360,7 +23360,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "14ZI",
+    "value_display": "I4Z1",
     "_corruption": "lookalike"
   },
   {
@@ -23505,7 +23505,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "11gg",
+    "value_display": "1Ig9",
     "_corruption": "lookalike"
   },
   {
@@ -23719,7 +23719,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "1S7I",
+    "value_display": "IS71",
     "_corruption": "lookalike"
   },
   {
@@ -23816,7 +23816,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I19b9",
+    "value_display": "11g6g",
     "_corruption": "lookalike"
   },
   {
@@ -23989,7 +23989,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "S8Z",
+    "value_display": "5BZ",
     "_corruption": "lookalike"
   },
   {
@@ -24179,7 +24179,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "1gO4",
+    "value_display": "I9O4",
     "_corruption": "lookalike"
   },
   {
@@ -24287,7 +24287,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-S5S",
+    "value_display": "-5SS",
     "_corruption": "lookalike"
   },
   {
@@ -24367,7 +24367,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "Ib14",
+    "value_display": "1bI4",
     "_corruption": "lookalike"
   },
   {
@@ -24490,7 +24490,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I36Z",
+    "value_display": "I3b2",
     "_corruption": "lookalike"
   },
   {
@@ -24706,7 +24706,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "4B101Z3",
+    "value_display": "48IO123",
     "_corruption": "lookalike"
   },
   {
@@ -24721,7 +24721,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4g210O0",
+    "value_display": "492IO00",
     "_corruption": "lookalike"
   },
   {
@@ -24762,7 +24762,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4g7704b",
+    "value_display": "4g77O46",
     "_corruption": "lookalike"
   },
   {
@@ -25012,7 +25012,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4Zg0",
+    "value_display": "4Z9O",
     "_corruption": "lookalike"
   },
   {
@@ -25105,7 +25105,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "4SI23",
+    "value_display": "45IZ3",
     "_corruption": "lookalike"
   },
   {
@@ -25146,7 +25146,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S81Z",
+    "value_display": "5B1Z",
     "_corruption": "lookalike"
   },
   {
@@ -25213,7 +25213,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "1bB0",
+    "value_display": "1b8O",
     "_corruption": "lookalike"
   },
   {
@@ -25228,7 +25228,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "I4B2",
+    "value_display": "I48Z",
     "_corruption": "lookalike"
   },
   {
@@ -25243,7 +25243,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "I93b",
+    "value_display": "1g3b",
     "_corruption": "lookalike"
   },
   {
@@ -25336,7 +25336,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "4b41g",
+    "value_display": "4b4I9",
     "_corruption": "lookalike"
   },
   {
@@ -25955,7 +25955,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2S1g2",
+    "value_display": "Z5I92",
     "_corruption": "lookalike"
   },
   {
@@ -26087,7 +26087,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "II371",
+    "value_display": "1I37I",
     "_corruption": "lookalike"
   },
   {
@@ -26102,7 +26102,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "10Z7b",
+    "value_display": "I0Z76",
     "_corruption": "lookalike"
   },
   {
@@ -26225,7 +26225,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "I3I6",
+    "value_display": "I31b",
     "_corruption": "lookalike"
   },
   {
@@ -26469,7 +26469,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-2I6B",
+    "value_display": "-Z1b8",
     "_corruption": "lookalike"
   },
   {
@@ -26510,7 +26510,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "7I2O",
+    "value_display": "71ZO",
     "_corruption": "lookalike"
   },
   {
@@ -26583,7 +26583,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-gB8",
+    "value_display": "-9BB",
     "_corruption": "lookalike"
   },
   {
@@ -26717,7 +26717,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "6BS",
+    "value_display": "b8S",
     "_corruption": "lookalike"
   },
   {
@@ -26827,7 +26827,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "Z9Z5000",
+    "value_display": "2g2S000",
     "_corruption": "lookalike"
   },
   {
@@ -26907,7 +26907,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "27g8b95",
+    "value_display": "27g86g5",
     "_corruption": "lookalike"
   },
   {
@@ -26922,7 +26922,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "304g46b",
+    "value_display": "3O4g466",
     "_corruption": "lookalike"
   },
   {
@@ -27151,7 +27151,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "g87b",
+    "value_display": "gB76",
     "_corruption": "lookalike"
   },
   {
@@ -27244,7 +27244,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "55Z2b",
+    "value_display": "S52Z6",
     "_corruption": "lookalike"
   },
   {
@@ -27259,7 +27259,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "1OZ786",
+    "value_display": "1O27B6",
     "_corruption": "lookalike"
   },
   {
@@ -27408,7 +27408,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "16bS4",
+    "value_display": "I6b54",
     "_corruption": "lookalike"
   },
   {
@@ -27423,7 +27423,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "30g9b",
+    "value_display": "3Og96",
     "_corruption": "lookalike"
   },
   {
@@ -27531,7 +27531,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I3b72",
+    "value_display": "13b7Z",
     "_corruption": "lookalike"
   },
   {
@@ -27546,7 +27546,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "146gZ",
+    "value_display": "I4b92",
     "_corruption": "lookalike"
   },
   {
@@ -27630,7 +27630,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "IB67",
+    "value_display": "I8b7",
     "_corruption": "lookalike"
   },
   {
@@ -27991,7 +27991,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "7BO9",
+    "value_display": "7B0g",
     "_corruption": "lookalike"
   },
   {
@@ -28071,7 +28071,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "3g1O",
+    "value_display": "3gI0",
     "_corruption": "lookalike"
   },
   {
@@ -28099,7 +28099,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "3g6b3",
+    "value_display": "3gb63",
     "_corruption": "lookalike"
   },
   {
@@ -28272,7 +28272,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "3Z39Z",
+    "value_display": "323gZ",
     "_corruption": "lookalike"
   },
   {
@@ -28365,7 +28365,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S677B",
+    "value_display": "Sb778",
     "_corruption": "lookalike"
   },
   {
@@ -28380,7 +28380,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "55Z8Z",
+    "value_display": "S528Z",
     "_corruption": "lookalike"
   },
   {
@@ -28410,7 +28410,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "5Sb1",
+    "value_display": "S56I",
     "_corruption": "lookalike"
   },
   {
@@ -28438,7 +28438,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1BS35",
+    "value_display": "IB535",
     "_corruption": "lookalike"
   },
   {
@@ -28602,7 +28602,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-2O4b",
+    "value_display": "-Z04b",
     "_corruption": "lookalike"
   },
   {
@@ -28673,7 +28673,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "5I1B",
+    "value_display": "S11B",
     "_corruption": "lookalike"
   },
   {
@@ -28781,7 +28781,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-1ZB4",
+    "value_display": "-IZ84",
     "_corruption": "lookalike"
   },
   {
@@ -28796,7 +28796,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-I38O",
+    "value_display": "-13BO",
     "_corruption": "lookalike"
   },
   {
@@ -28824,7 +28824,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "46IS",
+    "value_display": "4b1S",
     "_corruption": "lookalike"
   },
   {
@@ -28852,7 +28852,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I28I",
+    "value_display": "12BI",
     "_corruption": "lookalike"
   },
   {
@@ -28919,7 +28919,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-I4I6",
+    "value_display": "-I41b",
     "_corruption": "lookalike"
   },
   {
@@ -28934,7 +28934,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-IS22",
+    "value_display": "-1SZ2",
     "_corruption": "lookalike"
   },
   {
@@ -28962,7 +28962,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "I5O",
+    "value_display": "1SO",
     "_corruption": "lookalike"
   },
   {
@@ -29029,7 +29029,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "40b35S4",
+    "value_display": "4063SS4",
     "_corruption": "lookalike"
   },
   {
@@ -29327,7 +29327,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "9BZ0",
+    "value_display": "g82O",
     "_corruption": "lookalike"
   },
   {
@@ -29381,7 +29381,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "2I3B",
+    "value_display": "Z13B",
     "_corruption": "lookalike"
   },
   {
@@ -30313,7 +30313,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1Zg",
+    "value_display": "I2g",
     "_corruption": "lookalike"
   },
   {
@@ -30865,7 +30865,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1OB",
+    "value_display": "I0B",
     "_corruption": "lookalike"
   },
   {
@@ -30906,7 +30906,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "308OZ1",
+    "value_display": "3080ZI",
     "_corruption": "lookalike"
   },
   {
@@ -30921,7 +30921,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "312OO0",
+    "value_display": "312O0O",
     "_corruption": "lookalike"
   },
   {
@@ -30936,7 +30936,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "3Z002I",
+    "value_display": "320OZ1",
     "_corruption": "lookalike"
   },
   {
@@ -31346,7 +31346,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "41gI8",
+    "value_display": "41g1B",
     "_corruption": "lookalike"
   },
   {
@@ -31616,7 +31616,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-Sg8",
+    "value_display": "-S9B",
     "_corruption": "lookalike"
   },
   {
@@ -31711,7 +31711,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "5IZ6",
+    "value_display": "S1Z6",
     "_corruption": "lookalike"
   },
   {
@@ -31897,7 +31897,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "6bI3",
+    "value_display": "b6I3",
     "_corruption": "lookalike"
   },
   {
@@ -32102,7 +32102,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "41bb",
+    "value_display": "4I6b",
     "_corruption": "lookalike"
   },
   {
@@ -32160,7 +32160,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "b877B",
+    "value_display": "6B77B",
     "_corruption": "lookalike"
   },
   {
@@ -32190,7 +32190,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "1gB14",
+    "value_display": "1g8I4",
     "_corruption": "lookalike"
   },
   {
@@ -32283,7 +32283,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "320bI",
+    "value_display": "3Z0b1",
     "_corruption": "lookalike"
   },
   {
@@ -32298,7 +32298,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "3ZS70",
+    "value_display": "3Z57O",
     "_corruption": "lookalike"
   },
   {
@@ -32365,7 +32365,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "2ZI67",
+    "value_display": "22Ib7",
     "_corruption": "lookalike"
   },
   {
@@ -32406,7 +32406,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "5S08g",
+    "value_display": "S5O89",
     "_corruption": "lookalike"
   },
   {
@@ -32618,7 +32618,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-I0g7",
+    "value_display": "-1Og7",
     "_corruption": "lookalike"
   },
   {
@@ -32851,7 +32851,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-1O6Z",
+    "value_display": "-1Ob2",
     "_corruption": "lookalike"
   },
   {
@@ -32931,7 +32931,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-IZ54",
+    "value_display": "-1ZS4",
     "_corruption": "lookalike"
   },
   {
@@ -32959,7 +32959,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "Z6b",
+    "value_display": "2bb",
     "_corruption": "lookalike"
   },
   {
@@ -32974,7 +32974,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "5OZ",
+    "value_display": "S0Z",
     "_corruption": "lookalike"
   },
   {
@@ -33069,7 +33069,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "36g4O00",
+    "value_display": "36940OO",
     "_corruption": "lookalike"
   },
   {
@@ -33112,7 +33112,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "3b3g731",
+    "value_display": "363g73I",
     "_corruption": "lookalike"
   },
   {
@@ -33140,7 +33140,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-I0I",
+    "value_display": "-1OI",
     "_corruption": "lookalike"
   },
   {
@@ -33211,7 +33211,7 @@
     "depth": 0,
     "parent_concept": "total_other_comprehensive_income",
     "role": "component",
-    "value_display": "I5B",
+    "value_display": "1SB",
     "_corruption": "lookalike"
   },
   {
@@ -33338,7 +33338,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Zb16",
+    "value_display": "26Ib",
     "_corruption": "lookalike"
   },
   {
@@ -33418,7 +33418,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "15bb",
+    "value_display": "I5b6",
     "_corruption": "lookalike"
   },
   {
@@ -33433,7 +33433,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "Z00O9",
+    "value_display": "20O0g",
     "_corruption": "lookalike"
   },
   {
@@ -33487,7 +33487,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "S1O2",
+    "value_display": "S10Z",
     "_corruption": "lookalike"
   },
   {
@@ -33515,7 +33515,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I53O6",
+    "value_display": "IS306",
     "_corruption": "lookalike"
   },
   {
@@ -33558,7 +33558,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I5Z16",
+    "value_display": "IS216",
     "_corruption": "lookalike"
   },
   {
@@ -33586,7 +33586,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "45b4B",
+    "value_display": "4Sb48",
     "_corruption": "lookalike"
   },
   {
@@ -33681,7 +33681,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "Ib239",
+    "value_display": "I6Z39",
     "_corruption": "lookalike"
   },
   {
@@ -33696,7 +33696,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "Ib575",
+    "value_display": "I657S",
     "_corruption": "lookalike"
   },
   {
@@ -33789,7 +33789,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I658I",
+    "value_display": "16SB1",
     "_corruption": "lookalike"
   },
   {
@@ -33949,7 +33949,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I438Z",
+    "value_display": "I43B2",
     "_corruption": "lookalike"
   },
   {
@@ -34094,7 +34094,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "Z7I8",
+    "value_display": "Z71B",
     "_corruption": "lookalike"
   },
   {
@@ -34215,7 +34215,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "Bb84",
+    "value_display": "B6B4",
     "_corruption": "lookalike"
   },
   {
@@ -34243,7 +34243,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2OZ5",
+    "value_display": "ZO25",
     "_corruption": "lookalike"
   },
   {
@@ -34258,7 +34258,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "1g8g",
+    "value_display": "19Bg",
     "_corruption": "lookalike"
   },
   {
@@ -34273,7 +34273,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2g8S",
+    "value_display": "Z9B5",
     "_corruption": "lookalike"
   },
   {
@@ -34509,7 +34509,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "S9S5",
+    "value_display": "59SS",
     "_corruption": "lookalike"
   },
   {
@@ -34634,7 +34634,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Ib516",
+    "value_display": "16S1b",
     "_corruption": "lookalike"
   },
   {
@@ -34729,7 +34729,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-Z6I5",
+    "value_display": "-26IS",
     "_corruption": "lookalike"
   },
   {
@@ -34744,7 +34744,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-Z6b9",
+    "value_display": "-2bb9",
     "_corruption": "lookalike"
   },
   {
@@ -35025,7 +35025,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I8b",
+    "value_display": "1Bb",
     "_corruption": "lookalike"
   },
   {
@@ -35040,7 +35040,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "Ig0",
+    "value_display": "I9O",
     "_corruption": "lookalike"
   },
   {
@@ -35150,7 +35150,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "I9g",
+    "value_display": "Ig9",
     "_corruption": "lookalike"
   },
   {
@@ -35260,7 +35260,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "S13O961",
+    "value_display": "SI30961",
     "_corruption": "lookalike"
   },
   {
@@ -35275,7 +35275,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "S3S6448",
+    "value_display": "S35b448",
     "_corruption": "lookalike"
   },
   {
@@ -35290,7 +35290,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "546O47b",
+    "value_display": "54b047b",
     "_corruption": "lookalike"
   },
   {
@@ -35318,7 +35318,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "S49b734",
+    "value_display": "S4g6734",
     "_corruption": "lookalike"
   },
   {
@@ -35346,7 +35346,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "S231S83",
+    "value_display": "5Z3I583",
     "_corruption": "lookalike"
   },
   {
@@ -35387,7 +35387,7 @@
     "depth": 0,
     "parent_concept": "total_other_comprehensive_income",
     "role": "component",
-    "value_display": "1IO",
+    "value_display": "I1O",
     "_corruption": "lookalike"
   },
   {
@@ -35570,7 +35570,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "5O0Z",
+    "value_display": "50OZ",
     "_corruption": "lookalike"
   },
   {
@@ -35682,7 +35682,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "40BI",
+    "value_display": "4O8I",
     "_corruption": "lookalike"
   },
   {
@@ -35872,7 +35872,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "2I52B",
+    "value_display": "21SZ8",
     "_corruption": "lookalike"
   },
   {
@@ -35913,7 +35913,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "15g6b",
+    "value_display": "159bb",
     "_corruption": "lookalike"
   },
   {
@@ -35928,7 +35928,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I771b",
+    "value_display": "I77I6",
     "_corruption": "lookalike"
   },
   {
@@ -36198,7 +36198,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z10b",
+    "value_display": "Z1O6",
     "_corruption": "lookalike"
   },
   {
@@ -36635,7 +36635,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "1bI1",
+    "value_display": "16II",
     "_corruption": "lookalike"
   },
   {
@@ -36948,7 +36948,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "I03b",
+    "value_display": "1O3b",
     "_corruption": "lookalike"
   },
   {
@@ -37125,7 +37125,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-S8B",
+    "value_display": "-SB8",
     "_corruption": "lookalike"
   },
   {
@@ -37298,7 +37298,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-BO6",
+    "value_display": "-B0b",
     "_corruption": "lookalike"
   },
   {
@@ -37561,7 +37561,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-2Zb",
+    "value_display": "-Z2b",
     "_corruption": "lookalike"
   },
   {
@@ -37576,7 +37576,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-Z5I",
+    "value_display": "-2SI",
     "_corruption": "lookalike"
   },
   {
@@ -37677,7 +37677,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "S30O08",
+    "value_display": "530O0B",
     "_corruption": "lookalike"
   },
   {
@@ -37705,7 +37705,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "519OO0",
+    "value_display": "SI9000",
     "_corruption": "lookalike"
   },
   {
@@ -37720,7 +37720,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "5O77O6",
+    "value_display": "S0770b",
     "_corruption": "lookalike"
   },
   {
@@ -37735,7 +37735,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "504b3I",
+    "value_display": "SO4631",
     "_corruption": "lookalike"
   },
   {
@@ -37750,7 +37750,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "505I2Z",
+    "value_display": "505IZ2",
     "_corruption": "lookalike"
   },
   {
@@ -38006,7 +38006,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1SZ7",
+    "value_display": "I5Z7",
     "_corruption": "lookalike"
   },
   {
@@ -38112,7 +38112,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "8Ob4",
+    "value_display": "BO64",
     "_corruption": "lookalike"
   },
   {
@@ -38127,7 +38127,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "b5b",
+    "value_display": "bS6",
     "_corruption": "lookalike"
   },
   {
@@ -38157,7 +38157,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1gb8",
+    "value_display": "Ig68",
     "_corruption": "lookalike"
   },
   {
@@ -38325,7 +38325,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "9SZ5",
+    "value_display": "g5Z5",
     "_corruption": "lookalike"
   },
   {
@@ -38816,7 +38816,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "I1I3",
+    "value_display": "1II3",
     "_corruption": "lookalike"
   },
   {
@@ -38857,7 +38857,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "8IS",
+    "value_display": "B1S",
     "_corruption": "lookalike"
   },
   {
@@ -38900,7 +38900,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "Z8S",
+    "value_display": "ZB5",
     "_corruption": "lookalike"
   },
   {
@@ -38995,7 +38995,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "1Ig6",
+    "value_display": "1I9b",
     "_corruption": "lookalike"
   },
   {
@@ -39101,7 +39101,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "I6Z7",
+    "value_display": "1bZ7",
     "_corruption": "lookalike"
   },
   {
@@ -39207,7 +39207,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z6O0",
+    "value_display": "2b0O",
     "_corruption": "lookalike"
   },
   {
@@ -39291,7 +39291,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I38B",
+    "value_display": "13BB",
     "_corruption": "lookalike"
   },
   {
@@ -39887,7 +39887,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4B10O0",
+    "value_display": "4B1O00",
     "_corruption": "lookalike"
   },
   {
@@ -39902,7 +39902,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4873Ob",
+    "value_display": "4B73O6",
     "_corruption": "lookalike"
   },
   {
@@ -40157,7 +40157,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "b9O",
+    "value_display": "bg0",
     "_corruption": "lookalike"
   },
   {
@@ -40451,7 +40451,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "170Bb",
+    "value_display": "17O8b",
     "_corruption": "lookalike"
   },
   {
@@ -40466,7 +40466,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1S38I",
+    "value_display": "I538I",
     "_corruption": "lookalike"
   },
   {
@@ -40507,7 +40507,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I87B",
+    "value_display": "1B7B",
     "_corruption": "lookalike"
   },
   {
@@ -40710,7 +40710,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z4Z6",
+    "value_display": "Z42b",
     "_corruption": "lookalike"
   },
   {
@@ -40920,7 +40920,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "I3I8",
+    "value_display": "13IB",
     "_corruption": "lookalike"
   },
   {
@@ -40948,7 +40948,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "9gb",
+    "value_display": "g9b",
     "_corruption": "lookalike"
   },
   {
@@ -40963,7 +40963,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "1Z73b",
+    "value_display": "IZ736",
     "_corruption": "lookalike"
   },
   {
@@ -40991,7 +40991,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2ZI0",
+    "value_display": "22IO",
     "_corruption": "lookalike"
   },
   {
@@ -41006,7 +41006,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2Og8",
+    "value_display": "2O9B",
     "_corruption": "lookalike"
   },
   {
@@ -41140,7 +41140,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z438I",
+    "value_display": "Z43B1",
     "_corruption": "lookalike"
   },
   {
@@ -41378,7 +41378,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "15b3B",
+    "value_display": "I563B",
     "_corruption": "lookalike"
   },
   {
@@ -41419,7 +41419,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "92II",
+    "value_display": "9ZI1",
     "_corruption": "lookalike"
   },
   {
@@ -41447,7 +41447,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4SI8",
+    "value_display": "45IB",
     "_corruption": "lookalike"
   },
   {
@@ -41687,7 +41687,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "S39O",
+    "value_display": "53gO",
     "_corruption": "lookalike"
   },
   {
@@ -41743,7 +41743,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-b9I",
+    "value_display": "-bg1",
     "_corruption": "lookalike"
   },
   {
@@ -41758,7 +41758,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-6ZZ",
+    "value_display": "-b2Z",
     "_corruption": "lookalike"
   },
   {
@@ -41814,7 +41814,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-Z5b",
+    "value_display": "-ZS6",
     "_corruption": "lookalike"
   },
   {
@@ -42002,7 +42002,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "563bS42",
+    "value_display": "S636S42",
     "_corruption": "lookalike"
   },
   {
@@ -42017,7 +42017,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "539Z3O7",
+    "value_display": "53gZ307",
     "_corruption": "lookalike"
   },
   {
@@ -42032,7 +42032,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "5597bZ2",
+    "value_display": "S597b22",
     "_corruption": "lookalike"
   },
   {
@@ -42047,7 +42047,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "5S77O00",
+    "value_display": "5577O0O",
     "_corruption": "lookalike"
   },
   {
@@ -42334,7 +42334,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z39b",
+    "value_display": "Z3g6",
     "_corruption": "lookalike"
   },
   {
@@ -42349,7 +42349,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I272Z",
+    "value_display": "IZ722",
     "_corruption": "lookalike"
   },
   {
@@ -42392,7 +42392,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "23Bg",
+    "value_display": "Z3B9",
     "_corruption": "lookalike"
   },
   {
@@ -42485,7 +42485,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "9O5Z",
+    "value_display": "90SZ",
     "_corruption": "lookalike"
   },
   {
@@ -42697,7 +42697,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1Z1Z0",
+    "value_display": "I21Z0",
     "_corruption": "lookalike"
   },
   {
@@ -42738,7 +42738,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Ib54",
+    "value_display": "1bS4",
     "_corruption": "lookalike"
   },
   {
@@ -42885,7 +42885,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "2g9O",
+    "value_display": "Z99O",
     "_corruption": "lookalike"
   },
   {
@@ -43043,7 +43043,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "3gZ0",
+    "value_display": "3g2O",
     "_corruption": "lookalike"
   },
   {
@@ -43071,7 +43071,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2S7Z",
+    "value_display": "Z57Z",
     "_corruption": "lookalike"
   },
   {
@@ -43112,7 +43112,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2Z2I",
+    "value_display": "2ZZ1",
     "_corruption": "lookalike"
   },
   {
@@ -43263,7 +43263,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "9bb",
+    "value_display": "g6b",
     "_corruption": "lookalike"
   },
   {
@@ -43492,7 +43492,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "9Z7b",
+    "value_display": "gZ76",
     "_corruption": "lookalike"
   },
   {
@@ -43665,7 +43665,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-5bS",
+    "value_display": "-Sb5",
     "_corruption": "lookalike"
   },
   {
@@ -44068,7 +44068,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "50O5B13",
+    "value_display": "S0058I3",
     "_corruption": "lookalike"
   },
   {
@@ -44083,7 +44083,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4gB3000",
+    "value_display": "4983OO0",
     "_corruption": "lookalike"
   },
   {
@@ -44275,7 +44275,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "S01B",
+    "value_display": "50IB",
     "_corruption": "lookalike"
   },
   {
@@ -44413,7 +44413,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "6SI4",
+    "value_display": "b5I4",
     "_corruption": "lookalike"
   },
   {
@@ -44493,7 +44493,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1I4S6",
+    "value_display": "II456",
     "_corruption": "lookalike"
   },
   {
@@ -44536,7 +44536,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "1OO1",
+    "value_display": "I00I",
     "_corruption": "lookalike"
   },
   {
@@ -44577,7 +44577,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "2B4I",
+    "value_display": "Z84I",
     "_corruption": "lookalike"
   },
   {
@@ -44592,7 +44592,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "ZS87",
+    "value_display": "2SB7",
     "_corruption": "lookalike"
   },
   {
@@ -44607,7 +44607,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "S68Z",
+    "value_display": "Sb82",
     "_corruption": "lookalike"
   },
   {
@@ -44648,7 +44648,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "95ZO",
+    "value_display": "g52O",
     "_corruption": "lookalike"
   },
   {
@@ -44847,7 +44847,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I4b5",
+    "value_display": "I46S",
     "_corruption": "lookalike"
   },
   {
@@ -44890,7 +44890,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "26bB",
+    "value_display": "2bb8",
     "_corruption": "lookalike"
   },
   {
@@ -45022,7 +45022,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "ZZ32",
+    "value_display": "2Z3Z",
     "_corruption": "lookalike"
   },
   {
@@ -45102,7 +45102,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "2OI",
+    "value_display": "Z0I",
     "_corruption": "lookalike"
   },
   {
@@ -45184,7 +45184,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "15gg",
+    "value_display": "I5g9",
     "_corruption": "lookalike"
   },
   {
@@ -45311,7 +45311,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I2O94",
+    "value_display": "I20g4",
     "_corruption": "lookalike"
   },
   {
@@ -45538,7 +45538,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "38IB",
+    "value_display": "3BI8",
     "_corruption": "lookalike"
   },
   {
@@ -45566,7 +45566,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "B25O",
+    "value_display": "B2S0",
     "_corruption": "lookalike"
   },
   {
@@ -45808,7 +45808,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-Zg1",
+    "value_display": "-Z9I",
     "_corruption": "lookalike"
   },
   {
@@ -46038,7 +46038,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-2IS",
+    "value_display": "-Z1S",
     "_corruption": "lookalike"
   },
   {
@@ -46174,7 +46174,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1Sb1",
+    "value_display": "1S6I",
     "_corruption": "lookalike"
   },
   {
@@ -46189,7 +46189,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "3147OO0",
+    "value_display": "3I47O00",
     "_corruption": "lookalike"
   },
   {
@@ -46204,7 +46204,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "3027bS9",
+    "value_display": "3027b5g",
     "_corruption": "lookalike"
   },
   {
@@ -46232,7 +46232,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "3O837S6",
+    "value_display": "3O8375b",
     "_corruption": "lookalike"
   },
   {
@@ -46247,7 +46247,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "3178O0O",
+    "value_display": "3I780O0",
     "_corruption": "lookalike"
   },
   {
@@ -46262,7 +46262,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "320S58S",
+    "value_display": "32O55B5",
     "_corruption": "lookalike"
   },
   {
@@ -46437,7 +46437,7 @@
     "depth": 0,
     "parent_concept": "comprehensive_income",
     "role": "derived",
-    "value_display": "-I0B",
+    "value_display": "-IO8",
     "_corruption": "lookalike"
   },
   {
@@ -46506,7 +46506,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "13ZO",
+    "value_display": "I3Z0",
     "_corruption": "lookalike"
   },
   {
@@ -46748,7 +46748,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "3BO8",
+    "value_display": "3B0B",
     "_corruption": "lookalike"
   },
   {
@@ -46830,7 +46830,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "ZB350",
+    "value_display": "283SO",
     "_corruption": "lookalike"
   },
   {
@@ -46871,7 +46871,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4g1Z5",
+    "value_display": "49I2S",
     "_corruption": "lookalike"
   },
   {
@@ -46912,7 +46912,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1IO024",
+    "value_display": "II0024",
     "_corruption": "lookalike"
   },
   {
@@ -46955,7 +46955,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "I690O",
+    "value_display": "16g0O",
     "_corruption": "lookalike"
   },
   {
@@ -47009,7 +47009,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "IB722",
+    "value_display": "1B72Z",
     "_corruption": "lookalike"
   },
   {
@@ -47024,7 +47024,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "209bb",
+    "value_display": "2O9b6",
     "_corruption": "lookalike"
   },
   {
@@ -47078,7 +47078,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "g65g2",
+    "value_display": "96Sg2",
     "_corruption": "lookalike"
   },
   {
@@ -47106,7 +47106,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "35O6b",
+    "value_display": "3S0b6",
     "_corruption": "lookalike"
   },
   {
@@ -47203,7 +47203,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "S42S",
+    "value_display": "S4Z5",
     "_corruption": "lookalike"
   },
   {
@@ -47298,7 +47298,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S956O",
+    "value_display": "59S6O",
     "_corruption": "lookalike"
   },
   {
@@ -47599,7 +47599,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "69OZ",
+    "value_display": "b90Z",
     "_corruption": "lookalike"
   },
   {
@@ -47720,7 +47720,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I208O4",
+    "value_display": "I20B04",
     "_corruption": "lookalike"
   },
   {
@@ -47852,7 +47852,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "24I7g",
+    "value_display": "Z417g",
     "_corruption": "lookalike"
   },
   {
@@ -47949,7 +47949,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S349O",
+    "value_display": "S34g0",
     "_corruption": "lookalike"
   },
   {
@@ -47990,7 +47990,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "I9Z65",
+    "value_display": "19Zb5",
     "_corruption": "lookalike"
   },
   {
@@ -48020,7 +48020,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "b4Z17",
+    "value_display": "b42I7",
     "_corruption": "lookalike"
   },
   {
@@ -48262,7 +48262,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "371SO",
+    "value_display": "37I5O",
     "_corruption": "lookalike"
   },
   {
@@ -48439,7 +48439,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-S05I",
+    "value_display": "-5OS1",
     "_corruption": "lookalike"
   },
   {
@@ -48599,7 +48599,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "13b873S7",
+    "value_display": "136B73S7",
     "_corruption": "lookalike"
   },
   {
@@ -48627,7 +48627,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "14I2100O",
+    "value_display": "141210OO",
     "_corruption": "lookalike"
   },
   {
@@ -48795,7 +48795,7 @@
     "depth": 0,
     "parent_concept": "total_other_comprehensive_income",
     "role": "component",
-    "value_display": "I6Z",
+    "value_display": "1bZ",
     "_corruption": "lookalike"
   },
   {
@@ -48892,7 +48892,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2gg83",
+    "value_display": "2g9B3",
     "_corruption": "lookalike"
   },
   {
@@ -48959,7 +48959,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "1gg36",
+    "value_display": "I9g36",
     "_corruption": "lookalike"
   },
   {
@@ -49013,7 +49013,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "ZZ325",
+    "value_display": "2Z32S",
     "_corruption": "lookalike"
   },
   {
@@ -49082,7 +49082,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "1O76O",
+    "value_display": "IO760",
     "_corruption": "lookalike"
   },
   {
@@ -49097,7 +49097,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "143b0B",
+    "value_display": "I43b08",
     "_corruption": "lookalike"
   },
   {
@@ -49255,7 +49255,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "8II4",
+    "value_display": "BI14",
     "_corruption": "lookalike"
   },
   {
@@ -49283,7 +49283,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I6Z28",
+    "value_display": "I622B",
     "_corruption": "lookalike"
   },
   {
@@ -49352,7 +49352,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "Zb18",
+    "value_display": "2bI8",
     "_corruption": "lookalike"
   },
   {
@@ -49419,7 +49419,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "12S5S",
+    "value_display": "1Z5S5",
     "_corruption": "lookalike"
   },
   {
@@ -49488,7 +49488,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z8B7",
+    "value_display": "2BB7",
     "_corruption": "lookalike"
   },
   {
@@ -49529,7 +49529,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "Z8B",
+    "value_display": "ZB8",
     "_corruption": "lookalike"
   },
   {
@@ -49944,7 +49944,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "11Zb0",
+    "value_display": "I12b0",
     "_corruption": "lookalike"
   },
   {
@@ -50078,7 +50078,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "8S5g",
+    "value_display": "BS59",
     "_corruption": "lookalike"
   },
   {
@@ -50093,7 +50093,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1g84Z",
+    "value_display": "I9B42",
     "_corruption": "lookalike"
   },
   {
@@ -50149,7 +50149,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "g2S",
+    "value_display": "9ZS",
     "_corruption": "lookalike"
   },
   {
@@ -50192,7 +50192,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "IO64",
+    "value_display": "I0b4",
     "_corruption": "lookalike"
   },
   {
@@ -50233,7 +50233,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "7I2S",
+    "value_display": "71ZS",
     "_corruption": "lookalike"
   },
   {
@@ -50278,7 +50278,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "45IZ",
+    "value_display": "4S1Z",
     "_corruption": "lookalike"
   },
   {
@@ -50351,7 +50351,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "12Og1",
+    "value_display": "1Z0g1",
     "_corruption": "lookalike"
   },
   {
@@ -50366,7 +50366,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I2O77",
+    "value_display": "IZ077",
     "_corruption": "lookalike"
   },
   {
@@ -50439,7 +50439,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "70gS",
+    "value_display": "7Og5",
     "_corruption": "lookalike"
   },
   {
@@ -50493,7 +50493,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I69g",
+    "value_display": "I6g9",
     "_corruption": "lookalike"
   },
   {
@@ -50508,7 +50508,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I56B",
+    "value_display": "I5b8",
     "_corruption": "lookalike"
   },
   {
@@ -50549,7 +50549,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Z14Z",
+    "value_display": "-ZI42",
     "_corruption": "lookalike"
   },
   {
@@ -50633,7 +50633,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-I31S",
+    "value_display": "-13IS",
     "_corruption": "lookalike"
   },
   {
@@ -50648,7 +50648,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-I2O4",
+    "value_display": "-IZ04",
     "_corruption": "lookalike"
   },
   {
@@ -50853,7 +50853,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-6IB",
+    "value_display": "-bI8",
     "_corruption": "lookalike"
   },
   {
@@ -51002,7 +51002,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "44B77b5",
+    "value_display": "44B776S",
     "_corruption": "lookalike"
   },
   {
@@ -51058,7 +51058,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4296B5I",
+    "value_display": "42g685I",
     "_corruption": "lookalike"
   },
   {
@@ -51293,7 +51293,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z6I9",
+    "value_display": "2bI9",
     "_corruption": "lookalike"
   },
   {
@@ -51308,7 +51308,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z5I7",
+    "value_display": "2SI7",
     "_corruption": "lookalike"
   },
   {
@@ -51349,7 +51349,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "12gO3",
+    "value_display": "1Zg03",
     "_corruption": "lookalike"
   },
   {
@@ -51418,7 +51418,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Z5b6",
+    "value_display": "2S6b",
     "_corruption": "lookalike"
   },
   {
@@ -51459,7 +51459,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Z580b",
+    "value_display": "ZS806",
     "_corruption": "lookalike"
   },
   {
@@ -51474,7 +51474,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "5S6Z",
+    "value_display": "S5b2",
     "_corruption": "lookalike"
   },
   {
@@ -51489,7 +51489,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "1Z56O",
+    "value_display": "I256O",
     "_corruption": "lookalike"
   },
   {
@@ -51504,7 +51504,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "25BO",
+    "value_display": "Z5B0",
     "_corruption": "lookalike"
   },
   {
@@ -51519,7 +51519,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "23BI4",
+    "value_display": "Z38I4",
     "_corruption": "lookalike"
   },
   {
@@ -51534,7 +51534,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "SI32",
+    "value_display": "5I3Z",
     "_corruption": "lookalike"
   },
   {
@@ -51549,7 +51549,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "1IS90",
+    "value_display": "115gO",
     "_corruption": "lookalike"
   },
   {
@@ -51953,7 +51953,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-ZZ0",
+    "value_display": "-Z2O",
     "_corruption": "lookalike"
   },
   {
@@ -52076,7 +52076,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S4b9",
+    "value_display": "54bg",
     "_corruption": "lookalike"
   },
   {
@@ -52091,7 +52091,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "9bb0",
+    "value_display": "g6b0",
     "_corruption": "lookalike"
   },
   {
@@ -52106,7 +52106,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "IO938",
+    "value_display": "1O93B",
     "_corruption": "lookalike"
   },
   {
@@ -52491,7 +52491,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "1gI93",
+    "value_display": "1g1g3",
     "_corruption": "lookalike"
   },
   {
@@ -52506,7 +52506,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "1g4B3",
+    "value_display": "I94B3",
     "_corruption": "lookalike"
   },
   {
@@ -52668,7 +52668,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "157BS",
+    "value_display": "I578S",
     "_corruption": "lookalike"
   },
   {
@@ -52737,7 +52737,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "I1O47",
+    "value_display": "II047",
     "_corruption": "lookalike"
   },
   {
@@ -52752,7 +52752,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "II214",
+    "value_display": "I1Z14",
     "_corruption": "lookalike"
   },
   {
@@ -52899,7 +52899,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "3Sb9",
+    "value_display": "3S6g",
     "_corruption": "lookalike"
   },
   {
@@ -52955,7 +52955,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Zg68",
+    "value_display": "-Z96B",
     "_corruption": "lookalike"
   },
   {
@@ -52998,7 +52998,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-S8O",
+    "value_display": "-5BO",
     "_corruption": "lookalike"
   },
   {
@@ -53026,7 +53026,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-IO69",
+    "value_display": "-1O6g",
     "_corruption": "lookalike"
   },
   {
@@ -53147,7 +53147,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-I0B1",
+    "value_display": "-10BI",
     "_corruption": "lookalike"
   },
   {
@@ -53361,7 +53361,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1gZ4",
+    "value_display": "I9Z4",
     "_corruption": "lookalike"
   },
   {
@@ -53376,7 +53376,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "ZI78",
+    "value_display": "2I7B",
     "_corruption": "lookalike"
   },
   {
@@ -53391,7 +53391,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1S210O0",
+    "value_display": "1521OO0",
     "_corruption": "lookalike"
   },
   {
@@ -53419,7 +53419,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1486BO6",
+    "value_display": "148b8O6",
     "_corruption": "lookalike"
   },
   {
@@ -53447,7 +53447,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "I534O00",
+    "value_display": "1534OO0",
     "_corruption": "lookalike"
   },
   {
@@ -53691,7 +53691,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "51OO",
+    "value_display": "5IO0",
     "_corruption": "lookalike"
   },
   {
@@ -53747,7 +53747,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "136OS",
+    "value_display": "I3b05",
     "_corruption": "lookalike"
   },
   {
@@ -53870,7 +53870,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "11O9b",
+    "value_display": "1I0g6",
     "_corruption": "lookalike"
   },
   {
@@ -54186,7 +54186,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "b0g9",
+    "value_display": "6O9g",
     "_corruption": "lookalike"
   },
   {
@@ -54214,7 +54214,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "Z8S0",
+    "value_display": "Z85O",
     "_corruption": "lookalike"
   },
   {
@@ -54385,7 +54385,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "5bg",
+    "value_display": "Sb9",
     "_corruption": "lookalike"
   },
   {
@@ -54478,7 +54478,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "S36O",
+    "value_display": "53bO",
     "_corruption": "lookalike"
   },
   {
@@ -54694,7 +54694,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-I1O0",
+    "value_display": "-I10O",
     "_corruption": "lookalike"
   },
   {
@@ -54821,7 +54821,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-I6S",
+    "value_display": "-Ib5",
     "_corruption": "lookalike"
   },
   {
@@ -54905,7 +54905,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "2Ob0",
+    "value_display": "Z0b0",
     "_corruption": "lookalike"
   },
   {
@@ -55194,7 +55194,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1Z3S",
+    "value_display": "I23S",
     "_corruption": "lookalike"
   },
   {
@@ -55209,7 +55209,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "473O0O",
+    "value_display": "473OO0",
     "_corruption": "lookalike"
   },
   {
@@ -55591,7 +55591,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I2S1",
+    "value_display": "12SI",
     "_corruption": "lookalike"
   },
   {
@@ -55660,7 +55660,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "Zg8",
+    "value_display": "2gB",
     "_corruption": "lookalike"
   },
   {
@@ -55675,7 +55675,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1O3B",
+    "value_display": "I03B",
     "_corruption": "lookalike"
   },
   {
@@ -55820,7 +55820,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "14gB",
+    "value_display": "I4g8",
     "_corruption": "lookalike"
   },
   {
@@ -55887,7 +55887,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "5O6b",
+    "value_display": "5Ob6",
     "_corruption": "lookalike"
   },
   {
@@ -55930,7 +55930,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "1g7S",
+    "value_display": "Ig75",
     "_corruption": "lookalike"
   },
   {
@@ -56012,7 +56012,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "6gZ",
+    "value_display": "bg2",
     "_corruption": "lookalike"
   },
   {
@@ -56385,7 +56385,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "IO65",
+    "value_display": "10bS",
     "_corruption": "lookalike"
   },
   {
@@ -56467,7 +56467,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "1bI",
+    "value_display": "I6I",
     "_corruption": "lookalike"
   },
   {
@@ -56547,7 +56547,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-2gB",
+    "value_display": "-Zg8",
     "_corruption": "lookalike"
   },
   {
@@ -56851,7 +56851,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-2ZB",
+    "value_display": "-Z2B",
     "_corruption": "lookalike"
   },
   {
@@ -56957,7 +56957,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "7b490O0",
+    "value_display": "7649OO0",
     "_corruption": "lookalike"
   },
   {
@@ -56972,7 +56972,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "77B439I",
+    "value_display": "77843gI",
     "_corruption": "lookalike"
   },
   {
@@ -57153,7 +57153,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "g63Z",
+    "value_display": "9b3Z",
     "_corruption": "lookalike"
   },
   {
@@ -57339,7 +57339,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "20Ob",
+    "value_display": "Z0O6",
     "_corruption": "lookalike"
   },
   {
@@ -57354,7 +57354,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "1g7B",
+    "value_display": "Ig78",
     "_corruption": "lookalike"
   },
   {
@@ -57503,7 +57503,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "B1b7",
+    "value_display": "8Ib7",
     "_corruption": "lookalike"
   },
   {
@@ -57518,7 +57518,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "BO51",
+    "value_display": "8O5I",
     "_corruption": "lookalike"
   },
   {
@@ -57678,7 +57678,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "b90B",
+    "value_display": "bg08",
     "_corruption": "lookalike"
   },
   {
@@ -57693,7 +57693,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z1O24",
+    "value_display": "Z10Z4",
     "_corruption": "lookalike"
   },
   {
@@ -57708,7 +57708,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z07Z4",
+    "value_display": "2O7Z4",
     "_corruption": "lookalike"
   },
   {
@@ -58015,7 +58015,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "IB59",
+    "value_display": "1B5g",
     "_corruption": "lookalike"
   },
   {
@@ -58121,7 +58121,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1gg85",
+    "value_display": "19g8S",
     "_corruption": "lookalike"
   },
   {
@@ -58136,7 +58136,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I70Z6",
+    "value_display": "I7O26",
     "_corruption": "lookalike"
   },
   {
@@ -58404,7 +58404,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "3OI1",
+    "value_display": "30II",
     "_corruption": "lookalike"
   },
   {
@@ -58445,7 +58445,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z31B4",
+    "value_display": "23IB4",
     "_corruption": "lookalike"
   },
   {
@@ -58460,7 +58460,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2Z65g",
+    "value_display": "22b5g",
     "_corruption": "lookalike"
   },
   {
@@ -58555,7 +58555,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Z64B",
+    "value_display": "-Zb48",
     "_corruption": "lookalike"
   },
   {
@@ -58967,7 +58967,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "2S3Z",
+    "value_display": "ZS32",
     "_corruption": "lookalike"
   },
   {
@@ -59008,7 +59008,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "I7B6908",
+    "value_display": "17B69O8",
     "_corruption": "lookalike"
   },
   {
@@ -59023,7 +59023,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1b3S904",
+    "value_display": "I63S904",
     "_corruption": "lookalike"
   },
   {
@@ -59051,7 +59051,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "1725O0O",
+    "value_display": "I7250O0",
     "_corruption": "lookalike"
   },
   {
@@ -59066,7 +59066,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "1b534I9",
+    "value_display": "16S34I9",
     "_corruption": "lookalike"
   },
   {
@@ -59135,7 +59135,7 @@
     "depth": 0,
     "parent_concept": "total_other_comprehensive_income",
     "role": "component",
-    "value_display": "-1IO",
+    "value_display": "-II0",
     "_corruption": "lookalike"
   },
   {
@@ -59401,7 +59401,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "15g1Z",
+    "value_display": "15gI2",
     "_corruption": "lookalike"
   },
   {
@@ -59457,7 +59457,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "4B42O",
+    "value_display": "4B4Z0",
     "_corruption": "lookalike"
   },
   {
@@ -59567,7 +59567,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "1B4B5",
+    "value_display": "I848S",
     "_corruption": "lookalike"
   },
   {
@@ -59660,7 +59660,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "1bb5",
+    "value_display": "I6b5",
     "_corruption": "lookalike"
   },
   {
@@ -59729,7 +59729,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "25gZ",
+    "value_display": "Z5g2",
     "_corruption": "lookalike"
   },
   {
@@ -59952,7 +59952,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "2II6",
+    "value_display": "Z1I6",
     "_corruption": "lookalike"
   },
   {
@@ -60209,7 +60209,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "S12I",
+    "value_display": "5IZ1",
     "_corruption": "lookalike"
   },
   {
@@ -60343,7 +60343,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "2g5B",
+    "value_display": "2gS8",
     "_corruption": "lookalike"
   },
   {
@@ -60436,7 +60436,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I2I83",
+    "value_display": "12IB3",
     "_corruption": "lookalike"
   },
   {
@@ -60464,7 +60464,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "3gg8",
+    "value_display": "39gB",
     "_corruption": "lookalike"
   },
   {
@@ -60492,7 +60492,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I332b",
+    "value_display": "I33Z6",
     "_corruption": "lookalike"
   },
   {
@@ -60675,7 +60675,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-ZS2",
+    "value_display": "-Z5Z",
     "_corruption": "lookalike"
   },
   {
@@ -60770,7 +60770,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "g3Z8",
+    "value_display": "g32B",
     "_corruption": "lookalike"
   },
   {
@@ -61821,7 +61821,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "B5S4",
+    "value_display": "BS54",
     "_corruption": "lookalike"
   },
   {
@@ -61968,7 +61968,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "42O6B",
+    "value_display": "4ZO68",
     "_corruption": "lookalike"
   },
   {
@@ -62089,7 +62089,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "1IB24",
+    "value_display": "11BZ4",
     "_corruption": "lookalike"
   },
   {
@@ -62210,7 +62210,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "22gI3",
+    "value_display": "Z29I3",
     "_corruption": "lookalike"
   },
   {
@@ -62225,7 +62225,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "Z36g",
+    "value_display": "Z3b9",
     "_corruption": "lookalike"
   },
   {
@@ -62305,7 +62305,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-1ZB2",
+    "value_display": "-I28Z",
     "_corruption": "lookalike"
   },
   {
@@ -62346,7 +62346,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "IB27",
+    "value_display": "I8Z7",
     "_corruption": "lookalike"
   },
   {
@@ -62400,7 +62400,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-I5b5",
+    "value_display": "-I56S",
     "_corruption": "lookalike"
   },
   {
@@ -62415,7 +62415,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-12Bb",
+    "value_display": "-I28b",
     "_corruption": "lookalike"
   },
   {
@@ -62728,7 +62728,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "I4g0",
+    "value_display": "I49O",
     "_corruption": "lookalike"
   },
   {
@@ -62860,7 +62860,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4I496g0",
+    "value_display": "4I4g690",
     "_corruption": "lookalike"
   },
   {
@@ -63156,7 +63156,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "360gg",
+    "value_display": "3bO99",
     "_corruption": "lookalike"
   },
   {
@@ -63214,7 +63214,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "1Z8Z5",
+    "value_display": "I2B25",
     "_corruption": "lookalike"
   },
   {
@@ -63413,7 +63413,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "79Sg",
+    "value_display": "7g5g",
     "_corruption": "lookalike"
   },
   {
@@ -63484,7 +63484,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-5OI",
+    "value_display": "-SO1",
     "_corruption": "lookalike"
   },
   {
@@ -64211,7 +64211,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "S0S9",
+    "value_display": "50Sg",
     "_corruption": "lookalike"
   },
   {
@@ -64429,7 +64429,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-IS0",
+    "value_display": "-1SO",
     "_corruption": "lookalike"
   },
   {
@@ -64795,7 +64795,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-Zb2",
+    "value_display": "-2bZ",
     "_corruption": "lookalike"
   },
   {
@@ -64931,7 +64931,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "6669O0O",
+    "value_display": "666g0O0",
     "_corruption": "lookalike"
   },
   {
@@ -64946,7 +64946,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "b67744S",
+    "value_display": "bb77445",
     "_corruption": "lookalike"
   },
   {
@@ -65181,7 +65181,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1g9b",
+    "value_display": "19gb",
     "_corruption": "lookalike"
   },
   {
@@ -65235,7 +65235,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I1O94",
+    "value_display": "1IO94",
     "_corruption": "lookalike"
   },
   {
@@ -65289,7 +65289,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "33Z8Z",
+    "value_display": "332BZ",
     "_corruption": "lookalike"
   },
   {
@@ -65535,7 +65535,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "17gB8",
+    "value_display": "17g8B",
     "_corruption": "lookalike"
   },
   {
@@ -65591,7 +65591,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "31S0Z",
+    "value_display": "3I5O2",
     "_corruption": "lookalike"
   },
   {
@@ -65805,7 +65805,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "94SB",
+    "value_display": "g4S8",
     "_corruption": "lookalike"
   },
   {
@@ -65976,7 +65976,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "7I8B",
+    "value_display": "7IB8",
     "_corruption": "lookalike"
   },
   {
@@ -66071,7 +66071,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "1b87B",
+    "value_display": "Ib878",
     "_corruption": "lookalike"
   },
   {
@@ -66140,7 +66140,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "I39I",
+    "value_display": "I3g1",
     "_corruption": "lookalike"
   },
   {
@@ -66168,7 +66168,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "32Zb",
+    "value_display": "3Z2b",
     "_corruption": "lookalike"
   },
   {
@@ -66341,7 +66341,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "9SS",
+    "value_display": "g5S",
     "_corruption": "lookalike"
   },
   {
@@ -66395,7 +66395,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "11Ib3",
+    "value_display": "1I1b3",
     "_corruption": "lookalike"
   },
   {
@@ -66410,7 +66410,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "1I0g3",
+    "value_display": "11Og3",
     "_corruption": "lookalike"
   },
   {
@@ -66477,7 +66477,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "182BB",
+    "value_display": "I8Z88",
     "_corruption": "lookalike"
   },
   {
@@ -66559,7 +66559,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "9gS4",
+    "value_display": "gg54",
     "_corruption": "lookalike"
   },
   {
@@ -66574,7 +66574,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "10Z5g",
+    "value_display": "1O2S9",
     "_corruption": "lookalike"
   },
   {
@@ -66628,7 +66628,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I2I0",
+    "value_display": "12IO",
     "_corruption": "lookalike"
   },
   {
@@ -66751,7 +66751,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-I98Z",
+    "value_display": "-I9B2",
     "_corruption": "lookalike"
   },
   {
@@ -67114,7 +67114,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "b10I800",
+    "value_display": "61O18O0",
     "_corruption": "lookalike"
   },
   {
@@ -67442,7 +67442,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "9IS9",
+    "value_display": "91Sg",
     "_corruption": "lookalike"
   },
   {
@@ -67487,7 +67487,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I663g",
+    "value_display": "16b3g",
     "_corruption": "lookalike"
   },
   {
@@ -67515,7 +67515,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "34SZ8",
+    "value_display": "34S2B",
     "_corruption": "lookalike"
   },
   {
@@ -67660,7 +67660,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "17b7b",
+    "value_display": "I7b76",
     "_corruption": "lookalike"
   },
   {
@@ -67785,7 +67785,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "b6I5",
+    "value_display": "6bI5",
     "_corruption": "lookalike"
   },
   {
@@ -68012,7 +68012,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I40S",
+    "value_display": "I4O5",
     "_corruption": "lookalike"
   },
   {
@@ -68040,7 +68040,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "42IS",
+    "value_display": "4ZI5",
     "_corruption": "lookalike"
   },
   {
@@ -68393,7 +68393,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2gI",
+    "value_display": "Z9I",
     "_corruption": "lookalike"
   },
   {
@@ -68607,7 +68607,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "5b8b",
+    "value_display": "5bB6",
     "_corruption": "lookalike"
   },
   {
@@ -68754,7 +68754,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1Ib6",
+    "value_display": "I1b6",
     "_corruption": "lookalike"
   },
   {
@@ -68834,7 +68834,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "IZ96",
+    "value_display": "I29b",
     "_corruption": "lookalike"
   },
   {
@@ -68888,7 +68888,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-2II5",
+    "value_display": "-Z11S",
     "_corruption": "lookalike"
   },
   {
@@ -68998,7 +68998,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1SS6",
+    "value_display": "1S5b",
     "_corruption": "lookalike"
   },
   {
@@ -69028,7 +69028,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "8Ib",
+    "value_display": "BI6",
     "_corruption": "lookalike"
   },
   {
@@ -69289,7 +69289,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "b8B",
+    "value_display": "6BB",
     "_corruption": "lookalike"
   },
   {
@@ -69688,7 +69688,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "2I3O",
+    "value_display": "Z13O",
     "_corruption": "lookalike"
   },
   {
@@ -69759,7 +69759,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I96B9",
+    "value_display": "1g6B9",
     "_corruption": "lookalike"
   },
   {
@@ -69774,7 +69774,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "6S2Z",
+    "value_display": "b5Z2",
     "_corruption": "lookalike"
   },
   {
@@ -69910,7 +69910,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "18BB",
+    "value_display": "I88B",
     "_corruption": "lookalike"
   },
   {
@@ -69970,7 +69970,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "IZ9",
+    "value_display": "1Zg",
     "_corruption": "lookalike"
   },
   {
@@ -70028,7 +70028,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "8Ob",
+    "value_display": "BO6",
     "_corruption": "lookalike"
   },
   {
@@ -70151,7 +70151,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2O3B",
+    "value_display": "ZO38",
     "_corruption": "lookalike"
   },
   {
@@ -70166,7 +70166,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Ig06",
+    "value_display": "I9O6",
     "_corruption": "lookalike"
   },
   {
@@ -71046,7 +71046,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I4O2",
+    "value_display": "I40Z",
     "_corruption": "lookalike"
   },
   {
@@ -71273,7 +71273,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1II2",
+    "value_display": "I11Z",
     "_corruption": "lookalike"
   },
   {
@@ -71314,7 +71314,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "g8I",
+    "value_display": "gB1",
     "_corruption": "lookalike"
   },
   {
@@ -71372,7 +71372,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-Z2g",
+    "value_display": "-ZZ9",
     "_corruption": "lookalike"
   },
   {
@@ -72029,7 +72029,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "2OI3",
+    "value_display": "Z0I3",
     "_corruption": "lookalike"
   },
   {
@@ -72109,7 +72109,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "67bO",
+    "value_display": "b76O",
     "_corruption": "lookalike"
   },
   {
@@ -72137,7 +72137,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "4OZ6",
+    "value_display": "4O2b",
     "_corruption": "lookalike"
   },
   {
@@ -72295,7 +72295,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2O25O",
+    "value_display": "ZO250",
     "_corruption": "lookalike"
   },
   {
@@ -72310,7 +72310,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z05I7",
+    "value_display": "2OS17",
     "_corruption": "lookalike"
   },
   {
@@ -72658,7 +72658,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2gg3",
+    "value_display": "Z9g3",
     "_corruption": "lookalike"
   },
   {
@@ -72673,7 +72673,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "B86Z",
+    "value_display": "BB62",
     "_corruption": "lookalike"
   },
   {
@@ -72935,7 +72935,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "I27b4",
+    "value_display": "1Z7b4",
     "_corruption": "lookalike"
   },
   {
@@ -72963,7 +72963,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "Z6S7",
+    "value_display": "2bS7",
     "_corruption": "lookalike"
   },
   {
@@ -73311,7 +73311,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "BS31",
+    "value_display": "8S3I",
     "_corruption": "lookalike"
   },
   {
@@ -73352,7 +73352,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I54S8",
+    "value_display": "I545B",
     "_corruption": "lookalike"
   },
   {
@@ -73406,7 +73406,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "g2b3",
+    "value_display": "gZ63",
     "_corruption": "lookalike"
   },
   {
@@ -73555,7 +73555,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-I1S3",
+    "value_display": "-II53",
     "_corruption": "lookalike"
   },
   {
@@ -73639,7 +73639,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Zb58",
+    "value_display": "2bS8",
     "_corruption": "lookalike"
   },
   {
@@ -73723,7 +73723,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-I72O",
+    "value_display": "-I7Z0",
     "_corruption": "lookalike"
   },
   {
@@ -73971,7 +73971,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "34070OO",
+    "value_display": "34O70O0",
     "_corruption": "lookalike"
   },
   {
@@ -74051,7 +74051,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "351SO07",
+    "value_display": "3S150O7",
     "_corruption": "lookalike"
   },
   {
@@ -74245,7 +74245,7 @@
     "depth": 0,
     "parent_concept": "comprehensive_income",
     "role": "derived",
-    "value_display": "-2Ib",
+    "value_display": "-ZI6",
     "_corruption": "lookalike"
   },
   {
@@ -74327,7 +74327,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "1Bb59",
+    "value_display": "1B6S9",
     "_corruption": "lookalike"
   },
   {
@@ -74420,7 +74420,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Z353B",
+    "value_display": "23S3B",
     "_corruption": "lookalike"
   },
   {
@@ -74435,7 +74435,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "g7B5",
+    "value_display": "97BS",
     "_corruption": "lookalike"
   },
   {
@@ -74489,7 +74489,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "32OO",
+    "value_display": "3ZO0",
     "_corruption": "lookalike"
   },
   {
@@ -74597,7 +74597,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "14gI9",
+    "value_display": "I491g",
     "_corruption": "lookalike"
   },
   {
@@ -74785,7 +74785,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "24SI",
+    "value_display": "Z4S1",
     "_corruption": "lookalike"
   },
   {
@@ -75114,7 +75114,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "9gI7",
+    "value_display": "gg17",
     "_corruption": "lookalike"
   },
   {
@@ -75196,7 +75196,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "Z03I",
+    "value_display": "2O3I",
     "_corruption": "lookalike"
   },
   {
@@ -75419,7 +75419,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "5g3Z",
+    "value_display": "S93Z",
     "_corruption": "lookalike"
   },
   {
@@ -75499,7 +75499,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I452S",
+    "value_display": "14SZ5",
     "_corruption": "lookalike"
   },
   {
@@ -75773,7 +75773,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-I5S4",
+    "value_display": "-1SS4",
     "_corruption": "lookalike"
   },
   {
@@ -75948,7 +75948,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-1Z2O",
+    "value_display": "-IZ20",
     "_corruption": "lookalike"
   },
   {
@@ -75963,7 +75963,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-Z1b",
+    "value_display": "-2Ib",
     "_corruption": "lookalike"
   },
   {
@@ -76032,7 +76032,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "S2Z",
+    "value_display": "5ZZ",
     "_corruption": "lookalike"
   },
   {
@@ -76157,7 +76157,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "6O2g640",
+    "value_display": "602g64O",
     "_corruption": "lookalike"
   },
   {
@@ -76528,7 +76528,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "31IS",
+    "value_display": "3I1S",
     "_corruption": "lookalike"
   },
   {
@@ -76694,7 +76694,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "BZ62",
+    "value_display": "B26Z",
     "_corruption": "lookalike"
   },
   {
@@ -76908,7 +76908,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "Z601O",
+    "value_display": "Z60I0",
     "_corruption": "lookalike"
   },
   {
@@ -77003,7 +77003,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1b0b2",
+    "value_display": "1b06Z",
     "_corruption": "lookalike"
   },
   {
@@ -77018,7 +77018,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I54O8",
+    "value_display": "IS408",
     "_corruption": "lookalike"
   },
   {
@@ -77425,7 +77425,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "I8b04",
+    "value_display": "1B6O4",
     "_corruption": "lookalike"
   },
   {
@@ -77453,7 +77453,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "6ZO8",
+    "value_display": "6Z0B",
     "_corruption": "lookalike"
   },
   {
@@ -77736,7 +77736,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "8g1O",
+    "value_display": "B91O",
     "_corruption": "lookalike"
   },
   {
@@ -77803,7 +77803,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "1I7S2",
+    "value_display": "117SZ",
     "_corruption": "lookalike"
   },
   {
@@ -77831,7 +77831,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z064B",
+    "value_display": "ZO648",
     "_corruption": "lookalike"
   },
   {
@@ -77846,7 +77846,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2Ob81",
+    "value_display": "20bB1",
     "_corruption": "lookalike"
   },
   {
@@ -77891,7 +77891,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "IO676",
+    "value_display": "1Ob76",
     "_corruption": "lookalike"
   },
   {
@@ -78027,7 +78027,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Z5b3",
+    "value_display": "-ZS63",
     "_corruption": "lookalike"
   },
   {
@@ -78083,7 +78083,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-I30b",
+    "value_display": "-I3O6",
     "_corruption": "lookalike"
   },
   {
@@ -78098,7 +78098,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-IZ53",
+    "value_display": "-I2S3",
     "_corruption": "lookalike"
   },
   {
@@ -78113,7 +78113,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Z7B1",
+    "value_display": "-Z78I",
     "_corruption": "lookalike"
   },
   {
@@ -78739,7 +78739,7 @@
     "depth": 0,
     "parent_concept": "comprehensive_income",
     "role": "derived",
-    "value_display": "-1ZO",
+    "value_display": "-IZ0",
     "_corruption": "lookalike"
   },
   {
@@ -78780,7 +78780,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "38Sg",
+    "value_display": "3B5g",
     "_corruption": "lookalike"
   },
   {
@@ -78795,7 +78795,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I207Z",
+    "value_display": "12O7Z",
     "_corruption": "lookalike"
   },
   {
@@ -78810,7 +78810,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I1S74",
+    "value_display": "1IS74",
     "_corruption": "lookalike"
   },
   {
@@ -78825,7 +78825,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "1gS54",
+    "value_display": "1g5S4",
     "_corruption": "lookalike"
   },
   {
@@ -78911,7 +78911,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "56Z7I",
+    "value_display": "5b27I",
     "_corruption": "lookalike"
   },
   {
@@ -79017,7 +79017,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "1Og4",
+    "value_display": "I0g4",
     "_corruption": "lookalike"
   },
   {
@@ -79166,7 +79166,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "10Ob",
+    "value_display": "1OO6",
     "_corruption": "lookalike"
   },
   {
@@ -79233,7 +79233,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "I4B8",
+    "value_display": "I48B",
     "_corruption": "lookalike"
   },
   {
@@ -79304,7 +79304,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "1Ib9",
+    "value_display": "II69",
     "_corruption": "lookalike"
   },
   {
@@ -79386,7 +79386,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "3bb5",
+    "value_display": "36bS",
     "_corruption": "lookalike"
   },
   {
@@ -79524,7 +79524,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "BZ75",
+    "value_display": "8Z7S",
     "_corruption": "lookalike"
   },
   {
@@ -79669,7 +79669,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "4b6B",
+    "value_display": "46bB",
     "_corruption": "lookalike"
   },
   {
@@ -79846,7 +79846,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "ZI69",
+    "value_display": "2Ib9",
     "_corruption": "lookalike"
   },
   {
@@ -79861,7 +79861,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I7B6",
+    "value_display": "I78b",
     "_corruption": "lookalike"
   },
   {
@@ -79995,7 +79995,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-1Ob",
+    "value_display": "-IO6",
     "_corruption": "lookalike"
   },
   {
@@ -80129,7 +80129,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "-Z0O",
+    "value_display": "-ZO0",
     "_corruption": "lookalike"
   },
   {
@@ -80386,7 +80386,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "I48O",
+    "value_display": "14BO",
     "_corruption": "lookalike"
   },
   {
@@ -80427,7 +80427,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "4S80O0",
+    "value_display": "45B00O",
     "_corruption": "lookalike"
   },
   {
@@ -80442,7 +80442,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "47Z22g",
+    "value_display": "47Z2Z9",
     "_corruption": "lookalike"
   },
   {
@@ -80565,7 +80565,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Bb6",
+    "value_display": "8bb",
     "_corruption": "lookalike"
   },
   {
@@ -80623,7 +80623,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "9O4B",
+    "value_display": "gO48",
     "_corruption": "lookalike"
   },
   {
@@ -80703,7 +80703,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "ZS67",
+    "value_display": "2Sb7",
     "_corruption": "lookalike"
   },
   {
@@ -81114,7 +81114,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "2gb3",
+    "value_display": "Zg63",
     "_corruption": "lookalike"
   },
   {
@@ -81265,7 +81265,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "6B1Z",
+    "value_display": "b8I2",
     "_corruption": "lookalike"
   },
   {
@@ -81576,7 +81576,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I41I",
+    "value_display": "I4I1",
     "_corruption": "lookalike"
   },
   {
@@ -81617,7 +81617,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-ZO0",
+    "value_display": "-2OO",
     "_corruption": "lookalike"
   },
   {
@@ -81645,7 +81645,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "Z0O",
+    "value_display": "ZO0",
     "_corruption": "lookalike"
   },
   {
@@ -81660,7 +81660,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "Ig0",
+    "value_display": "1gO",
     "_corruption": "lookalike"
   },
   {
@@ -81740,7 +81740,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-ZZ1",
+    "value_display": "-2ZI",
     "_corruption": "lookalike"
   },
   {
@@ -82033,7 +82033,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "IZ1",
+    "value_display": "1ZI",
     "_corruption": "lookalike"
   },
   {
@@ -82448,7 +82448,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "116ZZ",
+    "value_display": "1I6Z2",
     "_corruption": "lookalike"
   },
   {
@@ -82606,7 +82606,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "3Bb1",
+    "value_display": "3B6I",
     "_corruption": "lookalike"
   },
   {
@@ -82621,7 +82621,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "10S9O",
+    "value_display": "IO590",
     "_corruption": "lookalike"
   },
   {
@@ -82861,7 +82861,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "3I9O",
+    "value_display": "31gO",
     "_corruption": "lookalike"
   },
   {
@@ -83265,7 +83265,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "5BB",
+    "value_display": "S8B",
     "_corruption": "lookalike"
   },
   {
@@ -83613,7 +83613,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4Sg6",
+    "value_display": "45gb",
     "_corruption": "lookalike"
   },
   {
@@ -84201,7 +84201,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "4768BS3",
+    "value_display": "47b8B53",
     "_corruption": "lookalike"
   },
   {
@@ -84216,7 +84216,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "4871g2B",
+    "value_display": "487I92B",
     "_corruption": "lookalike"
   },
   {
@@ -84231,7 +84231,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "48b9O00",
+    "value_display": "486g0O0",
     "_corruption": "lookalike"
   },
   {
@@ -84272,7 +84272,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "5024S8Z",
+    "value_display": "50Z458Z",
     "_corruption": "lookalike"
   },
   {
@@ -84475,7 +84475,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "3I1I",
+    "value_display": "3II1",
     "_corruption": "lookalike"
   },
   {
@@ -84531,7 +84531,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "B93S",
+    "value_display": "Bg35",
     "_corruption": "lookalike"
   },
   {
@@ -84613,7 +84613,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Zg322",
+    "value_display": "2g32Z",
     "_corruption": "lookalike"
   },
   {
@@ -84708,7 +84708,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "7B9O",
+    "value_display": "7Bg0",
     "_corruption": "lookalike"
   },
   {
@@ -84736,7 +84736,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "1S78O",
+    "value_display": "I57B0",
     "_corruption": "lookalike"
   },
   {
@@ -84941,7 +84941,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "34Z5b",
+    "value_display": "342Sb",
     "_corruption": "lookalike"
   },
   {
@@ -84969,7 +84969,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "5b0b",
+    "value_display": "S60b",
     "_corruption": "lookalike"
   },
   {
@@ -84984,7 +84984,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S72Z",
+    "value_display": "S7Z2",
     "_corruption": "lookalike"
   },
   {
@@ -84999,7 +84999,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1I21Z",
+    "value_display": "11ZI2",
     "_corruption": "lookalike"
   },
   {
@@ -85053,7 +85053,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-2OO",
+    "value_display": "-Z0O",
     "_corruption": "lookalike"
   },
   {
@@ -85327,7 +85327,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "2g1I",
+    "value_display": "29II",
     "_corruption": "lookalike"
   },
   {
@@ -85580,7 +85580,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "I454B",
+    "value_display": "I4S48",
     "_corruption": "lookalike"
   },
   {
@@ -85779,7 +85779,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "1bg1",
+    "value_display": "I69I",
     "_corruption": "lookalike"
   },
   {
@@ -85889,7 +85889,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I1b01",
+    "value_display": "1Ib01",
     "_corruption": "lookalike"
   },
   {
@@ -85958,7 +85958,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-Z6O5",
+    "value_display": "-Zb05",
     "_corruption": "lookalike"
   },
   {
@@ -86014,7 +86014,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "2gS",
+    "value_display": "Z9S",
     "_corruption": "lookalike"
   },
   {
@@ -86137,7 +86137,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "bS41",
+    "value_display": "6S4I",
     "_corruption": "lookalike"
   },
   {
@@ -86292,7 +86292,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-ZZ8",
+    "value_display": "-2ZB",
     "_corruption": "lookalike"
   },
   {
@@ -86482,7 +86482,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "387S0g1",
+    "value_display": "3875O9I",
     "_corruption": "lookalike"
   },
   {
@@ -86497,7 +86497,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "39831bO",
+    "value_display": "39B3I60",
     "_corruption": "lookalike"
   },
   {
@@ -86551,7 +86551,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "3992SZ6",
+    "value_display": "399Z52b",
     "_corruption": "lookalike"
   },
   {
@@ -86771,7 +86771,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "4BB9",
+    "value_display": "4B8g",
     "_corruption": "lookalike"
   },
   {
@@ -86786,7 +86786,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "5O0O",
+    "value_display": "SO00",
     "_corruption": "lookalike"
   },
   {
@@ -86998,7 +86998,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Ig988",
+    "value_display": "I998B",
     "_corruption": "lookalike"
   },
   {
@@ -87138,7 +87138,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "Z31O9",
+    "value_display": "Z310g",
     "_corruption": "lookalike"
   },
   {
@@ -87192,7 +87192,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z9O04",
+    "value_display": "2gO04",
     "_corruption": "lookalike"
   },
   {
@@ -87233,7 +87233,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "S5B3",
+    "value_display": "5SB3",
     "_corruption": "lookalike"
   },
   {
@@ -87490,7 +87490,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "BI8",
+    "value_display": "B1B",
     "_corruption": "lookalike"
   },
   {
@@ -87505,7 +87505,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "Z78I",
+    "value_display": "27BI",
     "_corruption": "lookalike"
   },
   {
@@ -87922,7 +87922,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "b1I9",
+    "value_display": "6I1g",
     "_corruption": "lookalike"
   },
   {
@@ -88002,7 +88002,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z033I",
+    "value_display": "ZO331",
     "_corruption": "lookalike"
   },
   {
@@ -88240,7 +88240,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "IO457",
+    "value_display": "1O4S7",
     "_corruption": "lookalike"
   },
   {
@@ -88335,7 +88335,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-4OZ9",
+    "value_display": "-4O2g",
     "_corruption": "lookalike"
   },
   {
@@ -88460,7 +88460,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-B6Z",
+    "value_display": "-8bZ",
     "_corruption": "lookalike"
   },
   {
@@ -88542,7 +88542,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "5b9g",
+    "value_display": "56gg",
     "_corruption": "lookalike"
   },
   {
@@ -88680,7 +88680,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-gO5",
+    "value_display": "-g0S",
     "_corruption": "lookalike"
   },
   {
@@ -88872,7 +88872,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "4973bS",
+    "value_display": "4g736S",
     "_corruption": "lookalike"
   },
   {
@@ -88900,7 +88900,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "S06g59",
+    "value_display": "50b9S9",
     "_corruption": "lookalike"
   },
   {
@@ -89178,7 +89178,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "3b1B",
+    "value_display": "3bI8",
     "_corruption": "lookalike"
   },
   {
@@ -89193,7 +89193,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1Z28S",
+    "value_display": "I228S",
     "_corruption": "lookalike"
   },
   {
@@ -89340,7 +89340,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "I9g95",
+    "value_display": "1gg95",
     "_corruption": "lookalike"
   },
   {
@@ -89355,7 +89355,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "16OO5",
+    "value_display": "I6O05",
     "_corruption": "lookalike"
   },
   {
@@ -89370,7 +89370,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "1OI64",
+    "value_display": "10Ib4",
     "_corruption": "lookalike"
   },
   {
@@ -89621,7 +89621,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "I5Z1",
+    "value_display": "15ZI",
     "_corruption": "lookalike"
   },
   {
@@ -89781,7 +89781,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1I23S",
+    "value_display": "I1Z35",
     "_corruption": "lookalike"
   },
   {
@@ -89796,7 +89796,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I23b6",
+    "value_display": "1Z36b",
     "_corruption": "lookalike"
   },
   {
@@ -89906,7 +89906,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "Z9O7",
+    "value_display": "Zg07",
     "_corruption": "lookalike"
   },
   {
@@ -89921,7 +89921,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "26gZ",
+    "value_display": "2b9Z",
     "_corruption": "lookalike"
   },
   {
@@ -90159,7 +90159,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "5gB",
+    "value_display": "S9B",
     "_corruption": "lookalike"
   },
   {
@@ -90241,7 +90241,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "I6I3",
+    "value_display": "1bI3",
     "_corruption": "lookalike"
   },
   {
@@ -90256,7 +90256,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "I49I",
+    "value_display": "I4g1",
     "_corruption": "lookalike"
   },
   {
@@ -90392,7 +90392,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "14B1S",
+    "value_display": "I4B15",
     "_corruption": "lookalike"
   },
   {
@@ -90671,7 +90671,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-15ZS",
+    "value_display": "-1S2S",
     "_corruption": "lookalike"
   },
   {
@@ -91295,7 +91295,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "23B30O0",
+    "value_display": "23830OO",
     "_corruption": "lookalike"
   },
   {
@@ -91310,7 +91310,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "Z490Z27",
+    "value_display": "24g02Z7",
     "_corruption": "lookalike"
   },
   {
@@ -91325,7 +91325,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "Z37836B",
+    "value_display": "237B36B",
     "_corruption": "lookalike"
   },
   {
@@ -91340,7 +91340,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "23b3S43",
+    "value_display": "Z363S43",
     "_corruption": "lookalike"
   },
   {
@@ -91573,7 +91573,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "B04g",
+    "value_display": "BO49",
     "_corruption": "lookalike"
   },
   {
@@ -91601,7 +91601,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "1O73O",
+    "value_display": "IO730",
     "_corruption": "lookalike"
   },
   {
@@ -91629,7 +91629,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "b5I6",
+    "value_display": "b51b",
     "_corruption": "lookalike"
   },
   {
@@ -91735,7 +91735,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "1gS48",
+    "value_display": "Ig548",
     "_corruption": "lookalike"
   },
   {
@@ -91789,7 +91789,7 @@
     "depth": 0,
     "parent_concept": "cost_of_sales",
     "role": "component",
-    "value_display": "21S1b",
+    "value_display": "Z1S16",
     "_corruption": "lookalike"
   },
   {
@@ -92414,7 +92414,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "80SI",
+    "value_display": "B0S1",
     "_corruption": "lookalike"
   },
   {
@@ -92442,7 +92442,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "ZO414",
+    "value_display": "Z04I4",
     "_corruption": "lookalike"
   },
   {
@@ -92665,7 +92665,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "31O2I",
+    "value_display": "3I02I",
     "_corruption": "lookalike"
   },
   {
@@ -92680,7 +92680,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "267BZ",
+    "value_display": "Z67B2",
     "_corruption": "lookalike"
   },
   {
@@ -92736,7 +92736,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-b3b8",
+    "value_display": "-63bB",
     "_corruption": "lookalike"
   },
   {
@@ -92751,7 +92751,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1bg2",
+    "value_display": "16gZ",
     "_corruption": "lookalike"
   },
   {
@@ -92779,7 +92779,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-IO25",
+    "value_display": "-1O2S",
     "_corruption": "lookalike"
   },
   {
@@ -92835,7 +92835,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "IO38",
+    "value_display": "I03B",
     "_corruption": "lookalike"
   },
   {
@@ -92863,7 +92863,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-1Og3",
+    "value_display": "-I0g3",
     "_corruption": "lookalike"
   },
   {
@@ -92945,7 +92945,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Z32b",
+    "value_display": "-Z3Z6",
     "_corruption": "lookalike"
   },
   {
@@ -93113,7 +93113,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-IO06",
+    "value_display": "-10Ob",
     "_corruption": "lookalike"
   },
   {
@@ -93327,7 +93327,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "Z4800O",
+    "value_display": "2480OO",
     "_corruption": "lookalike"
   },
   {
@@ -93575,7 +93575,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "2O6g85",
+    "value_display": "206gB5",
     "_corruption": "lookalike"
   },
   {
@@ -93902,7 +93902,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-Z8B",
+    "value_display": "-2BB",
     "_corruption": "lookalike"
   },
   {
@@ -94235,7 +94235,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "Z80B",
+    "value_display": "Z8O8",
     "_corruption": "lookalike"
   },
   {
@@ -94330,7 +94330,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "4I2Z0",
+    "value_display": "4IZ20",
     "_corruption": "lookalike"
   },
   {
@@ -94397,7 +94397,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "70Ig3",
+    "value_display": "7O1g3",
     "_corruption": "lookalike"
   },
   {
@@ -94412,7 +94412,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "bZ508",
+    "value_display": "62S0B",
     "_corruption": "lookalike"
   },
   {
@@ -94481,7 +94481,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "bB54",
+    "value_display": "6BS4",
     "_corruption": "lookalike"
   },
   {
@@ -94496,7 +94496,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "b1O4",
+    "value_display": "6IO4",
     "_corruption": "lookalike"
   },
   {
@@ -94643,7 +94643,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "Z9g01",
+    "value_display": "299OI",
     "_corruption": "lookalike"
   },
   {
@@ -94658,7 +94658,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "Zb627",
+    "value_display": "2b6Z7",
     "_corruption": "lookalike"
   },
   {
@@ -94699,7 +94699,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "g38B",
+    "value_display": "g3B8",
     "_corruption": "lookalike"
   },
   {
@@ -94740,7 +94740,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I71O6",
+    "value_display": "I710b",
     "_corruption": "lookalike"
   },
   {
@@ -94755,7 +94755,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "S4S85",
+    "value_display": "54S8S",
     "_corruption": "lookalike"
   },
   {
@@ -94969,7 +94969,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "IB520",
+    "value_display": "I85Z0",
     "_corruption": "lookalike"
   },
   {
@@ -94984,7 +94984,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z053g",
+    "value_display": "20S3g",
     "_corruption": "lookalike"
   },
   {
@@ -94999,7 +94999,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "g29B",
+    "value_display": "gZ98",
     "_corruption": "lookalike"
   },
   {
@@ -95293,7 +95293,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "4375OO0",
+    "value_display": "43750OO",
     "_corruption": "lookalike"
   },
   {
@@ -95606,7 +95606,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "142Sb",
+    "value_display": "I42S6",
     "_corruption": "lookalike"
   },
   {
@@ -95844,7 +95844,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "-IB8",
+    "value_display": "-I8B",
     "_corruption": "lookalike"
   },
   {
@@ -95885,7 +95885,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2B5O",
+    "value_display": "2BS0",
     "_corruption": "lookalike"
   },
   {
@@ -96205,7 +96205,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "2BI0",
+    "value_display": "28IO",
     "_corruption": "lookalike"
   },
   {
@@ -96272,7 +96272,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Z909O",
+    "value_display": "29O9O",
     "_corruption": "lookalike"
   },
   {
@@ -96300,7 +96300,7 @@
     "depth": 0,
     "parent_concept": "total_current_liabilities",
     "role": "component",
-    "value_display": "I567S",
+    "value_display": "1S67S",
     "_corruption": "lookalike"
   },
   {
@@ -96393,7 +96393,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "2I47I",
+    "value_display": "Z147I",
     "_corruption": "lookalike"
   },
   {
@@ -96637,7 +96637,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "8BS",
+    "value_display": "BB5",
     "_corruption": "lookalike"
   },
   {
@@ -96680,7 +96680,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "9gS",
+    "value_display": "g9S",
     "_corruption": "lookalike"
   },
   {
@@ -96734,7 +96734,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-2II3",
+    "value_display": "-Z1I3",
     "_corruption": "lookalike"
   },
   {
@@ -96859,7 +96859,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "I2b",
+    "value_display": "1Zb",
     "_corruption": "lookalike"
   },
   {
@@ -97073,7 +97073,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "II9",
+    "value_display": "1Ig",
     "_corruption": "lookalike"
   },
   {
@@ -97103,7 +97103,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "3I2B",
+    "value_display": "31ZB",
     "_corruption": "lookalike"
   },
   {
@@ -97131,7 +97131,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "17O6O00",
+    "value_display": "17Ob000",
     "_corruption": "lookalike"
   },
   {
@@ -97293,7 +97293,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "3OZ9",
+    "value_display": "3O2g",
     "_corruption": "lookalike"
   },
   {
@@ -97509,7 +97509,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "Z1I",
+    "value_display": "2II",
     "_corruption": "lookalike"
   },
   {
@@ -97645,7 +97645,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "B1I",
+    "value_display": "8II",
     "_corruption": "lookalike"
   },
   {
@@ -98194,7 +98194,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "6ZO",
+    "value_display": "bZ0",
     "_corruption": "lookalike"
   },
   {
@@ -98209,7 +98209,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I97S",
+    "value_display": "Ig75",
     "_corruption": "lookalike"
   },
   {
@@ -98432,7 +98432,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-2OO",
+    "value_display": "-ZO0",
     "_corruption": "lookalike"
   },
   {
@@ -98542,7 +98542,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-I1I",
+    "value_display": "-1II",
     "_corruption": "lookalike"
   },
   {
@@ -98799,7 +98799,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "243O0O",
+    "value_display": "Z4300O",
     "_corruption": "lookalike"
   },
   {
@@ -98814,7 +98814,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "24Zg41",
+    "value_display": "Z42g41",
     "_corruption": "lookalike"
   },
   {
@@ -99021,7 +99021,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "top_line",
-    "value_display": "I55b7",
+    "value_display": "I5S67",
     "_corruption": "lookalike"
   },
   {
@@ -99259,7 +99259,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "S02Z",
+    "value_display": "5O2Z",
     "_corruption": "lookalike"
   },
   {
@@ -99287,7 +99287,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "14S4I",
+    "value_display": "I4S41",
     "_corruption": "lookalike"
   },
   {
@@ -99315,7 +99315,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "Z90B2",
+    "value_display": "Z908Z",
     "_corruption": "lookalike"
   },
   {
@@ -99356,7 +99356,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "II35",
+    "value_display": "1I3S",
     "_corruption": "lookalike"
   },
   {
@@ -99371,7 +99371,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "2O5Z",
+    "value_display": "Z05Z",
     "_corruption": "lookalike"
   },
   {
@@ -99964,7 +99964,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "122Ig",
+    "value_display": "12ZI9",
     "_corruption": "lookalike"
   },
   {
@@ -100113,7 +100113,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "IB03",
+    "value_display": "1BO3",
     "_corruption": "lookalike"
   },
   {
@@ -100827,7 +100827,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "26I3O00",
+    "value_display": "Z6I3000",
     "_corruption": "lookalike"
   },
   {
@@ -100842,7 +100842,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "2S56b32",
+    "value_display": "Z55663Z",
     "_corruption": "lookalike"
   },
   {
@@ -100883,7 +100883,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "2b4300O",
+    "value_display": "Z64300O",
     "_corruption": "lookalike"
   },
   {
@@ -100898,7 +100898,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "2b2122S",
+    "value_display": "Zb21225",
     "_corruption": "lookalike"
   },
   {
@@ -100913,7 +100913,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "Z72589S",
+    "value_display": "272S8g5",
     "_corruption": "lookalike"
   },
   {
@@ -101172,7 +101172,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "IB61",
+    "value_display": "I8b1",
     "_corruption": "lookalike"
   },
   {
@@ -101226,7 +101226,7 @@
     "depth": 0,
     "parent_concept": "total_revenues",
     "role": "component",
-    "value_display": "gb28",
+    "value_display": "9bZ8",
     "_corruption": "lookalike"
   },
   {
@@ -101282,7 +101282,7 @@
     "depth": 0,
     "parent_concept": "total_costs_and_expenses",
     "role": "component",
-    "value_display": "12gb",
+    "value_display": "1Z9b",
     "_corruption": "lookalike"
   },
   {
@@ -101310,7 +101310,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "1I03B",
+    "value_display": "I1O38",
     "_corruption": "lookalike"
   },
   {
@@ -101416,7 +101416,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "I69Z",
+    "value_display": "Ib92",
     "_corruption": "lookalike"
   },
   {
@@ -101537,7 +101537,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "17bO",
+    "value_display": "I76O",
     "_corruption": "lookalike"
   },
   {
@@ -101697,7 +101697,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_assets",
     "role": "component",
-    "value_display": "g6I",
+    "value_display": "9bI",
     "_corruption": "lookalike"
   },
   {
@@ -101915,7 +101915,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "bO75",
+    "value_display": "b07S",
     "_corruption": "lookalike"
   },
   {
@@ -101943,7 +101943,7 @@
     "depth": 0,
     "parent_concept": "total_non_current_liabilities",
     "role": "component",
-    "value_display": "B9B4",
+    "value_display": "Bg84",
     "_corruption": "lookalike"
   },
   {
@@ -102131,7 +102131,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_investing",
     "role": "component",
-    "value_display": "-I40B",
+    "value_display": "-I4O8",
     "_corruption": "lookalike"
   },
   {
@@ -102172,7 +102172,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "I03Z",
+    "value_display": "IO32",
     "_corruption": "lookalike"
   },
   {
@@ -102213,7 +102213,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-IB60",
+    "value_display": "-1B6O",
     "_corruption": "lookalike"
   },
   {
@@ -102228,7 +102228,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "-Ig49",
+    "value_display": "-1g4g",
     "_corruption": "lookalike"
   },
   {
@@ -102256,7 +102256,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-Z5g",
+    "value_display": "-2Sg",
     "_corruption": "lookalike"
   },
   {
@@ -102362,7 +102362,7 @@
     "depth": 0,
     "parent_concept": "total_shareholders_equity",
     "role": "component",
-    "value_display": "Z20b",
+    "value_display": "Z2O6",
     "_corruption": "lookalike"
   },
   {
@@ -102407,7 +102407,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "-ZZ2",
+    "value_display": "-2ZZ",
     "_corruption": "lookalike"
   },
   {
@@ -102686,7 +102686,7 @@
     "depth": 0,
     "parent_concept": "shares_used_basic",
     "role": "component",
-    "value_display": "700Z4Z",
+    "value_display": "70OZ42",
     "_corruption": "lookalike"
   },
   {
@@ -102811,7 +102811,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "Ib54",
+    "value_display": "I6S4",
     "_corruption": "lookalike"
   },
   {
@@ -102826,7 +102826,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "1bg2",
+    "value_display": "16gZ",
     "_corruption": "lookalike"
   },
   {
@@ -103098,7 +103098,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "IS6",
+    "value_display": "1Sb",
     "_corruption": "lookalike"
   },
   {
@@ -103139,7 +103139,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "derived",
-    "value_display": "13SB9",
+    "value_display": "135Bg",
     "_corruption": "lookalike"
   },
   {
@@ -103316,7 +103316,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "23IB",
+    "value_display": "Z31B",
     "_corruption": "lookalike"
   },
   {
@@ -103344,7 +103344,7 @@
     "depth": 0,
     "parent_concept": "total_current_assets",
     "role": "component",
-    "value_display": "I65Z",
+    "value_display": "1bS2",
     "_corruption": "lookalike"
   },
   {
@@ -103491,7 +103491,7 @@
     "depth": 0,
     "parent_concept": "total_assets",
     "role": "derived",
-    "value_display": "3b2b0",
+    "value_display": "362bO",
     "_corruption": "lookalike"
   },
   {
@@ -103649,7 +103649,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "Z925g",
+    "value_display": "2gZ59",
     "_corruption": "lookalike"
   },
   {
@@ -103664,7 +103664,7 @@
     "depth": 0,
     "parent_concept": "total_liabilities",
     "role": "derived",
-    "value_display": "278BS",
+    "value_display": "Z7B85",
     "_corruption": "lookalike"
   },
   {
@@ -103930,7 +103930,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_operating",
     "role": "component",
-    "value_display": "8gI",
+    "value_display": "B9I",
     "_corruption": "lookalike"
   },
   {
@@ -103971,7 +103971,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-I9g9",
+    "value_display": "-1gg9",
     "_corruption": "lookalike"
   },
   {
@@ -104014,7 +104014,7 @@
     "depth": 0,
     "parent_concept": "net_cash_from_financing",
     "role": "component",
-    "value_display": "-6I7B",
+    "value_display": "-bI78",
     "_corruption": "lookalike"
   },
   {
@@ -104379,7 +104379,7 @@
     "depth": 0,
     "parent_concept": null,
     "role": "component",
-    "value_display": "2709OO0",
+    "value_display": "Z7O9000",
     "_corruption": "lookalike"
   },
   {

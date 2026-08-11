@@ -1,0 +1,68 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "benchmark/run_llm_eval_api_call_10q.py", line 1409, in <module>
+    main()
+    ~~~~^^
+  File "benchmark/run_llm_eval_api_call_10q.py", line 1266, in main
+    results_10q = asyncio.run(evaluate_10q(
+        questions_10q, sheet_lookup_10q, model_name,
+        limit=args.limit, tol=args.tol, max_new_tokens=args.max_new_tokens,
+        thinking=args.thinking, leaf_only=False,
+    ))
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/asyncio/base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "benchmark/run_llm_eval_api_call_10q.py", line 623, in evaluate_10q
+    results = await asyncio.gather(*tasks)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "benchmark/run_llm_eval_api_call_10q.py", line 615, in run_one_10q
+    return await evaluate_one_question_10q(_base_dir, _scale_factor, _scale_label, i, leaf_only, max_new_tokens,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                           model_name, obstacle, q, sheet_lookup, source, subset, thinking, tol)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "benchmark/run_llm_eval_api_call_10q.py", line 677, in evaluate_one_question_10q
+    response = await run_inference(model_name, prompt, max_new_tokens, thinking=thinking)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "benchmark/run_llm_eval_api_call_10q.py", line 564, in run_inference
+    response = await _client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/openai/resources/chat/completions/completions.py", line 2739, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+    ...<53 lines>...
+    )
+    ^
+  File ".venv/lib/python3.14/site-packages/openai/_base_client.py", line 1931, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ".venv/lib/python3.14/site-packages/openai/_base_client.py", line 1716, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit of 15 requests per minute exceeded. Retry after 60 seconds.', 'type': 'rate_limit_error', 'param': None, 'code': None}}
+Loading datasets...
+  10-Q: 549 questions, 50 entities
+
+============================================================
+  Evaluating model: CSCS-Inference/swiss-ai/Apertus-70B-Instruct-2509
+============================================================
+
+-- 10-Q evaluation (100 questions) --
+  [8/100] CORRECT | truth=706.0000 pred=706.0 | What do we obtain as the maximum of prepaid expenses and oth...
+  [2/100] CORRECT | truth=21.0000 pred=21.0 | state the minimum of proceeds from maturities of securities ...
+  [7/100] CORRECT | truth=258.0000 pred=258.0 | compute the minimum of depreciation and amortization for FIN...
+  [4/100] CORRECT | truth=15405.0000 pred=15405.0 | whats the value of the maximum of net income for CRX from Th...
+  [9/100] CORRECT | truth=2787.0000 pred=2787.0 | Whats the value of the gross profit for CRZ in Three Months ...
+  [1/100] CORRECT | truth=3560619.0000 pred=3560619.0 | Could you give the maximum of shares used basic for MTX from...
+  [3/100] WRONG  | truth=35763.0000 pred=-513.0 | May you calculate the minimum of gross profit for PLX from N...
+  [5/100] WRONG  | truth=1742.0000 pred=1947.0 | what's the value of the free cash flow for CLD in Three Mont...
+  [6/100] CORRECT | truth=242006.0000 pred=245000.0 | Evaluate the minimum of shares used basic for GBL from Three...
+  [10/100] CORRECT | truth=2178710.0000 pred=2178710.0 | What is the value of the maximum of shares used diluted for ...
